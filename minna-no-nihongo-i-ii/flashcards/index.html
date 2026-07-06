@@ -1815,6 +1815,67 @@
     @media (max-width:900px){.family-hero{padding:22px}.family-hero .family-hero-thumb{position:static;width:112px;height:112px;margin-top:12px}.family-group-tabs{grid-template-columns:1fr}.family-tree-board{overflow:visible}.family-tree-row{min-width:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));}.family-tree-row.family-tree-siblings{grid-template-columns:repeat(2,minmax(0,1fr));}.family-tree-line{display:none}.family-node{width:100%;min-height:154px}.family-group-section{padding:16px;border-radius:24px}}
     @media (max-width:520px){.family-tree-row,.family-tree-row.family-tree-siblings{grid-template-columns:1fr}.family-node{min-height:auto;grid-template-columns:64px 1fr;justify-items:start;text-align:left;align-items:center}.family-node img{grid-row:1 / span 4}.family-node .family-jp{font-size:17px}.family-tab-card{align-items:flex-start}.family-tab-card img{width:60px;height:60px}}
 
+
+    /* ===== Tambahan Bab 8: Warna, Rasa, dan Musim ===== */
+    .reference-bab8-wrap { display:grid!important; gap:22px; }
+    .reference-bab8-hero {
+      padding:22px; border-radius:26px;
+      background:
+        radial-gradient(circle at 95% 10%, rgba(255,211,109,.45), transparent 28%),
+        radial-gradient(circle at 5% 0%, rgba(124,77,255,.18), transparent 34%),
+        linear-gradient(135deg,#fff,#f8f3ff);
+      border:1px solid #e7e0ff; box-shadow:var(--shadow2);
+    }
+    .reference-bab8-hero h3 { display:flex; gap:10px; align-items:center; margin-bottom:8px; }
+    .reference-bab8-hero p { margin:0; color:#5f6d86; }
+    .reference-bab8-section {
+      padding:20px; border-radius:26px; background:rgba(255,255,255,.88);
+      border:1px solid #e7e0ff; box-shadow:var(--shadow2);
+    }
+    .reference-bab8-section-head {
+      display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:16px;
+    }
+    .reference-bab8-section-head h3 {
+      display:flex; align-items:center; gap:10px; margin:0; font-size:22px;
+    }
+    .reference-bab8-section-head h3 i {
+      width:38px; height:38px; display:grid; place-items:center; border-radius:14px;
+      color:#fff; background:linear-gradient(135deg,var(--primary),#60d8c0);
+    }
+    .reference-bab8-count {
+      padding:7px 11px; border-radius:999px; background:var(--soft); color:var(--primary2);
+      font-size:12px; font-weight:850;
+    }
+    .reference-bab8-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:14px; }
+    .reference-bab8-card .vocab-jp { font-size:25px; }
+    .reference-bab8-reading { margin-top:4px; color:#7c4dff; font-weight:850; font-size:13px; }
+    .reference-bab8-explain {
+      padding:24px; border-radius:28px;
+      background:
+        radial-gradient(circle at 90% 18%, rgba(125,181,255,.28), transparent 30%),
+        linear-gradient(135deg,#fff,#f5fbff);
+      border:1px solid #dfe8ff; box-shadow:var(--shadow2);
+    }
+    .reference-bab8-explain h3 { display:flex; gap:10px; align-items:center; margin-bottom:10px; }
+    .reference-bab8-explain h3 i {
+      width:40px; height:40px; display:grid; place-items:center; border-radius:15px;
+      color:#fff; background:linear-gradient(135deg,#7db5ff,#7c4dff);
+    }
+    .reference-bab8-explain p { margin:0 0 14px; color:#46536b; line-height:1.75; font-weight:600; }
+    .reference-bab8-season-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin-top:14px; }
+    .reference-bab8-season-chip {
+      padding:14px; border-radius:18px; background:#fff; border:1px solid #e7e0ff;
+      display:flex; gap:12px; align-items:center;
+    }
+    .reference-bab8-season-chip img { width:48px; height:48px; object-fit:contain; border-radius:14px; background:#f8f5ff; }
+    .reference-bab8-season-chip strong { display:block; color:#071b45; font-family:var(--jp); }
+    .reference-bab8-season-chip span { display:block; color:#66728a; font-size:12px; font-weight:750; }
+    @media (max-width:760px){
+      .reference-bab8-section, .reference-bab8-hero, .reference-bab8-explain { padding:16px; border-radius:22px; }
+      .reference-bab8-section-head { align-items:flex-start; flex-direction:column; }
+      .reference-bab8-grid { grid-template-columns:1fr; }
+    }
+
   </style>
 </head>
 <body>
@@ -12562,7 +12623,7 @@
         "exampleReading": "Supein e ryokou ni ikitai desu.",
         "exampleId": "Saya ingin pergi berwisata ke Spanyol."
     },
-{
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -12584,19 +12645,19 @@
         "exampleReading": "Watashi no kazoku wa gonin desu.",
         "exampleId": "Keluarga saya terdiri dari lima orang.",
         "examples": [
-                {
-                        "ja": "私の家族は五人です。",
-                        "reading": "Watashi no kazoku wa gonin desu.",
-                        "id": "Keluarga saya terdiri dari lima orang."
-                },
-                {
-                        "ja": "日曜日に家族と公園へ行きます。",
-                        "reading": "Nichiyoubi ni kazoku to kouen e ikimasu.",
-                        "id": "Pada hari Minggu saya pergi ke taman bersama keluarga."
-                }
+            {
+                "ja": "私の家族は五人です。",
+                "reading": "Watashi no kazoku wa gonin desu.",
+                "id": "Keluarga saya terdiri dari lima orang."
+            },
+            {
+                "ja": "日曜日に家族と公園へ行きます。",
+                "reading": "Nichiyoubi ni kazoku to kouen e ikimasu.",
+                "id": "Pada hari Minggu saya pergi ke taman bersama keluarga."
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -12618,19 +12679,19 @@
         "exampleReading": "Kore wa watashi no kazoku no shashin desu.",
         "exampleId": "Ini adalah foto keluarga saya.",
         "examples": [
-                {
-                        "ja": "これはわたしの家族の写真です。",
-                        "reading": "Kore wa watashi no kazoku no shashin desu.",
-                        "id": "Ini adalah foto keluarga saya."
-                },
-                {
-                        "ja": "わたしの家族は大阪にいます。",
-                        "reading": "Watashi no kazoku wa Oosaka ni imasu.",
-                        "id": "Keluarga saya berada di Osaka."
-                }
+            {
+                "ja": "これはわたしの家族の写真です。",
+                "reading": "Kore wa watashi no kazoku no shashin desu.",
+                "id": "Ini adalah foto keluarga saya."
+            },
+            {
+                "ja": "わたしの家族は大阪にいます。",
+                "reading": "Watashi no kazoku wa Oosaka ni imasu.",
+                "id": "Keluarga saya berada di Osaka."
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -12652,19 +12713,19 @@
         "exampleReading": "Watashi wa Indoneshia kara kimashita.",
         "exampleId": "Saya berasal dari Indonesia.",
         "examples": [
-                {
-                        "ja": "わたしはインドネシアから来ました。",
-                        "reading": "Watashi wa Indoneshia kara kimashita.",
-                        "id": "Saya berasal dari Indonesia."
-                },
-                {
-                        "ja": "わたしは毎日日本語を勉強します。",
-                        "reading": "Watashi wa mainichi nihongo o benkyou shimasu.",
-                        "id": "Saya belajar bahasa Jepang setiap hari."
-                }
+            {
+                "ja": "わたしはインドネシアから来ました。",
+                "reading": "Watashi wa Indoneshia kara kimashita.",
+                "id": "Saya berasal dari Indonesia."
+            },
+            {
+                "ja": "わたしは毎日日本語を勉強します。",
+                "reading": "Watashi wa mainichi nihongo o benkyou shimasu.",
+                "id": "Saya belajar bahasa Jepang setiap hari."
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -12686,19 +12747,19 @@
         "exampleReading": "Sobo wa ie ni imasu.",
         "exampleId": "Nenek saya ada di rumah.",
         "examples": [
-                {
-                        "ja": "祖母は家にいます。",
-                        "reading": "Sobo wa ie ni imasu.",
-                        "id": "Nenek saya ada di rumah."
-                },
-                {
-                        "ja": "私は祖母に手紙を書きます。",
-                        "reading": "Watashi wa sobo ni tegami o kakimasu.",
-                        "id": "Saya menulis surat kepada nenek saya."
-                }
+            {
+                "ja": "祖母は家にいます。",
+                "reading": "Sobo wa ie ni imasu.",
+                "id": "Nenek saya ada di rumah."
+            },
+            {
+                "ja": "私は祖母に手紙を書きます。",
+                "reading": "Watashi wa sobo ni tegami o kakimasu.",
+                "id": "Saya menulis surat kepada nenek saya."
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -12720,19 +12781,19 @@
         "exampleReading": "Sofu wa maiasa shinbun o yomimasu.",
         "exampleId": "Kakek saya membaca koran setiap pagi.",
         "examples": [
-                {
-                        "ja": "祖父は毎朝新聞を読みます。",
-                        "reading": "Sofu wa maiasa shinbun o yomimasu.",
-                        "id": "Kakek saya membaca koran setiap pagi."
-                },
-                {
-                        "ja": "日曜日に祖父と散歩します。",
-                        "reading": "Nichiyoubi ni sofu to sanpo shimasu.",
-                        "id": "Pada hari Minggu saya berjalan-jalan dengan kakek saya."
-                }
+            {
+                "ja": "祖父は毎朝新聞を読みます。",
+                "reading": "Sofu wa maiasa shinbun o yomimasu.",
+                "id": "Kakek saya membaca koran setiap pagi."
+            },
+            {
+                "ja": "日曜日に祖父と散歩します。",
+                "reading": "Nichiyoubi ni sofu to sanpo shimasu.",
+                "id": "Pada hari Minggu saya berjalan-jalan dengan kakek saya."
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -12754,19 +12815,19 @@
         "exampleReading": "Sofubo wa Kyouto ni sunde imasu.",
         "exampleId": "Kakek dan nenek saya tinggal di Kyoto.",
         "examples": [
-                {
-                        "ja": "祖父母は京都に住んでいます。",
-                        "reading": "Sofubo wa Kyouto ni sunde imasu.",
-                        "id": "Kakek dan nenek saya tinggal di Kyoto."
-                },
-                {
-                        "ja": "夏休みに祖父母の家へ行きます。",
-                        "reading": "Natsuyasumi ni sofubo no ie e ikimasu.",
-                        "id": "Saat liburan musim panas saya pergi ke rumah kakek dan nenek."
-                }
+            {
+                "ja": "祖父母は京都に住んでいます。",
+                "reading": "Sofubo wa Kyouto ni sunde imasu.",
+                "id": "Kakek dan nenek saya tinggal di Kyoto."
+            },
+            {
+                "ja": "夏休みに祖父母の家へ行きます。",
+                "reading": "Natsuyasumi ni sofubo no ie e ikimasu.",
+                "id": "Saat liburan musim panas saya pergi ke rumah kakek dan nenek."
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -12788,19 +12849,19 @@
         "exampleReading": "Haha wa ryouri ga suki desu.",
         "exampleId": "Ibu saya suka memasak.",
         "examples": [
-                {
-                        "ja": "母は料理が好きです。",
-                        "reading": "Haha wa ryouri ga suki desu.",
-                        "id": "Ibu saya suka memasak."
-                },
-                {
-                        "ja": "母に花をあげます。",
-                        "reading": "Haha ni hana o agemasu.",
-                        "id": "Saya memberi bunga kepada ibu saya."
-                }
+            {
+                "ja": "母は料理が好きです。",
+                "reading": "Haha wa ryouri ga suki desu.",
+                "id": "Ibu saya suka memasak."
+            },
+            {
+                "ja": "母に花をあげます。",
+                "reading": "Haha ni hana o agemasu.",
+                "id": "Saya memberi bunga kepada ibu saya."
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -12822,19 +12883,19 @@
         "exampleReading": "Chichi wa kaishain desu.",
         "exampleId": "Ayah saya adalah karyawan perusahaan.",
         "examples": [
-                {
-                        "ja": "父は会社員です。",
-                        "reading": "Chichi wa kaishain desu.",
-                        "id": "Ayah saya adalah karyawan perusahaan."
-                },
-                {
-                        "ja": "昨日、父に電話をかけました。",
-                        "reading": "Kinou, chichi ni denwa o kakemashita.",
-                        "id": "Kemarin saya menelepon ayah saya."
-                }
+            {
+                "ja": "父は会社員です。",
+                "reading": "Chichi wa kaishain desu.",
+                "id": "Ayah saya adalah karyawan perusahaan."
+            },
+            {
+                "ja": "昨日、父に電話をかけました。",
+                "reading": "Kinou, chichi ni denwa o kakemashita.",
+                "id": "Kemarin saya menelepon ayah saya."
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -12856,19 +12917,19 @@
         "exampleReading": "Ryoushin wa Toukyou ni imasu.",
         "exampleId": "Orang tua saya berada di Tokyo.",
         "examples": [
-                {
-                        "ja": "両親は東京にいます。",
-                        "reading": "Ryoushin wa Toukyou ni imasu.",
-                        "id": "Orang tua saya berada di Tokyo."
-                },
-                {
-                        "ja": "週末に両親とレストランへ行きます。",
-                        "reading": "Shuumatsu ni ryoushin to resutoran e ikimasu.",
-                        "id": "Akhir pekan saya pergi ke restoran bersama orang tua saya."
-                }
+            {
+                "ja": "両親は東京にいます。",
+                "reading": "Ryoushin wa Toukyou ni imasu.",
+                "id": "Orang tua saya berada di Tokyo."
+            },
+            {
+                "ja": "週末に両親とレストランへ行きます。",
+                "reading": "Shuumatsu ni ryoushin to resutoran e ikimasu.",
+                "id": "Akhir pekan saya pergi ke restoran bersama orang tua saya."
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -12890,19 +12951,19 @@
         "exampleReading": "Imouto wa koukousei desu.",
         "exampleId": "Adik perempuan saya adalah siswa SMA.",
         "examples": [
-                {
-                        "ja": "妹は高校生です。",
-                        "reading": "Imouto wa koukousei desu.",
-                        "id": "Adik perempuan saya adalah siswa SMA."
-                },
-                {
-                        "ja": "妹に日本語を教えます。",
-                        "reading": "Imouto ni nihongo o oshiemasu.",
-                        "id": "Saya mengajari adik perempuan saya bahasa Jepang."
-                }
+            {
+                "ja": "妹は高校生です。",
+                "reading": "Imouto wa koukousei desu.",
+                "id": "Adik perempuan saya adalah siswa SMA."
+            },
+            {
+                "ja": "妹に日本語を教えます。",
+                "reading": "Imouto ni nihongo o oshiemasu.",
+                "id": "Saya mengajari adik perempuan saya bahasa Jepang."
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -12924,19 +12985,19 @@
         "exampleReading": "Otouto wa sakkaa ga suki desu.",
         "exampleId": "Adik laki-laki saya suka sepak bola.",
         "examples": [
-                {
-                        "ja": "弟はサッカーが好きです。",
-                        "reading": "Otouto wa sakkaa ga suki desu.",
-                        "id": "Adik laki-laki saya suka sepak bola."
-                },
-                {
-                        "ja": "弟と公園で遊びます。",
-                        "reading": "Otouto to kouen de asobimasu.",
-                        "id": "Saya bermain di taman bersama adik laki-laki saya."
-                }
+            {
+                "ja": "弟はサッカーが好きです。",
+                "reading": "Otouto wa sakkaa ga suki desu.",
+                "id": "Adik laki-laki saya suka sepak bola."
+            },
+            {
+                "ja": "弟と公園で遊びます。",
+                "reading": "Otouto to kouen de asobimasu.",
+                "id": "Saya bermain di taman bersama adik laki-laki saya."
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -12958,19 +13019,19 @@
         "exampleReading": "Ane wa kangoshi desu.",
         "exampleId": "Kakak perempuan saya adalah perawat.",
         "examples": [
-                {
-                        "ja": "姉は看護師です。",
-                        "reading": "Ane wa kangoshi desu.",
-                        "id": "Kakak perempuan saya adalah perawat."
-                },
-                {
-                        "ja": "姉から本をもらいました。",
-                        "reading": "Ane kara hon o moraimashita.",
-                        "id": "Saya menerima buku dari kakak perempuan saya."
-                }
+            {
+                "ja": "姉は看護師です。",
+                "reading": "Ane wa kangoshi desu.",
+                "id": "Kakak perempuan saya adalah perawat."
+            },
+            {
+                "ja": "姉から本をもらいました。",
+                "reading": "Ane kara hon o moraimashita.",
+                "id": "Saya menerima buku dari kakak perempuan saya."
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -12992,19 +13053,19 @@
         "exampleReading": "Ani wa daigakusei desu.",
         "exampleId": "Kakak laki-laki saya adalah mahasiswa.",
         "examples": [
-                {
-                        "ja": "兄は大学生です。",
-                        "reading": "Ani wa daigakusei desu.",
-                        "id": "Kakak laki-laki saya adalah mahasiswa."
-                },
-                {
-                        "ja": "兄に辞書を貸しました。",
-                        "reading": "Ani ni jisho o kashimashita.",
-                        "id": "Saya meminjamkan kamus kepada kakak laki-laki saya."
-                }
+            {
+                "ja": "兄は大学生です。",
+                "reading": "Ani wa daigakusei desu.",
+                "id": "Kakak laki-laki saya adalah mahasiswa."
+            },
+            {
+                "ja": "兄に辞書を貸しました。",
+                "reading": "Ani ni jisho o kashimashita.",
+                "id": "Saya meminjamkan kamus kepada kakak laki-laki saya."
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -13026,19 +13087,19 @@
         "exampleReading": "Kyoudai ga futari imasu.",
         "exampleId": "Saya memiliki dua saudara kandung.",
         "examples": [
-                {
-                        "ja": "兄弟が二人います。",
-                        "reading": "Kyoudai ga futari imasu.",
-                        "id": "Saya memiliki dua saudara kandung."
-                },
-                {
-                        "ja": "休みに兄弟と映画を見ます。",
-                        "reading": "Yasumi ni kyoudai to eiga o mimasu.",
-                        "id": "Saat libur saya menonton film bersama saudara kandung."
-                }
+            {
+                "ja": "兄弟が二人います。",
+                "reading": "Kyoudai ga futari imasu.",
+                "id": "Saya memiliki dua saudara kandung."
+            },
+            {
+                "ja": "休みに兄弟と映画を見ます。",
+                "reading": "Yasumi ni kyoudai to eiga o mimasu.",
+                "id": "Saat libur saya menonton film bersama saudara kandung."
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -13060,19 +13121,19 @@
         "exampleReading": "Tsuma wa pan o tsukurimasu.",
         "exampleId": "Istri saya membuat roti.",
         "examples": [
-                {
-                        "ja": "妻はパンを作ります。",
-                        "reading": "Tsuma wa pan o tsukurimasu.",
-                        "id": "Istri saya membuat roti."
-                },
-                {
-                        "ja": "妻にプレゼントをあげます。",
-                        "reading": "Tsuma ni purezento o agemasu.",
-                        "id": "Saya memberi hadiah kepada istri saya."
-                }
+            {
+                "ja": "妻はパンを作ります。",
+                "reading": "Tsuma wa pan o tsukurimasu.",
+                "id": "Istri saya membuat roti."
+            },
+            {
+                "ja": "妻にプレゼントをあげます。",
+                "reading": "Tsuma ni purezento o agemasu.",
+                "id": "Saya memberi hadiah kepada istri saya."
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -13094,19 +13155,19 @@
         "exampleReading": "Otto wa ginkou de hataraite imasu.",
         "exampleId": "Suami saya bekerja di bank.",
         "examples": [
-                {
-                        "ja": "夫は銀行で働いています。",
-                        "reading": "Otto wa ginkou de hataraite imasu.",
-                        "id": "Suami saya bekerja di bank."
-                },
-                {
-                        "ja": "夫とスーパーへ行きます。",
-                        "reading": "Otto to suupaa e ikimasu.",
-                        "id": "Saya pergi ke supermarket bersama suami saya."
-                }
+            {
+                "ja": "夫は銀行で働いています。",
+                "reading": "Otto wa ginkou de hataraite imasu.",
+                "id": "Suami saya bekerja di bank."
+            },
+            {
+                "ja": "夫とスーパーへ行きます。",
+                "reading": "Otto to suupaa e ikimasu.",
+                "id": "Saya pergi ke supermarket bersama suami saya."
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -13128,19 +13189,19 @@
         "exampleReading": "Watashitachi fuufu wa Koube ni sunde imasu.",
         "exampleId": "Kami sebagai pasangan suami istri tinggal di Kobe.",
         "examples": [
-                {
-                        "ja": "私たち夫婦は神戸に住んでいます。",
-                        "reading": "Watashitachi fuufu wa Koube ni sunde imasu.",
-                        "id": "Kami sebagai pasangan suami istri tinggal di Kobe."
-                },
-                {
-                        "ja": "夫婦で日本語を勉強します。",
-                        "reading": "Fuufu de nihongo o benkyou shimasu.",
-                        "id": "Kami belajar bahasa Jepang sebagai pasangan suami istri."
-                }
+            {
+                "ja": "私たち夫婦は神戸に住んでいます。",
+                "reading": "Watashitachi fuufu wa Koube ni sunde imasu.",
+                "id": "Kami sebagai pasangan suami istri tinggal di Kobe."
+            },
+            {
+                "ja": "夫婦で日本語を勉強します。",
+                "reading": "Fuufu de nihongo o benkyou shimasu.",
+                "id": "Kami belajar bahasa Jepang sebagai pasangan suami istri."
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -13162,19 +13223,19 @@
         "exampleReading": "Musume wa shougakusei desu.",
         "exampleId": "Anak perempuan saya adalah murid SD.",
         "examples": [
-                {
-                        "ja": "娘は小学生です。",
-                        "reading": "Musume wa shougakusei desu.",
-                        "id": "Anak perempuan saya adalah murid SD."
-                },
-                {
-                        "ja": "娘に日本語の歌を教えます。",
-                        "reading": "Musume ni nihongo no uta o oshiemasu.",
-                        "id": "Saya mengajari anak perempuan saya lagu bahasa Jepang."
-                }
+            {
+                "ja": "娘は小学生です。",
+                "reading": "Musume wa shougakusei desu.",
+                "id": "Anak perempuan saya adalah murid SD."
+            },
+            {
+                "ja": "娘に日本語の歌を教えます。",
+                "reading": "Musume ni nihongo no uta o oshiemasu.",
+                "id": "Saya mengajari anak perempuan saya lagu bahasa Jepang."
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -13196,19 +13257,19 @@
         "exampleReading": "Musuko wa nana-sai desu.",
         "exampleId": "Anak laki-laki saya berumur tujuh tahun.",
         "examples": [
-                {
-                        "ja": "息子は七歳です。",
-                        "reading": "Musuko wa nana-sai desu.",
-                        "id": "Anak laki-laki saya berumur tujuh tahun."
-                },
-                {
-                        "ja": "息子と駅まで歩きます。",
-                        "reading": "Musuko to eki made arukimasu.",
-                        "id": "Saya berjalan sampai stasiun bersama anak laki-laki saya."
-                }
+            {
+                "ja": "息子は七歳です。",
+                "reading": "Musuko wa nana-sai desu.",
+                "id": "Anak laki-laki saya berumur tujuh tahun."
+            },
+            {
+                "ja": "息子と駅まで歩きます。",
+                "reading": "Musuko to eki made arukimasu.",
+                "id": "Saya berjalan sampai stasiun bersama anak laki-laki saya."
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -13230,19 +13291,19 @@
         "exampleReading": "Kodomo ga futari imasu.",
         "exampleId": "Saya memiliki dua anak.",
         "examples": [
-                {
-                        "ja": "子どもが二人います。",
-                        "reading": "Kodomo ga futari imasu.",
-                        "id": "Saya memiliki dua anak."
-                },
-                {
-                        "ja": "週末に子どもと海へ行きます。",
-                        "reading": "Shuumatsu ni kodomo to umi e ikimasu.",
-                        "id": "Akhir pekan saya pergi ke laut bersama anak saya."
-                }
+            {
+                "ja": "子どもが二人います。",
+                "reading": "Kodomo ga futari imasu.",
+                "id": "Saya memiliki dua anak."
+            },
+            {
+                "ja": "週末に子どもと海へ行きます。",
+                "reading": "Shuumatsu ni kodomo to umi e ikimasu.",
+                "id": "Akhir pekan saya pergi ke laut bersama anak saya."
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -13264,19 +13325,19 @@
         "exampleReading": "Tanaka-san no kazoku wa yonin desu.",
         "exampleId": "Keluarga Saudara Tanaka terdiri dari empat orang.",
         "examples": [
-                {
-                        "ja": "田中さんの家族は四人です。",
-                        "reading": "Tanaka-san no kazoku wa yonin desu.",
-                        "id": "Keluarga Saudara Tanaka terdiri dari empat orang."
-                },
-                {
-                        "ja": "これは田中さんの家族の写真です。",
-                        "reading": "Kore wa Tanaka-san no kazoku no shashin desu.",
-                        "id": "Ini adalah foto keluarga Saudara Tanaka."
-                }
+            {
+                "ja": "田中さんの家族は四人です。",
+                "reading": "Tanaka-san no kazoku wa yonin desu.",
+                "id": "Keluarga Saudara Tanaka terdiri dari empat orang."
+            },
+            {
+                "ja": "これは田中さんの家族の写真です。",
+                "reading": "Kore wa Tanaka-san no kazoku no shashin desu.",
+                "id": "Ini adalah foto keluarga Saudara Tanaka."
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -13298,19 +13359,19 @@
         "exampleReading": "Tanaka-san no obaasan wa genki desu.",
         "exampleId": "Nenek Saudara Tanaka sehat.",
         "examples": [
-                {
-                        "ja": "田中さんのおばあさんは元気です。",
-                        "reading": "Tanaka-san no obaasan wa genki desu.",
-                        "id": "Nenek Saudara Tanaka sehat."
-                },
-                {
-                        "ja": "おばあさんはどこにいますか。",
-                        "reading": "Obaasan wa doko ni imasu ka.",
-                        "id": "Nenek Anda ada di mana?"
-                }
+            {
+                "ja": "田中さんのおばあさんは元気です。",
+                "reading": "Tanaka-san no obaasan wa genki desu.",
+                "id": "Nenek Saudara Tanaka sehat."
+            },
+            {
+                "ja": "おばあさんはどこにいますか。",
+                "reading": "Obaasan wa doko ni imasu ka.",
+                "id": "Nenek Anda ada di mana?"
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -13332,19 +13393,19 @@
         "exampleReading": "Tanaka-san no ojiisan wa Kyouto ni imasu.",
         "exampleId": "Kakek Saudara Tanaka berada di Kyoto.",
         "examples": [
-                {
-                        "ja": "田中さんのおじいさんは京都にいます。",
-                        "reading": "Tanaka-san no ojiisan wa Kyouto ni imasu.",
-                        "id": "Kakek Saudara Tanaka berada di Kyoto."
-                },
-                {
-                        "ja": "おじいさんは毎朝散歩しますか。",
-                        "reading": "Ojiisan wa maiasa sanpo shimasu ka.",
-                        "id": "Apakah kakek Anda berjalan-jalan setiap pagi?"
-                }
+            {
+                "ja": "田中さんのおじいさんは京都にいます。",
+                "reading": "Tanaka-san no ojiisan wa Kyouto ni imasu.",
+                "id": "Kakek Saudara Tanaka berada di Kyoto."
+            },
+            {
+                "ja": "おじいさんは毎朝散歩しますか。",
+                "reading": "Ojiisan wa maiasa sanpo shimasu ka.",
+                "id": "Apakah kakek Anda berjalan-jalan setiap pagi?"
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -13366,19 +13427,19 @@
         "exampleReading": "Tanaka-san no okaasan wa sensei desu.",
         "exampleId": "Ibu Saudara Tanaka adalah guru.",
         "examples": [
-                {
-                        "ja": "田中さんのお母さんは先生です。",
-                        "reading": "Tanaka-san no okaasan wa sensei desu.",
-                        "id": "Ibu Saudara Tanaka adalah guru."
-                },
-                {
-                        "ja": "お母さんは料理が好きですか。",
-                        "reading": "Okaasan wa ryouri ga suki desu ka.",
-                        "id": "Apakah ibu Anda suka memasak?"
-                }
+            {
+                "ja": "田中さんのお母さんは先生です。",
+                "reading": "Tanaka-san no okaasan wa sensei desu.",
+                "id": "Ibu Saudara Tanaka adalah guru."
+            },
+            {
+                "ja": "お母さんは料理が好きですか。",
+                "reading": "Okaasan wa ryouri ga suki desu ka.",
+                "id": "Apakah ibu Anda suka memasak?"
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -13400,19 +13461,19 @@
         "exampleReading": "Tanaka-san no otousan wa kaishain desu.",
         "exampleId": "Ayah Saudara Tanaka adalah karyawan perusahaan.",
         "examples": [
-                {
-                        "ja": "田中さんのお父さんは会社員です。",
-                        "reading": "Tanaka-san no otousan wa kaishain desu.",
-                        "id": "Ayah Saudara Tanaka adalah karyawan perusahaan."
-                },
-                {
-                        "ja": "お父さんは何時に帰りますか。",
-                        "reading": "Otousan wa nanji ni kaerimasu ka.",
-                        "id": "Ayah Anda pulang jam berapa?"
-                }
+            {
+                "ja": "田中さんのお父さんは会社員です。",
+                "reading": "Tanaka-san no otousan wa kaishain desu.",
+                "id": "Ayah Saudara Tanaka adalah karyawan perusahaan."
+            },
+            {
+                "ja": "お父さんは何時に帰りますか。",
+                "reading": "Otousan wa nanji ni kaerimasu ka.",
+                "id": "Ayah Anda pulang jam berapa?"
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -13434,19 +13495,19 @@
         "exampleReading": "Tanaka-san no goryoushin wa Oosaka ni imasu.",
         "exampleId": "Orang tua Saudara Tanaka berada di Osaka.",
         "examples": [
-                {
-                        "ja": "田中さんのご両親は大阪にいます。",
-                        "reading": "Tanaka-san no goryoushin wa Oosaka ni imasu.",
-                        "id": "Orang tua Saudara Tanaka berada di Osaka."
-                },
-                {
-                        "ja": "ご両親はどちらにいますか。",
-                        "reading": "Goryoushin wa dochira ni imasu ka.",
-                        "id": "Orang tua Anda berada di mana?"
-                }
+            {
+                "ja": "田中さんのご両親は大阪にいます。",
+                "reading": "Tanaka-san no goryoushin wa Oosaka ni imasu.",
+                "id": "Orang tua Saudara Tanaka berada di Osaka."
+            },
+            {
+                "ja": "ご両親はどちらにいますか。",
+                "reading": "Goryoushin wa dochira ni imasu ka.",
+                "id": "Orang tua Anda berada di mana?"
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -13468,19 +13529,19 @@
         "exampleReading": "Tanaka-san no imouto-san wa chuugakusei desu.",
         "exampleId": "Adik perempuan Saudara Tanaka adalah siswa SMP.",
         "examples": [
-                {
-                        "ja": "田中さんの妹さんは中学生です。",
-                        "reading": "Tanaka-san no imouto-san wa chuugakusei desu.",
-                        "id": "Adik perempuan Saudara Tanaka adalah siswa SMP."
-                },
-                {
-                        "ja": "妹さんは日本語を勉強していますか。",
-                        "reading": "Imouto-san wa nihongo o benkyou shite imasu ka.",
-                        "id": "Apakah adik perempuan Anda sedang belajar bahasa Jepang?"
-                }
+            {
+                "ja": "田中さんの妹さんは中学生です。",
+                "reading": "Tanaka-san no imouto-san wa chuugakusei desu.",
+                "id": "Adik perempuan Saudara Tanaka adalah siswa SMP."
+            },
+            {
+                "ja": "妹さんは日本語を勉強していますか。",
+                "reading": "Imouto-san wa nihongo o benkyou shite imasu ka.",
+                "id": "Apakah adik perempuan Anda sedang belajar bahasa Jepang?"
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -13502,19 +13563,19 @@
         "exampleReading": "Tanaka-san no otouto-san wa sakkaa ga jouzu desu.",
         "exampleId": "Adik laki-laki Saudara Tanaka pandai bermain sepak bola.",
         "examples": [
-                {
-                        "ja": "田中さんの弟さんはサッカーが上手です。",
-                        "reading": "Tanaka-san no otouto-san wa sakkaa ga jouzu desu.",
-                        "id": "Adik laki-laki Saudara Tanaka pandai bermain sepak bola."
-                },
-                {
-                        "ja": "弟さんは学校へ行きましたか。",
-                        "reading": "Otouto-san wa gakkou e ikimashita ka.",
-                        "id": "Apakah adik laki-laki Anda pergi ke sekolah?"
-                }
+            {
+                "ja": "田中さんの弟さんはサッカーが上手です。",
+                "reading": "Tanaka-san no otouto-san wa sakkaa ga jouzu desu.",
+                "id": "Adik laki-laki Saudara Tanaka pandai bermain sepak bola."
+            },
+            {
+                "ja": "弟さんは学校へ行きましたか。",
+                "reading": "Otouto-san wa gakkou e ikimashita ka.",
+                "id": "Apakah adik laki-laki Anda pergi ke sekolah?"
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -13536,19 +13597,19 @@
         "exampleReading": "Tanaka-san no oneesan wa kangoshi desu.",
         "exampleId": "Kakak perempuan Saudara Tanaka adalah perawat.",
         "examples": [
-                {
-                        "ja": "田中さんのお姉さんは看護師です。",
-                        "reading": "Tanaka-san no oneesan wa kangoshi desu.",
-                        "id": "Kakak perempuan Saudara Tanaka adalah perawat."
-                },
-                {
-                        "ja": "お姉さんはどこで働いていますか。",
-                        "reading": "Oneesan wa doko de hataraite imasu ka.",
-                        "id": "Kakak perempuan Anda bekerja di mana?"
-                }
+            {
+                "ja": "田中さんのお姉さんは看護師です。",
+                "reading": "Tanaka-san no oneesan wa kangoshi desu.",
+                "id": "Kakak perempuan Saudara Tanaka adalah perawat."
+            },
+            {
+                "ja": "お姉さんはどこで働いていますか。",
+                "reading": "Oneesan wa doko de hataraite imasu ka.",
+                "id": "Kakak perempuan Anda bekerja di mana?"
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -13570,19 +13631,19 @@
         "exampleReading": "Tanaka-san no oniisan wa daigakusei desu.",
         "exampleId": "Kakak laki-laki Saudara Tanaka adalah mahasiswa.",
         "examples": [
-                {
-                        "ja": "田中さんのお兄さんは大学生です。",
-                        "reading": "Tanaka-san no oniisan wa daigakusei desu.",
-                        "id": "Kakak laki-laki Saudara Tanaka adalah mahasiswa."
-                },
-                {
-                        "ja": "お兄さんは何を勉強していますか。",
-                        "reading": "Oniisan wa nani o benkyou shite imasu ka.",
-                        "id": "Kakak laki-laki Anda belajar apa?"
-                }
+            {
+                "ja": "田中さんのお兄さんは大学生です。",
+                "reading": "Tanaka-san no oniisan wa daigakusei desu.",
+                "id": "Kakak laki-laki Saudara Tanaka adalah mahasiswa."
+            },
+            {
+                "ja": "お兄さんは何を勉強していますか。",
+                "reading": "Oniisan wa nani o benkyou shite imasu ka.",
+                "id": "Kakak laki-laki Anda belajar apa?"
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -13604,19 +13665,19 @@
         "exampleReading": "Tanaka-san ni wa gokyoudai ga imasu ka.",
         "exampleId": "Apakah Saudara Tanaka memiliki saudara kandung?",
         "examples": [
-                {
-                        "ja": "田中さんにはご兄弟がいますか。",
-                        "reading": "Tanaka-san ni wa gokyoudai ga imasu ka.",
-                        "id": "Apakah Saudara Tanaka memiliki saudara kandung?"
-                },
-                {
-                        "ja": "ご兄弟は何人ですか。",
-                        "reading": "Gokyoudai wa nan-nin desu ka.",
-                        "id": "Saudara kandung Anda ada berapa orang?"
-                }
+            {
+                "ja": "田中さんにはご兄弟がいますか。",
+                "reading": "Tanaka-san ni wa gokyoudai ga imasu ka.",
+                "id": "Apakah Saudara Tanaka memiliki saudara kandung?"
+            },
+            {
+                "ja": "ご兄弟は何人ですか。",
+                "reading": "Gokyoudai wa nan-nin desu ka.",
+                "id": "Saudara kandung Anda ada berapa orang?"
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -13638,19 +13699,19 @@
         "exampleReading": "Tanaka-san no okusan wa byouin de hataraite imasu.",
         "exampleId": "Istri Saudara Tanaka bekerja di rumah sakit.",
         "examples": [
-                {
-                        "ja": "田中さんの奥さんは病院で働いています。",
-                        "reading": "Tanaka-san no okusan wa byouin de hataraite imasu.",
-                        "id": "Istri Saudara Tanaka bekerja di rumah sakit."
-                },
-                {
-                        "ja": "奥さんは日本語が上手です。",
-                        "reading": "Okusan wa nihongo ga jouzu desu.",
-                        "id": "Istri Anda pandai bahasa Jepang."
-                }
+            {
+                "ja": "田中さんの奥さんは病院で働いています。",
+                "reading": "Tanaka-san no okusan wa byouin de hataraite imasu.",
+                "id": "Istri Saudara Tanaka bekerja di rumah sakit."
+            },
+            {
+                "ja": "奥さんは日本語が上手です。",
+                "reading": "Okusan wa nihongo ga jouzu desu.",
+                "id": "Istri Anda pandai bahasa Jepang."
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -13672,19 +13733,19 @@
         "exampleReading": "Yamada-san no goshujin wa sensei desu.",
         "exampleId": "Suami Saudari Yamada adalah guru.",
         "examples": [
-                {
-                        "ja": "山田さんのご主人は先生です。",
-                        "reading": "Yamada-san no goshujin wa sensei desu.",
-                        "id": "Suami Saudari Yamada adalah guru."
-                },
-                {
-                        "ja": "ご主人はどちらにいますか。",
-                        "reading": "Goshujin wa dochira ni imasu ka.",
-                        "id": "Suami Anda berada di mana?"
-                }
+            {
+                "ja": "山田さんのご主人は先生です。",
+                "reading": "Yamada-san no goshujin wa sensei desu.",
+                "id": "Suami Saudari Yamada adalah guru."
+            },
+            {
+                "ja": "ご主人はどちらにいますか。",
+                "reading": "Goshujin wa dochira ni imasu ka.",
+                "id": "Suami Anda berada di mana?"
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -13706,19 +13767,19 @@
         "exampleReading": "Tanaka-san gofuufu wa Koube ni sunde imasu.",
         "exampleId": "Pasangan suami istri Tanaka tinggal di Kobe.",
         "examples": [
-                {
-                        "ja": "田中さんご夫婦は神戸に住んでいます。",
-                        "reading": "Tanaka-san gofuufu wa Koube ni sunde imasu.",
-                        "id": "Pasangan suami istri Tanaka tinggal di Kobe."
-                },
-                {
-                        "ja": "ご夫婦で旅行へ行きますか。",
-                        "reading": "Gofuufu de ryokou e ikimasu ka.",
-                        "id": "Apakah Anda berdua sebagai pasangan suami istri akan pergi berwisata?"
-                }
+            {
+                "ja": "田中さんご夫婦は神戸に住んでいます。",
+                "reading": "Tanaka-san gofuufu wa Koube ni sunde imasu.",
+                "id": "Pasangan suami istri Tanaka tinggal di Kobe."
+            },
+            {
+                "ja": "ご夫婦で旅行へ行きますか。",
+                "reading": "Gofuufu de ryokou e ikimasu ka.",
+                "id": "Apakah Anda berdua sebagai pasangan suami istri akan pergi berwisata?"
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -13740,19 +13801,19 @@
         "exampleReading": "Tanaka-san no musume-san wa shougakusei desu.",
         "exampleId": "Anak perempuan Saudara Tanaka adalah murid SD.",
         "examples": [
-                {
-                        "ja": "田中さんの娘さんは小学生です。",
-                        "reading": "Tanaka-san no musume-san wa shougakusei desu.",
-                        "id": "Anak perempuan Saudara Tanaka adalah murid SD."
-                },
-                {
-                        "ja": "娘さんはピアノが好きですか。",
-                        "reading": "Musume-san wa piano ga suki desu ka.",
-                        "id": "Apakah anak perempuan Anda suka piano?"
-                }
+            {
+                "ja": "田中さんの娘さんは小学生です。",
+                "reading": "Tanaka-san no musume-san wa shougakusei desu.",
+                "id": "Anak perempuan Saudara Tanaka adalah murid SD."
+            },
+            {
+                "ja": "娘さんはピアノが好きですか。",
+                "reading": "Musume-san wa piano ga suki desu ka.",
+                "id": "Apakah anak perempuan Anda suka piano?"
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -13774,19 +13835,19 @@
         "exampleReading": "Tanaka-san no musuko-san wa nana-sai desu.",
         "exampleId": "Anak laki-laki Saudara Tanaka berumur tujuh tahun.",
         "examples": [
-                {
-                        "ja": "田中さんの息子さんは七歳です。",
-                        "reading": "Tanaka-san no musuko-san wa nana-sai desu.",
-                        "id": "Anak laki-laki Saudara Tanaka berumur tujuh tahun."
-                },
-                {
-                        "ja": "息子さんは学校で何をしますか。",
-                        "reading": "Musuko-san wa gakkou de nani o shimasu ka.",
-                        "id": "Apa yang dilakukan anak laki-laki Anda di sekolah?"
-                }
+            {
+                "ja": "田中さんの息子さんは七歳です。",
+                "reading": "Tanaka-san no musuko-san wa nana-sai desu.",
+                "id": "Anak laki-laki Saudara Tanaka berumur tujuh tahun."
+            },
+            {
+                "ja": "息子さんは学校で何をしますか。",
+                "reading": "Musuko-san wa gakkou de nani o shimasu ka.",
+                "id": "Apa yang dilakukan anak laki-laki Anda di sekolah?"
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Kata-kata referensi dan Informasi",
@@ -13808,19 +13869,19 @@
         "exampleReading": "Okosan wa nan-sai desu ka.",
         "exampleId": "Anak Anda umur berapa?",
         "examples": [
-                {
-                        "ja": "お子さんは何歳ですか。",
-                        "reading": "Okosan wa nan-sai desu ka.",
-                        "id": "Anak Anda umur berapa?"
-                },
-                {
-                        "ja": "田中さんにはお子さんが二人います。",
-                        "reading": "Tanaka-san ni wa okosan ga futari imasu.",
-                        "id": "Saudara Tanaka memiliki dua anak."
-                }
+            {
+                "ja": "お子さんは何歳ですか。",
+                "reading": "Okosan wa nan-sai desu ka.",
+                "id": "Anak Anda umur berapa?"
+            },
+            {
+                "ja": "田中さんにはお子さんが二人います。",
+                "reading": "Tanaka-san ni wa okosan ga futari imasu.",
+                "id": "Saudara Tanaka memiliki dua anak."
+            }
         ]
-},
-{
+    },
+    {
         "book": "Minna no Nihongo I (2nd Edition)",
         "bookJa": "みんなの日本語 I（第2版）",
         "materialCategory": "Materi Umum",
@@ -15772,6 +15833,874 @@
                 "id": "Tujuh Samurai tidak begitu baru, tetapi menarik."
             }
         ]
+    },
+    {
+        "book": "Minna no Nihongo I (2nd Edition)",
+        "bookJa": "みんなの日本語 I（第2版）",
+        "materialCategory": "Kata-kata referensi dan Informasi",
+        "chapter": "Bab 8",
+        "chapterNumber": 8,
+        "favorite": false,
+        "id": "mni-ref-b8-001",
+        "typeCategory": "Kata Benda",
+        "sectionCategory": "Kosakata",
+        "indonesia": "warna",
+        "kanji": "色",
+        "kana": "いろ",
+        "romaji": "iro",
+        "image": "https://iili.io/Cc7tsXR.png",
+        "isFiction": false,
+        "exampleJa": "この店には明るい色の服がたくさんあります。",
+        "exampleReading": "Kono mise ni wa akarui iro no fuku ga takusan arimasu.",
+        "exampleId": "Di toko ini ada banyak pakaian berwarna cerah.",
+        "examples": [
+            {
+                "ja": "この店には明るい色の服がたくさんあります。",
+                "reading": "Kono mise ni wa akarui iro no fuku ga takusan arimasu.",
+                "id": "Di toko ini ada banyak pakaian berwarna cerah."
+            }
+        ],
+        "catatan": "Kosakata umum untuk menyebut warna."
+    },
+    {
+        "book": "Minna no Nihongo I (2nd Edition)",
+        "bookJa": "みんなの日本語 I（第2版）",
+        "materialCategory": "Kata-kata referensi dan Informasi",
+        "chapter": "Bab 8",
+        "chapterNumber": 8,
+        "favorite": false,
+        "id": "mni-ref-b8-002",
+        "typeCategory": "Kata Benda",
+        "sectionCategory": "Warna",
+        "indonesia": "putih (kata benda)",
+        "kanji": "白",
+        "kana": "しろ",
+        "romaji": "shiro",
+        "image": "https://iili.io/Cc7t4ea.png",
+        "isFiction": false,
+        "exampleJa": "白は清潔な感じがします。",
+        "exampleReading": "Shiro wa seiketsu na kanji ga shimasu.",
+        "exampleId": "Warna putih memberi kesan bersih.",
+        "examples": [
+            {
+                "ja": "白は清潔な感じがします。",
+                "reading": "Shiro wa seiketsu na kanji ga shimasu.",
+                "id": "Warna putih memberi kesan bersih."
+            }
+        ],
+        "catatan": "Kata benda untuk warna putih. Untuk menerangkan benda secara langsung, gunakan 白い."
+    },
+    {
+        "book": "Minna no Nihongo I (2nd Edition)",
+        "bookJa": "みんなの日本語 I（第2版）",
+        "materialCategory": "Kata-kata referensi dan Informasi",
+        "chapter": "Bab 8",
+        "chapterNumber": 8,
+        "favorite": false,
+        "id": "mni-ref-b8-003",
+        "typeCategory": "Kata Sifat-i",
+        "sectionCategory": "Warna",
+        "indonesia": "putih (kata sifat)",
+        "kanji": "白い",
+        "kana": "しろい",
+        "romaji": "shiroi",
+        "image": "https://iili.io/Cc7tizv.png",
+        "isFiction": false,
+        "exampleJa": "白いシャツを着て会議に行きます。",
+        "exampleReading": "Shiroi shatsu o kite kaigi ni ikimasu.",
+        "exampleId": "Saya pergi ke rapat dengan memakai kemeja putih.",
+        "examples": [
+            {
+                "ja": "白いシャツを着て会議に行きます。",
+                "reading": "Shiroi shatsu o kite kaigi ni ikimasu.",
+                "id": "Saya pergi ke rapat dengan memakai kemeja putih."
+            }
+        ],
+        "catatan": "Kata sifat-i untuk menerangkan benda yang berwarna putih."
+    },
+    {
+        "book": "Minna no Nihongo I (2nd Edition)",
+        "bookJa": "みんなの日本語 I（第2版）",
+        "materialCategory": "Kata-kata referensi dan Informasi",
+        "chapter": "Bab 8",
+        "chapterNumber": 8,
+        "favorite": false,
+        "id": "mni-ref-b8-004",
+        "typeCategory": "Kata Benda",
+        "sectionCategory": "Warna",
+        "indonesia": "hitam (kata benda)",
+        "kanji": "黒",
+        "kana": "くろ",
+        "romaji": "kuro",
+        "image": "https://iili.io/Cc7t6mJ.png",
+        "isFiction": false,
+        "exampleJa": "黒はフォーマルな場面でよく使われます。",
+        "exampleReading": "Kuro wa foomaru na bamen de yoku tsukawaremasu.",
+        "exampleId": "Warna hitam sering digunakan dalam situasi formal.",
+        "examples": [
+            {
+                "ja": "黒はフォーマルな場面でよく使われます。",
+                "reading": "Kuro wa foomaru na bamen de yoku tsukawaremasu.",
+                "id": "Warna hitam sering digunakan dalam situasi formal."
+            }
+        ],
+        "catatan": "Kata benda untuk warna hitam. Untuk menerangkan benda secara langsung, gunakan 黒い."
+    },
+    {
+        "book": "Minna no Nihongo I (2nd Edition)",
+        "bookJa": "みんなの日本語 I（第2版）",
+        "materialCategory": "Kata-kata referensi dan Informasi",
+        "chapter": "Bab 8",
+        "chapterNumber": 8,
+        "favorite": false,
+        "id": "mni-ref-b8-005",
+        "typeCategory": "Kata Sifat-i",
+        "sectionCategory": "Warna",
+        "indonesia": "hitam (kata sifat)",
+        "kanji": "黒い",
+        "kana": "くろい",
+        "romaji": "kuroi",
+        "image": "https://iili.io/Cc7tDgt.png",
+        "isFiction": false,
+        "exampleJa": "机の上に黒いペンがあります。",
+        "exampleReading": "Tsukue no ue ni kuroi pen ga arimasu.",
+        "exampleId": "Di atas meja ada pena hitam.",
+        "examples": [
+            {
+                "ja": "机の上に黒いペンがあります。",
+                "reading": "Tsukue no ue ni kuroi pen ga arimasu.",
+                "id": "Di atas meja ada pena hitam."
+            }
+        ],
+        "catatan": "Kata sifat-i untuk menerangkan benda yang berwarna hitam."
+    },
+    {
+        "book": "Minna no Nihongo I (2nd Edition)",
+        "bookJa": "みんなの日本語 I（第2版）",
+        "materialCategory": "Kata-kata referensi dan Informasi",
+        "chapter": "Bab 8",
+        "chapterNumber": 8,
+        "favorite": false,
+        "id": "mni-ref-b8-006",
+        "typeCategory": "Kata Benda",
+        "sectionCategory": "Warna",
+        "indonesia": "merah (kata benda)",
+        "kanji": "赤",
+        "kana": "あか",
+        "romaji": "aka",
+        "image": "https://iili.io/Cc7tmdX.png",
+        "isFiction": false,
+        "exampleJa": "赤は注意を表す色です。",
+        "exampleReading": "Aka wa chuui o arawasu iro desu.",
+        "exampleId": "Warna merah adalah warna yang menunjukkan perhatian/peringatan.",
+        "examples": [
+            {
+                "ja": "赤は注意を表す色です。",
+                "reading": "Aka wa chuui o arawasu iro desu.",
+                "id": "Warna merah adalah warna yang menunjukkan perhatian/peringatan."
+            }
+        ],
+        "catatan": "Kata benda untuk warna merah. Untuk menerangkan benda secara langsung, gunakan 赤い."
+    },
+    {
+        "book": "Minna no Nihongo I (2nd Edition)",
+        "bookJa": "みんなの日本語 I（第2版）",
+        "materialCategory": "Kata-kata referensi dan Informasi",
+        "chapter": "Bab 8",
+        "chapterNumber": 8,
+        "favorite": false,
+        "id": "mni-ref-b8-007",
+        "typeCategory": "Kata Sifat-i",
+        "sectionCategory": "Warna",
+        "indonesia": "merah (kata sifat)",
+        "kanji": "赤い",
+        "kana": "あかい",
+        "romaji": "akai",
+        "image": "https://iili.io/Cc7tp7n.png",
+        "isFiction": false,
+        "exampleJa": "赤い花が庭に咲いています。",
+        "exampleReading": "Akai hana ga niwa ni saite imasu.",
+        "exampleId": "Bunga merah sedang mekar di taman.",
+        "examples": [
+            {
+                "ja": "赤い花が庭に咲いています。",
+                "reading": "Akai hana ga niwa ni saite imasu.",
+                "id": "Bunga merah sedang mekar di taman."
+            }
+        ],
+        "catatan": "Kata sifat-i untuk menerangkan benda yang berwarna merah."
+    },
+    {
+        "book": "Minna no Nihongo I (2nd Edition)",
+        "bookJa": "みんなの日本語 I（第2版）",
+        "materialCategory": "Kata-kata referensi dan Informasi",
+        "chapter": "Bab 8",
+        "chapterNumber": 8,
+        "favorite": false,
+        "id": "mni-ref-b8-008",
+        "typeCategory": "Kata Benda",
+        "sectionCategory": "Warna",
+        "indonesia": "biru (kata benda)",
+        "kanji": "青",
+        "kana": "あお",
+        "romaji": "ao",
+        "image": "https://iili.io/Cc7D9mG.png",
+        "isFiction": false,
+        "exampleJa": "青は海や空を思い出させます。",
+        "exampleReading": "Ao wa umi ya sora o omoidasasemasu.",
+        "exampleId": "Warna biru mengingatkan pada laut dan langit.",
+        "examples": [
+            {
+                "ja": "青は海や空を思い出させます。",
+                "reading": "Ao wa umi ya sora o omoidasasemasu.",
+                "id": "Warna biru mengingatkan pada laut dan langit."
+            }
+        ],
+        "catatan": "Kata benda untuk warna biru. Untuk menerangkan benda secara langsung, gunakan 青い."
+    },
+    {
+        "book": "Minna no Nihongo I (2nd Edition)",
+        "bookJa": "みんなの日本語 I（第2版）",
+        "materialCategory": "Kata-kata referensi dan Informasi",
+        "chapter": "Bab 8",
+        "chapterNumber": 8,
+        "favorite": false,
+        "id": "mni-ref-b8-009",
+        "typeCategory": "Kata Sifat-i",
+        "sectionCategory": "Warna",
+        "indonesia": "biru (kata sifat)",
+        "kanji": "青い",
+        "kana": "あおい",
+        "romaji": "aoi",
+        "image": "https://iili.io/Cc7D2Ll.png",
+        "isFiction": false,
+        "exampleJa": "青い自転車を駅の前に止めました。",
+        "exampleReading": "Aoi jitensha o eki no mae ni tomemashita.",
+        "exampleId": "Saya memarkir sepeda biru di depan stasiun.",
+        "examples": [
+            {
+                "ja": "青い自転車を駅の前に止めました。",
+                "reading": "Aoi jitensha o eki no mae ni tomemashita.",
+                "id": "Saya memarkir sepeda biru di depan stasiun."
+            }
+        ],
+        "catatan": "Kata sifat-i untuk menerangkan benda yang berwarna biru."
+    },
+    {
+        "book": "Minna no Nihongo I (2nd Edition)",
+        "bookJa": "みんなの日本語 I（第2版）",
+        "materialCategory": "Kata-kata referensi dan Informasi",
+        "chapter": "Bab 8",
+        "chapterNumber": 8,
+        "favorite": false,
+        "id": "mni-ref-b8-010",
+        "typeCategory": "Kata Benda",
+        "sectionCategory": "Warna",
+        "indonesia": "hijau",
+        "kanji": "緑",
+        "kana": "みどり",
+        "romaji": "midori",
+        "image": "https://iili.io/Cc7DK1S.png",
+        "isFiction": false,
+        "exampleJa": "緑が多い公園で散歩します。",
+        "exampleReading": "Midori ga ooi kouen de sanpo shimasu.",
+        "exampleId": "Saya berjalan-jalan di taman yang banyak warna hijaunya/pepohonannya.",
+        "examples": [
+            {
+                "ja": "緑が多い公園で散歩します。",
+                "reading": "Midori ga ooi kouen de sanpo shimasu.",
+                "id": "Saya berjalan-jalan di taman yang banyak warna hijaunya/pepohonannya."
+            }
+        ],
+        "catatan": "Kata benda untuk warna hijau. Biasanya digunakan dengan の saat menerangkan benda, misalnya 緑の服."
+    },
+    {
+        "book": "Minna no Nihongo I (2nd Edition)",
+        "bookJa": "みんなの日本語 I（第2版）",
+        "materialCategory": "Kata-kata referensi dan Informasi",
+        "chapter": "Bab 8",
+        "chapterNumber": 8,
+        "favorite": false,
+        "id": "mni-ref-b8-011",
+        "typeCategory": "Kata Benda",
+        "sectionCategory": "Warna",
+        "indonesia": "ungu",
+        "kanji": "紫",
+        "kana": "むらさき",
+        "romaji": "murasaki",
+        "image": "https://iili.io/Cc7Dfr7.png",
+        "isFiction": false,
+        "exampleJa": "紫の傘を電車に忘れました。",
+        "exampleReading": "Murasaki no kasa o densha ni wasuremashita.",
+        "exampleId": "Saya meninggalkan payung ungu di kereta.",
+        "examples": [
+            {
+                "ja": "紫の傘を電車に忘れました。",
+                "reading": "Murasaki no kasa o densha ni wasuremashita.",
+                "id": "Saya meninggalkan payung ungu di kereta."
+            }
+        ],
+        "catatan": "Kata benda untuk warna ungu. Biasanya digunakan dengan の saat menerangkan benda."
+    },
+    {
+        "book": "Minna no Nihongo I (2nd Edition)",
+        "bookJa": "みんなの日本語 I（第2版）",
+        "materialCategory": "Kata-kata referensi dan Informasi",
+        "chapter": "Bab 8",
+        "chapterNumber": 8,
+        "favorite": false,
+        "id": "mni-ref-b8-012",
+        "typeCategory": "Kata Benda",
+        "sectionCategory": "Warna",
+        "indonesia": "kuning (kata benda)",
+        "kanji": "黄色",
+        "kana": "きいろ",
+        "romaji": "kiiro",
+        "image": "https://iili.io/Cc7DB29.png",
+        "isFiction": false,
+        "exampleJa": "黄色は明るくて元気な印象があります。",
+        "exampleReading": "Kiiro wa akarukute genki na inshou ga arimasu.",
+        "exampleId": "Warna kuning memiliki kesan cerah dan bersemangat.",
+        "examples": [
+            {
+                "ja": "黄色は明るくて元気な印象があります。",
+                "reading": "Kiiro wa akarukute genki na inshou ga arimasu.",
+                "id": "Warna kuning memiliki kesan cerah dan bersemangat."
+            }
+        ],
+        "catatan": "Kata benda untuk warna kuning. Untuk menerangkan benda secara langsung, gunakan 黄色い."
+    },
+    {
+        "book": "Minna no Nihongo I (2nd Edition)",
+        "bookJa": "みんなの日本語 I（第2版）",
+        "materialCategory": "Kata-kata referensi dan Informasi",
+        "chapter": "Bab 8",
+        "chapterNumber": 8,
+        "favorite": false,
+        "id": "mni-ref-b8-013",
+        "typeCategory": "Kata Sifat-i",
+        "sectionCategory": "Warna",
+        "indonesia": "kuning (kata sifat)",
+        "kanji": "黄色い",
+        "kana": "きいろい",
+        "romaji": "kiiroi",
+        "image": "https://iili.io/Cc7Dnku.png",
+        "isFiction": false,
+        "exampleJa": "黄色いバスが学校の前に止まっています。",
+        "exampleReading": "Kiiroi basu ga gakkou no mae ni tomatte imasu.",
+        "exampleId": "Bus kuning sedang berhenti di depan sekolah.",
+        "examples": [
+            {
+                "ja": "黄色いバスが学校の前に止まっています。",
+                "reading": "Kiiroi basu ga gakkou no mae ni tomatte imasu.",
+                "id": "Bus kuning sedang berhenti di depan sekolah."
+            }
+        ],
+        "catatan": "Kata sifat-i untuk menerangkan benda yang berwarna kuning."
+    },
+    {
+        "book": "Minna no Nihongo I (2nd Edition)",
+        "bookJa": "みんなの日本語 I（第2版）",
+        "materialCategory": "Kata-kata referensi dan Informasi",
+        "chapter": "Bab 8",
+        "chapterNumber": 8,
+        "favorite": false,
+        "id": "mni-ref-b8-014",
+        "typeCategory": "Kata Benda",
+        "sectionCategory": "Warna",
+        "indonesia": "coklat (kata benda)",
+        "kanji": "茶色",
+        "kana": "ちゃいろ",
+        "romaji": "chairo",
+        "image": "https://iili.io/Cc7Domb.png",
+        "isFiction": false,
+        "exampleJa": "茶色は秋の服によく合います。",
+        "exampleReading": "Chairo wa aki no fuku ni yoku aimasu.",
+        "exampleId": "Warna coklat cocok dengan pakaian musim gugur.",
+        "examples": [
+            {
+                "ja": "茶色は秋の服によく合います。",
+                "reading": "Chairo wa aki no fuku ni yoku aimasu.",
+                "id": "Warna coklat cocok dengan pakaian musim gugur."
+            }
+        ],
+        "catatan": "Kata benda untuk warna coklat. Untuk menerangkan benda secara langsung, gunakan 茶色い."
+    },
+    {
+        "book": "Minna no Nihongo I (2nd Edition)",
+        "bookJa": "みんなの日本語 I（第2版）",
+        "materialCategory": "Kata-kata referensi dan Informasi",
+        "chapter": "Bab 8",
+        "chapterNumber": 8,
+        "favorite": false,
+        "id": "mni-ref-b8-015",
+        "typeCategory": "Kata Sifat-i",
+        "sectionCategory": "Warna",
+        "indonesia": "coklat (kata sifat)",
+        "kanji": "茶色い",
+        "kana": "ちゃいろい",
+        "romaji": "chairoi",
+        "image": "https://iili.io/Cc7DIhx.png",
+        "isFiction": false,
+        "exampleJa": "茶色い靴を新しく買いました。",
+        "exampleReading": "Chairoi kutsu o atarashiku kaimashita.",
+        "exampleId": "Saya membeli sepatu coklat yang baru.",
+        "examples": [
+            {
+                "ja": "茶色い靴を新しく買いました。",
+                "reading": "Chairoi kutsu o atarashiku kaimashita.",
+                "id": "Saya membeli sepatu coklat yang baru."
+            }
+        ],
+        "catatan": "Kata sifat-i untuk menerangkan benda yang berwarna coklat."
+    },
+    {
+        "book": "Minna no Nihongo I (2nd Edition)",
+        "bookJa": "みんなの日本語 I（第2版）",
+        "materialCategory": "Kata-kata referensi dan Informasi",
+        "chapter": "Bab 8",
+        "chapterNumber": 8,
+        "favorite": false,
+        "id": "mni-ref-b8-016",
+        "typeCategory": "Kata Benda",
+        "sectionCategory": "Warna",
+        "indonesia": "merah muda",
+        "kanji": "ピンク",
+        "kana": "ピンク",
+        "romaji": "pinku",
+        "image": "https://iili.io/Cc7DTLQ.png",
+        "isFiction": false,
+        "exampleJa": "妹はピンクのかばんを大切にしています。",
+        "exampleReading": "Imouto wa pinku no kaban o taisetsu ni shite imasu.",
+        "exampleId": "Adik perempuan saya sangat menjaga tas merah mudanya.",
+        "examples": [
+            {
+                "ja": "妹はピンクのかばんを大切にしています。",
+                "reading": "Imouto wa pinku no kaban o taisetsu ni shite imasu.",
+                "id": "Adik perempuan saya sangat menjaga tas merah mudanya."
+            }
+        ],
+        "catatan": "Kata benda warna serapan. Gunakan の saat menerangkan benda, misalnya ピンクの花."
+    },
+    {
+        "book": "Minna no Nihongo I (2nd Edition)",
+        "bookJa": "みんなの日本語 I（第2版）",
+        "materialCategory": "Kata-kata referensi dan Informasi",
+        "chapter": "Bab 8",
+        "chapterNumber": 8,
+        "favorite": false,
+        "id": "mni-ref-b8-017",
+        "typeCategory": "Kata Benda",
+        "sectionCategory": "Warna",
+        "indonesia": "oranye",
+        "kanji": "オレンジ",
+        "kana": "オレンジ",
+        "romaji": "orenji",
+        "image": "https://iili.io/Cc7DY21.png",
+        "isFiction": false,
+        "exampleJa": "オレンジの箱にお菓子を入れました。",
+        "exampleReading": "Orenji no hako ni okashi o iremashita.",
+        "exampleId": "Saya memasukkan camilan ke dalam kotak oranye.",
+        "examples": [
+            {
+                "ja": "オレンジの箱にお菓子を入れました。",
+                "reading": "Orenji no hako ni okashi o iremashita.",
+                "id": "Saya memasukkan camilan ke dalam kotak oranye."
+            }
+        ],
+        "catatan": "Kata benda warna serapan. Gunakan の saat menerangkan benda."
+    },
+    {
+        "book": "Minna no Nihongo I (2nd Edition)",
+        "bookJa": "みんなの日本語 I（第2版）",
+        "materialCategory": "Kata-kata referensi dan Informasi",
+        "chapter": "Bab 8",
+        "chapterNumber": 8,
+        "favorite": false,
+        "id": "mni-ref-b8-018",
+        "typeCategory": "Kata Benda",
+        "sectionCategory": "Warna",
+        "indonesia": "abu-abu",
+        "kanji": "グレー",
+        "kana": "グレー",
+        "romaji": "guree",
+        "image": "https://iili.io/Cc7DaYF.png",
+        "isFiction": false,
+        "exampleJa": "グレーのスーツは仕事に便利です。",
+        "exampleReading": "Guree no suutsu wa shigoto ni benri desu.",
+        "exampleId": "Setelan abu-abu praktis untuk pekerjaan.",
+        "examples": [
+            {
+                "ja": "グレーのスーツは仕事に便利です。",
+                "reading": "Guree no suutsu wa shigoto ni benri desu.",
+                "id": "Setelan abu-abu praktis untuk pekerjaan."
+            }
+        ],
+        "catatan": "Kata benda warna serapan. Gunakan の saat menerangkan benda."
+    },
+    {
+        "book": "Minna no Nihongo I (2nd Edition)",
+        "bookJa": "みんなの日本語 I（第2版）",
+        "materialCategory": "Kata-kata referensi dan Informasi",
+        "chapter": "Bab 8",
+        "chapterNumber": 8,
+        "favorite": false,
+        "id": "mni-ref-b8-019",
+        "typeCategory": "Kata Benda",
+        "sectionCategory": "Warna",
+        "indonesia": "krem",
+        "kanji": "ベージュ",
+        "kana": "ベージュ",
+        "romaji": "beeju",
+        "image": "https://iili.io/Cc7Dckg.png",
+        "isFiction": false,
+        "exampleJa": "ベージュの帽子はどんな服にも合います。",
+        "exampleReading": "Beeju no boushi wa donna fuku ni mo aimasu.",
+        "exampleId": "Topi krem cocok dengan pakaian apa pun.",
+        "examples": [
+            {
+                "ja": "ベージュの帽子はどんな服にも合います。",
+                "reading": "Beeju no boushi wa donna fuku ni mo aimasu.",
+                "id": "Topi krem cocok dengan pakaian apa pun."
+            }
+        ],
+        "catatan": "Kata benda warna serapan. Gunakan の saat menerangkan benda."
+    },
+    {
+        "book": "Minna no Nihongo I (2nd Edition)",
+        "bookJa": "みんなの日本語 I（第2版）",
+        "materialCategory": "Kata-kata referensi dan Informasi",
+        "chapter": "Bab 8",
+        "chapterNumber": 8,
+        "favorite": false,
+        "id": "mni-ref-b8-020",
+        "typeCategory": "Kata Benda",
+        "sectionCategory": "Kosakata",
+        "indonesia": "rasa",
+        "kanji": "味",
+        "kana": "あじ",
+        "romaji": "aji",
+        "image": "https://iili.io/Cc7D1TJ.png",
+        "isFiction": false,
+        "exampleJa": "この料理の味はとても優しいです。",
+        "exampleReading": "Kono ryouri no aji wa totemo yasashii desu.",
+        "exampleId": "Rasa masakan ini sangat lembut.",
+        "examples": [
+            {
+                "ja": "この料理の味はとても優しいです。",
+                "reading": "Kono ryouri no aji wa totemo yasashii desu.",
+                "id": "Rasa masakan ini sangat lembut."
+            }
+        ],
+        "catatan": "Kosakata umum untuk menyebut rasa."
+    },
+    {
+        "book": "Minna no Nihongo I (2nd Edition)",
+        "bookJa": "みんなの日本語 I（第2版）",
+        "materialCategory": "Kata-kata referensi dan Informasi",
+        "chapter": "Bab 8",
+        "chapterNumber": 8,
+        "favorite": false,
+        "id": "mni-ref-b8-021",
+        "typeCategory": "Kata Sifat-i",
+        "sectionCategory": "Rasa",
+        "indonesia": "manis",
+        "kanji": "甘い",
+        "kana": "あまい",
+        "romaji": "amai",
+        "image": "https://iili.io/Cc7DWEN.png",
+        "isFiction": false,
+        "exampleJa": "甘いケーキを少しだけ食べました。",
+        "exampleReading": "Amai keeki o sukoshi dake tabemashita.",
+        "exampleId": "Saya hanya makan sedikit kue manis.",
+        "examples": [
+            {
+                "ja": "甘いケーキを少しだけ食べました。",
+                "reading": "Amai keeki o sukoshi dake tabemashita.",
+                "id": "Saya hanya makan sedikit kue manis."
+            }
+        ],
+        "catatan": "Kata sifat-i untuk rasa manis."
+    },
+    {
+        "book": "Minna no Nihongo I (2nd Edition)",
+        "bookJa": "みんなの日本語 I（第2版）",
+        "materialCategory": "Kata-kata referensi dan Informasi",
+        "chapter": "Bab 8",
+        "chapterNumber": 8,
+        "favorite": false,
+        "id": "mni-ref-b8-022",
+        "typeCategory": "Kata Sifat-i",
+        "sectionCategory": "Rasa",
+        "indonesia": "pedas",
+        "kanji": "辛い",
+        "kana": "からい",
+        "romaji": "karai",
+        "image": "https://iili.io/Cc7DkTG.png",
+        "isFiction": false,
+        "exampleJa": "辛いラーメンは寒い日に人気があります。",
+        "exampleReading": "Karai raamen wa samui hi ni ninki ga arimasu.",
+        "exampleId": "Ramen pedas populer pada hari yang dingin.",
+        "examples": [
+            {
+                "ja": "辛いラーメンは寒い日に人気があります。",
+                "reading": "Karai raamen wa samui hi ni ninki ga arimasu.",
+                "id": "Ramen pedas populer pada hari yang dingin."
+            }
+        ],
+        "catatan": "Kata sifat-i untuk rasa pedas."
+    },
+    {
+        "book": "Minna no Nihongo I (2nd Edition)",
+        "bookJa": "みんなの日本語 I（第2版）",
+        "materialCategory": "Kata-kata referensi dan Informasi",
+        "chapter": "Bab 8",
+        "chapterNumber": 8,
+        "favorite": false,
+        "id": "mni-ref-b8-023",
+        "typeCategory": "Kata Sifat-i",
+        "sectionCategory": "Rasa",
+        "indonesia": "pahit",
+        "kanji": "苦い",
+        "kana": "にがい",
+        "romaji": "nigai",
+        "image": "https://iili.io/Cc7DOps.png",
+        "isFiction": false,
+        "exampleJa": "この薬は苦いですが、よく効きます。",
+        "exampleReading": "Kono kusuri wa nigai desu ga, yoku kikimasu.",
+        "exampleId": "Obat ini pahit, tetapi manjur.",
+        "examples": [
+            {
+                "ja": "この薬は苦いですが、よく効きます。",
+                "reading": "Kono kusuri wa nigai desu ga, yoku kikimasu.",
+                "id": "Obat ini pahit, tetapi manjur."
+            }
+        ],
+        "catatan": "Kata sifat-i untuk rasa pahit."
+    },
+    {
+        "book": "Minna no Nihongo I (2nd Edition)",
+        "bookJa": "みんなの日本語 I（第2版）",
+        "materialCategory": "Kata-kata referensi dan Informasi",
+        "chapter": "Bab 8",
+        "chapterNumber": 8,
+        "favorite": false,
+        "id": "mni-ref-b8-024",
+        "typeCategory": "Kata Sifat-i",
+        "sectionCategory": "Rasa",
+        "indonesia": "asin",
+        "kanji": "塩辛い",
+        "kana": "しおからい",
+        "romaji": "shiokarai",
+        "image": "https://iili.io/Cc7DgG2.png",
+        "isFiction": false,
+        "exampleJa": "塩辛いスープは水を足すと飲みやすいです。",
+        "exampleReading": "Shiokarai suupu wa mizu o tasu to nomiyasui desu.",
+        "exampleId": "Sup yang asin menjadi lebih mudah diminum jika ditambahkan air.",
+        "examples": [
+            {
+                "ja": "塩辛いスープは水を足すと飲みやすいです。",
+                "reading": "Shiokarai suupu wa mizu o tasu to nomiyasui desu.",
+                "id": "Sup yang asin menjadi lebih mudah diminum jika ditambahkan air."
+            }
+        ],
+        "catatan": "Kata sifat-i untuk rasa yang terlalu asin/asin kuat."
+    },
+    {
+        "book": "Minna no Nihongo I (2nd Edition)",
+        "bookJa": "みんなの日本語 I（第2版）",
+        "materialCategory": "Kata-kata referensi dan Informasi",
+        "chapter": "Bab 8",
+        "chapterNumber": 8,
+        "favorite": false,
+        "id": "mni-ref-b8-025",
+        "typeCategory": "Kata Sifat-i",
+        "sectionCategory": "Rasa",
+        "indonesia": "asam",
+        "kanji": "酸っぱい",
+        "kana": "すっぱい",
+        "romaji": "suppai",
+        "image": "https://iili.io/Cc7Dr4S.png",
+        "isFiction": false,
+        "exampleJa": "酸っぱいみかんを食べて顔が変になりました。",
+        "exampleReading": "Suppai mikan o tabete kao ga hen ni narimashita.",
+        "exampleId": "Wajah saya berubah setelah makan jeruk mandarin yang asam.",
+        "examples": [
+            {
+                "ja": "酸っぱいみかんを食べて顔が変になりました。",
+                "reading": "Suppai mikan o tabete kao ga hen ni narimashita.",
+                "id": "Wajah saya berubah setelah makan jeruk mandarin yang asam."
+            }
+        ],
+        "catatan": "Kata sifat-i untuk rasa asam."
+    },
+    {
+        "book": "Minna no Nihongo I (2nd Edition)",
+        "bookJa": "みんなの日本語 I（第2版）",
+        "materialCategory": "Kata-kata referensi dan Informasi",
+        "chapter": "Bab 8",
+        "chapterNumber": 8,
+        "favorite": false,
+        "id": "mni-ref-b8-026",
+        "typeCategory": "Kata Sifat-i",
+        "sectionCategory": "Rasa",
+        "indonesia": "kental / kuat rasanya",
+        "kanji": "濃い",
+        "kana": "こい",
+        "romaji": "koi",
+        "image": "https://iili.io/Cc7DtZx.png",
+        "isFiction": false,
+        "exampleJa": "このコーヒーは濃いので、ミルクを入れます。",
+        "exampleReading": "Kono koohii wa koi node, miruku o iremasu.",
+        "exampleId": "Karena kopi ini pekat, saya menambahkan susu.",
+        "examples": [
+            {
+                "ja": "このコーヒーは濃いので、ミルクを入れます。",
+                "reading": "Kono koohii wa koi node, miruku o iremasu.",
+                "id": "Karena kopi ini pekat, saya menambahkan susu."
+            }
+        ],
+        "catatan": "Kata sifat-i untuk rasa yang pekat/kuat atau cairan yang kental."
+    },
+    {
+        "book": "Minna no Nihongo I (2nd Edition)",
+        "bookJa": "みんなの日本語 I（第2版）",
+        "materialCategory": "Kata-kata referensi dan Informasi",
+        "chapter": "Bab 8",
+        "chapterNumber": 8,
+        "favorite": false,
+        "id": "mni-ref-b8-027",
+        "typeCategory": "Kata Sifat-i",
+        "sectionCategory": "Rasa",
+        "indonesia": "tawar / encer",
+        "kanji": "薄い",
+        "kana": "うすい",
+        "romaji": "usui",
+        "image": "https://iili.io/Cc7DZjj.png",
+        "isFiction": false,
+        "exampleJa": "今日のお茶は少し薄いです。",
+        "exampleReading": "Kyou no ocha wa sukoshi usui desu.",
+        "exampleId": "Teh hari ini agak tawar/encer.",
+        "examples": [
+            {
+                "ja": "今日のお茶は少し薄いです。",
+                "reading": "Kyou no ocha wa sukoshi usui desu.",
+                "id": "Teh hari ini agak tawar/encer."
+            }
+        ],
+        "catatan": "Kata sifat-i untuk rasa yang lemah, tawar, atau cairan yang encer."
+    },
+    {
+        "book": "Minna no Nihongo I (2nd Edition)",
+        "bookJa": "みんなの日本語 I（第2版）",
+        "materialCategory": "Kata-kata referensi dan Informasi",
+        "chapter": "Bab 8",
+        "chapterNumber": 8,
+        "favorite": false,
+        "id": "mni-ref-b8-028",
+        "typeCategory": "Kata Benda",
+        "sectionCategory": "Musim",
+        "indonesia": "musim semi",
+        "kanji": "春",
+        "kana": "はる",
+        "romaji": "haru",
+        "image": "https://iili.io/Cc7Dp6B.png",
+        "isFiction": false,
+        "exampleJa": "春になると桜がきれいに咲きます。",
+        "exampleReading": "Haru ni naru to sakura ga kirei ni sakimasu.",
+        "exampleId": "Ketika musim semi tiba, bunga sakura mekar dengan indah.",
+        "examples": [
+            {
+                "ja": "春になると桜がきれいに咲きます。",
+                "reading": "Haru ni naru to sakura ga kirei ni sakimasu.",
+                "id": "Ketika musim semi tiba, bunga sakura mekar dengan indah."
+            }
+        ],
+        "catatan": "Musim semi di Jepang umumnya berlangsung dari Maret sampai Mei."
+    },
+    {
+        "book": "Minna no Nihongo I (2nd Edition)",
+        "bookJa": "みんなの日本語 I（第2版）",
+        "materialCategory": "Kata-kata referensi dan Informasi",
+        "chapter": "Bab 8",
+        "chapterNumber": 8,
+        "favorite": false,
+        "id": "mni-ref-b8-029",
+        "typeCategory": "Kata Benda",
+        "sectionCategory": "Musim",
+        "indonesia": "musim panas",
+        "kanji": "夏",
+        "kana": "なつ",
+        "romaji": "natsu",
+        "image": "https://iili.io/Cc7b93P.png",
+        "isFiction": false,
+        "exampleJa": "夏休みに友達と海へ行きました。",
+        "exampleReading": "Natsuyasumi ni tomodachi to umi e ikimashita.",
+        "exampleId": "Saat liburan musim panas, saya pergi ke laut bersama teman.",
+        "examples": [
+            {
+                "ja": "夏休みに友達と海へ行きました。",
+                "reading": "Natsuyasumi ni tomodachi to umi e ikimashita.",
+                "id": "Saat liburan musim panas, saya pergi ke laut bersama teman."
+            }
+        ],
+        "catatan": "Musim panas di Jepang umumnya berlangsung dari Juni sampai Agustus."
+    },
+    {
+        "book": "Minna no Nihongo I (2nd Edition)",
+        "bookJa": "みんなの日本語 I（第2版）",
+        "materialCategory": "Kata-kata referensi dan Informasi",
+        "chapter": "Bab 8",
+        "chapterNumber": 8,
+        "favorite": false,
+        "id": "mni-ref-b8-030",
+        "typeCategory": "Kata Benda",
+        "sectionCategory": "Musim",
+        "indonesia": "musim gugur",
+        "kanji": "秋",
+        "kana": "あき",
+        "romaji": "aki",
+        "image": "https://iili.io/Cc7b3ua.png",
+        "isFiction": false,
+        "exampleJa": "秋は空気が涼しくて読書に向いています。",
+        "exampleReading": "Aki wa kuuki ga suzushikute dokusho ni muite imasu.",
+        "exampleId": "Musim gugur udaranya sejuk dan cocok untuk membaca.",
+        "examples": [
+            {
+                "ja": "秋は空気が涼しくて読書に向いています。",
+                "reading": "Aki wa kuuki ga suzushikute dokusho ni muite imasu.",
+                "id": "Musim gugur udaranya sejuk dan cocok untuk membaca."
+            }
+        ],
+        "catatan": "Musim gugur di Jepang umumnya berlangsung dari September sampai November."
+    },
+    {
+        "book": "Minna no Nihongo I (2nd Edition)",
+        "bookJa": "みんなの日本語 I（第2版）",
+        "materialCategory": "Kata-kata referensi dan Informasi",
+        "chapter": "Bab 8",
+        "chapterNumber": 8,
+        "favorite": false,
+        "id": "mni-ref-b8-031",
+        "typeCategory": "Kata Benda",
+        "sectionCategory": "Musim",
+        "indonesia": "musim dingin",
+        "kanji": "冬",
+        "kana": "ふゆ",
+        "romaji": "fuyu",
+        "image": "https://iili.io/Cc7bqnR.png",
+        "isFiction": false,
+        "exampleJa": "冬の朝は寒いので手袋をします。",
+        "exampleReading": "Fuyu no asa wa samui node tebukuro o shimasu.",
+        "exampleId": "Karena pagi musim dingin dingin, saya memakai sarung tangan.",
+        "examples": [
+            {
+                "ja": "冬の朝は寒いので手袋をします。",
+                "reading": "Fuyu no asa wa samui node tebukuro o shimasu.",
+                "id": "Karena pagi musim dingin dingin, saya memakai sarung tangan."
+            }
+        ],
+        "catatan": "Musim dingin di Jepang umumnya berlangsung dari Desember sampai Februari."
     }
 ];
 
@@ -16056,7 +16985,7 @@
     const $ = s => document.querySelector(s);
     const $$ = s => [...document.querySelectorAll(s)];
     const storeKey = "minnaFlashcardV2";
-    const dataVersion = "bab1-bab8-general-20260706-v1";
+    const dataVersion = "bab1-bab8-ref-info-20260706-v2";
     const setupCompletedKey = storeKey + "_setupCompleted";
     const hadCurrentDataVersionBeforeBoot = localStorage.getItem(storeKey+"_dataVersion") === dataVersion;
     const hadSetupCompletedFlagBeforeBoot = localStorage.getItem(setupCompletedKey);
@@ -16281,6 +17210,7 @@
     function isReferenceInfoBab4(){ return isReferenceInfoChapter("Bab 4"); }
     function isReferenceInfoBab5(){ return isReferenceInfoChapter("Bab 5"); }
     function isReferenceInfoBab7(){ return isReferenceInfoChapter("Bab 7"); }
+    function isReferenceInfoBab8(){ return isReferenceInfoChapter("Bab 8"); }
     function isReferenceInfoMaterialOnly(){ return isReferenceInfoBab2() || isReferenceInfoBab4() || isReferenceInfoBab5(); }
 
     function materialOnlyQuizMessage(){
@@ -16948,13 +17878,17 @@
         "果物 / Buah-buahan":"Buah-buahan",
         "肉 / Daging":"Daging",
         "魚 / Ikan":"Ikan",
-        "その他 / Yang Lainnya":"Yang Lainnya"
+        "その他 / Yang Lainnya":"Yang Lainnya",
+        "Kata-kata referensi dan Informasi":"Kata-kata Referensi dan Informasi"
       };
       const jaMap = {
         "Semua":"すべて",
         "Semua Bagian":"すべてのセクション",
         "Semua Jenis Kata":"すべての品詞",
         "Kosakata":"語彙",
+        "Warna":"色",
+        "Rasa":"味",
+        "Musim":"季節",
         "Latihan C":"練習C",
         "Percakapan":"会話",
         "Kata Benda":"名詞",
@@ -17000,7 +17934,7 @@
       const sectionSel = $("#materialSectionFilter"), typeSel = $("#materialTypeFilter");
       if(!sectionSel || !typeSel) return;
       const secVal = sectionSel.value || "all", typeVal = typeSel.value || "all";
-      const sections=[["all", state.lang==="ja"?"すべてのセクション":"Semua Bagian"],["Kosakata", categoryLabel("Kosakata")],["Latihan C", categoryLabel("Latihan C")],["Percakapan", categoryLabel("Percakapan")],["Kosakata Tambahan", categoryLabel("Kosakata Tambahan")],["Kata-kata referensi dan Informasi", categoryLabel("Kata-kata referensi dan Informasi")],["Keluarga / 家族", categoryLabel("Keluarga / 家族")],["食べ物 / Makanan", categoryLabel("食べ物 / Makanan")]];
+      const sections=[["all", state.lang==="ja"?"すべてのセクション":"Semua Bagian"],["Kosakata", categoryLabel("Kosakata")],["Warna", categoryLabel("Warna")],["Rasa", categoryLabel("Rasa")],["Musim", categoryLabel("Musim")],["Latihan C", categoryLabel("Latihan C")],["Percakapan", categoryLabel("Percakapan")],["Kosakata Tambahan", categoryLabel("Kosakata Tambahan")],["Kata-kata referensi dan Informasi", categoryLabel("Kata-kata referensi dan Informasi")],["Keluarga / 家族", categoryLabel("Keluarga / 家族")],["食べ物 / Makanan", categoryLabel("食べ物 / Makanan")]];
       const types=[["all", state.lang==="ja"?"すべての品詞":"Semua Jenis Kata"],["Kata Benda", categoryLabel("Kata Benda")],["Kata Kerja", categoryLabel("Kata Kerja")],["Kata Tanya", categoryLabel("Kata Tanya")],["Kata Keterangan", categoryLabel("Kata Keterangan")],["Kata Sambung", categoryLabel("Kata Sambung")],["Ungkapan", categoryLabel("Ungkapan")],["Ungkapan Percakapan", categoryLabel("Ungkapan Percakapan")],["Nama Tempat Fiksi", categoryLabel("Nama Tempat Fiksi")],["Kata Sifat-i", categoryLabel("Kata Sifat-i")],["Kata Sifat-na", categoryLabel("Kata Sifat-na")],["Kosakata Tambahan", categoryLabel("Kosakata Tambahan")],["Negara", categoryLabel("Negara")],["Bahasa", categoryLabel("Bahasa")],["Kewarganegaraan", categoryLabel("Kewarganegaraan")],["野菜 / Sayuran", categoryLabel("野菜 / Sayuran")],["果物 / Buah-buahan", categoryLabel("果物 / Buah-buahan")],["肉 / Daging", categoryLabel("肉 / Daging")],["魚 / Ikan", categoryLabel("魚 / Ikan")],["その他 / Yang Lainnya", categoryLabel("その他 / Yang Lainnya")]];
       sectionSel.innerHTML = sections.map(([v,l])=>`<option value="${esc(v)}">${esc(l)}</option>`).join("");
       typeSel.innerHTML = types.map(([v,l])=>`<option value="${esc(v)}">${esc(l)}</option>`).join("");
@@ -17008,6 +17942,114 @@
       typeSel.value = types.some(x=>x[0]===typeVal) ? typeVal : "all";
       sectionSel.setAttribute("aria-label", state.lang==="ja" ? "項目フィルター" : "Filter bagian");
       typeSel.setAttribute("aria-label", state.lang==="ja" ? "品詞フィルター" : "Filter jenis kata");
+    }
+
+
+    function renderReferenceInfoBab8(){
+      const grid = $("#materialGrid");
+      if(!grid) return;
+      const toolbar = $(".material-toolbar");
+      const notice = $("#materialPage .notice");
+      const title = $("#materialPage .content-card > h2");
+      const desc = $("#materialPage .content-card > p");
+      if(title) title.textContent = state.lang === "ja" ? "第8課 色・味・季節" : "Kata-kata Referensi dan Informasi - Bab 8";
+      if(desc) desc.textContent = state.lang === "ja"
+        ? "色、味、春夏秋冬の語彙を、例文と読み方つきで確認できます。季節の説明は教材ページだけに表示されます。"
+        : "Materi Bab 8 berisi kosakata warna, rasa, dan musim lengkap dengan gambar, cara baca, serta contoh kalimat. Penjelasan musim hanya ditampilkan di Lihat Materi, bukan sebagai soal kuis.";
+      document.body.classList.remove("material-only-reference");
+      if(toolbar){ toolbar.classList.remove("hidden"); toolbar.style.removeProperty("display"); toolbar.style.removeProperty("visibility"); toolbar.style.removeProperty("pointer-events"); }
+      if(notice){ notice.classList.add("hidden"); notice.style.setProperty("display", "none", "important"); }
+      updateMaterialOnlyControls();
+      grid.className = "reference-bab8-wrap";
+
+      const search = ($("#materialSearch")?.value || "").toLowerCase();
+      const sectionFilter = $("#materialSectionFilter")?.value || "all";
+      const typeFilter = $("#materialTypeFilter")?.value || "all";
+      let arr = activeVocab().filter(v => String(v.id || "").startsWith("mni-ref-b8-") && [
+        formatIndonesianMeaning(v), v.indonesia, v.kana, v.kanji, v.romaji, v.typeCategory, v.sectionCategory,
+        v.chapter, v.catatan, v.exampleJa, v.exampleReading, v.exampleId,
+        ...(Array.isArray(v.examples) ? v.examples.flatMap(ex=>[ex.ja, ex.reading, ex.id]) : [])
+      ].join(" ").toLowerCase().includes(search));
+      if(sectionFilter !== "all") arr = arr.filter(v=>v.sectionCategory === sectionFilter);
+      if(typeFilter !== "all") arr = arr.filter(v=>v.typeCategory === typeFilter);
+
+      const sectionMeta = [
+        {key:"Kosakata", title:state.lang==="ja"?"語彙":"Kosakata", icon:"fa-book-open-reader", note:state.lang==="ja"?"色と味の基本語":"Kata dasar untuk tema warna dan rasa"},
+        {key:"Warna", title:state.lang==="ja"?"色（いろ）":"Warna", icon:"fa-palette", note:state.lang==="ja"?"名詞とい形容詞の違いに注意":"Perhatikan perbedaan kata benda dan kata sifat"},
+        {key:"Rasa", title:state.lang==="ja"?"味（あじ）":"Rasa", icon:"fa-bowl-food", note:state.lang==="ja"?"味を説明するい形容詞":"Kata sifat untuk menjelaskan rasa"},
+        {key:"Musim", title:state.lang==="ja"?"春・夏・秋・冬":"Musim", icon:"fa-leaf", note:state.lang==="ja"?"日本の四季":"Empat musim di Jepang"}
+      ];
+
+      const card = (v) => {
+        const fav = state.favorites.includes(v.id);
+        const meaning = formatIndonesianMeaning(v);
+        const thumb = v.image
+          ? `<img class="thumb" src="${esc(v.image)}" alt="${esc(meaning)}" loading="lazy" data-zoom="${esc(v.image)}">`
+          : `<span class="thumb-placeholder"><i class="fa-regular fa-image"></i></span>`;
+        return `<article class="vocab-card reference-bab8-card">
+          <div class="vocab-top">
+            ${thumb}
+            <div>
+              <div class="vocab-jp jp">${esc(jpText(v))}</div>
+              <div class="reference-bab8-reading">${esc(v.romaji || "-")}</div>
+            </div>
+          </div>
+          <div class="vocab-id">${esc(meaning)}</div>
+          <div class="tag-row">
+            <span class="tag">${esc(v.chapter)}</span>
+            <span class="tag green">${esc(categoryLabel(v.typeCategory,"type"))}</span>
+            <span class="tag pink">${esc(categoryLabel(v.sectionCategory,"section"))}</span>
+          </div>
+          <div class="card-actions">
+            <button class="icon-btn" data-speak-id="${esc(v.id)}" title="${state.lang==="ja"?"聞く":"Dengar"}"><i class="fa-solid fa-volume-high"></i></button>
+            <button class="icon-btn ${fav?"active":""}" data-fav="${esc(v.id)}" title="${state.lang==="ja"?"お気に入り":"Favorit"}"><i class="${fav?"fa-solid":"fa-regular"} fa-star"></i></button>
+            <button class="icon-btn" data-note-material="${esc(v.id)}" title="${state.lang==="ja"?"メモ":"Catatan"}"><i class="fa-regular fa-note-sticky"></i></button>
+            <button class="icon-btn" data-example-material="${esc(v.id)}" title="${state.lang==="ja"?"例文":"Contoh kalimat"}"><i class="fa-regular fa-comment-dots"></i></button>
+          </div>
+        </article>`;
+      };
+
+      const sectionsHtml = sectionMeta.map(meta=>{
+        const items = arr.filter(v=>v.sectionCategory === meta.key);
+        if(!items.length) return "";
+        return `<section class="reference-bab8-section">
+          <div class="reference-bab8-section-head">
+            <div>
+              <h3><i class="fa-solid ${esc(meta.icon)}"></i>${esc(meta.title)}</h3>
+              <p style="margin:7px 0 0;color:#66728a;font-weight:650">${esc(meta.note)}</p>
+            </div>
+            <span class="reference-bab8-count">${items.length} ${state.lang==="ja"?"語":"kosakata"}</span>
+          </div>
+          <div class="reference-bab8-grid">${items.map(card).join("")}</div>
+        </section>`;
+      }).join("");
+
+      const seasonItems = activeVocab().filter(v => String(v.id || "").startsWith("mni-ref-b8-") && v.sectionCategory === "Musim");
+      const seasonChips = seasonItems.map(v=>`
+        <div class="reference-bab8-season-chip">
+          <img src="${esc(v.image)}" alt="${esc(formatIndonesianMeaning(v))}" loading="lazy" data-zoom="${esc(v.image)}">
+          <div><strong>${esc(jpText(v))}</strong><span>${esc(v.romaji)} • ${esc(formatIndonesianMeaning(v))}</span></div>
+        </div>`).join("");
+
+      const explanation = `
+        <section class="reference-bab8-explain">
+          <h3><i class="fa-solid fa-cloud-sun"></i>${state.lang==="ja"?"教材説明：日本の四季":"Materi Bacaan: 春・夏・秋・冬 Musim"}</h3>
+          <p>${state.lang==="ja"
+            ? "日本には四つの季節があります。春は三月から五月、夏は六月から八月、秋は九月から十一月、冬は十二月から二月までです。場所によって平均気温は違いますが、気温の変化のパターンはほとんど同じです。いちばん暑い季節は八月ごろで、いちばん寒い季節は一月と二月ごろです。季節によって気温が変わるので、日本人は「春は暖かい」「夏は暑い」「秋は涼しい」「冬は寒い」と感じます。"
+            : "Di Jepang terdapat empat musim. Musim semi berlangsung dari bulan Maret sampai Mei, musim panas dari Juni sampai Agustus, musim gugur dari September sampai November, dan musim dingin dari Desember sampai Februari. Suhu udara rata-rata berbeda sesuai tempat, tetapi pola perubahan suhunya di berbagai tempat hampir sama. Musim yang paling panas biasanya sekitar Agustus, sedangkan musim yang paling dingin biasanya Januari dan Februari. Karena suhu udara berubah setiap musim, orang Jepang merasa musim semi hangat, musim panas panas, musim gugur sejuk, dan musim dingin dingin."}</p>
+          <div class="reference-bab8-season-grid">${seasonChips}</div>
+        </section>`;
+
+      grid.innerHTML = `
+        <section class="reference-bab8-hero">
+          <h3><i class="fa-solid fa-circle-info" style="color:#7c4dff"></i>${state.lang==="ja"?"第8課の追加語彙":"Bab 8 - Kosakata, Warna, Rasa, dan Musim"}</h3>
+          <p>${state.lang==="ja"?"各カードには画像、読み方、意味、メモ、例文があります。色の名詞とい形容詞を区別して覚えましょう。":"Setiap kartu sudah dilengkapi gambar, cara baca, arti Indonesia, catatan, dan contoh kalimat. Khusus pasangan warna seperti 黒 dan 黒い, arti Indonesia diberi keterangan kata benda atau kata sifat."}</p>
+        </section>
+        ${sectionsHtml}
+        ${explanation}`;
+
+      $("#materialEmpty").innerHTML = `<div style="font-size:34px;color:#7c4dff;margin-bottom:10px"><i class="fa-solid fa-magnifying-glass"></i></div><h3>${state.lang==="ja"?"語彙が見つかりません":"Kosakata tidak ditemukan"}</h3><p>${state.lang==="ja"?"検索語またはフィルターを変更してください。":"Coba ubah filter atau kata kunci pencarian."}</p>`;
+      $("#materialEmpty").classList.toggle("hidden", arr.length>0);
     }
 
     function renderMaterial(){
@@ -17032,6 +18074,10 @@
       }
       if(isReferenceInfoBab7()){
         renderReferenceInfoBab7();
+        return;
+      }
+      if(isReferenceInfoBab8()){
+        renderReferenceInfoBab8();
         return;
       }
       const notice = $("#materialPage .notice");
@@ -17198,7 +18244,7 @@
       const nums = chapterNumbers(state.setup.chapter);
       const chapterOpts = nums.map(n=>`Bab ${n}`);
       $("#quizChapterFilters").innerHTML = chapterOpts.map(ch=>`<label class="check-pill"><input type="checkbox" value="${ch}" checked><span><i class="fa-regular fa-bookmark"></i>${esc(state.lang==="ja"?categoryLabel(ch):ch)}</span></label>`).join("");
-      const sections=["Semua","Kosakata","Latihan C","Percakapan","Kosakata Tambahan","食べ物 / Makanan"];
+      const sections=["Semua","Kosakata","Warna","Rasa","Musim","Latihan C","Percakapan","Kosakata Tambahan","食べ物 / Makanan"];
       $("#quizSectionFilters").innerHTML = sections.map(s=>`<label class="check-pill"><input type="checkbox" value="${s}" ${s==="Semua"?"checked":""}><span><i class="fa-solid ${s==="Latihan C"?"fa-pen-nib":s==="Percakapan"?"fa-comments":s==="Kosakata Tambahan"?"fa-circle-plus":"fa-book-open"}"></i>${esc(s==="Semua"?(state.lang==="ja"?"すべて":"Semua"):categoryLabel(s))}</span></label>`).join("");
       const types=["Semua","Kata Benda","Kata Kerja","Kata Tanya","Kata Keterangan","Kata Sambung","Ungkapan","Ungkapan Percakapan","Nama Tempat Fiksi","Kata Sifat-i","Kata Sifat-na","Kosakata Tambahan","Negara","Bahasa","Kewarganegaraan","野菜 / Sayuran","果物 / Buah-buahan","肉 / Daging","魚 / Ikan","その他 / Yang Lainnya"];
       $("#quizTypeFilters").innerHTML = types.map(s=>`<label class="check-pill"><input type="checkbox" value="${s}" ${s==="Semua"?"checked":""}><span><i class="fa-solid fa-tag"></i>${esc(s==="Semua"?(state.lang==="ja"?"すべて":"Semua"):categoryLabel(s))}</span></label>`).join("");
