@@ -1876,6 +1876,78 @@
       .reference-bab8-grid { grid-template-columns:1fr; }
     }
 
+  
+
+    /* ===== PATCH BAB 9: MUSIK, FILM, OLAHRAGA ===== */
+    .reference-bab9-wrap { display:grid; gap:22px; }
+    .reference-bab9-hero {
+      padding:26px; border-radius:28px; overflow:hidden; position:relative;
+      background:
+        radial-gradient(circle at 88% 10%,rgba(255,211,109,.45),transparent 28%),
+        radial-gradient(circle at 12% 100%,rgba(125,181,255,.32),transparent 34%),
+        linear-gradient(135deg,#fff,#f5efff 56%,#eef7ff);
+      border:1px solid rgba(124,77,255,.16); box-shadow:var(--shadow2);
+    }
+    .reference-bab9-hero::after {
+      content:"音楽・スポーツ・映画"; position:absolute; right:20px; bottom:14px;
+      font-family:var(--jp); font-weight:900; font-size:clamp(26px,4vw,54px);
+      color:rgba(124,77,255,.09); pointer-events:none;
+    }
+    .reference-bab9-hero h3 { margin:0 0 8px; font-size:clamp(25px,3vw,38px); letter-spacing:-.04em; }
+    .reference-bab9-hero p { max-width:840px; margin:0; position:relative; z-index:1; }
+    .reference-bab9-section {
+      padding:20px; border-radius:28px; background:rgba(255,255,255,.94);
+      border:1px solid #e7e2ff; box-shadow:var(--shadow2);
+    }
+    .reference-bab9-section-head {
+      display:flex; align-items:flex-start; justify-content:space-between; gap:14px; margin-bottom:16px;
+      padding-bottom:14px; border-bottom:1px dashed rgba(124,77,255,.22);
+    }
+    .reference-bab9-titleline { display:flex; align-items:center; gap:13px; }
+    .reference-bab9-icon {
+      width:50px; height:50px; display:grid; place-items:center; border-radius:18px;
+      background:linear-gradient(135deg,#7c4dff,#72d7d0); color:#fff; box-shadow:0 14px 28px rgba(124,77,255,.18);
+      flex:0 0 auto;
+    }
+    .reference-bab9-section h3 { margin:0; font-size:clamp(22px,2.5vw,31px); line-height:1.15; }
+    .reference-bab9-section h3 .jp { font-family:var(--jp); letter-spacing:normal; }
+    .reference-bab9-section h3 small { display:block; margin-top:4px; color:#66728a; font-size:13px; font-weight:750; letter-spacing:normal; }
+    .reference-bab9-count {
+      display:inline-flex; align-items:center; gap:7px; min-height:36px; padding:0 12px; border-radius:999px;
+      background:var(--soft); color:var(--primary2); font-size:12px; font-weight:850; white-space:nowrap;
+    }
+    .reference-bab9-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(285px,1fr)); gap:15px; }
+    .reference-bab9-card {
+      display:grid; grid-template-columns:88px 1fr; gap:14px; align-items:center;
+      padding:15px; border-radius:23px; background:linear-gradient(145deg,#fff,#fbf8ff);
+      border:1px solid rgba(124,77,255,.14); box-shadow:0 10px 24px rgba(80,67,130,.055);
+      transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .reference-bab9-card:hover { transform:translateY(-3px); box-shadow:0 18px 36px rgba(80,67,130,.11); border-color:rgba(124,77,255,.30); }
+    .reference-bab9-thumb {
+      width:88px; height:88px; object-fit:contain; border-radius:20px; padding:8px; background:#fff;
+      border:1px solid rgba(124,77,255,.14); cursor:zoom-in;
+    }
+    .reference-bab9-main { min-width:0; }
+    .reference-bab9-jp { font-family:var(--jp); font-size:26px; font-weight:850; color:#071b45; line-height:1.15; overflow-wrap:anywhere; }
+    .reference-bab9-reading {
+      display:inline-flex; width:fit-content; max-width:100%; margin-top:6px; padding:5px 9px; border-radius:999px;
+      background:#f3edff; color:#5e35d6; font-size:12px; font-weight:850; line-height:1.25;
+    }
+    .reference-bab9-meaning { margin:9px 0 0; color:#46536b; font-weight:650; line-height:1.45; }
+    .reference-bab9-card .tag-row { margin-top:10px; }
+    .reference-bab9-card .card-actions { margin-top:12px; }
+    .reference-bab9-empty-section { padding:18px; border-radius:20px; background:#f8f6ff; border:1px dashed #c9bcff; color:#66728a; font-weight:750; }
+    @media (max-width:700px){
+      .reference-bab9-section { padding:16px; }
+      .reference-bab9-section-head { flex-direction:column; }
+      .reference-bab9-grid { grid-template-columns:1fr; }
+      .reference-bab9-card { grid-template-columns:76px 1fr; padding:13px; }
+      .reference-bab9-thumb { width:76px; height:76px; }
+      .reference-bab9-jp { font-size:23px; }
+      .reference-bab9-hero { padding:22px; }
+    }
+
   </style>
 </head>
 <body>
@@ -18159,7 +18231,1044 @@
             ],
             "catatan": "また今度お願いします digunakan untuk menolak ajakan dengan sopan sambil menjaga perasaan lawan bicara."
         }
-];
+,
+
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-001",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "音楽 / Musik",
+            "indonesia": "musik",
+            "kanji": "音楽",
+            "kana": "おんがく",
+            "romaji": "ongaku",
+            "image": "https://iili.io/ClfozLg.png",
+            "isFiction": false,
+            "exampleJa": "毎晩、寝る前に音楽を聞きます。",
+            "exampleReading": "まいばん、ねる まえに おんがくを ききます。",
+            "exampleId": "Setiap malam, saya mendengarkan musik sebelum tidur.",
+            "examples": [
+                {
+                    "ja": "毎晩、寝る前に音楽を聞きます。",
+                    "reading": "まいばん、ねる まえに おんがくを ききます。",
+                    "id": "Setiap malam, saya mendengarkan musik sebelum tidur."
+                }
+            ],
+            "catatan": "音楽 adalah kata umum untuk menyebut musik."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-002",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "音楽 / Musik",
+            "indonesia": "pop",
+            "kanji": "",
+            "kana": "ポップス",
+            "romaji": "poppusu",
+            "image": "https://iili.io/ClfoGBs.png",
+            "isFiction": false,
+            "exampleJa": "友だちの車で新しいポップスを聞きました。",
+            "exampleReading": "ともだちの くるまで あたらしい ポップスを ききました。",
+            "exampleId": "Saya mendengarkan lagu pop baru di mobil teman.",
+            "examples": [
+                {
+                    "ja": "友だちの車で新しいポップスを聞きました。",
+                    "reading": "ともだちの くるまで あたらしい ポップスを ききました。",
+                    "id": "Saya mendengarkan lagu pop baru di mobil teman."
+                }
+            ],
+            "catatan": "ポップス digunakan untuk musik pop."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-003",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "音楽 / Musik",
+            "indonesia": "rock",
+            "kanji": "",
+            "kana": "ロック",
+            "romaji": "rokku",
+            "image": "https://iili.io/ClfoV4f.png",
+            "isFiction": false,
+            "exampleJa": "兄はロックのコンサートへ行きました。",
+            "exampleReading": "あには ロックの コンサートへ いきました。",
+            "exampleId": "Kakak laki-laki saya pergi ke konser rock.",
+            "examples": [
+                {
+                    "ja": "兄はロックのコンサートへ行きました。",
+                    "reading": "あには ロックの コンサートへ いきました。",
+                    "id": "Kakak laki-laki saya pergi ke konser rock."
+                }
+            ],
+            "catatan": "ロック berarti musik rock."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-004",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "音楽 / Musik",
+            "indonesia": "jaz",
+            "kanji": "",
+            "kana": "ジャズ",
+            "romaji": "jazu",
+            "image": "https://iili.io/ClfooI1.png",
+            "isFiction": false,
+            "exampleJa": "この喫茶店では静かなジャズが流れています。",
+            "exampleReading": "この きっさてんでは しずかな ジャズが ながれています。",
+            "exampleId": "Di kafe ini sedang mengalun musik jazz yang tenang.",
+            "examples": [
+                {
+                    "ja": "この喫茶店では静かなジャズが流れています。",
+                    "reading": "この きっさてんでは しずかな ジャズが ながれています。",
+                    "id": "Di kafe ini sedang mengalun musik jazz yang tenang."
+                }
+            ],
+            "catatan": "ジャズ berarti musik jazz."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-005",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "音楽 / Musik",
+            "indonesia": "musik Latin",
+            "kanji": "",
+            "kana": "ラテン",
+            "romaji": "raten",
+            "image": "https://iili.io/ClfxQHl.png",
+            "isFiction": false,
+            "exampleJa": "週末、ラテンのリズムで踊りました。",
+            "exampleReading": "しゅうまつ、ラテンの リズムで おどりました。",
+            "exampleId": "Pada akhir pekan, saya menari mengikuti irama musik Latin.",
+            "examples": [
+                {
+                    "ja": "週末、ラテンのリズムで踊りました。",
+                    "reading": "しゅうまつ、ラテンの リズムで おどりました。",
+                    "id": "Pada akhir pekan, saya menari mengikuti irama musik Latin."
+                }
+            ],
+            "catatan": "ラテン merujuk pada musik Latin."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-006",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "音楽 / Musik",
+            "indonesia": "musik klasik",
+            "kanji": "",
+            "kana": "クラシック",
+            "romaji": "kurashikku",
+            "image": "https://iili.io/ClfxPKG.png",
+            "isFiction": false,
+            "exampleJa": "試験の前にクラシックを聞くと落ち着きます。",
+            "exampleReading": "しけんの まえに クラシックを きくと おちつきます。",
+            "exampleId": "Kalau mendengarkan musik klasik sebelum ujian, saya menjadi tenang.",
+            "examples": [
+                {
+                    "ja": "試験の前にクラシックを聞くと落ち着きます。",
+                    "reading": "しけんの まえに クラシックを きくと おちつきます。",
+                    "id": "Kalau mendengarkan musik klasik sebelum ujian, saya menjadi tenang."
+                }
+            ],
+            "catatan": "クラシック berarti musik klasik."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-007",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "音楽 / Musik",
+            "indonesia": "musik rakyat / nyanyian daerah",
+            "kanji": "民謡",
+            "kana": "みんよう",
+            "romaji": "minyou",
+            "image": "https://iili.io/ClfxtNS.png",
+            "isFiction": false,
+            "exampleJa": "祖母は故郷の民謡をよく歌います。",
+            "exampleReading": "そぼは ふるさとの みんようを よく うたいます。",
+            "exampleId": "Nenek saya sering menyanyikan lagu daerah dari kampung halamannya.",
+            "examples": [
+                {
+                    "ja": "祖母は故郷の民謡をよく歌います。",
+                    "reading": "そぼは ふるさとの みんようを よく うたいます。",
+                    "id": "Nenek saya sering menyanyikan lagu daerah dari kampung halamannya."
+                }
+            ],
+            "catatan": "民謡 dibaca みんよう dan berarti lagu rakyat atau nyanyian daerah."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-008",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "音楽 / Musik",
+            "indonesia": "lagu tradisional Jepang populer",
+            "kanji": "演歌",
+            "kana": "えんか",
+            "romaji": "enka",
+            "image": "https://iili.io/ClfxZR2.png",
+            "isFiction": false,
+            "exampleJa": "父はカラオケで演歌を歌うのが上手です。",
+            "exampleReading": "ちちは カラオケで えんかを うたうのが じょうずです。",
+            "exampleId": "Ayah saya pandai menyanyikan enka di karaoke.",
+            "examples": [
+                {
+                    "ja": "父はカラオケで演歌を歌うのが上手です。",
+                    "reading": "ちちは カラオケで えんかを うたうのが じょうずです。",
+                    "id": "Ayah saya pandai menyanyikan enka di karaoke."
+                }
+            ],
+            "catatan": "演歌 dibaca えんか dan merupakan gaya lagu Jepang populer bernuansa tradisional."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-009",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "音楽 / Musik",
+            "indonesia": "drama musikal",
+            "kanji": "",
+            "kana": "ミュージカル",
+            "romaji": "myuujikaru",
+            "image": "https://iili.io/ClfxpVe.png",
+            "isFiction": false,
+            "exampleJa": "来月、東京でミュージカルを見ます。",
+            "exampleReading": "らいげつ、とうきょうで ミュージカルを みます。",
+            "exampleId": "Bulan depan, saya akan menonton drama musikal di Tokyo.",
+            "examples": [
+                {
+                    "ja": "来月、東京でミュージカルを見ます。",
+                    "reading": "らいげつ、とうきょうで ミュージカルを みます。",
+                    "id": "Bulan depan, saya akan menonton drama musikal di Tokyo."
+                }
+            ],
+            "catatan": "ミュージカル berarti drama musikal."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-010",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "音楽 / Musik",
+            "indonesia": "opera",
+            "kanji": "",
+            "kana": "オペラ",
+            "romaji": "opera",
+            "image": "https://iili.io/Clfxyiu.png",
+            "isFiction": false,
+            "exampleJa": "初めてオペラを聞いて、とても感動しました。",
+            "exampleReading": "はじめて オペラを きいて、とても かんどうしました。",
+            "exampleId": "Saya sangat terharu setelah pertama kali mendengarkan opera.",
+            "examples": [
+                {
+                    "ja": "初めてオペラを聞いて、とても感動しました。",
+                    "reading": "はじめて オペラを きいて、とても かんどうしました。",
+                    "id": "Saya sangat terharu setelah pertama kali mendengarkan opera."
+                }
+            ],
+            "catatan": "オペラ berarti opera."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-011",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "映画 / Film",
+            "indonesia": "film",
+            "kanji": "映画",
+            "kana": "えいが",
+            "romaji": "eiga",
+            "image": "https://iili.io/ClfzJlj.png",
+            "isFiction": false,
+            "exampleJa": "日曜日に友だちと映画を見に行きます。",
+            "exampleReading": "にちようびに ともだちと えいがを みに いきます。",
+            "exampleId": "Pada hari Minggu, saya akan pergi menonton film dengan teman.",
+            "examples": [
+                {
+                    "ja": "日曜日に友だちと映画を見に行きます。",
+                    "reading": "にちようびに ともだちと えいがを みに いきます。",
+                    "id": "Pada hari Minggu, saya akan pergi menonton film dengan teman."
+                }
+            ],
+            "catatan": "映画 dibaca えいが dan berarti film."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-012",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "映画 / Film",
+            "indonesia": "film fiksi ilmiah",
+            "kanji": "",
+            "kana": "SF",
+            "romaji": "esu efu",
+            "image": "https://iili.io/ClfzHKb.png",
+            "isFiction": false,
+            "exampleJa": "私は宇宙が出てくるSFが好きです。",
+            "exampleReading": "わたしは うちゅうが でてくる SFが すきです。",
+            "exampleId": "Saya suka film fiksi ilmiah yang menampilkan luar angkasa.",
+            "examples": [
+                {
+                    "ja": "私は宇宙が出てくるSFが好きです。",
+                    "reading": "わたしは うちゅうが でてくる SFが すきです。",
+                    "id": "Saya suka film fiksi ilmiah yang menampilkan luar angkasa."
+                }
+            ],
+            "catatan": "SF dibaca エスエフ dan berarti film fiksi ilmiah."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-013",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "映画 / Film",
+            "indonesia": "film horor",
+            "kanji": "",
+            "kana": "ホラー",
+            "romaji": "horaa",
+            "image": "https://iili.io/ClfzdUx.png",
+            "isFiction": false,
+            "exampleJa": "ホラーは怖いので、一人では見ません。",
+            "exampleReading": "ホラーは こわいので、ひとりでは みません。",
+            "exampleId": "Karena film horor menakutkan, saya tidak menontonnya sendirian.",
+            "examples": [
+                {
+                    "ja": "ホラーは怖いので、一人では見ません。",
+                    "reading": "ホラーは こわいので、ひとりでは みません。",
+                    "id": "Karena film horor menakutkan, saya tidak menontonnya sendirian."
+                }
+            ],
+            "catatan": "ホラー berarti film horor."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-014",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "映画 / Film",
+            "indonesia": "film kartun / animasi",
+            "kanji": "",
+            "kana": "アニメ",
+            "romaji": "anime",
+            "image": "https://iili.io/Clfz3HQ.png",
+            "isFiction": false,
+            "exampleJa": "日本語の勉強のためにアニメを見ています。",
+            "exampleReading": "にほんごの べんきょうの ために アニメを みています。",
+            "exampleId": "Saya menonton anime untuk belajar bahasa Jepang.",
+            "examples": [
+                {
+                    "ja": "日本語の勉強のためにアニメを見ています。",
+                    "reading": "にほんごの べんきょうの ために アニメを みています。",
+                    "id": "Saya menonton anime untuk belajar bahasa Jepang."
+                }
+            ],
+            "catatan": "アニメ berarti animasi atau film kartun."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-015",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "映画 / Film",
+            "indonesia": "film dokumenter",
+            "kanji": "",
+            "kana": "ドキュメンタリー",
+            "romaji": "dokyumentarii",
+            "image": "https://iili.io/ClfzFRV.png",
+            "isFiction": false,
+            "exampleJa": "このドキュメンタリーで海の動物について学びました。",
+            "exampleReading": "この ドキュメンタリーで うみの どうぶつについて まなびました。",
+            "exampleId": "Saya belajar tentang hewan laut dari film dokumenter ini.",
+            "examples": [
+                {
+                    "ja": "このドキュメンタリーで海の動物について学びました。",
+                    "reading": "この ドキュメンタリーで うみの どうぶつについて まなびました。",
+                    "id": "Saya belajar tentang hewan laut dari film dokumenter ini."
+                }
+            ],
+            "catatan": "ドキュメンタリー berarti film dokumenter."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-016",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "映画 / Film",
+            "indonesia": "film percintaan",
+            "kanji": "恋愛",
+            "kana": "れんあい",
+            "romaji": "renai",
+            "image": "https://iili.io/ClfzKOB.png",
+            "isFiction": false,
+            "exampleJa": "妹は恋愛映画を見るとよく泣きます。",
+            "exampleReading": "いもうとは れんあいえいがを みると よく なきます。",
+            "exampleId": "Adik perempuan saya sering menangis saat menonton film percintaan.",
+            "examples": [
+                {
+                    "ja": "妹は恋愛映画を見るとよく泣きます。",
+                    "reading": "いもうとは れんあいえいがを みると よく なきます。",
+                    "id": "Adik perempuan saya sering menangis saat menonton film percintaan."
+                }
+            ],
+            "catatan": "恋愛 dibaca れんあい dan berarti percintaan."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-017",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "映画 / Film",
+            "indonesia": "film misteri",
+            "kanji": "",
+            "kana": "ミステリー",
+            "romaji": "misuterii",
+            "image": "https://iili.io/ClfzBx1.png",
+            "isFiction": false,
+            "exampleJa": "最後まで犯人が分からないミステリーでした。",
+            "exampleReading": "さいごまで はんにんが わからない ミステリーでした。",
+            "exampleId": "Itu adalah film misteri yang pelakunya tidak diketahui sampai akhir.",
+            "examples": [
+                {
+                    "ja": "最後まで犯人が分からないミステリーでした。",
+                    "reading": "さいごまで はんにんが わからない ミステリーでした。",
+                    "id": "Itu adalah film misteri yang pelakunya tidak diketahui sampai akhir."
+                }
+            ],
+            "catatan": "ミステリー berarti film misteri."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-018",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "映画 / Film",
+            "indonesia": "film kesusastraan",
+            "kanji": "文芸",
+            "kana": "ぶんげい",
+            "romaji": "bungei",
+            "image": "https://iili.io/ClfzCWF.png",
+            "isFiction": false,
+            "exampleJa": "文芸映画は言葉の表現が美しいです。",
+            "exampleReading": "ぶんげいえいがは ことばの ひょうげんが うつくしいです。",
+            "exampleId": "Film kesusastraan memiliki ungkapan bahasa yang indah.",
+            "examples": [
+                {
+                    "ja": "文芸映画は言葉の表現が美しいです。",
+                    "reading": "ぶんげいえいがは ことばの ひょうげんが うつくしいです。",
+                    "id": "Film kesusastraan memiliki ungkapan bahasa yang indah."
+                }
+            ],
+            "catatan": "文芸 dibaca ぶんげい dan berkaitan dengan sastra."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-019",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "映画 / Film",
+            "indonesia": "film peperangan",
+            "kanji": "戦争",
+            "kana": "せんそう",
+            "romaji": "sensou",
+            "image": "https://iili.io/Clfzz0J.png",
+            "isFiction": false,
+            "exampleJa": "戦争映画を見て、平和の大切さを考えました。",
+            "exampleReading": "せんそうえいがを みて、へいわの たいせつさを かんがえました。",
+            "exampleId": "Setelah menonton film perang, saya memikirkan pentingnya perdamaian.",
+            "examples": [
+                {
+                    "ja": "戦争映画を見て、平和の大切さを考えました。",
+                    "reading": "せんそうえいがを みて、へいわの たいせつさを かんがえました。",
+                    "id": "Setelah menonton film perang, saya memikirkan pentingnya perdamaian."
+                }
+            ],
+            "catatan": "戦争 dibaca せんそう dan berarti perang."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-020",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "映画 / Film",
+            "indonesia": "film action",
+            "kanji": "",
+            "kana": "アクション",
+            "romaji": "akushon",
+            "image": "https://iili.io/Clfzxfa.png",
+            "isFiction": false,
+            "exampleJa": "アクション映画はスピードがあって面白いです。",
+            "exampleReading": "アクションえいがは スピードが あって おもしろいです。",
+            "exampleId": "Film action menarik karena memiliki tempo yang cepat.",
+            "examples": [
+                {
+                    "ja": "アクション映画はスピードがあって面白いです。",
+                    "reading": "アクションえいがは スピードが あって おもしろいです。",
+                    "id": "Film action menarik karena memiliki tempo yang cepat."
+                }
+            ],
+            "catatan": "アクション berarti action atau aksi."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-021",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "映画 / Film",
+            "indonesia": "film komedi",
+            "kanji": "喜劇",
+            "kana": "きげき",
+            "romaji": "kigeki",
+            "image": "https://iili.io/Clfz5bI.png",
+            "isFiction": false,
+            "exampleJa": "疲れた日は喜劇を見て笑います。",
+            "exampleReading": "つかれた ひは きげきを みて わらいます。",
+            "exampleId": "Pada hari yang melelahkan, saya menonton komedi dan tertawa.",
+            "examples": [
+                {
+                    "ja": "疲れた日は喜劇を見て笑います。",
+                    "reading": "つかれた ひは きげきを みて わらいます。",
+                    "id": "Pada hari yang melelahkan, saya menonton komedi dan tertawa."
+                }
+            ],
+            "catatan": "喜劇 dibaca きげき dan berarti komedi."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-022",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "スポーツ / Olahraga",
+            "indonesia": "olahraga",
+            "kanji": "",
+            "kana": "スポーツ",
+            "romaji": "supootsu",
+            "image": "https://iili.io/Clfzcsn.png",
+            "isFiction": false,
+            "exampleJa": "健康のために毎週スポーツをします。",
+            "exampleReading": "けんこうの ために まいしゅう スポーツを します。",
+            "exampleId": "Demi kesehatan, saya berolahraga setiap minggu.",
+            "examples": [
+                {
+                    "ja": "健康のために毎週スポーツをします。",
+                    "reading": "けんこうの ために まいしゅう スポーツを します。",
+                    "id": "Demi kesehatan, saya berolahraga setiap minggu."
+                }
+            ],
+            "catatan": "スポーツ berarti olahraga."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-023",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "スポーツ / Olahraga",
+            "indonesia": "softball",
+            "kanji": "",
+            "kana": "ソフトボール",
+            "romaji": "sofutobooru",
+            "image": "https://iili.io/ClfzaWX.png",
+            "isFiction": false,
+            "exampleJa": "学校の大会でソフトボールをしました。",
+            "exampleReading": "がっこうの たいかいで ソフトボールを しました。",
+            "exampleId": "Saya bermain softball dalam turnamen sekolah.",
+            "examples": [
+                {
+                    "ja": "学校の大会でソフトボールをしました。",
+                    "reading": "がっこうの たいかいで ソフトボールを しました。",
+                    "id": "Saya bermain softball dalam turnamen sekolah."
+                }
+            ],
+            "catatan": "ソフトボール berarti softball."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-024",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "スポーツ / Olahraga",
+            "indonesia": "sepak bola",
+            "kanji": "",
+            "kana": "サッカー",
+            "romaji": "sakkaa",
+            "image": "https://iili.io/ClfzYxt.png",
+            "isFiction": false,
+            "exampleJa": "弟は放課後にサッカーの練習をします。",
+            "exampleReading": "おとうとは ほうかごに サッカーの れんしゅうを します。",
+            "exampleId": "Adik laki-laki saya berlatih sepak bola setelah sekolah.",
+            "examples": [
+                {
+                    "ja": "弟は放課後にサッカーの練習をします。",
+                    "reading": "おとうとは ほうかごに サッカーの れんしゅうを します。",
+                    "id": "Adik laki-laki saya berlatih sepak bola setelah sekolah."
+                }
+            ],
+            "catatan": "サッカー berarti sepak bola."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-025",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "スポーツ / Olahraga",
+            "indonesia": "rugby",
+            "kanji": "",
+            "kana": "ラグビー",
+            "romaji": "ragubii",
+            "image": "https://iili.io/ClfzEgf.png",
+            "isFiction": false,
+            "exampleJa": "ラグビーの試合は力強くて迫力があります。",
+            "exampleReading": "ラグビーの しあいは ちからづよくて はくりょくが あります。",
+            "exampleId": "Pertandingan rugby kuat dan penuh kesan.",
+            "examples": [
+                {
+                    "ja": "ラグビーの試合は力強くて迫力があります。",
+                    "reading": "ラグビーの しあいは ちからづよくて はくりょくが あります。",
+                    "id": "Pertandingan rugby kuat dan penuh kesan."
+                }
+            ],
+            "catatan": "ラグビー berarti rugby."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-026",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "スポーツ / Olahraga",
+            "indonesia": "voli",
+            "kanji": "",
+            "kana": "バレーボール",
+            "romaji": "bareebooru",
+            "image": "https://iili.io/ClfzXbS.png",
+            "isFiction": false,
+            "exampleJa": "体育の時間にバレーボールをしました。",
+            "exampleReading": "たいいくの じかんに バレーボールを しました。",
+            "exampleId": "Saat pelajaran olahraga, saya bermain voli.",
+            "examples": [
+                {
+                    "ja": "体育の時間にバレーボールをしました。",
+                    "reading": "たいいくの じかんに バレーボールを しました。",
+                    "id": "Saat pelajaran olahraga, saya bermain voli."
+                }
+            ],
+            "catatan": "バレーボール berarti bola voli."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-027",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "スポーツ / Olahraga",
+            "indonesia": "basket",
+            "kanji": "",
+            "kana": "バスケットボール",
+            "romaji": "basukettobooru",
+            "image": "https://iili.io/Clfzjz7.png",
+            "isFiction": false,
+            "exampleJa": "彼は背が高いのでバスケットボールが得意です。",
+            "exampleReading": "かれは せが たかいので バスケットボールが とくいです。",
+            "exampleId": "Karena dia tinggi, dia pandai bermain basket.",
+            "examples": [
+                {
+                    "ja": "彼は背が高いのでバスケットボールが得意です。",
+                    "reading": "かれは せが たかいので バスケットボールが とくいです。",
+                    "id": "Karena dia tinggi, dia pandai bermain basket."
+                }
+            ],
+            "catatan": "バスケットボール berarti bola basket."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-028",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "スポーツ / Olahraga",
+            "indonesia": "tenis",
+            "kanji": "",
+            "kana": "テニス",
+            "romaji": "tenisu",
+            "image": "https://iili.io/Clfzequ.png",
+            "isFiction": false,
+            "exampleJa": "日曜日の朝、公園でテニスをします。",
+            "exampleReading": "にちようびの あさ、こうえんで テニスを します。",
+            "exampleId": "Pada Minggu pagi, saya bermain tenis di taman.",
+            "examples": [
+                {
+                    "ja": "日曜日の朝、公園でテニスをします。",
+                    "reading": "にちようびの あさ、こうえんで テニスを します。",
+                    "id": "Pada Minggu pagi, saya bermain tenis di taman."
+                }
+            ],
+            "catatan": "テニス berarti tenis."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-029",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "スポーツ / Olahraga",
+            "indonesia": "bowling",
+            "kanji": "",
+            "kana": "ボウリング",
+            "romaji": "bouringu",
+            "image": "https://iili.io/Clfzvgj.png",
+            "isFiction": false,
+            "exampleJa": "会社の人たちとボウリングへ行きました。",
+            "exampleReading": "かいしゃの ひとたちと ボウリングへ いきました。",
+            "exampleId": "Saya pergi bowling bersama orang-orang kantor.",
+            "examples": [
+                {
+                    "ja": "会社の人たちとボウリングへ行きました。",
+                    "reading": "かいしゃの ひとたちと ボウリングへ いきました。",
+                    "id": "Saya pergi bowling bersama orang-orang kantor."
+                }
+            ],
+            "catatan": "ボウリング berarti bowling."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-030",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "スポーツ / Olahraga",
+            "indonesia": "ski",
+            "kanji": "",
+            "kana": "スキー",
+            "romaji": "sukii",
+            "image": "https://iili.io/Clfz6zP.png",
+            "isFiction": false,
+            "exampleJa": "冬休みに北海道でスキーをするつもりです。",
+            "exampleReading": "ふゆやすみに ほっかいどうで スキーを する つもりです。",
+            "exampleId": "Saya berencana bermain ski di Hokkaido saat liburan musim dingin.",
+            "examples": [
+                {
+                    "ja": "冬休みに北海道でスキーをするつもりです。",
+                    "reading": "ふゆやすみに ほっかいどうで スキーを する つもりです。",
+                    "id": "Saya berencana bermain ski di Hokkaido saat liburan musim dingin."
+                }
+            ],
+            "catatan": "スキー berarti ski."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-031",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "スポーツ / Olahraga",
+            "indonesia": "skate",
+            "kanji": "",
+            "kana": "スケート",
+            "romaji": "sukeeto",
+            "image": "https://iili.io/ClfziLF.png",
+            "isFiction": false,
+            "exampleJa": "子どものころ、よくスケートをしました。",
+            "exampleReading": "こどもの ころ、よく スケートを しました。",
+            "exampleId": "Waktu kecil, saya sering bermain skate.",
+            "examples": [
+                {
+                    "ja": "子どものころ、よくスケートをしました。",
+                    "reading": "こどもの ころ、よく スケートを しました。",
+                    "id": "Waktu kecil, saya sering bermain skate."
+                }
+            ],
+            "catatan": "スケート berarti skate."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-032",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "スポーツ / Olahraga",
+            "indonesia": "baseball",
+            "kanji": "野球",
+            "kana": "やきゅう",
+            "romaji": "yakyuu",
+            "image": "https://iili.io/ClfzLqg.png",
+            "isFiction": false,
+            "exampleJa": "日本では野球がとても人気があります。",
+            "exampleReading": "にほんでは やきゅうが とても にんきが あります。",
+            "exampleId": "Di Jepang, baseball sangat populer.",
+            "examples": [
+                {
+                    "ja": "日本では野球がとても人気があります。",
+                    "reading": "にほんでは やきゅうが とても にんきが あります。",
+                    "id": "Di Jepang, baseball sangat populer."
+                }
+            ],
+            "catatan": "野球 dibaca やきゅう dan berarti baseball."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-033",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "スポーツ / Olahraga",
+            "indonesia": "ping-pong",
+            "kanji": "卓球",
+            "kana": "たっきゅう",
+            "romaji": "takkyuu",
+            "image": "https://iili.io/ClfzZrJ.png",
+            "isFiction": false,
+            "exampleJa": "昼休みに友だちと卓球をしました。",
+            "exampleReading": "ひるやすみに ともだちと たっきゅうを しました。",
+            "exampleId": "Saat istirahat siang, saya bermain ping-pong dengan teman.",
+            "examples": [
+                {
+                    "ja": "昼休みに友だちと卓球をしました。",
+                    "reading": "ひるやすみに ともだちと たっきゅうを しました。",
+                    "id": "Saat istirahat siang, saya bermain ping-pong dengan teman."
+                }
+            ],
+            "catatan": "卓球 dibaca たっきゅう dan berarti ping-pong."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-034",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "スポーツ / Olahraga",
+            "indonesia": "sumo / gulat tradisional Jepang",
+            "kanji": "相撲",
+            "kana": "すもう",
+            "romaji": "sumou",
+            "image": "https://iili.io/ClfzpmN.png",
+            "isFiction": false,
+            "exampleJa": "テレビで相撲の試合を見ました。",
+            "exampleReading": "テレビで すもうの しあいを みました。",
+            "exampleId": "Saya menonton pertandingan sumo di televisi.",
+            "examples": [
+                {
+                    "ja": "テレビで相撲の試合を見ました。",
+                    "reading": "テレビで すもうの しあいを みました。",
+                    "id": "Saya menonton pertandingan sumo di televisi."
+                }
+            ],
+            "catatan": "相撲 dibaca すもう dan berarti sumo."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-035",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "スポーツ / Olahraga",
+            "indonesia": "judo / olahraga tradisional Jepang",
+            "kanji": "柔道",
+            "kana": "じゅうどう",
+            "romaji": "juudou",
+            "image": "https://iili.io/ClfIHXt.png",
+            "isFiction": false,
+            "exampleJa": "兄は高校で柔道を習っています。",
+            "exampleReading": "あには こうこうで じゅうどうを ならっています。",
+            "exampleId": "Kakak laki-laki saya belajar judo di SMA.",
+            "examples": [
+                {
+                    "ja": "兄は高校で柔道を習っています。",
+                    "reading": "あには こうこうで じゅうどうを ならっています。",
+                    "id": "Kakak laki-laki saya belajar judo di SMA."
+                }
+            ],
+            "catatan": "柔道 dibaca じゅうどう dan berarti judo."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-036",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "スポーツ / Olahraga",
+            "indonesia": "kendo / olahraga tradisional Jepang",
+            "kanji": "剣道",
+            "kana": "けんどう",
+            "romaji": "kendou",
+            "image": "https://iili.io/ClfIJLX.png",
+            "isFiction": false,
+            "exampleJa": "剣道では礼儀も大切にします。",
+            "exampleReading": "けんどうでは れいぎも たいせつに します。",
+            "exampleId": "Dalam kendo, tata krama juga dianggap penting.",
+            "examples": [
+                {
+                    "ja": "剣道では礼儀も大切にします。",
+                    "reading": "けんどうでは れいぎも たいせつに します。",
+                    "id": "Dalam kendo, tata krama juga dianggap penting."
+                }
+            ],
+            "catatan": "剣道 dibaca けんどう dan berarti kendo."
+        },
+        {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 9",
+            "chapterNumber": 9,
+            "favorite": false,
+            "id": "mni-b9-ref-info-037",
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "スポーツ / Olahraga",
+            "indonesia": "renang",
+            "kanji": "水泳",
+            "kana": "すいえい",
+            "romaji": "suiei",
+            "image": "https://iili.io/ClfI31s.png",
+            "isFiction": false,
+            "exampleJa": "夏になると、プールで水泳を練習します。",
+            "exampleReading": "なつに なると、プールで すいえいを れんしゅうします。",
+            "exampleId": "Saat musim panas tiba, saya berlatih renang di kolam.",
+            "examples": [
+                {
+                    "ja": "夏になると、プールで水泳を練習します。",
+                    "reading": "なつに なると、プールで すいえいを れんしゅうします。",
+                    "id": "Saat musim panas tiba, saya berlatih renang di kolam."
+                }
+            ],
+            "catatan": "水泳 dibaca すいえい dan berarti renang."
+        }];
 
     const REFERENCE_INFO_BAB2_MATERIAL = {
       "vocab": [
@@ -18668,6 +19777,7 @@
     function isReferenceInfoBab5(){ return isReferenceInfoChapter("Bab 5"); }
     function isReferenceInfoBab7(){ return isReferenceInfoChapter("Bab 7"); }
     function isReferenceInfoBab8(){ return isReferenceInfoChapter("Bab 8"); }
+    function isReferenceInfoBab9(){ return isReferenceInfoChapter("Bab 9"); }
     function isReferenceInfoMaterialOnly(){ return isReferenceInfoBab2() || isReferenceInfoBab4() || isReferenceInfoBab5(); }
 
     function materialOnlyQuizMessage(){
@@ -19338,7 +20448,10 @@
         "その他 / Yang Lainnya":"Yang Lainnya",
         "Kata-kata referensi dan Informasi":"Kata-kata Referensi dan Informasi",
         "練習C / Latihan C":"練習C / Latihan C",
-        "会話 / Percakapan":"会話 / Percakapan"
+        "会話 / Percakapan":"会話 / Percakapan",
+        "音楽 / Musik":"Musik",
+        "映画 / Film":"Film",
+        "スポーツ / Olahraga":"Olahraga"
       };
       const jaMap = {
         "Semua":"すべて",
@@ -19365,6 +20478,9 @@
         "Kosakata Tambahan":"追加語彙",
         "Materi Umum":"一般教材",
         "Kata-kata referensi dan Informasi":"情報・参考語彙",
+        "音楽 / Musik":"音楽",
+        "映画 / Film":"映画",
+        "スポーツ / Olahraga":"スポーツ",
         "Keluarga / 家族":"家族",
         "Keluarga Saya":"私の家族",
         "Keluarga Saudara Tanaka":"田中さんの家族",
@@ -19395,7 +20511,7 @@
       const sectionSel = $("#materialSectionFilter"), typeSel = $("#materialTypeFilter");
       if(!sectionSel || !typeSel) return;
       const secVal = sectionSel.value || "all", typeVal = typeSel.value || "all";
-      const sections=[["all", state.lang==="ja"?"すべてのセクション":"Semua Bagian"],["Kosakata", categoryLabel("Kosakata")],["Warna", categoryLabel("Warna")],["Rasa", categoryLabel("Rasa")],["Musim", categoryLabel("Musim")],["Latihan C", categoryLabel("Latihan C")],["練習C / Latihan C", categoryLabel("練習C / Latihan C")],["Percakapan", categoryLabel("Percakapan")],["会話 / Percakapan", categoryLabel("会話 / Percakapan")],["Kosakata Tambahan", categoryLabel("Kosakata Tambahan")],["Kata-kata referensi dan Informasi", categoryLabel("Kata-kata referensi dan Informasi")],["Keluarga / 家族", categoryLabel("Keluarga / 家族")],["食べ物 / Makanan", categoryLabel("食べ物 / Makanan")]];
+      const sections=[["all", state.lang==="ja"?"すべてのセクション":"Semua Bagian"],["Kosakata", categoryLabel("Kosakata")],["Warna", categoryLabel("Warna")],["Rasa", categoryLabel("Rasa")],["Musim", categoryLabel("Musim")],["Latihan C", categoryLabel("Latihan C")],["練習C / Latihan C", categoryLabel("練習C / Latihan C")],["Percakapan", categoryLabel("Percakapan")],["会話 / Percakapan", categoryLabel("会話 / Percakapan")],["Kosakata Tambahan", categoryLabel("Kosakata Tambahan")],["Kata-kata referensi dan Informasi", categoryLabel("Kata-kata referensi dan Informasi")],["Keluarga / 家族", categoryLabel("Keluarga / 家族")],["食べ物 / Makanan", categoryLabel("食べ物 / Makanan")],["音楽 / Musik", categoryLabel("音楽 / Musik")],["映画 / Film", categoryLabel("映画 / Film")],["スポーツ / Olahraga", categoryLabel("スポーツ / Olahraga")]];
       const types=[["all", state.lang==="ja"?"すべての品詞":"Semua Jenis Kata"],["Kata Benda", categoryLabel("Kata Benda")],["Kata Kerja", categoryLabel("Kata Kerja")],["Kata Tanya", categoryLabel("Kata Tanya")],["Kata Keterangan", categoryLabel("Kata Keterangan")],["Kata Sambung", categoryLabel("Kata Sambung")],["Ungkapan", categoryLabel("Ungkapan")],["Ungkapan Percakapan", categoryLabel("Ungkapan Percakapan")],["Nama Tempat Fiksi", categoryLabel("Nama Tempat Fiksi")],["Kata Sifat-i", categoryLabel("Kata Sifat-i")],["Kata Sifat-na", categoryLabel("Kata Sifat-na")],["Kosakata Tambahan", categoryLabel("Kosakata Tambahan")],["Negara", categoryLabel("Negara")],["Bahasa", categoryLabel("Bahasa")],["Kewarganegaraan", categoryLabel("Kewarganegaraan")],["野菜 / Sayuran", categoryLabel("野菜 / Sayuran")],["果物 / Buah-buahan", categoryLabel("果物 / Buah-buahan")],["肉 / Daging", categoryLabel("肉 / Daging")],["魚 / Ikan", categoryLabel("魚 / Ikan")],["その他 / Yang Lainnya", categoryLabel("その他 / Yang Lainnya")]];
       sectionSel.innerHTML = sections.map(([v,l])=>`<option value="${esc(v)}">${esc(l)}</option>`).join("");
       typeSel.innerHTML = types.map(([v,l])=>`<option value="${esc(v)}">${esc(l)}</option>`).join("");
@@ -19513,6 +20629,100 @@
       $("#materialEmpty").classList.toggle("hidden", arr.length>0);
     }
 
+
+
+    function renderReferenceInfoBab9(){
+      const grid = $("#materialGrid");
+      if(!grid) return;
+      const toolbar = $(".material-toolbar");
+      const notice = $("#materialPage .notice");
+      const title = $("#materialPage .content-card > h2");
+      const desc = $("#materialPage .content-card > p");
+      if(title) title.textContent = state.lang === "ja" ? "第9課 音楽・スポーツ・映画" : "Kata-kata Referensi dan Informasi - Bab 9";
+      if(desc) desc.textContent = state.lang === "ja"
+        ? "音楽、映画、スポーツの語彙を、画像・読み方・意味・例文つきで確認できます。"
+        : "Materi Bab 9 berisi kosakata musik, film, dan olahraga sesuai gambar referensi, lengkap dengan gambar, cara baca, arti Indonesia, dan contoh kalimat.";
+      document.body.classList.remove("material-only-reference");
+      if(toolbar){ toolbar.classList.remove("hidden"); toolbar.style.removeProperty("display"); toolbar.style.removeProperty("visibility"); toolbar.style.removeProperty("pointer-events"); }
+      if(notice){ notice.classList.add("hidden"); notice.style.setProperty("display", "none", "important"); }
+      updateMaterialOnlyControls();
+      grid.className = "reference-bab9-wrap";
+
+      const search = ($("#materialSearch")?.value || "").toLowerCase();
+      const sectionFilter = $("#materialSectionFilter")?.value || "all";
+      const typeFilter = $("#materialTypeFilter")?.value || "all";
+      let arr = activeVocab().filter(v => String(v.id || "").startsWith("mni-b9-ref-info-") && [
+        formatIndonesianMeaning(v), v.indonesia, v.kana, v.kanji, v.romaji, v.typeCategory, v.sectionCategory,
+        v.chapter, v.catatan, v.exampleJa, v.exampleReading, v.exampleId,
+        ...(Array.isArray(v.examples) ? v.examples.flatMap(ex => [ex.ja, ex.reading, ex.id]) : [])
+      ].join(" ").toLowerCase().includes(search));
+      if(sectionFilter !== "all") arr = arr.filter(v => v.sectionCategory === sectionFilter);
+      if(typeFilter !== "all") arr = arr.filter(v => v.typeCategory === typeFilter);
+
+      const sectionMeta = [
+        { key:"音楽 / Musik", title:"音楽", reading:"おんがく", label:"Musik", icon:"fa-music", note: state.lang === "ja" ? "ポップス、ロック、ジャズ、クラシックなど" : "Pop, rock, jazz, klasik, lagu daerah, musikal, dan opera." },
+        { key:"映画 / Film", title:"映画", reading:"えいが", label:"Film", icon:"fa-film", note: state.lang === "ja" ? "SF、ホラー、アニメ、恋愛、喜劇など" : "Film fiksi ilmiah, horor, animasi, dokumenter, percintaan, komedi, dan lainnya." },
+        { key:"スポーツ / Olahraga", title:"スポーツ", reading:"", label:"Olahraga", icon:"fa-person-running", note: state.lang === "ja" ? "サッカー、テニス、野球、水泳など" : "Sepak bola, tenis, baseball, sumo, judo, kendo, renang, dan olahraga lain." }
+      ];
+
+      const displayParts = (v={}) => {
+        const kanji = String(v.kanji || "").trim();
+        const kana = String(v.kana || "").trim();
+        const romaji = String(v.romaji || "").trim();
+        if(kanji && kana && kanji !== kana) return { main: kanji, reading: `${kana} • ${romaji}` };
+        return { main: kana || kanji || romaji, reading: romaji };
+      };
+      const card = (v) => {
+        const fav = state.favorites.includes(v.id);
+        const meaning = formatIndonesianMeaning(v);
+        const parts = displayParts(v);
+        const thumb = v.image ? `<img class="reference-bab9-thumb" src="${esc(v.image)}" alt="${esc(meaning)}" loading="lazy" data-zoom="${esc(v.image)}">` : `<span class="thumb-placeholder"><i class="fa-regular fa-image"></i></span>`;
+        return `<article class="reference-bab9-card">
+          ${thumb}
+          <div class="reference-bab9-main">
+            <div class="reference-bab9-jp">${esc(parts.main)}</div>
+            <div class="reference-bab9-reading">${esc(parts.reading || "-")}</div>
+            <p class="reference-bab9-meaning">${esc(meaning)}</p>
+            <div class="tag-row"><span class="tag">${esc(v.chapter)}</span><span class="tag green">${esc(categoryLabel(v.typeCategory,"type"))}</span><span class="tag pink">${esc(categoryLabel(v.sectionCategory,"section"))}</span></div>
+            <div class="card-actions">
+              <button class="icon-btn" data-speak-id="${esc(v.id)}" title="${state.lang==="ja"?"聞く":"Dengar"}"><i class="fa-solid fa-volume-high"></i></button>
+              <button class="icon-btn ${fav?"active":""}" data-fav="${esc(v.id)}" title="${state.lang==="ja"?"お気に入り":"Favorit"}"><i class="${fav?"fa-solid":"fa-regular"} fa-star"></i></button>
+              <button class="icon-btn" data-note-material="${esc(v.id)}" title="${state.lang==="ja"?"メモ":"Catatan"}"><i class="fa-regular fa-note-sticky"></i></button>
+              <button class="icon-btn" data-example-material="${esc(v.id)}" title="${state.lang==="ja"?"例文":"Contoh kalimat"}"><i class="fa-regular fa-comment-dots"></i></button>
+            </div>
+          </div>
+        </article>`;
+      };
+
+      const sectionsHtml = sectionMeta.map(meta => {
+        const items = arr.filter(v => v.sectionCategory === meta.key);
+        if(!items.length) return "";
+        return `<section class="reference-bab9-section">
+          <div class="reference-bab9-section-head">
+            <div class="reference-bab9-titleline">
+              <span class="reference-bab9-icon"><i class="fa-solid ${esc(meta.icon)}"></i></span>
+              <h3><span class="jp">${esc(meta.title)}</span> <small>${meta.reading ? esc(meta.reading) + " / " : ""}${esc(meta.label)}</small></h3>
+            </div>
+            <span class="reference-bab9-count"><i class="fa-solid fa-layer-group"></i>${items.length} ${state.lang==="ja"?"語":"kosakata"}</span>
+          </div>
+          <p class="material-ref-desc" style="margin:-4px 0 14px">${esc(meta.note)}</p>
+          <div class="reference-bab9-grid">${items.map(card).join("")}</div>
+        </section>`;
+      }).join("");
+
+      grid.innerHTML = `
+        <section class="reference-bab9-hero">
+          <h3><i class="fa-solid fa-circle-info" style="color:#7c4dff"></i> ${state.lang==="ja"?"第9課 参考語彙":"Bab 9 - Musik, Olahraga, Film"}</h3>
+          <p>${state.lang==="ja"
+            ? "画像の分類に合わせて、音楽・映画・スポーツの語彙をまとめました。カードのボタンから音声、メモ、例文を開けます。"
+            : "Kosakata disusun mengikuti gambar referensi: 音楽 / Musik, 映画 / Film, dan スポーツ / Olahraga. Gunakan tombol pada kartu untuk mendengar kosakata, membuka catatan, atau melihat contoh kalimat."}</p>
+        </section>
+        ${sectionsHtml || `<div class="reference-bab9-empty-section">${state.lang==="ja"?"該当する語彙がありません。":"Kosakata tidak ditemukan pada filter ini."}</div>`}`;
+
+      $("#materialEmpty").innerHTML = `<div style="font-size:34px;color:#7c4dff;margin-bottom:10px"><i class="fa-solid fa-magnifying-glass"></i></div><h3>${state.lang==="ja"?"語彙が見つかりません":"Kosakata tidak ditemukan"}</h3><p>${state.lang==="ja"?"検索語またはフィルターを変更してください。":"Coba ubah filter atau kata kunci pencarian."}</p>`;
+      $("#materialEmpty").classList.toggle("hidden", arr.length>0);
+    }
+
     function renderMaterial(){
       syncFictionToggleAvailability();
       const toolbar = $(".material-toolbar");
@@ -19539,6 +20749,10 @@
       }
       if(isReferenceInfoBab8()){
         renderReferenceInfoBab8();
+        return;
+      }
+      if(isReferenceInfoBab9()){
+        renderReferenceInfoBab9();
         return;
       }
       const notice = $("#materialPage .notice");
@@ -19705,7 +20919,7 @@
       const nums = chapterNumbers(state.setup.chapter);
       const chapterOpts = nums.map(n=>`Bab ${n}`);
       $("#quizChapterFilters").innerHTML = chapterOpts.map(ch=>`<label class="check-pill"><input type="checkbox" value="${ch}" checked><span><i class="fa-regular fa-bookmark"></i>${esc(state.lang==="ja"?categoryLabel(ch):ch)}</span></label>`).join("");
-      const sections=["Semua","Kosakata","Warna","Rasa","Musim","Latihan C","練習C / Latihan C","Percakapan","会話 / Percakapan","Kosakata Tambahan","食べ物 / Makanan"];
+      const sections=["Semua","Kosakata","Warna","Rasa","Musim","Latihan C","練習C / Latihan C","Percakapan","会話 / Percakapan","Kosakata Tambahan","食べ物 / Makanan","音楽 / Musik","映画 / Film","スポーツ / Olahraga"];
       $("#quizSectionFilters").innerHTML = sections.map(s=>`<label class="check-pill"><input type="checkbox" value="${s}" ${s==="Semua"?"checked":""}><span><i class="fa-solid ${s==="Latihan C"?"fa-pen-nib":s==="Percakapan"?"fa-comments":s==="Kosakata Tambahan"?"fa-circle-plus":"fa-book-open"}"></i>${esc(s==="Semua"?(state.lang==="ja"?"すべて":"Semua"):categoryLabel(s))}</span></label>`).join("");
       const types=["Semua","Kata Benda","Kata Kerja","Kata Tanya","Kata Keterangan","Kata Sambung","Ungkapan","Ungkapan Percakapan","Nama Tempat Fiksi","Kata Sifat-i","Kata Sifat-na","Kosakata Tambahan","Negara","Bahasa","Kewarganegaraan","野菜 / Sayuran","果物 / Buah-buahan","肉 / Daging","魚 / Ikan","その他 / Yang Lainnya"];
       $("#quizTypeFilters").innerHTML = types.map(s=>`<label class="check-pill"><input type="checkbox" value="${s}" ${s==="Semua"?"checked":""}><span><i class="fa-solid fa-tag"></i>${esc(s==="Semua"?(state.lang==="ja"?"すべて":"Semua"):categoryLabel(s))}</span></label>`).join("");
