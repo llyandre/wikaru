@@ -1944,6 +1944,116 @@
       .reference-bab9-hero { padding:22px; }
     }
 
+
+    /* ===== Tambahan Bab 10: うちの中 / Di Dalam Rumah ===== */
+    .material-ref-bab10-wrap { display:grid!important; gap:22px; }
+    .material-ref-bab10-hero {
+      padding:28px; border-radius:30px; overflow:hidden; position:relative;
+      background:
+        radial-gradient(circle at 90% 12%,rgba(125,181,255,.34),transparent 30%),
+        radial-gradient(circle at 8% 100%,rgba(255,211,109,.36),transparent 30%),
+        linear-gradient(135deg,#fff,#f6f1ff 58%,#eef7ff);
+      border:1px solid rgba(124,77,255,.16); box-shadow:var(--shadow2);
+    }
+    .material-ref-bab10-hero-grid { display:grid; grid-template-columns:minmax(0,.82fr) minmax(360px,1.18fr); gap:22px; align-items:center; }
+    .material-ref-bab10-hero h3 { margin:12px 0 6px; font-size:clamp(30px,4vw,50px); letter-spacing:-.045em; }
+    .material-ref-bab10-hero h3 .jp { font-family:var(--jp); letter-spacing:normal; }
+    .material-ref-bab10-hero p { margin:0; max-width:760px; color:#526078; }
+    .material-ref-bab10-map {
+      padding:14px; border-radius:24px; background:rgba(255,255,255,.88); border:1px solid rgba(124,77,255,.14);
+      box-shadow:0 12px 28px rgba(80,67,130,.075);
+    }
+    .material-ref-bab10-map img { width:100%; max-height:430px; object-fit:contain; border-radius:18px; background:#fff; cursor:zoom-in; }
+    .material-ref-bab10-note {
+      display:inline-flex; align-items:center; gap:7px; width:fit-content; max-width:100%; margin-top:11px; padding:7px 11px;
+      border-radius:999px; background:#fff8e6; color:#6f5512; border:1px solid rgba(255,211,109,.7); font-size:12px; font-weight:800;
+    }
+    .material-ref-bab10-section {
+      padding:22px; border-radius:28px; background:rgba(255,255,255,.94); border:1px solid #e7e2ff; box-shadow:var(--shadow2);
+    }
+    .material-ref-bab10-section-head {
+      display:flex; align-items:flex-start; justify-content:space-between; gap:14px; padding-bottom:14px; margin-bottom:16px;
+      border-bottom:1px dashed rgba(124,77,255,.22);
+    }
+    .material-ref-bab10-section-head h3 { margin:0; display:flex; align-items:center; gap:11px; font-size:clamp(22px,2.5vw,31px); }
+    .material-ref-bab10-section-head h3 i,
+    .material-ref-bab10-bath h3 i {
+      width:42px; height:42px; display:grid; place-items:center; border-radius:16px; color:#fff;
+      background:linear-gradient(135deg,var(--primary),#72d7d0); box-shadow:0 12px 22px rgba(124,77,255,.18);
+    }
+    .material-ref-bab10-count {
+      display:inline-flex; align-items:center; gap:7px; min-height:36px; padding:0 12px; border-radius:999px;
+      background:var(--soft); color:var(--primary2); font-size:12px; font-weight:850; white-space:nowrap;
+    }
+    .material-ref-bab10-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+    .material-ref-bab10-list-item {
+      display:grid; grid-template-columns:38px 1fr; gap:12px; align-items:center; min-height:82px; padding:13px 14px;
+      border-radius:20px; background:linear-gradient(145deg,#fff,#fbf8ff); border:1px solid rgba(124,77,255,.14);
+    }
+    .material-ref-bab10-list-num {
+      width:38px; height:38px; display:grid; place-items:center; border-radius:14px; color:#fff; font-weight:900;
+      background:linear-gradient(135deg,var(--primary),#8fd9ff); box-shadow:0 10px 18px rgba(124,77,255,.16);
+    }
+    .material-ref-bab10-list-jp { font-family:var(--jp); font-size:22px; font-weight:850; color:#071b45; line-height:1.12; }
+    .material-ref-bab10-list-reading { margin-top:3px; color:#7c4dff; font-size:12px; font-weight:850; }
+    .material-ref-bab10-list-meaning { margin-top:5px; color:#526078; font-size:13px; font-weight:650; line-height:1.35; }
+    .material-ref-bab10-vocab-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:15px; }
+    .material-ref-bab10-card {
+      display:grid; grid-template-columns:94px 1fr; gap:14px; align-items:center; padding:15px; border-radius:24px;
+      background:linear-gradient(145deg,#fff,#fbf8ff); border:1px solid rgba(124,77,255,.14); box-shadow:0 10px 24px rgba(80,67,130,.055);
+      transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .material-ref-bab10-card:hover { transform:translateY(-3px); box-shadow:0 18px 36px rgba(80,67,130,.11); border-color:rgba(124,77,255,.30); }
+    .material-ref-bab10-thumb { width:94px; height:94px; object-fit:contain; border-radius:21px; padding:8px; background:#fff; border:1px solid rgba(124,77,255,.14); cursor:zoom-in; }
+    .material-ref-bab10-main { min-width:0; }
+    .material-ref-bab10-jp { font-family:var(--jp); font-size:26px; font-weight:850; color:#071b45; line-height:1.15; overflow-wrap:anywhere; }
+    .material-ref-bab10-reading {
+      display:inline-flex; width:fit-content; max-width:100%; margin-top:6px; padding:5px 9px; border-radius:999px;
+      background:#f3edff; color:#5e35d6; font-size:12px; font-weight:850; line-height:1.25;
+    }
+    .material-ref-bab10-meaning { margin:9px 0 0; color:#46536b; font-weight:650; line-height:1.45; }
+    .material-ref-bab10-example {
+      margin-top:11px; padding:10px 12px; border-radius:16px; background:#f8f6ff; border:1px dashed rgba(124,77,255,.22);
+    }
+    .material-ref-bab10-example .jp { font-family:var(--jp); color:#071b45; font-size:15px; font-weight:800; line-height:1.45; }
+    .material-ref-bab10-example .reading { margin-top:3px; color:#7c4dff; font-size:12px; font-weight:800; }
+    .material-ref-bab10-example .meaning { margin-top:3px; color:#5f6d86; font-size:12px; font-weight:650; line-height:1.35; }
+    .material-ref-bab10-card .tag-row { margin-top:10px; }
+    .material-ref-bab10-card .card-actions { margin-top:12px; }
+    .material-ref-bab10-bath {
+      display:grid; grid-template-columns:minmax(280px,.92fr) minmax(0,1.08fr); gap:20px; align-items:center; padding:24px; border-radius:30px;
+      background:
+        radial-gradient(circle at 92% 16%,rgba(35,199,154,.20),transparent 30%),
+        linear-gradient(135deg,#fff,#f5fbff);
+      border:1px solid #dfe8ff; box-shadow:var(--shadow2);
+    }
+    .material-ref-bab10-bath img { width:100%; max-height:370px; object-fit:contain; border-radius:22px; padding:10px; background:#fff; border:1px solid rgba(124,77,255,.14); cursor:zoom-in; }
+    .material-ref-bab10-bath h3 { display:flex; align-items:center; gap:11px; margin:0 0 8px; font-size:clamp(22px,2.6vw,34px); }
+    .material-ref-bab10-bath h3 .jp { font-family:var(--jp); letter-spacing:normal; }
+    .material-ref-bab10-bath p { margin:0 0 14px; color:#526078; }
+    .material-ref-bab10-steps { display:grid; gap:10px; margin:0; padding:0; list-style:none; }
+    .material-ref-bab10-steps li {
+      display:grid; grid-template-columns:34px 1fr; gap:11px; align-items:flex-start; padding:12px; border-radius:18px; background:#fff; border:1px solid rgba(124,77,255,.12);
+      color:#46536b; font-weight:650; line-height:1.55;
+    }
+    .material-ref-bab10-steps b {
+      width:34px; height:34px; display:grid; place-items:center; border-radius:50%; background:var(--soft); color:var(--primary2); font-weight:900;
+    }
+    @media (max-width:900px){
+      .material-ref-bab10-hero-grid, .material-ref-bab10-bath { grid-template-columns:1fr; }
+      .material-ref-bab10-list { grid-template-columns:1fr; }
+      .material-ref-bab10-map img { max-height:360px; }
+    }
+    @media (max-width:640px){
+      .material-ref-bab10-hero, .material-ref-bab10-section, .material-ref-bab10-bath { padding:17px; border-radius:24px; }
+      .material-ref-bab10-section-head { flex-direction:column; }
+      .material-ref-bab10-vocab-grid { grid-template-columns:1fr; }
+      .material-ref-bab10-card { grid-template-columns:78px 1fr; padding:13px; }
+      .material-ref-bab10-thumb { width:78px; height:78px; }
+      .material-ref-bab10-jp { font-size:23px; }
+      .material-ref-bab10-list-jp { font-size:20px; }
+    }
+
   </style>
 </head>
 <body>
@@ -19915,6 +20025,414 @@
     VOCABULARY.push(...BAB10_VOCABULARY);
 
 
+    // ===== Tambahan Minna no Nihongo I - Kata-kata Referensi dan Informasi - Bab 10 =====
+    const BAB10_REFERENCE_INFO_VOCABULARY = [
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 10",
+            "chapterNumber": 10,
+            "favorite": false,
+            "id": "mni-b10-ref-info-01",
+            "typeCategory": "Bagian Rumah",
+            "sectionCategory": "Kata-kata referensi dan Informasi",
+            "indonesia": "di dalam rumah",
+            "kanji": "うちの中",
+            "kana": "うちのなか",
+            "romaji": "uchi no naka",
+            "image": "https://iili.io/ClgSHiP.png",
+            "isFiction": false,
+            "exampleJa": "うちの中にねこがいます。",
+            "exampleReading": "Uchi no naka ni neko ga imasu.",
+            "exampleId": "Di dalam rumah ada kucing.",
+            "examples": [
+                  {
+                        "ja": "うちの中にねこがいます。",
+                        "reading": "Uchi no naka ni neko ga imasu.",
+                        "id": "Di dalam rumah ada kucing."
+                  }
+            ],
+            "catatan": "うちの中 berarti bagian dalam rumah atau area yang berada di dalam rumah."
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 10",
+            "chapterNumber": 10,
+            "favorite": false,
+            "id": "mni-b10-ref-info-02",
+            "typeCategory": "Bagian Rumah",
+            "sectionCategory": "Kata-kata referensi dan Informasi",
+            "indonesia": "pintu masuk",
+            "kanji": "玄関",
+            "kana": "げんかん",
+            "romaji": "genkan",
+            "image": "https://iili.io/ClgS20F.png",
+            "isFiction": false,
+            "exampleJa": "玄関にかさを置きました。",
+            "exampleReading": "Genkan ni kasa o okimashita.",
+            "exampleId": "Saya meletakkan payung di pintu masuk.",
+            "examples": [
+                  {
+                        "ja": "玄関にかさを置きました。",
+                        "reading": "Genkan ni kasa o okimashita.",
+                        "id": "Saya meletakkan payung di pintu masuk."
+                  }
+            ],
+            "catatan": "玄関 adalah area pintu masuk rumah di Jepang, biasanya tempat melepas sepatu."
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 10",
+            "chapterNumber": 10,
+            "favorite": false,
+            "id": "mni-b10-ref-info-03",
+            "typeCategory": "Bagian Rumah",
+            "sectionCategory": "Kata-kata referensi dan Informasi",
+            "indonesia": "toilet",
+            "kanji": "",
+            "kana": "トイレ",
+            "romaji": "toire",
+            "image": "https://iili.io/ClgSdf1.png",
+            "isFiction": false,
+            "exampleJa": "すみません、トイレはどこですか。",
+            "exampleReading": "Sumimasen, toire wa doko desu ka.",
+            "exampleId": "Permisi, toiletnya di mana?",
+            "examples": [
+                  {
+                        "ja": "すみません、トイレはどこですか。",
+                        "reading": "Sumimasen, toire wa doko desu ka.",
+                        "id": "Permisi, toiletnya di mana?"
+                  }
+            ],
+            "catatan": "トイレ adalah kata serapan yang berarti toilet."
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 10",
+            "chapterNumber": 10,
+            "favorite": false,
+            "id": "mni-b10-ref-info-04",
+            "typeCategory": "Bagian Rumah",
+            "sectionCategory": "Kata-kata referensi dan Informasi",
+            "indonesia": "kamar mandi",
+            "kanji": "ふろ場",
+            "kana": "ふろば",
+            "romaji": "furoba",
+            "image": "https://iili.io/ClgSKJa.png",
+            "isFiction": false,
+            "exampleJa": "子どもたちはふろ場で遊んではいけません。",
+            "exampleReading": "Kodomotachi wa furoba de asonde wa ikemasen.",
+            "exampleId": "Anak-anak tidak boleh bermain di kamar mandi.",
+            "examples": [
+                  {
+                        "ja": "子どもたちはふろ場で遊んではいけません。",
+                        "reading": "Kodomotachi wa furoba de asonde wa ikemasen.",
+                        "id": "Anak-anak tidak boleh bermain di kamar mandi."
+                  }
+            ],
+            "catatan": "ふろ場 adalah tempat mandi; pada budaya Jepang, area mencuci badan dan bak berendam bisa dipisahkan fungsinya."
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 10",
+            "chapterNumber": 10,
+            "favorite": false,
+            "id": "mni-b10-ref-info-05",
+            "typeCategory": "Bagian Rumah",
+            "sectionCategory": "Kata-kata referensi dan Informasi",
+            "indonesia": "tempat cuci tangan / wastafel",
+            "kanji": "洗面所",
+            "kana": "せんめんじょ",
+            "romaji": "senmenjo",
+            "image": "https://iili.io/ClgSf5J.png",
+            "isFiction": false,
+            "exampleJa": "朝、洗面所で顔を洗います。",
+            "exampleReading": "Asa, senmenjo de kao o araimasu.",
+            "exampleId": "Pagi hari, saya mencuci muka di wastafel.",
+            "examples": [
+                  {
+                        "ja": "朝、洗面所で顔を洗います。",
+                        "reading": "Asa, senmenjo de kao o araimasu.",
+                        "id": "Pagi hari, saya mencuci muka di wastafel."
+                  }
+            ],
+            "catatan": "洗面所 adalah area untuk mencuci muka, tangan, atau memakai wastafel."
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 10",
+            "chapterNumber": 10,
+            "favorite": false,
+            "id": "mni-b10-ref-info-06",
+            "typeCategory": "Bagian Rumah",
+            "sectionCategory": "Kata-kata referensi dan Informasi",
+            "indonesia": "dapur",
+            "kanji": "台所",
+            "kana": "だいどころ",
+            "romaji": "daidokoro",
+            "image": "https://iili.io/ClgSqOv.png",
+            "isFiction": false,
+            "exampleJa": "母は台所で晩ごはんを作っています。",
+            "exampleReading": "Haha wa daidokoro de bangohan o tsukutte imasu.",
+            "exampleId": "Ibu sedang memasak makan malam di dapur.",
+            "examples": [
+                  {
+                        "ja": "母は台所で晩ごはんを作っています。",
+                        "reading": "Haha wa daidokoro de bangohan o tsukutte imasu.",
+                        "id": "Ibu sedang memasak makan malam di dapur."
+                  }
+            ],
+            "catatan": "台所 berarti dapur, tempat memasak makanan."
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 10",
+            "chapterNumber": 10,
+            "favorite": false,
+            "id": "mni-b10-ref-info-07",
+            "typeCategory": "Bagian Rumah",
+            "sectionCategory": "Kata-kata referensi dan Informasi",
+            "indonesia": "ruang makan",
+            "kanji": "食堂",
+            "kana": "しょくどう",
+            "romaji": "shokudou",
+            "image": "https://iili.io/ClgSBbR.png",
+            "isFiction": false,
+            "exampleJa": "家族は毎晩食堂でいっしょに食事します。",
+            "exampleReading": "Kazoku wa maiban shokudou de issho ni shokuji shimasu.",
+            "exampleId": "Keluarga makan bersama di ruang makan setiap malam.",
+            "examples": [
+                  {
+                        "ja": "家族は毎晩食堂でいっしょに食事します。",
+                        "reading": "Kazoku wa maiban shokudou de issho ni shokuji shimasu.",
+                        "id": "Keluarga makan bersama di ruang makan setiap malam."
+                  }
+            ],
+            "catatan": "食堂 dapat berarti ruang makan atau kantin, tergantung konteks."
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 10",
+            "chapterNumber": 10,
+            "favorite": false,
+            "id": "mni-b10-ref-info-08",
+            "typeCategory": "Bagian Rumah",
+            "sectionCategory": "Kata-kata referensi dan Informasi",
+            "indonesia": "ruang tamu / ruang keluarga",
+            "kanji": "居間",
+            "kana": "いま",
+            "romaji": "ima",
+            "image": "https://iili.io/ClgSxsI.png",
+            "isFiction": false,
+            "exampleJa": "父は居間で新聞を読んでいます。",
+            "exampleReading": "Chichi wa ima de shinbun o yonde imasu.",
+            "exampleId": "Ayah sedang membaca koran di ruang tamu.",
+            "examples": [
+                  {
+                        "ja": "父は居間で新聞を読んでいます。",
+                        "reading": "Chichi wa ima de shinbun o yonde imasu.",
+                        "id": "Ayah sedang membaca koran di ruang tamu."
+                  }
+            ],
+            "catatan": "居間 adalah ruang keluarga atau ruang tamu untuk berkumpul di rumah."
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 10",
+            "chapterNumber": 10,
+            "favorite": false,
+            "id": "mni-b10-ref-info-09",
+            "typeCategory": "Bagian Rumah",
+            "sectionCategory": "Kata-kata referensi dan Informasi",
+            "indonesia": "kamar tidur",
+            "kanji": "寝室",
+            "kana": "しんしつ",
+            "romaji": "shinshitsu",
+            "image": "https://iili.io/ClgSugn.png",
+            "isFiction": false,
+            "exampleJa": "寝室で少し休みます。",
+            "exampleReading": "Shinshitsu de sukoshi yasumimasu.",
+            "exampleId": "Saya beristirahat sebentar di kamar tidur.",
+            "examples": [
+                  {
+                        "ja": "寝室で少し休みます。",
+                        "reading": "Shinshitsu de sukoshi yasumimasu.",
+                        "id": "Saya beristirahat sebentar di kamar tidur."
+                  }
+            ],
+            "catatan": "寝室 berarti kamar tidur."
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 10",
+            "chapterNumber": 10,
+            "favorite": false,
+            "id": "mni-b10-ref-info-10",
+            "typeCategory": "Bagian Rumah",
+            "sectionCategory": "Kata-kata referensi dan Informasi",
+            "indonesia": "koridor",
+            "kanji": "廊下",
+            "kana": "ろうか",
+            "romaji": "rouka",
+            "image": "https://iili.io/ClgST0X.png",
+            "isFiction": false,
+            "exampleJa": "廊下を走らないでください。",
+            "exampleReading": "Rouka o hashiranaide kudasai.",
+            "exampleId": "Tolong jangan berlari di koridor.",
+            "examples": [
+                  {
+                        "ja": "廊下を走らないでください。",
+                        "reading": "Rouka o hashiranaide kudasai.",
+                        "id": "Tolong jangan berlari di koridor."
+                  }
+            ],
+            "catatan": "廊下 berarti lorong atau koridor di dalam bangunan."
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 10",
+            "chapterNumber": 10,
+            "favorite": false,
+            "id": "mni-b10-ref-info-11",
+            "typeCategory": "Bagian Rumah",
+            "sectionCategory": "Kata-kata referensi dan Informasi",
+            "indonesia": "beranda / balkon / teras",
+            "kanji": "",
+            "kana": "ベランダ",
+            "romaji": "beranda",
+            "image": "https://iili.io/ClgSRJs.png",
+            "isFiction": false,
+            "exampleJa": "ベランダでシャツを干します。",
+            "exampleReading": "Beranda de shatsu o hoshimasu.",
+            "exampleId": "Saya menjemur kaus di balkon.",
+            "examples": [
+                  {
+                        "ja": "ベランダでシャツを干します。",
+                        "reading": "Beranda de shatsu o hoshimasu.",
+                        "id": "Saya menjemur kaus di balkon."
+                  }
+            ],
+            "catatan": "ベランダ berarti balkon, beranda, atau teras kecil di rumah/apartemen."
+      }
+];
+    VOCABULARY.push(...BAB10_REFERENCE_INFO_VOCABULARY);
+
+    const REFERENCE_INFO_BAB10_MATERIAL = {
+      "hero": {
+            "title": "うちの中",
+            "reading": "うちのなか",
+            "romaji": "uchi no naka",
+            "subtitle": "Di Dalam Rumah",
+            "image": "https://iili.io/Clg8bOx.png",
+            "note": "Gambar denah rumah hanya untuk penjelasan materi, bukan soal kuis."
+      },
+      "houseList": [
+            {
+                  "no": 1,
+                  "jp": "玄関",
+                  "reading": "げんかん",
+                  "romaji": "genkan",
+                  "id": "pintu masuk"
+            },
+            {
+                  "no": 2,
+                  "jp": "トイレ",
+                  "reading": "",
+                  "romaji": "toire",
+                  "id": "toilet"
+            },
+            {
+                  "no": 3,
+                  "jp": "ふろ場",
+                  "reading": "ふろば",
+                  "romaji": "furoba",
+                  "id": "kamar mandi"
+            },
+            {
+                  "no": 4,
+                  "jp": "洗面所",
+                  "reading": "せんめんじょ",
+                  "romaji": "senmenjo",
+                  "id": "tempat cuci tangan / wastafel"
+            },
+            {
+                  "no": 5,
+                  "jp": "台所",
+                  "reading": "だいどころ",
+                  "romaji": "daidokoro",
+                  "id": "dapur"
+            },
+            {
+                  "no": 6,
+                  "jp": "食堂",
+                  "reading": "しょくどう",
+                  "romaji": "shokudou",
+                  "id": "ruang makan"
+            },
+            {
+                  "no": 7,
+                  "jp": "居間",
+                  "reading": "いま",
+                  "romaji": "ima",
+                  "id": "ruang tamu / ruang keluarga"
+            },
+            {
+                  "no": 8,
+                  "jp": "寝室",
+                  "reading": "しんしつ",
+                  "romaji": "shinshitsu",
+                  "id": "kamar tidur"
+            },
+            {
+                  "no": 9,
+                  "jp": "廊下",
+                  "reading": "ろうか",
+                  "romaji": "rouka",
+                  "id": "koridor"
+            },
+            {
+                  "no": 10,
+                  "jp": "ベランダ",
+                  "reading": "",
+                  "romaji": "beranda",
+                  "id": "beranda / balkon / teras"
+            }
+      ],
+      "bath": {
+            "title": "おふろの入り方",
+            "subtitle": "Cara menggunakan kamar mandi Jepang (ofuro)",
+            "image": "https://iili.io/ClgSYb4.png",
+            "note": "Gambar cara mandi di ofuro hanya untuk penjelasan materi, bukan soal kuis.",
+            "steps": [
+                  "Bersihkan badan terlebih dahulu sebelum masuk ke dalam bak mandi.",
+                  "Jangan menggunakan sabun dan sampo di dalam bak mandi. Bak mandi digunakan untuk berendam dan relaksasi.",
+                  "Setelah selesai mandi, jangan buang air bak mandi dan tutup bak mandi agar dapat digunakan oleh orang lain."
+            ]
+      }
+};
+
+
     // Normalisasi final: setiap kosakata hanya memakai 1 contoh kalimat.
     VOCABULARY.forEach(v => {
       if (Array.isArray(v.examples) && v.examples.length > 0) {
@@ -20206,7 +20724,7 @@
     const $ = s => document.querySelector(s);
     const $$ = s => [...document.querySelectorAll(s)];
     const storeKey = "minnaFlashcardV2";
-    const dataVersion = "bab1-bab10-general-20260708-v2-kalimat-variatif";
+    const dataVersion = "bab1-bab10-general-ref-info-bab10-20260708-v3";
     const setupCompletedKey = storeKey + "_setupCompleted";
     const hadCurrentDataVersionBeforeBoot = localStorage.getItem(storeKey+"_dataVersion") === dataVersion;
     const hadSetupCompletedFlagBeforeBoot = localStorage.getItem(setupCompletedKey);
@@ -20455,6 +20973,7 @@
     function isReferenceInfoBab7(){ return isReferenceInfoChapter("Bab 7"); }
     function isReferenceInfoBab8(){ return isReferenceInfoChapter("Bab 8"); }
     function isReferenceInfoBab9(){ return isReferenceInfoChapter("Bab 9"); }
+    function isReferenceInfoBab10(){ return isReferenceInfoChapter("Bab 10"); }
     function isReferenceInfoMaterialOnly(){ return isReferenceInfoBab2() || isReferenceInfoBab4() || isReferenceInfoBab5(); }
 
     function materialOnlyQuizMessage(){
@@ -21389,6 +21908,121 @@
       $("#materialEmpty").classList.toggle("hidden", arr.length>0);
     }
 
+
+
+    function renderReferenceInfoBab10(){
+      const grid = $("#materialGrid");
+      if(!grid) return;
+      const toolbar = $(".material-toolbar");
+      const notice = $("#materialPage .notice");
+      const title = $("#materialPage .content-card > h2");
+      const desc = $("#materialPage .content-card > p");
+      const material = REFERENCE_INFO_BAB10_MATERIAL;
+      if(title) title.textContent = state.lang === "ja" ? "第10課 うちの中" : "Kata-kata Referensi dan Informasi - Bab 10";
+      if(desc) desc.textContent = state.lang === "ja"
+        ? "家の中の場所を、間取り図・語彙カード・おふろの文化メモで確認できます。"
+        : "Materi Bab 10 mengenalkan nama-nama bagian rumah dalam bahasa Jepang, dilengkapi denah rumah, kartu kosakata, tombol contoh kalimat, dan catatan budaya ofuro.";
+      document.body.classList.remove("material-only-reference");
+      if(toolbar){ toolbar.classList.remove("hidden"); toolbar.style.removeProperty("display"); toolbar.style.removeProperty("visibility"); toolbar.style.removeProperty("pointer-events"); }
+      if(notice){ notice.classList.add("hidden"); notice.style.setProperty("display", "none", "important"); }
+      updateMaterialOnlyControls();
+      grid.className = "material-ref-bab10-wrap";
+
+      const search = ($("#materialSearch")?.value || "").toLowerCase();
+      const sectionFilter = $("#materialSectionFilter")?.value || "all";
+      const typeFilter = $("#materialTypeFilter")?.value || "all";
+      let arr = activeVocab().filter(v => String(v.id || "").startsWith("mni-b10-ref-info-") && [
+        formatIndonesianMeaning(v), v.indonesia, v.kana, v.kanji, v.romaji, v.typeCategory, v.sectionCategory,
+        v.chapter, v.catatan, v.exampleJa, v.exampleReading, v.exampleId,
+        ...(Array.isArray(v.examples) ? v.examples.flatMap(ex => [ex.ja, ex.reading, ex.id]) : [])
+      ].join(" ").toLowerCase().includes(search));
+      if(sectionFilter !== "all") arr = arr.filter(v => v.sectionCategory === sectionFilter);
+      if(typeFilter !== "all") arr = arr.filter(v => v.typeCategory === typeFilter);
+
+      const listItems = material.houseList.map(item => `
+        <article class="material-ref-bab10-list-item">
+          <span class="material-ref-bab10-list-num">${esc(item.no)}</span>
+          <div>
+            <div class="material-ref-bab10-list-jp">${esc(item.jp)}${item.reading ? `（${esc(item.reading)}）` : ""}</div>
+            <div class="material-ref-bab10-list-reading">${esc(item.romaji)}</div>
+            <div class="material-ref-bab10-list-meaning">${esc(item.id)}</div>
+          </div>
+        </article>`).join("");
+
+      const card = (v) => {
+        const fav = state.favorites.includes(v.id);
+        const meaning = formatIndonesianMeaning(v);
+        const thumb = v.image ? `<img class="material-ref-bab10-thumb" src="${esc(v.image)}" alt="${esc(meaning)}" loading="lazy" data-zoom="${esc(v.image)}">` : `<span class="thumb-placeholder"><i class="fa-regular fa-image"></i></span>`;
+        const mainText = vocabMainText(v);
+        const readingText = vocabReadingText(v);
+        return `<article class="material-ref-bab10-card">
+          ${thumb}
+          <div class="material-ref-bab10-main">
+            <div class="material-ref-bab10-jp">${esc(mainText)}</div>
+            <div class="material-ref-bab10-reading">${esc(readingText)}</div>
+            <p class="material-ref-bab10-meaning">${esc(meaning)}</p>
+            <div class="tag-row"><span class="tag">${esc(v.chapter)}</span><span class="tag green">${esc(categoryLabel(v.typeCategory,"type"))}</span><span class="tag pink">${esc(categoryLabel(v.sectionCategory,"section"))}</span></div>
+            <div class="card-actions">
+              <button class="icon-btn" data-speak-id="${esc(v.id)}" title="${state.lang==="ja"?"聞く":"Dengar"}"><i class="fa-solid fa-volume-high"></i></button>
+              <button class="icon-btn ${fav?"active":""}" data-fav="${esc(v.id)}" title="${state.lang==="ja"?"お気に入り":"Favorit"}"><i class="${fav?"fa-solid":"fa-regular"} fa-star"></i></button>
+              <button class="icon-btn" data-note-material="${esc(v.id)}" title="${state.lang==="ja"?"メモ":"Catatan"}"><i class="fa-regular fa-note-sticky"></i></button>
+              <button class="icon-btn" data-example-material="${esc(v.id)}" title="${state.lang==="ja"?"例文":"Contoh kalimat"}"><i class="fa-regular fa-comment-dots"></i></button>
+            </div>
+          </div>
+        </article>`;
+      };
+
+      const bathSteps = material.bath.steps.map((step, idx) => `<li><b>${idx+1}</b><span>${esc(step)}</span></li>`).join("");
+      const cardsHtml = arr.map(card).join("");
+
+      grid.innerHTML = `
+        <section class="material-ref-bab10-hero">
+          <div class="material-ref-bab10-hero-grid">
+            <div>
+              <span class="material-ref-badge"><i class="fa-solid fa-house"></i>${state.lang === "ja" ? "家の中" : "Materi rumah"}</span>
+              <h3><span class="jp">${esc(material.hero.title)}</span> <small style="display:block;font-size:15px;color:#66728a;letter-spacing:normal;margin-top:8px">${esc(material.hero.reading)} / ${esc(material.hero.romaji)}</small></h3>
+              <p>${state.lang === "ja" ? "この章では、家の中の場所の名前をインドネシア語の意味と例文で覚えます。" : "Materi ini mengenalkan nama-nama bagian rumah dalam bahasa Jepang. Perhatikan denah rumah, lalu pelajari daftar kosakata. Contoh kalimat akan muncul saat tombol contoh kalimat pada kartu ditekan."}</p>
+              <span class="material-ref-bab10-note"><i class="fa-solid fa-circle-info"></i>${esc(material.hero.note)}</span>
+            </div>
+            <div class="material-ref-bab10-map">
+              <img src="${esc(material.hero.image)}" alt="${esc(material.hero.title)} ${esc(material.hero.subtitle)}" loading="lazy" data-zoom="${esc(material.hero.image)}">
+            </div>
+          </div>
+        </section>
+
+        <section class="material-ref-bab10-section">
+          <div class="material-ref-bab10-section-head">
+            <h3><i class="fa-solid fa-list-ol"></i>${state.lang === "ja" ? "間取り図の語彙" : "Daftar Kosakata pada Denah Rumah"}</h3>
+            <span class="material-ref-bab10-count"><i class="fa-solid fa-layer-group"></i>${material.houseList.length} item</span>
+          </div>
+          <div class="material-ref-bab10-list">${listItems}</div>
+        </section>
+
+        <section class="material-ref-bab10-section">
+          <div class="material-ref-bab10-section-head">
+            <h3><i class="fa-solid fa-images"></i>${state.lang === "ja" ? "語彙カード" : "Kartu Kosakata Bergambar"}</h3>
+            <span class="material-ref-bab10-count"><i class="fa-solid fa-book-open"></i>${arr.length} ${state.lang === "ja" ? "語" : "kosakata"}</span>
+          </div>
+          <div class="material-ref-bab10-vocab-grid">${cardsHtml || `<div class="reference-bab9-empty-section">${state.lang==="ja"?"該当する語彙がありません。":"Kosakata tidak ditemukan pada filter ini."}</div>`}</div>
+        </section>
+
+        <section class="material-ref-bab10-bath">
+          <div>
+            <img src="${esc(material.bath.image)}" alt="${esc(material.bath.subtitle)}" loading="lazy" data-zoom="${esc(material.bath.image)}">
+          </div>
+          <div>
+            <span class="material-ref-badge"><i class="fa-solid fa-circle-info"></i>${state.lang === "ja" ? "日本文化メモ" : "Catatan budaya Jepang"}</span>
+            <h3><i class="fa-solid fa-bath"></i><span><span class="jp">${esc(material.bath.title)}</span><small style="display:block;font-size:13px;color:#66728a;margin-top:5px">${esc(material.bath.subtitle)}</small></span></h3>
+            <p>${state.lang === "ja" ? "日本のおふろでは、体を洗ってから湯船に入るのが基本です。" : "Dalam kebiasaan mandi Jepang, bak mandi digunakan untuk berendam dan relaksasi setelah badan dibersihkan terlebih dahulu."}</p>
+            <ul class="material-ref-bab10-steps">${bathSteps}</ul>
+            <span class="material-ref-bab10-note"><i class="fa-solid fa-circle-info"></i>${esc(material.bath.note)}</span>
+          </div>
+        </section>`;
+
+      $("#materialEmpty").innerHTML = `<div style="font-size:34px;color:#7c4dff;margin-bottom:10px"><i class="fa-solid fa-magnifying-glass"></i></div><h3>${state.lang==="ja"?"語彙が見つかりません":"Kosakata tidak ditemukan"}</h3><p>${state.lang==="ja"?"検索語またはフィルターを変更してください。":"Coba ubah filter atau kata kunci pencarian."}</p>`;
+      $("#materialEmpty").classList.toggle("hidden", arr.length>0);
+    }
+
     function renderMaterial(){
       syncFictionToggleAvailability();
       const toolbar = $(".material-toolbar");
@@ -21419,6 +22053,10 @@
       }
       if(isReferenceInfoBab9()){
         renderReferenceInfoBab9();
+        return;
+      }
+      if(isReferenceInfoBab10()){
+        renderReferenceInfoBab10();
         return;
       }
       const notice = $("#materialPage .notice");
