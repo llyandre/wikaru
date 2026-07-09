@@ -2054,6 +2054,121 @@
       .material-ref-bab10-list-jp { font-size:20px; }
     }
 
+  
+
+    /* ===== Bab 11 Reference Info - Menu Restaurant Style ===== */
+    .menu-bab11-wrap { display:grid; gap:22px; }
+    .menu-bab11-hero {
+      border-radius:30px;
+      padding:28px;
+      background:linear-gradient(135deg,#fffdf8,#ffffff 56%,#f7f2ff);
+      border:1px solid rgba(124,77,255,.14);
+      box-shadow:0 18px 44px rgba(80,67,130,.09);
+      overflow:hidden;
+      position:relative;
+    }
+    .menu-bab11-hero::before {
+      content:"";
+      position:absolute;
+      inset:auto -80px -110px auto;
+      width:270px;
+      height:210px;
+      border-radius:50%;
+      background:rgba(124,77,255,.08);
+      pointer-events:none;
+    }
+    .menu-bab11-hero-grid { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(240px,.65fr); gap:24px; align-items:center; position:relative; }
+    .menu-bab11-title-jp { font-family:var(--jp); font-size:clamp(34px,5vw,62px); font-weight:850; letter-spacing:.02em; color:#071b45; margin:12px 0 6px; }
+    .menu-bab11-title-id { font-size:clamp(22px,2.8vw,34px); font-weight:800; color:#5e35d6; margin:0 0 12px; }
+    .menu-bab11-hero p { max-width:760px; margin:0; color:#5c687e; font-weight:600; }
+    .menu-bab11-hero-img {
+      min-height:210px;
+      border-radius:26px;
+      background:#fff;
+      border:1px solid #ece7ff;
+      box-shadow:0 16px 34px rgba(80,67,130,.08);
+      display:grid;
+      place-items:center;
+      padding:20px;
+    }
+    .menu-bab11-hero-img img { width:min(230px,100%); max-height:190px; object-fit:contain; }
+    .menu-bab11-paper {
+      position:relative;
+      padding:30px;
+      border-radius:12px 28px 12px 28px;
+      background:#fffef9;
+      border:2px solid #2c2c34;
+      box-shadow:0 22px 54px rgba(40,37,61,.13);
+    }
+    .menu-bab11-paper::before {
+      content:"";
+      position:absolute;
+      inset:10px;
+      border:1px solid rgba(44,44,52,.2);
+      border-radius:8px 22px 8px 22px;
+      pointer-events:none;
+    }
+    .menu-bab11-paper-head { text-align:center; margin:0 0 22px; position:relative; z-index:1; }
+    .menu-bab11-paper-head .jp { display:inline-block; font-size:22px; font-weight:800; letter-spacing:.14em; margin-right:14px; }
+    .menu-bab11-paper-head .id { font-size:22px; font-weight:800; }
+    .menu-bab11-columns { display:grid; grid-template-columns:1fr 1fr; gap:30px; position:relative; z-index:1; }
+    .menu-bab11-columns::before {
+      content:"";
+      position:absolute;
+      top:0;
+      bottom:0;
+      left:50%;
+      width:1px;
+      background:repeating-linear-gradient(to bottom,#2d2b33 0,#2d2b33 6px,transparent 6px,transparent 12px);
+      opacity:.4;
+    }
+    .menu-bab11-col { display:grid; gap:18px; align-content:start; }
+    .menu-bab11-section { display:grid; gap:10px; }
+    .menu-bab11-section-title {
+      display:flex;
+      align-items:center;
+      gap:9px;
+      margin:0 0 1px;
+      font-size:13px;
+      color:#5e35d6;
+      font-weight:850;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+    }
+    .menu-bab11-section-title i { width:28px; height:28px; display:grid; place-items:center; border-radius:10px; background:#f0eaff; color:#7c4dff; }
+    .menu-bab11-item {
+      display:grid;
+      grid-template-columns:64px minmax(0,1fr) minmax(90px,.62fr);
+      gap:12px;
+      align-items:center;
+      padding:10px;
+      border-radius:18px;
+      background:rgba(255,255,255,.76);
+      border:1px solid rgba(124,77,255,.12);
+      box-shadow:0 8px 18px rgba(80,67,130,.045);
+    }
+    .menu-bab11-item:hover { border-color:rgba(124,77,255,.32); box-shadow:0 14px 28px rgba(80,67,130,.09); }
+    .menu-bab11-thumb { width:64px; height:64px; object-fit:contain; border-radius:16px; background:#fff; border:1px solid #eee8ff; padding:5px; }
+    .menu-bab11-jp { font-family:var(--jp); font-size:22px; line-height:1.12; font-weight:850; color:#071b45; }
+    .menu-bab11-reading { margin-top:3px; color:#7c4dff; font-size:12px; font-weight:800; line-height:1.35; }
+    .menu-bab11-id { color:#30384f; font-size:13px; line-height:1.35; font-weight:650; }
+    .menu-bab11-actions { grid-column:2 / 4; display:flex; flex-wrap:wrap; gap:8px; margin-top:2px; }
+    .menu-bab11-actions .icon-btn { width:38px; height:38px; border-radius:13px; }
+    .menu-bab11-empty { padding:22px; border:1px dashed #c9bcff; border-radius:20px; background:#fff; color:#65738d; font-weight:750; }
+    @media (max-width:980px){
+      .menu-bab11-hero-grid, .menu-bab11-columns { grid-template-columns:1fr; }
+      .menu-bab11-columns::before { display:none; }
+      .menu-bab11-paper { padding:22px; }
+    }
+    @media (max-width:620px){
+      .menu-bab11-paper { padding:16px; border-radius:18px; }
+      .menu-bab11-item { grid-template-columns:58px minmax(0,1fr); }
+      .menu-bab11-thumb { width:58px; height:58px; }
+      .menu-bab11-id { grid-column:2; }
+      .menu-bab11-actions { grid-column:1 / -1; }
+      .menu-bab11-jp { font-size:20px; }
+    }
+
   </style>
 </head>
 <body>
@@ -21839,6 +21954,1064 @@
     VOCABULARY.push(...BAB11_VOCABULARY);
 
 
+    // ===== Tambahan Minna no Nihongo I - Kata-kata Referensi dan Informasi - Bab 11: メニュー =====
+    // Data kosakata menu restoran; semua item tetap masuk ke sistem materi, flashcard, kuis, audio, favorit, catatan, dan contoh kalimat.
+    const BAB11_REFERENCE_INFO_MENU_VOCABULARY = [
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 11",
+            "chapterNumber": 11,
+            "favorite": false,
+            "isFiction": false,
+            "id": "mni-ref-b11-menu-001",
+            "typeCategory": "Informasi",
+            "sectionCategory": "Menu",
+            "indonesia": "menu",
+            "kanji": "",
+            "kana": "メニュー",
+            "romaji": "menyuu",
+            "image": "https://iili.io/C0a9aUJ.png",
+            "exampleJa": "レストランでメニューを見ます。",
+            "exampleReading": "Resutoran de menyuu o mimasu.",
+            "exampleId": "Saya melihat menu di restoran.",
+            "examples": [
+                  {
+                        "ja": "レストランでメニューを見ます。",
+                        "reading": "Resutoran de menyuu o mimasu.",
+                        "id": "Saya melihat menu di restoran."
+                  }
+            ],
+            "catatan": "メニュー berarti daftar makanan atau minuman di restoran.",
+            "note": "メニュー berarti daftar makanan atau minuman di restoran.",
+            "speech": "メニュー"
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 11",
+            "chapterNumber": 11,
+            "favorite": false,
+            "isFiction": false,
+            "id": "mni-ref-b11-menu-002",
+            "typeCategory": "Makanan",
+            "sectionCategory": "Paket Makan",
+            "indonesia": "makanan paket",
+            "kanji": "定食",
+            "kana": "ていしょく",
+            "romaji": "teishoku",
+            "image": "https://iili.io/C0a91Np.png",
+            "exampleJa": "昼ごはんに定食を食べました。",
+            "exampleReading": "Hirugohan ni teishoku o tabemashita.",
+            "exampleId": "Saya makan makanan paket untuk makan siang.",
+            "examples": [
+                  {
+                        "ja": "昼ごはんに定食を食べました。",
+                        "reading": "Hirugohan ni teishoku o tabemashita.",
+                        "id": "Saya makan makanan paket untuk makan siang."
+                  }
+            ],
+            "catatan": "定食 adalah paket makanan lengkap, biasanya berisi nasi, lauk, sup, dan pendamping.",
+            "note": "定食 adalah paket makanan lengkap, biasanya berisi nasi, lauk, sup, dan pendamping.",
+            "speech": "ていしょく"
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 11",
+            "chapterNumber": 11,
+            "favorite": false,
+            "isFiction": false,
+            "id": "mni-ref-b11-menu-003",
+            "typeCategory": "Makanan",
+            "sectionCategory": "Paket Makan",
+            "indonesia": "paket makan siang",
+            "kanji": "",
+            "kana": "ランチ",
+            "romaji": "ranchi",
+            "image": "https://iili.io/C0a90RR.png",
+            "exampleJa": "今日のランチは安いです。",
+            "exampleReading": "Kyou no ranchi wa yasui desu.",
+            "exampleId": "Paket makan siang hari ini murah.",
+            "examples": [
+                  {
+                        "ja": "今日のランチは安いです。",
+                        "reading": "Kyou no ranchi wa yasui desu.",
+                        "id": "Paket makan siang hari ini murah."
+                  }
+            ],
+            "catatan": "ランチ adalah kata serapan yang berarti makan siang atau paket makan siang.",
+            "note": "ランチ adalah kata serapan yang berarti makan siang atau paket makan siang.",
+            "speech": "ランチ"
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 11",
+            "chapterNumber": 11,
+            "favorite": false,
+            "isFiction": false,
+            "id": "mni-ref-b11-menu-004",
+            "typeCategory": "Makanan",
+            "sectionCategory": "Donburi",
+            "indonesia": "nasi dengan tempura di atasnya",
+            "kanji": "天どん",
+            "kana": "てんどん",
+            "romaji": "tendon",
+            "image": "https://iili.io/C0a9lHv.png",
+            "exampleJa": "この店の天どんはとてもおいしいです。",
+            "exampleReading": "Kono mise no tendon wa totemo oishii desu.",
+            "exampleId": "Tendon di toko ini sangat enak.",
+            "examples": [
+                  {
+                        "ja": "この店の天どんはとてもおいしいです。",
+                        "reading": "Kono mise no tendon wa totemo oishii desu.",
+                        "id": "Tendon di toko ini sangat enak."
+                  }
+            ],
+            "catatan": "天どん adalah hidangan nasi mangkuk dengan tempura di atasnya.",
+            "note": "天どん adalah hidangan nasi mangkuk dengan tempura di atasnya.",
+            "speech": "てんどん"
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 11",
+            "chapterNumber": 11,
+            "favorite": false,
+            "isFiction": false,
+            "id": "mni-ref-b11-menu-005",
+            "typeCategory": "Makanan",
+            "sectionCategory": "Donburi",
+            "indonesia": "nasi dengan daging ayam dan telur di atasnya",
+            "kanji": "親子どん",
+            "kana": "おやこどん",
+            "romaji": "oyakodon",
+            "image": "https://iili.io/C0a9MxI.png",
+            "exampleJa": "母は親子どんを作りました。",
+            "exampleReading": "Haha wa oyakodon o tsukurimashita.",
+            "exampleId": "Ibu membuat oyakodon.",
+            "examples": [
+                  {
+                        "ja": "母は親子どんを作りました。",
+                        "reading": "Haha wa oyakodon o tsukurimashita.",
+                        "id": "Ibu membuat oyakodon."
+                  }
+            ],
+            "catatan": "親子どん adalah nasi mangkuk dengan ayam dan telur di atasnya.",
+            "note": "親子どん adalah nasi mangkuk dengan ayam dan telur di atasnya.",
+            "speech": "おやこどん"
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 11",
+            "chapterNumber": 11,
+            "favorite": false,
+            "isFiction": false,
+            "id": "mni-ref-b11-menu-006",
+            "typeCategory": "Makanan",
+            "sectionCategory": "Donburi",
+            "indonesia": "nasi dengan daging sapi di atasnya",
+            "kanji": "牛どん",
+            "kana": "ぎゅうどん",
+            "romaji": "gyuudon",
+            "image": "https://iili.io/C0a9VVt.png",
+            "exampleJa": "駅の近くで牛どんを買いました。",
+            "exampleReading": "Eki no chikaku de gyuudon o kaimashita.",
+            "exampleId": "Saya membeli gyudon di dekat stasiun.",
+            "examples": [
+                  {
+                        "ja": "駅の近くで牛どんを買いました。",
+                        "reading": "Eki no chikaku de gyuudon o kaimashita.",
+                        "id": "Saya membeli gyudon di dekat stasiun."
+                  }
+            ],
+            "catatan": "牛どん adalah nasi mangkuk dengan irisan daging sapi di atasnya.",
+            "note": "牛どん adalah nasi mangkuk dengan irisan daging sapi di atasnya.",
+            "speech": "ぎゅうどん"
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 11",
+            "chapterNumber": 11,
+            "favorite": false,
+            "isFiction": false,
+            "id": "mni-ref-b11-menu-007",
+            "typeCategory": "Makanan",
+            "sectionCategory": "Masakan Jepang",
+            "indonesia": "daging panggang",
+            "kanji": "焼き肉",
+            "kana": "やきにく",
+            "romaji": "yakiniku",
+            "image": "https://iili.io/C0a9WiX.png",
+            "exampleJa": "友達と焼き肉を食べに行きます。",
+            "exampleReading": "Tomodachi to yakiniku o tabe ni ikimasu.",
+            "exampleId": "Saya akan pergi makan yakiniku bersama teman.",
+            "examples": [
+                  {
+                        "ja": "友達と焼き肉を食べに行きます。",
+                        "reading": "Tomodachi to yakiniku o tabe ni ikimasu.",
+                        "id": "Saya akan pergi makan yakiniku bersama teman."
+                  }
+            ],
+            "catatan": "焼き肉 berarti daging panggang, sering dimakan bersama di restoran yakiniku.",
+            "note": "焼き肉 berarti daging panggang, sering dimakan bersama di restoran yakiniku.",
+            "speech": "やきにく"
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 11",
+            "chapterNumber": 11,
+            "favorite": false,
+            "isFiction": false,
+            "id": "mni-ref-b11-menu-008",
+            "typeCategory": "Makanan",
+            "sectionCategory": "Masakan Jepang",
+            "indonesia": "sayur goreng / tumis sayur",
+            "kanji": "野菜いため",
+            "kana": "やさいいため",
+            "romaji": "yasai itame",
+            "image": "https://iili.io/C0a9hfn.png",
+            "exampleJa": "晩ごはんに野菜いためを食べます。",
+            "exampleReading": "Bangohan ni yasai itame o tabemasu.",
+            "exampleId": "Saya makan tumis sayur untuk makan malam.",
+            "examples": [
+                  {
+                        "ja": "晩ごはんに野菜いためを食べます。",
+                        "reading": "Bangohan ni yasai itame o tabemasu.",
+                        "id": "Saya makan tumis sayur untuk makan malam."
+                  }
+            ],
+            "catatan": "野菜いため adalah tumis sayur ala Jepang.",
+            "note": "野菜いため adalah tumis sayur ala Jepang.",
+            "speech": "やさいいため"
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 11",
+            "chapterNumber": 11,
+            "favorite": false,
+            "isFiction": false,
+            "id": "mni-ref-b11-menu-009",
+            "typeCategory": "Makanan",
+            "sectionCategory": "Lauk Pendamping",
+            "indonesia": "asinan",
+            "kanji": "漬物",
+            "kana": "つけもの",
+            "romaji": "tsukemono",
+            "image": "https://iili.io/C0a9jls.png",
+            "exampleJa": "ごはんと漬物を少し食べました。",
+            "exampleReading": "Gohan to tsukemono o sukoshi tabemashita.",
+            "exampleId": "Saya makan sedikit nasi dan asinan.",
+            "examples": [
+                  {
+                        "ja": "ごはんと漬物を少し食べました。",
+                        "reading": "Gohan to tsukemono o sukoshi tabemashita.",
+                        "id": "Saya makan sedikit nasi dan asinan."
+                  }
+            ],
+            "catatan": "漬物 adalah asinan atau acar Jepang yang sering menjadi lauk pendamping.",
+            "note": "漬物 adalah asinan atau acar Jepang yang sering menjadi lauk pendamping.",
+            "speech": "つけもの"
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 11",
+            "chapterNumber": 11,
+            "favorite": false,
+            "isFiction": false,
+            "id": "mni-ref-b11-menu-010",
+            "typeCategory": "Makanan",
+            "sectionCategory": "Sup",
+            "indonesia": "sup miso",
+            "kanji": "みそ汁",
+            "kana": "みそしる",
+            "romaji": "misoshiru",
+            "image": "https://iili.io/C0a9wUG.png",
+            "exampleJa": "朝ごはんにみそ汁を飲みます。",
+            "exampleReading": "Asagohan ni misoshiru o nomimasu.",
+            "exampleId": "Saya minum sup miso saat sarapan.",
+            "examples": [
+                  {
+                        "ja": "朝ごはんにみそ汁を飲みます。",
+                        "reading": "Asagohan ni misoshiru o nomimasu.",
+                        "id": "Saya minum sup miso saat sarapan."
+                  }
+            ],
+            "catatan": "みそ汁 adalah sup Jepang berbahan dasar pasta miso.",
+            "note": "みそ汁 adalah sup Jepang berbahan dasar pasta miso.",
+            "speech": "みそしる"
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 11",
+            "chapterNumber": 11,
+            "favorite": false,
+            "isFiction": false,
+            "id": "mni-ref-b11-menu-011",
+            "typeCategory": "Makanan",
+            "sectionCategory": "Nasi",
+            "indonesia": "nasi bola / nasi kepal",
+            "kanji": "",
+            "kana": "おにぎり",
+            "romaji": "onigiri",
+            "image": "https://iili.io/C0a9OJf.png",
+            "exampleJa": "コンビニでおにぎりを二つ買いました。",
+            "exampleReading": "Konbini de onigiri o futatsu kaimashita.",
+            "exampleId": "Saya membeli dua onigiri di minimarket.",
+            "examples": [
+                  {
+                        "ja": "コンビニでおにぎりを二つ買いました。",
+                        "reading": "Konbini de onigiri o futatsu kaimashita.",
+                        "id": "Saya membeli dua onigiri di minimarket."
+                  }
+            ],
+            "catatan": "おにぎり adalah nasi kepal yang sering diisi lauk dan dibungkus nori.",
+            "note": "おにぎり adalah nasi kepal yang sering diisi lauk dan dibungkus nori.",
+            "speech": "おにぎり"
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 11",
+            "chapterNumber": 11,
+            "favorite": false,
+            "isFiction": false,
+            "id": "mni-ref-b11-menu-012",
+            "typeCategory": "Makanan",
+            "sectionCategory": "Gorengan Jepang",
+            "indonesia": "tempura",
+            "kanji": "",
+            "kana": "てんぷら",
+            "romaji": "tenpura",
+            "image": "https://iili.io/C0a9eR4.png",
+            "exampleJa": "てんぷらをしょうゆで食べます。",
+            "exampleReading": "Tenpura o shouyu de tabemasu.",
+            "exampleId": "Saya makan tempura dengan kecap asin.",
+            "examples": [
+                  {
+                        "ja": "てんぷらをしょうゆで食べます。",
+                        "reading": "Tenpura o shouyu de tabemasu.",
+                        "id": "Saya makan tempura dengan kecap asin."
+                  }
+            ],
+            "catatan": "てんぷら adalah makanan yang digoreng dengan adonan tepung ringan.",
+            "note": "てんぷら adalah makanan yang digoreng dengan adonan tepung ringan.",
+            "speech": "てんぷら"
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 11",
+            "chapterNumber": 11,
+            "favorite": false,
+            "isFiction": false,
+            "id": "mni-ref-b11-menu-013",
+            "typeCategory": "Makanan",
+            "sectionCategory": "Masakan Jepang",
+            "indonesia": "sushi",
+            "kanji": "",
+            "kana": "すし",
+            "romaji": "sushi",
+            "image": "https://iili.io/C0a9kOl.png",
+            "exampleJa": "日本でおいしいすしを食べたいです。",
+            "exampleReading": "Nihon de oishii sushi o tabetai desu.",
+            "exampleId": "Saya ingin makan sushi yang enak di Jepang.",
+            "examples": [
+                  {
+                        "ja": "日本でおいしいすしを食べたいです。",
+                        "reading": "Nihon de oishii sushi o tabetai desu.",
+                        "id": "Saya ingin makan sushi yang enak di Jepang."
+                  }
+            ],
+            "catatan": "すし adalah hidangan nasi bercuka yang sering dipadukan dengan ikan atau lauk lain.",
+            "note": "すし adalah hidangan nasi bercuka yang sering dipadukan dengan ikan atau lauk lain.",
+            "speech": "すし"
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 11",
+            "chapterNumber": 11,
+            "favorite": false,
+            "isFiction": false,
+            "id": "mni-ref-b11-menu-014",
+            "typeCategory": "Makanan",
+            "sectionCategory": "Mie",
+            "indonesia": "mie udon",
+            "kanji": "",
+            "kana": "うどん",
+            "romaji": "udon",
+            "image": "https://iili.io/C0a9vb2.png",
+            "exampleJa": "寒い日にうどんを食べるのが好きです。",
+            "exampleReading": "Samui hi ni udon o taberu no ga suki desu.",
+            "exampleId": "Saya suka makan udon pada hari yang dingin.",
+            "examples": [
+                  {
+                        "ja": "寒い日にうどんを食べるのが好きです。",
+                        "reading": "Samui hi ni udon o taberu no ga suki desu.",
+                        "id": "Saya suka makan udon pada hari yang dingin."
+                  }
+            ],
+            "catatan": "うどん adalah mie Jepang yang tebal dan lembut.",
+            "note": "うどん adalah mie Jepang yang tebal dan lembut.",
+            "speech": "うどん"
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 11",
+            "chapterNumber": 11,
+            "favorite": false,
+            "isFiction": false,
+            "id": "mni-ref-b11-menu-015",
+            "typeCategory": "Makanan",
+            "sectionCategory": "Mie",
+            "indonesia": "mie soba",
+            "kanji": "",
+            "kana": "そば",
+            "romaji": "soba",
+            "image": "https://iili.io/C0a9SxS.png",
+            "exampleJa": "そばは冷たくても温かくてもおいしいです。",
+            "exampleReading": "Soba wa tsumetakute mo atatakakute mo oishii desu.",
+            "exampleId": "Soba enak baik dingin maupun hangat.",
+            "examples": [
+                  {
+                        "ja": "そばは冷たくても温かくてもおいしいです。",
+                        "reading": "Soba wa tsumetakute mo atatakakute mo oishii desu.",
+                        "id": "Soba enak baik dingin maupun hangat."
+                  }
+            ],
+            "catatan": "そば adalah mie Jepang dari gandum soba, berwarna agak keabu-abuan.",
+            "note": "そば adalah mie Jepang dari gandum soba, berwarna agak keabu-abuan.",
+            "speech": "そば"
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 11",
+            "chapterNumber": 11,
+            "favorite": false,
+            "isFiction": false,
+            "id": "mni-ref-b11-menu-016",
+            "typeCategory": "Makanan",
+            "sectionCategory": "Mie",
+            "indonesia": "ramen",
+            "kanji": "",
+            "kana": "ラーメン",
+            "romaji": "raamen",
+            "image": "https://iili.io/C0a9UW7.png",
+            "exampleJa": "父はラーメンが大好きです。",
+            "exampleReading": "Chichi wa raamen ga daisuki desu.",
+            "exampleId": "Ayah saya sangat suka ramen.",
+            "examples": [
+                  {
+                        "ja": "父はラーメンが大好きです。",
+                        "reading": "Chichi wa raamen ga daisuki desu.",
+                        "id": "Ayah saya sangat suka ramen."
+                  }
+            ],
+            "catatan": "ラーメン adalah mie kuah Jepang yang populer dengan berbagai jenis kuah.",
+            "note": "ラーメン adalah mie kuah Jepang yang populer dengan berbagai jenis kuah.",
+            "speech": "ラーメン"
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 11",
+            "chapterNumber": 11,
+            "favorite": false,
+            "isFiction": false,
+            "id": "mni-ref-b11-menu-017",
+            "typeCategory": "Makanan",
+            "sectionCategory": "Mie",
+            "indonesia": "mie goreng Jepang",
+            "kanji": "焼きそば",
+            "kana": "やきそば",
+            "romaji": "yakisoba",
+            "image": "https://iili.io/C0a960u.png",
+            "exampleJa": "祭りで焼きそばを食べました。",
+            "exampleReading": "Matsuri de yakisoba o tabemashita.",
+            "exampleId": "Saya makan yakisoba di festival.",
+            "examples": [
+                  {
+                        "ja": "祭りで焼きそばを食べました。",
+                        "reading": "Matsuri de yakisoba o tabemashita.",
+                        "id": "Saya makan yakisoba di festival."
+                  }
+            ],
+            "catatan": "焼きそば adalah mie goreng Jepang yang sering dijual di festival.",
+            "note": "焼きそば adalah mie goreng Jepang yang sering dijual di festival.",
+            "speech": "やきそば"
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 11",
+            "chapterNumber": 11,
+            "favorite": false,
+            "isFiction": false,
+            "id": "mni-ref-b11-menu-018",
+            "typeCategory": "Makanan",
+            "sectionCategory": "Masakan Jepang",
+            "indonesia": "makanan gorengan tepung dengan sayuran dan daging yang dimasak di atas loyang",
+            "kanji": "お好み焼き",
+            "kana": "おこのみやき",
+            "romaji": "okonomiyaki",
+            "image": "https://iili.io/C0a9PUb.png",
+            "exampleJa": "大阪でお好み焼きを食べました。",
+            "exampleReading": "Oosaka de okonomiyaki o tabemashita.",
+            "exampleId": "Saya makan okonomiyaki di Osaka.",
+            "examples": [
+                  {
+                        "ja": "大阪でお好み焼きを食べました。",
+                        "reading": "Oosaka de okonomiyaki o tabemashita.",
+                        "id": "Saya makan okonomiyaki di Osaka."
+                  }
+            ],
+            "catatan": "お好み焼き adalah makanan Jepang dari adonan tepung, sayuran, dan lauk yang dimasak di atas loyang.",
+            "note": "お好み焼き adalah makanan Jepang dari adonan tepung, sayuran, dan lauk yang dimasak di atas loyang.",
+            "speech": "おこのみやき"
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 11",
+            "chapterNumber": 11,
+            "favorite": false,
+            "isFiction": false,
+            "id": "mni-ref-b11-menu-019",
+            "typeCategory": "Makanan",
+            "sectionCategory": "Nasi",
+            "indonesia": "nasi kare",
+            "kanji": "",
+            "kana": "カレーライス",
+            "romaji": "karee raisu",
+            "image": "https://iili.io/C0a9sJj.png",
+            "exampleJa": "子どもたちはカレーライスが好きです。",
+            "exampleReading": "Kodomotachi wa karee raisu ga suki desu.",
+            "exampleId": "Anak-anak suka nasi kari.",
+            "examples": [
+                  {
+                        "ja": "子どもたちはカレーライスが好きです。",
+                        "reading": "Kodomotachi wa karee raisu ga suki desu.",
+                        "id": "Anak-anak suka nasi kari."
+                  }
+            ],
+            "catatan": "カレーライス adalah nasi kari Jepang.",
+            "note": "カレーライス adalah nasi kari Jepang.",
+            "speech": "カレーライス"
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 11",
+            "chapterNumber": 11,
+            "favorite": false,
+            "isFiction": false,
+            "id": "mni-ref-b11-menu-020",
+            "typeCategory": "Makanan",
+            "sectionCategory": "Makanan Barat",
+            "indonesia": "hamburger steak",
+            "kanji": "",
+            "kana": "ハンバーグ",
+            "romaji": "hanbaagu",
+            "image": "https://iili.io/C0a9L5x.png",
+            "exampleJa": "ハンバーグにソースをかけます。",
+            "exampleReading": "Hanbaagu ni soosu o kakemasu.",
+            "exampleId": "Saya menuangkan saus ke hamburger steak.",
+            "examples": [
+                  {
+                        "ja": "ハンバーグにソースをかけます。",
+                        "reading": "Hanbaagu ni soosu o kakemasu.",
+                        "id": "Saya menuangkan saus ke hamburger steak."
+                  }
+            ],
+            "catatan": "ハンバーグ berarti hamburger steak, bukan roti burger.",
+            "note": "ハンバーグ berarti hamburger steak, bukan roti burger.",
+            "speech": "ハンバーグ"
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 11",
+            "chapterNumber": 11,
+            "favorite": false,
+            "isFiction": false,
+            "id": "mni-ref-b11-menu-021",
+            "typeCategory": "Makanan",
+            "sectionCategory": "Gorengan",
+            "indonesia": "kroket",
+            "kanji": "",
+            "kana": "コロッケ",
+            "romaji": "korokke",
+            "image": "https://iili.io/C0a9QOQ.png",
+            "exampleJa": "肉屋でコロッケを一つ買いました。",
+            "exampleReading": "Nikuya de korokke o hitotsu kaimashita.",
+            "exampleId": "Saya membeli satu kroket di toko daging.",
+            "examples": [
+                  {
+                        "ja": "肉屋でコロッケを一つ買いました。",
+                        "reading": "Nikuya de korokke o hitotsu kaimashita.",
+                        "id": "Saya membeli satu kroket di toko daging."
+                  }
+            ],
+            "catatan": "コロッケ adalah kroket Jepang, biasanya berisi kentang atau daging.",
+            "note": "コロッケ adalah kroket Jepang, biasanya berisi kentang atau daging.",
+            "speech": "コロッケ"
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 11",
+            "chapterNumber": 11,
+            "favorite": false,
+            "isFiction": false,
+            "id": "mni-ref-b11-menu-022",
+            "typeCategory": "Makanan",
+            "sectionCategory": "Gorengan",
+            "indonesia": "udang goreng tepung roti",
+            "kanji": "",
+            "kana": "えびフライ",
+            "romaji": "ebi furai",
+            "image": "https://iili.io/C0a9ZbV.png",
+            "exampleJa": "妹はえびフライを三本食べました。",
+            "exampleReading": "Imouto wa ebi furai o sanbon tabemashita.",
+            "exampleId": "Adik perempuan saya makan tiga udang goreng tepung.",
+            "examples": [
+                  {
+                        "ja": "妹はえびフライを三本食べました。",
+                        "reading": "Imouto wa ebi furai o sanbon tabemashita.",
+                        "id": "Adik perempuan saya makan tiga udang goreng tepung."
+                  }
+            ],
+            "catatan": "えびフライ adalah udang yang dilapisi tepung roti lalu digoreng.",
+            "note": "えびフライ adalah udang yang dilapisi tepung roti lalu digoreng.",
+            "speech": "えびフライ"
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 11",
+            "chapterNumber": 11,
+            "favorite": false,
+            "isFiction": false,
+            "id": "mni-ref-b11-menu-023",
+            "typeCategory": "Makanan",
+            "sectionCategory": "Gorengan",
+            "indonesia": "ayam goreng",
+            "kanji": "",
+            "kana": "フライドチキン",
+            "romaji": "furaido chikin",
+            "image": "https://iili.io/C0a9bWP.png",
+            "exampleJa": "映画を見ながらフライドチキンを食べました。",
+            "exampleReading": "Eiga o minagara furaido chikin o tabemashita.",
+            "exampleId": "Saya makan ayam goreng sambil menonton film.",
+            "examples": [
+                  {
+                        "ja": "映画を見ながらフライドチキンを食べました。",
+                        "reading": "Eiga o minagara furaido chikin o tabemashita.",
+                        "id": "Saya makan ayam goreng sambil menonton film."
+                  }
+            ],
+            "catatan": "フライドチキン adalah ayam goreng bergaya barat.",
+            "note": "フライドチキン adalah ayam goreng bergaya barat.",
+            "speech": "フライドチキン"
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 11",
+            "chapterNumber": 11,
+            "favorite": false,
+            "isFiction": false,
+            "id": "mni-ref-b11-menu-024",
+            "typeCategory": "Makanan",
+            "sectionCategory": "Makanan Ringan",
+            "indonesia": "salad",
+            "kanji": "",
+            "kana": "サラダ",
+            "romaji": "sarada",
+            "image": "https://iili.io/C0a9ms1.png",
+            "exampleJa": "毎朝サラダを食べます。",
+            "exampleReading": "Maiasa sarada o tabemasu.",
+            "exampleId": "Saya makan salad setiap pagi.",
+            "examples": [
+                  {
+                        "ja": "毎朝サラダを食べます。",
+                        "reading": "Maiasa sarada o tabemasu.",
+                        "id": "Saya makan salad setiap pagi."
+                  }
+            ],
+            "catatan": "サラダ adalah salad, biasanya berisi sayuran segar.",
+            "note": "サラダ adalah salad, biasanya berisi sayuran segar.",
+            "speech": "サラダ"
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 11",
+            "chapterNumber": 11,
+            "favorite": false,
+            "isFiction": false,
+            "id": "mni-ref-b11-menu-025",
+            "typeCategory": "Makanan",
+            "sectionCategory": "Sup",
+            "indonesia": "sup",
+            "kanji": "",
+            "kana": "スープ",
+            "romaji": "suupu",
+            "image": "https://iili.io/C0a9yqF.png",
+            "exampleJa": "このスープは温かいです。",
+            "exampleReading": "Kono suupu wa atatakai desu.",
+            "exampleId": "Sup ini hangat.",
+            "examples": [
+                  {
+                        "ja": "このスープは温かいです。",
+                        "reading": "Kono suupu wa atatakai desu.",
+                        "id": "Sup ini hangat."
+                  }
+            ],
+            "catatan": "スープ adalah kata serapan untuk sup.",
+            "note": "スープ adalah kata serapan untuk sup.",
+            "speech": "スープ"
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 11",
+            "chapterNumber": 11,
+            "favorite": false,
+            "isFiction": false,
+            "id": "mni-ref-b11-menu-026",
+            "typeCategory": "Makanan",
+            "sectionCategory": "Makanan Barat",
+            "indonesia": "spaghetti",
+            "kanji": "",
+            "kana": "スパゲッティ",
+            "romaji": "supagetti",
+            "image": "https://iili.io/C0aHHga.png",
+            "exampleJa": "昼にスパゲッティを注文しました。",
+            "exampleReading": "Hiru ni supagetti o chuumon shimashita.",
+            "exampleId": "Saya memesan spaghetti pada siang hari.",
+            "examples": [
+                  {
+                        "ja": "昼にスパゲッティを注文しました。",
+                        "reading": "Hiru ni supagetti o chuumon shimashita.",
+                        "id": "Saya memesan spaghetti pada siang hari."
+                  }
+            ],
+            "catatan": "スパゲッティ adalah spaghetti, ditulis dengan katakana.",
+            "note": "スパゲッティ adalah spaghetti, ditulis dengan katakana.",
+            "speech": "スパゲッティ"
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 11",
+            "chapterNumber": 11,
+            "favorite": false,
+            "isFiction": false,
+            "id": "mni-ref-b11-menu-027",
+            "typeCategory": "Makanan",
+            "sectionCategory": "Makanan Barat",
+            "indonesia": "pizza",
+            "kanji": "",
+            "kana": "ピザ",
+            "romaji": "piza",
+            "image": "https://iili.io/C0aHddJ.png",
+            "exampleJa": "週末に家族とピザを食べます。",
+            "exampleReading": "Shuumatsu ni kazoku to piza o tabemasu.",
+            "exampleId": "Saya makan pizza bersama keluarga pada akhir pekan.",
+            "examples": [
+                  {
+                        "ja": "週末に家族とピザを食べます。",
+                        "reading": "Shuumatsu ni kazoku to piza o tabemasu.",
+                        "id": "Saya makan pizza bersama keluarga pada akhir pekan."
+                  }
+            ],
+            "catatan": "ピザ adalah pizza, kosakata serapan dari bahasa asing.",
+            "note": "ピザ adalah pizza, kosakata serapan dari bahasa asing.",
+            "speech": "ピザ"
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 11",
+            "chapterNumber": 11,
+            "favorite": false,
+            "isFiction": false,
+            "id": "mni-ref-b11-menu-028",
+            "typeCategory": "Makanan",
+            "sectionCategory": "Makanan Barat",
+            "indonesia": "burger",
+            "kanji": "",
+            "kana": "ハンバーガー",
+            "romaji": "hanbaagaa",
+            "image": "https://iili.io/C0aH25v.png",
+            "exampleJa": "弟はハンバーガーを二つ食べました。",
+            "exampleReading": "Otouto wa hanbaagaa o futatsu tabemashita.",
+            "exampleId": "Adik laki-laki saya makan dua burger.",
+            "examples": [
+                  {
+                        "ja": "弟はハンバーガーを二つ食べました。",
+                        "reading": "Otouto wa hanbaagaa o futatsu tabemashita.",
+                        "id": "Adik laki-laki saya makan dua burger."
+                  }
+            ],
+            "catatan": "ハンバーガー berarti burger dengan roti.",
+            "note": "ハンバーガー berarti burger dengan roti.",
+            "speech": "ハンバーガー"
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 11",
+            "chapterNumber": 11,
+            "favorite": false,
+            "isFiction": false,
+            "id": "mni-ref-b11-menu-029",
+            "typeCategory": "Makanan",
+            "sectionCategory": "Makanan Barat",
+            "indonesia": "sandwich",
+            "kanji": "",
+            "kana": "サンドイッチ",
+            "romaji": "sandoicchi",
+            "image": "https://iili.io/C0aH3eR.png",
+            "exampleJa": "公園でサンドイッチを食べました。",
+            "exampleReading": "Kouen de sandoicchi o tabemashita.",
+            "exampleId": "Saya makan sandwich di taman.",
+            "examples": [
+                  {
+                        "ja": "公園でサンドイッチを食べました。",
+                        "reading": "Kouen de sandoicchi o tabemashita.",
+                        "id": "Saya makan sandwich di taman."
+                  }
+            ],
+            "catatan": "サンドイッチ adalah sandwich, ditulis dengan katakana.",
+            "note": "サンドイッチ adalah sandwich, ditulis dengan katakana.",
+            "speech": "サンドイッチ"
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 11",
+            "chapterNumber": 11,
+            "favorite": false,
+            "isFiction": false,
+            "id": "mni-ref-b11-menu-030",
+            "typeCategory": "Makanan",
+            "sectionCategory": "Roti",
+            "indonesia": "roti panggang",
+            "kanji": "",
+            "kana": "トースト",
+            "romaji": "toosuto",
+            "image": "https://iili.io/C0aHFbp.png",
+            "exampleJa": "朝、トーストと卵を食べます。",
+            "exampleReading": "Asa, toosuto to tamago o tabemasu.",
+            "exampleId": "Pagi hari, saya makan roti panggang dan telur.",
+            "examples": [
+                  {
+                        "ja": "朝、トーストと卵を食べます。",
+                        "reading": "Asa, toosuto to tamago o tabemasu.",
+                        "id": "Pagi hari, saya makan roti panggang dan telur."
+                  }
+            ],
+            "catatan": "トースト adalah roti panggang.",
+            "note": "トースト adalah roti panggang.",
+            "speech": "トースト"
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 11",
+            "chapterNumber": 11,
+            "favorite": false,
+            "isFiction": false,
+            "id": "mni-ref-b11-menu-031",
+            "typeCategory": "Minuman",
+            "sectionCategory": "Minuman",
+            "indonesia": "kopi",
+            "kanji": "",
+            "kana": "コーヒー",
+            "romaji": "koohii",
+            "image": "https://iili.io/C0aHfzN.png",
+            "exampleJa": "仕事の前にコーヒーを飲みます。",
+            "exampleReading": "Shigoto no mae ni koohii o nomimasu.",
+            "exampleId": "Saya minum kopi sebelum bekerja.",
+            "examples": [
+                  {
+                        "ja": "仕事の前にコーヒーを飲みます。",
+                        "reading": "Shigoto no mae ni koohii o nomimasu.",
+                        "id": "Saya minum kopi sebelum bekerja."
+                  }
+            ],
+            "catatan": "コーヒー adalah kopi, biasanya diminum panas atau dingin.",
+            "note": "コーヒー adalah kopi, biasanya diminum panas atau dingin.",
+            "speech": "コーヒー"
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 11",
+            "chapterNumber": 11,
+            "favorite": false,
+            "isFiction": false,
+            "id": "mni-ref-b11-menu-032",
+            "typeCategory": "Minuman",
+            "sectionCategory": "Minuman",
+            "indonesia": "teh",
+            "kanji": "紅茶",
+            "kana": "こうちゃ",
+            "romaji": "koucha",
+            "image": "https://iili.io/C0aHqXI.png",
+            "exampleJa": "ケーキと紅茶をいただきます。",
+            "exampleReading": "Keeki to koucha o itadakimasu.",
+            "exampleId": "Saya menikmati kue dan teh.",
+            "examples": [
+                  {
+                        "ja": "ケーキと紅茶をいただきます。",
+                        "reading": "Keeki to koucha o itadakimasu.",
+                        "id": "Saya menikmati kue dan teh."
+                  }
+            ],
+            "catatan": "紅茶 adalah teh hitam atau black tea.",
+            "note": "紅茶 adalah teh hitam atau black tea.",
+            "speech": "こうちゃ"
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 11",
+            "chapterNumber": 11,
+            "favorite": false,
+            "isFiction": false,
+            "id": "mni-ref-b11-menu-033",
+            "typeCategory": "Minuman",
+            "sectionCategory": "Minuman",
+            "indonesia": "minuman coklat",
+            "kanji": "",
+            "kana": "ココア",
+            "romaji": "kokoa",
+            "image": "https://iili.io/C0aHBst.png",
+            "exampleJa": "寒い夜にココアを飲みたいです。",
+            "exampleReading": "Samui yoru ni kokoa o nomitai desu.",
+            "exampleId": "Saya ingin minum coklat hangat pada malam yang dingin.",
+            "examples": [
+                  {
+                        "ja": "寒い夜にココアを飲みたいです。",
+                        "reading": "Samui yoru ni kokoa o nomitai desu.",
+                        "id": "Saya ingin minum coklat hangat pada malam yang dingin."
+                  }
+            ],
+            "catatan": "ココア adalah minuman coklat atau cocoa.",
+            "note": "ココア adalah minuman coklat atau cocoa.",
+            "speech": "ココア"
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 11",
+            "chapterNumber": 11,
+            "favorite": false,
+            "isFiction": false,
+            "id": "mni-ref-b11-menu-034",
+            "typeCategory": "Minuman",
+            "sectionCategory": "Minuman",
+            "indonesia": "jus",
+            "kanji": "",
+            "kana": "ジュース",
+            "romaji": "juusu",
+            "image": "https://iili.io/C0aHnqX.png",
+            "exampleJa": "子どもにオレンジジュースをあげました。",
+            "exampleReading": "Kodomo ni orenji juusu o agemashita.",
+            "exampleId": "Saya memberi jus jeruk kepada anak.",
+            "examples": [
+                  {
+                        "ja": "子どもにオレンジジュースをあげました。",
+                        "reading": "Kodomo ni orenji juusu o agemashita.",
+                        "id": "Saya memberi jus jeruk kepada anak."
+                  }
+            ],
+            "catatan": "ジュース berarti jus atau minuman sari buah.",
+            "note": "ジュース berarti jus atau minuman sari buah.",
+            "speech": "ジュース"
+      },
+      {
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 11",
+            "chapterNumber": 11,
+            "favorite": false,
+            "isFiction": false,
+            "id": "mni-ref-b11-menu-035",
+            "typeCategory": "Minuman",
+            "sectionCategory": "Minuman",
+            "indonesia": "coca cola",
+            "kanji": "",
+            "kana": "コーラ",
+            "romaji": "koora",
+            "image": "https://iili.io/C0aHxgs.png",
+            "exampleJa": "暑い日に冷たいコーラを飲みました。",
+            "exampleReading": "Atsui hi ni tsumetai koora o nomimashita.",
+            "exampleId": "Saya minum cola dingin pada hari yang panas.",
+            "examples": [
+                  {
+                        "ja": "暑い日に冷たいコーラを飲みました。",
+                        "reading": "Atsui hi ni tsumetai koora o nomimashita.",
+                        "id": "Saya minum cola dingin pada hari yang panas."
+                  }
+            ],
+            "catatan": "コーラ adalah cola atau minuman bersoda rasa kola.",
+            "note": "コーラ adalah cola atau minuman bersoda rasa kola.",
+            "speech": "コーラ"
+      }
+];
+    VOCABULARY.push(...BAB11_REFERENCE_INFO_MENU_VOCABULARY);
+
+
+
 
     // ===== Tambahan Minna no Nihongo I - Kata-kata Referensi dan Informasi - Bab 10 =====
     const BAB10_REFERENCE_INFO_VOCABULARY = [
@@ -22539,7 +23712,7 @@
     const $ = s => document.querySelector(s);
     const $$ = s => [...document.querySelectorAll(s)];
     const storeKey = "minnaFlashcardV2";
-    const dataVersion = "bab1-bab10-general-ref-info-bab10-20260708-v3";
+    const dataVersion = "bab1-bab11-general-ref-info-bab11-menu-20260709-v1";
     const setupCompletedKey = storeKey + "_setupCompleted";
     const hadCurrentDataVersionBeforeBoot = localStorage.getItem(storeKey+"_dataVersion") === dataVersion;
     const hadSetupCompletedFlagBeforeBoot = localStorage.getItem(setupCompletedKey);
@@ -22789,6 +23962,7 @@
     function isReferenceInfoBab8(){ return isReferenceInfoChapter("Bab 8"); }
     function isReferenceInfoBab9(){ return isReferenceInfoChapter("Bab 9"); }
     function isReferenceInfoBab10(){ return isReferenceInfoChapter("Bab 10"); }
+    function isReferenceInfoBab11(){ return isReferenceInfoChapter("Bab 11"); }
     function isReferenceInfoMaterialOnly(){ return isReferenceInfoBab2() || isReferenceInfoBab4() || isReferenceInfoBab5(); }
 
     function materialOnlyQuizMessage(){
@@ -23462,7 +24636,23 @@
         "会話 / Percakapan":"会話 / Percakapan",
         "音楽 / Musik":"Musik",
         "映画 / Film":"Film",
-        "スポーツ / Olahraga":"Olahraga"
+        "スポーツ / Olahraga":"Olahraga",
+        "Makanan":"Makanan",
+        "Minuman":"Minuman",
+        "Informasi":"Informasi",
+        "Menu":"Menu",
+        "Paket Makan":"Paket Makan",
+        "Donburi":"Donburi",
+        "Masakan Jepang":"Masakan Jepang",
+        "Mie":"Mie",
+        "Makanan Barat":"Makanan Barat",
+        "Gorengan":"Gorengan",
+        "Gorengan Jepang":"Gorengan Jepang",
+        "Sup":"Sup",
+        "Lauk Pendamping":"Lauk Pendamping",
+        "Nasi":"Nasi",
+        "Roti":"Roti",
+        "Makanan Ringan":"Makanan Ringan",
       };
       const jaMap = {
         "Semua":"すべて",
@@ -23512,7 +24702,23 @@
         "Jenis Kata":"品詞",
         "Fiksi":"架空語",
         "Benar":"正解",
-        "Salah":"不正解"
+        "Salah":"不正解",
+        "Makanan":"食べ物",
+        "Minuman":"飲み物",
+        "Informasi":"情報",
+        "Menu":"メニュー",
+        "Paket Makan":"定食・ランチ",
+        "Donburi":"どんぶり",
+        "Masakan Jepang":"日本料理",
+        "Mie":"麺類",
+        "Makanan Barat":"洋食",
+        "Gorengan":"揚げ物",
+        "Gorengan Jepang":"天ぷら",
+        "Sup":"スープ",
+        "Lauk Pendamping":"付け合わせ",
+        "Nasi":"ごはん物",
+        "Roti":"パン",
+        "Makanan Ringan":"軽食",
       };
       if(lang === "ja"){
         if(/^Bab\s+\d+(?:-\d+)?$/.test(v)) return v.replace(/^Bab\s+/, "第") + "課";
@@ -23525,8 +24731,8 @@
       const sectionSel = $("#materialSectionFilter"), typeSel = $("#materialTypeFilter");
       if(!sectionSel || !typeSel) return;
       const secVal = sectionSel.value || "all", typeVal = typeSel.value || "all";
-      const sections=[["all", state.lang==="ja"?"すべてのセクション":"Semua Bagian"],["Kosakata", categoryLabel("Kosakata")],["Warna", categoryLabel("Warna")],["Rasa", categoryLabel("Rasa")],["Musim", categoryLabel("Musim")],["Latihan C", categoryLabel("Latihan C")],["練習C / Latihan C", categoryLabel("練習C / Latihan C")],["Percakapan", categoryLabel("Percakapan")],["会話 / Percakapan", categoryLabel("会話 / Percakapan")],["Kosakata Tambahan", categoryLabel("Kosakata Tambahan")],["Kata-kata referensi dan Informasi", categoryLabel("Kata-kata referensi dan Informasi")],["Keluarga / 家族", categoryLabel("Keluarga / 家族")],["食べ物 / Makanan", categoryLabel("食べ物 / Makanan")],["音楽 / Musik", categoryLabel("音楽 / Musik")],["映画 / Film", categoryLabel("映画 / Film")],["スポーツ / Olahraga", categoryLabel("スポーツ / Olahraga")]];
-      const types=[["all", state.lang==="ja"?"すべての品詞":"Semua Jenis Kata"],["Kata Benda", categoryLabel("Kata Benda")],["Kata Bantu Bilangan", categoryLabel("Kata Bantu Bilangan")],["Keterangan Waktu", categoryLabel("Keterangan Waktu")],["Partikel", categoryLabel("Partikel")],["Kata Kerja", categoryLabel("Kata Kerja")],["Kata Tanya", categoryLabel("Kata Tanya")],["Kata Keterangan", categoryLabel("Kata Keterangan")],["Kata Sambung", categoryLabel("Kata Sambung")],["Ungkapan", categoryLabel("Ungkapan")],["Ungkapan Percakapan", categoryLabel("Ungkapan Percakapan")],["Nama Tempat Fiksi", categoryLabel("Nama Tempat Fiksi")],["Kata Sifat-i", categoryLabel("Kata Sifat-i")],["Kata Sifat-na", categoryLabel("Kata Sifat-na")],["Kosakata Tambahan", categoryLabel("Kosakata Tambahan")],["Negara", categoryLabel("Negara")],["Bahasa", categoryLabel("Bahasa")],["Kewarganegaraan", categoryLabel("Kewarganegaraan")],["野菜 / Sayuran", categoryLabel("野菜 / Sayuran")],["果物 / Buah-buahan", categoryLabel("果物 / Buah-buahan")],["肉 / Daging", categoryLabel("肉 / Daging")],["魚 / Ikan", categoryLabel("魚 / Ikan")],["その他 / Yang Lainnya", categoryLabel("その他 / Yang Lainnya")]];
+      const sections=[["all", state.lang==="ja"?"すべてのセクション":"Semua Bagian"],["Kosakata", categoryLabel("Kosakata")],["Warna", categoryLabel("Warna")],["Rasa", categoryLabel("Rasa")],["Musim", categoryLabel("Musim")],["Latihan C", categoryLabel("Latihan C")],["練習C / Latihan C", categoryLabel("練習C / Latihan C")],["Percakapan", categoryLabel("Percakapan")],["会話 / Percakapan", categoryLabel("会話 / Percakapan")],["Kosakata Tambahan", categoryLabel("Kosakata Tambahan")],["Kata-kata referensi dan Informasi", categoryLabel("Kata-kata referensi dan Informasi")],["Keluarga / 家族", categoryLabel("Keluarga / 家族")],["食べ物 / Makanan", categoryLabel("食べ物 / Makanan")],["Menu", categoryLabel("Menu")],["Paket Makan", categoryLabel("Paket Makan")],["Donburi", categoryLabel("Donburi")],["Masakan Jepang", categoryLabel("Masakan Jepang")],["Mie", categoryLabel("Mie")],["Makanan Barat", categoryLabel("Makanan Barat")],["Gorengan", categoryLabel("Gorengan")],["Gorengan Jepang", categoryLabel("Gorengan Jepang")],["Sup", categoryLabel("Sup")],["Lauk Pendamping", categoryLabel("Lauk Pendamping")],["Nasi", categoryLabel("Nasi")],["Roti", categoryLabel("Roti")],["Makanan Ringan", categoryLabel("Makanan Ringan")],["Minuman", categoryLabel("Minuman")],["音楽 / Musik", categoryLabel("音楽 / Musik")],["映画 / Film", categoryLabel("映画 / Film")],["スポーツ / Olahraga", categoryLabel("スポーツ / Olahraga")]];
+      const types=[["all", state.lang==="ja"?"すべての品詞":"Semua Jenis Kata"],["Kata Benda", categoryLabel("Kata Benda")],["Kata Bantu Bilangan", categoryLabel("Kata Bantu Bilangan")],["Keterangan Waktu", categoryLabel("Keterangan Waktu")],["Partikel", categoryLabel("Partikel")],["Kata Kerja", categoryLabel("Kata Kerja")],["Kata Tanya", categoryLabel("Kata Tanya")],["Kata Keterangan", categoryLabel("Kata Keterangan")],["Kata Sambung", categoryLabel("Kata Sambung")],["Ungkapan", categoryLabel("Ungkapan")],["Ungkapan Percakapan", categoryLabel("Ungkapan Percakapan")],["Nama Tempat Fiksi", categoryLabel("Nama Tempat Fiksi")],["Kata Sifat-i", categoryLabel("Kata Sifat-i")],["Kata Sifat-na", categoryLabel("Kata Sifat-na")],["Kosakata Tambahan", categoryLabel("Kosakata Tambahan")],["Makanan", categoryLabel("Makanan")],["Minuman", categoryLabel("Minuman")],["Informasi", categoryLabel("Informasi")],["Negara", categoryLabel("Negara")],["Bahasa", categoryLabel("Bahasa")],["Kewarganegaraan", categoryLabel("Kewarganegaraan")],["野菜 / Sayuran", categoryLabel("野菜 / Sayuran")],["果物 / Buah-buahan", categoryLabel("果物 / Buah-buahan")],["肉 / Daging", categoryLabel("肉 / Daging")],["魚 / Ikan", categoryLabel("魚 / Ikan")],["その他 / Yang Lainnya", categoryLabel("その他 / Yang Lainnya")]];
       sectionSel.innerHTML = sections.map(([v,l])=>`<option value="${esc(v)}">${esc(l)}</option>`).join("");
       typeSel.innerHTML = types.map(([v,l])=>`<option value="${esc(v)}">${esc(l)}</option>`).join("");
       sectionSel.value = sections.some(x=>x[0]===secVal) ? secVal : "all";
@@ -23844,6 +25050,119 @@
       $("#materialEmpty").classList.toggle("hidden", arr.length>0);
     }
 
+
+
+    function renderReferenceInfoBab11(){
+      const grid = $("#materialGrid");
+      if(!grid) return;
+      const toolbar = $(".material-toolbar");
+      const notice = $("#materialPage .notice");
+      const title = $("#materialPage .content-card > h2");
+      const desc = $("#materialPage .content-card > p");
+      if(title) title.textContent = state.lang === "ja" ? "第11課 メニュー" : "Kata-kata Referensi dan Informasi - Bab 11";
+      if(desc) desc.textContent = state.lang === "ja"
+        ? "レストランのメニューに出る食べ物と飲み物を、例文・音声・画像つきで確認できます。"
+        : "Belajar kosakata makanan dan minuman Jepang jadi terasa seperti membuka menu restoran: ada gambar, audio pelafalan, catatan singkat, dan contoh kalimat yang siap dipakai untuk latihan.";
+      document.body.classList.remove("material-only-reference");
+      if(toolbar){ toolbar.classList.remove("hidden"); toolbar.style.removeProperty("display"); toolbar.style.removeProperty("visibility"); toolbar.style.removeProperty("pointer-events"); }
+      if(notice){ notice.classList.add("hidden"); notice.style.setProperty("display", "none", "important"); }
+      updateMaterialOnlyControls();
+      grid.className = "menu-bab11-wrap";
+
+      const search = ($("#materialSearch")?.value || "").toLowerCase();
+      const sectionFilter = $("#materialSectionFilter")?.value || "all";
+      const typeFilter = $("#materialTypeFilter")?.value || "all";
+      let arr = activeVocab().filter(v => String(v.id || "").startsWith("mni-ref-b11-menu-") && [
+        formatIndonesianMeaning(v), v.indonesia, v.kana, v.kanji, v.romaji, v.typeCategory, v.sectionCategory,
+        v.chapter, v.catatan, v.exampleJa, v.exampleReading, v.exampleId,
+        ...(Array.isArray(v.examples) ? v.examples.flatMap(ex => [ex.ja, ex.reading, ex.id]) : [])
+      ].join(" ").toLowerCase().includes(search));
+      if(sectionFilter !== "all") arr = arr.filter(v => v.sectionCategory === sectionFilter);
+      if(typeFilter !== "all") arr = arr.filter(v => v.typeCategory === typeFilter);
+
+      const allMenuItems = activeVocab().filter(v => String(v.id || "").startsWith("mni-ref-b11-menu-"));
+      const hero = allMenuItems.find(v => v.id === "mni-ref-b11-menu-001") || arr[0] || {};
+      const menuItems = arr.filter(v => v.id !== "mni-ref-b11-menu-001");
+      const leftSections = ["Paket Makan","Donburi","Masakan Jepang","Lauk Pendamping","Nasi","Gorengan Jepang","Mie"];
+      const rightSections = ["Makanan Barat","Gorengan","Makanan Ringan","Sup","Roti","Minuman"];
+      const iconMap = {
+        "Menu":"fa-clipboard-list",
+        "Paket Makan":"fa-utensils",
+        "Donburi":"fa-bowl-rice",
+        "Masakan Jepang":"fa-fish",
+        "Lauk Pendamping":"fa-leaf",
+        "Nasi":"fa-bowl-food",
+        "Gorengan Jepang":"fa-shrimp",
+        "Mie":"fa-bowl-rice",
+        "Makanan Barat":"fa-burger",
+        "Gorengan":"fa-drumstick-bite",
+        "Makanan Ringan":"fa-seedling",
+        "Sup":"fa-mug-saucer",
+        "Roti":"fa-bread-slice",
+        "Minuman":"fa-glass-water"
+      };
+
+      const card = (v) => {
+        const fav = state.favorites.includes(v.id);
+        const meaning = formatIndonesianMeaning(v);
+        const thumb = v.image
+          ? `<img class="menu-bab11-thumb" src="${esc(v.image)}" alt="${esc(meaning)}" loading="lazy" data-zoom="${esc(v.image)}">`
+          : `<span class="thumb-placeholder"><i class="fa-regular fa-image"></i></span>`;
+        return `<article class="menu-bab11-item">
+          ${thumb}
+          <div>
+            <div class="menu-bab11-jp">${esc(vocabMainText(v))}</div>
+            <div class="menu-bab11-reading">${esc(vocabReadingText(v))}</div>
+          </div>
+          <div class="menu-bab11-id">${esc(meaning)}</div>
+          <div class="menu-bab11-actions">
+            <button class="icon-btn" data-speak-id="${esc(v.id)}" title="${state.lang === "ja" ? "聞く" : "Dengar"}"><i class="fa-solid fa-volume-high"></i></button>
+            <button class="icon-btn ${fav ? "active" : ""}" data-fav="${esc(v.id)}" title="${state.lang === "ja" ? "お気に入り" : "Favorit"}"><i class="${fav ? "fa-solid" : "fa-regular"} fa-star"></i></button>
+            <button class="icon-btn" data-note-material="${esc(v.id)}" title="${state.lang === "ja" ? "メモ" : "Catatan"}"><i class="fa-regular fa-note-sticky"></i></button>
+            <button class="icon-btn" data-example-material="${esc(v.id)}" title="${state.lang === "ja" ? "例文" : "Contoh kalimat"}"><i class="fa-regular fa-comment-dots"></i></button>
+          </div>
+        </article>`;
+      };
+
+      const sectionBlock = (sectionName) => {
+        const sectionItems = menuItems.filter(v => v.sectionCategory === sectionName);
+        if(!sectionItems.length) return "";
+        return `<section class="menu-bab11-section">
+          <h3 class="menu-bab11-section-title"><i class="fa-solid ${esc(iconMap[sectionName] || "fa-book-open")}"></i>${esc(categoryLabel(sectionName,"section"))}</h3>
+          ${sectionItems.map(card).join("")}
+        </section>`;
+      };
+
+      const leftHtml = leftSections.map(sectionBlock).join("");
+      const rightHtml = rightSections.map(sectionBlock).join("");
+      const infoCard = arr.some(v => v.id === "mni-ref-b11-menu-001") ? card(arr.find(v => v.id === "mni-ref-b11-menu-001")) : "";
+      const emptyHtml = `<div class="menu-bab11-empty"><i class="fa-solid fa-magnifying-glass"></i> ${state.lang === "ja" ? "該当するメニューがありません。" : "Kosakata menu tidak ditemukan pada filter ini."}</div>`;
+
+      grid.innerHTML = `
+        <section class="menu-bab11-hero">
+          <div class="menu-bab11-hero-grid">
+            <div>
+              <span class="material-ref-badge"><i class="fa-solid fa-utensils"></i>${state.lang === "ja" ? "第11課・レストラン" : "Bab 11 · Menu restoran"}</span>
+              <div class="menu-bab11-title-jp jp">メニュー</div>
+              <div class="menu-bab11-title-id">Menu</div>
+              <p>${state.lang === "ja" ? "食べ物と飲み物の名前を、レストランのメニューのような形で覚えます。" : "Bayangkan sedang memilih makanan di restoran Jepang. Dari 定食, 天どん, ラーメン sampai コーヒー, semua kosakata disusun seperti menu sungguhan agar mudah dibaca, diingat, dan langsung dilatih lewat flashcard maupun kuis."}</p>
+            </div>
+            <div class="menu-bab11-hero-img">
+              ${hero.image ? `<img src="${esc(hero.image)}" alt="${esc(hero.indonesia || "menu")}" loading="lazy" data-zoom="${esc(hero.image)}">` : ""}
+            </div>
+          </div>
+        </section>
+
+        <section class="menu-bab11-paper">
+          <div class="menu-bab11-paper-head"><span class="jp">メニュー</span><span class="id">Menu</span></div>
+          ${infoCard ? `<section class="menu-bab11-section" style="margin-bottom:18px"><h3 class="menu-bab11-section-title"><i class="fa-solid fa-clipboard-list"></i>${esc(categoryLabel("Menu","section"))}</h3>${infoCard}</section>` : ""}
+          ${menuItems.length ? `<div class="menu-bab11-columns"><div class="menu-bab11-col">${leftHtml}</div><div class="menu-bab11-col">${rightHtml}</div></div>` : emptyHtml}
+        </section>`;
+
+      $("#materialEmpty").innerHTML = `<div style="font-size:34px;color:#7c4dff;margin-bottom:10px"><i class="fa-solid fa-magnifying-glass"></i></div><h3>${state.lang === "ja" ? "メニューが見つかりません" : "Kosakata menu tidak ditemukan"}</h3><p>${state.lang === "ja" ? "検索語またはフィルターを変更してください。" : "Coba ubah filter atau kata kunci pencarian."}</p>`;
+      $("#materialEmpty").classList.toggle("hidden", arr.length > 0);
+    }
+
     function renderMaterial(){
       syncFictionToggleAvailability();
       const toolbar = $(".material-toolbar");
@@ -23878,6 +25197,10 @@
       }
       if(isReferenceInfoBab10()){
         renderReferenceInfoBab10();
+        return;
+      }
+      if(isReferenceInfoBab11()){
+        renderReferenceInfoBab11();
         return;
       }
       const notice = $("#materialPage .notice");
@@ -24044,9 +25367,9 @@
       const nums = chapterNumbers(state.setup.chapter);
       const chapterOpts = nums.map(n=>`Bab ${n}`);
       $("#quizChapterFilters").innerHTML = chapterOpts.map(ch=>`<label class="check-pill"><input type="checkbox" value="${ch}" checked><span><i class="fa-regular fa-bookmark"></i>${esc(state.lang==="ja"?categoryLabel(ch):ch)}</span></label>`).join("");
-      const sections=["Semua","Kosakata","Warna","Rasa","Musim","Latihan C","練習C / Latihan C","Percakapan","会話 / Percakapan","Kosakata Tambahan","食べ物 / Makanan","音楽 / Musik","映画 / Film","スポーツ / Olahraga"];
+      const sections=["Semua","Kosakata","Warna","Rasa","Musim","Latihan C","練習C / Latihan C","Percakapan","会話 / Percakapan","Kosakata Tambahan","食べ物 / Makanan","Menu","Paket Makan","Donburi","Masakan Jepang","Mie","Makanan Barat","Gorengan","Gorengan Jepang","Sup","Lauk Pendamping","Nasi","Roti","Makanan Ringan","Minuman","音楽 / Musik","映画 / Film","スポーツ / Olahraga"];
       $("#quizSectionFilters").innerHTML = sections.map(s=>`<label class="check-pill"><input type="checkbox" value="${s}" ${s==="Semua"?"checked":""}><span><i class="fa-solid ${s==="Latihan C"?"fa-pen-nib":s==="Percakapan"?"fa-comments":s==="Kosakata Tambahan"?"fa-circle-plus":"fa-book-open"}"></i>${esc(s==="Semua"?(state.lang==="ja"?"すべて":"Semua"):categoryLabel(s))}</span></label>`).join("");
-      const types=["Semua","Kata Benda","Kata Kerja","Kata Tanya","Kata Keterangan","Kata Sambung","Ungkapan","Ungkapan Percakapan","Nama Tempat Fiksi","Kata Sifat-i","Kata Sifat-na","Kosakata Tambahan","Negara","Bahasa","Kewarganegaraan","野菜 / Sayuran","果物 / Buah-buahan","肉 / Daging","魚 / Ikan","その他 / Yang Lainnya"];
+      const types=["Semua","Kata Benda","Kata Kerja","Kata Tanya","Kata Keterangan","Kata Sambung","Ungkapan","Ungkapan Percakapan","Nama Tempat Fiksi","Kata Sifat-i","Kata Sifat-na","Kosakata Tambahan","Makanan","Minuman","Informasi","Negara","Bahasa","Kewarganegaraan","野菜 / Sayuran","果物 / Buah-buahan","肉 / Daging","魚 / Ikan","その他 / Yang Lainnya"];
       $("#quizTypeFilters").innerHTML = types.map(s=>`<label class="check-pill"><input type="checkbox" value="${s}" ${s==="Semua"?"checked":""}><span><i class="fa-solid fa-tag"></i>${esc(s==="Semua"?(state.lang==="ja"?"すべて":"Semua"):categoryLabel(s))}</span></label>`).join("");
       handleExclusiveAllSelection("#quizSectionFilters");
       handleExclusiveAllSelection("#quizTypeFilters");
