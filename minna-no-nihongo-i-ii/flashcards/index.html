@@ -2218,6 +2218,57 @@
     .reference-bab12-empty{padding:28px;border:1px dashed #c9bcff;border-radius:24px;background:rgba(255,255,255,.72);color:#59657d;font-weight:800;text-align:center}
     @media(max-width:980px){.reference-bab12-map-stage{grid-template-columns:1fr}.reference-bab12-mini-map{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}.reference-bab12-main-image{min-height:260px}.reference-bab12-hero-head{flex-direction:column}.reference-bab12-count{white-space:normal}}
     @media(max-width:560px){.reference-bab12-hero,.reference-bab12-section{padding:16px;border-radius:24px}.reference-bab12-mini-map{grid-template-columns:1fr}.reference-bab12-mini-card{grid-template-columns:68px 1fr}.reference-bab12-mini-card img{width:68px;height:58px}.reference-bab12-grid{grid-template-columns:1fr}.reference-bab12-card .bab12-img-wrap img{height:158px}.reference-bab12-section-head,.reference-bab12-group-head{flex-direction:column;align-items:flex-start}}
+
+
+    /* ===== Tambahan khusus: Kata-kata Referensi dan Informasi Bab 13 - 町の中 ===== */
+    .reference-bab13-wrap { display:grid; gap:22px; }
+    .reference-bab13-hero {
+      position:relative; overflow:hidden; border-radius:30px; padding:28px;
+      background:
+        radial-gradient(circle at 90% 12%,rgba(125,181,255,.38),transparent 30%),
+        radial-gradient(circle at 8% 20%,rgba(124,77,255,.18),transparent 30%),
+        linear-gradient(135deg,#fff,#f8f3ff 56%,#eef8ff);
+      border:1px solid rgba(226,217,255,.9); box-shadow:var(--shadow2);
+    }
+    .reference-bab13-hero-head { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(280px,.8fr); gap:24px; align-items:center; }
+    .reference-bab13-hero h3 { font-size:clamp(28px,3.5vw,46px); letter-spacing:-.045em; margin:12px 0 10px; }
+    .reference-bab13-hero p { margin:0; max-width:780px; }
+    .reference-bab13-hero-img { border-radius:26px; padding:14px; background:rgba(255,255,255,.78); border:1px solid rgba(124,77,255,.12); box-shadow:0 16px 34px rgba(80,67,130,.09); }
+    .reference-bab13-hero-img img { width:100%; display:block; border-radius:20px; object-fit:contain; background:#fff; }
+    .reference-bab13-count { display:inline-flex; align-items:center; gap:8px; width:max-content; margin-top:16px; padding:9px 13px; border-radius:999px; background:#fff; color:#5e35d6; font-weight:850; border:1px solid rgba(124,77,255,.14); }
+    .reference-bab13-section { display:grid; gap:18px; }
+    .reference-bab13-section-head,
+    .reference-bab13-group-head { display:flex; justify-content:space-between; gap:16px; align-items:flex-start; padding:20px; border-radius:24px; background:rgba(255,255,255,.9); border:1px solid #e8e2ff; box-shadow:0 10px 24px rgba(80,67,130,.055); }
+    .reference-bab13-section-head h3,
+    .reference-bab13-group-head h4 { margin:0; display:flex; align-items:center; gap:10px; }
+    .reference-bab13-section-head p,
+    .reference-bab13-group-head p { margin:6px 0 0; }
+    .reference-bab13-group-count { flex:0 0 auto; display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background:var(--soft); color:var(--primary2); font-weight:850; font-size:12px; }
+    .reference-bab13-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:16px; }
+    .reference-bab13-card { display:flex; flex-direction:column; gap:14px; }
+    .reference-bab13-img-wrap { position:relative; border-radius:20px; overflow:hidden; background:linear-gradient(135deg,#faf7ff,#f0f6ff); border:1px solid #eee8ff; }
+    .reference-bab13-img-wrap img { width:100%; height:170px; display:block; object-fit:contain; padding:10px; }
+    .reference-bab13-num { position:absolute; top:10px; left:10px; min-width:34px; height:30px; display:grid; place-items:center; border-radius:999px; background:#fff; color:#5e35d6; font-weight:900; box-shadow:0 8px 18px rgba(80,67,130,.1); }
+    .reference-bab13-title { font-size:28px; line-height:1.15; font-weight:850; color:#071b45; }
+    .reference-bab13-reading { margin-top:4px; color:#7c4dff; font-size:13px; font-weight:850; }
+    .reference-bab13-meaning { margin:10px 0; color:#46536b; font-weight:650; line-height:1.45; }
+    .reference-bab13-note { margin-top:12px; padding:12px; border-radius:16px; background:#fbf8ff; border:1px solid #eee8ff; color:#536078; line-height:1.55; font-weight:600; font-size:13px; }
+    .reference-bab13-note i { color:#7c4dff; margin-right:6px; }
+    .reference-bab13-actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+    .reference-bab13-final { padding:24px; border-radius:28px; background:linear-gradient(135deg,#fff,#f5f1ff); border:1px solid #e8e2ff; box-shadow:var(--shadow2); }
+    .reference-bab13-final h3 { margin:0 0 8px; display:flex; align-items:center; gap:10px; }
+    .reference-bab13-final p { margin:0 0 16px; }
+    .reference-bab13-final img { width:100%; max-height:560px; object-fit:contain; border-radius:22px; background:#fff; border:1px solid #eee8ff; padding:12px; display:block; }
+    @media (max-width:900px){
+      .reference-bab13-hero-head { grid-template-columns:1fr; }
+      .reference-bab13-section-head,
+      .reference-bab13-group-head { flex-direction:column; }
+    }
+    @media (max-width:520px){
+      .reference-bab13-hero { padding:20px; border-radius:24px; }
+      .reference-bab13-grid { grid-template-columns:1fr; }
+      .reference-bab13-img-wrap img { height:155px; }
+    }
 </style>
 </head>
 <body>
@@ -26413,6 +26464,949 @@
 ];
     VOCABULARY.push(...BAB10_REFERENCE_INFO_VOCABULARY);
 
+
+    // ===== Tambahan Minna no Nihongo I - Kata-kata Referensi dan Informasi - Bab 13: 町の中 =====
+    const BAB13_REFERENCE_INFO_FINAL_IMAGE = "https://iili.io/C0hLcgI.png";
+    const BAB13_REFERENCE_INFO_VOCABULARY = [
+          {
+                "id": "mni-ref-b13-001",
+                "no": "01",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Gambaran Kota",
+                "indonesia": "di kota",
+                "kanji": "町の中",
+                "kana": "まちのなか",
+                "romaji": "machi no naka",
+                "image": "https://iili.io/C0h878x.png",
+                "isFiction": false,
+                "speech": "まちのなか",
+                "exampleJa": "町の中にいろいろな店があります。",
+                "exampleReading": "Machi no naka ni iroiro na mise ga arimasu.",
+                "exampleId": "Di dalam kota ada berbagai macam toko.",
+                "catatan": "Ungkapan ini dipakai untuk membicarakan tempat-tempat yang ada di area kota, seperti toko, kantor, sekolah, dan tempat umum lainnya.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          },
+          {
+                "id": "mni-ref-b13-002",
+                "no": "02",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Budaya & Rekreasi",
+                "indonesia": "museum",
+                "kanji": "博物館",
+                "kana": "はくぶつかん",
+                "romaji": "hakubutsukan",
+                "image": "https://iili.io/C0h8cuV.png",
+                "isFiction": false,
+                "speech": "はくぶつかん",
+                "exampleJa": "日曜日に博物館へ行きます。",
+                "exampleReading": "Nichiyoubi ni hakubutsukan e ikimasu.",
+                "exampleId": "Saya pergi ke museum pada hari Minggu.",
+                "catatan": "博物館 biasanya berisi benda-benda sejarah, budaya, ilmu pengetahuan, atau peninggalan masa lalu.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          },
+          {
+                "id": "mni-ref-b13-003",
+                "no": "03",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Budaya & Rekreasi",
+                "indonesia": "gedung kesenian / museum seni",
+                "kanji": "美術館",
+                "kana": "びじゅつかん",
+                "romaji": "bijutsukan",
+                "image": "https://iili.io/C0h85aj.png",
+                "isFiction": false,
+                "speech": "びじゅつかん",
+                "exampleJa": "美術館で有名な絵を見ました。",
+                "exampleReading": "Bijutsukan de yuumei na e o mimashita.",
+                "exampleId": "Saya melihat lukisan terkenal di museum seni.",
+                "catatan": "美術館 lebih khusus untuk karya seni seperti lukisan, patung, pameran seni, dan karya visual lainnya.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          },
+          {
+                "id": "mni-ref-b13-004",
+                "no": "04",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Budaya & Rekreasi",
+                "indonesia": "perpustakaan",
+                "kanji": "図書館",
+                "kana": "としょかん",
+                "romaji": "toshokan",
+                "image": "https://iili.io/C0h8R3b.png",
+                "isFiction": false,
+                "speech": "としょかん",
+                "exampleJa": "図書館で日本語の本を借りました。",
+                "exampleReading": "Toshokan de Nihongo no hon o karimashita.",
+                "exampleId": "Saya meminjam buku bahasa Jepang di perpustakaan.",
+                "catatan": "図書館 adalah tempat yang cocok untuk membaca, belajar, meminjam buku, atau mencari referensi.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          },
+          {
+                "id": "mni-ref-b13-005",
+                "no": "05",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Budaya & Rekreasi",
+                "indonesia": "gedung bioskop",
+                "kanji": "映画館",
+                "kana": "えいがかん",
+                "romaji": "eigakan",
+                "image": "https://iili.io/C0h8M6g.png",
+                "isFiction": false,
+                "speech": "えいがかん",
+                "exampleJa": "友達と映画館で映画を見ます。",
+                "exampleReading": "Tomodachi to eigakan de eiga o mimasu.",
+                "exampleId": "Saya menonton film di bioskop bersama teman.",
+                "catatan": "映画館 dipakai untuk menyebut tempat menonton film di layar besar, sama seperti bioskop.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          },
+          {
+                "id": "mni-ref-b13-006",
+                "no": "06",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Budaya & Rekreasi",
+                "indonesia": "kebun binatang",
+                "kanji": "動物園",
+                "kana": "どうぶつえん",
+                "romaji": "doubutsuen",
+                "image": "https://iili.io/C0h8pcb.png",
+                "isFiction": false,
+                "speech": "どうぶつえん",
+                "exampleJa": "動物園にパンダがいます。",
+                "exampleReading": "Doubutsuen ni panda ga imasu.",
+                "exampleId": "Di kebun binatang ada panda.",
+                "catatan": "動物園 adalah tempat melihat berbagai hewan. Kata 動物 berarti hewan, dan 園 berarti taman atau kebun.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          },
+          {
+                "id": "mni-ref-b13-007",
+                "no": "07",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Budaya & Rekreasi",
+                "indonesia": "kebun raya",
+                "kanji": "植物園",
+                "kana": "しょくぶつえん",
+                "romaji": "shokubutsuen",
+                "image": "https://iili.io/C0hSHHx.png",
+                "isFiction": false,
+                "speech": "しょくぶつえん",
+                "exampleJa": "植物園できれいな花を見ました。",
+                "exampleReading": "Shokubutsuen de kirei na hana o mimashita.",
+                "exampleId": "Saya melihat bunga yang indah di kebun raya.",
+                "catatan": "植物園 berhubungan dengan tanaman, bunga, pohon, dan koleksi tumbuhan.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          },
+          {
+                "id": "mni-ref-b13-008",
+                "no": "08",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Budaya & Rekreasi",
+                "indonesia": "taman bermain",
+                "kanji": "遊園地",
+                "kana": "ゆうえんち",
+                "romaji": "yuuenchi",
+                "image": "https://iili.io/C0h8DPe.png",
+                "isFiction": false,
+                "speech": "ゆうえんち",
+                "exampleJa": "子どもたちは遊園地が大好きです。",
+                "exampleReading": "Kodomotachi wa yuuenchi ga daisuki desu.",
+                "exampleId": "Anak-anak sangat suka taman bermain.",
+                "catatan": "遊園地 adalah tempat hiburan dengan wahana seperti bianglala, komidi putar, dan permainan lainnya.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          },
+          {
+                "id": "mni-ref-b13-009",
+                "no": "09",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Tempat Ibadah",
+                "indonesia": "kuil / wihara Buddha",
+                "kanji": "お寺",
+                "kana": "おてら",
+                "romaji": "otera",
+                "image": "https://iili.io/C0hSdNV.png",
+                "isFiction": false,
+                "speech": "おてら",
+                "exampleJa": "京都には古いお寺がたくさんあります。",
+                "exampleReading": "Kyouto ni wa furui otera ga takusan arimasu.",
+                "exampleId": "Di Kyoto ada banyak kuil Buddha tua.",
+                "catatan": "お寺 adalah kuil Buddha. Awalan お membuat kata ini terdengar lebih sopan dan natural.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          },
+          {
+                "id": "mni-ref-b13-010",
+                "no": "10",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Tempat Ibadah",
+                "indonesia": "kuil Shinto",
+                "kanji": "神社",
+                "kana": "じんじゃ",
+                "romaji": "jinja",
+                "image": "https://iili.io/C0hSxHv.png",
+                "isFiction": false,
+                "speech": "じんじゃ",
+                "exampleJa": "お正月に神社へ行きます。",
+                "exampleReading": "Oshougatsu ni jinja e ikimasu.",
+                "exampleId": "Saya pergi ke kuil Shinto saat Tahun Baru.",
+                "catatan": "神社 adalah tempat ibadah Shinto. Biasanya ada gerbang torii di bagian depan.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          },
+          {
+                "id": "mni-ref-b13-011",
+                "no": "11",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Tempat Ibadah",
+                "indonesia": "gereja",
+                "kanji": "教会",
+                "kana": "きょうかい",
+                "romaji": "kyoukai",
+                "image": "https://iili.io/C0hSzRR.png",
+                "isFiction": false,
+                "speech": "きょうかい",
+                "exampleJa": "駅の近くに教会があります。",
+                "exampleReading": "Eki no chikaku ni kyoukai ga arimasu.",
+                "exampleId": "Ada gereja di dekat stasiun.",
+                "catatan": "教会 digunakan untuk menyebut gereja sebagai tempat ibadah umat Kristen.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          },
+          {
+                "id": "mni-ref-b13-012",
+                "no": "12",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Tempat Ibadah",
+                "indonesia": "masjid",
+                "kanji": "モスク",
+                "kana": "モスク",
+                "romaji": "mosuku",
+                "image": "https://iili.io/C0hS5iX.png",
+                "isFiction": false,
+                "speech": "モスク",
+                "exampleJa": "この町に新しいモスクがあります。",
+                "exampleReading": "Kono machi ni atarashii mosuku ga arimasu.",
+                "exampleId": "Di kota ini ada masjid baru.",
+                "catatan": "モスク adalah kata serapan dari “mosque”. Karena serapan asing, kata ini ditulis dengan katakana.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          },
+          {
+                "id": "mni-ref-b13-013",
+                "no": "13",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Fasilitas Umum",
+                "indonesia": "gedung olahraga",
+                "kanji": "体育館",
+                "kana": "たいいくかん",
+                "romaji": "taiikukan",
+                "image": "https://iili.io/C0hSYfn.png",
+                "isFiction": false,
+                "speech": "たいいくかん",
+                "exampleJa": "体育館でバスケットボールをします。",
+                "exampleReading": "Taiikukan de basukettobooru o shimasu.",
+                "exampleId": "Saya bermain basket di gedung olahraga.",
+                "catatan": "体育館 biasanya ada di sekolah atau fasilitas umum untuk olahraga indoor.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          },
+          {
+                "id": "mni-ref-b13-014",
+                "no": "14",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Fasilitas Umum",
+                "indonesia": "kolam renang",
+                "kanji": "プール",
+                "kana": "プール",
+                "romaji": "puuru",
+                "image": "https://iili.io/C0hSVxS.png",
+                "isFiction": false,
+                "speech": "プール",
+                "exampleJa": "夏休みにプールへ行きたいです。",
+                "exampleReading": "Natsuyasumi ni puuru e ikitai desu.",
+                "exampleId": "Saya ingin pergi ke kolam renang saat liburan musim panas.",
+                "catatan": "プール adalah kata serapan dari “pool”, maka ditulis dengan katakana.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          },
+          {
+                "id": "mni-ref-b13-015",
+                "no": "15",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Fasilitas Umum",
+                "indonesia": "taman",
+                "kanji": "公園",
+                "kana": "こうえん",
+                "romaji": "kouen",
+                "image": "https://iili.io/C0hSXs9.png",
+                "isFiction": false,
+                "speech": "こうえん",
+                "exampleJa": "公園で犬と散歩します。",
+                "exampleReading": "Kouen de inu to sanpo shimasu.",
+                "exampleId": "Saya berjalan-jalan dengan anjing di taman.",
+                "catatan": "公園 adalah taman umum, biasanya ada tempat duduk, pohon, area bermain, atau jalur jalan kaki.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          },
+          {
+                "id": "mni-ref-b13-016",
+                "no": "16",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Fasilitas Umum",
+                "indonesia": "kedutaan besar",
+                "kanji": "大使館",
+                "kana": "たいしかん",
+                "romaji": "taishikan",
+                "image": "https://iili.io/C0hSw0u.png",
+                "isFiction": false,
+                "speech": "たいしかん",
+                "exampleJa": "インドネシア大使館は東京にあります。",
+                "exampleReading": "Indoneshia taishikan wa Toukyou ni arimasu.",
+                "exampleId": "Kedutaan Besar Indonesia berada di Tokyo.",
+                "catatan": "大使館 adalah kantor resmi perwakilan negara di negara lain.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          },
+          {
+                "id": "mni-ref-b13-017",
+                "no": "17",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Fasilitas Umum",
+                "indonesia": "kantor imigrasi",
+                "kanji": "入国管理局",
+                "kana": "にゅうこくかんりきょく",
+                "romaji": "nyuukoku kanrikyoku",
+                "image": "https://iili.io/C0hSk5x.png",
+                "isFiction": false,
+                "speech": "にゅうこくかんりきょく",
+                "exampleJa": "ビザのことで入国管理局へ行きました。",
+                "exampleReading": "Biza no koto de nyuukoku kanrikyoku e ikimashita.",
+                "exampleId": "Saya pergi ke kantor imigrasi untuk urusan visa.",
+                "catatan": "Kata ini sering dipakai saat membicarakan visa, izin tinggal, dokumen imigrasi, dan prosedur masuk negara.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          },
+          {
+                "id": "mni-ref-b13-018",
+                "no": "18",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Fasilitas Umum",
+                "indonesia": "kantor balai kota",
+                "kanji": "市役所",
+                "kana": "しやくしょ",
+                "romaji": "shiyakusho",
+                "image": "https://iili.io/C0hSZeR.png",
+                "isFiction": false,
+                "speech": "しやくしょ",
+                "exampleJa": "市役所で住所を登録します。",
+                "exampleReading": "Shiyakusho de juusho o touroku shimasu.",
+                "exampleId": "Saya mendaftarkan alamat di kantor balai kota.",
+                "catatan": "市役所 adalah kantor pemerintahan kota. Di Jepang, tempat ini penting untuk urusan alamat, pajak, asuransi, dan dokumen warga.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          },
+          {
+                "id": "mni-ref-b13-019",
+                "no": "19",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Fasilitas Umum",
+                "indonesia": "kantor polisi",
+                "kanji": "警察署",
+                "kana": "けいさつしょ",
+                "romaji": "keisatsusho",
+                "image": "https://iili.io/C0hU2dG.png",
+                "isFiction": false,
+                "speech": "けいさつしょ",
+                "exampleJa": "落とし物を警察署へ持って行きました。",
+                "exampleReading": "Otoshimono o keisatsusho e motte ikimashita.",
+                "exampleId": "Saya membawa barang temuan ke kantor polisi.",
+                "catatan": "警察署 adalah kantor polisi besar di suatu wilayah, berbeda dengan 交番 yang lebih kecil.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          },
+          {
+                "id": "mni-ref-b13-020",
+                "no": "20",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Fasilitas Umum",
+                "indonesia": "pos polisi",
+                "kanji": "交番",
+                "kana": "こうばん",
+                "romaji": "kouban",
+                "image": "https://iili.io/C0hUH1n.png",
+                "isFiction": false,
+                "speech": "こうばん",
+                "exampleJa": "道がわからないので、交番で聞きます。",
+                "exampleReading": "Michi ga wakaranai node, kouban de kikimasu.",
+                "exampleId": "Karena tidak tahu jalan, saya bertanya di pos polisi.",
+                "catatan": "交番 adalah pos polisi kecil yang mudah ditemukan di kota-kota Jepang. Tempat ini sering dipakai untuk bertanya arah.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          },
+          {
+                "id": "mni-ref-b13-021",
+                "no": "21",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Fasilitas Umum",
+                "indonesia": "kantor pemadam kebakaran",
+                "kanji": "消防署",
+                "kana": "しょうぼうしょ",
+                "romaji": "shoubousho",
+                "image": "https://iili.io/C0hUFe4.png",
+                "isFiction": false,
+                "speech": "しょうぼうしょ",
+                "exampleJa": "消防署の前に消防車があります。",
+                "exampleReading": "Shoubousho no mae ni shoubousha ga arimasu.",
+                "exampleId": "Di depan kantor pemadam kebakaran ada mobil pemadam.",
+                "catatan": "消防署 adalah kantor untuk petugas pemadam kebakaran dan layanan darurat kebakaran.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          },
+          {
+                "id": "mni-ref-b13-022",
+                "no": "22",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Fasilitas Umum",
+                "indonesia": "tempat parkir",
+                "kanji": "駐車場",
+                "kana": "ちゅうしゃじょう",
+                "romaji": "chuushajou",
+                "image": "https://iili.io/C0hUzru.png",
+                "isFiction": false,
+                "speech": "ちゅうしゃじょう",
+                "exampleJa": "このスーパーには広い駐車場があります。",
+                "exampleReading": "Kono suupaa ni wa hiroi chuushajou ga arimasu.",
+                "exampleId": "Supermarket ini punya tempat parkir yang luas.",
+                "catatan": "駐車場 berarti area untuk memarkir kendaraan. Kata ini sering terlihat di papan jalan dan gedung.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          },
+          {
+                "id": "mni-ref-b13-023",
+                "no": "23",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Sekolah",
+                "indonesia": "universitas",
+                "kanji": "大学",
+                "kana": "だいがく",
+                "romaji": "daigaku",
+                "image": "https://iili.io/C0hUMYJ.png",
+                "isFiction": false,
+                "speech": "だいがく",
+                "exampleJa": "兄は東京の大学で勉強しています。",
+                "exampleReading": "Ani wa Toukyou no daigaku de benkyou shite imasu.",
+                "exampleId": "Kakak laki-laki saya belajar di universitas di Tokyo.",
+                "catatan": "大学 digunakan untuk pendidikan tingkat universitas atau perguruan tinggi.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          },
+          {
+                "id": "mni-ref-b13-024",
+                "no": "24",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Sekolah",
+                "indonesia": "SMA",
+                "kanji": "高校",
+                "kana": "こうこう",
+                "romaji": "koukou",
+                "image": "https://iili.io/C0hUG2a.png",
+                "isFiction": false,
+                "speech": "こうこう",
+                "exampleJa": "妹は高校に通っています。",
+                "exampleReading": "Imouto wa koukou ni kayotte imasu.",
+                "exampleId": "Adik perempuan saya bersekolah di SMA.",
+                "catatan": "高校 adalah singkatan dari 高等学校, yaitu sekolah menengah atas.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          },
+          {
+                "id": "mni-ref-b13-025",
+                "no": "25",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Sekolah",
+                "indonesia": "SMP",
+                "kanji": "中学校",
+                "kana": "ちゅうがっこう",
+                "romaji": "chuugakkou",
+                "image": "https://iili.io/C0hUVkv.png",
+                "isFiction": false,
+                "speech": "ちゅうがっこう",
+                "exampleJa": "中学校の近くにコンビニがあります。",
+                "exampleReading": "Chuugakkou no chikaku ni konbini ga arimasu.",
+                "exampleId": "Ada minimarket dekat SMP.",
+                "catatan": "中学校 berarti sekolah menengah pertama. Perhatikan bunyi kecil っ pada ちゅうがっこう.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          },
+          {
+                "id": "mni-ref-b13-026",
+                "no": "26",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Sekolah",
+                "indonesia": "SD",
+                "kanji": "小学校",
+                "kana": "しょうがっこう",
+                "romaji": "shougakkou",
+                "image": "https://iili.io/C0hU82s.png",
+                "isFiction": false,
+                "speech": "しょうがっこう",
+                "exampleJa": "小学校で日本語を少し習いました。",
+                "exampleReading": "Shougakkou de Nihongo o sukoshi naraimashita.",
+                "exampleId": "Saya pernah belajar sedikit bahasa Jepang di SD.",
+                "catatan": "小学校 berarti sekolah dasar. 小 berarti kecil, dan 学校 berarti sekolah.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          },
+          {
+                "id": "mni-ref-b13-027",
+                "no": "27",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Sekolah",
+                "indonesia": "TK",
+                "kanji": "幼稚園",
+                "kana": "ようちえん",
+                "romaji": "youchien",
+                "image": "https://iili.io/C0hUDYb.png",
+                "isFiction": false,
+                "speech": "ようちえん",
+                "exampleJa": "子どもは毎朝幼稚園へ行きます。",
+                "exampleReading": "Kodomo wa maiasa youchien e ikimasu.",
+                "exampleId": "Anak itu pergi ke TK setiap pagi.",
+                "catatan": "幼稚園 adalah taman kanak-kanak, tempat anak kecil mulai belajar dan bermain sebelum masuk SD.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          },
+          {
+                "id": "mni-ref-b13-028",
+                "no": "28",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Toko",
+                "indonesia": "toko daging",
+                "kanji": "肉屋",
+                "kana": "にくや",
+                "romaji": "nikuya",
+                "image": "https://iili.io/C0hg9jV.png",
+                "isFiction": false,
+                "speech": "にくや",
+                "exampleJa": "肉屋で牛肉を買いました。",
+                "exampleReading": "Nikuya de gyuuniku o kaimashita.",
+                "exampleId": "Saya membeli daging sapi di toko daging.",
+                "catatan": "Pola kata 屋 berarti toko atau orang yang menjual sesuatu. 肉屋 berarti toko daging.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          },
+          {
+                "id": "mni-ref-b13-029",
+                "no": "29",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Toko",
+                "indonesia": "toko roti",
+                "kanji": "パン屋",
+                "kana": "パンや",
+                "romaji": "pan-ya",
+                "image": "https://iili.io/C0hg36F.png",
+                "isFiction": false,
+                "speech": "パンや",
+                "exampleJa": "パン屋で朝ごはんのパンを買います。",
+                "exampleReading": "Pan-ya de asagohan no pan o kaimasu.",
+                "exampleId": "Saya membeli roti untuk sarapan di toko roti.",
+                "catatan": "パン berasal dari kata serapan, sedangkan 屋 menunjukkan toko. Jadi パン屋 berarti toko roti.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          },
+          {
+                "id": "mni-ref-b13-030",
+                "no": "30",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Toko",
+                "indonesia": "toko ikan",
+                "kanji": "魚屋",
+                "kana": "さかなや",
+                "romaji": "sakanaya",
+                "image": "https://iili.io/C0hgfaa.png",
+                "isFiction": false,
+                "speech": "さかなや",
+                "exampleJa": "魚屋に新鮮な魚があります。",
+                "exampleReading": "Sakanaya ni shinsen na sakana ga arimasu.",
+                "exampleId": "Di toko ikan ada ikan segar.",
+                "catatan": "魚屋 adalah toko yang menjual ikan. Kata 魚 dibaca さかな saat berdiri sebagai kata umum.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          },
+          {
+                "id": "mni-ref-b13-031",
+                "no": "31",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Toko",
+                "indonesia": "toko minuman keras",
+                "kanji": "酒屋",
+                "kana": "さかや",
+                "romaji": "sakaya",
+                "image": "https://iili.io/C0hg5as.png",
+                "isFiction": false,
+                "speech": "さかや",
+                "exampleJa": "酒屋で日本酒を買いました。",
+                "exampleReading": "Sakaya de nihonshu o kaimashita.",
+                "exampleId": "Saya membeli sake Jepang di toko minuman keras.",
+                "catatan": "酒屋 adalah toko yang menjual minuman beralkohol. 酒 bisa berarti sake atau minuman beralkohol secara umum.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          },
+          {
+                "id": "mni-ref-b13-032",
+                "no": "32",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Toko",
+                "indonesia": "toko sayur",
+                "kanji": "八百屋",
+                "kana": "やおや",
+                "romaji": "yaoya",
+                "image": "https://iili.io/C0hgGM7.png",
+                "isFiction": false,
+                "speech": "やおや",
+                "exampleJa": "八百屋でトマトときゅうりを買います。",
+                "exampleReading": "Yaoya de tomato to kyuuri o kaimasu.",
+                "exampleId": "Saya membeli tomat dan mentimun di toko sayur.",
+                "catatan": "八百屋 adalah toko sayur dan buah tradisional. Cara bacanya agak unik, jadi perlu dihafal sebagai satu kata.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          },
+          {
+                "id": "mni-ref-b13-033",
+                "no": "33",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Toko",
+                "indonesia": "coffee shop / kedai kopi",
+                "kanji": "喫茶店",
+                "kana": "きっさてん",
+                "romaji": "kissaten",
+                "image": "https://iili.io/C0hgXcu.png",
+                "isFiction": false,
+                "speech": "きっさてん",
+                "exampleJa": "喫茶店でコーヒーを飲みながら本を読みます。",
+                "exampleReading": "Kissaten de koohii o nominagara hon o yomimasu.",
+                "exampleId": "Saya membaca buku sambil minum kopi di kedai kopi.",
+                "catatan": "喫茶店 terasa seperti kedai kopi klasik Jepang. Berbeda sedikit dari カフェ yang terdengar lebih modern.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          },
+          {
+                "id": "mni-ref-b13-034",
+                "no": "34",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Toko",
+                "indonesia": "toko 24 jam",
+                "kanji": "コンビニ",
+                "kana": "コンビニ",
+                "romaji": "konbini",
+                "image": "https://iili.io/C0hgWFe.png",
+                "isFiction": false,
+                "speech": "コンビニ",
+                "exampleJa": "夜、コンビニでおにぎりを買いました。",
+                "exampleReading": "Yoru, konbini de onigiri o kaimashita.",
+                "exampleId": "Malam hari, saya membeli onigiri di toko 24 jam.",
+                "catatan": "コンビニ berasal dari convenience store. Di Jepang, konbini sangat praktis karena menjual makanan, minuman, ATM, dan layanan pembayaran.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          },
+          {
+                "id": "mni-ref-b13-035",
+                "no": "35",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Toko",
+                "indonesia": "supermarket / pasar swalayan",
+                "kanji": "スーパー",
+                "kana": "スーパー",
+                "romaji": "suupaa",
+                "image": "https://iili.io/C0hgvoB.png",
+                "isFiction": false,
+                "speech": "スーパー",
+                "exampleJa": "母はスーパーで野菜を買います。",
+                "exampleReading": "Haha wa suupaa de yasai o kaimasu.",
+                "exampleId": "Ibu membeli sayuran di supermarket.",
+                "catatan": "スーパー adalah bentuk pendek dari supermarket. Kata ini umum dipakai dalam percakapan sehari-hari.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          },
+          {
+                "id": "mni-ref-b13-036",
+                "no": "36",
+                "book": "Minna no Nihongo I (2nd Edition)",
+                "bookJa": "みんなの日本語 I（第2版）",
+                "materialCategory": "Kata-kata referensi dan Informasi",
+                "chapter": "Bab 13",
+                "chapterNumber": 13,
+                "favorite": false,
+                "typeCategory": "Kata Benda",
+                "sectionCategory": "Kosakata",
+                "subCategory": "町の中（まちのなか） - Di Kota",
+                "bab13Group": "Toko",
+                "indonesia": "toko serba ada / department store",
+                "kanji": "デパート",
+                "kana": "デパート",
+                "romaji": "depaato",
+                "image": "https://iili.io/C0hggKF.png",
+                "isFiction": false,
+                "speech": "デパート",
+                "exampleJa": "デパートで新しいかばんを買いました。",
+                "exampleReading": "Depaato de atarashii kaban o kaimashita.",
+                "exampleId": "Saya membeli tas baru di department store.",
+                "catatan": "デパート adalah pusat perbelanjaan besar dengan banyak bagian, seperti pakaian, makanan, kosmetik, dan perlengkapan rumah.",
+                "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 13"
+          }
+    ];
+    VOCABULARY.push(...BAB13_REFERENCE_INFO_VOCABULARY);
+
     const REFERENCE_INFO_BAB10_MATERIAL = {
       "hero": {
             "title": "うちの中",
@@ -26799,11 +27793,11 @@
     const $ = s => document.querySelector(s);
     const $$ = s => [...document.querySelectorAll(s)];
     const storeKey = "minnaFlashcardV2";
-    const dataVersion = "bab1-bab13-materi-umum-20260710-v1";
+    const dataVersion = "bab1-bab13-reference-info-20260710-v2";
     const setupCompletedKey = storeKey + "_setupCompleted";
     const hadCurrentDataVersionBeforeBoot = localStorage.getItem(storeKey+"_dataVersion") === dataVersion;
     const hadSetupCompletedFlagBeforeBoot = localStorage.getItem(setupCompletedKey);
-    const defaultSetup = { book:"Minna no Nihongo I (2nd Edition)", materialCategory:"Materi Umum", chapter:"Bab 13" };
+    const defaultSetup = { book:"Minna no Nihongo I (2nd Edition)", materialCategory:"Kata-kata referensi dan Informasi", chapter:"Bab 13" };
     if(localStorage.getItem(storeKey+"_dataVersion") !== dataVersion){
       localStorage.setItem(storeKey+"_setup", JSON.stringify(defaultSetup));
       localStorage.setItem(storeKey+"_includeFiction", "true");
@@ -27051,6 +28045,7 @@
     function isReferenceInfoBab10(){ return isReferenceInfoChapter("Bab 10"); }
     function isReferenceInfoBab11(){ return isReferenceInfoChapter("Bab 11"); }
     function isReferenceInfoBab12(){ return isReferenceInfoChapter("Bab 12"); }
+    function isReferenceInfoBab13(){ return isReferenceInfoChapter("Bab 13"); }
     function isReferenceInfoMaterialOnly(){ return isReferenceInfoBab2() || isReferenceInfoBab4() || isReferenceInfoBab5(); }
 
     function materialOnlyQuizMessage(){
@@ -28403,6 +29398,123 @@
       $("#materialEmpty")?.classList.add("hidden");
     }
 
+
+
+    function renderReferenceInfoBab13(){
+      const grid = $("#materialGrid");
+      if(!grid) return;
+      const toolbar = $(".material-toolbar");
+      const notice = $("#materialPage .notice");
+      const title = $("#materialPage .content-card > h2");
+      const desc = $("#materialPage .content-card > p");
+      if(title) title.textContent = state.lang === "ja" ? "第13課 町の中" : "Kata-kata Referensi dan Informasi - Bab 13";
+      if(desc) desc.textContent = state.lang === "ja"
+        ? "町の中にある施設、学校、店の語彙を、絵・例文・メモつきで整理しました。"
+        : "Materi Bab 13 berisi kosakata tempat-tempat di kota, mulai dari fasilitas umum, tempat ibadah, sekolah, sampai berbagai toko. Setiap kartu dilengkapi gambar, contoh kalimat, audio, dan catatan yang mudah diingat.";
+      document.body.classList.remove("material-only-reference");
+      if(toolbar){ toolbar.classList.remove("hidden"); toolbar.style.removeProperty("display"); toolbar.style.removeProperty("visibility"); toolbar.style.removeProperty("pointer-events"); }
+      if(notice){ notice.classList.add("hidden"); notice.style.setProperty("display", "none", "important"); }
+      updateMaterialOnlyControls();
+      grid.className = "reference-bab13-wrap";
+
+      const search = ($("#materialSearch")?.value || "").toLowerCase();
+      const sectionFilter = $("#materialSectionFilter")?.value || "all";
+      const typeFilter = $("#materialTypeFilter")?.value || "all";
+      const allItems = activeVocab().filter(v => String(v.id || "").startsWith("mni-ref-b13-"));
+      let arr = allItems.filter(v => [
+        v.no, formatIndonesianMeaning(v), v.indonesia, v.kana, v.kanji, v.romaji, v.typeCategory, v.sectionCategory,
+        v.materialCategory, v.subCategory, v.bab13Group, v.chapter, v.catatan, v.exampleJa, v.exampleReading, v.exampleId,
+        ...(Array.isArray(v.examples) ? v.examples.flatMap(ex => [ex.ja, ex.reading, ex.id]) : [])
+      ].join(" ").toLowerCase().includes(search));
+      if(sectionFilter !== "all") arr = arr.filter(v => v.sectionCategory === sectionFilter);
+      if(typeFilter !== "all") arr = arr.filter(v => v.typeCategory === typeFilter);
+
+      const groupMeta = [
+        { key:"Gambaran Kota", icon:"fa-city", title:state.lang === "ja" ? "町の中" : "Gambaran Kota", desc:state.lang === "ja" ? "街全体を表す表現です。" : "Pembuka untuk memahami suasana dan area kota secara umum." },
+        { key:"Budaya & Rekreasi", icon:"fa-ticket", title:state.lang === "ja" ? "文化・レジャー" : "Budaya & Rekreasi", desc:state.lang === "ja" ? "博物館、美術館、図書館、遊園地などです。" : "Tempat untuk belajar, melihat pameran, menonton film, atau menikmati hiburan." },
+        { key:"Tempat Ibadah", icon:"fa-hands-praying", title:state.lang === "ja" ? "宗教施設" : "Tempat Ibadah", desc:state.lang === "ja" ? "寺、神社、教会、モスクの違いを覚えます。" : "Kata-kata untuk kuil Buddha, kuil Shinto, gereja, dan masjid." },
+        { key:"Fasilitas Umum", icon:"fa-building-shield", title:state.lang === "ja" ? "公共施設" : "Fasilitas Umum", desc:state.lang === "ja" ? "役所、警察、消防、駐車場などです。" : "Tempat umum yang sering dipakai untuk urusan sehari-hari, administrasi, keamanan, dan layanan kota." },
+        { key:"Sekolah", icon:"fa-school", title:state.lang === "ja" ? "学校" : "Sekolah", desc:state.lang === "ja" ? "大学から幼稚園までの学校語彙です。" : "Urutan lembaga pendidikan dari universitas sampai TK." },
+        { key:"Toko", icon:"fa-store", title:state.lang === "ja" ? "店" : "Toko", desc:state.lang === "ja" ? "〜屋、コンビニ、スーパー、デパートを確認します。" : "Kosakata toko, termasuk pola ～屋 yang berarti toko atau penjual." }
+      ];
+
+      const card = v => {
+        const fav = state.favorites.includes(v.id);
+        const meaning = formatIndonesianMeaning(v);
+        return `<article class="vocab-card reference-bab13-card">
+          <div class="reference-bab13-img-wrap">
+            <span class="reference-bab13-num">${esc(v.no || "")}</span>
+            <img src="${esc(v.image)}" alt="${esc(meaning)}" loading="lazy" data-zoom="${esc(v.image)}">
+          </div>
+          <div>
+            <div class="reference-bab13-title jp">${esc(vocabMainText(v))}</div>
+            <div class="reference-bab13-reading">${esc(vocabReadingText(v))}</div>
+            <div class="reference-bab13-meaning">${esc(meaning)}</div>
+            <div class="tag-row">
+              <span class="tag">${esc(v.chapter)}</span>
+              <span class="tag pink">${esc(v.bab13Group || "町の中")}</span>
+              <span class="tag green">${esc(categoryLabel(v.typeCategory,"type"))}</span>
+            </div>
+            <div class="reference-bab13-note"><i class="fa-solid fa-circle-info"></i>${esc(v.catatan || "")}</div>
+            <div class="reference-bab13-actions">
+              <button class="icon-btn" data-speak-id="${esc(v.id)}" title="${state.lang === "ja" ? "聞く" : "Dengar"}"><i class="fa-solid fa-volume-high"></i></button>
+              <button class="icon-btn ${fav ? "active" : ""}" data-fav="${esc(v.id)}" title="${state.lang === "ja" ? "お気に入り" : "Favorit"}"><i class="${fav ? "fa-solid" : "fa-regular"} fa-star"></i></button>
+              <button class="icon-btn" data-note-material="${esc(v.id)}" title="${state.lang === "ja" ? "メモ" : "Catatan"}"><i class="fa-regular fa-note-sticky"></i></button>
+              <button class="icon-btn" data-example-material="${esc(v.id)}" title="${state.lang === "ja" ? "例文" : "Contoh kalimat"}"><i class="fa-regular fa-comment-dots"></i></button>
+            </div>
+          </div>
+        </article>`;
+      };
+
+      const emptyHtml = `<div class="empty"><div style="font-size:34px;color:#7c4dff;margin-bottom:10px"><i class="fa-solid fa-magnifying-glass"></i></div><h3>${state.lang === "ja" ? "語彙が見つかりません" : "Kosakata tidak ditemukan"}</h3><p>${state.lang === "ja" ? "検索語またはフィルターを変更してください。" : "Coba ubah filter atau kata kunci pencarian."}</p></div>`;
+      const groupedCards = groupMeta.map(meta => {
+        const items = arr.filter(v => v.bab13Group === meta.key);
+        if(!items.length) return "";
+        return `<section class="reference-bab13-section">
+          <div class="reference-bab13-group-head">
+            <div>
+              <h4><i class="fa-solid ${meta.icon}" style="color:#7c4dff"></i>${esc(meta.title)}</h4>
+              <p>${esc(meta.desc)}</p>
+            </div>
+            <span class="reference-bab13-group-count"><i class="fa-solid fa-layer-group"></i>${items.length} ${state.lang === "ja" ? "語" : "kosakata"}</span>
+          </div>
+          <div class="reference-bab13-grid">${items.map(card).join("")}</div>
+        </section>`;
+      }).join("");
+
+      grid.innerHTML = `
+        <section class="reference-bab13-hero">
+          <div class="reference-bab13-hero-head">
+            <div>
+              <span class="badge"><i class="fa-solid fa-city"></i>${state.lang === "ja" ? "第13課・参考語彙" : "Minna no Nihongo I • Bab 13"}</span>
+              <h3><span class="jp">町の中</span> — ${state.lang === "ja" ? "街の場所" : "Di Kota"}</h3>
+              <p>${state.lang === "ja" ? "このページでは、町でよく見る建物、施設、学校、お店の名前をまとめています。" : "Bayangkan kamu sedang berjalan di kota Jepang. Dari museum sampai konbini, dari kantor polisi sampai toko roti, semua kosakata di sini membantu kamu menyebut tempat-tempat yang sering muncul dalam kehidupan sehari-hari."}</p>
+              <span class="reference-bab13-count"><i class="fa-solid fa-layer-group"></i>${allItems.length} ${state.lang === "ja" ? "語" : "kosakata"}</span>
+            </div>
+            <div class="reference-bab13-hero-img">
+              <img src="${esc(BAB13_REFERENCE_INFO_FINAL_IMAGE)}" alt="町の中 - Ilustrasi kota" loading="lazy" data-zoom="${esc(BAB13_REFERENCE_INFO_FINAL_IMAGE)}">
+            </div>
+          </div>
+        </section>
+        <section class="reference-bab13-section">
+          <div class="reference-bab13-section-head">
+            <div>
+              <h3><i class="fa-solid fa-book-open-reader" style="color:#7c4dff"></i>${state.lang === "ja" ? "語彙カード" : "Daftar Kosakata Bab 13"}</h3>
+              <p>${state.lang === "ja" ? "カードの音声、メモ、例文を使って復習できます。" : "Gunakan tombol audio untuk mendengar pelafalan, tombol catatan untuk memahami pemakaian kata, dan tombol contoh untuk melihat kalimat sederhana."}</p>
+            </div>
+            <span class="reference-bab13-group-count"><i class="fa-solid fa-filter"></i>${arr.length} ${state.lang === "ja" ? "表示中" : "tampil"}</span>
+          </div>
+          ${arr.length ? groupedCards : emptyHtml}
+        </section>
+        <section class="reference-bab13-final">
+          <h3><i class="fa-solid fa-map-location-dot" style="color:#7c4dff"></i>${state.lang === "ja" ? "町の中のまとめ画像" : "Gambar Penutup: Peta Kecil di Kota"}</h3>
+          <p>${state.lang === "ja" ? "最後に、町の中のイメージをまとめて見てみましょう。" : "Gambar ini dipakai sebagai rangkuman visual akhir Bab 13 supaya kosakata tempat-tempat di kota lebih mudah dibayangkan."}</p>
+          <img src="${esc(BAB13_REFERENCE_INFO_FINAL_IMAGE)}" alt="Minna no Nihongo I Bab 13 町の中" loading="lazy" data-zoom="${esc(BAB13_REFERENCE_INFO_FINAL_IMAGE)}">
+        </section>`;
+
+      $("#materialEmpty")?.classList.add("hidden");
+    }
+
     function renderMaterial(){
       syncFictionToggleAvailability();
       const toolbar = $(".material-toolbar");
@@ -28445,6 +29557,10 @@
       }
       if(isReferenceInfoBab12()){
         renderReferenceInfoBab12();
+        return;
+      }
+      if(isReferenceInfoBab13()){
+        renderReferenceInfoBab13();
         return;
       }
       const notice = $("#materialPage .notice");
