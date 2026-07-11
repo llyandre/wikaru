@@ -768,6 +768,7 @@
     .example-icon::after { content:""; position:absolute; inset:8px; border-radius:15px; border:1px solid rgba(255,255,255,.28); }
     .example-modal-head h2 { letter-spacing:-.055em; font-weight:850; }
     .example-modal-head p { color:#66728a; font-size:14px; }
+    .example-audio-btn { margin-left:auto; flex:0 0 auto; width:46px; height:46px; border-radius:16px; }
     .example-content { gap:14px; }
     .example-info-card { padding:18px 20px; border-radius:22px; background:linear-gradient(135deg,#fff,#fbf8ff); border:1px solid #e7e0ff; box-shadow:0 10px 24px rgba(80,67,130,.055); }
     .example-info-card span { color:#7c4dff; font-size:12px; font-weight:900; letter-spacing:.045em; margin-bottom:8px; }
@@ -2698,6 +2699,7 @@
       <div class="example-modal-head">
         <span class="example-icon jp">例</span>
         <div><h2 data-i18n="exampleSentence">Contoh Kalimat</h2><p id="exampleModalDesc">Contoh penggunaan kosakata dalam kalimat bahasa Jepang.</p></div>
+        <button class="icon-btn example-audio-btn" id="exampleSpeakBtn" type="button" title="Dengarkan contoh kalimat" aria-label="Dengarkan contoh kalimat"><i class="fa-solid fa-volume-high"></i></button>
       </div>
       <div class="example-content" id="exampleContent">
         <div class="example-info-card"><span id="exampleJaLabel">Jepang</span><strong class="jp" id="exampleJa">-</strong></div>
@@ -22837,6 +22839,780 @@
     VOCABULARY.push(...BAB14_VOCABULARY);
 
 
+    // ===== Tambahan data: Minna no Nihongo I -> Materi Umum -> Bab 15 =====
+    const BAB15_VOCABULARY = [
+      {
+            "id": "mni-b15-001",
+            "no": "1",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 15",
+            "chapterNumber": 15,
+            "favorite": false,
+            "typeCategory": "Kata Kerja",
+            "sectionCategory": "Kosakata",
+            "indonesia": "meletakkan / menaruh",
+            "kanji": "置きます",
+            "kana": "おきます",
+            "romaji": "okimasu",
+            "image": "https://iili.io/C1dD4TB.png",
+            "isFiction": false,
+            "speech": "おきます",
+            "exampleJa": "私はかぎを箱の中に置きます。",
+            "exampleReading": "Watashi wa kagi o hako no naka ni okimasu.",
+            "exampleId": "Saya meletakkan kunci di dalam kotak.",
+            "examples": [
+                  {
+                        "ja": "私はかぎを箱の中に置きます。",
+                        "reading": "Watashi wa kagi o hako no naka ni okimasu.",
+                        "id": "Saya meletakkan kunci di dalam kotak."
+                  }
+            ],
+            "catatan": "置きます digunakan saat menaruh atau meletakkan suatu benda di tempat tertentu. Benda yang diletakkan memakai partikel を, sedangkan lokasi tujuan biasanya memakai に. Contoh: 本を机の上に置きます berarti meletakkan buku di atas meja.",
+            "note": "置きます digunakan saat menaruh atau meletakkan suatu benda di tempat tertentu. Benda yang diletakkan memakai partikel を, sedangkan lokasi tujuan biasanya memakai に. Contoh: 本を机の上に置きます berarti meletakkan buku di atas meja.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 15"
+      },
+      {
+            "id": "mni-b15-002",
+            "no": "2",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 15",
+            "chapterNumber": 15,
+            "favorite": false,
+            "typeCategory": "Kata Kerja",
+            "sectionCategory": "Kosakata",
+            "indonesia": "membuat / membangun / memproduksi",
+            "kanji": "作ります・造ります",
+            "kana": "つくります",
+            "romaji": "tsukurimasu",
+            "image": "https://iili.io/C1dDPQ1.png",
+            "isFiction": false,
+            "speech": "つくります",
+            "exampleJa": "この工場では新しい車を造ります。",
+            "exampleReading": "Kono koujou de wa atarashii kuruma o tsukurimasu.",
+            "exampleId": "Pabrik ini memproduksi mobil baru.",
+            "examples": [
+                  {
+                        "ja": "この工場では新しい車を造ります。",
+                        "reading": "Kono koujou de wa atarashii kuruma o tsukurimasu.",
+                        "id": "Pabrik ini memproduksi mobil baru."
+                  }
+            ],
+            "catatan": "つくります berarti membuat atau menghasilkan sesuatu. 作ります umum digunakan untuk makanan, tulisan, atau benda sehari-hari. 造ります lebih sering digunakan untuk produksi berskala besar, seperti mobil, kapal, atau minuman.",
+            "note": "つくります berarti membuat atau menghasilkan sesuatu. 作ります umum digunakan untuk makanan, tulisan, atau benda sehari-hari. 造ります lebih sering digunakan untuk produksi berskala besar, seperti mobil, kapal, atau minuman.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 15"
+      },
+      {
+            "id": "mni-b15-003",
+            "no": "3",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 15",
+            "chapterNumber": 15,
+            "favorite": false,
+            "typeCategory": "Kata Kerja",
+            "sectionCategory": "Kosakata",
+            "indonesia": "menjual",
+            "kanji": "売ります",
+            "kana": "うります",
+            "romaji": "urimasu",
+            "image": "https://iili.io/C1dDsCF.png",
+            "isFiction": false,
+            "speech": "うります",
+            "exampleJa": "駅の近くの店で新聞を売っています。",
+            "exampleReading": "Eki no chikaku no mise de shinbun o utte imasu.",
+            "exampleId": "Toko di dekat stasiun menjual surat kabar.",
+            "examples": [
+                  {
+                        "ja": "駅の近くの店で新聞を売っています。",
+                        "reading": "Eki no chikaku no mise de shinbun o utte imasu.",
+                        "id": "Toko di dekat stasiun menjual surat kabar."
+                  }
+            ],
+            "catatan": "売ります digunakan ketika seseorang atau sebuah toko menjual barang. Barang yang dijual memakai partikel を, sedangkan tempat kegiatan penjualan biasanya memakai で.",
+            "note": "売ります digunakan ketika seseorang atau sebuah toko menjual barang. Barang yang dijual memakai partikel を, sedangkan tempat kegiatan penjualan biasanya memakai で.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 15"
+      },
+      {
+            "id": "mni-b15-004",
+            "no": "4",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 15",
+            "chapterNumber": 15,
+            "favorite": false,
+            "typeCategory": "Kata Kerja",
+            "sectionCategory": "Kosakata",
+            "indonesia": "mengetahui / mengenal",
+            "kanji": "知ります",
+            "kana": "しります",
+            "romaji": "shirimasu",
+            "image": "https://iili.io/C1dD6hP.png",
+            "isFiction": false,
+            "speech": "しります",
+            "exampleJa": "私はその会社の名前を知っています。",
+            "exampleReading": "Watashi wa sono kaisha no namae o shitte imasu.",
+            "exampleId": "Saya mengetahui nama perusahaan itu.",
+            "examples": [
+                  {
+                        "ja": "私はその会社の名前を知っています。",
+                        "reading": "Watashi wa sono kaisha no namae o shitte imasu.",
+                        "id": "Saya mengetahui nama perusahaan itu."
+                  }
+            ],
+            "catatan": "知ります menggambarkan proses menjadi tahu. Untuk menyatakan keadaan “sudah tahu” atau “mengenal”, bahasa Jepang lebih sering menggunakan 知っています. Bentuk negatif yang umum adalah 知りません.",
+            "note": "知ります menggambarkan proses menjadi tahu. Untuk menyatakan keadaan “sudah tahu” atau “mengenal”, bahasa Jepang lebih sering menggunakan 知っています. Bentuk negatif yang umum adalah 知りません.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 15"
+      },
+      {
+            "id": "mni-b15-005",
+            "no": "5",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 15",
+            "chapterNumber": 15,
+            "favorite": false,
+            "typeCategory": "Kata Kerja",
+            "sectionCategory": "Kosakata",
+            "indonesia": "tinggal",
+            "kanji": "住みます",
+            "kana": "すみます",
+            "romaji": "sumimasu",
+            "image": "https://iili.io/C1dDLEg.png",
+            "isFiction": false,
+            "speech": "すみます",
+            "exampleJa": "姉は京都に住んでいます。",
+            "exampleReading": "Ane wa Kyouto ni sunde imasu.",
+            "exampleId": "Kakak perempuan saya tinggal di Kyoto.",
+            "examples": [
+                  {
+                        "ja": "姉は京都に住んでいます。",
+                        "reading": "Ane wa Kyouto ni sunde imasu.",
+                        "id": "Kakak perempuan saya tinggal di Kyoto."
+                  }
+            ],
+            "catatan": "住みます digunakan untuk menyatakan tempat tinggal. Lokasi tempat seseorang tinggal memakai partikel に. Untuk keadaan yang sedang berlangsung, biasanya digunakan bentuk 住んでいます.",
+            "note": "住みます digunakan untuk menyatakan tempat tinggal. Lokasi tempat seseorang tinggal memakai partikel に. Untuk keadaan yang sedang berlangsung, biasanya digunakan bentuk 住んでいます.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 15"
+      },
+      {
+            "id": "mni-b15-006",
+            "no": "6",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 15",
+            "chapterNumber": 15,
+            "favorite": false,
+            "typeCategory": "Kata Kerja",
+            "sectionCategory": "Kosakata",
+            "indonesia": "meneliti / melakukan penelitian",
+            "kanji": "研究します",
+            "kana": "けんきゅうします",
+            "romaji": "kenkyuu shimasu",
+            "image": "https://iili.io/C1dDQ4a.png",
+            "isFiction": false,
+            "speech": "けんきゅうします",
+            "exampleJa": "大学でロボットを研究しています。",
+            "exampleReading": "Daigaku de robotto o kenkyuu shite imasu.",
+            "exampleId": "Saya sedang meneliti robot di universitas.",
+            "examples": [
+                  {
+                        "ja": "大学でロボットを研究しています。",
+                        "reading": "Daigaku de robotto o kenkyuu shite imasu.",
+                        "id": "Saya sedang meneliti robot di universitas."
+                  }
+            ],
+            "catatan": "研究します berarti melakukan penelitian secara mendalam terhadap suatu bidang atau objek. Kata ini banyak digunakan dalam lingkungan universitas, laboratorium, teknologi, dan ilmu pengetahuan.",
+            "note": "研究します berarti melakukan penelitian secara mendalam terhadap suatu bidang atau objek. Kata ini banyak digunakan dalam lingkungan universitas, laboratorium, teknologi, dan ilmu pengetahuan.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 15"
+      },
+      {
+            "id": "mni-b15-007",
+            "no": "7",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 15",
+            "chapterNumber": 15,
+            "favorite": false,
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "Kosakata",
+            "indonesia": "data / bahan / materi referensi",
+            "kanji": "資料",
+            "kana": "しりょう",
+            "romaji": "shiryou",
+            "image": "https://iili.io/C1dDDYv.png",
+            "isFiction": false,
+            "speech": "しりょう",
+            "exampleJa": "会議の前に資料を読みます。",
+            "exampleReading": "Kaigi no mae ni shiryou o yomimasu.",
+            "exampleId": "Saya membaca materi rapat sebelum rapat dimulai.",
+            "examples": [
+                  {
+                        "ja": "会議の前に資料を読みます。",
+                        "reading": "Kaigi no mae ni shiryou o yomimasu.",
+                        "id": "Saya membaca materi rapat sebelum rapat dimulai."
+                  }
+            ],
+            "catatan": "資料 dapat berarti data, dokumen, bahan presentasi, atau materi referensi. Kata ini sering digunakan untuk berkas yang dibutuhkan dalam rapat, pelajaran, penelitian, dan pekerjaan.",
+            "note": "資料 dapat berarti data, dokumen, bahan presentasi, atau materi referensi. Kata ini sering digunakan untuk berkas yang dibutuhkan dalam rapat, pelajaran, penelitian, dan pekerjaan.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 15"
+      },
+      {
+            "id": "mni-b15-008",
+            "no": "8",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 15",
+            "chapterNumber": 15,
+            "favorite": false,
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "Kosakata",
+            "indonesia": "katalog",
+            "kanji": "",
+            "kana": "カタログ",
+            "romaji": "katarogu",
+            "image": "https://iili.io/C1dDbvR.png",
+            "isFiction": false,
+            "speech": "カタログ",
+            "exampleJa": "旅行会社で京都のカタログをもらいました。",
+            "exampleReading": "Ryokou gaisha de Kyouto no katarogu o moraimashita.",
+            "exampleId": "Saya menerima katalog Kyoto dari perusahaan perjalanan.",
+            "examples": [
+                  {
+                        "ja": "旅行会社で京都のカタログをもらいました。",
+                        "reading": "Ryokou gaisha de Kyouto no katarogu o moraimashita.",
+                        "id": "Saya menerima katalog Kyoto dari perusahaan perjalanan."
+                  }
+            ],
+            "catatan": "カタログ adalah kata serapan yang berarti katalog. Isinya biasanya berupa gambar dan informasi mengenai barang, layanan, tempat wisata, atau produk yang ditawarkan.",
+            "note": "カタログ adalah kata serapan yang berarti katalog. Isinya biasanya berupa gambar dan informasi mengenai barang, layanan, tempat wisata, atau produk yang ditawarkan.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 15"
+      },
+      {
+            "id": "mni-b15-009",
+            "no": "9",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 15",
+            "chapterNumber": 15,
+            "favorite": false,
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "Kosakata",
+            "indonesia": "jadwal keberangkatan / tabel waktu",
+            "kanji": "時刻表",
+            "kana": "じこくひょう",
+            "romaji": "jikokuhyou",
+            "image": "https://iili.io/C1dDmpp.png",
+            "isFiction": false,
+            "speech": "じこくひょう",
+            "exampleJa": "駅で新幹線の時刻表を見ます。",
+            "exampleReading": "Eki de shinkansen no jikokuhyou o mimasu.",
+            "exampleId": "Saya melihat jadwal Shinkansen di stasiun.",
+            "examples": [
+                  {
+                        "ja": "駅で新幹線の時刻表を見ます。",
+                        "reading": "Eki de shinkansen no jikokuhyou o mimasu.",
+                        "id": "Saya melihat jadwal Shinkansen di stasiun."
+                  }
+            ],
+            "catatan": "時刻表 adalah tabel yang menunjukkan waktu keberangkatan dan kedatangan kendaraan umum, terutama kereta dan bus. 時刻 berarti waktu, sedangkan 表 berarti tabel atau daftar.",
+            "note": "時刻表 adalah tabel yang menunjukkan waktu keberangkatan dan kedatangan kendaraan umum, terutama kereta dan bus. 時刻 berarti waktu, sedangkan 表 berarti tabel atau daftar.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 15"
+      },
+      {
+            "id": "mni-b15-010",
+            "no": "10",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 15",
+            "chapterNumber": 15,
+            "favorite": false,
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "Kosakata",
+            "indonesia": "baju / pakaian",
+            "kanji": "服",
+            "kana": "ふく",
+            "romaji": "fuku",
+            "image": "https://iili.io/C1dDyTN.png",
+            "isFiction": false,
+            "speech": "ふく",
+            "exampleJa": "今日は新しい服を着ています。",
+            "exampleReading": "Kyou wa atarashii fuku o kite imasu.",
+            "exampleId": "Hari ini saya mengenakan pakaian baru.",
+            "examples": [
+                  {
+                        "ja": "今日は新しい服を着ています。",
+                        "reading": "Kyou wa atarashii fuku o kite imasu.",
+                        "id": "Hari ini saya mengenakan pakaian baru."
+                  }
+            ],
+            "catatan": "服 merupakan kata umum untuk pakaian atau baju. Kata kerja yang biasa digunakan bersama 服 adalah 着ます, yang berarti mengenakan pakaian pada bagian atas tubuh.",
+            "note": "服 merupakan kata umum untuk pakaian atau baju. Kata kerja yang biasa digunakan bersama 服 adalah 着ます, yang berarti mengenakan pakaian pada bagian atas tubuh.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 15"
+      },
+      {
+            "id": "mni-b15-011",
+            "no": "11",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 15",
+            "chapterNumber": 15,
+            "favorite": false,
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "Kosakata",
+            "indonesia": "produk / barang hasil produksi",
+            "kanji": "製品",
+            "kana": "せいひん",
+            "romaji": "seihin",
+            "image": "https://iili.io/C1dbdCX.png",
+            "isFiction": false,
+            "speech": "せいひん",
+            "exampleJa": "この製品は軽くて便利です。",
+            "exampleReading": "Kono seihin wa karukute benri desu.",
+            "exampleId": "Produk ini ringan dan praktis.",
+            "examples": [
+                  {
+                        "ja": "この製品は軽くて便利です。",
+                        "reading": "Kono seihin wa karukute benri desu.",
+                        "id": "Produk ini ringan dan praktis."
+                  }
+            ],
+            "catatan": "製品 adalah barang yang telah selesai dibuat atau diproduksi oleh suatu perusahaan atau pabrik. Kata ini lebih formal daripada 商品 dan menekankan hasil proses produksi.",
+            "note": "製品 adalah barang yang telah selesai dibuat atau diproduksi oleh suatu perusahaan atau pabrik. Kata ini lebih formal daripada 商品 dan menekankan hasil proses produksi.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 15"
+      },
+      {
+            "id": "mni-b15-012",
+            "no": "12",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 15",
+            "chapterNumber": 15,
+            "favorite": false,
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "Kosakata",
+            "indonesia": "perangkat lunak / software",
+            "kanji": "",
+            "kana": "ソフト",
+            "romaji": "sofuto",
+            "image": "https://iili.io/C1db2Gn.png",
+            "isFiction": false,
+            "speech": "ソフト",
+            "exampleJa": "このソフトで写真を編集します。",
+            "exampleReading": "Kono sofuto de shashin o henshuu shimasu.",
+            "exampleId": "Saya mengedit foto menggunakan perangkat lunak ini.",
+            "examples": [
+                  {
+                        "ja": "このソフトで写真を編集します。",
+                        "reading": "Kono sofuto de shashin o henshuu shimasu.",
+                        "id": "Saya mengedit foto menggunakan perangkat lunak ini."
+                  }
+            ],
+            "catatan": "ソフト merupakan bentuk singkat dari ソフトウェア dan berarti perangkat lunak. Kata ini digunakan untuk aplikasi atau program komputer, bukan perangkat keras.",
+            "note": "ソフト merupakan bentuk singkat dari ソフトウェア dan berarti perangkat lunak. Kata ini digunakan untuk aplikasi atau program komputer, bukan perangkat keras.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 15"
+      },
+      {
+            "id": "mni-b15-013",
+            "no": "13",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 15",
+            "chapterNumber": 15,
+            "favorite": false,
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "Kosakata",
+            "indonesia": "kamus elektronik",
+            "kanji": "電子辞書",
+            "kana": "でんしじしょ",
+            "romaji": "denshi jisho",
+            "image": "https://iili.io/C1db34s.png",
+            "isFiction": false,
+            "speech": "でんしじしょ",
+            "exampleJa": "分からない漢字を電子辞書で調べます。",
+            "exampleReading": "Wakaranai kanji o denshi jisho de shirabemasu.",
+            "exampleId": "Saya mencari kanji yang tidak saya pahami menggunakan kamus elektronik.",
+            "examples": [
+                  {
+                        "ja": "分からない漢字を電子辞書で調べます。",
+                        "reading": "Wakaranai kanji o denshi jisho de shirabemasu.",
+                        "id": "Saya mencari kanji yang tidak saya pahami menggunakan kamus elektronik."
+                  }
+            ],
+            "catatan": "電子辞書 adalah alat elektronik khusus untuk mencari arti kata, kanji, pelafalan, dan contoh kalimat. 電子 berarti elektronik, sedangkan 辞書 berarti kamus.",
+            "note": "電子辞書 adalah alat elektronik khusus untuk mencari arti kata, kanji, pelafalan, dan contoh kalimat. 電子 berarti elektronik, sedangkan 辞書 berarti kamus.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 15"
+      },
+      {
+            "id": "mni-b15-014",
+            "no": "14",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 15",
+            "chapterNumber": 15,
+            "favorite": false,
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "Kosakata",
+            "indonesia": "ekonomi",
+            "kanji": "経済",
+            "kana": "けいざい",
+            "romaji": "keizai",
+            "image": "https://iili.io/C1dbK3G.png",
+            "isFiction": false,
+            "speech": "けいざい",
+            "exampleJa": "日本の経済について勉強しています。",
+            "exampleReading": "Nihon no keizai ni tsuite benkyou shite imasu.",
+            "exampleId": "Saya sedang mempelajari ekonomi Jepang.",
+            "examples": [
+                  {
+                        "ja": "日本の経済について勉強しています。",
+                        "reading": "Nihon no keizai ni tsuite benkyou shite imasu.",
+                        "id": "Saya sedang mempelajari ekonomi Jepang."
+                  }
+            ],
+            "catatan": "経済 berarti ekonomi, yaitu kegiatan yang berhubungan dengan produksi, perdagangan, uang, pekerjaan, dan penggunaan sumber daya dalam masyarakat.",
+            "note": "経済 berarti ekonomi, yaitu kegiatan yang berhubungan dengan produksi, perdagangan, uang, pekerjaan, dan penggunaan sumber daya dalam masyarakat.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 15"
+      },
+      {
+            "id": "mni-b15-015",
+            "no": "15",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 15",
+            "chapterNumber": 15,
+            "favorite": false,
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "Kosakata",
+            "indonesia": "kantor wali kota / kantor pemerintahan kota",
+            "kanji": "市役所",
+            "kana": "しやくしょ",
+            "romaji": "shiyakusho",
+            "image": "https://iili.io/C1dbfaf.png",
+            "isFiction": false,
+            "speech": "しやくしょ",
+            "exampleJa": "明日の朝、市役所へ行きます。",
+            "exampleReading": "Ashita no asa, shiyakusho e ikimasu.",
+            "exampleId": "Besok pagi saya pergi ke kantor pemerintahan kota.",
+            "examples": [
+                  {
+                        "ja": "明日の朝、市役所へ行きます。",
+                        "reading": "Ashita no asa, shiyakusho e ikimasu.",
+                        "id": "Besok pagi saya pergi ke kantor pemerintahan kota."
+                  }
+            ],
+            "catatan": "市役所 adalah kantor pemerintahan tingkat kota. Penduduk biasanya datang ke tempat ini untuk mengurus dokumen kependudukan, pajak daerah, alamat, dan layanan masyarakat.",
+            "note": "市役所 adalah kantor pemerintahan tingkat kota. Penduduk biasanya datang ke tempat ini untuk mengurus dokumen kependudukan, pajak daerah, alamat, dan layanan masyarakat.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 15"
+      },
+      {
+            "id": "mni-b15-016",
+            "no": "16",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 15",
+            "chapterNumber": 15,
+            "favorite": false,
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "Kosakata",
+            "indonesia": "SMA / sekolah menengah atas",
+            "kanji": "高校",
+            "kana": "こうこう",
+            "romaji": "koukou",
+            "image": "https://iili.io/C1dbqv4.png",
+            "isFiction": false,
+            "speech": "こうこう",
+            "exampleJa": "弟は高校の一年生です。",
+            "exampleReading": "Otouto wa koukou no ichinensei desu.",
+            "exampleId": "Adik laki-laki saya adalah siswa kelas satu SMA.",
+            "examples": [
+                  {
+                        "ja": "弟は高校の一年生です。",
+                        "reading": "Otouto wa koukou no ichinensei desu.",
+                        "id": "Adik laki-laki saya adalah siswa kelas satu SMA."
+                  }
+            ],
+            "catatan": "高校 adalah bentuk singkat dari 高等学校 dan berarti sekolah menengah atas. Siswa SMA disebut 高校生.",
+            "note": "高校 adalah bentuk singkat dari 高等学校 dan berarti sekolah menengah atas. Siswa SMA disebut 高校生.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 15"
+      },
+      {
+            "id": "mni-b15-017",
+            "no": "17",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 15",
+            "chapterNumber": 15,
+            "favorite": false,
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "Kosakata",
+            "indonesia": "dokter gigi / klinik dokter gigi",
+            "kanji": "歯医者",
+            "kana": "はいしゃ",
+            "romaji": "haisha",
+            "image": "https://iili.io/C1dbByl.png",
+            "isFiction": false,
+            "speech": "はいしゃ",
+            "exampleJa": "歯が痛いので、歯医者へ行きます。",
+            "exampleReading": "Ha ga itai node, haisha e ikimasu.",
+            "exampleId": "Karena gigi saya sakit, saya pergi ke dokter gigi.",
+            "examples": [
+                  {
+                        "ja": "歯が痛いので、歯医者へ行きます。",
+                        "reading": "Ha ga itai node, haisha e ikimasu.",
+                        "id": "Karena gigi saya sakit, saya pergi ke dokter gigi."
+                  }
+            ],
+            "catatan": "歯医者 dapat merujuk kepada dokter gigi maupun tempat praktik dokter gigi, tergantung konteks kalimat. 歯 berarti gigi dan 医者 berarti dokter.",
+            "note": "歯医者 dapat merujuk kepada dokter gigi maupun tempat praktik dokter gigi, tergantung konteks kalimat. 歯 berarti gigi dan 医者 berarti dokter.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 15"
+      },
+      {
+            "id": "mni-b15-018",
+            "no": "18",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 15",
+            "chapterNumber": 15,
+            "favorite": false,
+            "typeCategory": "Kata Benda",
+            "sectionCategory": "Kosakata",
+            "indonesia": "belum menikah / belum berkeluarga",
+            "kanji": "独身",
+            "kana": "どくしん",
+            "romaji": "dokushin",
+            "image": "https://iili.io/C1dbnu2.png",
+            "isFiction": false,
+            "speech": "どくしん",
+            "exampleJa": "佐藤さんは独身で、一人で住んでいます。",
+            "exampleReading": "Satou-san wa dokushin de, hitori de sunde imasu.",
+            "exampleId": "Sato belum menikah dan tinggal seorang diri.",
+            "examples": [
+                  {
+                        "ja": "佐藤さんは独身で、一人で住んでいます。",
+                        "reading": "Satou-san wa dokushin de, hitori de sunde imasu.",
+                        "id": "Sato belum menikah dan tinggal seorang diri."
+                  }
+            ],
+            "catatan": "独身 berarti belum menikah atau masih lajang. Kata ini dapat digunakan untuk laki-laki maupun perempuan, sehingga terjemahan yang lebih tepat tidak hanya “bujangan”.",
+            "note": "独身 berarti belum menikah atau masih lajang. Kata ini dapat digunakan untuk laki-laki maupun perempuan, sehingga terjemahan yang lebih tepat tidak hanya “bujangan”.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 15"
+      },
+      {
+            "id": "mni-b15-019",
+            "no": "19",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 15",
+            "chapterNumber": 15,
+            "favorite": false,
+            "typeCategory": "Ungkapan Percakapan",
+            "sectionCategory": "Kosakata",
+            "indonesia": "maaf / permisi",
+            "kanji": "",
+            "kana": "すみません",
+            "romaji": "sumimasen",
+            "image": "https://iili.io/C1dbojS.png",
+            "isFiction": false,
+            "speech": "すみません",
+            "exampleJa": "すみません、窓を開けてください。",
+            "exampleReading": "Sumimasen, mado o akete kudasai.",
+            "exampleId": "Permisi, tolong buka jendelanya.",
+            "examples": [
+                  {
+                        "ja": "すみません、窓を開けてください。",
+                        "reading": "Sumimasen, mado o akete kudasai.",
+                        "id": "Permisi, tolong buka jendelanya."
+                  }
+            ],
+            "catatan": "すみません dapat digunakan untuk meminta maaf, menarik perhatian seseorang, mengatakan permisi, atau menunjukkan rasa terima kasih karena telah merepotkan orang lain.",
+            "note": "すみません dapat digunakan untuk meminta maaf, menarik perhatian seseorang, mengatakan permisi, atau menunjukkan rasa terima kasih karena telah merepotkan orang lain.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 15"
+      },
+      {
+            "id": "mni-b15-020",
+            "no": "20",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 15",
+            "chapterNumber": 15,
+            "favorite": false,
+            "typeCategory": "Ungkapan Percakapan",
+            "sectionCategory": "Latihan C",
+            "indonesia": "semuanya / bapak-bapak dan ibu-ibu sekalian",
+            "kanji": "皆さん",
+            "kana": "みなさん",
+            "romaji": "minasan",
+            "image": "https://iili.io/C1dbxZ7.png",
+            "isFiction": false,
+            "speech": "みなさん",
+            "exampleJa": "皆さん、教科書の十五ページを開けてください。",
+            "exampleReading": "Minasan, kyoukasho no juugo peeji o akete kudasai.",
+            "exampleId": "Semuanya, silakan buka buku pelajaran halaman lima belas.",
+            "examples": [
+                  {
+                        "ja": "皆さん、教科書の十五ページを開けてください。",
+                        "reading": "Minasan, kyoukasho no juugo peeji o akete kudasai.",
+                        "id": "Semuanya, silakan buka buku pelajaran halaman lima belas."
+                  }
+            ],
+            "catatan": "皆さん adalah sapaan sopan kepada sekelompok orang. Dalam suasana resmi, artinya dapat disampaikan sebagai “bapak-bapak dan ibu-ibu sekalian” atau “hadirin sekalian”.",
+            "note": "皆さん adalah sapaan sopan kepada sekelompok orang. Dalam suasana resmi, artinya dapat disampaikan sebagai “bapak-bapak dan ibu-ibu sekalian” atau “hadirin sekalian”.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 15"
+      },
+      {
+            "id": "mni-b15-021",
+            "no": "21",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 15",
+            "chapterNumber": 15,
+            "favorite": false,
+            "typeCategory": "Kata Kerja",
+            "sectionCategory": "Percakapan",
+            "indonesia": "teringat / mengingat kembali",
+            "kanji": "思い出します",
+            "kana": "おもいだします",
+            "romaji": "omoidashimasu",
+            "image": "https://iili.io/C1dbR3b.png",
+            "isFiction": false,
+            "speech": "おもいだします",
+            "exampleJa": "この歌を聞くと、学生時代を思い出します。",
+            "exampleReading": "Kono uta o kiku to, gakusei jidai o omoidashimasu.",
+            "exampleId": "Ketika mendengar lagu ini, saya teringat masa sekolah.",
+            "examples": [
+                  {
+                        "ja": "この歌を聞くと、学生時代を思い出します。",
+                        "reading": "Kono uta o kiku to, gakusei jidai o omoidashimasu.",
+                        "id": "Ketika mendengar lagu ini, saya teringat masa sekolah."
+                  }
+            ],
+            "catatan": "思い出します berarti sesuatu yang pernah diketahui atau dialami muncul kembali dalam ingatan. Hal yang diingat biasanya memakai partikel を.",
+            "note": "思い出します berarti sesuatu yang pernah diketahui atau dialami muncul kembali dalam ingatan. Hal yang diingat biasanya memakai partikel を.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 15"
+      },
+      {
+            "id": "mni-b15-022",
+            "no": "22",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 15",
+            "chapterNumber": 15,
+            "favorite": false,
+            "typeCategory": "Kata Kerja Hormat",
+            "sectionCategory": "Percakapan",
+            "indonesia": "berada / ada, bentuk hormat dari います",
+            "kanji": "",
+            "kana": "いらっしゃいます",
+            "romaji": "irasshaimasu",
+            "image": "https://iili.io/C1dbYyQ.png",
+            "isFiction": false,
+            "speech": "いらっしゃいます",
+            "exampleJa": "社長は会議室にいらっしゃいます。",
+            "exampleReading": "Shachou wa kaigishitsu ni irasshaimasu.",
+            "exampleId": "Direktur sedang berada di ruang rapat.",
+            "examples": [
+                  {
+                        "ja": "社長は会議室にいらっしゃいます。",
+                        "reading": "Shachou wa kaigishitsu ni irasshaimasu.",
+                        "id": "Direktur sedang berada di ruang rapat."
+                  }
+            ],
+            "catatan": "いらっしゃいます adalah bentuk hormat yang digunakan ketika membicarakan keberadaan orang yang dihormati. Dalam konteks Bab 15, kata ini merupakan bentuk hormat dari います.",
+            "note": "いらっしゃいます adalah bentuk hormat yang digunakan ketika membicarakan keberadaan orang yang dihormati. Dalam konteks Bab 15, kata ini merupakan bentuk hormat dari います.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 15"
+      },
+      {
+            "id": "mni-b15-023",
+            "no": "23",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 15",
+            "chapterNumber": 15,
+            "favorite": false,
+            "typeCategory": "Nama Tempat",
+            "sectionCategory": "Kosakata Tambahan",
+            "indonesia": "Nihon Bashi — nama daerah perbelanjaan di Osaka",
+            "kanji": "日本橋",
+            "kana": "にほんばし",
+            "romaji": "Nihonbashi",
+            "image": "https://iili.io/C1dbEn1.png",
+            "isFiction": false,
+            "speech": "にほんばし",
+            "exampleJa": "日曜日に日本橋で買い物をしました。",
+            "exampleReading": "Nichiyoubi ni Nihonbashi de kaimono o shimashita.",
+            "exampleId": "Pada hari Minggu, saya berbelanja di Nihon Bashi.",
+            "examples": [
+                  {
+                        "ja": "日曜日に日本橋で買い物をしました。",
+                        "reading": "Nichiyoubi ni Nihonbashi de kaimono o shimashita.",
+                        "id": "Pada hari Minggu, saya berbelanja di Nihon Bashi."
+                  }
+            ],
+            "catatan": "日本橋 pada materi ini ditampilkan sebagai 日本橋（Nihon Bashi）, yaitu nama kawasan perbelanjaan di Osaka. Karena merupakan nama tempat, penulisannya harus tetap menggunakan huruf kapital pada romaji.",
+            "note": "日本橋 pada materi ini ditampilkan sebagai 日本橋（Nihon Bashi）, yaitu nama kawasan perbelanjaan di Osaka. Karena merupakan nama tempat, penulisannya harus tetap menggunakan huruf kapital pada romaji.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 15"
+      },
+      {
+            "id": "mni-b15-024",
+            "no": "24",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 15",
+            "chapterNumber": 15,
+            "favorite": false,
+            "typeCategory": "Nama Acara",
+            "sectionCategory": "Kosakata Tambahan",
+            "indonesia": "Wawancara Semua Orang — acara televisi fiksi",
+            "kanji": "",
+            "kana": "みんなのインタビュー",
+            "romaji": "Minna no intabyuu",
+            "image": "https://iili.io/C1dbGMF.png",
+            "isFiction": true,
+            "speech": "みんなのインタビュー",
+            "exampleJa": "母と「みんなのインタビュー」を見ました。",
+            "exampleReading": "Haha to “Minna no intabyuu” o mimashita.",
+            "exampleId": "Saya menonton acara “Wawancara Semua Orang” bersama ibu.",
+            "examples": [
+                  {
+                        "ja": "母と「みんなのインタビュー」を見ました。",
+                        "reading": "Haha to “Minna no intabyuu” o mimashita.",
+                        "id": "Saya menonton acara “Wawancara Semua Orang” bersama ibu."
+                  }
+            ],
+            "catatan": "みんなのインタビュー secara harfiah berarti “Wawancara Semua Orang”. Dalam materi ini, nama tersebut digunakan sebagai judul acara televisi fiksi, bukan nama acara televisi sungguhan.",
+            "note": "みんなのインタビュー secara harfiah berarti “Wawancara Semua Orang”. Dalam materi ini, nama tersebut digunakan sebagai judul acara televisi fiksi, bukan nama acara televisi sungguhan.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 15"
+      }
+];
+    VOCABULARY.push(...BAB15_VOCABULARY);
+
+
     // ===== Tambahan Minna no Nihongo I - Materi Umum - Bab 10 =====
     // Contoh kalimat Bab 10 sudah dibuat lebih variatif agar tidak berulang pola yang sama.
     const BAB10_VOCABULARY = [
@@ -30211,6 +30987,7 @@
     let adminCurrentPage = 1;
     let adminPageSize = 10;
     let quiz = null;
+    let currentExampleVocab = null;
     let recognition = null;
     let speechSupported = "SpeechRecognition" in window || "webkitSpeechRecognition" in window;
     let audioCtx = null;
@@ -31069,6 +31846,12 @@
         "Istana / tempat terkenal":"Istana / tempat terkenal",
         "Kota":"Kota",
         "Kota / tempat wisata":"Kota / tempat wisata",
+        "Latihan C":"練習Ｃ / Latihan C",
+        "Percakapan":"会話 / Percakapan",
+        "Kosakata Tambahan":"Kosakata Tambahan",
+        "Kata Kerja Hormat":"Kata Kerja Hormat",
+        "Nama Tempat":"Nama Tempat",
+        "Nama Acara":"Nama Acara",
         "練習C / Latihan C":"練習C / Latihan C",
         "練習Ｃ / Latihan C":"練習Ｃ / Latihan C",
         "会話 / Percakapan":"会話 / Percakapan",
@@ -31104,10 +31887,10 @@
         "Warna":"色",
         "Rasa":"味",
         "Musim":"季節",
-        "Latihan C":"練習C",
+        "Latihan C":"練習Ｃ",
         "Percakapan":"会話",
-        "練習C / Latihan C":"練習C",
-        "練習Ｃ / Latihan C":"練習C",
+        "練習C / Latihan C":"練習Ｃ",
+        "練習Ｃ / Latihan C":"練習Ｃ",
         "会話 / Percakapan":"会話",
         "Kata Benda":"名詞",
         "Kata Bantu Bilangan":"助数詞",
@@ -31120,6 +31903,9 @@
         "Kata Sambung":"接続詞",
         "Ungkapan":"表現",
         "Ungkapan Percakapan":"会話表現",
+        "Kata Kerja Hormat":"尊敬語の動詞",
+        "Nama Tempat":"地名",
+        "Nama Acara":"番組名",
         "Nama Tempat Fiksi":"架空の場所名",
         "Kata Sifat-i":"い形容詞",
         "Kata Sifat-na":"な形容詞",
@@ -31193,7 +31979,7 @@
       if(!sectionSel || !typeSel) return;
       const secVal = sectionSel.value || "all", typeVal = typeSel.value || "all";
       const sections=[["all", state.lang==="ja"?"すべてのセクション":"Semua Bagian"],["Kosakata", categoryLabel("Kosakata")],["Warna", categoryLabel("Warna")],["Rasa", categoryLabel("Rasa")],["Musim", categoryLabel("Musim")],["Latihan C", categoryLabel("Latihan C")],["練習C / Latihan C", categoryLabel("練習C / Latihan C")],["練習Ｃ / Latihan C", categoryLabel("練習Ｃ / Latihan C")],["Percakapan", categoryLabel("Percakapan")],["会話 / Percakapan", categoryLabel("会話 / Percakapan")],["Kosakata Tambahan", categoryLabel("Kosakata Tambahan")],["Kata-kata referensi dan Informasi", categoryLabel("Kata-kata referensi dan Informasi")],["Perayaan", categoryLabel("Perayaan")],["Tempat terkenal", categoryLabel("Tempat terkenal")],["Keluarga / 家族", categoryLabel("Keluarga / 家族")],["食べ物 / Makanan", categoryLabel("食べ物 / Makanan")],["Menu", categoryLabel("Menu")],["Paket Makan", categoryLabel("Paket Makan")],["Donburi", categoryLabel("Donburi")],["Masakan Jepang", categoryLabel("Masakan Jepang")],["Mie", categoryLabel("Mie")],["Makanan Barat", categoryLabel("Makanan Barat")],["Gorengan", categoryLabel("Gorengan")],["Gorengan Jepang", categoryLabel("Gorengan Jepang")],["Sup", categoryLabel("Sup")],["Lauk Pendamping", categoryLabel("Lauk Pendamping")],["Nasi", categoryLabel("Nasi")],["Roti", categoryLabel("Roti")],["Makanan Ringan", categoryLabel("Makanan Ringan")],["Minuman", categoryLabel("Minuman")],["音楽 / Musik", categoryLabel("音楽 / Musik")],["映画 / Film", categoryLabel("映画 / Film")],["スポーツ / Olahraga", categoryLabel("スポーツ / Olahraga")]];
-      const types=[["all", state.lang==="ja"?"すべての品詞":"Semua Jenis Kata"],["Kata Benda", categoryLabel("Kata Benda")],["Kata Bantu Bilangan", categoryLabel("Kata Bantu Bilangan")],["Keterangan Waktu", categoryLabel("Keterangan Waktu")],["Partikel", categoryLabel("Partikel")],["Kata Kerja", categoryLabel("Kata Kerja")],["Kata Tanya", categoryLabel("Kata Tanya")],["Kata Keterangan", categoryLabel("Kata Keterangan")],["Pola Kata", categoryLabel("Pola Kata")],["Kata Sambung", categoryLabel("Kata Sambung")],["Ungkapan", categoryLabel("Ungkapan")],["Ungkapan Percakapan", categoryLabel("Ungkapan Percakapan")],["Nama Tempat Fiksi", categoryLabel("Nama Tempat Fiksi")],["Kata Sifat-i", categoryLabel("Kata Sifat-i")],["Kata Sifat-na", categoryLabel("Kata Sifat-na")],["Kosakata Tambahan", categoryLabel("Kosakata Tambahan")],["Makanan", categoryLabel("Makanan")],["Minuman", categoryLabel("Minuman")],["Informasi", categoryLabel("Informasi")],["Negara", categoryLabel("Negara")],["Bahasa", categoryLabel("Bahasa")],["Kewarganegaraan", categoryLabel("Kewarganegaraan")],["Perayaan", categoryLabel("Perayaan")],["Tempat terkenal", categoryLabel("Tempat terkenal")],["Kuil / tempat terkenal", categoryLabel("Kuil / tempat terkenal")],["Bangunan terkenal", categoryLabel("Bangunan terkenal")],["Gunung / tempat terkenal", categoryLabel("Gunung / tempat terkenal")],["Kastil / tempat terkenal", categoryLabel("Kastil / tempat terkenal")],["Monumen sejarah", categoryLabel("Monumen sejarah")],["Patung / tempat terkenal", categoryLabel("Patung / tempat terkenal")],["Kuil dan patung terkenal", categoryLabel("Kuil dan patung terkenal")],["Istana / tempat terkenal", categoryLabel("Istana / tempat terkenal")],["Kota", categoryLabel("Kota")],["Kota / tempat wisata", categoryLabel("Kota / tempat wisata")],["野菜 / Sayuran", categoryLabel("野菜 / Sayuran")],["果物 / Buah-buahan", categoryLabel("果物 / Buah-buahan")],["肉 / Daging", categoryLabel("肉 / Daging")],["魚 / Ikan", categoryLabel("魚 / Ikan")],["その他 / Yang Lainnya", categoryLabel("その他 / Yang Lainnya")],["Fasilitas Stasiun", categoryLabel("Fasilitas Stasiun")],["Jenis Kereta", categoryLabel("Jenis Kereta")],["Informasi Jadwal", categoryLabel("Informasi Jadwal")],["Tiket Perjalanan", categoryLabel("Tiket Perjalanan")]];
+      const types=[["all", state.lang==="ja"?"すべての品詞":"Semua Jenis Kata"],["Kata Benda", categoryLabel("Kata Benda")],["Kata Bantu Bilangan", categoryLabel("Kata Bantu Bilangan")],["Keterangan Waktu", categoryLabel("Keterangan Waktu")],["Partikel", categoryLabel("Partikel")],["Kata Kerja", categoryLabel("Kata Kerja")],["Kata Kerja Hormat", categoryLabel("Kata Kerja Hormat")],["Kata Tanya", categoryLabel("Kata Tanya")],["Kata Keterangan", categoryLabel("Kata Keterangan")],["Pola Kata", categoryLabel("Pola Kata")],["Kata Sambung", categoryLabel("Kata Sambung")],["Ungkapan", categoryLabel("Ungkapan")],["Ungkapan Percakapan", categoryLabel("Ungkapan Percakapan")],["Nama Tempat", categoryLabel("Nama Tempat")],["Nama Acara", categoryLabel("Nama Acara")],["Nama Tempat Fiksi", categoryLabel("Nama Tempat Fiksi")],["Kata Sifat-i", categoryLabel("Kata Sifat-i")],["Kata Sifat-na", categoryLabel("Kata Sifat-na")],["Kosakata Tambahan", categoryLabel("Kosakata Tambahan")],["Makanan", categoryLabel("Makanan")],["Minuman", categoryLabel("Minuman")],["Informasi", categoryLabel("Informasi")],["Negara", categoryLabel("Negara")],["Bahasa", categoryLabel("Bahasa")],["Kewarganegaraan", categoryLabel("Kewarganegaraan")],["Perayaan", categoryLabel("Perayaan")],["Tempat terkenal", categoryLabel("Tempat terkenal")],["Kuil / tempat terkenal", categoryLabel("Kuil / tempat terkenal")],["Bangunan terkenal", categoryLabel("Bangunan terkenal")],["Gunung / tempat terkenal", categoryLabel("Gunung / tempat terkenal")],["Kastil / tempat terkenal", categoryLabel("Kastil / tempat terkenal")],["Monumen sejarah", categoryLabel("Monumen sejarah")],["Patung / tempat terkenal", categoryLabel("Patung / tempat terkenal")],["Kuil dan patung terkenal", categoryLabel("Kuil dan patung terkenal")],["Istana / tempat terkenal", categoryLabel("Istana / tempat terkenal")],["Kota", categoryLabel("Kota")],["Kota / tempat wisata", categoryLabel("Kota / tempat wisata")],["野菜 / Sayuran", categoryLabel("野菜 / Sayuran")],["果物 / Buah-buahan", categoryLabel("果物 / Buah-buahan")],["肉 / Daging", categoryLabel("肉 / Daging")],["魚 / Ikan", categoryLabel("魚 / Ikan")],["その他 / Yang Lainnya", categoryLabel("その他 / Yang Lainnya")],["Fasilitas Stasiun", categoryLabel("Fasilitas Stasiun")],["Jenis Kereta", categoryLabel("Jenis Kereta")],["Informasi Jadwal", categoryLabel("Informasi Jadwal")],["Tiket Perjalanan", categoryLabel("Tiket Perjalanan")]];
       sectionSel.innerHTML = sections.map(([v,l])=>`<option value="${esc(v)}">${esc(l)}</option>`).join("");
       typeSel.innerHTML = types.map(([v,l])=>`<option value="${esc(v)}">${esc(l)}</option>`).join("");
       sectionSel.value = sections.some(x=>x[0]===secVal) ? secVal : "all";
@@ -32052,7 +32838,7 @@
       $("#materialGrid").innerHTML = arr.map(v=>{
         const fav = state.favorites.includes(v.id);
         const meaning = formatIndonesianMeaning(v);
-        const thumb = v.image ? `<img class="thumb" src="${esc(v.image)}" alt="${esc(meaning)}" data-zoom="${esc(v.image)}">` : `<span class="thumb-placeholder"><i class="fa-regular fa-image"></i></span>`;
+        const thumb = v.image ? `<img class="thumb" src="${esc(v.image)}" alt="${esc(meaning)}" loading="lazy" data-zoom="${esc(v.image)}">` : `<span class="thumb-placeholder"><i class="fa-regular fa-image"></i></span>`;
         return `<article class="vocab-card">
           <div class="vocab-top">
             ${thumb}
@@ -32199,7 +32985,7 @@
       $("#quizChapterFilters").innerHTML = chapterOpts.map(ch=>`<label class="check-pill"><input type="checkbox" value="${ch}" checked><span><i class="fa-regular fa-bookmark"></i>${esc(state.lang==="ja"?categoryLabel(ch):ch)}</span></label>`).join("");
       const sections=["Semua","Kosakata","Warna","Rasa","Musim","Latihan C","練習C / Latihan C","練習Ｃ / Latihan C","Percakapan","会話 / Percakapan","Kosakata Tambahan","Perayaan","Tempat terkenal","食べ物 / Makanan","Menu","Paket Makan","Donburi","Masakan Jepang","Mie","Makanan Barat","Gorengan","Gorengan Jepang","Sup","Lauk Pendamping","Nasi","Roti","Makanan Ringan","Minuman","音楽 / Musik","映画 / Film","スポーツ / Olahraga"];
       $("#quizSectionFilters").innerHTML = sections.map(s=>`<label class="check-pill"><input type="checkbox" value="${s}" ${s==="Semua"?"checked":""}><span><i class="fa-solid ${(s==="Latihan C"||s==="練習C / Latihan C"||s==="練習Ｃ / Latihan C")?"fa-pen-nib":(s==="Percakapan"||s==="会話 / Percakapan")?"fa-comments":s==="Kosakata Tambahan"?"fa-circle-plus":"fa-book-open"}"></i>${esc(s==="Semua"?(state.lang==="ja"?"すべて":"Semua"):categoryLabel(s))}</span></label>`).join("");
-      const types=["Semua","Kata Benda","Kata Kerja","Kata Tanya","Kata Keterangan","Pola Kata","Kata Sambung","Ungkapan","Ungkapan Percakapan","Nama Tempat Fiksi","Kata Sifat-i","Kata Sifat-na","Kosakata Tambahan","Makanan","Minuman","Informasi","Negara","Bahasa","Kewarganegaraan","Perayaan","Tempat terkenal","Kuil / tempat terkenal","Bangunan terkenal","Gunung / tempat terkenal","Kastil / tempat terkenal","Monumen sejarah","Patung / tempat terkenal","Kuil dan patung terkenal","Istana / tempat terkenal","Kota","Kota / tempat wisata","野菜 / Sayuran","果物 / Buah-buahan","肉 / Daging","魚 / Ikan","その他 / Yang Lainnya","Fasilitas Stasiun","Jenis Kereta","Informasi Jadwal","Tiket Perjalanan"];
+      const types=["Semua","Kata Benda","Kata Kerja","Kata Kerja Hormat","Kata Tanya","Kata Keterangan","Pola Kata","Kata Sambung","Ungkapan","Ungkapan Percakapan","Nama Tempat","Nama Acara","Nama Tempat Fiksi","Kata Sifat-i","Kata Sifat-na","Kosakata Tambahan","Makanan","Minuman","Informasi","Negara","Bahasa","Kewarganegaraan","Perayaan","Tempat terkenal","Kuil / tempat terkenal","Bangunan terkenal","Gunung / tempat terkenal","Kastil / tempat terkenal","Monumen sejarah","Patung / tempat terkenal","Kuil dan patung terkenal","Istana / tempat terkenal","Kota","Kota / tempat wisata","野菜 / Sayuran","果物 / Buah-buahan","肉 / Daging","魚 / Ikan","その他 / Yang Lainnya","Fasilitas Stasiun","Jenis Kereta","Informasi Jadwal","Tiket Perjalanan"];
       $("#quizTypeFilters").innerHTML = types.map(s=>`<label class="check-pill"><input type="checkbox" value="${s}" ${s==="Semua"?"checked":""}><span><i class="fa-solid fa-tag"></i>${esc(s==="Semua"?(state.lang==="ja"?"すべて":"Semua"):categoryLabel(s))}</span></label>`).join("");
       handleExclusiveAllSelection("#quizSectionFilters");
       handleExclusiveAllSelection("#quizTypeFilters");
@@ -32360,6 +33146,14 @@
       });
     }
     function fillExampleModal(v={}, showDetails=true){
+      currentExampleVocab = v;
+      const exampleSpeakBtn = $("#exampleSpeakBtn");
+      if(exampleSpeakBtn){
+        const label = state.lang === "ja" ? "例文を聞く" : "Dengarkan contoh kalimat";
+        exampleSpeakBtn.title = label;
+        exampleSpeakBtn.setAttribute("aria-label", label);
+        exampleSpeakBtn.disabled = !String(v.exampleJa || "").trim();
+      }
       const content = $("#exampleContent");
       if(content){
         const examples = (Array.isArray(v.examples) ? v.examples.filter(ex=>ex && (ex.ja || ex.reading || ex.id)) : []).slice(0, 1);
@@ -33138,6 +33932,16 @@
     }
 
     function wireEvents(){
+      document.addEventListener("error", e=>{
+        const img = e.target;
+        if(img instanceof HTMLImageElement && img.classList.contains("thumb")){
+          const fallback = document.createElement("span");
+          fallback.className = "thumb-placeholder";
+          fallback.setAttribute("aria-label", state.lang === "ja" ? "画像を読み込めません" : "Gambar gagal dimuat");
+          fallback.innerHTML = '<i class="fa-regular fa-image"></i>';
+          img.replaceWith(fallback);
+        }
+      }, true);
       document.addEventListener("click",e=>{
         const pageBtn=e.target.closest("[data-page]"); if(pageBtn) showPage(pageBtn.dataset.page);
         if(e.target.closest("[data-action='openQuizSettings']")) openQuizSettings();
@@ -33212,7 +34016,13 @@
       $("#micSwitch").onclick=()=>{ if(!speechSupported) return setSpeechStatus("unsupported",t("browserSpeechNo")); if(!quiz || quiz.flipped) return; quiz.micOn=!quiz.micOn; $("#micSwitch").classList.toggle("on",quiz.micOn); updateAnswerButtonsAvailability(); updateMicBoxState(); if(quiz.micOn){ setSpeechStatus("idle",state.lang==="ja"?"答えを発話できます。":"Siap mendengarkan jawabanmu"); startRecognition(); } else { stopRecognition(); setSpeechStatus("idle",state.lang==="ja"?"マイクはオフです。":"Mikrofon dimatikan."); } };
       $("#closePdfFilter").onclick=()=>closeModal("#pdfFilterModal"); $("#cancelPdfFilter").onclick=()=>closeModal("#pdfFilterModal"); $("#resetPdfFilterBtn").onclick=resetPdfFilterModal; $("#saveFilteredPdf").onclick=saveFilteredPdf;
       ["#pdfBookFilter","#pdfMaterialFilter","#pdfChapterFilter","#pdfSectionFilter","#pdfTypeFilter","#pdfStatusFilter"].forEach(sel=>{ const el=$(sel); if(el) el.onchange=updatePdfFilterCount; });
-      $("#closeExample").onclick=()=>closeModal("#exampleModal"); $("#closeImage").onclick=closeImagePreview; $("#imageModal").onclick=e=>{ if(e.target.id==="imageModal") closeImagePreview(); }; $("#closeDetail").onclick=()=>closeModal("#detailModal");
+      $("#closeExample").onclick=()=>closeModal("#exampleModal");
+      $("#exampleSpeakBtn").onclick=()=>{
+        const text = String(currentExampleVocab?.exampleJa || "").trim();
+        if(!text) return toast(state.lang === "ja" ? "例文はまだありません。" : "Contoh kalimat belum tersedia.");
+        speak(text, "ja-JP");
+      };
+      $("#closeImage").onclick=closeImagePreview; $("#imageModal").onclick=e=>{ if(e.target.id==="imageModal") closeImagePreview(); }; $("#closeDetail").onclick=()=>closeModal("#detailModal");
       $("#adminSearch").oninput=()=>{ adminCurrentPage=1; renderAdmin(); }; $("#adminGroup").onchange=()=>{ adminCurrentPage=1; renderAdmin(); }; $("#adminPeriod").onchange=()=>{ adminCurrentPage=1; renderAdmin(); }; $("#adminStatus").onchange=()=>{ adminCurrentPage=1; renderAdmin(); };
       $("#resetAdminFilter").onclick=()=>{ $("#adminSearch").value=""; $("#adminGroup").value="all"; $("#adminPeriod").value="all"; $("#adminStatus").value="all"; adminCurrentPage=1; renderAdmin(); };
       $("#downloadAllBtn").onclick=()=>openAllPdf(state.lang); $("#deleteAllBtn").onclick=()=>$("#confirmDeleteModal").classList.add("show"); $("#cancelDelete").onclick=()=>closeModal("#confirmDeleteModal"); $("#confirmDelete").onclick=deleteAllHistory;
