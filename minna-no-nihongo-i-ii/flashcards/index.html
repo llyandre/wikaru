@@ -2423,6 +2423,159 @@
       }
     }
 
+
+
+    /* ===== Materi khusus: Minna no Nihongo I > Kata-Kata Referensi dan Informasi > Bab 16 > ATM ===== */
+    body.material-only-reference #homeResultBtn,
+    body.material-only-reference #myResultDrop,
+    body.material-only-reference #bottomResultBtn {
+      display:none!important;
+      visibility:hidden!important;
+      pointer-events:none!important;
+    }
+    @media (max-width:1050px){
+      body.material-only-reference .bottom-nav {
+        grid-template-columns:repeat(2,minmax(0,1fr))!important;
+      }
+    }
+    .atm-material-page { display:block!important; min-width:0; }
+    .atm-material-wrap { display:grid; gap:22px; min-width:0; }
+    .atm-material-hero {
+      position:relative; overflow:hidden; padding:26px; border-radius:28px;
+      background:
+        radial-gradient(circle at 92% 10%,rgba(125,181,255,.34),transparent 30%),
+        radial-gradient(circle at 8% 100%,rgba(255,211,109,.26),transparent 34%),
+        linear-gradient(135deg,#fff,#f6f1ff 52%,#eef7ff);
+      border:1px solid rgba(124,77,255,.16); box-shadow:var(--shadow2);
+    }
+    .atm-material-hero::after {
+      content:none;
+      display:none;
+    }
+    .atm-breadcrumb {
+      display:flex; flex-wrap:wrap; align-items:center; gap:7px; position:relative; z-index:1;
+      margin-bottom:15px; color:#65738d; font-size:12px; font-weight:700;
+    }
+    .atm-breadcrumb i { color:var(--primary); font-size:10px; }
+    .material-only-badge {
+      display:inline-flex; align-items:center; gap:8px; position:relative; z-index:1;
+      padding:8px 12px; border-radius:999px; background:#fff4d8; color:#8a6100;
+      border:1px solid rgba(255,211,109,.7); font-size:12px; font-weight:800;
+    }
+    .atm-material-title {
+      position:relative; z-index:1; margin:14px 0 4px; color:#071b45;
+      font-family:var(--jp); font-size:clamp(34px,5vw,58px); font-weight:760; letter-spacing:-.02em;
+    }
+    .atm-material-subtitle {
+      position:relative; z-index:1; margin:0; color:var(--primary2);
+      font-size:clamp(20px,2.6vw,30px); font-weight:760; letter-spacing:-.025em;
+    }
+    .atm-material-description { position:relative; z-index:1; max-width:780px; margin:12px 0 0; color:#526078; font-weight:600; }
+    .atm-material-note {
+      position:relative; z-index:1; display:inline-flex; align-items:center; gap:8px;
+      margin-top:14px; padding:9px 12px; border-radius:14px; background:rgba(255,255,255,.78);
+      border:1px solid rgba(124,77,255,.12); color:#66728a; font-size:12px; font-weight:700;
+    }
+    .atm-reference-figure {
+      margin:0; padding:18px; border-radius:28px; background:rgba(255,255,255,.95);
+      border:1px solid #e7e2ff; box-shadow:var(--shadow2); min-width:0;
+    }
+    .atm-reference-image {
+      display:block; width:100%; max-width:920px; height:auto; max-height:none; object-fit:contain;
+      margin:0 auto; border-radius:22px; background:#fff; border:1px solid rgba(124,77,255,.13);
+      box-shadow:0 14px 34px rgba(80,67,130,.08); cursor:zoom-in;
+    }
+    .atm-reference-figure figcaption {
+      max-width:920px; margin:12px auto 0; color:#6b7890; text-align:center; font-size:12px; font-weight:650;
+    }
+    .atm-vocab-section,
+    .atm-steps-section {
+      padding:22px; border-radius:28px; background:rgba(255,255,255,.93);
+      border:1px solid #e7e2ff; box-shadow:var(--shadow2); min-width:0;
+    }
+    .atm-section-head {
+      display:flex; align-items:flex-start; justify-content:space-between; gap:14px;
+      padding-bottom:15px; margin-bottom:16px; border-bottom:1px dashed rgba(124,77,255,.22);
+    }
+    .atm-section-head h3 { margin:0; color:#071b45; font-size:clamp(22px,2.5vw,30px); }
+    .atm-section-head p { margin:5px 0 0; color:#66728a; font-size:13px; font-weight:600; }
+    .atm-section-count {
+      display:inline-flex; align-items:center; gap:7px; flex:0 0 auto; padding:7px 11px;
+      border-radius:999px; background:var(--soft); color:var(--primary2); font-size:12px; font-weight:800;
+    }
+    .atm-vocab-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+    .atm-vocab-card {
+      min-width:0; padding:17px; border-radius:22px; background:linear-gradient(145deg,#fff,#fbf8ff);
+      border:1px solid rgba(124,77,255,.14); box-shadow:0 10px 24px rgba(80,67,130,.055);
+    }
+    .atm-vocab-card.important { background:linear-gradient(145deg,#fff,#f4fbff); border-color:rgba(125,181,255,.28); }
+    .atm-vocab-top { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
+    .atm-vocab-identity { display:flex; gap:11px; min-width:0; }
+    .atm-vocab-number {
+      width:32px; height:32px; min-width:32px; display:grid; place-items:center; border-radius:50%;
+      background:linear-gradient(135deg,var(--primary),var(--primary2)); color:#fff; font-size:12px; font-weight:850;
+      box-shadow:0 8px 18px rgba(124,77,255,.18);
+    }
+    .atm-vocab-card.important .atm-vocab-number { background:linear-gradient(135deg,#4b8ff0,#60d8c0); }
+    .atm-term { font-family:var(--jp); color:#071b45; font-size:25px; font-weight:780; line-height:1.25; overflow-wrap:anywhere; }
+    .atm-reading { margin-top:4px; font-family:var(--jp); color:var(--primary); font-size:13px; font-weight:720; overflow-wrap:anywhere; }
+    .atm-romaji { margin-top:3px; color:#7a869c; font-size:12px; font-weight:700; font-style:italic; overflow-wrap:anywhere; }
+    .atm-audio-btn {
+      width:42px; height:42px; min-width:42px; display:grid; place-items:center; border-radius:15px;
+      border:1px solid rgba(124,77,255,.17); background:#fff; color:var(--primary); box-shadow:0 8px 18px rgba(80,67,130,.07);
+    }
+    .atm-audio-btn:hover { transform:translateY(-2px); border-color:rgba(124,77,255,.36); }
+    .atm-meaning { margin:13px 0 0; color:#24304a; font-size:14px; line-height:1.5; font-weight:730; }
+    .atm-card-note {
+      margin:10px 0 0; padding-top:10px; border-top:1px solid #edf0f7;
+      color:#66728a; font-size:12.5px; line-height:1.58; font-weight:570;
+    }
+    .atm-important-title { display:flex; align-items:center; gap:9px; margin:22px 0 13px; color:#071b45; font-size:20px; }
+    .atm-important-title i {
+      width:36px; height:36px; display:grid; place-items:center; border-radius:14px;
+      background:#eef6ff; color:#4b7be5;
+    }
+    .atm-steps-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+    .atm-step-card {
+      position:relative; min-width:0; min-height:218px; padding:18px; border-radius:22px;
+      background:linear-gradient(145deg,#fff,#f7fbff); border:1px solid rgba(125,181,255,.25);
+      box-shadow:0 10px 24px rgba(80,67,130,.055); overflow:hidden;
+    }
+    .atm-step-card::after {
+      content:none;
+      display:none;
+    }
+    .atm-step-head { display:flex; align-items:center; gap:11px; position:relative; z-index:1; }
+    .atm-step-number {
+      width:40px; height:40px; min-width:40px; display:grid; place-items:center; border-radius:50%;
+      background:#ffd36d; color:#493600; font-weight:850; box-shadow:0 8px 18px rgba(255,211,109,.28);
+    }
+    .atm-step-icon {
+      width:40px; height:40px; display:grid; place-items:center; border-radius:15px;
+      background:var(--soft); color:var(--primary2);
+    }
+    .atm-step-ja { position:relative; z-index:1; margin-top:14px; font-family:var(--jp); color:#071b45; font-size:18px; line-height:1.55; font-weight:720; }
+    .atm-step-romaji { position:relative; z-index:1; margin-top:7px; color:var(--primary); font-size:12.5px; line-height:1.5; font-weight:720; font-style:italic; }
+    .atm-step-id { position:relative; z-index:1; margin:8px 0 0; color:#46536b; font-size:13px; line-height:1.55; font-weight:650; }
+    @media (max-width:1050px){
+      .atm-vocab-grid, .atm-steps-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    }
+    @media (max-width:760px){
+      .atm-material-wrap { gap:16px; }
+      .atm-material-hero, .atm-vocab-section, .atm-steps-section, .atm-reference-figure { padding:16px; border-radius:22px; }
+      .atm-material-hero::after { display:none; }
+      .atm-section-head { flex-direction:column; }
+      .atm-vocab-grid, .atm-steps-grid { grid-template-columns:1fr; }
+      .atm-reference-image { border-radius:16px; }
+      .atm-step-card { min-height:0; }
+    }
+    @media (max-width:450px){
+      .atm-material-title { font-size:34px; }
+      .atm-material-subtitle { font-size:21px; }
+      .atm-vocab-card, .atm-step-card { padding:15px; border-radius:19px; }
+      .atm-term { font-size:23px; }
+    }
+
 </style>
 </head>
 <body>
@@ -26698,6 +26851,129 @@
 ];
     VOCABULARY.push(...BAB15_REFERENCE_JOBS);
 
+    // ===== Tambahan data: Minna no Nihongo I -> Kata-kata referensi dan Informasi -> Bab 16 -> ATM =====
+    const BAB16_REFERENCE_INFO_ATM_IMAGE = "https://iili.io/C1NGvhQ.png";
+    const BAB16_REFERENCE_INFO_ATM_VOCABULARY = [
+      {
+        id:"mni-ref-b16-atm-001", no:"01", book:"Minna no Nihongo I (2nd Edition)", bookJa:"みんなの日本語 I（第2版）",
+        materialCategory:"Kata-kata referensi dan Informasi", chapter:"Bab 16", chapterNumber:16, favorite:false,
+        typeCategory:"Menu ATM", sectionCategory:"Kosakata", subCategory:"ATM の使い方（Cara Menggunakan ATM）",
+        indonesia:"menambahkan saldo atau menyetor uang", kanji:"お預け入れ", kana:"おあずけいれ", romaji:"oazukeire",
+        image:BAB16_REFERENCE_INFO_ATM_IMAGE, isFiction:false, speech:"おあずけいれ",
+        exampleJa:"ATMでお金を預け入れます。", exampleReading:"ATM de okane o azukeiremasu.", exampleId:"Saya menyetor uang melalui ATM.",
+        examples:[{ja:"ATMでお金を預け入れます。",reading:"ATM de okane o azukeiremasu.",id:"Saya menyetor uang melalui ATM."}],
+        catatan:"お預け入れ adalah menu ATM yang digunakan untuk menyetor uang atau menambahkan saldo ke rekening.",
+        note:"お預け入れ adalah menu ATM yang digunakan untuk menyetor uang atau menambahkan saldo ke rekening.",
+        tag:"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 16", quizEnabled:false
+      },
+      {
+        id:"mni-ref-b16-atm-002", no:"02", book:"Minna no Nihongo I (2nd Edition)", bookJa:"みんなの日本語 I（第2版）",
+        materialCategory:"Kata-kata referensi dan Informasi", chapter:"Bab 16", chapterNumber:16, favorite:false,
+        typeCategory:"Menu ATM", sectionCategory:"Kosakata", subCategory:"ATM の使い方（Cara Menggunakan ATM）",
+        indonesia:"pembayaran atau transfer uang", kanji:"お振り込み", kana:"おふりこみ", romaji:"ofurikomi",
+        image:BAB16_REFERENCE_INFO_ATM_IMAGE, isFiction:false, speech:"おふりこみ",
+        exampleJa:"ATMでお金を振り込みます。", exampleReading:"ATM de okane o furikomimasu.", exampleId:"Saya mentransfer uang melalui ATM.",
+        examples:[{ja:"ATMでお金を振り込みます。",reading:"ATM de okane o furikomimasu.",id:"Saya mentransfer uang melalui ATM."}],
+        catatan:"お振り込み digunakan untuk mentransfer atau mengirim uang ke rekening tujuan.",
+        note:"お振り込み digunakan untuk mentransfer atau mengirim uang ke rekening tujuan.",
+        tag:"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 16", quizEnabled:false
+      },
+      {
+        id:"mni-ref-b16-atm-003", no:"03", book:"Minna no Nihongo I (2nd Edition)", bookJa:"みんなの日本語 I（第2版）",
+        materialCategory:"Kata-kata referensi dan Informasi", chapter:"Bab 16", chapterNumber:16, favorite:false,
+        typeCategory:"Menu ATM", sectionCategory:"Kosakata", subCategory:"ATM の使い方（Cara Menggunakan ATM）",
+        indonesia:"pemindahan dana antar rekening", kanji:"お振り替え", kana:"おふりかえ", romaji:"ofurikae",
+        image:BAB16_REFERENCE_INFO_ATM_IMAGE, isFiction:false, speech:"おふりかえ",
+        exampleJa:"口座のお金を振り替えます。", exampleReading:"Kouza no okane o furikaemasu.", exampleId:"Saya memindahkan uang antar rekening.",
+        examples:[{ja:"口座のお金を振り替えます。",reading:"Kouza no okane o furikaemasu.",id:"Saya memindahkan uang antar rekening."}],
+        catatan:"お振り替え berarti memindahkan dana, biasanya antara rekening yang saling terhubung.",
+        note:"お振り替え berarti memindahkan dana, biasanya antara rekening yang saling terhubung.",
+        tag:"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 16", quizEnabled:false
+      },
+      {
+        id:"mni-ref-b16-atm-004", no:"04", book:"Minna no Nihongo I (2nd Edition)", bookJa:"みんなの日本語 I（第2版）",
+        materialCategory:"Kata-kata referensi dan Informasi", chapter:"Bab 16", chapterNumber:16, favorite:false,
+        typeCategory:"Menu ATM", sectionCategory:"Kosakata", subCategory:"ATM の使い方（Cara Menggunakan ATM）",
+        indonesia:"penarikan uang", kanji:"お引き出し", kana:"おひきだし", romaji:"ohikidashi",
+        image:BAB16_REFERENCE_INFO_ATM_IMAGE, isFiction:false, speech:"おひきだし",
+        exampleJa:"ATMで一万円を引き出します。", exampleReading:"ATM de ichiman-en o hikidashimasu.", exampleId:"Saya menarik sepuluh ribu yen melalui ATM.",
+        examples:[{ja:"ATMで一万円を引き出します。",reading:"ATM de ichiman-en o hikidashimasu.",id:"Saya menarik sepuluh ribu yen melalui ATM."}],
+        catatan:"お引き出し adalah menu yang dipilih untuk mengambil atau menarik uang tunai.",
+        note:"お引き出し adalah menu yang dipilih untuk mengambil atau menarik uang tunai.",
+        tag:"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 16", quizEnabled:false
+      },
+      {
+        id:"mni-ref-b16-atm-005", no:"05", book:"Minna no Nihongo I (2nd Edition)", bookJa:"みんなの日本語 I（第2版）",
+        materialCategory:"Kata-kata referensi dan Informasi", chapter:"Bab 16", chapterNumber:16, favorite:false,
+        typeCategory:"Menu ATM", sectionCategory:"Kosakata", subCategory:"ATM の使い方（Cara Menggunakan ATM）",
+        indonesia:"memperbarui catatan transaksi pada buku tabungan", kanji:"通帳記入", kana:"つうちょうきにゅう", romaji:"tsuuchou kinyuu",
+        image:BAB16_REFERENCE_INFO_ATM_IMAGE, isFiction:false, speech:"つうちょうきにゅう",
+        exampleJa:"ATMで通帳記入をします。", exampleReading:"ATM de tsuuchou kinyuu o shimasu.", exampleId:"Saya memperbarui catatan transaksi buku tabungan melalui ATM.",
+        examples:[{ja:"ATMで通帳記入をします。",reading:"ATM de tsuuchou kinyuu o shimasu.",id:"Saya memperbarui catatan transaksi buku tabungan melalui ATM."}],
+        catatan:"通帳記入 digunakan untuk mencetak atau memperbarui riwayat transaksi pada buku tabungan.",
+        note:"通帳記入 digunakan untuk mencetak atau memperbarui riwayat transaksi pada buku tabungan.",
+        tag:"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 16", quizEnabled:false
+      },
+      {
+        id:"mni-ref-b16-atm-006", no:"06", book:"Minna no Nihongo I (2nd Edition)", bookJa:"みんなの日本語 I（第2版）",
+        materialCategory:"Kata-kata referensi dan Informasi", chapter:"Bab 16", chapterNumber:16, favorite:false,
+        typeCategory:"Menu ATM", sectionCategory:"Kosakata", subCategory:"ATM の使い方（Cara Menggunakan ATM）",
+        indonesia:"mengecek saldo", kanji:"残高照会", kana:"ざんだかしょうかい", romaji:"zandaka shoukai",
+        image:BAB16_REFERENCE_INFO_ATM_IMAGE, isFiction:false, speech:"ざんだかしょうかい",
+        exampleJa:"ATMで残高を確認します。", exampleReading:"ATM de zandaka o kakunin shimasu.", exampleId:"Saya mengecek saldo melalui ATM.",
+        examples:[{ja:"ATMで残高を確認します。",reading:"ATM de zandaka o kakunin shimasu.",id:"Saya mengecek saldo melalui ATM."}],
+        catatan:"残高照会 adalah menu untuk melihat jumlah saldo yang tersisa di dalam rekening.",
+        note:"残高照会 adalah menu untuk melihat jumlah saldo yang tersisa di dalam rekening.",
+        tag:"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 16", quizEnabled:false
+      },
+      {
+        id:"mni-ref-b16-atm-007", no:"07", book:"Minna no Nihongo I (2nd Edition)", bookJa:"みんなの日本語 I（第2版）",
+        materialCategory:"Kata-kata referensi dan Informasi", chapter:"Bab 16", chapterNumber:16, favorite:false,
+        typeCategory:"Istilah ATM", sectionCategory:"Kosakata", subCategory:"ATM の使い方（Cara Menggunakan ATM）",
+        indonesia:"nomor PIN", kanji:"暗証番号", kana:"あんしょうばんごう", romaji:"anshou bangou",
+        image:BAB16_REFERENCE_INFO_ATM_IMAGE, isFiction:false, speech:"あんしょうばんごう",
+        exampleJa:"暗証番号を入力してください。", exampleReading:"Anshou bangou o nyuuryoku shite kudasai.", exampleId:"Silakan masukkan nomor PIN.",
+        examples:[{ja:"暗証番号を入力してください。",reading:"Anshou bangou o nyuuryoku shite kudasai.",id:"Silakan masukkan nomor PIN."}],
+        catatan:"暗証番号 adalah nomor rahasia atau PIN. Jangan memberitahukan nomor ini kepada orang lain.",
+        note:"暗証番号 adalah nomor rahasia atau PIN. Jangan memberitahukan nomor ini kepada orang lain.",
+        tag:"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 16", quizEnabled:false
+      },
+      {
+        id:"mni-ref-b16-atm-008", no:"08", book:"Minna no Nihongo I (2nd Edition)", bookJa:"みんなの日本語 I（第2版）",
+        materialCategory:"Kata-kata referensi dan Informasi", chapter:"Bab 16", chapterNumber:16, favorite:false,
+        typeCategory:"Istilah ATM", sectionCategory:"Kosakata", subCategory:"ATM の使い方（Cara Menggunakan ATM）",
+        indonesia:"yen, mata uang Jepang", kanji:"円", kana:"えん", romaji:"en",
+        image:BAB16_REFERENCE_INFO_ATM_IMAGE, isFiction:false, speech:"えん",
+        exampleJa:"一万円を引き出します。", exampleReading:"Ichiman-en o hikidashimasu.", exampleId:"Saya menarik sepuluh ribu yen.",
+        examples:[{ja:"一万円を引き出します。",reading:"Ichiman-en o hikidashimasu.",id:"Saya menarik sepuluh ribu yen."}],
+        catatan:"円 dibaca えん dan merupakan satuan mata uang Jepang.",
+        note:"円 dibaca えん dan merupakan satuan mata uang Jepang.",
+        tag:"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 16", quizEnabled:false
+      },
+      {
+        id:"mni-ref-b16-atm-009", no:"09", book:"Minna no Nihongo I (2nd Edition)", bookJa:"みんなの日本語 I（第2版）",
+        materialCategory:"Kata-kata referensi dan Informasi", chapter:"Bab 16", chapterNumber:16, favorite:false,
+        typeCategory:"Istilah ATM", sectionCategory:"Kosakata", subCategory:"ATM の使い方（Cara Menggunakan ATM）",
+        indonesia:"konfirmasi atau periksa", kanji:"確認", kana:"かくにん", romaji:"kakunin",
+        image:BAB16_REFERENCE_INFO_ATM_IMAGE, isFiction:false, speech:"かくにん",
+        exampleJa:"金額を確認してください。", exampleReading:"Kingaku o kakunin shite kudasai.", exampleId:"Silakan periksa jumlah uangnya.",
+        examples:[{ja:"金額を確認してください。",reading:"Kingaku o kakunin shite kudasai.",id:"Silakan periksa jumlah uangnya."}],
+        catatan:"確認 berarti memeriksa atau mengonfirmasi bahwa informasi yang dimasukkan sudah benar.",
+        note:"確認 berarti memeriksa atau mengonfirmasi bahwa informasi yang dimasukkan sudah benar.",
+        tag:"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 16", quizEnabled:false
+      }
+    ];
+    const REFERENCE_INFO_BAB16_ATM_STEPS = [
+      {no:"1", icon:"fa-hand-pointer", ja:"お引き出しのボタンを押します。", romaji:"Ohikidashi no botan o oshimasu.", id:"Tekan tombol お引き出し."},
+      {no:"2", icon:"fa-credit-card", ja:"ATMカードを入れます。", romaji:"ATM kaado o iremasu.", id:"Masukkan kartu ATM."},
+      {no:"3", icon:"fa-key", ja:"暗証番号を入力します。", romaji:"Anshou bangou o nyuuryoku shimasu.", id:"Masukkan nomor PIN."},
+      {no:"4", icon:"fa-yen-sign", ja:"金額を入力して、円のボタンを押します。", romaji:"Kingaku o nyuuryoku shite, en no botan o oshimasu.", id:"Masukkan jumlah uang yang akan diambil, lalu tekan tombol 円."},
+      {no:"5", icon:"fa-circle-check", ja:"金額が正しければ、確認を押します。", romaji:"Kingaku ga tadashikereba, kakunin o oshimasu.", id:"Jika jumlahnya sudah benar, tekan tombol 確認."},
+      {no:"6", icon:"fa-money-bill-transfer", ja:"お金とATMカードを取ります。", romaji:"Okane to ATM kaado o torimasu.", id:"Ambil uang dan kartu ATM."}
+    ];
+    VOCABULARY.push(...BAB16_REFERENCE_INFO_ATM_VOCABULARY);
+
+
 
     // ===== Tambahan Minna no Nihongo I - Materi Umum - Bab 10 =====
     // Contoh kalimat Bab 10 sudah dibuat lebih variatif agar tidak berulang pola yang sama.
@@ -34004,14 +34280,14 @@
     const $ = s => document.querySelector(s);
     const $$ = s => [...document.querySelectorAll(s)];
     const storeKey = "minnaFlashcardV2";
-    const dataVersion = "bab1-bab16-material-20260712-v1";
+    const dataVersion = "bab1-bab16-reference-atm-material-20260712-v2";
     const setupCompletedKey = storeKey + "_setupCompleted";
     const hadCurrentDataVersionBeforeBoot = localStorage.getItem(storeKey+"_dataVersion") === dataVersion;
     const hadSetupCompletedFlagBeforeBoot = localStorage.getItem(setupCompletedKey);
     const defaultSetup = { book:"Minna no Nihongo I (2nd Edition)", materialCategory:"Materi Umum", chapter:"Bab 16" };
     if(localStorage.getItem(storeKey+"_dataVersion") !== dataVersion){
-      localStorage.setItem(storeKey+"_setup", JSON.stringify(defaultSetup));
-      localStorage.setItem(storeKey+"_includeFiction", "true");
+      if(!localStorage.getItem(storeKey+"_setup")) localStorage.setItem(storeKey+"_setup", JSON.stringify(defaultSetup));
+      if(localStorage.getItem(storeKey+"_includeFiction") === null) localStorage.setItem(storeKey+"_includeFiction", "true");
       localStorage.setItem(storeKey+"_dataVersion", dataVersion);
       if(hadSetupCompletedFlagBeforeBoot === null) localStorage.setItem(setupCompletedKey, "false");
     }
@@ -34219,7 +34495,7 @@
       return book;
     }
     function setupLabel(){
-      return `${bookLabel()} • ${state.lang==="ja"?categoryLabel(state.setup.materialCategory):state.setup.materialCategory} • ${state.lang==="ja"?categoryLabel(state.setup.chapter):state.setup.chapter}`;
+      return `${bookLabel()} • ${categoryLabel(state.setup.materialCategory)} • ${state.lang==="ja"?categoryLabel(state.setup.chapter):state.setup.chapter}`;
     }
     function chapterNumbers(label){
       const nums = [...String(label).matchAll(/\d+/g)].map(m=>Number(m[0]));
@@ -34256,7 +34532,8 @@
     function isReferenceInfoBab13(){ return isReferenceInfoChapter("Bab 13"); }
     function isReferenceInfoBab14(){ return isReferenceInfoChapter("Bab 14"); }
     function isReferenceInfoBab15(){ return isReferenceInfoChapter("Bab 15"); }
-    function isReferenceInfoMaterialOnly(){ return isReferenceInfoBab2() || isReferenceInfoBab4() || isReferenceInfoBab5(); }
+    function isReferenceInfoBab16(){ return isReferenceInfoChapter("Bab 16"); }
+    function isReferenceInfoMaterialOnly(){ return isReferenceInfoBab2() || isReferenceInfoBab4() || isReferenceInfoBab5() || isReferenceInfoBab16(); }
 
     function materialOnlyQuizMessage(){
       return state.lang === "ja"
@@ -34295,6 +34572,19 @@
         toolbar.style.removeProperty("visibility");
         toolbar.style.removeProperty("pointer-events");
       }
+      ["#homeResultBtn","#myResultDrop","#bottomResultBtn"].forEach(selector=>{
+        const el=$(selector);
+        if(!el) return;
+        el.classList.toggle("hidden", materialOnly);
+        if(materialOnly){
+          el.style.setProperty("display","none","important");
+          el.style.setProperty("visibility","hidden","important");
+          el.setAttribute("aria-disabled","true");
+        } else {
+          el.style.removeProperty("display");
+          el.style.removeProperty("visibility");
+        }
+      });
     }
     function materialOnlyItemCount(){
       if(!isReferenceInfoMaterialOnly()) return activeVocab().length;
@@ -34309,6 +34599,10 @@
         return (REFERENCE_INFO_BAB5_MATERIAL.holidays?.length || 0)
           + (REFERENCE_INFO_BAB5_MATERIAL.notes?.length || 0)
           + (REFERENCE_INFO_BAB5_MATERIAL.extra?.length || 0);
+      }
+      if(isReferenceInfoBab16()){
+        return (BAB16_REFERENCE_INFO_ATM_VOCABULARY?.length || 0)
+          + (REFERENCE_INFO_BAB16_ATM_STEPS?.length || 0);
       }
       return (REFERENCE_INFO_BAB2_MATERIAL.vocab?.length || 0)
         + (REFERENCE_INFO_BAB2_MATERIAL.familyNames?.length || 0)
@@ -34327,12 +34621,15 @@
       if(materialOnly){
         const bab4 = isReferenceInfoBab4();
         const bab5 = isReferenceInfoBab5();
+        const bab16 = isReferenceInfoBab16();
         if(homeTitle) homeTitle.textContent = state.lang === "ja" ? "参考資料・情報" : "Materi Referensi dan Informasi";
         if(homeDesc){
           if(bab4){
             homeDesc.textContent = state.lang === "ja" ? "第4課の電話、手紙、緊急番号、住所の書き方を教材として読みます。クイズモードはありません。" : "Buka materi Bab 4 sebagai bahan bacaan: telepon, surat, nomor darurat, dan cara menulis alamat di Jepang. Kategori ini tidak memakai kuis.";
           } else if(bab5){
             homeDesc.textContent = state.lang === "ja" ? "第5課の祝祭日を教材として読みます。クイズモードはありません。" : "Buka materi Bab 5 sebagai bahan bacaan: hari libur nasional Jepang. Kategori ini tidak memakai kuis.";
+          } else if(bab16){
+            homeDesc.textContent = state.lang === "ja" ? "第16課のATMメニューと現金引き出しの手順を教材として読みます。クイズモードはありません。" : "Pelajari kosakata menu ATM dan urutan dasar melakukan penarikan uang dalam bahasa Jepang. Kategori ini hanya menyediakan mode Materi.";
           } else {
             homeDesc.textContent = state.lang === "ja" ? "第2課の参考語彙、姓、あいさつ、マナーを教材として読みます。クイズモードはありません。" : "Buka materi Bab 2 sebagai bahan bacaan: kosakata salam, nama keluarga Jepang, dan informasi sopan santun. Kategori ini tidak memakai kuis.";
           }
@@ -34585,6 +34882,105 @@
               <div class="holiday-note-grid">${noteChips}</div>
               ${extraNotes}
             </div>
+          </section>
+        </div>`;
+    }
+
+
+    function renderReferenceInfoBab16ATM(){
+      const grid = $("#materialGrid");
+      if(!grid) return;
+      const toolbar = $(".material-toolbar");
+      const notice = $("#materialPage .notice");
+      const title = $("#materialPage .content-card > h2");
+      const desc = $("#materialPage .content-card > p");
+      if(title) title.textContent = "ATM の使い方";
+      if(desc) desc.textContent = state.lang === "ja"
+        ? "ATMのメニュー語彙と、現金を引き出す基本的な手順を学ぶ読み物です。"
+        : "Cara Menggunakan ATM — pelajari kosakata menu ATM dan urutan dasar melakukan penarikan uang dalam bahasa Jepang.";
+      document.body.classList.add("material-only-reference");
+      if(toolbar){
+        toolbar.classList.add("hidden");
+        toolbar.style.setProperty("display","none","important");
+        toolbar.style.setProperty("visibility","hidden","important");
+        toolbar.style.setProperty("pointer-events","none","important");
+      }
+      if(notice){
+        notice.classList.add("hidden");
+        notice.style.setProperty("display","none","important");
+      }
+      updateMaterialOnlyControls();
+      $("#materialEmpty")?.classList.add("hidden");
+      grid.className = "material-ref-grid atm-material-page";
+
+      const items = BAB16_REFERENCE_INFO_ATM_VOCABULARY.slice().sort((a,b)=>Number(a.no)-Number(b.no));
+      const menuItems = items.filter(item=>item.typeCategory === "Menu ATM");
+      const importantItems = items.filter(item=>item.typeCategory === "Istilah ATM");
+      const card = (item, important=false) => `
+        <article class="atm-vocab-card ${important ? "important" : ""}">
+          <div class="atm-vocab-top">
+            <div class="atm-vocab-identity">
+              <span class="atm-vocab-number">${esc(item.no)}</span>
+              <div>
+                <div class="atm-term">${esc(item.kanji || item.kana)}</div>
+                <div class="atm-reading">${esc(item.kana)}</div>
+                <div class="atm-romaji">${esc(item.romaji)}</div>
+              </div>
+            </div>
+            <button class="atm-audio-btn" type="button" data-speak-id="${esc(item.id)}" title="${state.lang === "ja" ? "発音を聞く" : "Dengarkan pelafalan"}" aria-label="${state.lang === "ja" ? "発音を聞く" : "Dengarkan pelafalan"}"><i class="fa-solid fa-volume-high"></i></button>
+          </div>
+          <p class="atm-meaning">${esc(item.indonesia)}</p>
+          <p class="atm-card-note">${esc(item.catatan)}</p>
+        </article>`;
+      const menuCards = menuItems.map(item=>card(item,false)).join("");
+      const importantCards = importantItems.map(item=>card(item,true)).join("");
+      const stepCards = REFERENCE_INFO_BAB16_ATM_STEPS.map(step=>`
+        <article class="atm-step-card" data-step="${esc(step.no)}">
+          <div class="atm-step-head">
+            <span class="atm-step-number">${esc(step.no)}</span>
+            <span class="atm-step-icon"><i class="fa-solid ${esc(step.icon)}"></i></span>
+          </div>
+          <div class="atm-step-ja">${esc(step.ja)}</div>
+          <div class="atm-step-romaji">${esc(step.romaji)}</div>
+          <p class="atm-step-id">${esc(step.id)}</p>
+        </article>`).join("");
+
+      grid.innerHTML = `
+        <div class="atm-material-wrap">
+          <section class="atm-material-hero">
+            <div class="atm-breadcrumb">
+              <span>Minna no Nihongo I</span><i class="fa-solid fa-chevron-right"></i>
+              <span>${state.lang === "ja" ? "情報・参考語彙" : "Kata-Kata Referensi dan Informasi"}</span><i class="fa-solid fa-chevron-right"></i>
+              <span>${state.lang === "ja" ? "第16課" : "Bab 16"}</span>
+            </div>
+            <span class="material-only-badge"><i class="fa-solid fa-book-open-reader"></i>${state.lang === "ja" ? "教材だけのモード" : "Mode Materi Saja"}</span>
+            <h3 class="atm-material-title">ATM の使い方</h3>
+            <p class="atm-material-subtitle">Cara Menggunakan ATM</p>
+            <p class="atm-material-description">${state.lang === "ja" ? "ATMのメニュー語彙と、現金を引き出す基本的な手順を学びます。" : "Pelajari kosakata menu ATM dan urutan dasar melakukan penarikan uang dalam bahasa Jepang."}</p>
+            <span class="atm-material-note"><i class="fa-solid fa-circle-info"></i>${state.lang === "ja" ? "この教材にはクイズがありません。" : "Kuis tidak tersedia pada materi ini."}</span>
+          </section>
+
+          <figure class="atm-reference-figure">
+            <img class="atm-reference-image" src="${esc(BAB16_REFERENCE_INFO_ATM_IMAGE)}" alt="ATM の使い方 — panduan cara menggunakan ATM dalam bahasa Jepang" loading="lazy" data-zoom="${esc(BAB16_REFERENCE_INFO_ATM_IMAGE)}">
+            <figcaption>${state.lang === "ja" ? "画像をクリックすると拡大できます。" : "Klik gambar untuk melihat panduan dalam ukuran lebih besar."}</figcaption>
+          </figure>
+
+          <section class="atm-vocab-section">
+            <div class="atm-section-head">
+              <div><h3>${state.lang === "ja" ? "ATMメニューの語彙" : "Kosakata Menu ATM"}</h3><p>${state.lang === "ja" ? "音声ボタンで発音を確認できます。" : "Gunakan tombol audio untuk mendengarkan pelafalan setiap istilah."}</p></div>
+              <span class="atm-section-count"><i class="fa-solid fa-list-check"></i>${menuItems.length} ${state.lang === "ja" ? "語" : "kosakata"}</span>
+            </div>
+            <div class="atm-vocab-grid">${menuCards}</div>
+            <h3 class="atm-important-title"><i class="fa-solid fa-key"></i>${state.lang === "ja" ? "大切な用語" : "Istilah Penting"}</h3>
+            <div class="atm-vocab-grid">${importantCards}</div>
+          </section>
+
+          <section class="atm-steps-section">
+            <div class="atm-section-head">
+              <div><h3>${state.lang === "ja" ? "ATMの使い方" : "Langkah Menggunakan ATM"}</h3><p>${state.lang === "ja" ? "現金を引き出す基本的な流れです。" : "Urutan dasar penarikan uang tunai menggunakan ATM."}</p></div>
+              <span class="atm-section-count"><i class="fa-solid fa-shoe-prints"></i>${REFERENCE_INFO_BAB16_ATM_STEPS.length} ${state.lang === "ja" ? "ステップ" : "langkah"}</span>
+            </div>
+            <div class="atm-steps-grid">${stepCards}</div>
           </section>
         </div>`;
     }
@@ -34887,6 +35283,14 @@
       updateMaterialOnlyControls();
     }
     function showPage(page){
+      if(page === "quiz" && isReferenceInfoMaterialOnly()){
+        toast(materialOnlyQuizMessage());
+        page = "material";
+      }
+      if(page === "result" && isReferenceInfoMaterialOnly() && !isAdmin()){
+        toast(materialOnlyQuizMessage());
+        page = "material";
+      }
       if(page==="result" && isAdmin()) page = "admin";
       if(page==="admin" && !isAdmin()) { toast(t("needLogin")); return; }
       if((page==="material" || page==="result") && !state.session?.username) { openLogin(); return; }
@@ -34919,7 +35323,7 @@
         "Kata Bantu Bilangan":"Kata Bantu Bilangan",
         "Keterangan Waktu":"Keterangan Waktu",
         "Partikel":"Partikel",
-        "Kata-kata referensi dan Informasi":"Kata-kata Referensi dan Informasi",
+        "Kata-kata referensi dan Informasi":"Kata-Kata Referensi dan Informasi",
         "Perayaan dan Tempat Terkenal":"Perayaan dan Tempat Terkenal",
         "Perayaan":"Perayaan",
         "Tempat terkenal":"Tempat terkenal",
@@ -36006,6 +36410,10 @@
         renderReferenceInfoBab15();
         return;
       }
+      if(isReferenceInfoBab16()){
+        renderReferenceInfoBab16ATM();
+        return;
+      }
       const notice = $("#materialPage .notice");
       document.body.classList.remove("material-only-reference");
       if(toolbar){ toolbar.classList.remove("hidden"); toolbar.style.removeProperty("display"); toolbar.style.removeProperty("visibility"); toolbar.style.removeProperty("pointer-events"); }
@@ -36196,7 +36604,7 @@
     }
     function filterQuizData(){
       syncFictionToggleAvailability();
-      let arr=baseVocab().map(v=>({...v, favorite: state.favorites.includes(v.id)}));
+      let arr=baseVocab().filter(v=>v.quizEnabled !== false).map(v=>({...v, favorite: state.favorites.includes(v.id)}));
       if(!state.includeFiction) arr = arr.filter(v=>!isFictionVocab(v));
       const chapters=selectedChecks("#quizChapterFilters").flatMap(ch=>chapterNumbers(ch));
       const sections=selectedChecks("#quizSectionFilters");
@@ -36678,6 +37086,10 @@
     }
     function summaryStat(icon,val,label,klass=""){ return `<div class="summary-stat ${klass}"><i class="fa-solid ${icon}"></i><div><strong>${val}</strong><span>${label}</span></div></div>`; }
     function retrySameQuiz(){
+      if(isReferenceInfoMaterialOnly()){
+        toast(materialOnlyQuizMessage());
+        return showPage("material");
+      }
       if(!state.session?.username) return openLogin();
       currentResult = null;
       const cards = filterQuizData();
@@ -37182,7 +37594,19 @@
       $("#closeSetup").onclick=()=>closeModal("#setupModal"); $("#cancelSetup").onclick=()=>closeModal("#setupModal");
       $("#prevSetupStep").onclick=()=>setSetupStep(setupStep-1);
       $("#nextSetupStep").onclick=()=>setSetupStep(setupStep+1);
-      $("#saveSetup").onclick=()=>{ state.setup={...tempSetup}; state.setupCompleted=true; saveState(); closeModal("#setupModal"); renderAll(); };
+      $("#saveSetup").onclick=()=>{
+        state.setup={...tempSetup};
+        state.setupCompleted=true;
+        if(isReferenceInfoMaterialOnly() && quiz){
+          try{ clearInterval(quiz.timer); }catch(e){}
+          stopRecognition();
+          quiz=null;
+        }
+        saveState();
+        closeModal("#setupModal");
+        renderAll();
+        if(isReferenceInfoMaterialOnly()) showPage("material");
+      };
       $("#closeLogin").onclick=()=>closeModal("#loginModal"); $("#cancelLogin").onclick=()=>closeModal("#loginModal");
       $("#usernameInput").oninput=updateAdminLoginMode; $("#saveLogin").onclick=saveLogin;
       $("#togglePassword").onclick=e=>{ e.preventDefault(); const i=$("#adminPasswordInput"); const icon=$("#togglePassword i"); i.type=i.type==="password"?"text":"password"; if(icon) icon.className=i.type==="password"?"fa-regular fa-eye":"fa-regular fa-eye-slash"; };
