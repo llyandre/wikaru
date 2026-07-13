@@ -2887,6 +2887,61 @@
       .movement-flash-detail { font-size:11px; }
     }
 
+
+
+    /* ===== Bab 19 Referensi: 伝統文化・娯楽 ===== */
+    .reference-bab19-culture-wrap { display:grid; gap:24px; }
+    .reference-bab19-culture-hero {
+      position:relative; overflow:hidden; padding:26px 30px; border-radius:28px;
+      background:
+        radial-gradient(circle at 92% 12%,rgba(125,181,255,.24),transparent 34%),
+        radial-gradient(circle at 8% 90%,rgba(124,77,255,.18),transparent 38%),
+        linear-gradient(145deg,rgba(255,255,255,.98),rgba(246,241,255,.92));
+      border:1px solid rgba(124,77,255,.14); box-shadow:var(--shadow2);
+    }
+    .reference-bab19-culture-hero-grid { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:24px; align-items:center; }
+    .reference-bab19-culture-hero h3 { margin:0 0 4px; font-family:var(--jp); font-size:clamp(32px,4vw,54px); letter-spacing:-.04em; color:#071b45; }
+    .reference-bab19-culture-reading { color:#5e35d6; font-family:var(--jp); font-size:17px; font-weight:750; }
+    .reference-bab19-culture-meaning { margin:8px 0 0; color:#4f5d76; font-size:18px; font-weight:650; }
+    .reference-bab19-culture-count { min-width:142px; min-height:142px; border-radius:34px; display:grid; place-items:center; text-align:center; padding:18px; background:linear-gradient(145deg,#7c4dff,#5e35d6); color:#fff; box-shadow:0 20px 42px rgba(124,77,255,.24); }
+    .reference-bab19-culture-count strong { display:block; font-size:44px; line-height:1; }
+    .reference-bab19-culture-count span { display:block; margin-top:7px; font-size:13px; font-weight:750; }
+    .reference-bab19-culture-section { padding:24px; border-radius:28px; background:rgba(255,255,255,.82); border:1px solid rgba(124,77,255,.12); box-shadow:var(--shadow2); }
+    .reference-bab19-culture-section-head { display:flex; align-items:flex-start; justify-content:space-between; gap:18px; margin-bottom:20px; }
+    .reference-bab19-culture-section-head h3 { display:flex; align-items:center; gap:10px; margin:0; font-size:24px; }
+    .reference-bab19-culture-section-head p { margin:6px 0 0; font-size:13px; }
+    .reference-bab19-culture-shown { display:inline-flex; align-items:center; gap:8px; padding:9px 12px; border-radius:999px; background:#f0eaff; color:#5e35d6; font-size:12px; font-weight:800; white-space:nowrap; }
+    .reference-bab19-culture-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+    .reference-bab19-culture-card { min-width:0; display:flex; flex-direction:column; padding:17px; border-radius:24px; background:#fff; border:1px solid #e7e0ff; box-shadow:0 12px 28px rgba(80,67,130,.075); transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease; }
+    .reference-bab19-culture-card:hover { transform:translateY(-3px); border-color:rgba(124,77,255,.34); box-shadow:0 20px 38px rgba(80,67,130,.12); }
+    .reference-bab19-culture-image-wrap { position:relative; height:205px; border-radius:20px; overflow:hidden; background:linear-gradient(135deg,#fff,#f7f3ff); border:1px solid #eee8ff; }
+    .reference-bab19-culture-image { width:100%; height:100%; object-fit:contain; padding:8px; cursor:zoom-in; }
+    .reference-bab19-culture-number { position:absolute; top:10px; left:10px; z-index:2; min-width:36px; height:36px; padding:0 9px; border-radius:13px; display:grid; place-items:center; color:#fff; background:linear-gradient(135deg,#7c4dff,#5e35d6); font-size:13px; font-weight:850; box-shadow:0 8px 18px rgba(124,77,255,.24); }
+    .reference-bab19-culture-body { display:flex; flex:1; flex-direction:column; min-width:0; padding-top:15px; }
+    .reference-bab19-culture-jp { font-family:var(--jp); color:#071b45; font-size:clamp(24px,2vw,31px); font-weight:800; line-height:1.25; overflow-wrap:anywhere; }
+    .reference-bab19-culture-kana { margin-top:4px; color:#4d5870; font-family:var(--jp); font-size:14px; font-weight:650; overflow-wrap:anywhere; }
+    .reference-bab19-culture-romaji { margin-top:3px; color:#7c4dff; font-size:13px; font-weight:800; overflow-wrap:anywhere; }
+    .reference-bab19-culture-card-meaning { min-height:48px; margin:11px 0 13px; color:#3f4d66; font-size:14px; font-weight:650; line-height:1.55; }
+    .reference-bab19-culture-card .tag-row { margin-top:auto; }
+    .reference-bab19-culture-card .card-actions { margin-top:14px; }
+    .reference-bab19-culture-card .icon-btn { flex:0 0 42px; }
+    .reference-bab19-culture-empty { padding:34px; border-radius:22px; border:1px dashed #c9bcff; background:#faf8ff; text-align:center; color:#66728a; }
+    .reference-bab19-culture-empty i { color:#7c4dff; font-size:30px; margin-bottom:10px; }
+    @media (max-width:1050px) {
+      .reference-bab19-culture-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    }
+    @media (max-width:680px) {
+      .reference-bab19-culture-hero,.reference-bab19-culture-section { padding:18px; border-radius:22px; }
+      .reference-bab19-culture-hero-grid { grid-template-columns:1fr; }
+      .reference-bab19-culture-count { min-width:0; min-height:92px; width:100%; border-radius:22px; grid-template-columns:auto auto; gap:9px; }
+      .reference-bab19-culture-count strong,.reference-bab19-culture-count span { display:inline; margin:0; }
+      .reference-bab19-culture-count strong { font-size:34px; }
+      .reference-bab19-culture-section-head { flex-direction:column; }
+      .reference-bab19-culture-grid { grid-template-columns:1fr; }
+      .reference-bab19-culture-image-wrap { height:220px; }
+      .reference-bab19-culture-card-meaning { min-height:0; }
+    }
+
   </style>
 </head>
 <body>
@@ -40146,6 +40201,753 @@
 
 
 
+
+
+    // ===== Tambahan Minna no Nihongo I - Kata-kata Referensi dan Informasi - Bab 19: 伝統文化・娯楽 =====
+    const BAB19_REFERENCE_TRADITIONAL_CULTURE = [
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "section": "伝統文化・娯楽",
+            "sectionReading": "でんとうぶんか・ごらく",
+            "sectionMeaning": "Kebudayaan Tradisional dan Hiburan",
+            "sectionCategory": "伝統文化・娯楽 / Kebudayaan Tradisional dan Hiburan",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 19 / 伝統文化・娯楽",
+            "id": "mni-b19-ref-culture-001",
+            "no": "1",
+            "kanji": "伝統文化・娯楽",
+            "kana": "でんとうぶんか・ごらく",
+            "romaji": "dentou bunka・goraku",
+            "indonesia": "kebudayaan tradisional dan hiburan",
+            "image": "https://iili.io/CElzD8u.png",
+            "typeCategory": "Tema Kebudayaan",
+            "subCategory": "Tema Utama",
+            "speech": "でんとうぶんか、ごらく",
+            "exampleJa": "日本には伝統文化や娯楽がたくさんあります。",
+            "exampleReading": "Nihon ni wa dentou bunka ya goraku ga takusan arimasu.",
+            "exampleId": "Di Jepang terdapat banyak kebudayaan tradisional dan hiburan.",
+            "catatan": "伝統文化 berarti kebudayaan yang diwariskan secara turun-temurun, sedangkan 娯楽 berarti hiburan atau kegiatan untuk bersenang-senang. Tanda ・ digunakan untuk memisahkan dua tema yang berhubungan.",
+            "examples": [
+                  {
+                        "ja": "日本には伝統文化や娯楽がたくさんあります。",
+                        "reading": "Nihon ni wa dentou bunka ya goraku ga takusan arimasu.",
+                        "id": "Di Jepang terdapat banyak kebudayaan tradisional dan hiburan."
+                  }
+            ]
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "section": "伝統文化・娯楽",
+            "sectionReading": "でんとうぶんか・ごらく",
+            "sectionMeaning": "Kebudayaan Tradisional dan Hiburan",
+            "sectionCategory": "伝統文化・娯楽 / Kebudayaan Tradisional dan Hiburan",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 19 / 伝統文化・娯楽",
+            "id": "mni-b19-ref-culture-002",
+            "no": "2",
+            "kanji": "茶道",
+            "kana": "さどう",
+            "romaji": "sadou",
+            "indonesia": "upacara minum teh / seni upacara teh Jepang",
+            "image": "https://iili.io/CElzL67.png",
+            "typeCategory": "Seni dan Budaya Tradisional",
+            "subCategory": "Upacara Teh",
+            "speech": "さどう",
+            "exampleJa": "京都で茶道を体験しました。",
+            "exampleReading": "Kyouto de sadou o taiken shimashita.",
+            "exampleId": "Saya mencoba pengalaman upacara minum teh di Kyoto.",
+            "catatan": "茶道 secara harfiah berarti “jalan teh”. Kegiatan ini bukan sekadar meminum teh, tetapi juga mempelajari tata cara menyiapkan teh, kesopanan, ketenangan, dan penghormatan kepada tamu.",
+            "examples": [
+                  {
+                        "ja": "京都で茶道を体験しました。",
+                        "reading": "Kyouto de sadou o taiken shimashita.",
+                        "id": "Saya mencoba pengalaman upacara minum teh di Kyoto."
+                  }
+            ]
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "section": "伝統文化・娯楽",
+            "sectionReading": "でんとうぶんか・ごらく",
+            "sectionMeaning": "Kebudayaan Tradisional dan Hiburan",
+            "sectionCategory": "伝統文化・娯楽 / Kebudayaan Tradisional dan Hiburan",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 19 / 伝統文化・娯楽",
+            "id": "mni-b19-ref-culture-003",
+            "no": "3",
+            "kanji": "お茶",
+            "kana": "おちゃ",
+            "romaji": "ocha",
+            "indonesia": "teh",
+            "image": "https://iili.io/CElzsGS.png",
+            "typeCategory": "Minuman Tradisional",
+            "subCategory": "Upacara Teh",
+            "speech": "おちゃ",
+            "exampleJa": "毎朝、温かいお茶を飲みます。",
+            "exampleReading": "Maiasa, atatakai ocha o nomimasu.",
+            "exampleId": "Setiap pagi saya minum teh hangat.",
+            "catatan": "茶 berarti teh. Awalan お membuat kata tersebut terdengar lebih sopan dan alami. Dalam percakapan sehari-hari, orang Jepang biasanya mengatakan お茶, bukan hanya 茶.",
+            "examples": [
+                  {
+                        "ja": "毎朝、温かいお茶を飲みます。",
+                        "reading": "Maiasa, atatakai ocha o nomimasu.",
+                        "id": "Setiap pagi saya minum teh hangat."
+                  }
+            ]
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "section": "伝統文化・娯楽",
+            "sectionReading": "でんとうぶんか・ごらく",
+            "sectionMeaning": "Kebudayaan Tradisional dan Hiburan",
+            "sectionCategory": "伝統文化・娯楽 / Kebudayaan Tradisional dan Hiburan",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 19 / 伝統文化・娯楽",
+            "id": "mni-b19-ref-culture-004",
+            "no": "4",
+            "kanji": "華道",
+            "kana": "かどう",
+            "romaji": "kadou",
+            "indonesia": "seni merangkai bunga",
+            "image": "https://iili.io/CElzZF9.png",
+            "typeCategory": "Seni dan Budaya Tradisional",
+            "subCategory": "Seni Merangkai Bunga",
+            "speech": "かどう",
+            "exampleJa": "姉は華道を習っています。",
+            "exampleReading": "Ane wa kadou o naratte imasu.",
+            "exampleId": "Kakak perempuan saya sedang mempelajari seni merangkai bunga.",
+            "catatan": "華道 berarti “jalan bunga” dan merujuk pada seni atau disiplin merangkai bunga Jepang. 華道 menekankan proses belajar, aturan, keseimbangan, dan filosofi di balik rangkaian bunga.",
+            "examples": [
+                  {
+                        "ja": "姉は華道を習っています。",
+                        "reading": "Ane wa kadou o naratte imasu.",
+                        "id": "Kakak perempuan saya sedang mempelajari seni merangkai bunga."
+                  }
+            ]
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "section": "伝統文化・娯楽",
+            "sectionReading": "でんとうぶんか・ごらく",
+            "sectionMeaning": "Kebudayaan Tradisional dan Hiburan",
+            "sectionCategory": "伝統文化・娯楽 / Kebudayaan Tradisional dan Hiburan",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 19 / 伝統文化・娯楽",
+            "id": "mni-b19-ref-culture-005",
+            "no": "5",
+            "kanji": "生け花",
+            "kana": "いけばな",
+            "romaji": "ikebana",
+            "indonesia": "seni merangkai bunga Jepang / rangkaian bunga Jepang",
+            "image": "https://iili.io/CElI9ZQ.png",
+            "typeCategory": "Seni dan Budaya Tradisional",
+            "subCategory": "Seni Merangkai Bunga",
+            "speech": "いけばな",
+            "exampleJa": "この生け花はとてもきれいです。",
+            "exampleReading": "Kono ikebana wa totemo kirei desu.",
+            "exampleId": "Rangkaian bunga Jepang ini sangat indah.",
+            "catatan": "生け花 dapat merujuk pada kegiatan merangkai bunga maupun hasil rangkaiannya. 華道 lebih menekankan seni dan disiplin yang dipelajari, sedangkan 生け花 sering digunakan untuk menyebut praktik atau rangkaian bunganya.",
+            "examples": [
+                  {
+                        "ja": "この生け花はとてもきれいです。",
+                        "reading": "Kono ikebana wa totemo kirei desu.",
+                        "id": "Rangkaian bunga Jepang ini sangat indah."
+                  }
+            ]
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "section": "伝統文化・娯楽",
+            "sectionReading": "でんとうぶんか・ごらく",
+            "sectionMeaning": "Kebudayaan Tradisional dan Hiburan",
+            "sectionCategory": "伝統文化・娯楽 / Kebudayaan Tradisional dan Hiburan",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 19 / 伝統文化・娯楽",
+            "id": "mni-b19-ref-culture-006",
+            "no": "6",
+            "kanji": "書道",
+            "kana": "しょどう",
+            "romaji": "shodou",
+            "indonesia": "seni kaligrafi Jepang",
+            "image": "https://iili.io/CElIdMB.png",
+            "typeCategory": "Seni dan Budaya Tradisional",
+            "subCategory": "Kaligrafi",
+            "speech": "しょどう",
+            "exampleJa": "学校で書道を練習しました。",
+            "exampleReading": "Gakkou de shodou o renshuu shimashita.",
+            "exampleId": "Saya berlatih kaligrafi Jepang di sekolah.",
+            "catatan": "書 berarti tulisan dan 道 berarti jalan atau disiplin. 書道 bukan hanya menulis huruf dengan kuas, tetapi juga melatih konsentrasi, keseimbangan, dan keindahan gerakan tangan.",
+            "examples": [
+                  {
+                        "ja": "学校で書道を練習しました。",
+                        "reading": "Gakkou de shodou o renshuu shimashita.",
+                        "id": "Saya berlatih kaligrafi Jepang di sekolah."
+                  }
+            ]
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "section": "伝統文化・娯楽",
+            "sectionReading": "でんとうぶんか・ごらく",
+            "sectionMeaning": "Kebudayaan Tradisional dan Hiburan",
+            "sectionCategory": "伝統文化・娯楽 / Kebudayaan Tradisional dan Hiburan",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 19 / 伝統文化・娯楽",
+            "id": "mni-b19-ref-culture-007",
+            "no": "7",
+            "kanji": "歌舞伎",
+            "kana": "かぶき",
+            "romaji": "kabuki",
+            "indonesia": "Kabuki / drama tradisional Jepang",
+            "image": "https://iili.io/CElI26P.png",
+            "typeCategory": "Seni Pertunjukan Tradisional",
+            "subCategory": "Drama Tradisional",
+            "speech": "かぶき",
+            "exampleJa": "来月、歌舞伎を見に行きます。",
+            "exampleReading": "Raigetsu, kabuki o mi ni ikimasu.",
+            "exampleId": "Bulan depan saya akan pergi menonton Kabuki.",
+            "catatan": "歌舞伎 adalah seni teater tradisional Jepang yang terkenal dengan tata rias mencolok, kostum mewah, gerakan dramatis, dan panggung yang khas. Kata Kabuki biasanya tetap ditulis sebagai “Kabuki” dalam bahasa Indonesia.",
+            "examples": [
+                  {
+                        "ja": "来月、歌舞伎を見に行きます。",
+                        "reading": "Raigetsu, kabuki o mi ni ikimasu.",
+                        "id": "Bulan depan saya akan pergi menonton Kabuki."
+                  }
+            ]
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "section": "伝統文化・娯楽",
+            "sectionReading": "でんとうぶんか・ごらく",
+            "sectionMeaning": "Kebudayaan Tradisional dan Hiburan",
+            "sectionCategory": "伝統文化・娯楽 / Kebudayaan Tradisional dan Hiburan",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 19 / 伝統文化・娯楽",
+            "id": "mni-b19-ref-culture-008",
+            "no": "8",
+            "kanji": "能",
+            "kana": "のう",
+            "romaji": "nou",
+            "indonesia": "Noh / drama topeng tradisional Jepang",
+            "image": "https://iili.io/CElIKcF.png",
+            "typeCategory": "Seni Pertunjukan Tradisional",
+            "subCategory": "Drama Tradisional",
+            "speech": "のう",
+            "exampleJa": "能は日本の伝統的な舞台芸術です。",
+            "exampleReading": "Nou wa Nihon no dentouteki na butai geijutsu desu.",
+            "exampleId": "Noh adalah seni pertunjukan tradisional Jepang.",
+            "catatan": "能 hanya terdiri dari satu kanji dan dibaca のう dengan vokal panjang. Jangan membacanya “no”. Pertunjukan Noh dikenal dengan gerakan yang tenang, musik tradisional, pakaian khusus, dan penggunaan topeng.",
+            "examples": [
+                  {
+                        "ja": "能は日本の伝統的な舞台芸術です。",
+                        "reading": "Nou wa Nihon no dentouteki na butai geijutsu desu.",
+                        "id": "Noh adalah seni pertunjukan tradisional Jepang."
+                  }
+            ]
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "section": "伝統文化・娯楽",
+            "sectionReading": "でんとうぶんか・ごらく",
+            "sectionMeaning": "Kebudayaan Tradisional dan Hiburan",
+            "sectionCategory": "伝統文化・娯楽 / Kebudayaan Tradisional dan Hiburan",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 19 / 伝統文化・娯楽",
+            "id": "mni-b19-ref-culture-009",
+            "no": "9",
+            "kanji": "文楽",
+            "kana": "ぶんらく",
+            "romaji": "bunraku",
+            "indonesia": "Bunraku / wayang boneka tradisional Jepang",
+            "image": "https://iili.io/CElIf8g.png",
+            "typeCategory": "Seni Pertunjukan Tradisional",
+            "subCategory": "Teater Boneka",
+            "speech": "ぶんらく",
+            "exampleJa": "大阪で文楽を見ました。",
+            "exampleReading": "Oosaka de bunraku o mimashita.",
+            "exampleId": "Saya menonton pertunjukan Bunraku di Osaka.",
+            "catatan": "文楽 adalah teater boneka tradisional Jepang. Boneka Bunraku berukuran cukup besar dan biasanya digerakkan oleh beberapa dalang, sementara cerita dibawakan oleh narator dengan iringan shamisen.",
+            "examples": [
+                  {
+                        "ja": "大阪で文楽を見ました。",
+                        "reading": "Oosaka de bunraku o mimashita.",
+                        "id": "Saya menonton pertunjukan Bunraku di Osaka."
+                  }
+            ]
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "section": "伝統文化・娯楽",
+            "sectionReading": "でんとうぶんか・ごらく",
+            "sectionMeaning": "Kebudayaan Tradisional dan Hiburan",
+            "sectionCategory": "伝統文化・娯楽 / Kebudayaan Tradisional dan Hiburan",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 19 / 伝統文化・娯楽",
+            "id": "mni-b19-ref-culture-010",
+            "no": "10",
+            "kanji": "相撲",
+            "kana": "すもう",
+            "romaji": "sumou",
+            "indonesia": "sumo / gulat tradisional Jepang",
+            "image": "https://iili.io/CElICAJ.png",
+            "typeCategory": "Olahraga Tradisional",
+            "subCategory": "Olahraga Bela Diri",
+            "speech": "すもう",
+            "exampleJa": "父はテレビで相撲を見ています。",
+            "exampleReading": "Chichi wa terebi de sumou o mite imasu.",
+            "exampleId": "Ayah sedang menonton sumo di televisi.",
+            "catatan": "相撲 adalah olahraga gulat tradisional Jepang. Untuk mengatakan “menonton sumo”, gunakan 相撲を見ます. Untuk mengatakan “bertanding atau melakukan sumo”, ungkapan yang umum adalah 相撲を取ります.",
+            "examples": [
+                  {
+                        "ja": "父はテレビで相撲を見ています。",
+                        "reading": "Chichi wa terebi de sumou o mite imasu.",
+                        "id": "Ayah sedang menonton sumo di televisi."
+                  }
+            ]
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "section": "伝統文化・娯楽",
+            "sectionReading": "でんとうぶんか・ごらく",
+            "sectionMeaning": "Kebudayaan Tradisional dan Hiburan",
+            "sectionCategory": "伝統文化・娯楽 / Kebudayaan Tradisional dan Hiburan",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 19 / 伝統文化・娯楽",
+            "id": "mni-b19-ref-culture-011",
+            "no": "11",
+            "kanji": "柔道",
+            "kana": "じゅうどう",
+            "romaji": "juudou",
+            "indonesia": "judo",
+            "image": "https://iili.io/CElIznp.png",
+            "typeCategory": "Olahraga Tradisional",
+            "subCategory": "Olahraga Bela Diri",
+            "speech": "じゅうどう",
+            "exampleJa": "弟は学校で柔道を習っています。",
+            "exampleReading": "Otouto wa gakkou de juudou o naratte imasu.",
+            "exampleId": "Adik laki-laki saya sedang belajar judo di sekolah.",
+            "catatan": "柔 berarti lembut atau lentur, sedangkan 道 berarti jalan. 柔道 dibaca じゅうどう dengan bunyi panjang pada じゅう dan どう.",
+            "examples": [
+                  {
+                        "ja": "弟は学校で柔道を習っています。",
+                        "reading": "Otouto wa gakkou de juudou o naratte imasu.",
+                        "id": "Adik laki-laki saya sedang belajar judo di sekolah."
+                  }
+            ]
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "section": "伝統文化・娯楽",
+            "sectionReading": "でんとうぶんか・ごらく",
+            "sectionMeaning": "Kebudayaan Tradisional dan Hiburan",
+            "sectionCategory": "伝統文化・娯楽 / Kebudayaan Tradisional dan Hiburan",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 19 / 伝統文化・娯楽",
+            "id": "mni-b19-ref-culture-012",
+            "no": "12",
+            "kanji": "剣道",
+            "kana": "けんどう",
+            "romaji": "kendou",
+            "indonesia": "kendo",
+            "image": "https://iili.io/CElI5Sn.png",
+            "typeCategory": "Olahraga Tradisional",
+            "subCategory": "Olahraga Bela Diri",
+            "speech": "けんどう",
+            "exampleJa": "友達は毎週剣道を練習します。",
+            "exampleReading": "Tomodachi wa maishuu kendou o renshuu shimasu.",
+            "exampleId": "Teman saya berlatih kendo setiap minggu.",
+            "catatan": "剣 berarti pedang dan 道 berarti jalan. Dalam latihan kendo digunakan pedang bambu yang disebut 竹刀（しない）serta perlengkapan pelindung.",
+            "examples": [
+                  {
+                        "ja": "友達は毎週剣道を練習します。",
+                        "reading": "Tomodachi wa maishuu kendou o renshuu shimasu.",
+                        "id": "Teman saya berlatih kendo setiap minggu."
+                  }
+            ]
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "section": "伝統文化・娯楽",
+            "sectionReading": "でんとうぶんか・ごらく",
+            "sectionMeaning": "Kebudayaan Tradisional dan Hiburan",
+            "sectionCategory": "伝統文化・娯楽 / Kebudayaan Tradisional dan Hiburan",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 19 / 伝統文化・娯楽",
+            "id": "mni-b19-ref-culture-013",
+            "no": "13",
+            "kanji": "空手",
+            "kana": "からて",
+            "romaji": "karate",
+            "indonesia": "karate / olahraga bela diri Jepang",
+            "image": "https://iili.io/CElIaAG.png",
+            "typeCategory": "Olahraga Tradisional",
+            "subCategory": "Olahraga Bela Diri",
+            "speech": "からて",
+            "exampleJa": "私は子どものとき、空手を習いました。",
+            "exampleReading": "Watashi wa kodomo no toki, karate o naraimashita.",
+            "exampleId": "Saya belajar karate ketika masih kecil.",
+            "catatan": "空手 secara harfiah berarti “tangan kosong”. Kata ini merujuk pada seni bela diri yang menggunakan pukulan, tendangan, tangkisan, dan gerakan tubuh tanpa senjata.",
+            "examples": [
+                  {
+                        "ja": "私は子どものとき、空手を習いました。",
+                        "reading": "Watashi wa kodomo no toki, karate o naraimashita.",
+                        "id": "Saya belajar karate ketika masih kecil."
+                  }
+            ]
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "section": "伝統文化・娯楽",
+            "sectionReading": "でんとうぶんか・ごらく",
+            "sectionMeaning": "Kebudayaan Tradisional dan Hiburan",
+            "sectionCategory": "伝統文化・娯楽 / Kebudayaan Tradisional dan Hiburan",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 19 / 伝統文化・娯楽",
+            "id": "mni-b19-ref-culture-014",
+            "no": "14",
+            "kanji": "漫才",
+            "kana": "まんざい",
+            "romaji": "manzai",
+            "indonesia": "komedi percakapan Jepang",
+            "image": "https://iili.io/CElIlt4.png",
+            "typeCategory": "Komedi Tradisional",
+            "subCategory": "Komedi dan Cerita",
+            "speech": "まんざい",
+            "exampleJa": "この漫才はとてもおもしろいです。",
+            "exampleReading": "Kono manzai wa totemo omoshiroi desu.",
+            "exampleId": "Pertunjukan manzai ini sangat lucu.",
+            "catatan": "漫才 biasanya dibawakan oleh dua orang melalui percakapan cepat dan lucu. Salah satu pemain sering berperan sebagai orang yang melakukan kesalahan atau berkata aneh, sedangkan pemain lainnya memberikan koreksi atau tanggapan lucu.",
+            "examples": [
+                  {
+                        "ja": "この漫才はとてもおもしろいです。",
+                        "reading": "Kono manzai wa totemo omoshiroi desu.",
+                        "id": "Pertunjukan manzai ini sangat lucu."
+                  }
+            ]
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "section": "伝統文化・娯楽",
+            "sectionReading": "でんとうぶんか・ごらく",
+            "sectionMeaning": "Kebudayaan Tradisional dan Hiburan",
+            "sectionCategory": "伝統文化・娯楽 / Kebudayaan Tradisional dan Hiburan",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 19 / 伝統文化・娯楽",
+            "id": "mni-b19-ref-culture-015",
+            "no": "15",
+            "kanji": "落語",
+            "kana": "らくご",
+            "romaji": "rakugo",
+            "indonesia": "seni bercerita komedi tradisional Jepang",
+            "image": "https://iili.io/CElIEV2.png",
+            "typeCategory": "Komedi Tradisional",
+            "subCategory": "Komedi dan Cerita",
+            "speech": "らくご",
+            "exampleJa": "日曜日に落語を聞きに行きました。",
+            "exampleReading": "Nichiyoubi ni rakugo o kiki ni ikimashita.",
+            "exampleId": "Pada hari Minggu saya pergi mendengarkan pertunjukan Rakugo.",
+            "catatan": "落語 biasanya dibawakan oleh satu pencerita yang duduk di atas panggung. Pencerita memainkan beberapa tokoh hanya dengan perubahan suara, arah wajah, kipas, dan kain kecil.",
+            "examples": [
+                  {
+                        "ja": "日曜日に落語を聞きに行きました。",
+                        "reading": "Nichiyoubi ni rakugo o kiki ni ikimashita.",
+                        "id": "Pada hari Minggu saya pergi mendengarkan pertunjukan Rakugo."
+                  }
+            ]
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "section": "伝統文化・娯楽",
+            "sectionReading": "でんとうぶんか・ごらく",
+            "sectionMeaning": "Kebudayaan Tradisional dan Hiburan",
+            "sectionCategory": "伝統文化・娯楽 / Kebudayaan Tradisional dan Hiburan",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 19 / 伝統文化・娯楽",
+            "id": "mni-b19-ref-culture-016",
+            "no": "16",
+            "kanji": "囲碁",
+            "kana": "いご",
+            "romaji": "igo",
+            "indonesia": "permainan papan Go",
+            "image": "https://iili.io/CElIVK7.png",
+            "typeCategory": "Permainan Papan",
+            "subCategory": "Permainan Tradisional",
+            "speech": "いご",
+            "exampleJa": "祖父は囲碁が上手です。",
+            "exampleReading": "Sofu wa igo ga jouzu desu.",
+            "exampleId": "Kakek saya pandai bermain Go.",
+            "catatan": "囲碁 adalah permainan strategi menggunakan batu hitam dan putih di atas papan bergaris. Dalam kalimat, “bermain Go” dapat dinyatakan dengan 囲碁をします atau 囲碁を打ちます.",
+            "examples": [
+                  {
+                        "ja": "祖父は囲碁が上手です。",
+                        "reading": "Sofu wa igo ga jouzu desu.",
+                        "id": "Kakek saya pandai bermain Go."
+                  }
+            ]
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "section": "伝統文化・娯楽",
+            "sectionReading": "でんとうぶんか・ごらく",
+            "sectionMeaning": "Kebudayaan Tradisional dan Hiburan",
+            "sectionCategory": "伝統文化・娯楽 / Kebudayaan Tradisional dan Hiburan",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 19 / 伝統文化・娯楽",
+            "id": "mni-b19-ref-culture-017",
+            "no": "17",
+            "kanji": "将棋",
+            "kana": "しょうぎ",
+            "romaji": "shougi",
+            "indonesia": "shogi / catur Jepang",
+            "image": "https://iili.io/CElIWl9.png",
+            "typeCategory": "Permainan Papan",
+            "subCategory": "Permainan Tradisional",
+            "speech": "しょうぎ",
+            "exampleJa": "兄と将棋をしました。",
+            "exampleReading": "Ani to shougi o shimashita.",
+            "exampleId": "Saya bermain shogi bersama kakak laki-laki saya.",
+            "catatan": "将棋 sering disebut catur Jepang. Salah satu ciri khasnya adalah bidak lawan yang berhasil ditangkap dapat digunakan kembali sebagai bidak milik sendiri.",
+            "examples": [
+                  {
+                        "ja": "兄と将棋をしました。",
+                        "reading": "Ani to shougi o shimashita.",
+                        "id": "Saya bermain shogi bersama kakak laki-laki saya."
+                  }
+            ]
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "section": "伝統文化・娯楽",
+            "sectionReading": "でんとうぶんか・ごらく",
+            "sectionMeaning": "Kebudayaan Tradisional dan Hiburan",
+            "sectionCategory": "伝統文化・娯楽 / Kebudayaan Tradisional dan Hiburan",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 19 / 伝統文化・娯楽",
+            "id": "mni-b19-ref-culture-018",
+            "no": "18",
+            "kanji": "",
+            "kana": "パチンコ",
+            "romaji": "pachinko",
+            "indonesia": "permainan mesin pachinko",
+            "image": "https://iili.io/CElIwAb.png",
+            "typeCategory": "Hiburan Modern",
+            "subCategory": "Permainan dan Hiburan",
+            "speech": "パチンコ",
+            "exampleJa": "駅の近くにパチンコ店があります。",
+            "exampleReading": "Eki no chikaku ni pachinko-ten ga arimasu.",
+            "exampleId": "Di dekat stasiun terdapat tempat permainan pachinko.",
+            "catatan": "パチンコ adalah permainan mesin yang menggunakan banyak bola logam kecil. Untuk mengatakan “bermain pachinko”, dapat digunakan ungkapan パチンコをします.",
+            "examples": [
+                  {
+                        "ja": "駅の近くにパチンコ店があります。",
+                        "reading": "Eki no chikaku ni pachinko-ten ga arimasu.",
+                        "id": "Di dekat stasiun terdapat tempat permainan pachinko."
+                  }
+            ]
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "section": "伝統文化・娯楽",
+            "sectionReading": "でんとうぶんか・ごらく",
+            "sectionMeaning": "Kebudayaan Tradisional dan Hiburan",
+            "sectionCategory": "伝統文化・娯楽 / Kebudayaan Tradisional dan Hiburan",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 19 / 伝統文化・娯楽",
+            "id": "mni-b19-ref-culture-019",
+            "no": "19",
+            "kanji": "",
+            "kana": "カラオケ",
+            "romaji": "karaoke",
+            "indonesia": "karaoke",
+            "image": "https://iili.io/CElINNj.png",
+            "typeCategory": "Hiburan Modern",
+            "subCategory": "Musik dan Hiburan",
+            "speech": "カラオケ",
+            "exampleJa": "友達とカラオケで歌いました。",
+            "exampleReading": "Tomodachi to karaoke de utaimashita.",
+            "exampleId": "Saya bernyanyi di tempat karaoke bersama teman.",
+            "catatan": "カラオケ berasal dari 空（から）yang berarti kosong dan オーケストラ yang disingkat menjadi オケ. Ungkapan yang sering digunakan adalah カラオケに行きます dan カラオケで歌います.",
+            "examples": [
+                  {
+                        "ja": "友達とカラオケで歌いました。",
+                        "reading": "Tomodachi to karaoke de utaimashita.",
+                        "id": "Saya bernyanyi di tempat karaoke bersama teman."
+                  }
+            ]
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "section": "伝統文化・娯楽",
+            "sectionReading": "でんとうぶんか・ごらく",
+            "sectionMeaning": "Kebudayaan Tradisional dan Hiburan",
+            "sectionCategory": "伝統文化・娯楽 / Kebudayaan Tradisional dan Hiburan",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 19 / 伝統文化・娯楽",
+            "id": "mni-b19-ref-culture-020",
+            "no": "20",
+            "kanji": "盆踊り",
+            "kana": "ぼんおどり",
+            "romaji": "bon odori",
+            "indonesia": "tarian Bon / tarian festival Jepang",
+            "image": "https://iili.io/CElIvVV.png",
+            "typeCategory": "Festival Tradisional",
+            "subCategory": "Tarian Festival",
+            "speech": "ぼんおどり",
+            "exampleJa": "夏祭りで盆踊りを踊りました。",
+            "exampleReading": "Natsumatsuri de bon odori o odorimashita.",
+            "exampleId": "Saya menari tarian Bon di festival musim panas.",
+            "catatan": "盆踊り adalah tarian yang biasanya dilakukan saat perayaan Obon atau festival musim panas. Para peserta menari mengikuti musik dalam formasi melingkar mengelilingi panggung festival.",
+            "examples": [
+                  {
+                        "ja": "夏祭りで盆踊りを踊りました。",
+                        "reading": "Natsumatsuri de bon odori o odorimashita.",
+                        "id": "Saya menari tarian Bon di festival musim panas."
+                  }
+            ]
+      }
+];
+    VOCABULARY.push(...BAB19_REFERENCE_TRADITIONAL_CULTURE);
+
     const firebaseConfig = {
       apiKey: "AIzaSyBC3x1_9WEdGWFqMu6DYUnyvawAa7IFGag",
       authDomain: "minna-no-nihongo-i-ii.firebaseapp.com",
@@ -40407,7 +41209,7 @@
     }
     // Bab referensi tertentu berupa halaman materi khusus, sehingga tidak semuanya berasal dari kartu VOCABULARY.
     const STATIC_REFERENCE_CHAPTERS = {
-      "Minna no Nihongo I (2nd Edition)": [2,4,5,7,8,9,10,11,12,13,14,15,16,17]
+      "Minna no Nihongo I (2nd Edition)": [2,4,5,7,8,9,10,11,12,13,14,15,16,17,19]
     };
     function uniqueCategoryValues(list, key){
       const seen = new Set();
@@ -40501,6 +41303,7 @@
     function isReferenceInfoBab15(){ return isReferenceInfoChapter("Bab 15"); }
     function isReferenceInfoBab16(){ return isReferenceInfoChapter("Bab 16"); }
     function isReferenceInfoBab17(){ return isReferenceInfoChapter("Bab 17"); }
+    function isReferenceInfoBab19(){ return isReferenceInfoChapter("Bab 19"); }
     function isReferenceInfoMaterialOnly(){ return isReferenceInfoBab2() || isReferenceInfoBab4() || isReferenceInfoBab5() || isReferenceInfoBab16(); }
 
     function materialOnlyQuizMessage(){
@@ -42602,6 +43405,104 @@
       $("#materialEmpty")?.classList.add("hidden");
     }
 
+
+
+    function renderReferenceInfoBab19TraditionalCulture(){
+      const grid = $("#materialGrid");
+      if(!grid) return;
+      const toolbar = $(".material-toolbar");
+      const notice = $("#materialPage .notice");
+      const title = $("#materialPage .content-card > h2");
+      const desc = $("#materialPage .content-card > p");
+
+      if(title) title.textContent = state.lang === "ja" ? "第19課 伝統文化・娯楽" : "Kata-Kata Referensi dan Informasi - Bab 19";
+      if(desc) desc.textContent = state.lang === "ja"
+        ? "日本の伝統文化、芸能、武道、遊び、祭りの語彙を、画像・音声・例文と一緒に学びます。"
+        : "Pelajari 20 kosakata tentang kebudayaan tradisional, seni pertunjukan, olahraga, permainan, hiburan, dan festival Jepang.";
+
+      document.body.classList.remove("material-only-reference");
+      if(toolbar){
+        toolbar.classList.remove("hidden");
+        toolbar.style.removeProperty("display");
+        toolbar.style.removeProperty("visibility");
+        toolbar.style.removeProperty("pointer-events");
+      }
+      if(notice){ notice.classList.add("hidden"); notice.style.setProperty("display","none","important"); }
+      updateMaterialOnlyControls();
+      renderMaterialFilterOptions();
+      grid.className = "reference-bab19-culture-wrap";
+
+      const allItems = activeVocab()
+        .filter(v=>String(v.id || "").startsWith("mni-b19-ref-culture-"))
+        .sort((a,b)=>Number(a.no || 0)-Number(b.no || 0));
+      const search = ($("#materialSearch")?.value || "").trim().toLowerCase();
+      const sectionFilter = $("#materialSectionFilter")?.value || "all";
+      const typeFilter = $("#materialTypeFilter")?.value || "all";
+      let arr = allItems.filter(v=>[
+        formatIndonesianMeaning(v), v.indonesia, v.kanji, v.kana, v.romaji, v.typeCategory,
+        v.sectionCategory, v.subCategory, v.section, v.sectionReading, v.sectionMeaning,
+        v.catatan, v.exampleJa, v.exampleReading, v.exampleId,
+        ...(Array.isArray(v.examples) ? v.examples.flatMap(ex=>[ex.ja,ex.reading,ex.id]) : [])
+      ].join(" ").toLowerCase().includes(search));
+      if(sectionFilter !== "all") arr = arr.filter(v=>v.sectionCategory === sectionFilter);
+      if(typeFilter !== "all") arr = arr.filter(v=>v.typeCategory === typeFilter);
+      arr.sort((a,b)=>Number(a.no || 0)-Number(b.no || 0));
+
+      const cards = arr.map(v=>{
+        const fav = state.favorites.includes(v.id);
+        const meaning = formatIndonesianMeaning(v);
+        const main = vocabMainText(v);
+        const kana = String(v.kana || "").trim();
+        return `<article class="reference-bab19-culture-card" data-vocab-id="${esc(v.id)}">
+          <div class="reference-bab19-culture-image-wrap">
+            <span class="reference-bab19-culture-number">${esc(v.no || "")}</span>
+            <img class="reference-bab19-culture-image" src="${esc(v.image)}" alt="${esc(main)} — ${esc(meaning)}" loading="lazy" decoding="async" data-zoom="${esc(v.image)}">
+          </div>
+          <div class="reference-bab19-culture-body">
+            <div class="reference-bab19-culture-jp">${esc(main)}</div>
+            <div class="reference-bab19-culture-kana">${esc(kana || main)}</div>
+            <div class="reference-bab19-culture-romaji">${esc(v.romaji || "")}</div>
+            <div class="reference-bab19-culture-card-meaning">${esc(meaning)}</div>
+            <div class="tag-row">
+              <span class="tag">${esc(v.chapter)}</span>
+              <span class="tag green">${esc(categoryLabel(v.typeCategory,"type"))}</span>
+              <span class="tag pink">${esc(v.subCategory || v.sectionCategory)}</span>
+            </div>
+            <div class="card-actions">
+              <button class="icon-btn" type="button" data-speak-id="${esc(v.id)}" title="${state.lang==="ja"?"発音を聞く":"Dengarkan pelafalan"}" aria-label="${state.lang==="ja"?"発音を聞く":"Dengarkan pelafalan"}"><i class="fa-solid fa-volume-high"></i></button>
+              <button class="icon-btn ${fav?"active":""}" type="button" data-fav="${esc(v.id)}" title="${state.lang==="ja"?"お気に入り":"Favorit"}" aria-label="${state.lang==="ja"?"お気に入り":"Favorit"}"><i class="${fav?"fa-solid":"fa-regular"} fa-star"></i></button>
+              <button class="icon-btn" type="button" data-note-material="${esc(v.id)}" title="${state.lang==="ja"?"メモ":"Catatan"}" aria-label="${state.lang==="ja"?"メモを見る":"Lihat catatan"}"><i class="fa-regular fa-note-sticky"></i></button>
+              <button class="icon-btn" type="button" data-example-material="${esc(v.id)}" title="${state.lang==="ja"?"例文":"Contoh kalimat"}" aria-label="${state.lang==="ja"?"例文を見る":"Lihat contoh kalimat"}"><i class="fa-regular fa-comment-dots"></i></button>
+            </div>
+          </div>
+        </article>`;
+      }).join("");
+
+      const empty = `<div class="reference-bab19-culture-empty"><i class="fa-solid fa-magnifying-glass"></i><h3>${state.lang==="ja"?"語彙が見つかりません":"Kosakata tidak ditemukan"}</h3><p>${state.lang==="ja"?"検索語またはフィルターを変更してください。":"Coba ubah kata pencarian atau filter kelompok kosakata."}</p></div>`;
+
+      grid.innerHTML = `
+        <section class="reference-bab19-culture-hero">
+          <div class="reference-bab19-culture-hero-grid">
+            <div>
+              <h3>伝統文化・娯楽</h3>
+              <div class="reference-bab19-culture-reading">でんとうぶんか・ごらく</div>
+              <p class="reference-bab19-culture-meaning">${state.lang==="ja"?"日本の伝統文化と娯楽":"Kebudayaan Tradisional dan Hiburan"}</p>
+            </div>
+            <div class="reference-bab19-culture-count"><strong>${allItems.length}</strong><span>${state.lang==="ja"?"語彙":"kosakata"}</span></div>
+          </div>
+        </section>
+        <section class="reference-bab19-culture-section">
+          <div class="reference-bab19-culture-section-head">
+            <div><h3><i class="fa-solid fa-images"></i>${state.lang==="ja"?"文化・娯楽の語彙カード":"Kartu Kosakata Kebudayaan dan Hiburan"}</h3><p>${state.lang==="ja"?"左から右、上から下へ番号順に並んでいます。":"Kartu tersusun sesuai nomor dari kiri ke kanan, lalu ke baris berikutnya. Klik gambar untuk memperbesar."}</p></div>
+            <span class="reference-bab19-culture-shown"><i class="fa-solid fa-filter"></i>${arr.length} / ${allItems.length} ${state.lang==="ja"?"表示中":"tampil"}</span>
+          </div>
+          ${arr.length ? `<div class="reference-bab19-culture-grid">${cards}</div>` : empty}
+        </section>`;
+
+      $("#materialEmpty")?.classList.add("hidden");
+    }
+
+
     function renderMaterial(){
       syncFictionToggleAvailability();
       const toolbar = $(".material-toolbar");
@@ -42668,6 +43569,10 @@
       }
       if(isReferenceInfoBab17()){
         renderReferenceInfoBab17Health();
+        return;
+      }
+      if(isReferenceInfoBab19()){
+        renderReferenceInfoBab19TraditionalCulture();
         return;
       }
       renderMaterialFilterOptions();
