@@ -2656,7 +2656,235 @@
       .reference-bab17-thumb-wrap, .reference-bab17-card .thumb { width:62px; height:62px; }
     }
 
-</style>
+
+
+    /* ===== Bab 18: Kata-kata Referensi dan Informasi — 動き（うごき） / Gerakan ===== */
+    .movement-material-wrap {
+      display:block;
+      width:100%;
+    }
+    .movement-section-shell {
+      overflow:hidden;
+      border:1px solid rgba(91,79,130,.22);
+      border-radius:18px;
+      background:rgba(255,255,255,.9);
+      box-shadow:0 12px 30px rgba(80,67,130,.075);
+    }
+    .movement-section-heading {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:20px 22px;
+      border-bottom:1px solid rgba(91,79,130,.2);
+      background:linear-gradient(135deg,#fff,#f7f3ff 58%,#eef8ff);
+    }
+    .movement-section-title-wrap { min-width:0; }
+    .movement-section-title {
+      display:flex;
+      align-items:baseline;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:0;
+      font-family:var(--jp);
+      font-size:clamp(26px,3vw,38px);
+      line-height:1.2;
+      letter-spacing:-.035em;
+      color:#071b45;
+    }
+    .movement-section-title ruby { ruby-position:over; }
+    .movement-section-title rt { font-size:.37em; color:#6e5bb9; font-weight:700; }
+    .movement-section-title .movement-title-id {
+      font-family:var(--font);
+      font-size:.58em;
+      color:#4f5d76;
+      letter-spacing:-.02em;
+    }
+    .movement-section-subtitle { margin:6px 0 0; color:#6d7890; font-size:13px; line-height:1.55; }
+    .movement-count-badge {
+      flex:0 0 auto;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      min-height:38px;
+      padding:0 13px;
+      border-radius:999px;
+      color:#5e35d6;
+      background:#f1ebff;
+      border:1px solid rgba(124,77,255,.16);
+      font-weight:800;
+      font-size:12px;
+    }
+    .movement-vocab-grid {
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:0;
+      background:rgba(91,79,130,.18);
+    }
+    .movement-vocab-card {
+      min-width:0;
+      min-height:365px;
+      padding:15px;
+      display:flex;
+      flex-direction:column;
+      background:#fff;
+      border:0;
+      border-right:1px solid rgba(91,79,130,.18);
+      border-bottom:1px solid rgba(91,79,130,.18);
+      overflow:hidden;
+    }
+    .movement-vocab-card:nth-child(4n) { border-right:0; }
+    .movement-vocab-card:nth-last-child(-n+4) { border-bottom:0; }
+    .movement-card-number {
+      display:inline-grid;
+      place-items:center;
+      width:28px;
+      height:28px;
+      flex:0 0 auto;
+      border-radius:9px;
+      color:#fff;
+      background:linear-gradient(135deg,#7c4dff,#5e35d6);
+      font-size:11px;
+      font-weight:850;
+    }
+    .movement-card-head { display:flex; align-items:flex-start; gap:10px; min-height:72px; }
+    .movement-card-copy { min-width:0; flex:1; }
+    .movement-word {
+      color:#071b45;
+      font-size:clamp(22px,2vw,29px);
+      line-height:1.35;
+      font-weight:800;
+      overflow-wrap:anywhere;
+    }
+    .movement-word ruby { ruby-position:over; }
+    .movement-word rt { font-size:.39em; color:#765ccf; font-weight:700; }
+    .movement-meaning {
+      margin-top:4px;
+      color:#4e5b73;
+      font-size:13px;
+      line-height:1.42;
+      font-weight:650;
+    }
+    .movement-image-shell {
+      position:relative;
+      flex:1 1 auto;
+      min-height:190px;
+      margin:10px 0 12px;
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+      background:#fcfcff;
+      border:1px solid rgba(91,79,130,.14);
+      border-radius:10px;
+    }
+    .movement-image-shell img {
+      width:100%;
+      height:205px;
+      object-fit:contain;
+      display:block;
+      cursor:zoom-in;
+    }
+    .movement-card-meta {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:8px;
+      min-height:24px;
+      margin-bottom:9px;
+      color:#7254cf;
+      font-size:11px;
+      font-weight:800;
+    }
+    .movement-card-meta span:last-child {
+      min-width:0;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+      text-align:right;
+      color:#66728a;
+      font-weight:650;
+    }
+    .movement-card-actions {
+      display:grid;
+      grid-template-columns:repeat(4,42px);
+      justify-content:center;
+      gap:8px;
+      margin-top:auto;
+    }
+    .movement-card-actions .icon-btn {
+      width:42px;
+      height:42px;
+      border-radius:12px;
+      box-shadow:none;
+      border-color:rgba(124,77,255,.2);
+    }
+    .movement-card-actions .icon-btn:hover { transform:translateY(-2px); background:#f5f0ff; }
+    .movement-empty {
+      padding:36px 22px;
+      text-align:center;
+      color:#65728b;
+      background:#fff;
+    }
+    .movement-empty i { display:block; margin-bottom:12px; color:#7c4dff; font-size:32px; }
+
+    .example-audio-group { margin-left:auto; display:flex; align-items:center; gap:8px; flex:0 0 auto; }
+    .example-audio-group .example-audio-btn { margin-left:0; }
+    .example-vocab-audio-btn { color:#148060; background:#eafbf5; border-color:#c8f1e3; }
+
+    .movement-quiz-card .flash-back { overflow-y:auto; }
+    .movement-quiz-card .answer-area { align-content:start; gap:12px; padding-bottom:8px; }
+    .movement-quiz-card .answer-img { height:170px; width:min(300px,78%); }
+    .movement-quiz-card .answer-main { font-size:clamp(26px,3vw,42px); }
+    .movement-flash-details {
+      width:min(760px,100%);
+      display:grid;
+      gap:8px;
+      margin-top:2px;
+      text-align:left;
+    }
+    .movement-flash-detail {
+      padding:10px 12px;
+      border:1px solid #e8e2ff;
+      border-radius:12px;
+      background:#fcfbff;
+      color:#45526b;
+      font-size:12px;
+      line-height:1.5;
+      font-weight:600;
+    }
+    .movement-flash-detail b {
+      display:block;
+      margin-bottom:3px;
+      color:#6c45df;
+      font-size:10px;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+    }
+    .movement-flash-detail.jp { font-size:14px; color:#071b45; }
+
+    @media (max-width:1100px) {
+      .movement-vocab-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .movement-vocab-card:nth-child(4n) { border-right:1px solid rgba(91,79,130,.18); }
+      .movement-vocab-card:nth-child(2n) { border-right:0; }
+      .movement-vocab-card:nth-last-child(-n+4) { border-bottom:1px solid rgba(91,79,130,.18); }
+      .movement-vocab-card:nth-last-child(-n+2) { border-bottom:0; }
+    }
+    @media (max-width:640px) {
+      .movement-section-heading { align-items:flex-start; padding:17px; }
+      .movement-count-badge { display:none; }
+      .movement-vocab-grid { grid-template-columns:1fr; }
+      .movement-vocab-card { min-height:350px; border-right:0!important; border-bottom:1px solid rgba(91,79,130,.18)!important; }
+      .movement-vocab-card:last-child { border-bottom:0!important; }
+      .movement-image-shell img { height:215px; }
+      .movement-card-actions { grid-template-columns:repeat(4,minmax(42px,1fr)); width:100%; }
+      .movement-card-actions .icon-btn { width:100%; }
+      .example-audio-group { gap:6px; }
+      .example-audio-group .icon-btn { width:42px; height:42px; }
+      .movement-quiz-card .answer-img { height:145px; }
+      .movement-flash-detail { font-size:11px; }
+    }
+
+  </style>
 </head>
 <body>
   <div id="loadingScreen" class="loader">
@@ -3029,7 +3257,10 @@
       <div class="example-modal-head">
         <span class="example-icon jp">例</span>
         <div><h2 id="exampleTitle" data-i18n="exampleSentence">Contoh Kalimat</h2><p id="exampleModalDesc">Contoh penggunaan kosakata dalam kalimat bahasa Jepang.</p></div>
-        <button class="icon-btn example-audio-btn" id="exampleSpeakBtn" type="button" title="Dengarkan contoh kalimat" aria-label="Dengarkan contoh kalimat"><i class="fa-solid fa-volume-high"></i></button>
+        <div class="example-audio-group">
+          <button class="icon-btn example-audio-btn example-vocab-audio-btn" id="exampleVocabSpeakBtn" type="button" title="Dengarkan kosakata" aria-label="Dengarkan kosakata"><i class="fa-solid fa-volume-low"></i></button>
+          <button class="icon-btn example-audio-btn" id="exampleSpeakBtn" type="button" title="Dengarkan contoh kalimat" aria-label="Dengarkan contoh kalimat"><i class="fa-solid fa-volume-high"></i></button>
+        </div>
       </div>
       <div class="example-content" id="exampleContent">
         <div class="example-info-card"><span id="exampleJaLabel">Jepang</span><strong class="jp" id="exampleJa">-</strong></div>
@@ -28101,6 +28332,792 @@
     VOCABULARY.push(...BAB18_VOCABULARY);
 
 
+    // ===== Tambahan data: Minna no Nihongo I -> Kata-kata Referensi dan Informasi -> Bab 18 -> 動き（うごき） / Gerakan =====
+    const BAB18_REFERENCE_COMMON_MOVEMENT = [
+      {
+            "id": "mni-b18-ref-common-movement-001",
+            "no": "1",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 18",
+            "chapterNumber": 18,
+            "section": "動き",
+            "sectionReading": "うごき",
+            "sectionMeaning": "Gerakan",
+            "sectionCategory": "動き / Gerakan",
+            "favorite": false,
+            "typeCategory": "Kata Kerja Kelompok I",
+            "typeDetail": "Kata Kerja Kelompok I",
+            "indonesia": "terbang",
+            "kanji": "飛ぶ",
+            "kana": "とぶ",
+            "romaji": "tobu",
+            "image": "https://iili.io/CEueciu.png",
+            "imageAlt": "Ilustrasi 飛ぶ yang berarti terbang",
+            "isFiction": false,
+            "speech": "とぶ",
+            "exampleJa": "鳥が青い空を飛んでいます。",
+            "exampleReading": "Tori ga aoi sora o tonde imasu.",
+            "exampleId": "Burung sedang terbang di langit yang biru.",
+            "examples": [
+                  {
+                        "ja": "鳥が青い空を飛んでいます。",
+                        "reading": "Tori ga aoi sora o tonde imasu.",
+                        "id": "Burung sedang terbang di langit yang biru."
+                  }
+            ],
+            "catatan": "飛ぶ digunakan untuk gerakan terbang di udara, misalnya burung, pesawat, atau serangga. Meskipun cara bacanya sama dengan 跳ぶ, kanjinya dan jenis gerakannya berbeda.",
+            "note": "飛ぶ digunakan untuk gerakan terbang di udara, misalnya burung, pesawat, atau serangga. Meskipun cara bacanya sama dengan 跳ぶ, kanjinya dan jenis gerakannya berbeda.",
+            "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 18 / 動き（うごき） / Gerakan"
+      },
+      {
+            "id": "mni-b18-ref-common-movement-002",
+            "no": "2",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 18",
+            "chapterNumber": 18,
+            "section": "動き",
+            "sectionReading": "うごき",
+            "sectionMeaning": "Gerakan",
+            "sectionCategory": "動き / Gerakan",
+            "favorite": false,
+            "typeCategory": "Kata Kerja Kelompok I",
+            "typeDetail": "Kata Kerja Kelompok I",
+            "indonesia": "melompat",
+            "kanji": "跳ぶ",
+            "kana": "とぶ",
+            "romaji": "tobu",
+            "image": "https://iili.io/CEue0Kb.png",
+            "imageAlt": "Ilustrasi 跳ぶ yang berarti melompat",
+            "isFiction": false,
+            "speech": "とぶ",
+            "exampleJa": "子どもたちが元気に縄を跳んでいます。",
+            "exampleReading": "Kodomotachi ga genki ni nawa o tonde imasu.",
+            "exampleId": "Anak-anak sedang melompati tali dengan penuh semangat.",
+            "examples": [
+                  {
+                        "ja": "子どもたちが元気に縄を跳んでいます。",
+                        "reading": "Kodomotachi ga genki ni nawa o tonde imasu.",
+                        "id": "Anak-anak sedang melompati tali dengan penuh semangat."
+                  }
+            ],
+            "catatan": "跳ぶ berarti melompat atau meloncat dengan tubuh terangkat dari permukaan. Kata ini biasanya digunakan untuk lompat tali, lompat jauh, atau melompati benda.",
+            "note": "跳ぶ berarti melompat atau meloncat dengan tubuh terangkat dari permukaan. Kata ini biasanya digunakan untuk lompat tali, lompat jauh, atau melompati benda.",
+            "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 18 / 動き（うごき） / Gerakan"
+      },
+      {
+            "id": "mni-b18-ref-common-movement-003",
+            "no": "3",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 18",
+            "chapterNumber": 18,
+            "section": "動き",
+            "sectionReading": "うごき",
+            "sectionMeaning": "Gerakan",
+            "sectionCategory": "動き / Gerakan",
+            "favorite": false,
+            "typeCategory": "Kata Kerja Kelompok I",
+            "typeDetail": "Kata Kerja Kelompok I",
+            "indonesia": "memanjat atau mendaki",
+            "kanji": "登る",
+            "kana": "のぼる",
+            "romaji": "noboru",
+            "image": "https://iili.io/CEue1lj.png",
+            "imageAlt": "Ilustrasi 登る yang berarti memanjat atau mendaki",
+            "isFiction": false,
+            "speech": "のぼる",
+            "exampleJa": "来年、友達と富士山に登りたいです。",
+            "exampleReading": "Rainen, tomodachi to Fujisan ni noboritai desu.",
+            "exampleId": "Tahun depan saya ingin mendaki Gunung Fuji bersama teman.",
+            "examples": [
+                  {
+                        "ja": "来年、友達と富士山に登りたいです。",
+                        "reading": "Rainen, tomodachi to Fujisan ni noboritai desu.",
+                        "id": "Tahun depan saya ingin mendaki Gunung Fuji bersama teman."
+                  }
+            ],
+            "catatan": "登る digunakan ketika bergerak menuju tempat yang lebih tinggi, seperti mendaki gunung, memanjat pohon, atau menaiki tangga.",
+            "note": "登る digunakan ketika bergerak menuju tempat yang lebih tinggi, seperti mendaki gunung, memanjat pohon, atau menaiki tangga.",
+            "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 18 / 動き（うごき） / Gerakan"
+      },
+      {
+            "id": "mni-b18-ref-common-movement-004",
+            "no": "4",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 18",
+            "chapterNumber": 18,
+            "section": "動き",
+            "sectionReading": "うごき",
+            "sectionMeaning": "Gerakan",
+            "sectionCategory": "動き / Gerakan",
+            "favorite": false,
+            "typeCategory": "Kata Kerja Kelompok I",
+            "typeDetail": "Kata Kerja Kelompok I",
+            "indonesia": "berlari",
+            "kanji": "走る",
+            "kana": "はしる",
+            "romaji": "hashiru",
+            "image": "https://iili.io/CEueaVe.png",
+            "imageAlt": "Ilustrasi 走る yang berarti berlari",
+            "isFiction": false,
+            "speech": "はしる",
+            "exampleJa": "私は毎朝、公園を三十分走ります。",
+            "exampleReading": "Watashi wa maiasa, kouen o sanjuppun hashirimasu.",
+            "exampleId": "Saya berlari selama tiga puluh menit di taman setiap pagi.",
+            "examples": [
+                  {
+                        "ja": "私は毎朝、公園を三十分走ります。",
+                        "reading": "Watashi wa maiasa, kouen o sanjuppun hashirimasu.",
+                        "id": "Saya berlari selama tiga puluh menit di taman setiap pagi."
+                  }
+            ],
+            "catatan": "走る berarti bergerak cepat dengan berlari. Tempat atau jalur yang dilalui dapat menggunakan partikel を, misalnya 公園を走ります.",
+            "note": "走る berarti bergerak cepat dengan berlari. Tempat atau jalur yang dilalui dapat menggunakan partikel を, misalnya 公園を走ります.",
+            "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 18 / 動き（うごき） / Gerakan"
+      },
+      {
+            "id": "mni-b18-ref-common-movement-005",
+            "no": "5",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 18",
+            "chapterNumber": 18,
+            "section": "動き",
+            "sectionReading": "うごき",
+            "sectionMeaning": "Gerakan",
+            "sectionCategory": "動き / Gerakan",
+            "favorite": false,
+            "typeCategory": "Kata Kerja Kelompok I",
+            "typeDetail": "Kata Kerja Kelompok I",
+            "indonesia": "berenang",
+            "kanji": "泳ぐ",
+            "kana": "およぐ",
+            "romaji": "oyogu",
+            "image": "https://iili.io/CEueXDP.png",
+            "imageAlt": "Ilustrasi 泳ぐ yang berarti berenang",
+            "isFiction": false,
+            "speech": "およぐ",
+            "exampleJa": "夏休みに家族と海で泳ぎました。",
+            "exampleReading": "Natsuyasumi ni kazoku to umi de oyogimashita.",
+            "exampleId": "Saat liburan musim panas, saya berenang di laut bersama keluarga.",
+            "examples": [
+                  {
+                        "ja": "夏休みに家族と海で泳ぎました。",
+                        "reading": "Natsuyasumi ni kazoku to umi de oyogimashita.",
+                        "id": "Saat liburan musim panas, saya berenang di laut bersama keluarga."
+                  }
+            ],
+            "catatan": "泳ぐ digunakan untuk berenang di kolam, sungai, atau laut. Tempat melakukan kegiatan berenang biasanya ditandai dengan partikel で.",
+            "note": "泳ぐ digunakan untuk berenang di kolam, sungai, atau laut. Tempat melakukan kegiatan berenang biasanya ditandai dengan partikel で.",
+            "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 18 / 動き（うごき） / Gerakan"
+      },
+      {
+            "id": "mni-b18-ref-common-movement-006",
+            "no": "6",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 18",
+            "chapterNumber": 18,
+            "section": "動き",
+            "sectionReading": "うごき",
+            "sectionMeaning": "Gerakan",
+            "sectionCategory": "動き / Gerakan",
+            "favorite": false,
+            "typeCategory": "Kata Kerja Kelompok I",
+            "typeDetail": "Kata Kerja Kelompok I",
+            "indonesia": "menyelam",
+            "kanji": "",
+            "kana": "もぐる",
+            "romaji": "moguru",
+            "image": "https://iili.io/CEuejx1.png",
+            "imageAlt": "Ilustrasi もぐる yang berarti menyelam",
+            "isFiction": false,
+            "speech": "もぐる",
+            "exampleJa": "海にもぐって、きれいな魚を見ました。",
+            "exampleReading": "Umi ni mogutte, kirei na sakana o mimashita.",
+            "exampleId": "Saya menyelam ke dalam laut dan melihat ikan-ikan yang indah.",
+            "examples": [
+                  {
+                        "ja": "海にもぐって、きれいな魚を見ました。",
+                        "reading": "Umi ni mogutte, kirei na sakana o mimashita.",
+                        "id": "Saya menyelam ke dalam laut dan melihat ikan-ikan yang indah."
+                  }
+            ],
+            "catatan": "もぐる menggambarkan gerakan masuk ke bawah air atau ke tempat yang tertutup. Dalam konteks ini, kata tersebut berarti menyelam ke bawah permukaan air.",
+            "note": "もぐる menggambarkan gerakan masuk ke bawah air atau ke tempat yang tertutup. Dalam konteks ini, kata tersebut berarti menyelam ke bawah permukaan air.",
+            "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 18 / 動き（うごき） / Gerakan"
+      },
+      {
+            "id": "mni-b18-ref-common-movement-007",
+            "no": "7",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 18",
+            "chapterNumber": 18,
+            "section": "動き",
+            "sectionReading": "うごき",
+            "sectionMeaning": "Gerakan",
+            "sectionCategory": "動き / Gerakan",
+            "favorite": false,
+            "typeCategory": "Kata Kerja Kelompok I",
+            "typeDetail": "Kata Kerja Kelompok I",
+            "indonesia": "terjun atau melompat masuk",
+            "kanji": "飛び込む",
+            "kana": "とびこむ",
+            "romaji": "tobikomu",
+            "image": "https://iili.io/CEueNig.png",
+            "imageAlt": "Ilustrasi 飛び込む yang berarti terjun atau melompat masuk",
+            "isFiction": false,
+            "speech": "とびこむ",
+            "exampleJa": "男の子がプールに勢いよく飛び込みました。",
+            "exampleReading": "Otoko no ko ga puuru ni ikioi yoku tobikomimashita.",
+            "exampleId": "Anak laki-laki itu melompat masuk ke kolam dengan penuh semangat.",
+            "examples": [
+                  {
+                        "ja": "男の子がプールに勢いよく飛び込みました。",
+                        "reading": "Otoko no ko ga puuru ni ikioi yoku tobikomimashita.",
+                        "id": "Anak laki-laki itu melompat masuk ke kolam dengan penuh semangat."
+                  }
+            ],
+            "catatan": "飛び込む merupakan gabungan dari 飛ぶ dan 込む. Kata ini digunakan ketika seseorang melompat atau menerjunkan diri masuk ke suatu tempat.",
+            "note": "飛び込む merupakan gabungan dari 飛ぶ dan 込む. Kata ini digunakan ketika seseorang melompat atau menerjunkan diri masuk ke suatu tempat.",
+            "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 18 / 動き（うごき） / Gerakan"
+      },
+      {
+            "id": "mni-b18-ref-common-movement-008",
+            "no": "8",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 18",
+            "chapterNumber": 18,
+            "section": "動き",
+            "sectionReading": "うごき",
+            "sectionMeaning": "Gerakan",
+            "sectionCategory": "動き / Gerakan",
+            "favorite": false,
+            "typeCategory": "Kata Kerja Kelompok III",
+            "typeDetail": "Kata Kerja Kelompok III",
+            "indonesia": "berdiri dengan tangan atau berjungkir balik",
+            "kanji": "逆立ちする",
+            "kana": "さかだちする",
+            "romaji": "sakadachi suru",
+            "image": "https://iili.io/CEueefa.png",
+            "imageAlt": "Ilustrasi 逆立ちする yang berarti berdiri dengan tangan atau berjungkir balik",
+            "isFiction": false,
+            "speech": "さかだちする",
+            "exampleJa": "体育の時間に体育館で逆立ちしました。",
+            "exampleReading": "Taiiku no jikan ni taiikukan de sakadachi shimashita.",
+            "exampleId": "Saya melakukan gerakan berdiri dengan tangan di gedung olahraga saat pelajaran olahraga.",
+            "examples": [
+                  {
+                        "ja": "体育の時間に体育館で逆立ちしました。",
+                        "reading": "Taiiku no jikan ni taiikukan de sakadachi shimashita.",
+                        "id": "Saya melakukan gerakan berdiri dengan tangan di gedung olahraga saat pelajaran olahraga."
+                  }
+            ],
+            "catatan": "逆立ちする adalah gerakan berdiri dengan tangan sementara kaki berada di atas. Kata ini terbentuk dari kata benda 逆立ち yang ditambahkan する.",
+            "note": "逆立ちする adalah gerakan berdiri dengan tangan sementara kaki berada di atas. Kata ini terbentuk dari kata benda 逆立ち yang ditambahkan する.",
+            "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 18 / 動き（うごき） / Gerakan"
+      },
+      {
+            "id": "mni-b18-ref-common-movement-009",
+            "no": "9",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 18",
+            "chapterNumber": 18,
+            "section": "動き",
+            "sectionReading": "うごき",
+            "sectionMeaning": "Gerakan",
+            "sectionCategory": "動き / Gerakan",
+            "favorite": false,
+            "typeCategory": "Kata Kerja Kelompok I",
+            "typeDetail": "Kata Kerja Kelompok I",
+            "indonesia": "merayap atau merangkak",
+            "kanji": "",
+            "kana": "はう",
+            "romaji": "hau",
+            "image": "https://iili.io/CEuevUv.png",
+            "imageAlt": "Ilustrasi はう yang berarti merayap atau merangkak",
+            "isFiction": false,
+            "speech": "はう",
+            "exampleJa": "赤ちゃんがゆっくり床をはいっています。",
+            "exampleReading": "Akachan ga yukkuri yuka o hatte imasu.",
+            "exampleId": "Bayi itu sedang merangkak perlahan di lantai.",
+            "examples": [
+                  {
+                        "ja": "赤ちゃんがゆっくり床をはいっています。",
+                        "reading": "Akachan ga yukkuri yuka o hatte imasu.",
+                        "id": "Bayi itu sedang merangkak perlahan di lantai."
+                  }
+            ],
+            "catatan": "はう digunakan untuk gerakan merangkak atau merayap dengan posisi tubuh dekat dengan permukaan. Kata ini dapat digunakan untuk bayi, serangga, atau hewan kecil.",
+            "note": "はう digunakan untuk gerakan merangkak atau merayap dengan posisi tubuh dekat dengan permukaan. Kata ini dapat digunakan untuk bayi, serangga, atau hewan kecil.",
+            "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 18 / 動き（うごき） / Gerakan"
+      },
+      {
+            "id": "mni-b18-ref-common-movement-010",
+            "no": "10",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 18",
+            "chapterNumber": 18,
+            "section": "動き",
+            "sectionReading": "うごき",
+            "sectionMeaning": "Gerakan",
+            "sectionCategory": "動き / Gerakan",
+            "favorite": false,
+            "typeCategory": "Kata Kerja Kelompok I",
+            "typeDetail": "Kata Kerja Kelompok I",
+            "indonesia": "menendang",
+            "kanji": "",
+            "kana": "ける",
+            "romaji": "keru",
+            "image": "https://iili.io/CEueURp.png",
+            "imageAlt": "Ilustrasi ける yang berarti menendang",
+            "isFiction": false,
+            "speech": "ける",
+            "exampleJa": "サッカー選手がボールを強くけりました。",
+            "exampleReading": "Sakkaa senshu ga booru o tsuyoku kerimashita.",
+            "exampleId": "Pemain sepak bola itu menendang bola dengan kuat.",
+            "examples": [
+                  {
+                        "ja": "サッカー選手がボールを強くけりました。",
+                        "reading": "Sakkaa senshu ga booru o tsuyoku kerimashita.",
+                        "id": "Pemain sepak bola itu menendang bola dengan kuat."
+                  }
+            ],
+            "catatan": "ける berarti mengenai atau menggerakkan sesuatu menggunakan kaki. Benda yang ditendang biasanya ditandai dengan partikel を.",
+            "note": "ける berarti mengenai atau menggerakkan sesuatu menggunakan kaki. Benda yang ditendang biasanya ditandai dengan partikel を.",
+            "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 18 / 動き（うごき） / Gerakan"
+      },
+      {
+            "id": "mni-b18-ref-common-movement-011",
+            "no": "11",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 18",
+            "chapterNumber": 18,
+            "section": "動き",
+            "sectionReading": "うごき",
+            "sectionMeaning": "Gerakan",
+            "sectionCategory": "動き / Gerakan",
+            "favorite": false,
+            "typeCategory": "Kata Kerja Kelompok I",
+            "typeDetail": "Kata Kerja Kelompok I",
+            "indonesia": "melambaikan atau mengayunkan",
+            "kanji": "振る",
+            "kana": "ふる",
+            "romaji": "furu",
+            "image": "https://iili.io/CEuerbI.png",
+            "imageAlt": "Ilustrasi 振る yang berarti melambaikan atau mengayunkan",
+            "isFiction": false,
+            "speech": "ふる",
+            "exampleJa": "駅で友達を見つけて、大きく手を振りました。",
+            "exampleReading": "Eki de tomodachi o mitsukete, ookiku te o furimashita.",
+            "exampleId": "Saya melihat teman di stasiun lalu melambaikan tangan dengan lebar.",
+            "examples": [
+                  {
+                        "ja": "駅で友達を見つけて、大きく手を振りました。",
+                        "reading": "Eki de tomodachi o mitsukete, ookiku te o furimashita.",
+                        "id": "Saya melihat teman di stasiun lalu melambaikan tangan dengan lebar."
+                  }
+            ],
+            "catatan": "振る digunakan untuk menggerakkan sesuatu ke kanan-kiri atau ke atas-bawah. Contoh yang paling mudah adalah 手を振る, yaitu melambaikan tangan.",
+            "note": "振る digunakan untuk menggerakkan sesuatu ke kanan-kiri atau ke atas-bawah. Contoh yang paling mudah adalah 手を振る, yaitu melambaikan tangan.",
+            "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 18 / 動き（うごき） / Gerakan"
+      },
+      {
+            "id": "mni-b18-ref-common-movement-012",
+            "no": "12",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 18",
+            "chapterNumber": 18,
+            "section": "動き",
+            "sectionReading": "うごき",
+            "sectionMeaning": "Gerakan",
+            "sectionCategory": "動き / Gerakan",
+            "favorite": false,
+            "typeCategory": "Kata Kerja Kelompok II",
+            "typeDetail": "Kata Kerja Kelompok II",
+            "indonesia": "mengangkat",
+            "kanji": "持ち上げる",
+            "kana": "もちあげる",
+            "romaji": "mochiageru",
+            "image": "https://iili.io/CEue6xt.png",
+            "imageAlt": "Ilustrasi 持ち上げる yang berarti mengangkat",
+            "isFiction": false,
+            "speech": "もちあげる",
+            "exampleJa": "この荷物は重くて、一人では持ち上げられません。",
+            "exampleReading": "Kono nimotsu wa omokute, hitori de wa mochiageraremasen.",
+            "exampleId": "Barang ini terlalu berat sehingga tidak dapat saya angkat sendirian.",
+            "examples": [
+                  {
+                        "ja": "この荷物は重くて、一人では持ち上げられません。",
+                        "reading": "Kono nimotsu wa omokute, hitori de wa mochiageraremasen.",
+                        "id": "Barang ini terlalu berat sehingga tidak dapat saya angkat sendirian."
+                  }
+            ],
+            "catatan": "持ち上げる berarti memegang lalu mengangkat benda ke posisi yang lebih tinggi. Kata ini cocok untuk koper, kotak, kursi, atau benda berat lainnya.",
+            "note": "持ち上げる berarti memegang lalu mengangkat benda ke posisi yang lebih tinggi. Kata ini cocok untuk koper, kotak, kursi, atau benda berat lainnya.",
+            "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 18 / 動き（うごき） / Gerakan"
+      },
+      {
+            "id": "mni-b18-ref-common-movement-013",
+            "no": "13",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 18",
+            "chapterNumber": 18,
+            "section": "動き",
+            "sectionReading": "うごき",
+            "sectionMeaning": "Gerakan",
+            "sectionCategory": "動き / Gerakan",
+            "favorite": false,
+            "typeCategory": "Kata Kerja Kelompok II",
+            "typeDetail": "Kata Kerja Kelompok II",
+            "indonesia": "melempar",
+            "kanji": "投げる",
+            "kana": "なげる",
+            "romaji": "nageru",
+            "image": "https://iili.io/CEueisn.png",
+            "imageAlt": "Ilustrasi 投げる yang berarti melempar",
+            "isFiction": false,
+            "speech": "なげる",
+            "exampleJa": "兄が私にボールを投げました。",
+            "exampleReading": "Ani ga watashi ni booru o nagemashita.",
+            "exampleId": "Kakak laki-laki melemparkan bola kepada saya.",
+            "examples": [
+                  {
+                        "ja": "兄が私にボールを投げました。",
+                        "reading": "Ani ga watashi ni booru o nagemashita.",
+                        "id": "Kakak laki-laki melemparkan bola kepada saya."
+                  }
+            ],
+            "catatan": "投げる digunakan ketika melepaskan benda dari tangan ke arah tertentu. Benda yang dilempar menggunakan partikel を, sedangkan penerima dapat menggunakan partikel に.",
+            "note": "投げる digunakan ketika melepaskan benda dari tangan ke arah tertentu. Benda yang dilempar menggunakan partikel を, sedangkan penerima dapat menggunakan partikel に.",
+            "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 18 / 動き（うごき） / Gerakan"
+      },
+      {
+            "id": "mni-b18-ref-common-movement-014",
+            "no": "14",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 18",
+            "chapterNumber": 18,
+            "section": "動き",
+            "sectionReading": "うごき",
+            "sectionMeaning": "Gerakan",
+            "sectionCategory": "動き / Gerakan",
+            "favorite": false,
+            "typeCategory": "Kata Kerja Kelompok I",
+            "typeDetail": "Kata Kerja Kelompok I",
+            "indonesia": "memukul atau menepuk",
+            "kanji": "",
+            "kana": "たたく",
+            "romaji": "tataku",
+            "image": "https://iili.io/CEueZgf.png",
+            "imageAlt": "Ilustrasi たたく yang berarti memukul atau menepuk",
+            "isFiction": false,
+            "speech": "たたく",
+            "exampleJa": "部屋に入る前に、ドアを軽くたたきました。",
+            "exampleReading": "Heya ni hairu mae ni, doa o karuku tatakimashita.",
+            "exampleId": "Sebelum masuk ke kamar, saya mengetuk pintu dengan pelan.",
+            "examples": [
+                  {
+                        "ja": "部屋に入る前に、ドアを軽くたたきました。",
+                        "reading": "Heya ni hairu mae ni, doa o karuku tatakimashita.",
+                        "id": "Sebelum masuk ke kamar, saya mengetuk pintu dengan pelan."
+                  }
+            ],
+            "catatan": "たたく tidak selalu berarti memukul dengan keras. Kata ini juga dapat berarti mengetuk pintu, menepuk bahu, atau menepukkan tangan.",
+            "note": "たたく tidak selalu berarti memukul dengan keras. Kata ini juga dapat berarti mengetuk pintu, menepuk bahu, atau menepukkan tangan.",
+            "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 18 / 動き（うごき） / Gerakan"
+      },
+      {
+            "id": "mni-b18-ref-common-movement-015",
+            "no": "15",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 18",
+            "chapterNumber": 18,
+            "section": "動き",
+            "sectionReading": "うごき",
+            "sectionMeaning": "Gerakan",
+            "sectionCategory": "動き / Gerakan",
+            "favorite": false,
+            "typeCategory": "Kata Kerja Kelompok I",
+            "typeDetail": "Kata Kerja Kelompok I",
+            "indonesia": "menarik",
+            "kanji": "引く",
+            "kana": "ひく",
+            "romaji": "hiku",
+            "image": "https://iili.io/CEueme2.png",
+            "imageAlt": "Ilustrasi 引く yang berarti menarik",
+            "isFiction": false,
+            "speech": "ひく",
+            "exampleJa": "このドアは手前に引いて開けてください。",
+            "exampleReading": "Kono doa wa temae ni hiite akete kudasai.",
+            "exampleId": "Silakan buka pintu ini dengan menariknya ke arah Anda.",
+            "examples": [
+                  {
+                        "ja": "このドアは手前に引いて開けてください。",
+                        "reading": "Kono doa wa temae ni hiite akete kudasai.",
+                        "id": "Silakan buka pintu ini dengan menariknya ke arah Anda."
+                  }
+            ],
+            "catatan": "引く berarti menarik sesuatu mendekati diri sendiri. Dalam kehidupan sehari-hari, tulisan 引く sering ditemukan pada pintu yang harus ditarik.",
+            "note": "引く berarti menarik sesuatu mendekati diri sendiri. Dalam kehidupan sehari-hari, tulisan 引く sering ditemukan pada pintu yang harus ditarik.",
+            "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 18 / 動き（うごき） / Gerakan"
+      },
+      {
+            "id": "mni-b18-ref-common-movement-016",
+            "no": "16",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 18",
+            "chapterNumber": 18,
+            "section": "動き",
+            "sectionReading": "うごき",
+            "sectionMeaning": "Gerakan",
+            "sectionCategory": "動き / Gerakan",
+            "favorite": false,
+            "typeCategory": "Kata Kerja Kelompok I",
+            "typeDetail": "Kata Kerja Kelompok I",
+            "indonesia": "mendorong atau menekan",
+            "kanji": "押す",
+            "kana": "おす",
+            "romaji": "osu",
+            "image": "https://iili.io/CEuepbS.png",
+            "imageAlt": "Ilustrasi 押す yang berarti mendorong atau menekan",
+            "isFiction": false,
+            "speech": "おす",
+            "exampleJa": "エレベーターに乗る前に、このボタンを押してください。",
+            "exampleReading": "Erebeetaa ni noru mae ni, kono botan o oshite kudasai.",
+            "exampleId": "Sebelum naik lift, silakan tekan tombol ini.",
+            "examples": [
+                  {
+                        "ja": "エレベーターに乗る前に、このボタンを押してください。",
+                        "reading": "Erebeetaa ni noru mae ni, kono botan o oshite kudasai.",
+                        "id": "Sebelum naik lift, silakan tekan tombol ini."
+                  }
+            ],
+            "catatan": "押す digunakan untuk mendorong benda atau menekan tombol. Kata ini merupakan kebalikan dari 引く dalam konteks gerakan mendorong dan menarik.",
+            "note": "押す digunakan untuk mendorong benda atau menekan tombol. Kata ini merupakan kebalikan dari 引く dalam konteks gerakan mendorong dan menarik.",
+            "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 18 / 動き（うごき） / Gerakan"
+      },
+      {
+            "id": "mni-b18-ref-common-movement-017",
+            "no": "17",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 18",
+            "chapterNumber": 18,
+            "section": "動き",
+            "sectionReading": "うごき",
+            "sectionMeaning": "Gerakan",
+            "sectionCategory": "動き / Gerakan",
+            "favorite": false,
+            "typeCategory": "Kata Kerja Kelompok II",
+            "typeDetail": "Kata Kerja Kelompok II",
+            "indonesia": "membengkokkan atau menekuk",
+            "kanji": "曲げる",
+            "kana": "まげる",
+            "romaji": "mageru",
+            "image": "https://iili.io/CEukJse.png",
+            "imageAlt": "Ilustrasi 曲げる yang berarti membengkokkan atau menekuk",
+            "isFiction": false,
+            "speech": "まげる",
+            "exampleJa": "運動するときは、ひざをゆっくり曲げてください。",
+            "exampleReading": "Undou suru toki wa, hiza o yukkuri magete kudasai.",
+            "exampleId": "Saat berolahraga, silakan tekuk lutut secara perlahan.",
+            "examples": [
+                  {
+                        "ja": "運動するときは、ひざをゆっくり曲げてください。",
+                        "reading": "Undou suru toki wa, hiza o yukkuri magete kudasai.",
+                        "id": "Saat berolahraga, silakan tekuk lutut secara perlahan."
+                  }
+            ],
+            "catatan": "曲げる digunakan ketika seseorang membuat benda atau bagian tubuh menjadi bengkok. Kata ini merupakan kata kerja transitif sehingga membutuhkan objek.",
+            "note": "曲げる digunakan ketika seseorang membuat benda atau bagian tubuh menjadi bengkok. Kata ini merupakan kata kerja transitif sehingga membutuhkan objek.",
+            "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 18 / 動き（うごき） / Gerakan"
+      },
+      {
+            "id": "mni-b18-ref-common-movement-018",
+            "no": "18",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 18",
+            "chapterNumber": 18,
+            "section": "動き",
+            "sectionReading": "うごき",
+            "sectionMeaning": "Gerakan",
+            "sectionCategory": "動き / Gerakan",
+            "favorite": false,
+            "typeCategory": "Kata Kerja Kelompok I",
+            "typeDetail": "Kata Kerja Kelompok I",
+            "indonesia": "meluruskan atau memanjangkan",
+            "kanji": "伸ばす",
+            "kana": "のばす",
+            "romaji": "nobasu",
+            "image": "https://iili.io/CEuk2qu.png",
+            "imageAlt": "Ilustrasi 伸ばす yang berarti meluruskan atau memanjangkan",
+            "isFiction": false,
+            "speech": "のばす",
+            "exampleJa": "運動の前に、両手を上に伸ばします。",
+            "exampleReading": "Undou no mae ni, ryoute o ue ni nobashimasu.",
+            "exampleId": "Sebelum berolahraga, saya meluruskan kedua tangan ke atas.",
+            "examples": [
+                  {
+                        "ja": "運動の前に、両手を上に伸ばします。",
+                        "reading": "Undou no mae ni, ryoute o ue ni nobashimasu.",
+                        "id": "Sebelum berolahraga, saya meluruskan kedua tangan ke atas."
+                  }
+            ],
+            "catatan": "伸ばす berarti membuat sesuatu menjadi lebih panjang atau lebih lurus. Kata ini dapat digunakan untuk tangan, kaki, rambut, waktu, atau masa berlaku.",
+            "note": "伸ばす berarti membuat sesuatu menjadi lebih panjang atau lebih lurus. Kata ini dapat digunakan untuk tangan, kaki, rambut, waktu, atau masa berlaku.",
+            "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 18 / 動き（うごき） / Gerakan"
+      },
+      {
+            "id": "mni-b18-ref-common-movement-019",
+            "no": "19",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 18",
+            "chapterNumber": 18,
+            "section": "動き",
+            "sectionReading": "うごき",
+            "sectionMeaning": "Gerakan",
+            "sectionCategory": "動き / Gerakan",
+            "favorite": false,
+            "typeCategory": "Kata Kerja Kelompok I",
+            "typeDetail": "Kata Kerja Kelompok I",
+            "indonesia": "jatuh atau tersandung",
+            "kanji": "転ぶ",
+            "kana": "ころぶ",
+            "romaji": "korobu",
+            "image": "https://iili.io/CEuk30b.png",
+            "imageAlt": "Ilustrasi 転ぶ yang berarti jatuh atau tersandung",
+            "isFiction": false,
+            "speech": "ころぶ",
+            "exampleJa": "雨の日に道が滑って、転んでしまいました。",
+            "exampleReading": "Ame no hi ni michi ga subette, koronde shimaimashita.",
+            "exampleId": "Pada hari hujan, jalannya licin sehingga saya terjatuh.",
+            "examples": [
+                  {
+                        "ja": "雨の日に道が滑って、転んでしまいました。",
+                        "reading": "Ame no hi ni michi ga subette, koronde shimaimashita.",
+                        "id": "Pada hari hujan, jalannya licin sehingga saya terjatuh."
+                  }
+            ],
+            "catatan": "転ぶ digunakan ketika seseorang kehilangan keseimbangan lalu jatuh. Kata ini termasuk kata kerja intransitif karena kejadian tersebut dialami oleh subjek.",
+            "note": "転ぶ digunakan ketika seseorang kehilangan keseimbangan lalu jatuh. Kata ini termasuk kata kerja intransitif karena kejadian tersebut dialami oleh subjek.",
+            "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 18 / 動き（うごき） / Gerakan"
+      },
+      {
+            "id": "mni-b18-ref-common-movement-020",
+            "no": "20",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 18",
+            "chapterNumber": 18,
+            "section": "動き",
+            "sectionReading": "うごき",
+            "sectionMeaning": "Gerakan",
+            "sectionCategory": "動き / Gerakan",
+            "favorite": false,
+            "typeCategory": "Kata Kerja Kelompok I",
+            "typeDetail": "Kata Kerja Kelompok I",
+            "indonesia": "menengok atau menoleh ke belakang",
+            "kanji": "振り向く",
+            "kana": "ふりむく",
+            "romaji": "furimuku",
+            "image": "https://iili.io/CEukq5Q.png",
+            "imageAlt": "Ilustrasi 振り向く yang berarti menengok atau menoleh ke belakang",
+            "isFiction": false,
+            "speech": "ふりむく",
+            "exampleJa": "名前を呼ばれたので、後ろを振り向きました。",
+            "exampleReading": "Namae o yobareta node, ushiro o furimukimashita.",
+            "exampleId": "Karena nama saya dipanggil, saya menoleh ke belakang.",
+            "examples": [
+                  {
+                        "ja": "名前を呼ばれたので、後ろを振り向きました。",
+                        "reading": "Namae o yobareta node, ushiro o furimukimashita.",
+                        "id": "Karena nama saya dipanggil, saya menoleh ke belakang."
+                  }
+            ],
+            "catatan": "振り向く berarti memutar kepala atau tubuh untuk melihat ke arah belakang. Kata ini sering digunakan ketika seseorang mendengar suara atau panggilan dari belakang.",
+            "note": "振り向く berarti memutar kepala atau tubuh untuk melihat ke arah belakang. Kata ini sering digunakan ketika seseorang mendengar suara atau panggilan dari belakang.",
+            "tag": "Minna no Nihongo I / Kata-kata Referensi dan Informasi / Bab 18 / 動き（うごき） / Gerakan"
+      }
+];
+    VOCABULARY.push(...BAB18_REFERENCE_COMMON_MOVEMENT);
+
+
     // ===== Tambahan data: Minna no Nihongo I -> Kata-kata Referensi dan Informasi -> Bab 15 -> Pekerjaan =====
     const BAB15_REFERENCE_JOBS = [
       {
@@ -38239,7 +39256,7 @@
     const $ = s => document.querySelector(s);
     const $$ = s => [...document.querySelectorAll(s)];
     const storeKey = "minna_bab18";
-    const dataVersion = "bab18-materi-umum-20260713-v1";
+    const dataVersion = "bab18-referensi-informasi-gerakan-20260713-v2";
     const setupCompletedKey = storeKey + "_setupCompleted";
     const hadCurrentDataVersionBeforeBoot = localStorage.getItem(storeKey+"_dataVersion") === dataVersion;
     const hadSetupCompletedFlagBeforeBoot = localStorage.getItem(setupCompletedKey);
@@ -38297,6 +39314,13 @@
       quizFictionOnly: false,
       page:"home"
     };
+
+    // Migrasi pilihan lama agar Bab 18 Gerakan langsung masuk ke kategori Referensi dan Informasi.
+    if(/referensi\s+dan\s+umum/i.test(String(state.setup?.materialCategory || ""))){
+      state.setup.materialCategory = "Kata-kata referensi dan Informasi";
+      state.setup.chapter = "Bab 18";
+      localStorage.setItem(storeKey+"_settings", JSON.stringify(state.setup));
+    }
 
     let tempSetup = {...state.setup};
     let setupStep = 1;
@@ -38518,6 +39542,24 @@
       return String(state.setup.book || "").startsWith("Minna no Nihongo I")
         && String(state.setup.materialCategory || "") === "Materi Umum"
         && String(state.setup.chapter || "") === "Bab 18";
+    }
+
+    function isReferenceGeneralBab18(){
+      return String(state.setup.book || "").startsWith("Minna no Nihongo I")
+        && String(state.setup.materialCategory || "") === "Kata-kata referensi dan Informasi"
+        && String(state.setup.chapter || "") === "Bab 18";
+    }
+    function isMovementReferenceVocab(v={}){
+      return String(v.book || "").startsWith("Minna no Nihongo I")
+        && String(v.materialCategory || "") === "Kata-kata referensi dan Informasi"
+        && Number(v.chapterNumber) === 18
+        && String(v.section || "") === "動き";
+    }
+    function movementRubyHtml(v={}){
+      const written = String(v.kanji || "").trim();
+      const reading = String(v.kana || "").trim();
+      if(written && reading) return `<ruby>${esc(written)}<rt>${esc(reading)}</rt></ruby>`;
+      return esc(reading || written || v.romaji || "-");
     }
 
     function isReferenceInfoChapter(chapterName){
@@ -39243,9 +40285,11 @@
 
     function renderAll(){
       applyTranslations();
-      document.title = isMateriUmumBab18()
-        ? (state.lang === "ja" ? "みんなの日本語 I・第18課の語彙" : "Minna no Nihongo I - Kosakata Bab 18")
-        : `${bookLabel()} - ${categoryLabel(state.setup.materialCategory)} - ${state.lang === "ja" ? categoryLabel(state.setup.chapter) : state.setup.chapter}`;
+      document.title = isReferenceGeneralBab18()
+        ? (state.lang === "ja" ? "みんなの日本語 I・第18課 動き" : "Minna no Nihongo I - Bab 18 Gerakan")
+        : isMateriUmumBab18()
+          ? (state.lang === "ja" ? "みんなの日本語 I・第18課の語彙" : "Minna no Nihongo I - Kosakata Bab 18")
+          : `${bookLabel()} - ${categoryLabel(state.setup.materialCategory)} - ${state.lang === "ja" ? categoryLabel(state.setup.chapter) : state.setup.chapter}`;
       const count = materialOnlyItemCount();
       $("#homeVocabCount").textContent = count;
       $("#homeChapterCount").textContent = chapterNumbers(state.setup.chapter).length;
@@ -39340,6 +40384,8 @@
         "Keterangan Waktu":"Keterangan Waktu",
         "Partikel":"Partikel",
         "Kata-kata referensi dan Informasi":"Kata-Kata Referensi dan Informasi",
+        "動き / Gerakan":"Gerakan",
+        "動き":"Gerakan",
         "Perayaan dan Tempat Terkenal":"Perayaan dan Tempat Terkenal",
         "Perayaan":"Perayaan",
         "Tempat terkenal":"Tempat terkenal",
@@ -39431,6 +40477,8 @@
         "Kosakata Tambahan":"追加語彙",
         "Materi Umum":"一般教材",
         "Kata-kata referensi dan Informasi":"情報・参考語彙",
+        "動き / Gerakan":"動き",
+        "動き":"動き",
         "Perayaan dan Tempat Terkenal":"祭りと名所",
         "Perayaan":"祭り",
         "Tempat terkenal":"名所",
@@ -40531,6 +41579,82 @@
       $("#materialEmpty")?.classList.add("hidden");
     }
 
+
+    function renderReferenceGeneralBab18Movement(){
+      const grid = $("#materialGrid");
+      if(!grid) return;
+      renderMaterialFilterOptions();
+      const toolbar = $(".material-toolbar");
+      const notice = $("#materialPage .notice");
+      const title = $("#materialPage .content-card > h2");
+      const desc = $("#materialPage .content-card > p");
+      document.body.classList.remove("material-only-reference");
+      if(toolbar){
+        toolbar.classList.remove("hidden");
+        toolbar.style.removeProperty("display");
+        toolbar.style.removeProperty("visibility");
+        toolbar.style.removeProperty("pointer-events");
+      }
+      if(notice){
+        notice.classList.add("hidden");
+        notice.style.setProperty("display","none","important");
+      }
+      updateMaterialOnlyControls();
+      if(title) title.textContent = state.lang === "ja" ? "第18課 参考語彙・情報" : "Kata-kata Referensi dan Informasi - Bab 18";
+      if(desc) desc.textContent = state.lang === "ja"
+        ? "動作や体の動きを表す20の動詞を、イラスト・音声・例文と一緒に学びます。"
+        : "Pelajari 20 kosakata gerakan melalui ilustrasi, audio, contoh kalimat, arti, serta catatan penggunaan yang mudah dipahami.";
+
+      const search = ($("#materialSearch")?.value || "").toLowerCase();
+      const sectionFilter = $("#materialSectionFilter")?.value || "all";
+      const typeFilter = $("#materialTypeFilter")?.value || "all";
+      let arr = activeVocab().filter(v => [
+        formatIndonesianMeaning(v), v.indonesia, v.kana, v.kanji, v.romaji,
+        v.typeCategory, v.typeDetail, v.sectionCategory, v.section, v.sectionReading,
+        v.sectionMeaning, v.chapter, v.catatan, v.exampleJa, v.exampleReading, v.exampleId
+      ].join(" ").toLowerCase().includes(search));
+      if(sectionFilter !== "all") arr = arr.filter(v=>v.sectionCategory === sectionFilter);
+      if(typeFilter !== "all") arr = arr.filter(v=>v.typeCategory === typeFilter);
+
+      const cards = arr.map(v=>{
+        const fav = state.favorites.includes(v.id);
+        const meaning = formatIndonesianMeaning(v);
+        const alt = v.imageAlt || `Ilustrasi ${vocabMainText(v)} yang berarti ${meaning}`;
+        return `<article class="movement-vocab-card" data-vocab-id="${esc(v.id)}">
+          <div class="movement-card-head">
+            <span class="movement-card-number">${esc(v.no)}</span>
+            <div class="movement-card-copy">
+              <div class="movement-word jp">${movementRubyHtml(v)}</div>
+              <div class="movement-meaning">${esc(meaning)}</div>
+            </div>
+          </div>
+          <div class="movement-image-shell">
+            <img src="${esc(v.image)}" alt="${esc(alt)}" loading="lazy" decoding="async" data-zoom="${esc(v.image)}">
+          </div>
+          <div class="movement-card-meta"><span>${esc(v.romaji)}</span><span>${esc(categoryLabel(v.typeCategory,"type"))}</span></div>
+          <div class="movement-card-actions">
+            <button class="icon-btn" type="button" data-speak-id="${esc(v.id)}" title="${state.lang==="ja"?"発音を聞く":"Dengarkan pelafalan"}" aria-label="${state.lang==="ja"?"発音を聞く":"Dengarkan pelafalan"}"><i class="fa-solid fa-volume-high"></i></button>
+            <button class="icon-btn ${fav?"active":""}" type="button" data-fav="${esc(v.id)}" title="${state.lang==="ja"?"お気に入り":"Favorit"}" aria-label="${state.lang==="ja"?"お気に入り":"Favorit"}"><i class="${fav?"fa-solid":"fa-regular"} fa-star"></i></button>
+            <button class="icon-btn" type="button" data-note-material="${esc(v.id)}" title="${state.lang==="ja"?"メモ":"Catatan"}" aria-label="${state.lang==="ja"?"メモを見る":"Lihat catatan"}"><i class="fa-regular fa-note-sticky"></i></button>
+            <button class="icon-btn" type="button" data-example-material="${esc(v.id)}" title="${state.lang==="ja"?"例文":"Contoh kalimat"}" aria-label="${state.lang==="ja"?"例文を見る":"Lihat contoh kalimat"}"><i class="fa-regular fa-comment-dots"></i></button>
+          </div>
+        </article>`;
+      }).join("");
+
+      grid.className = "movement-material-wrap";
+      grid.innerHTML = `<section class="movement-section-shell">
+        <header class="movement-section-heading">
+          <div class="movement-section-title-wrap">
+            <h3 class="movement-section-title"><ruby>動き<rt>うごき</rt></ruby><span class="movement-title-id">Gerakan</span></h3>
+            <p class="movement-section-subtitle">${state.lang==="ja"?"カードは左から右、上から下の順です。画像をクリックすると拡大できます。":"Urutan kartu dibaca dari kiri ke kanan, lalu dilanjutkan ke baris berikutnya. Klik gambar untuk memperbesar."}</p>
+          </div>
+          <span class="movement-count-badge"><i class="fa-solid fa-person-running"></i>${arr.length} / ${activeVocab().length} ${state.lang==="ja"?"語":"kosakata"}</span>
+        </header>
+        ${arr.length ? `<div class="movement-vocab-grid">${cards}</div>` : `<div class="movement-empty"><i class="fa-solid fa-magnifying-glass"></i><h3>${state.lang==="ja"?"語彙が見つかりません":"Kosakata tidak ditemukan"}</h3><p>${state.lang==="ja"?"検索語またはフィルターを変更してください。":"Coba ubah kata pencarian atau filter yang dipilih."}</p></div>`}
+      </section>`;
+      $("#materialEmpty")?.classList.add("hidden");
+    }
+
     function renderMaterial(){
       syncFictionToggleAvailability();
       const toolbar = $(".material-toolbar");
@@ -40539,6 +41663,10 @@
       const desc = $("#materialPage .content-card > p");
       const noticeTitle = $("#materialPage .notice h3");
       const noticeDesc = $("#materialPage .notice p");
+      if(isReferenceGeneralBab18()){
+        renderReferenceGeneralBab18Movement();
+        return;
+      }
       if(isReferenceInfoBab2()){
         renderReferenceInfoBab2();
         return;
@@ -41014,6 +42142,13 @@
         exampleSpeakBtn.setAttribute("aria-label", label);
         exampleSpeakBtn.disabled = !String(v.exampleJa || "").trim();
       }
+      const exampleVocabSpeakBtn = $("#exampleVocabSpeakBtn");
+      if(exampleVocabSpeakBtn){
+        const vocabLabel = state.lang === "ja" ? "語彙を聞く" : "Dengarkan kosakata";
+        exampleVocabSpeakBtn.title = vocabLabel;
+        exampleVocabSpeakBtn.setAttribute("aria-label", vocabLabel);
+        exampleVocabSpeakBtn.disabled = !String(getVocabSpeechText(v) || "").trim();
+      }
       const content = $("#exampleContent");
       if(content){
         const examples = (Array.isArray(v.examples) ? v.examples.filter(ex=>ex && (ex.ja || ex.reading || ex.id)) : []).slice(0, 1);
@@ -41031,7 +42166,11 @@
         const noteCard = showDetails && v.catatan
           ? `<div class="example-info-card" id="exampleNoteCard"><span>${state.lang==="ja"?"メモ":"Catatan"}</span><strong>${esc(v.catatan)}</strong></div>`
           : "";
+        const vocabDetailCards = isMovementReferenceVocab(v) ? `
+          <div class="example-info-card"><span>${state.lang==="ja"?"語彙":"Kosakata"}</span><strong class="jp">${movementRubyHtml(v)}</strong></div>
+          <div class="example-info-card"><span>${state.lang==="ja"?"読み方・意味":"Cara Baca dan Arti"}</span><strong>${esc(v.kana)} • ${esc(v.romaji)} • ${esc(formatIndonesianMeaning(v))}</strong></div>` : "";
         content.innerHTML = `
+          ${vocabDetailCards}
           <div class="example-info-card"><span id="exampleJaLabel">${state.lang==="ja"?"日本語":"Jepang"}</span><strong class="jp" id="exampleJa">-</strong></div>
           <div class="example-info-card" id="exampleReadingCard"><span id="exampleReadingLabel">${state.lang==="ja"?"読み方":"Cara baca"}</span><strong id="exampleReading">-</strong></div>
           <div class="example-info-card" id="exampleIdCard"><span id="exampleIdLabel">${state.lang==="ja"?"インドネシア語の意味":"Arti Indonesia"}</span><strong id="exampleId">-</strong></div>
@@ -41124,6 +42263,7 @@
       quiz._speechHold=false;
       resetAnswerButtons();
       $("#flashcard").classList.remove("flipped");
+      $("#flashcard").classList.toggle("movement-quiz-card", isMovementReferenceVocab(v));
       $("#quizLabel").textContent = `${categoryLabel(v.chapter)} • ${categoryLabel(v.sectionCategory)} • ${categoryLabel(v.typeCategory)}`;
       updateQuizFavButtons(v);
       const frontIsJp = quiz.direction==="jpToId";
@@ -41147,9 +42287,15 @@
     function renderAnswerHtml(v){
       const meaning = formatQuizIndonesianMeaning(v);
       const showImage = !!(v.image && (!isBab17BodyPartVocab(v) || hasBab17SpecificBodyImage(v)));
-      const img = showImage ? `<span class="answer-image-wrap"><img class="answer-img answer-img-preview" src="${esc(v.image)}" alt="${esc(meaning)}"><span class="answer-image-zoom-icon"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></span></span>` : "";
-      if(quiz.direction==="idToJp") return `${img}<div><div class="answer-main jp${textSizeClass(jpText(v))}">${esc(jpText(v))}</div><div class="answer-sub jp">${esc(v.kana)} • ${esc(v.romaji)}</div></div>`;
-      return `${img}<div><div class="answer-main${textSizeClass(meaning)}">${esc(meaning)}</div><div class="answer-sub jp">${esc(v.romaji)}</div></div>`;
+      const alt = v.imageAlt || meaning;
+      const img = showImage ? `<span class="answer-image-wrap"><img class="answer-img answer-img-preview" src="${esc(v.image)}" alt="${esc(alt)}" loading="lazy" decoding="async"><span class="answer-image-zoom-icon"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></span></span>` : "";
+      const movementDetails = isMovementReferenceVocab(v) ? `<div class="movement-flash-details">
+        <div class="movement-flash-detail jp"><b>${state.lang==="ja"?"例文":"Contoh Kalimat"}</b>${esc(v.exampleJa || "-")}</div>
+        <div class="movement-flash-detail"><b>${state.lang==="ja"?"意味":"Terjemahan"}</b>${esc(v.exampleId || "-")}</div>
+        <div class="movement-flash-detail"><b>${state.lang==="ja"?"メモ":"Catatan"}</b>${esc(v.catatan || "-")}</div>
+      </div>` : "";
+      if(quiz.direction==="idToJp") return `${img}<div><div class="answer-main jp${textSizeClass(jpText(v))}">${esc(jpText(v))}</div><div class="answer-sub jp">${esc(v.kana)} • ${esc(v.romaji)} • ${esc(meaning)}</div></div>${movementDetails}`;
+      return `${img}<div><div class="answer-main${textSizeClass(meaning)}">${esc(meaning)}</div><div class="answer-sub jp">${esc(jpText(v))} • ${esc(v.kana)} • ${esc(v.romaji)}</div></div>${movementDetails}`;
     }
     function updateQuizFavButtons(v){
       const active=state.favorites.includes(v.id);
@@ -41911,6 +43057,10 @@
       $("#closePdfFilter").onclick=()=>closeModal("#pdfFilterModal"); $("#cancelPdfFilter").onclick=()=>closeModal("#pdfFilterModal"); $("#resetPdfFilterBtn").onclick=resetPdfFilterModal; $("#saveFilteredPdf").onclick=saveFilteredPdf;
       ["#pdfBookFilter","#pdfMaterialFilter","#pdfChapterFilter","#pdfSectionFilter","#pdfTypeFilter","#pdfStatusFilter"].forEach(sel=>{ const el=$(sel); if(el) el.onchange=updatePdfFilterCount; });
       $("#closeExample").onclick=()=>closeModal("#exampleModal");
+      $("#exampleVocabSpeakBtn").onclick=()=>{
+        if(!currentExampleVocab) return;
+        speakVocab(currentExampleVocab);
+      };
       $("#exampleSpeakBtn").onclick=()=>{
         const text = String(currentExampleVocab?.exampleJa || "").trim();
         if(!text) return toast(state.lang === "ja" ? "例文はまだありません。" : "Contoh kalimat belum tersedia.");
