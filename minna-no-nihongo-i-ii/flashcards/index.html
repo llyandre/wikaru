@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Minna no Nihongo I - Kosakata Bab 18</title>
+  <title>Minna no Nihongo I - Kosakata Bab 19</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -107,6 +107,8 @@
     .mini-icon { width:46px;height:46px;border-radius:17px;display:grid;place-items:center;background:var(--soft);color:var(--primary);font-size:20px; }
     .mini-stat strong { display:block;font-size:23px;line-height:1;color:#071b45; }
     .mini-stat span { color:var(--muted);font-size:13px;font-weight:700; }
+    .bab19-breakdown { margin-top:16px; padding-top:4px; border-top:1px solid rgba(124,77,255,.12); }
+    .bab19-breakdown .mini-stat { margin-top:14px; }
     .content-card { padding:34px 38px; min-height:650px; }
     .notice { display:flex; gap:18px; align-items:flex-start; padding:20px; border-radius:22px; background:linear-gradient(120deg,#f4eeff,#eef6ff); border:1px solid var(--line); margin:24px 0; }
     .notice i { width:44px;height:44px;display:grid;place-items:center;border-radius:15px;background:#fff;color:var(--primary);font-size:20px;flex:0 0 auto; }
@@ -122,7 +124,8 @@
     .vocab-card { padding:18px; border-radius:22px; background:#fff; border:1px solid #e7e2ff; box-shadow:var(--shadow2); position:relative; overflow:hidden; }
     .vocab-top { display:flex; gap:13px; align-items:center; }
     .thumb { width:58px;height:58px;border-radius:18px;object-fit:contain;background:#f8f5ff;border:1px solid #eee6ff;flex:0 0 auto; }
-    .vocab-jp { font-family:var(--jp);font-size:27px;font-weight:900;color:#081a40;line-height:1.1; }
+    .vocab-jp { font-family:var(--jp);font-size:clamp(20px,2vw,27px);font-weight:900;color:#081a40;line-height:1.2;overflow-wrap:anywhere;word-break:normal; }
+    .vocab-kana { color:#4d5870;font-weight:700;font-size:13px;line-height:1.35;margin-top:4px;overflow-wrap:anywhere; }
     .vocab-romaji { color:var(--primary);font-weight:900;font-size:13px; }
     .vocab-id { margin:13px 0;color:#46536b;font-weight:700;line-height:1.45; }
     .tag-row { display:flex; flex-wrap:wrap; gap:7px; }
@@ -2942,7 +2945,7 @@
     <section class="page active" id="homePage">
       <div class="hero glass">
         <div>
-          <span class="badge"><i class="fa-solid fa-wand-magic-sparkles"></i><span id="activeChoiceText">Minna no Nihongo I • Materi Umum • Bab 18</span></span>
+          <span class="badge"><i class="fa-solid fa-wand-magic-sparkles"></i><span id="activeChoiceText">Minna no Nihongo I • Materi Umum • Bab 19</span></span>
           <h1 data-i18n="homeTitle">Kuis Kartu Kosakata Jepang</h1>
           <p data-i18n="homeDesc">Belajar kosakata Minna no Nihongo I & II dengan kartu belajar interaktif, suara pelafalan, latihan berbicara, dan laporan hasil yang tersimpan.</p>
           <div class="info-grid">
@@ -2981,6 +2984,11 @@
             <h3 data-i18n="studyStats">Statistik Belajar</h3>
             <div class="mini-stat"><div class="mini-icon"><i class="fa-solid fa-book-open"></i></div><div><strong id="matCount">0</strong><span id="matCountLabel" data-i18n="totalVocab">Total Kosakata</span></div></div>
             <div class="mini-stat"><div class="mini-icon" style="background:#dcfaef;color:#16a374"><i class="fa-regular fa-clock"></i></div><div><strong id="matTimeValue">30 dtk</strong><span id="matTimeLabel" data-i18n="timeLimit">Batas Waktu per Kartu</span></div></div>
+            <div id="bab19Breakdown" class="bab19-breakdown hidden">
+              <div class="mini-stat"><div class="mini-icon"><i class="fa-solid fa-list"></i></div><div><strong id="bab19KosakataCount">0</strong><span>Kosakata</span></div></div>
+              <div class="mini-stat"><div class="mini-icon" style="background:#fff0f5;color:#d83362"><i class="fa-regular fa-comments"></i></div><div><strong id="bab19ConversationCount">0</strong><span>会話 / Percakapan</span></div></div>
+              <div class="mini-stat"><div class="mini-icon" style="background:#fff7df;color:#a66c00"><i class="fa-solid fa-plus"></i></div><div><strong id="bab19ExtraCount">0</strong><span>Kosakata Tambahan</span></div></div>
+            </div>
           </div>
         </aside>
         <div class="content-card glass">
@@ -3054,7 +3062,7 @@
       <div class="result-head">
         <div class="breadcrumb"><i class="fa-solid fa-book-open"></i><span data-i18n="breadcrumbResult">Beranda > Hasil Latihan</span></div>
         <h2 data-i18n="resultTitle">Ringkasan Belajar</h2>
-        <p id="resultActiveChoice">Pilihan aktif: Minna no Nihongo I / Materi Umum / Bab 18.</p>
+        <p id="resultActiveChoice">Pilihan aktif: Minna no Nihongo I / Materi Umum / Bab 19.</p>
         <p id="resultDate"></p>
       </div>
       <div id="resultContent"></div>
@@ -28331,6 +28339,902 @@
 ];
     VOCABULARY.push(...BAB18_VOCABULARY);
 
+    // ===== Tambahan data: Minna no Nihongo I -> Materi Umum -> Bab 19 =====
+    const BAB19_VOCABULARY = [
+      {
+            "id": "mni-b19-001",
+            "no": "1",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "favorite": false,
+            "typeCategory": "Kata Kerja Kelompok I",
+            "typeDetail": "Kata Kerja Kelompok I",
+            "sectionCategory": "Kosakata",
+            "indonesia": "naik / mendaki",
+            "kanji": "登ります・上ります",
+            "kana": "のぼります",
+            "romaji": "noborimasu",
+            "image": "https://iili.io/CE7Dfcb.png",
+            "isFiction": false,
+            "speech": "のぼります",
+            "exampleJa": "富士山に登ったことがあります。",
+            "exampleReading": "Fujisan ni nobotta koto ga arimasu.",
+            "exampleId": "Saya pernah mendaki Gunung Fuji.",
+            "examples": [
+                  {
+                        "ja": "富士山に登ったことがあります。",
+                        "reading": "Fujisan ni nobotta koto ga arimasu.",
+                        "id": "Saya pernah mendaki Gunung Fuji."
+                  }
+            ],
+            "catatan": "登ります sering dipakai untuk mendaki gunung atau menaiki sesuatu. 上ります lebih menekankan gerakan naik atau menuju tempat yang lebih tinggi; keduanya dibaca のぼります.",
+            "note": "登ります sering dipakai untuk mendaki gunung atau menaiki sesuatu. 上ります lebih menekankan gerakan naik atau menuju tempat yang lebih tinggi; keduanya dibaca のぼります.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 19"
+      },
+      {
+            "id": "mni-b19-002",
+            "no": "2",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "favorite": false,
+            "typeCategory": "Kata Kerja Kelompok I",
+            "typeDetail": "Kata Kerja Kelompok I",
+            "sectionCategory": "Kosakata",
+            "indonesia": "menginap",
+            "kanji": "泊まります",
+            "kana": "とまります",
+            "romaji": "tomarimasu",
+            "image": "https://iili.io/CE7DKKu.png",
+            "isFiction": false,
+            "speech": "とまります",
+            "exampleJa": "来月、京都の旅館に泊まります。",
+            "exampleReading": "Raigetsu, Kyouto no ryokan ni tomarimasu.",
+            "exampleId": "Bulan depan saya akan menginap di penginapan tradisional di Kyoto.",
+            "examples": [
+                  {
+                        "ja": "来月、京都の旅館に泊まります。",
+                        "reading": "Raigetsu, Kyouto no ryokan ni tomarimasu.",
+                        "id": "Bulan depan saya akan menginap di penginapan tradisional di Kyoto."
+                  }
+            ],
+            "catatan": "泊まります berarti menginap. Tempat menginap biasanya ditandai dengan partikel に, misalnya ホテルに泊まります.",
+            "note": "泊まります berarti menginap. Tempat menginap biasanya ditandai dengan partikel に, misalnya ホテルに泊まります.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 19"
+      },
+      {
+            "id": "mni-b19-003",
+            "no": "3",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "favorite": false,
+            "typeCategory": "Frasa Kata Kerja",
+            "typeDetail": "Frasa Kata Kerja",
+            "sectionCategory": "Kosakata",
+            "indonesia": "menginap di hotel",
+            "kanji": "ホテルに泊まります",
+            "kana": "ホテルにとまります",
+            "romaji": "hoteru ni tomarimasu",
+            "image": "https://iili.io/CE7DCHx.png",
+            "isFiction": false,
+            "speech": "ホテルにとまります",
+            "exampleJa": "出張のとき、駅の近くのホテルに泊まりました。",
+            "exampleReading": "Shucchou no toki, eki no chikaku no hoteru ni tomarimashita.",
+            "exampleId": "Saat perjalanan dinas, saya menginap di hotel dekat stasiun.",
+            "examples": [
+                  {
+                        "ja": "出張のとき、駅の近くのホテルに泊まりました。",
+                        "reading": "Shucchou no toki, eki no chikaku no hoteru ni tomarimashita.",
+                        "id": "Saat perjalanan dinas, saya menginap di hotel dekat stasiun."
+                  }
+            ],
+            "catatan": "ホテルに泊まります mengikuti pola tempat + に + 泊まります. Partikel に menunjukkan tempat yang menjadi lokasi menginap.",
+            "note": "ホテルに泊まります mengikuti pola tempat + に + 泊まります. Partikel に menunjukkan tempat yang menjadi lokasi menginap.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 19"
+      },
+      {
+            "id": "mni-b19-004",
+            "no": "4",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "favorite": false,
+            "typeCategory": "Kata Kerja Kelompok III",
+            "typeDetail": "Kata Kerja Kelompok III",
+            "sectionCategory": "Kosakata",
+            "indonesia": "membersihkan",
+            "kanji": "掃除します",
+            "kana": "そうじします",
+            "romaji": "souji shimasu",
+            "image": "https://iili.io/CE7DqSj.png",
+            "isFiction": false,
+            "speech": "そうじします",
+            "exampleJa": "土曜日は部屋を掃除したり、買い物をしたりします。",
+            "exampleReading": "Doyoubi wa heya o souji shitari, kaimono o shitari shimasu.",
+            "exampleId": "Pada hari Sabtu saya membersihkan kamar, berbelanja, dan melakukan kegiatan lainnya.",
+            "examples": [
+                  {
+                        "ja": "土曜日は部屋を掃除したり、買い物をしたりします。",
+                        "reading": "Doyoubi wa heya o souji shitari, kaimono o shitari shimasu.",
+                        "id": "Pada hari Sabtu saya membersihkan kamar, berbelanja, dan melakukan kegiatan lainnya."
+                  }
+            ],
+            "catatan": "掃除します berarti membersihkan. Tempat atau benda yang dibersihkan dapat memakai partikel を, misalnya 部屋を掃除します.",
+            "note": "掃除します berarti membersihkan. Tempat atau benda yang dibersihkan dapat memakai partikel を, misalnya 部屋を掃除します.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 19"
+      },
+      {
+            "id": "mni-b19-005",
+            "no": "5",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "favorite": false,
+            "typeCategory": "Kata Kerja Kelompok III",
+            "typeDetail": "Kata Kerja Kelompok III",
+            "sectionCategory": "Kosakata",
+            "indonesia": "mencuci pakaian",
+            "kanji": "洗濯します",
+            "kana": "せんたくします",
+            "romaji": "sentaku shimasu",
+            "image": "https://iili.io/CE7DnAQ.png",
+            "isFiction": false,
+            "speech": "せんたくします",
+            "exampleJa": "雨ですから、今日は洗濯しません。",
+            "exampleReading": "Ame desu kara, kyou wa sentaku shimasen.",
+            "exampleId": "Karena hujan, hari ini saya tidak mencuci pakaian.",
+            "examples": [
+                  {
+                        "ja": "雨ですから、今日は洗濯しません。",
+                        "reading": "Ame desu kara, kyou wa sentaku shimasen.",
+                        "id": "Karena hujan, hari ini saya tidak mencuci pakaian."
+                  }
+            ],
+            "catatan": "洗濯します khusus berkaitan dengan mencuci pakaian atau melakukan kegiatan laundry. Untuk mencuci tangan atau mobil, gunakan 洗います.",
+            "note": "洗濯します khusus berkaitan dengan mencuci pakaian atau melakukan kegiatan laundry. Untuk mencuci tangan atau mobil, gunakan 洗います.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 19"
+      },
+      {
+            "id": "mni-b19-006",
+            "no": "6",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "favorite": false,
+            "typeCategory": "Kata Kerja Kelompok I",
+            "typeDetail": "Kata Kerja Kelompok I",
+            "sectionCategory": "Kosakata",
+            "indonesia": "menjadi",
+            "kanji": "",
+            "kana": "なります",
+            "romaji": "narimasu",
+            "image": "https://iili.io/CE7DxDB.png",
+            "isFiction": false,
+            "speech": "なります",
+            "exampleJa": "妹は来年、大学生になります。",
+            "exampleReading": "Imouto wa rainen, daigakusei ni narimasu.",
+            "exampleId": "Adik perempuan saya akan menjadi mahasiswa tahun depan.",
+            "examples": [
+                  {
+                        "ja": "妹は来年、大学生になります。",
+                        "reading": "Imouto wa rainen, daigakusei ni narimasu.",
+                        "id": "Adik perempuan saya akan menjadi mahasiswa tahun depan."
+                  }
+            ],
+            "catatan": "なります menyatakan perubahan. Gunakan kata benda atau kata sifat-na + に なります; untuk kata sifat-i, buang い lalu tambahkan く なります, misalnya 暖かくなります.",
+            "note": "なります menyatakan perubahan. Gunakan kata benda atau kata sifat-na + に なります; untuk kata sifat-i, buang い lalu tambahkan く なります, misalnya 暖かくなります.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 19"
+      },
+      {
+            "id": "mni-b19-007",
+            "no": "7",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "favorite": false,
+            "typeCategory": "Kata Sifat-I",
+            "typeDetail": "Kata Sifat-I",
+            "sectionCategory": "Kosakata",
+            "indonesia": "mengantuk",
+            "kanji": "眠い",
+            "kana": "ねむい",
+            "romaji": "nemui",
+            "image": "https://iili.io/CE7DIoP.png",
+            "isFiction": false,
+            "speech": "ねむい",
+            "exampleJa": "昨夜あまり寝ませんでしたから、今とても眠いです。",
+            "exampleReading": "Sakuya amari nemasen deshita kara, ima totemo nemui desu.",
+            "exampleId": "Karena tadi malam tidak banyak tidur, sekarang saya sangat mengantuk.",
+            "examples": [
+                  {
+                        "ja": "昨夜あまり寝ませんでしたから、今とても眠いです。",
+                        "reading": "Sakuya amari nemasen deshita kara, ima totemo nemui desu.",
+                        "id": "Karena tadi malam tidak banyak tidur, sekarang saya sangat mengantuk."
+                  }
+            ],
+            "catatan": "眠い berarti merasa mengantuk, sedangkan 寝たい berarti ingin tidur. Keduanya mirip, tetapi 眠い menjelaskan kondisi tubuh.",
+            "note": "眠い berarti merasa mengantuk, sedangkan 寝たい berarti ingin tidur. Keduanya mirip, tetapi 眠い menjelaskan kondisi tubuh.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 19"
+      },
+      {
+            "id": "mni-b19-008",
+            "no": "8",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "favorite": false,
+            "typeCategory": "Kata Sifat-I",
+            "typeDetail": "Kata Sifat-I",
+            "sectionCategory": "Kosakata",
+            "indonesia": "kuat",
+            "kanji": "強い",
+            "kana": "つよい",
+            "romaji": "tsuyoi",
+            "image": "https://iili.io/CE7DTV1.png",
+            "isFiction": false,
+            "speech": "つよい",
+            "exampleJa": "兄は力が強いです。",
+            "exampleReading": "Ani wa chikara ga tsuyoi desu.",
+            "exampleId": "Kakak laki-laki saya memiliki tenaga yang kuat.",
+            "examples": [
+                  {
+                        "ja": "兄は力が強いです。",
+                        "reading": "Ani wa chikara ga tsuyoi desu.",
+                        "id": "Kakak laki-laki saya memiliki tenaga yang kuat."
+                  }
+            ],
+            "catatan": "強い dapat menggambarkan kekuatan fisik, kemampuan, rasa, angin, atau daya tahan sesuai konteks. Contohnya 力が強い dan 風が強い.",
+            "note": "強い dapat menggambarkan kekuatan fisik, kemampuan, rasa, angin, atau daya tahan sesuai konteks. Contohnya 力が強い dan 風が強い.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 19"
+      },
+      {
+            "id": "mni-b19-009",
+            "no": "9",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "favorite": false,
+            "typeCategory": "Kata Sifat-I",
+            "typeDetail": "Kata Sifat-I",
+            "sectionCategory": "Kosakata",
+            "indonesia": "lemah",
+            "kanji": "弱い",
+            "kana": "よわい",
+            "romaji": "yowai",
+            "image": "https://iili.io/CE7D5la.png",
+            "isFiction": false,
+            "speech": "よわい",
+            "exampleJa": "私は辛い食べ物に弱いです。",
+            "exampleReading": "Watashi wa karai tabemono ni yowai desu.",
+            "exampleId": "Saya tidak tahan terhadap makanan pedas.",
+            "examples": [
+                  {
+                        "ja": "私は辛い食べ物に弱いです。",
+                        "reading": "Watashi wa karai tabemono ni yowai desu.",
+                        "id": "Saya tidak tahan terhadap makanan pedas."
+                  }
+            ],
+            "catatan": "弱い adalah lawan dari 強い. Kata ini dapat berarti lemah secara fisik atau tidak tahan terhadap sesuatu, seperti 辛い食べ物に弱い.",
+            "note": "弱い adalah lawan dari 強い. Kata ini dapat berarti lemah secara fisik atau tidak tahan terhadap sesuatu, seperti 辛い食べ物に弱い.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 19"
+      },
+      {
+            "id": "mni-b19-010",
+            "no": "10",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "favorite": false,
+            "typeCategory": "Kata Benda / Aktivitas",
+            "typeDetail": "Kata Benda / Aktivitas",
+            "sectionCategory": "Kosakata",
+            "indonesia": "latihan",
+            "kanji": "練習",
+            "kana": "れんしゅう",
+            "romaji": "renshuu",
+            "image": "https://iili.io/CE7D7UJ.png",
+            "isFiction": false,
+            "speech": "れんしゅう",
+            "exampleJa": "発表の前に、教室でスピーチの練習をしました。",
+            "exampleReading": "Happyou no mae ni, kyoushitsu de supiichi no renshuu o shimashita.",
+            "exampleId": "Sebelum presentasi, saya berlatih pidato di kelas.",
+            "examples": [
+                  {
+                        "ja": "発表の前に、教室でスピーチの練習をしました。",
+                        "reading": "Happyou no mae ni, kyoushitsu de supiichi no renshuu o shimashita.",
+                        "id": "Sebelum presentasi, saya berlatih pidato di kelas."
+                  }
+            ],
+            "catatan": "練習 adalah kata benda yang berarti latihan. Gunakan 練習します atau pola ～の練習をします, misalnya 日本語の練習をします.",
+            "note": "練習 adalah kata benda yang berarti latihan. Gunakan 練習します atau pola ～の練習をします, misalnya 日本語の練習をします.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 19"
+      },
+      {
+            "id": "mni-b19-011",
+            "no": "11",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "favorite": false,
+            "typeCategory": "Kata Benda / Olahraga",
+            "typeDetail": "Kata Benda / Olahraga",
+            "sectionCategory": "Kosakata",
+            "indonesia": "golf",
+            "kanji": "",
+            "kana": "ゴルフ",
+            "romaji": "gorufu",
+            "image": "https://iili.io/CE7DaHv.png",
+            "isFiction": false,
+            "speech": "ゴルフ",
+            "exampleJa": "父は日曜日に友達とゴルフをします。",
+            "exampleReading": "Chichi wa nichiyoubi ni tomodachi to gorufu o shimasu.",
+            "exampleId": "Ayah bermain golf bersama temannya pada hari Minggu.",
+            "examples": [
+                  {
+                        "ja": "父は日曜日に友達とゴルフをします。",
+                        "reading": "Chichi wa nichiyoubi ni tomodachi to gorufu o shimasu.",
+                        "id": "Ayah bermain golf bersama temannya pada hari Minggu."
+                  }
+            ],
+            "catatan": "ゴルフ adalah kata serapan yang ditulis dengan katakana. Untuk mengatakan bermain golf, gunakan pola ゴルフをします.",
+            "note": "ゴルフ adalah kata serapan yang ditulis dengan katakana. Untuk mengatakan bermain golf, gunakan pola ゴルフをします.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 19"
+      },
+      {
+            "id": "mni-b19-012",
+            "no": "12",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "favorite": false,
+            "typeCategory": "Kata Benda / Olahraga",
+            "typeDetail": "Kata Benda / Olahraga",
+            "sectionCategory": "Kosakata",
+            "indonesia": "sumo",
+            "kanji": "相撲",
+            "kana": "すもう",
+            "romaji": "sumou",
+            "image": "https://iili.io/CE7DcRR.png",
+            "isFiction": false,
+            "speech": "すもう",
+            "exampleJa": "日本へ行ったとき、相撲を見たことがあります。",
+            "exampleReading": "Nihon e itta toki, sumou o mita koto ga arimasu.",
+            "exampleId": "Saat pergi ke Jepang, saya pernah menonton sumo.",
+            "examples": [
+                  {
+                        "ja": "日本へ行ったとき、相撲を見たことがあります。",
+                        "reading": "Nihon e itta toki, sumou o mita koto ga arimasu.",
+                        "id": "Saat pergi ke Jepang, saya pernah menonton sumo."
+                  }
+            ],
+            "catatan": "相撲 adalah olahraga tradisional Jepang. Pola 相撲をします berarti melakukan atau bermain sumo, sedangkan 相撲を見ます berarti menonton sumo.",
+            "note": "相撲 adalah olahraga tradisional Jepang. Pola 相撲をします berarti melakukan atau bermain sumo, sedangkan 相撲を見ます berarti menonton sumo.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 19"
+      },
+      {
+            "id": "mni-b19-013",
+            "no": "13",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "favorite": false,
+            "typeCategory": "Kata Benda / Budaya",
+            "typeDetail": "Kata Benda / Budaya",
+            "sectionCategory": "Kosakata",
+            "indonesia": "teh / upacara minum teh",
+            "kanji": "お茶",
+            "kana": "おちゃ",
+            "romaji": "ocha",
+            "image": "https://iili.io/CE7D0DN.png",
+            "isFiction": false,
+            "speech": "おちゃ",
+            "exampleJa": "京都でお茶を習ったことがあります。",
+            "exampleReading": "Kyouto de ocha o naratta koto ga arimasu.",
+            "exampleId": "Saya pernah belajar upacara minum teh di Kyoto.",
+            "examples": [
+                  {
+                        "ja": "京都でお茶を習ったことがあります。",
+                        "reading": "Kyouto de ocha o naratta koto ga arimasu.",
+                        "id": "Saya pernah belajar upacara minum teh di Kyoto."
+                  }
+            ],
+            "catatan": "お茶 biasanya berarti teh. Dalam konteks budaya, お茶をします atau お茶を習います dapat merujuk pada kegiatan maupun upacara minum teh.",
+            "note": "お茶 biasanya berarti teh. Dalam konteks budaya, お茶をします atau お茶を習います dapat merujuk pada kegiatan maupun upacara minum teh.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 19"
+      },
+      {
+            "id": "mni-b19-014",
+            "no": "14",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "favorite": false,
+            "typeCategory": "Kata Benda / Waktu",
+            "typeDetail": "Kata Benda / Waktu",
+            "sectionCategory": "Kosakata",
+            "indonesia": "hari",
+            "kanji": "日",
+            "kana": "ひ",
+            "romaji": "hi",
+            "image": "https://iili.io/CE7DMiX.png",
+            "isFiction": false,
+            "speech": "ひ",
+            "exampleJa": "忙しい日は、昼ご飯を早く食べます。",
+            "exampleReading": "Isogashii hi wa, hirugohan o hayaku tabemasu.",
+            "exampleId": "Pada hari yang sibuk, saya makan siang lebih awal.",
+            "examples": [
+                  {
+                        "ja": "忙しい日は、昼ご飯を早く食べます。",
+                        "reading": "Isogashii hi wa, hirugohan o hayaku tabemasu.",
+                        "id": "Pada hari yang sibuk, saya makan siang lebih awal."
+                  }
+            ],
+            "catatan": "Kanji 日 mempunyai beberapa cara baca. Pada kosakata ini dibaca ひ dan berarti hari, seperti 忙しい日 atau 休みの日.",
+            "note": "Kanji 日 mempunyai beberapa cara baca. Pada kosakata ini dibaca ひ dan berarti hari, seperti 忙しい日 atau 休みの日.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 19"
+      },
+      {
+            "id": "mni-b19-015",
+            "no": "15",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "favorite": false,
+            "typeCategory": "Kata Benda",
+            "typeDetail": "Kata Benda",
+            "sectionCategory": "Kosakata",
+            "indonesia": "kondisi",
+            "kanji": "調子",
+            "kana": "ちょうし",
+            "romaji": "choushi",
+            "image": "https://iili.io/CE7DXls.png",
+            "isFiction": false,
+            "speech": "ちょうし",
+            "exampleJa": "今朝はパソコンの調子が悪いです。",
+            "exampleReading": "Kesa wa pasokon no choushi ga warui desu.",
+            "exampleId": "Pagi ini kondisi komputer kurang baik.",
+            "examples": [
+                  {
+                        "ja": "今朝はパソコンの調子が悪いです。",
+                        "reading": "Kesa wa pasokon no choushi ga warui desu.",
+                        "id": "Pagi ini kondisi komputer kurang baik."
+                  }
+            ],
+            "catatan": "調子 dipakai untuk kondisi tubuh maupun mesin. Contohnya 体の調子, 機械の調子, 調子がいい, dan 調子が悪い.",
+            "note": "調子 dipakai untuk kondisi tubuh maupun mesin. Contohnya 体の調子, 機械の調子, 調子がいい, dan 調子が悪い.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 19"
+      },
+      {
+            "id": "mni-b19-016",
+            "no": "16",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "favorite": false,
+            "typeCategory": "Kata Keterangan / Frekuensi",
+            "typeDetail": "Kata Keterangan / Frekuensi",
+            "sectionCategory": "Kosakata",
+            "indonesia": "sekali",
+            "kanji": "一度",
+            "kana": "いちど",
+            "romaji": "ichido",
+            "image": "https://iili.io/CE7DwJf.png",
+            "isFiction": false,
+            "speech": "いちど",
+            "exampleJa": "この映画を一度見ました。",
+            "exampleReading": "Kono eiga o ichido mimashita.",
+            "exampleId": "Saya pernah menonton film ini sekali.",
+            "examples": [
+                  {
+                        "ja": "この映画を一度見ました。",
+                        "reading": "Kono eiga o ichido mimashita.",
+                        "id": "Saya pernah menonton film ini sekali."
+                  }
+            ],
+            "catatan": "一度 berarti sekali atau satu kali. Kata ini dapat diletakkan sebelum kata kerja untuk menunjukkan berapa kali suatu kegiatan dilakukan.",
+            "note": "一度 berarti sekali atau satu kali. Kata ini dapat diletakkan sebelum kata kerja untuk menunjukkan berapa kali suatu kegiatan dilakukan.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 19"
+      },
+      {
+            "id": "mni-b19-017",
+            "no": "17",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "favorite": false,
+            "typeCategory": "Kata Keterangan / Frekuensi",
+            "typeDetail": "Kata Keterangan / Frekuensi",
+            "sectionCategory": "Kosakata",
+            "indonesia": "satu kali pun; digunakan bersama bentuk negatif",
+            "kanji": "一度も",
+            "kana": "いちども",
+            "romaji": "ichido mo",
+            "image": "https://iili.io/CE7DOOl.png",
+            "isFiction": false,
+            "speech": "いちども",
+            "exampleJa": "弟は飛行機に一度も乗ったことがありません。",
+            "exampleReading": "Otouto wa hikouki ni ichido mo notta koto ga arimasen.",
+            "exampleId": "Adik laki-laki saya belum pernah naik pesawat satu kali pun.",
+            "examples": [
+                  {
+                        "ja": "弟は飛行機に一度も乗ったことがありません。",
+                        "reading": "Otouto wa hikouki ni ichido mo notta koto ga arimasen.",
+                        "id": "Adik laki-laki saya belum pernah naik pesawat satu kali pun."
+                  }
+            ],
+            "catatan": "一度も umumnya diikuti bentuk negatif dan berarti tidak pernah atau tidak satu kali pun. Contohnya 一度も行ったことがありません.",
+            "note": "一度も umumnya diikuti bentuk negatif dan berarti tidak pernah atau tidak satu kali pun. Contohnya 一度も行ったことがありません.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 19"
+      },
+      {
+            "id": "mni-b19-018",
+            "no": "18",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "favorite": false,
+            "typeCategory": "Kata Keterangan",
+            "typeDetail": "Kata Keterangan",
+            "sectionCategory": "Kosakata",
+            "indonesia": "berangsur-angsur / lama-kelamaan",
+            "kanji": "",
+            "kana": "だんだん",
+            "romaji": "dandan",
+            "image": "https://iili.io/CE7DvxS.png",
+            "isFiction": false,
+            "speech": "だんだん",
+            "exampleJa": "春になって、だんだん暖かくなりました。",
+            "exampleReading": "Haru ni natte, dandan atatakaku narimashita.",
+            "exampleId": "Setelah memasuki musim semi, cuaca berangsur-angsur menjadi hangat.",
+            "examples": [
+                  {
+                        "ja": "春になって、だんだん暖かくなりました。",
+                        "reading": "Haru ni natte, dandan atatakaku narimashita.",
+                        "id": "Setelah memasuki musim semi, cuaca berangsur-angsur menjadi hangat."
+                  }
+            ],
+            "catatan": "だんだん menunjukkan perubahan yang berlangsung sedikit demi sedikit. Kata ini sering dipakai bersama pola ～くなります atau ～になります.",
+            "note": "だんだん menunjukkan perubahan yang berlangsung sedikit demi sedikit. Kata ini sering dipakai bersama pola ～くなります atau ～になります.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 19"
+      },
+      {
+            "id": "mni-b19-019",
+            "no": "19",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "favorite": false,
+            "typeCategory": "Kata Keterangan Waktu",
+            "typeDetail": "Kata Keterangan Waktu",
+            "sectionCategory": "Kosakata",
+            "indonesia": "tidak lama lagi / sebentar lagi",
+            "kanji": "",
+            "kana": "もうすぐ",
+            "romaji": "mou sugu",
+            "image": "https://iili.io/CE7DSs9.png",
+            "isFiction": false,
+            "speech": "もうすぐ",
+            "exampleJa": "もうすぐ電車が来ますから、急ぎましょう。",
+            "exampleReading": "Mou sugu densha ga kimasu kara, isogimashou.",
+            "exampleId": "Kereta akan segera datang, jadi mari kita bergegas.",
+            "examples": [
+                  {
+                        "ja": "もうすぐ電車が来ますから、急ぎましょう。",
+                        "reading": "Mou sugu densha ga kimasu kara, isogimashou.",
+                        "id": "Kereta akan segera datang, jadi mari kita bergegas."
+                  }
+            ],
+            "catatan": "もうすぐ dipakai ketika sesuatu akan terjadi dalam waktu dekat. Nuansanya adalah sebentar lagi atau tidak lama lagi.",
+            "note": "もうすぐ dipakai ketika sesuatu akan terjadi dalam waktu dekat. Nuansanya adalah sebentar lagi atau tidak lama lagi.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 19"
+      },
+      {
+            "id": "mni-b19-020",
+            "no": "20",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "favorite": false,
+            "typeCategory": "Ungkapan",
+            "typeDetail": "Ungkapan",
+            "sectionCategory": "Kosakata",
+            "indonesia": "berkat bantuan Anda / syukurlah",
+            "kanji": "",
+            "kana": "おかげさまで",
+            "romaji": "okagesama de",
+            "image": "https://iili.io/CE7Dgfe.png",
+            "isFiction": false,
+            "speech": "おかげさまで",
+            "exampleJa": "おかげさまで、母は元気になりました。",
+            "exampleReading": "Okagesama de, haha wa genki ni narimashita.",
+            "exampleId": "Syukurlah, berkat perhatian Anda, ibu saya sudah sehat kembali.",
+            "examples": [
+                  {
+                        "ja": "おかげさまで、母は元気になりました。",
+                        "reading": "Okagesama de, haha wa genki ni narimashita.",
+                        "id": "Syukurlah, berkat perhatian Anda, ibu saya sudah sehat kembali."
+                  }
+            ],
+            "catatan": "おかげさまで adalah ungkapan sopan untuk menunjukkan rasa syukur atau terima kasih atas perhatian dan bantuan orang lain. Ungkapan ini sering dipakai saat menjawab pertanyaan tentang keadaan.",
+            "note": "おかげさまで adalah ungkapan sopan untuk menunjukkan rasa syukur atau terima kasih atas perhatian dan bantuan orang lain. Ungkapan ini sering dipakai saat menjawab pertanyaan tentang keadaan.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 19"
+      },
+      {
+            "id": "mni-b19-021",
+            "no": "21",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "favorite": false,
+            "typeCategory": "Kata Sambung",
+            "typeDetail": "Kata Sambung",
+            "sectionCategory": "Kosakata",
+            "indonesia": "tetapi / namun",
+            "kanji": "",
+            "kana": "でも",
+            "romaji": "demo",
+            "image": "https://iili.io/CE7Dr0u.png",
+            "isFiction": false,
+            "speech": "でも",
+            "exampleJa": "このかばんはきれいです。でも、少し重いです。",
+            "exampleReading": "Kono kaban wa kirei desu. Demo, sukoshi omoi desu.",
+            "exampleId": "Tas ini bagus. Namun, tas ini agak berat.",
+            "examples": [
+                  {
+                        "ja": "このかばんはきれいです。でも、少し重いです。",
+                        "reading": "Kono kaban wa kirei desu. Demo, sukoshi omoi desu.",
+                        "id": "Tas ini bagus. Namun, tas ini agak berat."
+                  }
+            ],
+            "catatan": "でも dapat dipakai di awal kalimat sebagai kata sambung yang berarti tetapi atau namun. Penggunaan ini berbeda dari partikel でも yang menempel pada kata lain.",
+            "note": "でも dapat dipakai di awal kalimat sebagai kata sambung yang berarti tetapi atau namun. Penggunaan ini berbeda dari partikel でも yang menempel pada kata lain.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 19"
+      },
+      {
+            "id": "mni-b19-022",
+            "no": "22",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "favorite": false,
+            "typeCategory": "Ungkapan Percakapan",
+            "typeDetail": "Ungkapan Percakapan",
+            "sectionCategory": "Percakapan",
+            "indonesia": "bersulang / toast",
+            "kanji": "乾杯",
+            "kana": "かんぱい",
+            "romaji": "kanpai",
+            "image": "https://iili.io/CE7DZzB.png",
+            "isFiction": false,
+            "speech": "かんぱい",
+            "exampleJa": "みんなで「乾杯」と言って、ジュースを飲みました。",
+            "exampleReading": "Minna de 'kanpai' to itte, juusu o nomimashita.",
+            "exampleId": "Kami semua berkata “bersulang”, lalu minum jus.",
+            "examples": [
+                  {
+                        "ja": "みんなで「乾杯」と言って、ジュースを飲みました。",
+                        "reading": "Minna de 'kanpai' to itte, juusu o nomimashita.",
+                        "id": "Kami semua berkata “bersulang”, lalu minum jus."
+                  }
+            ],
+            "catatan": "乾杯 diucapkan sebelum minum bersama dalam perayaan atau pertemuan. Maknanya setara dengan “bersulang” atau “cheers”.",
+            "note": "乾杯 diucapkan sebelum minum bersama dalam perayaan atau pertemuan. Maknanya setara dengan “bersulang” atau “cheers”.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 19"
+      },
+      {
+            "id": "mni-b19-023",
+            "no": "23",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "favorite": false,
+            "typeCategory": "Kata Benda / Aktivitas",
+            "typeDetail": "Kata Benda / Aktivitas",
+            "sectionCategory": "Percakapan",
+            "indonesia": "diet",
+            "kanji": "",
+            "kana": "ダイエット",
+            "romaji": "daietto",
+            "image": "https://iili.io/CE7DtWP.png",
+            "isFiction": false,
+            "speech": "ダイエット",
+            "exampleJa": "姉はダイエットをしたり、毎朝走ったりしています。",
+            "exampleReading": "Ane wa daietto o shitari, maiasa hashittari shiteimasu.",
+            "exampleId": "Kakak perempuan saya berdiet, berlari setiap pagi, dan melakukan kegiatan lainnya.",
+            "examples": [
+                  {
+                        "ja": "姉はダイエットをしたり、毎朝走ったりしています。",
+                        "reading": "Ane wa daietto o shitari, maiasa hashittari shiteimasu.",
+                        "id": "Kakak perempuan saya berdiet, berlari setiap pagi, dan melakukan kegiatan lainnya."
+                  }
+            ],
+            "catatan": "ダイエット adalah kata serapan untuk diet. Dalam bahasa Jepang, kegiatan berdiet dinyatakan dengan pola ダイエットをします.",
+            "note": "ダイエット adalah kata serapan untuk diet. Dalam bahasa Jepang, kegiatan berdiet dinyatakan dengan pola ダイエットをします.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 19"
+      },
+      {
+            "id": "mni-b19-024",
+            "no": "24",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "favorite": false,
+            "typeCategory": "Kata Sifat-Na / Kata Benda",
+            "typeDetail": "Kata Sifat-Na / Kata Benda",
+            "sectionCategory": "Percakapan",
+            "indonesia": "tidak mungkin / berlebihan / memaksakan diri",
+            "kanji": "無理［な］",
+            "kana": "むり［な］",
+            "romaji": "muri [na]",
+            "image": "https://iili.io/CE7DmqF.png",
+            "isFiction": false,
+            "speech": "むり",
+            "exampleJa": "熱がありますから、今日は無理をしないでください。",
+            "exampleReading": "Netsu ga arimasu kara, kyou wa muri o shinaide kudasai.",
+            "exampleId": "Karena Anda demam, jangan memaksakan diri hari ini.",
+            "examples": [
+                  {
+                        "ja": "熱がありますから、今日は無理をしないでください。",
+                        "reading": "Netsu ga arimasu kara, kyou wa muri o shinaide kudasai.",
+                        "id": "Karena Anda demam, jangan memaksakan diri hari ini."
+                  }
+            ],
+            "catatan": "無理 dapat berarti tidak mungkin, berlebihan, memaksakan diri, atau tidak masuk akal sesuai konteks. Ungkapan 無理をしないでください berarti “jangan memaksakan diri”.",
+            "note": "無理 dapat berarti tidak mungkin, berlebihan, memaksakan diri, atau tidak masuk akal sesuai konteks. Ungkapan 無理をしないでください berarti “jangan memaksakan diri”.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 19"
+      },
+      {
+            "id": "mni-b19-025",
+            "no": "25",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "favorite": false,
+            "typeCategory": "Frasa",
+            "typeDetail": "Frasa",
+            "sectionCategory": "Percakapan",
+            "indonesia": "baik untuk tubuh",
+            "kanji": "体にいい",
+            "kana": "からだにいい",
+            "romaji": "karada ni ii",
+            "image": "https://iili.io/CE7Dyga.png",
+            "isFiction": false,
+            "speech": "からだにいい",
+            "exampleJa": "野菜をたくさん食べることは体にいいです。",
+            "exampleReading": "Yasai o takusan taberu koto wa karada ni ii desu.",
+            "exampleId": "Makan banyak sayuran baik untuk tubuh.",
+            "examples": [
+                  {
+                        "ja": "野菜をたくさん食べることは体にいいです。",
+                        "reading": "Yasai o takusan taberu koto wa karada ni ii desu.",
+                        "id": "Makan banyak sayuran baik untuk tubuh."
+                  }
+            ],
+            "catatan": "Gunakan pola ～は体にいいです untuk menyatakan sesuatu baik bagi tubuh. Kebalikannya adalah 体に悪いです, yaitu buruk bagi tubuh.",
+            "note": "Gunakan pola ～は体にいいです untuk menyatakan sesuatu baik bagi tubuh. Kebalikannya adalah 体に悪いです, yaitu buruk bagi tubuh.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 19"
+      },
+      {
+            "id": "mni-b19-026",
+            "no": "26",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "favorite": false,
+            "typeCategory": "Nama Tempat / Bangunan",
+            "typeDetail": "Nama Tempat / Bangunan",
+            "sectionCategory": "Kosakata Tambahan",
+            "indonesia": "Tokyo Skytree, menara penyiaran dan observasi terkenal di Tokyo",
+            "kanji": "東京スカイツリー",
+            "kana": "とうきょうスカイツリー",
+            "romaji": "Toukyou Sukaitsurii",
+            "image": "https://iili.io/CE7bJ5v.png",
+            "isFiction": false,
+            "speech": "とうきょうスカイツリー",
+            "exampleJa": "夜の東京スカイツリーはとてもきれいです。",
+            "exampleReading": "Yoru no Toukyou Sukaitsurii wa totemo kirei desu.",
+            "exampleId": "Tokyo Skytree pada malam hari sangat indah.",
+            "examples": [
+                  {
+                        "ja": "夜の東京スカイツリーはとてもきれいです。",
+                        "reading": "Yoru no Toukyou Sukaitsurii wa totemo kirei desu.",
+                        "id": "Tokyo Skytree pada malam hari sangat indah."
+                  }
+            ],
+            "catatan": "東京スカイツリー adalah menara penyiaran dan observasi terkenal di Tokyo. Nama ini memadukan kanji 東京 dengan kata serapan katakana スカイツリー.",
+            "note": "東京スカイツリー adalah menara penyiaran dan observasi terkenal di Tokyo. Nama ini memadukan kanji 東京 dengan kata serapan katakana スカイツリー.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 19"
+      },
+      {
+            "id": "mni-b19-027",
+            "no": "27",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "materialCategory": "Materi Umum",
+            "chapter": "Bab 19",
+            "chapterNumber": 19,
+            "favorite": false,
+            "typeCategory": "Nama Tokoh",
+            "typeDetail": "Nama Tokoh",
+            "sectionCategory": "Kosakata Tambahan",
+            "indonesia": "Katsushika Hokusai, pelukis ukiyo-e terkenal pada zaman Edo",
+            "kanji": "葛飾北斎",
+            "kana": "かつしかほくさい",
+            "romaji": "Katsushika Hokusai",
+            "image": "https://iili.io/CE7bFzN.png",
+            "isFiction": false,
+            "speech": "かつしかほくさい",
+            "exampleJa": "葛飾北斎は富士山の絵をたくさん描きました。",
+            "exampleReading": "Katsushika Hokusai wa Fujisan no e o takusan kakimashita.",
+            "exampleId": "Katsushika Hokusai melukis banyak gambar Gunung Fuji.",
+            "examples": [
+                  {
+                        "ja": "葛飾北斎は富士山の絵をたくさん描きました。",
+                        "reading": "Katsushika Hokusai wa Fujisan no e o takusan kakimashita.",
+                        "id": "Katsushika Hokusai melukis banyak gambar Gunung Fuji."
+                  }
+            ],
+            "catatan": "葛飾北斎 adalah pelukis ukiyo-e terkenal dari zaman Edo. Ia dikenal antara lain melalui rangkaian karya 富嶽三十六景 yang menggambarkan Gunung Fuji.",
+            "note": "葛飾北斎 adalah pelukis ukiyo-e terkenal dari zaman Edo. Ia dikenal antara lain melalui rangkaian karya 富嶽三十六景 yang menggambarkan Gunung Fuji.",
+            "tag": "Minna no Nihongo I / Materi Umum / Bab 19"
+      }
+];
+    VOCABULARY.push(...BAB19_VOCABULARY);
+
 
     // ===== Tambahan data: Minna no Nihongo I -> Kata-kata Referensi dan Informasi -> Bab 18 -> 動き（うごき） / Gerakan =====
     const BAB18_REFERENCE_COMMON_MOVEMENT = [
@@ -39255,12 +40159,12 @@
 
     const $ = s => document.querySelector(s);
     const $$ = s => [...document.querySelectorAll(s)];
-    const storeKey = "minna_bab18";
-    const dataVersion = "bab18-referensi-informasi-gerakan-20260713-v2";
+    const storeKey = "minna_bab19";
+    const dataVersion = "bab19-kosakata-lengkap-20260713-v1";
     const setupCompletedKey = storeKey + "_setupCompleted";
     const hadCurrentDataVersionBeforeBoot = localStorage.getItem(storeKey+"_dataVersion") === dataVersion;
     const hadSetupCompletedFlagBeforeBoot = localStorage.getItem(setupCompletedKey);
-    const defaultSetup = { book:"Minna no Nihongo I (2nd Edition)", materialCategory:"Materi Umum", chapter:"Bab 18" };
+    const defaultSetup = { book:"Minna no Nihongo I (2nd Edition)", materialCategory:"Materi Umum", chapter:"Bab 19" };
     if(localStorage.getItem(storeKey+"_dataVersion") !== dataVersion){
       if(!localStorage.getItem(storeKey+"_settings")) localStorage.setItem(storeKey+"_settings", JSON.stringify(defaultSetup));
       if(localStorage.getItem(storeKey+"_includeFiction") === null) localStorage.setItem(storeKey+"_includeFiction", "true");
@@ -39544,6 +40448,18 @@
         && String(state.setup.chapter || "") === "Bab 18";
     }
 
+    function isMateriUmumBab19(){
+      return String(state.setup.book || "").startsWith("Minna no Nihongo I")
+        && String(state.setup.materialCategory || "") === "Materi Umum"
+        && String(state.setup.chapter || "") === "Bab 19";
+    }
+    function isMateriUmumVocabularyChapter(){
+      return isMateriUmumBab18() || isMateriUmumBab19();
+    }
+    function activeGeneralVocabularyChapterNumber(){
+      return isMateriUmumBab19() ? 19 : (isMateriUmumBab18() ? 18 : null);
+    }
+
     function isReferenceGeneralBab18(){
       return String(state.setup.book || "").startsWith("Minna no Nihongo I")
         && String(state.setup.materialCategory || "") === "Kata-kata referensi dan Informasi"
@@ -39693,11 +40609,14 @@
         if(matTimeValue) matTimeValue.textContent = state.lang === "ja" ? "読む" : "Bacaan";
         if(matTimeLabel) matTimeLabel.textContent = state.lang === "ja" ? "学習モード" : "Mode Belajar";
       } else {
-        const bab18General = isMateriUmumBab18();
-        if(homeTitle) homeTitle.textContent = bab18General ? (state.lang === "ja" ? "第18課の語彙" : "Kosakata Bab 18") : t("homeTitle");
-        if(homeDesc) homeDesc.textContent = bab18General
-          ? (state.lang === "ja" ? "第18課の能力、趣味、日常活動、仕事、会話、追加語彙を学びます。" : "Pelajari kosakata Bab 18 yang berkaitan dengan kemampuan, hobi, aktivitas sehari-hari, pekerjaan, percakapan, serta kosakata tambahan.")
-          : t("homeDesc");
+        const vocabChapter = isMateriUmumVocabularyChapter();
+        const vocabChapterNo = activeGeneralVocabularyChapterNumber();
+        if(homeTitle) homeTitle.textContent = vocabChapter ? (state.lang === "ja" ? `第${vocabChapterNo}課の語彙` : `Kosakata Bab ${vocabChapterNo}`) : t("homeTitle");
+        if(homeDesc) homeDesc.textContent = isMateriUmumBab19()
+          ? (state.lang === "ja" ? "第19課の活動、状態、変化、健康、会話、追加語彙を学びます。" : "Pelajari kosakata Bab 19 tentang aktivitas, kondisi, perubahan, kesehatan, percakapan, serta kosakata tambahan.")
+          : isMateriUmumBab18()
+            ? (state.lang === "ja" ? "第18課の能力、趣味、日常活動、仕事、会話、追加語彙を学びます。" : "Pelajari kosakata Bab 18 yang berkaitan dengan kemampuan, hobi, aktivitas sehari-hari, pekerjaan, percakapan, serta kosakata tambahan.")
+            : t("homeDesc");
         if(homeVocabLabel) homeVocabLabel.textContent = t("totalVocab");
         if(homeTimeValue) homeTimeValue.textContent = state.lang === "ja" ? "30秒" : "30 dtk";
         if(homeTimeLabel) homeTimeLabel.textContent = t("timeLimit");
@@ -40283,12 +41202,25 @@
       renderSetup();
     }
 
+    function updateBab19SectionStats(){
+      const box = $("#bab19Breakdown");
+      if(!box) return;
+      const show = isMateriUmumBab19();
+      box.classList.toggle("hidden", !show);
+      if(!show) return;
+      const data = baseVocab();
+      const countBy = section => data.filter(v => v.sectionCategory === section).length;
+      if($("#bab19KosakataCount")) $("#bab19KosakataCount").textContent = countBy("Kosakata");
+      if($("#bab19ConversationCount")) $("#bab19ConversationCount").textContent = countBy("Percakapan");
+      if($("#bab19ExtraCount")) $("#bab19ExtraCount").textContent = countBy("Kosakata Tambahan");
+    }
+
     function renderAll(){
       applyTranslations();
       document.title = isReferenceGeneralBab18()
         ? (state.lang === "ja" ? "みんなの日本語 I・第18課 動き" : "Minna no Nihongo I - Bab 18 Gerakan")
-        : isMateriUmumBab18()
-          ? (state.lang === "ja" ? "みんなの日本語 I・第18課の語彙" : "Minna no Nihongo I - Kosakata Bab 18")
+        : isMateriUmumVocabularyChapter()
+          ? (state.lang === "ja" ? `みんなの日本語 I・第${activeGeneralVocabularyChapterNumber()}課の語彙` : `Minna no Nihongo I - Kosakata Bab ${activeGeneralVocabularyChapterNumber()}`)
           : `${bookLabel()} - ${categoryLabel(state.setup.materialCategory)} - ${state.lang === "ja" ? categoryLabel(state.setup.chapter) : state.setup.chapter}`;
       const count = materialOnlyItemCount();
       $("#homeVocabCount").textContent = count;
@@ -40296,6 +41228,7 @@
       $("#activeChoiceText").textContent = setupLabel();
       $("#matCount").textContent = count;
       $("#activeChoiceText").classList.toggle("jp",state.lang==="ja");
+      updateBab19SectionStats();
       updateFictionToggle();
       updateMaterialOnlyLabels();
       renderUser();
@@ -40473,7 +41406,20 @@
         "Nama Acara":"番組名",
         "Nama Tempat Fiksi":"架空の場所名",
         "Kata Sifat-i":"い形容詞",
+        "Kata Sifat-I":"い形容詞",
         "Kata Sifat-na":"な形容詞",
+        "Kata Sifat-Na":"な形容詞",
+        "Kata Sifat-Na / Kata Benda":"な形容詞・名詞",
+        "Frasa Kata Kerja":"動詞句",
+        "Kata Benda / Aktivitas":"名詞・活動",
+        "Kata Benda / Olahraga":"名詞・スポーツ",
+        "Kata Benda / Budaya":"名詞・文化",
+        "Kata Benda / Waktu":"名詞・時間",
+        "Kata Keterangan / Frekuensi":"頻度の副詞",
+        "Kata Keterangan Waktu":"時間の副詞",
+        "Frasa":"フレーズ",
+        "Nama Tempat / Bangunan":"地名・建物",
+        "Nama Tokoh":"人名",
         "Kosakata Tambahan":"追加語彙",
         "Materi Umum":"一般教材",
         "Kata-kata referensi dan Informasi":"情報・参考語彙",
@@ -40545,6 +41491,7 @@
         if(/^Bab\s+\d+(?:-\d+)?$/.test(v)) return v.replace(/^Bab\s+/, "第") + "課";
         return jaMap[v] || v;
       }
+      if(v === "Percakapan" && isMateriUmumBab19()) return "会話 / Percakapan";
       return idMap[v] || v;
     }
     function categoryLabel(value, kind="general"){ return categoryLabelFor(value, state.lang); }
@@ -40576,14 +41523,14 @@
         if(typeVal !== "all" && !typeValues.includes(typeVal)) typeVal = "all";
       }
 
-      const sections = [["all", state.lang==="ja"?(isMateriUmumBab18()?"すべてのカテゴリー":"すべてのセクション"):(isMateriUmumBab18()?"Semua Kategori":"Semua Bagian")], ...sectionValues.map(v=>[v, categoryLabel(v)])];
+      const sections = [["all", state.lang==="ja"?(isMateriUmumVocabularyChapter()?"すべてのカテゴリー":"すべてのセクション"):(isMateriUmumVocabularyChapter()?"Semua Kategori":"Semua Bagian")], ...sectionValues.map(v=>[v, categoryLabel(v)])];
       const types = [["all", state.lang==="ja"?"すべての品詞":"Semua Jenis Kata"], ...typeValues.map(v=>[v, categoryLabel(v)])];
 
       sectionSel.innerHTML = sections.map(([v,l])=>`<option value="${esc(v)}">${esc(l)}</option>`).join("");
       typeSel.innerHTML = types.map(([v,l])=>`<option value="${esc(v)}">${esc(l)}</option>`).join("");
       sectionSel.value = sections.some(x=>x[0]===secVal) ? secVal : "all";
       typeSel.value = types.some(x=>x[0]===typeVal) ? typeVal : "all";
-      sectionSel.setAttribute("aria-label", state.lang==="ja" ? (isMateriUmumBab18()?"語彙カテゴリーフィルター":"項目フィルター") : (isMateriUmumBab18()?"Filter kategori kosakata":"Filter bagian"));
+      sectionSel.setAttribute("aria-label", state.lang==="ja" ? (isMateriUmumVocabularyChapter()?"語彙カテゴリーフィルター":"項目フィルター") : (isMateriUmumVocabularyChapter()?"Filter kategori kosakata":"Filter bagian"));
       typeSel.setAttribute("aria-label", state.lang==="ja" ? "品詞フィルター" : "Filter jenis kata");
     }
 
@@ -41730,10 +42677,12 @@
       if(notice){ notice.classList.remove("hidden"); notice.style.removeProperty("display"); }
       updateMaterialOnlyControls();
       if(grid) grid.className = "vocab-grid";
-      if(title) title.textContent = isMateriUmumBab18() ? (state.lang === "ja" ? "第18課の語彙" : "Kosakata Bab 18") : t("materialTitle");
-      if(desc) desc.textContent = isMateriUmumBab18()
-        ? (state.lang === "ja" ? "能力、趣味、日常活動、仕事、会話、追加語彙を学びます。" : "Pelajari kosakata Bab 18 yang berkaitan dengan kemampuan, hobi, aktivitas sehari-hari, pekerjaan, percakapan, serta kosakata tambahan.")
-        : t("materialDesc");
+      if(title) title.textContent = isMateriUmumVocabularyChapter() ? (state.lang === "ja" ? `第${activeGeneralVocabularyChapterNumber()}課の語彙` : `Kosakata Bab ${activeGeneralVocabularyChapterNumber()}`) : t("materialTitle");
+      if(desc) desc.textContent = isMateriUmumBab19()
+        ? (state.lang === "ja" ? "活動、状態、変化、健康、会話、追加語彙を学びます。" : "Pelajari kosakata Bab 19 tentang aktivitas, kondisi, perubahan, kesehatan, percakapan, serta kosakata tambahan.")
+        : isMateriUmumBab18()
+          ? (state.lang === "ja" ? "能力、趣味、日常活動、仕事、会話、追加語彙を学びます。" : "Pelajari kosakata Bab 18 yang berkaitan dengan kemampuan, hobi, aktivitas sehari-hari, pekerjaan, percakapan, serta kosakata tambahan.")
+          : t("materialDesc");
       if(noticeTitle) noticeTitle.textContent = t("studyFirst");
       if(noticeDesc) noticeDesc.textContent = t("studyFirstDesc");
       const search = ($("#materialSearch")?.value || "").toLowerCase();
@@ -41749,7 +42698,7 @@
         return `<article class="vocab-card">
           <div class="vocab-top">
             ${thumb}
-            <div><div class="vocab-jp jp">${esc(vocabMainText(v))}</div><div class="vocab-romaji">${esc(vocabReadingText(v))}</div></div>
+            <div><div class="vocab-jp jp">${esc(vocabMainText(v))}</div><div class="vocab-kana jp">${esc(v.kana || "-")}</div><div class="vocab-romaji">${esc(vocabReadingText(v))}</div></div>
           </div>
           <div class="vocab-id">${esc(meaning)}</div>
           <div class="tag-row"><span class="tag">${esc(v.chapter)}</span><span class="tag green">${esc(categoryLabel(v.typeCategory,"type"))}</span><span class="tag pink">${esc(categoryLabel(v.sectionCategory,"section"))}</span>${isFictionVocab(v)?`<span class="tag fiction-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> ${esc(categoryLabel("Fiksi"))}</span>`:""}</div>
@@ -41788,10 +42737,10 @@
     }
 
     function quizSettingTitle(step){
-      const bab18 = isMateriUmumBab18();
+      const vocabChapter = isMateriUmumVocabularyChapter();
       const titles = state.lang === "ja"
-        ? ["言語方向", "カード順", "章", bab18 ? "語彙カテゴリー" : "セクション", "品詞"]
-        : ["Arah Bahasa", "Urutan Kartu", "Bab", bab18 ? "Kategori Kosakata" : "Bagian", "Jenis Kata"];
+        ? ["言語方向", "カード順", "章", vocabChapter ? "語彙カテゴリー" : "セクション", "品詞"]
+        : ["Arah Bahasa", "Urutan Kartu", "Bab", vocabChapter ? "Kategori Kosakata" : "Bagian", "Jenis Kata"];
       return titles[step-1] || titles[0];
     }
     function updateQuizSettingSteps(){
@@ -41807,7 +42756,7 @@
       if(nextBtn) nextBtn.textContent = state.lang === "ja" ? "次へ" : "Lanjut";
       const sectionStepText = $("#quizSettingsModal [data-i18n=\"sectionScopeStep\"]");
       const sectionCategoryText = $("#quizSettingsModal [data-i18n=\"sectionCategory\"]");
-      if(isMateriUmumBab18()){
+      if(isMateriUmumVocabularyChapter()){
         if(sectionStepText) sectionStepText.textContent = state.lang === "ja" ? "3B. 語彙カテゴリーを選択" : "3B. Pilih kategori kosakata";
         if(sectionCategoryText) sectionCategoryText.textContent = state.lang === "ja" ? "語彙カテゴリー" : "Kategori Kosakata";
       } else {
@@ -42213,7 +43162,7 @@
         </div>
         <div class="example-content">
           <!-- Gambar tidak ditampilkan lagi di modal Catatan. Klik gambar pada kartu kosakata untuk zoom otomatis. -->
-          <div class="example-info-card"><span>${state.lang==="ja"?"日本語":"Jepang"}</span><strong class="jp">${esc(vocabMainText(v))}</strong><strong>${esc(vocabReadingText(v))}</strong></div>
+          <div class="example-info-card"><span>${state.lang==="ja"?"日本語":"Jepang"}</span><strong class="jp">${esc(vocabMainText(v))}</strong><strong class="jp">${esc(v.kana || "-")}</strong><strong>${esc(vocabReadingText(v))}</strong></div>
           <div class="example-info-card"><span>${state.lang==="ja"?"意味":"Arti Indonesia"}</span><strong>${esc(meaning)}</strong></div>
           <div class="example-info-card"><span>${state.lang==="ja"?"メモ":"Catatan"}</span>${noteHtml}</div>
           ${exampleHtml}
