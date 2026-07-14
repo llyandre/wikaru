@@ -2942,6 +2942,198 @@
       .reference-bab19-culture-card-meaning { min-height:0; }
     }
 
+
+
+    /* ===== Materi khusus: Minna no Nihongo I > Kata-Kata Referensi dan Informasi > Bab 20 ===== */
+    body.material-only-reference #quizSettingsModal,
+    body.material-only-reference #startQuizFromSettings {
+      display:none!important;
+      visibility:hidden!important;
+      pointer-events:none!important;
+    }
+    .calling-material-page { display:block!important; min-width:0; }
+    body.calling-material-active #materialPage .content-card > h2,
+    body.calling-material-active #materialPage .content-card > p {
+      display:none!important;
+    }
+    body.calling-material-active #materialPage .content-card {
+      padding-top:24px!important;
+      min-height:0;
+    }
+    .calling-material-wrap { display:grid; gap:22px; min-width:0; }
+    .calling-material-hero {
+      position:relative; overflow:hidden; padding:26px 28px; border-radius:28px;
+      background:
+        radial-gradient(circle at 92% 12%,rgba(125,181,255,.30),transparent 34%),
+        radial-gradient(circle at 8% 96%,rgba(255,211,109,.22),transparent 36%),
+        linear-gradient(135deg,rgba(255,255,255,.98),rgba(246,241,255,.94) 54%,rgba(238,247,255,.94));
+      border:1px solid rgba(124,77,255,.15); box-shadow:var(--shadow2);
+    }
+    .calling-material-hero::after {
+      content:none;
+      display:none;
+    }
+    .calling-material-title {
+      position:relative; z-index:1; margin:0 0 3px; color:#071b45;
+      font-family:var(--jp); font-size:clamp(36px,5vw,60px); font-weight:780; letter-spacing:-.025em;
+    }
+    .calling-material-subtitle {
+      position:relative; z-index:1; margin:0; color:var(--primary2);
+      font-size:clamp(21px,2.8vw,32px); font-weight:780; letter-spacing:-.035em;
+    }
+    .calling-material-intro {
+      position:relative; z-index:1; max-width:850px; margin:13px 0 0;
+      color:#526078; font-size:15px; line-height:1.75; font-weight:570;
+    }
+    .calling-material-section {
+      padding:24px; border-radius:28px; background:rgba(255,255,255,.91);
+      border:1px solid rgba(124,77,255,.13); box-shadow:var(--shadow2); min-width:0;
+    }
+    .calling-material-section-head {
+      display:flex; align-items:flex-start; justify-content:space-between; gap:16px;
+      padding-bottom:16px; margin-bottom:18px; border-bottom:1px dashed rgba(124,77,255,.24);
+    }
+    .calling-material-section-head > div { min-width:0; }
+    .calling-material-section-head h3 {
+      display:flex; align-items:center; gap:11px; margin:0; color:#071b45;
+      font-size:clamp(22px,2.5vw,30px); line-height:1.25;
+    }
+    .calling-material-section-head h3 i {
+      width:42px; height:42px; display:grid; place-items:center; flex:0 0 auto;
+      border-radius:15px; background:var(--soft); color:var(--primary);
+    }
+    .calling-material-section-head p { margin:6px 0 0; color:#6a7690; font-size:13px; font-weight:600; }
+    .calling-material-section-count {
+      display:inline-flex; align-items:center; gap:7px; flex:0 0 auto; padding:8px 12px;
+      border-radius:999px; background:#f0eaff; color:#5e35d6; font-size:12px; font-weight:800;
+    }
+    .calling-material-image-grid { display:grid; gap:17px; align-items:stretch; min-width:0; }
+    .calling-material-image-grid.family { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .calling-material-image-grid.status { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    .calling-material-card {
+      display:flex; flex-direction:column; min-width:0; overflow:hidden; border-radius:24px;
+      background:linear-gradient(145deg,#fff,#fbf8ff); border:1px solid rgba(124,77,255,.15);
+      box-shadow:0 11px 27px rgba(80,67,130,.065);
+      transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .calling-material-card:hover {
+      transform:translateY(-3px); border-color:rgba(124,77,255,.30);
+      box-shadow:0 18px 38px rgba(80,67,130,.12);
+    }
+    .calling-material-card-head {
+      display:flex; align-items:center; gap:11px; min-height:66px; padding:14px 16px;
+      border-bottom:1px solid rgba(124,77,255,.10);
+    }
+    .calling-material-card-icon {
+      width:38px; height:38px; display:grid; place-items:center; flex:0 0 auto;
+      border-radius:14px; color:#fff; background:linear-gradient(135deg,var(--primary),#7db5ff);
+      box-shadow:0 9px 20px rgba(124,77,255,.18);
+    }
+    .calling-material-card-head h4 {
+      margin:0; color:#102343; font-size:15px; line-height:1.4; font-weight:780;
+      overflow-wrap:anywhere;
+    }
+    .calling-material-image-shell {
+      position:relative; display:grid; place-items:center; width:100%; aspect-ratio:4/3;
+      padding:12px; background:linear-gradient(135deg,#fff,#f7f4ff 55%,#eef6ff); overflow:hidden;
+    }
+    .calling-material-image-shell img {
+      display:block; width:100%; height:100%; object-fit:contain; border-radius:18px;
+      background:#fff; cursor:zoom-in; transition:transform .2s ease;
+    }
+    .calling-material-card:hover .calling-material-image-shell img { transform:scale(1.012); }
+    .calling-material-age-label {
+      position:absolute; top:20px; right:20px; z-index:2; padding:7px 10px; border-radius:999px;
+      background:rgba(255,255,255,.94); border:1px solid rgba(124,77,255,.20); color:#5e35d6;
+      box-shadow:0 8px 18px rgba(80,67,130,.10); font-family:var(--jp); font-size:13px; font-weight:800;
+    }
+    .calling-material-card-body { display:flex; flex:1; flex-direction:column; gap:13px; padding:17px; min-width:0; }
+    .calling-material-dialogue {
+      display:grid; gap:8px; padding:14px; border-radius:18px; background:linear-gradient(135deg,#f5efff,#eff8ff);
+      border:1px solid rgba(124,77,255,.12); min-width:0;
+    }
+    .calling-material-dialogue-line { min-width:0; }
+    .calling-material-speaker {
+      display:block; margin-bottom:3px; color:#7655d9; font-size:10px; font-weight:850;
+      letter-spacing:.035em; text-transform:uppercase;
+    }
+    .calling-material-dialogue-line strong {
+      display:block; color:#071b45; font-family:var(--jp); font-size:clamp(16px,1.7vw,20px);
+      line-height:1.55; font-weight:700; overflow-wrap:anywhere;
+    }
+    .calling-material-translation {
+      display:grid; gap:6px; margin:0; padding:0; list-style:none; color:#3f4e67;
+      font-size:13px; line-height:1.58; font-weight:620;
+    }
+    .calling-material-translation li { display:flex; gap:8px; align-items:flex-start; }
+    .calling-material-translation i { margin-top:5px; color:#23a984; font-size:9px; }
+    .calling-material-card-note {
+      margin:auto 0 0; padding-top:12px; border-top:1px solid rgba(124,77,255,.10);
+      color:#66728a; font-size:12.5px; line-height:1.65; font-weight:570;
+    }
+    .calling-material-explanation {
+      margin-top:19px; padding:20px 21px; border-radius:22px;
+      background:linear-gradient(135deg,#fff,#f8f4ff 58%,#eef8ff);
+      border:1px solid rgba(124,77,255,.14); box-shadow:0 9px 22px rgba(80,67,130,.05);
+    }
+    .calling-material-explanation-head {
+      display:flex; align-items:center; gap:10px; margin-bottom:10px; color:#071b45; font-weight:800;
+    }
+    .calling-material-explanation-head i {
+      width:36px; height:36px; display:grid; place-items:center; border-radius:13px;
+      background:#fff; color:var(--primary); border:1px solid rgba(124,77,255,.12);
+    }
+    .calling-material-explanation p {
+      margin:0; color:#4e5c74; font-size:14px; line-height:1.82; font-weight:550; user-select:text;
+    }
+    .calling-material-explanation p + p { margin-top:11px; }
+    .calling-term-chip {
+      display:inline-flex; align-items:center; margin:1px 2px; padding:2px 8px; border-radius:999px;
+      background:#f0eaff; color:#5e35d6; border:1px solid rgba(124,77,255,.13);
+      font-family:var(--jp); font-size:.94em; font-weight:750; white-space:nowrap;
+    }
+    .calling-material-summary {
+      position:relative; overflow:hidden; padding:24px 26px; border-radius:28px;
+      background:linear-gradient(135deg,#6f42e8,#7c4dff 52%,#669fe8); color:#fff;
+      box-shadow:0 20px 44px rgba(92,54,211,.22);
+    }
+    .calling-material-summary::after {
+      content:none;
+      display:none;
+    }
+    .calling-material-summary h3 { position:relative; z-index:1; display:flex; align-items:center; gap:10px; margin:0 0 9px; color:#fff; font-size:24px; }
+    .calling-material-summary p { position:relative; z-index:1; max-width:900px; margin:0; color:rgba(255,255,255,.92); line-height:1.75; font-weight:570; }
+    .calling-material-summary-chips { position:relative; z-index:1; display:flex; flex-wrap:wrap; gap:9px; margin-top:16px; }
+    .calling-material-summary-chip {
+      display:inline-flex; align-items:center; gap:7px; padding:8px 11px; border-radius:999px;
+      background:rgba(255,255,255,.17); border:1px solid rgba(255,255,255,.24);
+      color:#fff; font-size:12px; font-weight:750; backdrop-filter:blur(8px);
+    }
+    @media (max-width:1050px) {
+      .calling-material-image-grid.status { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    }
+    @media (max-width:760px) {
+      .calling-material-wrap { gap:18px; }
+      .calling-material-hero,.calling-material-section,.calling-material-summary { padding:20px; border-radius:24px; }
+      .calling-material-image-grid.family,
+      .calling-material-image-grid.status { grid-template-columns:1fr; }
+      .calling-material-section-head { align-items:flex-start; }
+      .calling-material-section-count { display:none; }
+      .calling-material-image-shell { aspect-ratio:16/11; min-height:230px; }
+      .calling-material-card-head { min-height:60px; }
+      .calling-material-explanation { padding:17px; }
+    }
+    @media (max-width:450px) {
+      body.calling-material-active #materialPage .content-card { padding:14px!important; }
+      .calling-material-hero,.calling-material-section,.calling-material-summary { padding:17px; }
+      .calling-material-title { font-size:34px; }
+      .calling-material-subtitle { font-size:21px; }
+      .calling-material-image-shell { min-height:205px; padding:9px; }
+      .calling-material-card-body { padding:14px; }
+      .calling-material-dialogue { padding:12px; }
+      .calling-material-summary-chips { display:grid; grid-template-columns:1fr; }
+    }
+
   </style>
 </head>
 <body>
@@ -41680,6 +41872,105 @@
 ];
     VOCABULARY.push(...BAB19_REFERENCE_TRADITIONAL_CULTURE);
 
+
+
+    // ===== Materi penjelasan: Minna no Nihongo I -> Kata-Kata Referensi dan Informasi -> Bab 20 =====
+    // Data ini sengaja terpisah dari VOCABULARY agar tidak masuk ke bank soal atau mode kuis.
+    const REFERENCE_INFO_BAB20_CALLING_MATERIAL = {
+      titleJa: "人の呼び方",
+      titleId: "Cara Memanggil Orang",
+      category: "Kata-Kata Referensi dan Informasi",
+      chapter: "Bab 20",
+      chapterNumber: 20,
+      intro: "Di Jepang, cara memanggil seseorang sering menyesuaikan hubungan keluarga, posisi sosial, atau peran orang tersebut. Karena itu, seseorang tidak selalu dipanggil menggunakan nama pribadinya.",
+      sections: [
+        {
+          id: "family",
+          title: "Panggilan dalam Keluarga",
+          subtitle: "Cara anggota keluarga saling memanggil dari sudut pandang anak.",
+          icon: "fa-people-roof",
+          cards: [
+            {
+              title: "Keluarga Memanggil Anak",
+              icon: "fa-children",
+              image: "https://iili.io/CEL9BhG.png",
+              alt: "Ilustrasi keluarga Jepang memanggil anak laki-laki dan anak perempuan",
+              dialogue: [
+                { speaker: "Orang tua", ja: "「お兄ちゃん、お姉ちゃん！」" },
+                { speaker: "Anak-anak", ja: "「はーい！」" }
+              ],
+              translations: ["Kakak laki-laki, kakak perempuan!", "Ya!"],
+              note: "Orang tua dapat memanggil anak tertua menggunakan sebutan yang dipakai oleh anak yang lebih kecil."
+            },
+            {
+              title: "Ulang Tahun Tarō",
+              icon: "fa-cake-candles",
+              image: "https://iili.io/CEL9xEl.png",
+              alt: "Ilustrasi keluarga Jepang merayakan ulang tahun Tarō yang ke-12",
+              label: "12歳",
+              dialogue: [
+                { speaker: "Orang tua", ja: "「今日は太郎の誕生日よ。」" },
+                { speaker: "Tarō", ja: "「ああ！そうか。」" }
+              ],
+              translations: ["Hari ini adalah ulang tahun Tarō.", "Oh! Begitu."],
+              note: "Percakapan keluarga ketika orang tua mengingatkan bahwa hari itu merupakan ulang tahun Tarō."
+            }
+          ],
+          explanation: [
+            "Dalam keluarga, orang Jepang cenderung memanggil anggota keluarga dari sudut pandang anak yang paling kecil. Misalnya, orang tua dapat memanggil anak laki-laki tertua お兄ちゃん sebagai ‘kakak laki-laki’ dan anak perempuan tertua お姉ちゃん sebagai ‘kakak perempuan’, mengikuti panggilan yang digunakan oleh adiknya.",
+            "Ketika berbicara di depan anak-anak, seorang suami dapat menyebut istrinya お母さん atau ママ. Sebaliknya, seorang istri dapat menyebut suaminya お父さん atau パパ. Namun, kebiasaan tersebut sekarang semakin jarang dan banyak pasangan lebih sering saling memanggil menggunakan nama."
+          ],
+          terms: ["お兄ちゃん", "お姉ちゃん", "お母さん", "ママ", "お父さん", "パパ"]
+        },
+        {
+          id: "status",
+          title: "Panggilan Berdasarkan Status dan Peran",
+          subtitle: "Panggilan yang mengikuti jabatan, kedudukan, atau peran sosial seseorang.",
+          icon: "fa-user-tie",
+          cards: [
+            {
+              title: "Meminta Tanda Tangan Kepala Bagian",
+              icon: "fa-file-signature",
+              image: "https://iili.io/CEL9CQf.png",
+              alt: "Ilustrasi pegawai meminta tanda tangan kepala bagian",
+              dialogue: [{ speaker: "Pegawai", ja: "「部長、サインお願いします。」" }],
+              translations: ["Bapak/Ibu kepala bagian, mohon tanda tangannya."],
+              note: "Di tempat kerja, bawahan dapat memanggil atasannya menggunakan jabatan, misalnya 部長."
+            },
+            {
+              title: "Pelayan Toko Memuji Pelanggan",
+              icon: "fa-store",
+              image: "https://iili.io/CEL9Kpn.png",
+              alt: "Ilustrasi pelayan toko memuji pakaian pelanggan",
+              dialogue: [{ speaker: "Pelayan toko", ja: "「お客様、よくお似合いですよ。」" }],
+              translations: ["Bapak/Ibu, ini sangat cocok untuk Anda."],
+              note: "Pelayan toko menggunakan お客様 untuk memanggil pelanggan secara sopan dan hormat."
+            },
+            {
+              title: "Pasien Berkonsultasi dengan Dokter",
+              icon: "fa-user-doctor",
+              image: "https://iili.io/CEL9z42.png",
+              alt: "Ilustrasi pasien berkonsultasi dengan dokter",
+              dialogue: [{ speaker: "Pasien", ja: "「先生、おなかが痛いんです。」" }],
+              translations: ["Dokter, perut saya sakit."],
+              note: "Pasien dapat memanggil dokter dengan sebutan 先生."
+            }
+          ],
+          explanation: [
+            "Di masyarakat, orang Jepang sering memanggil seseorang berdasarkan status atau perannya di dalam suatu kelompok. Di tempat kerja, bawahan dapat memanggil atasannya menggunakan nama jabatan, misalnya 部長 untuk kepala bagian.",
+            "Di toko, pelayan memanggil pelanggan dengan sebutan お客様 sebagai bentuk penghormatan. Dalam konteks medis dan pendidikan, dokter maupun guru biasa dipanggil 先生 oleh pasien atau murid."
+          ],
+          terms: ["部長", "お客様", "先生"]
+        }
+      ],
+      summary: {
+        title: "Inti Materi",
+        text: "Cara memanggil orang dalam bahasa Jepang bergantung pada hubungan, kedudukan, dan situasi. Dalam keluarga, panggilan dapat mengikuti sudut pandang anak yang paling kecil. Dalam kehidupan sosial, seseorang sering dipanggil berdasarkan jabatan atau perannya.",
+        chips: ["Hubungan keluarga", "Jabatan", "Peran sosial"]
+      }
+    };
+
+
     const firebaseConfig = {
       apiKey: "AIzaSyBC3x1_9WEdGWFqMu6DYUnyvawAa7IFGag",
       authDomain: "minna-no-nihongo-i-ii.firebaseapp.com",
@@ -41694,7 +41985,7 @@
     const $ = s => document.querySelector(s);
     const $$ = s => [...document.querySelectorAll(s)];
     const storeKey = "minna_bab20";
-    const dataVersion = "bab20-kosakata-lengkap-20260714-v1";
+    const dataVersion = "bab20-kosakata-lengkap-20260714-v3-calling-material-ranges";
     const setupCompletedKey = storeKey + "_setupCompleted";
     const hadCurrentDataVersionBeforeBoot = localStorage.getItem(storeKey+"_dataVersion") === dataVersion;
     const hadSetupCompletedFlagBeforeBoot = localStorage.getItem(setupCompletedKey);
@@ -41941,7 +42232,7 @@
     }
     // Bab referensi tertentu berupa halaman materi khusus, sehingga tidak semuanya berasal dari kartu VOCABULARY.
     const STATIC_REFERENCE_CHAPTERS = {
-      "Minna no Nihongo I (2nd Edition)": [2,4,5,7,8,9,10,11,12,13,14,15,16,17,19]
+      "Minna no Nihongo I (2nd Edition)": [2,4,5,7,8,9,10,11,12,13,14,15,16,17,19,20]
     };
     function uniqueCategoryValues(list, key){
       const seen = new Set();
@@ -41973,7 +42264,22 @@
       if(String(cat || "").trim().toLowerCase() === "kata-kata referensi dan informasi"){
         (STATIC_REFERENCE_CHAPTERS[book] || []).forEach(n=>numbers.add(n));
       }
-      return [...numbers].sort((a,b)=>a-b).map(n=>`Bab ${n}`);
+
+      const chapters = [...numbers].sort((a,b)=>a-b).map(n=>`Bab ${n}`);
+      const isMinnaOne = /^Minna no Nihongo I(\s|$|\()/i.test(String(book || ""))
+        && !/^Minna no Nihongo II/i.test(String(book || ""));
+      const isGeneralMaterial = String(cat || "").trim() === "Materi Umum";
+
+      if(!isMinnaOne || !isGeneralMaterial) return chapters;
+
+      // Kategori gabungan ditaruh tepat sesudah bab acuan sesuai urutan yang diminta.
+      const combinedAfter = {
+        "Bab 5": ["Bab 1-5"],
+        "Bab 6": ["Bab 6-10", "Bab 1-10"],
+        "Bab 15": ["Bab 11-15", "Bab 1-15"],
+        "Bab 16": ["Bab 16-20", "Bab 1-20"]
+      };
+      return chapters.flatMap(chapter=>[chapter, ...(combinedAfter[chapter] || [])]);
     }
 
     function isMateriUmumBab18(){
@@ -42041,7 +42347,8 @@
     function isReferenceInfoBab16(){ return isReferenceInfoChapter("Bab 16"); }
     function isReferenceInfoBab17(){ return isReferenceInfoChapter("Bab 17"); }
     function isReferenceInfoBab19(){ return isReferenceInfoChapter("Bab 19"); }
-    function isReferenceInfoMaterialOnly(){ return isReferenceInfoBab2() || isReferenceInfoBab4() || isReferenceInfoBab5() || isReferenceInfoBab16(); }
+    function isReferenceInfoBab20(){ return isReferenceInfoChapter("Bab 20"); }
+    function isReferenceInfoMaterialOnly(){ return isReferenceInfoBab2() || isReferenceInfoBab4() || isReferenceInfoBab5() || isReferenceInfoBab16() || isReferenceInfoBab20(); }
 
     function materialOnlyQuizMessage(){
       return state.lang === "ja"
@@ -42112,6 +42419,10 @@
         return (BAB16_REFERENCE_INFO_ATM_VOCABULARY?.length || 0)
           + (REFERENCE_INFO_BAB16_ATM_STEPS?.length || 0);
       }
+      if(isReferenceInfoBab20()){
+        return (REFERENCE_INFO_BAB20_CALLING_MATERIAL.sections || [])
+          .reduce((total, section)=>total + (section.cards?.length || 0), 0);
+      }
       return (REFERENCE_INFO_BAB2_MATERIAL.vocab?.length || 0)
         + (REFERENCE_INFO_BAB2_MATERIAL.familyNames?.length || 0)
         + (REFERENCE_INFO_BAB2_MATERIAL.greetings?.length || 0);
@@ -42130,6 +42441,7 @@
         const bab4 = isReferenceInfoBab4();
         const bab5 = isReferenceInfoBab5();
         const bab16 = isReferenceInfoBab16();
+        const bab20 = isReferenceInfoBab20();
         if(homeTitle) homeTitle.textContent = state.lang === "ja" ? "参考資料・情報" : "Materi Referensi dan Informasi";
         if(homeDesc){
           if(bab4){
@@ -42138,6 +42450,8 @@
             homeDesc.textContent = state.lang === "ja" ? "第5課の祝祭日を教材として読みます。クイズモードはありません。" : "Buka materi Bab 5 sebagai bahan bacaan: hari libur nasional Jepang. Kategori ini tidak memakai kuis.";
           } else if(bab16){
             homeDesc.textContent = state.lang === "ja" ? "第16課のATMメニューと現金引き出しの手順を教材として読みます。クイズモードはありません。" : "Pelajari kosakata menu ATM dan urutan dasar melakukan penarikan uang dalam bahasa Jepang. Kategori ini hanya menyediakan mode Materi.";
+          } else if(bab20){
+            homeDesc.textContent = state.lang === "ja" ? "第20課の「人の呼び方」を、家族関係・役職・社会的な役割から学ぶ読み物です。クイズモードはありません。" : "Pelajari cara memanggil orang dalam keluarga dan masyarakat Jepang berdasarkan hubungan, jabatan, serta peran sosial. Kategori ini hanya menyediakan mode Materi.";
           } else {
             homeDesc.textContent = state.lang === "ja" ? "第2課の参考語彙、姓、あいさつ、マナーを教材として読みます。クイズモードはありません。" : "Buka materi Bab 2 sebagai bahan bacaan: kosakata salam, nama keluarga Jepang, dan informasi sopan santun. Kategori ini tidak memakai kuis.";
           }
@@ -44256,7 +44570,109 @@
     }
 
 
+    function renderReferenceInfoBab20Calling(){
+      document.body.classList.add("calling-material-active");
+      const grid = $("#materialGrid");
+      if(!grid) return;
+      const toolbar = $(".material-toolbar");
+      const notice = $("#materialPage .notice");
+      const title = $("#materialPage .content-card > h2");
+      const desc = $("#materialPage .content-card > p");
+      const material = REFERENCE_INFO_BAB20_CALLING_MATERIAL;
+
+      if(title) title.textContent = state.lang === "ja" ? "第20課 人の呼び方" : "Cara Memanggil Orang";
+      if(desc) desc.textContent = state.lang === "ja"
+        ? "家族関係、役職、社会的な役割に応じた日本語の呼び方を、会話とイラストで学びます。"
+        : "Materi penjelasan Bab 20 tentang cara memanggil seseorang berdasarkan hubungan keluarga, jabatan, dan peran sosial.";
+
+      document.body.classList.add("material-only-reference");
+      if(toolbar){
+        toolbar.classList.add("hidden");
+        toolbar.style.setProperty("display", "none", "important");
+        toolbar.style.setProperty("visibility", "hidden", "important");
+        toolbar.style.setProperty("pointer-events", "none", "important");
+      }
+      if(notice){
+        notice.classList.add("hidden");
+        notice.style.setProperty("display", "none", "important");
+      }
+      updateMaterialOnlyControls();
+      $("#materialEmpty")?.classList.add("hidden");
+      grid.className = "calling-material-page";
+
+      const highlightTerms = (paragraph, terms=[]) => {
+        let html = esc(paragraph);
+        [...terms].sort((a,b)=>b.length-a.length).forEach(term=>{
+          const safeTerm = esc(term);
+          html = html.split(safeTerm).join(`<span class="calling-term-chip jp">${safeTerm}</span>`);
+        });
+        return html;
+      };
+
+      const renderCard = card => `
+        <article class="calling-material-card">
+          <header class="calling-material-card-head">
+            <span class="calling-material-card-icon"><i class="fa-solid ${esc(card.icon)}"></i></span>
+            <h4>${esc(card.title)}</h4>
+          </header>
+          <div class="calling-material-image-shell">
+            ${card.label ? `<span class="calling-material-age-label jp">${esc(card.label)}</span>` : ""}
+            <img src="${esc(card.image)}" alt="${esc(card.alt)}" loading="lazy" decoding="async" data-zoom="${esc(card.image)}">
+          </div>
+          <div class="calling-material-card-body">
+            <div class="calling-material-dialogue">
+              ${card.dialogue.map(line=>`
+                <div class="calling-material-dialogue-line">
+                  ${line.speaker ? `<span class="calling-material-speaker">${esc(line.speaker)}</span>` : ""}
+                  <strong class="jp">${esc(line.ja)}</strong>
+                </div>`).join("")}
+            </div>
+            <ul class="calling-material-translation">
+              ${card.translations.map(item=>`<li><i class="fa-solid fa-circle"></i><span>“${esc(item)}”</span></li>`).join("")}
+            </ul>
+            <p class="calling-material-card-note">${highlightTerms(card.note, ["部長","お客様","先生"])}</p>
+          </div>
+        </article>`;
+
+      const sectionHtml = material.sections.map(section=>`
+        <section class="calling-material-section">
+          <div class="calling-material-section-head">
+            <div>
+              <h3><i class="fa-solid ${esc(section.icon)}"></i>${esc(section.title)}</h3>
+              <p>${esc(section.subtitle)}</p>
+            </div>
+            <span class="calling-material-section-count"><i class="fa-solid fa-images"></i>${section.cards.length} gambar</span>
+          </div>
+          <div class="calling-material-image-grid ${esc(section.id)}">
+            ${section.cards.map(renderCard).join("")}
+          </div>
+          <div class="calling-material-explanation">
+            <div class="calling-material-explanation-head"><i class="fa-solid fa-book-open-reader"></i><span>Penjelasan</span></div>
+            ${section.explanation.map(paragraph=>`<p>${highlightTerms(paragraph, section.terms)}</p>`).join("")}
+          </div>
+        </section>`).join("");
+
+      grid.innerHTML = `
+        <div class="calling-material-wrap">
+          <section class="calling-material-hero">
+            <h3 class="calling-material-title jp">${esc(material.titleJa)}</h3>
+            <h4 class="calling-material-subtitle">${esc(material.titleId)}</h4>
+            <p class="calling-material-intro">${esc(material.intro)}</p>
+          </section>
+          ${sectionHtml}
+          <section class="calling-material-summary">
+            <h3><i class="fa-solid fa-lightbulb"></i>${esc(material.summary.title)}</h3>
+            <p>${esc(material.summary.text)}</p>
+            <div class="calling-material-summary-chips">
+              ${material.summary.chips.map((chip,index)=>`<span class="calling-material-summary-chip"><i class="fa-solid ${["fa-people-roof","fa-id-badge","fa-user-group"][index] || "fa-circle-check"}"></i>${esc(chip)}</span>`).join("")}
+            </div>
+          </section>
+        </div>`;
+    }
+
+
     function renderMaterial(){
+      document.body.classList.remove("calling-material-active");
       syncFictionToggleAvailability();
       const toolbar = $(".material-toolbar");
       const grid = $("#materialGrid");
@@ -44326,6 +44742,10 @@
       }
       if(isReferenceInfoBab19()){
         renderReferenceInfoBab19TraditionalCulture();
+        return;
+      }
+      if(isReferenceInfoBab20()){
+        renderReferenceInfoBab20Calling();
         return;
       }
       renderMaterialFilterOptions();
