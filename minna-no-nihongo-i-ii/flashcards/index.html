@@ -3187,6 +3187,65 @@
     .question-text > small { display:block; margin-top:12px; color:var(--primary2); font-family:var(--font); font-size:.32em; font-weight:800; letter-spacing:normal; }
     @media (max-width:760px){ .quiz-front-image-wrap img { height:260px; } }
 
+
+
+    /* ===== Bab 22 Referensi: 衣服（いふく） / Pakaian ===== */
+    body.clothing-reference-active .content-card { overflow:visible; }
+    .clothing-reference-root { display:block!important; min-width:0; }
+    .clothing-reference-wrap { display:grid; gap:22px; min-width:0; }
+    .clothing-reference-hero {
+      display:grid; grid-template-columns:minmax(0,1.35fr) minmax(230px,.65fr); gap:22px; align-items:center;
+      padding:28px; border-radius:28px; overflow:hidden; position:relative;
+      background:linear-gradient(135deg,rgba(244,238,255,.98),rgba(237,248,255,.95));
+      border:1px solid rgba(124,77,255,.16); box-shadow:0 18px 44px rgba(80,67,130,.10);
+    }
+    .clothing-reference-hero::after { content:""; position:absolute; width:230px; height:230px; right:-70px; top:-92px; border-radius:50%; background:rgba(124,77,255,.12); pointer-events:none; }
+    .clothing-reference-kicker { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background:#fff; color:var(--primary2); font-size:12px; font-weight:800; border:1px solid rgba(124,77,255,.13); }
+    .clothing-reference-title { margin:14px 0 7px; font-family:var(--jp); font-size:clamp(35px,4vw,58px); line-height:1.12; letter-spacing:-.04em; color:#071b45; }
+    .clothing-reference-reading { font-family:var(--jp); color:var(--primary2); font-size:18px; font-weight:750; }
+    .clothing-reference-meaning { margin:5px 0 0; color:#46536b; font-size:20px; font-weight:800; }
+    .clothing-reference-summary { margin:14px 0 0; max-width:760px; }
+    .clothing-reference-count { margin-top:16px; display:inline-flex; align-items:center; gap:8px; color:#4d2ab3; font-weight:800; }
+    .clothing-reference-hero-image { position:relative; z-index:1; min-height:220px; border:0; border-radius:24px; padding:14px; background:rgba(255,255,255,.88); display:grid; place-items:center; box-shadow:0 14px 30px rgba(80,67,130,.10); }
+    .clothing-reference-hero-image img { width:100%; height:210px; object-fit:contain; border-radius:18px; }
+    .clothing-table-grid { display:grid; gap:16px; min-width:0; }
+    .clothing-table-row { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; align-items:start; }
+    .clothing-cell { min-width:0; height:100%; padding:12px; border-radius:24px; background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(250,247,255,.92)); border:1px solid #e5deff; box-shadow:0 12px 28px rgba(80,67,130,.075); display:flex; flex-direction:column; align-self:start; }
+    .clothing-cell-number { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:10px; color:#75669b; font-size:11px; font-weight:800; }
+    .clothing-cell-number span:first-child { width:28px; height:28px; display:grid; place-items:center; border-radius:10px; background:var(--soft); color:var(--primary2); flex:0 0 auto; }
+    .clothing-mini-list { display:grid; gap:10px; align-content:start; }
+    .clothing-mini-card { min-width:0; padding:12px; border-radius:19px; background:#fff; border:1px solid rgba(124,77,255,.12); transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease; display:flex; flex-direction:column; align-items:stretch; }
+    .clothing-mini-card:hover { transform:translateY(-3px); border-color:rgba(124,77,255,.30); box-shadow:0 16px 30px rgba(80,67,130,.11); }
+    .clothing-image-wrap { width:100%; height:135px; border:0; border-radius:16px; padding:8px; background:linear-gradient(135deg,#faf7ff,#eef7ff); display:grid; place-items:center; overflow:hidden; }
+    .clothing-image-wrap img { width:100%; height:100%; object-fit:contain; }
+    .clothing-copy { min-width:0; padding-top:10px; display:flex; flex-direction:column; align-items:flex-start; }
+    .clothing-jp { font-family:var(--jp); color:#071b45; font-size:clamp(21px,1.8vw,27px); font-weight:800; line-height:1.35; overflow-wrap:anywhere; text-align:left; width:100%; }
+    .clothing-jp ruby { ruby-position:over; }
+    .clothing-jp rt { color:#6f5aaa; font-size:10px; font-weight:650; }
+    .clothing-reading { margin-top:3px; color:#5d6880; font-family:var(--jp); font-size:12px; font-weight:650; overflow-wrap:anywhere; text-align:left; width:100%; }
+    .clothing-romaji { margin-top:2px; color:var(--primary); font-size:12px; font-weight:850; text-align:left; width:100%; }
+    .clothing-meaning { width:100%; margin:9px 0; color:#33415d; font-size:13px; line-height:1.45; font-weight:700; overflow-wrap:anywhere; text-align:left; }
+    .clothing-type { display:inline-flex; max-width:100%; padding:6px 9px; border-radius:999px; background:#e9fbf5; color:#148060; font-size:10px; font-weight:800; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .clothing-actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; align-items:center; justify-content:flex-start; }
+    .clothing-actions .icon-btn { width:38px; min-width:38px; height:38px; border-radius:12px; box-shadow:none; display:flex; align-items:center; justify-content:center; flex:0 0 38px; }
+    .clothing-empty-cell { display:none; }
+    @media (max-width:1120px){
+      .clothing-table-row { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .clothing-reference-hero { grid-template-columns:minmax(0,1.2fr) minmax(210px,.8fr); }
+    }
+    @media (max-width:700px){
+      .clothing-reference-hero { grid-template-columns:1fr; padding:20px; }
+      .clothing-reference-hero-image { min-height:180px; }
+      .clothing-reference-hero-image img { height:170px; }
+      .clothing-table-row { grid-template-columns:1fr; }
+      .clothing-cell { padding:11px; }
+      .clothing-image-wrap { height:180px; }
+    }
+    @media (max-width:390px){
+      .clothing-actions { gap:6px; }
+      .clothing-actions .icon-btn { width:36px; min-width:36px; height:36px; flex-basis:36px; }
+    }
+
   </style>
 </head>
 <body>
@@ -46198,6 +46257,1111 @@
 ];
     VOCABULARY.push(...BAB21_REFERENCE_INFO_ROLE_NAMES);
 
+
+    // ===== Minna no Nihongo I - Kata-Kata Referensi dan Informasi - Bab 22 - 衣服 / Pakaian =====
+    const BAB22_REFERENCE_INFO_CLOTHING = [
+      {
+            "id": "mni-b22-ref-clothing-001",
+            "no": "1",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 22",
+            "chapterNumber": 22,
+            "favorite": false,
+            "typeCategory": "Istilah Umum",
+            "typeDetail": "Kelompok Pakaian",
+            "section": "衣服",
+            "sectionReading": "いふく",
+            "sectionMeaning": "Pakaian",
+            "sectionCategory": "衣服（いふく） / Pakaian",
+            "indonesia": "pakaian",
+            "kanji": "衣服",
+            "kana": "いふく",
+            "romaji": "ifuku",
+            "image": "https://iili.io/CGe9KsS.png",
+            "imageAlt": "Ilustrasi berbagai pakaian untuk kosakata 衣服",
+            "isFiction": false,
+            "speech": "いふく",
+            "exampleJa": "旅行の前に、必要な衣服をかばんに入れました。",
+            "exampleReading": "Ryokou no mae ni, hitsuyou na ifuku o kaban ni iremashita.",
+            "exampleId": "Sebelum bepergian, saya memasukkan pakaian yang diperlukan ke dalam tas.",
+            "examples": [
+                  {
+                        "ja": "旅行の前に、必要な衣服をかばんに入れました。",
+                        "reading": "Ryokou no mae ni, hitsuyou na ifuku o kaban ni iremashita.",
+                        "id": "Sebelum bepergian, saya memasukkan pakaian yang diperlukan ke dalam tas."
+                  }
+            ],
+            "catatan": "衣服 adalah istilah umum yang terdengar agak formal untuk menyebut pakaian secara keseluruhan. Dalam percakapan sehari-hari, 服（ふく）lebih sering digunakan. Kata ini cocok saat membahas jenis, jumlah, atau kebutuhan pakaian.",
+            "note": "衣服 adalah istilah umum yang terdengar agak formal untuk menyebut pakaian secara keseluruhan. Dalam percakapan sehari-hari, 服（ふく）lebih sering digunakan. Kata ini cocok saat membahas jenis, jumlah, atau kebutuhan pakaian.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 22 / 衣服（いふく） / Pakaian"
+      },
+      {
+            "id": "mni-b22-ref-clothing-002",
+            "no": "2",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 22",
+            "chapterNumber": 22,
+            "favorite": false,
+            "typeCategory": "Pakaian",
+            "typeDetail": "Setelan Formal",
+            "section": "衣服",
+            "sectionReading": "いふく",
+            "sectionMeaning": "Pakaian",
+            "sectionCategory": "衣服（いふく） / Pakaian",
+            "indonesia": "pakaian setelan / jas",
+            "kanji": "",
+            "kana": "スーツ",
+            "romaji": "suutsu",
+            "image": "https://iili.io/CGe9Jef.png",
+            "imageAlt": "Ilustrasi pakaian setelan untuk kosakata スーツ",
+            "isFiction": false,
+            "speech": "スーツ",
+            "exampleJa": "父は会議の日に新しいスーツを着ます。",
+            "exampleReading": "Chichi wa kaigi no hi ni atarashii suutsu o kimasu.",
+            "exampleId": "Ayah mengenakan setelan baru pada hari rapat.",
+            "examples": [
+                  {
+                        "ja": "父は会議の日に新しいスーツを着ます。",
+                        "reading": "Chichi wa kaigi no hi ni atarashii suutsu o kimasu.",
+                        "id": "Ayah mengenakan setelan baru pada hari rapat."
+                  }
+            ],
+            "catatan": "スーツ adalah kata serapan dari bahasa Inggris “suit” dan biasanya berarti setelan formal yang terdiri atas jas serta celana atau rok senada. Untuk menyatakan memakainya, gunakan スーツを着ます. Kata ini sering muncul dalam konteks kantor, rapat, dan acara resmi.",
+            "note": "スーツ adalah kata serapan dari bahasa Inggris “suit” dan biasanya berarti setelan formal yang terdiri atas jas serta celana atau rok senada. Untuk menyatakan memakainya, gunakan スーツを着ます. Kata ini sering muncul dalam konteks kantor, rapat, dan acara resmi.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 22 / 衣服（いふく） / Pakaian"
+      },
+      {
+            "id": "mni-b22-ref-clothing-003",
+            "no": "3",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 22",
+            "chapterNumber": 22,
+            "favorite": false,
+            "typeCategory": "Pakaian",
+            "typeDetail": "Gaun Terusan",
+            "section": "衣服",
+            "sectionReading": "いふく",
+            "sectionMeaning": "Pakaian",
+            "sectionCategory": "衣服（いふく） / Pakaian",
+            "indonesia": "terusan",
+            "kanji": "",
+            "kana": "ワンピース",
+            "romaji": "wanpiisu",
+            "image": "https://iili.io/CGe9FX2.png",
+            "imageAlt": "Ilustrasi baju terusan untuk kosakata ワンピース",
+            "isFiction": false,
+            "speech": "ワンピース",
+            "exampleJa": "妹は誕生日のパーティーに青いワンピースを着て行きました。",
+            "exampleReading": "Imouto wa tanjoubi no paatii ni aoi wanpiisu o kite ikimashita.",
+            "exampleId": "Adik perempuan pergi ke pesta ulang tahun dengan mengenakan terusan biru.",
+            "examples": [
+                  {
+                        "ja": "妹は誕生日のパーティーに青いワンピースを着て行きました。",
+                        "reading": "Imouto wa tanjoubi no paatii ni aoi wanpiisu o kite ikimashita.",
+                        "id": "Adik perempuan pergi ke pesta ulang tahun dengan mengenakan terusan biru."
+                  }
+            ],
+            "catatan": "ワンピース dalam konteks pakaian berarti baju atau gaun terusan yang bagian atas dan bawahnya menyatu. Meskipun berasal dari “one-piece”, kata ini tidak berarti satu potong benda secara umum. Saat memakainya, gunakan pola ワンピースを着ます.",
+            "note": "ワンピース dalam konteks pakaian berarti baju atau gaun terusan yang bagian atas dan bawahnya menyatu. Meskipun berasal dari “one-piece”, kata ini tidak berarti satu potong benda secara umum. Saat memakainya, gunakan pola ワンピースを着ます.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 22 / 衣服（いふく） / Pakaian"
+      },
+      {
+            "id": "mni-b22-ref-clothing-004",
+            "no": "4",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 22",
+            "chapterNumber": 22,
+            "favorite": false,
+            "typeCategory": "Pakaian",
+            "typeDetail": "Pakaian Bagian Luar",
+            "section": "衣服",
+            "sectionReading": "いふく",
+            "sectionMeaning": "Pakaian",
+            "sectionCategory": "衣服（いふく） / Pakaian",
+            "indonesia": "jas / jaket / pakaian bagian luar",
+            "kanji": "上着",
+            "kana": "うわぎ",
+            "romaji": "uwagi",
+            "image": "https://iili.io/CGe9qq7.png",
+            "imageAlt": "Ilustrasi jaket atau pakaian luar untuk kosakata 上着",
+            "isFiction": false,
+            "speech": "うわぎ",
+            "exampleJa": "外は寒いですから、上着を持って行ってください。",
+            "exampleReading": "Soto wa samui desu kara, uwagi o motte itte kudasai.",
+            "exampleId": "Karena di luar dingin, bawalah pakaian luar.",
+            "examples": [
+                  {
+                        "ja": "外は寒いですから、上着を持って行ってください。",
+                        "reading": "Soto wa samui desu kara, uwagi o motte itte kudasai.",
+                        "id": "Karena di luar dingin, bawalah pakaian luar."
+                  }
+            ],
+            "catatan": "上着 adalah istilah umum untuk pakaian yang dikenakan di bagian luar, misalnya jaket atau jas. Kata ini tidak menunjuk satu model pakaian tertentu. Saat memakainya, biasanya digunakan pola 上着を着ます.",
+            "note": "上着 adalah istilah umum untuk pakaian yang dikenakan di bagian luar, misalnya jaket atau jas. Kata ini tidak menunjuk satu model pakaian tertentu. Saat memakainya, biasanya digunakan pola 上着を着ます.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 22 / 衣服（いふく） / Pakaian"
+      },
+      {
+            "id": "mni-b22-ref-clothing-005",
+            "no": "5",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 22",
+            "chapterNumber": 22,
+            "favorite": false,
+            "typeCategory": "Pakaian Bagian Bawah",
+            "typeDetail": "Celana Panjang",
+            "section": "衣服",
+            "sectionReading": "いふく",
+            "sectionMeaning": "Pakaian",
+            "sectionCategory": "衣服（いふく） / Pakaian",
+            "indonesia": "celana panjang",
+            "kanji": "",
+            "kana": "ズボン",
+            "romaji": "zubon",
+            "image": "https://iili.io/CGe9Cge.png",
+            "imageAlt": "Ilustrasi celana panjang untuk kosakata ズボン",
+            "isFiction": false,
+            "speech": "ズボン",
+            "exampleJa": "このズボンは少し長いので、短くしてください。",
+            "exampleReading": "Kono zubon wa sukoshi nagai node, mijikaku shite kudasai.",
+            "exampleId": "Celana panjang ini agak panjang, jadi tolong dipendekkan.",
+            "examples": [
+                  {
+                        "ja": "このズボンは少し長いので、短くしてください。",
+                        "reading": "Kono zubon wa sukoshi nagai node, mijikaku shite kudasai.",
+                        "id": "Celana panjang ini agak panjang, jadi tolong dipendekkan."
+                  }
+            ],
+            "catatan": "ズボン adalah kata umum untuk celana panjang dan mudah dipahami dalam berbagai situasi. Karena dikenakan dari bagian bawah tubuh, gunakan kata kerja 履きます（はきます）. Jangan memakai 着ます untuk celana.",
+            "note": "ズボン adalah kata umum untuk celana panjang dan mudah dipahami dalam berbagai situasi. Karena dikenakan dari bagian bawah tubuh, gunakan kata kerja 履きます（はきます）. Jangan memakai 着ます untuk celana.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 22 / 衣服（いふく） / Pakaian"
+      },
+      {
+            "id": "mni-b22-ref-clothing-006",
+            "no": "6",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 22",
+            "chapterNumber": 22,
+            "favorite": false,
+            "typeCategory": "Pakaian Bagian Bawah",
+            "typeDetail": "Celana Kasual",
+            "section": "衣服",
+            "sectionReading": "いふく",
+            "sectionMeaning": "Pakaian",
+            "sectionCategory": "衣服（いふく） / Pakaian",
+            "indonesia": "celana panjang",
+            "kanji": "",
+            "kana": "パンツ",
+            "romaji": "pantsu",
+            "image": "https://iili.io/CGe9Y11.png",
+            "imageAlt": "Ilustrasi celana panjang untuk kosakata パンツ",
+            "isFiction": false,
+            "speech": "パンツ",
+            "exampleJa": "店で仕事用の黒いパンツを買いました。",
+            "exampleReading": "Mise de shigoto-you no kuroi pantsu o kaimashita.",
+            "exampleId": "Saya membeli celana panjang hitam untuk bekerja di toko.",
+            "examples": [
+                  {
+                        "ja": "店で仕事用の黒いパンツを買いました。",
+                        "reading": "Mise de shigoto-you no kuroi pantsu o kaimashita.",
+                        "id": "Saya membeli celana panjang hitam untuk bekerja di toko."
+                  }
+            ],
+            "catatan": "Dalam bahasa Jepang modern, パンツ dapat merujuk pada celana panjang maupun pakaian dalam, tergantung konteks dan cara pengucapannya. Dalam materi ini, artinya mengikuti gambar, yaitu celana panjang. Untuk menghindari salah paham, perhatikan konteks pembicaraan atau gunakan ズボン saat ingin menyebut celana panjang dengan sangat jelas.",
+            "note": "Dalam bahasa Jepang modern, パンツ dapat merujuk pada celana panjang maupun pakaian dalam, tergantung konteks dan cara pengucapannya. Dalam materi ini, artinya mengikuti gambar, yaitu celana panjang. Untuk menghindari salah paham, perhatikan konteks pembicaraan atau gunakan ズボン saat ingin menyebut celana panjang dengan sangat jelas.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 22 / 衣服（いふく） / Pakaian"
+      },
+      {
+            "id": "mni-b22-ref-clothing-007",
+            "no": "7",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 22",
+            "chapterNumber": 22,
+            "favorite": false,
+            "typeCategory": "Pakaian Bagian Bawah",
+            "typeDetail": "Celana Denim",
+            "section": "衣服",
+            "sectionReading": "いふく",
+            "sectionMeaning": "Pakaian",
+            "sectionCategory": "衣服（いふく） / Pakaian",
+            "indonesia": "celana jeans",
+            "kanji": "",
+            "kana": "ジーンズ",
+            "romaji": "jiinzu",
+            "image": "https://iili.io/CGe9ldg.png",
+            "imageAlt": "Ilustrasi celana jeans untuk kosakata ジーンズ",
+            "isFiction": false,
+            "speech": "ジーンズ",
+            "exampleJa": "週末はジーンズを履いて、公園を散歩します。",
+            "exampleReading": "Shuumatsu wa jiinzu o haite, kouen o sanpo shimasu.",
+            "exampleId": "Pada akhir pekan saya memakai jeans dan berjalan-jalan di taman.",
+            "examples": [
+                  {
+                        "ja": "週末はジーンズを履いて、公園を散歩します。",
+                        "reading": "Shuumatsu wa jiinzu o haite, kouen o sanpo shimasu.",
+                        "id": "Pada akhir pekan saya memakai jeans dan berjalan-jalan di taman."
+                  }
+            ],
+            "catatan": "ジーンズ berarti celana berbahan denim dan berasal dari kata bahasa Inggris “jeans”. Kata ini biasanya digunakan dalam situasi santai. Karena merupakan celana, pasangan kata kerjanya adalah ジーンズを履きます.",
+            "note": "ジーンズ berarti celana berbahan denim dan berasal dari kata bahasa Inggris “jeans”. Kata ini biasanya digunakan dalam situasi santai. Karena merupakan celana, pasangan kata kerjanya adalah ジーンズを履きます.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 22 / 衣服（いふく） / Pakaian"
+      },
+      {
+            "id": "mni-b22-ref-clothing-008",
+            "no": "8",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 22",
+            "chapterNumber": 22,
+            "favorite": false,
+            "typeCategory": "Pakaian",
+            "typeDetail": "Rok",
+            "section": "衣服",
+            "sectionReading": "いふく",
+            "sectionMeaning": "Pakaian",
+            "sectionCategory": "衣服（いふく） / Pakaian",
+            "indonesia": "rok",
+            "kanji": "",
+            "kana": "スカート",
+            "romaji": "sukaato",
+            "image": "https://iili.io/CGe9arF.png",
+            "imageAlt": "Ilustrasi rok untuk kosakata スカート",
+            "isFiction": false,
+            "speech": "スカート",
+            "exampleJa": "学校の制服のスカートを毎朝きれいにします。",
+            "exampleReading": "Gakkou no seifuku no sukaato o maiasa kirei ni shimasu.",
+            "exampleId": "Setiap pagi saya merapikan rok seragam sekolah.",
+            "examples": [
+                  {
+                        "ja": "学校の制服のスカートを毎朝きれいにします。",
+                        "reading": "Gakkou no seifuku no sukaato o maiasa kirei ni shimasu.",
+                        "id": "Setiap pagi saya merapikan rok seragam sekolah."
+                  }
+            ],
+            "catatan": "スカート adalah kata serapan yang berarti rok. Walaupun termasuk pakaian, kata kerja yang dipakai adalah 履きます karena rok dikenakan dari bagian bawah tubuh. Pola yang umum ialah スカートを履きます.",
+            "note": "スカート adalah kata serapan yang berarti rok. Walaupun termasuk pakaian, kata kerja yang dipakai adalah 履きます karena rok dikenakan dari bagian bawah tubuh. Pola yang umum ialah スカートを履きます.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 22 / 衣服（いふく） / Pakaian"
+      },
+      {
+            "id": "mni-b22-ref-clothing-009",
+            "no": "9",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 22",
+            "chapterNumber": 22,
+            "favorite": false,
+            "typeCategory": "Pakaian",
+            "typeDetail": "Atasan Wanita",
+            "section": "衣服",
+            "sectionReading": "いふく",
+            "sectionMeaning": "Pakaian",
+            "sectionCategory": "衣服（いふく） / Pakaian",
+            "indonesia": "blus",
+            "kanji": "",
+            "kana": "ブラウス",
+            "romaji": "burausu",
+            "image": "https://iili.io/CGe91kJ.png",
+            "imageAlt": "Ilustrasi blus untuk kosakata ブラウス",
+            "isFiction": false,
+            "speech": "ブラウス",
+            "exampleJa": "白いブラウスはこのスカートによく合います。",
+            "exampleReading": "Shiroi burausu wa kono sukaato ni yoku aimasu.",
+            "exampleId": "Blus putih cocok sekali dengan rok ini.",
+            "examples": [
+                  {
+                        "ja": "白いブラウスはこのスカートによく合います。",
+                        "reading": "Shiroi burausu wa kono sukaato ni yoku aimasu.",
+                        "id": "Blus putih cocok sekali dengan rok ini."
+                  }
+            ],
+            "catatan": "ブラウス berarti blus dan biasanya merujuk pada atasan yang rapi, terutama untuk wanita. Kata ini sering dipakai dalam konteks pakaian kerja atau acara semi-formal. Untuk menyatakan mengenakannya, gunakan ブラウスを着ます.",
+            "note": "ブラウス berarti blus dan biasanya merujuk pada atasan yang rapi, terutama untuk wanita. Kata ini sering dipakai dalam konteks pakaian kerja atau acara semi-formal. Untuk menyatakan mengenakannya, gunakan ブラウスを着ます.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 22 / 衣服（いふく） / Pakaian"
+      },
+      {
+            "id": "mni-b22-ref-clothing-010",
+            "no": "10",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 22",
+            "chapterNumber": 22,
+            "favorite": false,
+            "typeCategory": "Pakaian",
+            "typeDetail": "Kemeja Formal",
+            "section": "衣服",
+            "sectionReading": "いふく",
+            "sectionMeaning": "Pakaian",
+            "sectionCategory": "衣服（いふく） / Pakaian",
+            "indonesia": "kemeja",
+            "kanji": "",
+            "kana": "ワイシャツ",
+            "romaji": "waishatsu",
+            "image": "https://iili.io/CGe9e7s.png",
+            "imageAlt": "Ilustrasi kemeja formal untuk kosakata ワイシャツ",
+            "isFiction": false,
+            "speech": "ワイシャツ",
+            "exampleJa": "会社へ行く前に、ワイシャツにアイロンをかけました。",
+            "exampleReading": "Kaisha e iku mae ni, waishatsu ni airon o kakemashita.",
+            "exampleId": "Sebelum pergi ke kantor, saya menyetrika kemeja formal.",
+            "examples": [
+                  {
+                        "ja": "会社へ行く前に、ワイシャツにアイロンをかけました。",
+                        "reading": "Kaisha e iku mae ni, waishatsu ni airon o kakemashita.",
+                        "id": "Sebelum pergi ke kantor, saya menyetrika kemeja formal."
+                  }
+            ],
+            "catatan": "ワイシャツ berarti kemeja formal atau dress shirt, bukan semua jenis kemeja. Istilah シャツ memiliki arti yang lebih luas dan dapat mencakup kaus atau kemeja kasual. Saat mengenakannya, gunakan ワイシャツを着ます.",
+            "note": "ワイシャツ berarti kemeja formal atau dress shirt, bukan semua jenis kemeja. Istilah シャツ memiliki arti yang lebih luas dan dapat mencakup kaus atau kemeja kasual. Saat mengenakannya, gunakan ワイシャツを着ます.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 22 / 衣服（いふく） / Pakaian"
+      },
+      {
+            "id": "mni-b22-ref-clothing-011",
+            "no": "11",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 22",
+            "chapterNumber": 22,
+            "favorite": false,
+            "typeCategory": "Pakaian",
+            "typeDetail": "Baju Hangat Rajut",
+            "section": "衣服",
+            "sectionReading": "いふく",
+            "sectionMeaning": "Pakaian",
+            "sectionCategory": "衣服（いふく） / Pakaian",
+            "indonesia": "sweter / baju hangat",
+            "kanji": "",
+            "kana": "セーター",
+            "romaji": "seetaa",
+            "image": "https://iili.io/CGe94BS.png",
+            "imageAlt": "Ilustrasi sweter untuk kosakata セーター",
+            "isFiction": false,
+            "speech": "セーター",
+            "exampleJa": "寒くなったので、押し入れからセーターを出しました。",
+            "exampleReading": "Samuku natta node, oshiire kara seetaa o dashimashita.",
+            "exampleId": "Karena mulai dingin, saya mengeluarkan sweter dari lemari.",
+            "examples": [
+                  {
+                        "ja": "寒くなったので、押し入れからセーターを出しました。",
+                        "reading": "Samuku natta node, oshiire kara seetaa o dashimashita.",
+                        "id": "Karena mulai dingin, saya mengeluarkan sweter dari lemari."
+                  }
+            ],
+            "catatan": "セーター adalah baju rajut hangat yang biasa dipakai pada musim gugur atau musim dingin. Kata ini berasal dari bahasa Inggris “sweater”. Karena menutupi bagian atas tubuh, gunakan セーターを着ます.",
+            "note": "セーター adalah baju rajut hangat yang biasa dipakai pada musim gugur atau musim dingin. Kata ini berasal dari bahasa Inggris “sweater”. Karena menutupi bagian atas tubuh, gunakan セーターを着ます.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 22 / 衣服（いふく） / Pakaian"
+      },
+      {
+            "id": "mni-b22-ref-clothing-012",
+            "no": "12",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 22",
+            "chapterNumber": 22,
+            "favorite": false,
+            "typeCategory": "Aksesori Pakaian",
+            "typeDetail": "Syal",
+            "section": "衣服",
+            "sectionReading": "いふく",
+            "sectionMeaning": "Pakaian",
+            "sectionCategory": "衣服（いふく） / Pakaian",
+            "indonesia": "syal / selendang",
+            "kanji": "",
+            "kana": "マフラー",
+            "romaji": "mafuraa",
+            "image": "https://iili.io/CGe9gQ2.png",
+            "imageAlt": "Ilustrasi syal untuk kosakata マフラー",
+            "isFiction": false,
+            "speech": "マフラー",
+            "exampleJa": "雪の日は赤いマフラーをして出かけます。",
+            "exampleReading": "Yuki no hi wa akai mafuraa o shite dekakemasu.",
+            "exampleId": "Pada hari bersalju saya pergi keluar dengan memakai syal merah.",
+            "examples": [
+                  {
+                        "ja": "雪の日は赤いマフラーをして出かけます。",
+                        "reading": "Yuki no hi wa akai mafuraa o shite dekakemasu.",
+                        "id": "Pada hari bersalju saya pergi keluar dengan memakai syal merah."
+                  }
+            ],
+            "catatan": "Dalam konteks pakaian, マフラー berarti syal yang dipakai untuk menghangatkan leher. Dalam konteks kendaraan, kata yang sama juga dapat berarti knalpot. Untuk pakaian, pola yang umum ialah マフラーをします atau マフラーを巻きます.",
+            "note": "Dalam konteks pakaian, マフラー berarti syal yang dipakai untuk menghangatkan leher. Dalam konteks kendaraan, kata yang sama juga dapat berarti knalpot. Untuk pakaian, pola yang umum ialah マフラーをします atau マフラーを巻きます.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 22 / 衣服（いふく） / Pakaian"
+      },
+      {
+            "id": "mni-b22-ref-clothing-013",
+            "no": "13",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 22",
+            "chapterNumber": 22,
+            "favorite": false,
+            "typeCategory": "Aksesori Pakaian",
+            "typeDetail": "Pelindung Tangan",
+            "section": "衣服",
+            "sectionReading": "いふく",
+            "sectionMeaning": "Pakaian",
+            "sectionCategory": "衣服（いふく） / Pakaian",
+            "indonesia": "sarung tangan",
+            "kanji": "手袋",
+            "kana": "てぶくろ",
+            "romaji": "tebukuro",
+            "image": "https://iili.io/CGe9Qkb.png",
+            "imageAlt": "Ilustrasi sarung tangan untuk kosakata 手袋",
+            "isFiction": false,
+            "speech": "てぶくろ",
+            "exampleJa": "自転車に乗るとき、手袋をはめます。",
+            "exampleReading": "Jitensha ni noru toki, tebukuro o hamemasu.",
+            "exampleId": "Saat naik sepeda, saya memakai sarung tangan.",
+            "examples": [
+                  {
+                        "ja": "自転車に乗るとき、手袋をはめます。",
+                        "reading": "Jitensha ni noru toki, tebukuro o hamemasu.",
+                        "id": "Saat naik sepeda, saya memakai sarung tangan."
+                  }
+            ],
+            "catatan": "手袋 secara harfiah tersusun dari 手 “tangan” dan 袋 “kantong”. Kata kerja yang alami untuk memakainya adalah はめます, walaupun します juga dapat terdengar dalam percakapan. Sarung tangan sering dipakai untuk cuaca dingin, berkendara, atau bekerja.",
+            "note": "手袋 secara harfiah tersusun dari 手 “tangan” dan 袋 “kantong”. Kata kerja yang alami untuk memakainya adalah はめます, walaupun します juga dapat terdengar dalam percakapan. Sarung tangan sering dipakai untuk cuaca dingin, berkendara, atau bekerja.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 22 / 衣服（いふく） / Pakaian"
+      },
+      {
+            "id": "mni-b22-ref-clothing-014",
+            "no": "14",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 22",
+            "chapterNumber": 22,
+            "favorite": false,
+            "typeCategory": "Pakaian Dalam dan Kaus Kaki",
+            "typeDetail": "Pakaian Dalam Umum",
+            "section": "衣服",
+            "sectionReading": "いふく",
+            "sectionMeaning": "Pakaian",
+            "sectionCategory": "衣服（いふく） / Pakaian",
+            "indonesia": "pakaian dalam",
+            "kanji": "下着",
+            "kana": "したぎ",
+            "romaji": "shitagi",
+            "image": "https://iili.io/CGe9Zpj.png",
+            "imageAlt": "Ilustrasi pakaian dalam untuk kosakata 下着",
+            "isFiction": false,
+            "speech": "したぎ",
+            "exampleJa": "旅行には下着を三枚持って行きます。",
+            "exampleReading": "Ryokou ni wa shitagi o sanmai motte ikimasu.",
+            "exampleId": "Untuk perjalanan, saya membawa tiga potong pakaian dalam.",
+            "examples": [
+                  {
+                        "ja": "旅行には下着を三枚持って行きます。",
+                        "reading": "Ryokou ni wa shitagi o sanmai motte ikimasu.",
+                        "id": "Untuk perjalanan, saya membawa tiga potong pakaian dalam."
+                  }
+            ],
+            "catatan": "下着 merupakan istilah umum untuk pakaian dalam. Kata 下 berarti “bawah” dan 着 berkaitan dengan pakaian yang dikenakan. Gunakan kata ini ketika tidak perlu menyebut jenis pakaian dalam secara khusus.",
+            "note": "下着 merupakan istilah umum untuk pakaian dalam. Kata 下 berarti “bawah” dan 着 berkaitan dengan pakaian yang dikenakan. Gunakan kata ini ketika tidak perlu menyebut jenis pakaian dalam secara khusus.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 22 / 衣服（いふく） / Pakaian"
+      },
+      {
+            "id": "mni-b22-ref-clothing-015",
+            "no": "15",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 22",
+            "chapterNumber": 22,
+            "favorite": false,
+            "typeCategory": "Pakaian Dalam dan Kaus Kaki",
+            "typeDetail": "Kaus Kaki",
+            "section": "衣服",
+            "sectionReading": "いふく",
+            "sectionMeaning": "Pakaian",
+            "sectionCategory": "衣服（いふく） / Pakaian",
+            "indonesia": "kaus kaki",
+            "kanji": "",
+            "kana": "くつした",
+            "romaji": "kutsushita",
+            "image": "https://iili.io/CGeH2Yg.png",
+            "imageAlt": "Ilustrasi kaus kaki untuk kosakata くつした",
+            "isFiction": false,
+            "speech": "くつした",
+            "exampleJa": "弟のくつしたはベッドの下にあります。",
+            "exampleReading": "Otouto no kutsushita wa beddo no shita ni arimasu.",
+            "exampleId": "Kaus kaki adik laki-laki berada di bawah tempat tidur.",
+            "examples": [
+                  {
+                        "ja": "弟のくつしたはベッドの下にあります。",
+                        "reading": "Otouto no kutsushita wa beddo no shita ni arimasu.",
+                        "id": "Kaus kaki adik laki-laki berada di bawah tempat tidur."
+                  }
+            ],
+            "catatan": "くつした juga sering ditulis dengan kanji 靴下, yang secara harfiah berarti “di bawah sepatu”. Karena dipakai pada kaki, gunakan くつしたを履きます. Sepasang kaus kaki dapat dihitung dengan satuan 足（そく）.",
+            "note": "くつした juga sering ditulis dengan kanji 靴下, yang secara harfiah berarti “di bawah sepatu”. Karena dipakai pada kaki, gunakan くつしたを履きます. Sepasang kaus kaki dapat dihitung dengan satuan 足（そく）.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 22 / 衣服（いふく） / Pakaian"
+      },
+      {
+            "id": "mni-b22-ref-clothing-016",
+            "no": "16",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 22",
+            "chapterNumber": 22,
+            "favorite": false,
+            "typeCategory": "Pakaian Dalam dan Kaus Kaki",
+            "typeDetail": "Pakaian Dalam Wanita",
+            "section": "衣服",
+            "sectionReading": "いふく",
+            "sectionMeaning": "Pakaian",
+            "sectionCategory": "衣服（いふく） / Pakaian",
+            "indonesia": "celana dalam wanita",
+            "kanji": "",
+            "kana": "パンティー",
+            "romaji": "pantii",
+            "image": "https://iili.io/CGeHBQp.png",
+            "imageAlt": "Ilustrasi celana dalam wanita untuk kosakata パンティー",
+            "isFiction": false,
+            "speech": "パンティー",
+            "exampleJa": "この店では女性用のパンティーも売っています。",
+            "exampleReading": "Kono mise de wa josei-you no pantii mo utte imasu.",
+            "exampleId": "Di toko ini juga dijual celana dalam wanita.",
+            "examples": [
+                  {
+                        "ja": "この店では女性用のパンティーも売っています。",
+                        "reading": "Kono mise de wa josei-you no pantii mo utte imasu.",
+                        "id": "Di toko ini juga dijual celana dalam wanita."
+                  }
+            ],
+            "catatan": "パンティー secara khusus merujuk pada celana dalam wanita sehingga penggunaannya lebih terbatas. Untuk menyebut pakaian dalam secara umum, 下着 lebih aman dan netral. Kata ini biasanya muncul pada label produk atau bagian pakaian dalam di toko.",
+            "note": "パンティー secara khusus merujuk pada celana dalam wanita sehingga penggunaannya lebih terbatas. Untuk menyebut pakaian dalam secara umum, 下着 lebih aman dan netral. Kata ini biasanya muncul pada label produk atau bagian pakaian dalam di toko.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 22 / 衣服（いふく） / Pakaian"
+      },
+      {
+            "id": "mni-b22-ref-clothing-017",
+            "no": "17",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 22",
+            "chapterNumber": 22,
+            "favorite": false,
+            "typeCategory": "Pakaian Dalam dan Kaus Kaki",
+            "typeDetail": "Stoking",
+            "section": "衣服",
+            "sectionReading": "いふく",
+            "sectionMeaning": "Pakaian",
+            "sectionCategory": "衣服（いふく） / Pakaian",
+            "indonesia": "stoking",
+            "kanji": "",
+            "kana": "ストッキング",
+            "romaji": "sutokkingu",
+            "image": "https://iili.io/CGeHnCN.png",
+            "imageAlt": "Ilustrasi stoking untuk kosakata ストッキング",
+            "isFiction": false,
+            "speech": "ストッキング",
+            "exampleJa": "結婚式の日、姉はベージュのストッキングを履きました。",
+            "exampleReading": "Kekkonshiki no hi, ane wa beeju no sutokkingu o hakimashita.",
+            "exampleId": "Pada hari pernikahan, kakak perempuan memakai stoking berwarna beige.",
+            "examples": [
+                  {
+                        "ja": "結婚式の日、姉はベージュのストッキングを履きました。",
+                        "reading": "Kekkonshiki no hi, ane wa beeju no sutokkingu o hakimashita.",
+                        "id": "Pada hari pernikahan, kakak perempuan memakai stoking berwarna beige."
+                  }
+            ],
+            "catatan": "ストッキング adalah penutup kaki tipis yang biasanya panjang hingga paha atau pinggang. Kata ini berbeda dari くつした yang berarti kaus kaki biasa. Karena dikenakan dari kaki, gunakan ストッキングを履きます.",
+            "note": "ストッキング adalah penutup kaki tipis yang biasanya panjang hingga paha atau pinggang. Kata ini berbeda dari くつした yang berarti kaus kaki biasa. Karena dikenakan dari kaki, gunakan ストッキングを履きます.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 22 / 衣服（いふく） / Pakaian"
+      },
+      {
+            "id": "mni-b22-ref-clothing-018",
+            "no": "18",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 22",
+            "chapterNumber": 22,
+            "favorite": false,
+            "typeCategory": "Pakaian Tradisional Jepang",
+            "typeDetail": "Kimono",
+            "section": "衣服",
+            "sectionReading": "いふく",
+            "sectionMeaning": "Pakaian",
+            "sectionCategory": "衣服（いふく） / Pakaian",
+            "indonesia": "kimono / pakaian tradisional Jepang",
+            "kanji": "着物",
+            "kana": "きもの",
+            "romaji": "kimono",
+            "image": "https://iili.io/CGeHoGI.png",
+            "imageAlt": "Ilustrasi kimono untuk kosakata 着物",
+            "isFiction": false,
+            "speech": "きもの",
+            "exampleJa": "成人式で姉はきれいな着物を着ました。",
+            "exampleReading": "Seijinshiki de ane wa kirei na kimono o kimashita.",
+            "exampleId": "Pada upacara kedewasaan, kakak perempuan mengenakan kimono yang indah.",
+            "examples": [
+                  {
+                        "ja": "成人式で姉はきれいな着物を着ました。",
+                        "reading": "Seijinshiki de ane wa kirei na kimono o kimashita.",
+                        "id": "Pada upacara kedewasaan, kakak perempuan mengenakan kimono yang indah."
+                  }
+            ],
+            "catatan": "Secara harfiah, 着物 dapat berarti “benda yang dikenakan” atau pakaian. Namun, dalam penggunaan modern kata ini biasanya merujuk pada pakaian tradisional Jepang. Karena menutupi tubuh bagian atas, gunakan 着物を着ます.",
+            "note": "Secara harfiah, 着物 dapat berarti “benda yang dikenakan” atau pakaian. Namun, dalam penggunaan modern kata ini biasanya merujuk pada pakaian tradisional Jepang. Karena menutupi tubuh bagian atas, gunakan 着物を着ます.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 22 / 衣服（いふく） / Pakaian"
+      },
+      {
+            "id": "mni-b22-ref-clothing-019",
+            "no": "19",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 22",
+            "chapterNumber": 22,
+            "favorite": false,
+            "typeCategory": "Aksesori Pakaian",
+            "typeDetail": "Ikat Pinggang Kimono",
+            "section": "衣服",
+            "sectionReading": "いふく",
+            "sectionMeaning": "Pakaian",
+            "sectionCategory": "衣服（いふく） / Pakaian",
+            "indonesia": "obi / ikat pinggang kimono",
+            "kanji": "帯",
+            "kana": "おび",
+            "romaji": "obi",
+            "image": "https://iili.io/CGeH7j4.png",
+            "imageAlt": "Ilustrasi obi untuk kosakata 帯",
+            "isFiction": false,
+            "speech": "おび",
+            "exampleJa": "店員さんが着物に合う帯を選んでくれました。",
+            "exampleReading": "Ten'in-san ga kimono ni au obi o erande kuremashita.",
+            "exampleId": "Pramuniaga memilihkan obi yang cocok dengan kimono.",
+            "examples": [
+                  {
+                        "ja": "店員さんが着物に合う帯を選んでくれました。",
+                        "reading": "Ten'in-san ga kimono ni au obi o erande kuremashita.",
+                        "id": "Pramuniaga memilihkan obi yang cocok dengan kimono."
+                  }
+            ],
+            "catatan": "帯 atau obi adalah kain lebar yang diikat pada bagian pinggang ketika memakai kimono. Bentuk dan cara mengikatnya dapat berbeda menurut jenis kimono serta acaranya. Kata kerja yang sering dipakai ialah 帯を締めます atau 帯を結びます.",
+            "note": "帯 atau obi adalah kain lebar yang diikat pada bagian pinggang ketika memakai kimono. Bentuk dan cara mengikatnya dapat berbeda menurut jenis kimono serta acaranya. Kata kerja yang sering dipakai ialah 帯を締めます atau 帯を結びます.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 22 / 衣服（いふく） / Pakaian"
+      },
+      {
+            "id": "mni-b22-ref-clothing-020",
+            "no": "20",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 22",
+            "chapterNumber": 22,
+            "favorite": false,
+            "typeCategory": "Pakaian Luar",
+            "typeDetail": "Mantel Musim Dingin",
+            "section": "衣服",
+            "sectionReading": "いふく",
+            "sectionMeaning": "Pakaian",
+            "sectionCategory": "衣服（いふく） / Pakaian",
+            "indonesia": "mantel",
+            "kanji": "",
+            "kana": "オーバーコート",
+            "romaji": "oobaakooto",
+            "image": "https://iili.io/CGeH067.png",
+            "imageAlt": "Ilustrasi mantel untuk kosakata オーバーコート",
+            "isFiction": false,
+            "speech": "オーバーコート",
+            "exampleJa": "北海道へ行くので、厚いオーバーコートを用意しました。",
+            "exampleReading": "Hokkaidou e iku node, atsui oobaakooto o youi shimashita.",
+            "exampleId": "Karena akan pergi ke Hokkaido, saya menyiapkan mantel tebal.",
+            "examples": [
+                  {
+                        "ja": "北海道へ行くので、厚いオーバーコートを用意しました。",
+                        "reading": "Hokkaidou e iku node, atsui oobaakooto o youi shimashita.",
+                        "id": "Karena akan pergi ke Hokkaido, saya menyiapkan mantel tebal."
+                  }
+            ],
+            "catatan": "オーバーコート adalah mantel luar yang panjang dan biasanya dipakai saat cuaca dingin. Dalam percakapan, bentuk pendek コート juga sangat umum. Untuk menyatakan memakainya, gunakan オーバーコートを着ます.",
+            "note": "オーバーコート adalah mantel luar yang panjang dan biasanya dipakai saat cuaca dingin. Dalam percakapan, bentuk pendek コート juga sangat umum. Untuk menyatakan memakainya, gunakan オーバーコートを着ます.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 22 / 衣服（いふく） / Pakaian"
+      },
+      {
+            "id": "mni-b22-ref-clothing-021",
+            "no": "21",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 22",
+            "chapterNumber": 22,
+            "favorite": false,
+            "typeCategory": "Pakaian Luar",
+            "typeDetail": "Pelindung Hujan",
+            "section": "衣服",
+            "sectionReading": "いふく",
+            "sectionMeaning": "Pakaian",
+            "sectionCategory": "衣服（いふく） / Pakaian",
+            "indonesia": "jas hujan",
+            "kanji": "",
+            "kana": "レインコート",
+            "romaji": "reinkooto",
+            "image": "https://iili.io/CGeHGae.png",
+            "imageAlt": "Ilustrasi jas hujan untuk kosakata レインコート",
+            "isFiction": false,
+            "speech": "レインコート",
+            "exampleJa": "雨が強かったので、レインコートを着て駅まで歩きました。",
+            "exampleReading": "Ame ga tsuyokatta node, reinkooto o kite eki made arukimashita.",
+            "exampleId": "Karena hujan deras, saya berjalan sampai stasiun dengan mengenakan jas hujan.",
+            "examples": [
+                  {
+                        "ja": "雨が強かったので、レインコートを着て駅まで歩きました。",
+                        "reading": "Ame ga tsuyokatta node, reinkooto o kite eki made arukimashita.",
+                        "id": "Karena hujan deras, saya berjalan sampai stasiun dengan mengenakan jas hujan."
+                  }
+            ],
+            "catatan": "レインコート adalah mantel tahan air yang dipakai untuk melindungi tubuh dari hujan. Kata ini berasal dari bahasa Inggris “raincoat”. Gunakan pola レインコートを着ます, sedangkan payung memakai kata kerja さします.",
+            "note": "レインコート adalah mantel tahan air yang dipakai untuk melindungi tubuh dari hujan. Kata ini berasal dari bahasa Inggris “raincoat”. Gunakan pola レインコートを着ます, sedangkan payung memakai kata kerja さします.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 22 / 衣服（いふく） / Pakaian"
+      },
+      {
+            "id": "mni-b22-ref-clothing-022",
+            "no": "22",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 22",
+            "chapterNumber": 22,
+            "favorite": false,
+            "typeCategory": "Aksesori Pakaian",
+            "typeDetail": "Dasi Formal",
+            "section": "衣服",
+            "sectionReading": "いふく",
+            "sectionMeaning": "Pakaian",
+            "sectionCategory": "衣服（いふく） / Pakaian",
+            "indonesia": "dasi",
+            "kanji": "",
+            "kana": "ネクタイ",
+            "romaji": "nekutai",
+            "image": "https://iili.io/CGeHlGS.png",
+            "imageAlt": "Ilustrasi dasi untuk kosakata ネクタイ",
+            "isFiction": false,
+            "speech": "ネクタイ",
+            "exampleJa": "面接の前に、鏡を見ながらネクタイをしました。",
+            "exampleReading": "Mensetsu no mae ni, kagami o minagara nekutai o shimashita.",
+            "exampleId": "Sebelum wawancara, saya memakai dasi sambil melihat cermin.",
+            "examples": [
+                  {
+                        "ja": "面接の前に、鏡を見ながらネクタイをしました。",
+                        "reading": "Mensetsu no mae ni, kagami o minagara nekutai o shimashita.",
+                        "id": "Sebelum wawancara, saya memakai dasi sambil melihat cermin."
+                  }
+            ],
+            "catatan": "ネクタイ adalah dasi yang biasa dipakai bersama kemeja atau setelan formal. Pola pemula yang mudah adalah ネクタイをします. Kata ネクタイを締めます juga dipakai ketika menekankan tindakan mengencangkan atau mengikat dasi.",
+            "note": "ネクタイ adalah dasi yang biasa dipakai bersama kemeja atau setelan formal. Pola pemula yang mudah adalah ネクタイをします. Kata ネクタイを締めます juga dipakai ketika menekankan tindakan mengencangkan atau mengikat dasi.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 22 / 衣服（いふく） / Pakaian"
+      },
+      {
+            "id": "mni-b22-ref-clothing-023",
+            "no": "23",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 22",
+            "chapterNumber": 22,
+            "favorite": false,
+            "typeCategory": "Aksesori Pakaian",
+            "typeDetail": "Ikat Pinggang",
+            "section": "衣服",
+            "sectionReading": "いふく",
+            "sectionMeaning": "Pakaian",
+            "sectionCategory": "衣服（いふく） / Pakaian",
+            "indonesia": "ikat pinggang",
+            "kanji": "",
+            "kana": "ベルト",
+            "romaji": "beruto",
+            "image": "https://iili.io/CGeHM8u.png",
+            "imageAlt": "Ilustrasi ikat pinggang untuk kosakata ベルト",
+            "isFiction": false,
+            "speech": "ベルト",
+            "exampleJa": "このベルトは長すぎるので、もう少し短い物がほしいです。",
+            "exampleReading": "Kono beruto wa nagasugiru node, mou sukoshi mijikai mono ga hoshii desu.",
+            "exampleId": "Ikat pinggang ini terlalu panjang, jadi saya ingin yang sedikit lebih pendek.",
+            "examples": [
+                  {
+                        "ja": "このベルトは長すぎるので、もう少し短い物がほしいです。",
+                        "reading": "Kono beruto wa nagasugiru node, mou sukoshi mijikai mono ga hoshii desu.",
+                        "id": "Ikat pinggang ini terlalu panjang, jadi saya ingin yang sedikit lebih pendek."
+                  }
+            ],
+            "catatan": "ベルト adalah ikat pinggang modern yang biasanya dipakai bersama celana. Untuk menyatakan pemakaian, gunakan ベルトをします atau ベルトを締めます. Jangan tertukar dengan 帯, yaitu kain lebar yang dipakai bersama kimono.",
+            "note": "ベルト adalah ikat pinggang modern yang biasanya dipakai bersama celana. Untuk menyatakan pemakaian, gunakan ベルトをします atau ベルトを締めます. Jangan tertukar dengan 帯, yaitu kain lebar yang dipakai bersama kimono.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 22 / 衣服（いふく） / Pakaian"
+      },
+      {
+            "id": "mni-b22-ref-clothing-024",
+            "no": "24",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 22",
+            "chapterNumber": 22,
+            "favorite": false,
+            "typeCategory": "Alas Kaki",
+            "typeDetail": "Sepatu Hak Tinggi",
+            "section": "衣服",
+            "sectionReading": "いふく",
+            "sectionMeaning": "Pakaian",
+            "sectionCategory": "衣服（いふく） / Pakaian",
+            "indonesia": "sepatu hak tinggi",
+            "kanji": "",
+            "kana": "ハイヒール",
+            "romaji": "haihiiru",
+            "image": "https://iili.io/CGeHOMB.png",
+            "imageAlt": "Ilustrasi sepatu hak tinggi untuk kosakata ハイヒール",
+            "isFiction": false,
+            "speech": "ハイヒール",
+            "exampleJa": "長い時間歩く日は、ハイヒールを履きません。",
+            "exampleReading": "Nagai jikan aruku hi wa, haihiiru o hakimasen.",
+            "exampleId": "Pada hari ketika harus berjalan lama, saya tidak memakai sepatu hak tinggi.",
+            "examples": [
+                  {
+                        "ja": "長い時間歩く日は、ハイヒールを履きません。",
+                        "reading": "Nagai jikan aruku hi wa, haihiiru o hakimasen.",
+                        "id": "Pada hari ketika harus berjalan lama, saya tidak memakai sepatu hak tinggi."
+                  }
+            ],
+            "catatan": "ハイヒール berarti sepatu dengan hak tinggi dan berasal dari bahasa Inggris “high heels”. Dalam bahasa Jepang, kata ini dapat menyebut jenis sepatunya secara umum. Karena merupakan alas kaki, gunakan ハイヒールを履きます.",
+            "note": "ハイヒール berarti sepatu dengan hak tinggi dan berasal dari bahasa Inggris “high heels”. Dalam bahasa Jepang, kata ini dapat menyebut jenis sepatunya secara umum. Karena merupakan alas kaki, gunakan ハイヒールを履きます.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 22 / 衣服（いふく） / Pakaian"
+      },
+      {
+            "id": "mni-b22-ref-clothing-025",
+            "no": "25",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 22",
+            "chapterNumber": 22,
+            "favorite": false,
+            "typeCategory": "Alas Kaki",
+            "typeDetail": "Sepatu Bot",
+            "section": "衣服",
+            "sectionReading": "いふく",
+            "sectionMeaning": "Pakaian",
+            "sectionCategory": "衣服（いふく） / Pakaian",
+            "indonesia": "sepatu bot",
+            "kanji": "",
+            "kana": "ブーツ",
+            "romaji": "buutsu",
+            "image": "https://iili.io/CGeHrAJ.png",
+            "imageAlt": "Ilustrasi sepatu bot untuk kosakata ブーツ",
+            "isFiction": false,
+            "speech": "ブーツ",
+            "exampleJa": "雪道を歩くために、防水のブーツを買いました。",
+            "exampleReading": "Yukimichi o aruku tame ni, bousui no buutsu o kaimashita.",
+            "exampleId": "Saya membeli sepatu bot tahan air untuk berjalan di jalan bersalju.",
+            "examples": [
+                  {
+                        "ja": "雪道を歩くために、防水のブーツを買いました。",
+                        "reading": "Yukimichi o aruku tame ni, bousui no buutsu o kaimashita.",
+                        "id": "Saya membeli sepatu bot tahan air untuk berjalan di jalan bersalju."
+                  }
+            ],
+            "catatan": "ブーツ adalah sepatu bot yang menutupi kaki hingga pergelangan atau lebih tinggi. Kata ini dapat digunakan untuk sepatu musim dingin, hujan, maupun mode. Gunakan ブーツを履きます saat menyatakan memakainya.",
+            "note": "ブーツ adalah sepatu bot yang menutupi kaki hingga pergelangan atau lebih tinggi. Kata ini dapat digunakan untuk sepatu musim dingin, hujan, maupun mode. Gunakan ブーツを履きます saat menyatakan memakainya.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 22 / 衣服（いふく） / Pakaian"
+      },
+      {
+            "id": "mni-b22-ref-clothing-026",
+            "no": "26",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 22",
+            "chapterNumber": 22,
+            "favorite": false,
+            "typeCategory": "Alas Kaki",
+            "typeDetail": "Sepatu Olahraga",
+            "section": "衣服",
+            "sectionReading": "いふく",
+            "sectionMeaning": "Pakaian",
+            "sectionCategory": "衣服（いふく） / Pakaian",
+            "indonesia": "sepatu olahraga",
+            "kanji": "運動靴",
+            "kana": "うんどうぐつ",
+            "romaji": "undougutsu",
+            "image": "https://iili.io/CGeHg9a.png",
+            "imageAlt": "Ilustrasi sepatu olahraga untuk kosakata 運動靴",
+            "isFiction": false,
+            "speech": "うんどうぐつ",
+            "exampleJa": "体育の授業では白い運動靴を履いてください。",
+            "exampleReading": "Taiiku no jugyou de wa shiroi undougutsu o haite kudasai.",
+            "exampleId": "Dalam pelajaran olahraga, silakan memakai sepatu olahraga putih.",
+            "examples": [
+                  {
+                        "ja": "体育の授業では白い運動靴を履いてください。",
+                        "reading": "Taiiku no jugyou de wa shiroi undougutsu o haite kudasai.",
+                        "id": "Dalam pelajaran olahraga, silakan memakai sepatu olahraga putih."
+                  }
+            ],
+            "catatan": "運動靴 secara harfiah berarti “sepatu untuk bergerak atau berolahraga”. Kata ini dapat merujuk pada sneakers atau sepatu olahraga secara umum. Karena merupakan alas kaki, gunakan 運動靴を履きます.",
+            "note": "運動靴 secara harfiah berarti “sepatu untuk bergerak atau berolahraga”. Kata ini dapat merujuk pada sneakers atau sepatu olahraga secara umum. Karena merupakan alas kaki, gunakan 運動靴を履きます.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 22 / 衣服（いふく） / Pakaian"
+      },
+      {
+            "id": "mni-b22-ref-clothing-027",
+            "no": "27",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 22",
+            "chapterNumber": 22,
+            "favorite": false,
+            "typeCategory": "Alas Kaki",
+            "typeDetail": "Sandal Tradisional",
+            "section": "衣服",
+            "sectionReading": "いふく",
+            "sectionMeaning": "Pakaian",
+            "sectionCategory": "衣服（いふく） / Pakaian",
+            "indonesia": "zori / sandal tradisional Jepang",
+            "kanji": "",
+            "kana": "ぞうり",
+            "romaji": "zouri",
+            "image": "https://iili.io/CGeH4wv.png",
+            "imageAlt": "Ilustrasi zori untuk kosakata ぞうり",
+            "isFiction": false,
+            "speech": "ぞうり",
+            "exampleJa": "旅館で浴衣に着替えて、ぞうりを履きました。",
+            "exampleReading": "Ryokan de yukata ni kigaete, zouri o hakimashita.",
+            "exampleId": "Di penginapan Jepang, saya berganti ke yukata lalu memakai zori.",
+            "examples": [
+                  {
+                        "ja": "旅館で浴衣に着替えて、ぞうりを履きました。",
+                        "reading": "Ryokan de yukata ni kigaete, zouri o hakimashita.",
+                        "id": "Di penginapan Jepang, saya berganti ke yukata lalu memakai zori."
+                  }
+            ],
+            "catatan": "ぞうり atau zori merupakan sandal tradisional Jepang dan berbeda dari sandal modern biasa. Zori sering dipadukan dengan kimono atau yukata dan dikenakan bersama tabi pada acara tertentu. Kata kerja yang digunakan adalah ぞうりを履きます.",
+            "note": "ぞうり atau zori merupakan sandal tradisional Jepang dan berbeda dari sandal modern biasa. Zori sering dipadukan dengan kimono atau yukata dan dikenakan bersama tabi pada acara tertentu. Kata kerja yang digunakan adalah ぞうりを履きます.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 22 / 衣服（いふく） / Pakaian"
+      },
+      {
+            "id": "mni-b22-ref-clothing-028",
+            "no": "28",
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 22",
+            "chapterNumber": 22,
+            "favorite": false,
+            "typeCategory": "Pakaian Dalam dan Kaus Kaki",
+            "typeDetail": "Kaus Kaki Tradisional",
+            "section": "衣服",
+            "sectionReading": "いふく",
+            "sectionMeaning": "Pakaian",
+            "sectionCategory": "衣服（いふく） / Pakaian",
+            "indonesia": "tabi / kaus kaki tradisional Jepang",
+            "kanji": "",
+            "kana": "たび",
+            "romaji": "tabi",
+            "image": "https://iili.io/CGeHinp.png",
+            "imageAlt": "Ilustrasi tabi untuk kosakata たび",
+            "isFiction": false,
+            "speech": "たび",
+            "exampleJa": "祖母は着物を着る前に白いたびを履きました。",
+            "exampleReading": "Sobo wa kimono o kiru mae ni shiroi tabi o hakimashita.",
+            "exampleId": "Nenek memakai tabi putih sebelum mengenakan kimono.",
+            "examples": [
+                  {
+                        "ja": "祖母は着物を着る前に白いたびを履きました。",
+                        "reading": "Sobo wa kimono o kiru mae ni shiroi tabi o hakimashita.",
+                        "id": "Nenek memakai tabi putih sebelum mengenakan kimono."
+                  }
+            ],
+            "catatan": "たび atau tabi adalah kaus kaki tradisional Jepang dengan bagian ibu jari yang terpisah. Bentuk ini membuatnya nyaman dipakai bersama zori atau geta yang memiliki tali di antara jari. Karena dikenakan pada kaki, gunakan たびを履きます.",
+            "note": "たび atau tabi adalah kaus kaki tradisional Jepang dengan bagian ibu jari yang terpisah. Bentuk ini membuatnya nyaman dipakai bersama zori atau geta yang memiliki tali di antara jari. Karena dikenakan pada kaki, gunakan たびを履きます.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 22 / 衣服（いふく） / Pakaian"
+      }
+];
+    VOCABULARY.push(...BAB22_REFERENCE_INFO_CLOTHING);
+
+
+    const REFERENCE_MATERIAL_CANONICAL = "Kata-Kata Referensi dan Informasi";
+    function normalizeMaterialCategoryName(value=""){
+      const raw = String(value || "").trim();
+      return raw.toLowerCase() === "kata-kata referensi dan informasi" ? REFERENCE_MATERIAL_CANONICAL : raw;
+    }
+
     const firebaseConfig = {
       apiKey: "AIzaSyBC3x1_9WEdGWFqMu6DYUnyvawAa7IFGag",
       authDomain: "minna-no-nihongo-i-ii.firebaseapp.com",
@@ -46212,7 +47376,7 @@
     const $ = s => document.querySelector(s);
     const $$ = s => [...document.querySelectorAll(s)];
     const storeKey = "minna_bab22";
-    const dataVersion = "bab22-materi-umum-pakaian-tempat-tinggal-20260715-v1";
+    const dataVersion = "bab22-referensi-pakaian-20260715-v2";
     const setupCompletedKey = storeKey + "_setupCompleted";
     const hadCurrentDataVersionBeforeBoot = localStorage.getItem(storeKey+"_dataVersion") === dataVersion;
     const hadSetupCompletedFlagBeforeBoot = localStorage.getItem(setupCompletedKey);
@@ -46278,6 +47442,12 @@
       quizFictionOnly: false,
       page:"home"
     };
+
+    const normalizedSavedMaterialCategory = normalizeMaterialCategoryName(state.setup?.materialCategory);
+    if(normalizedSavedMaterialCategory && normalizedSavedMaterialCategory !== state.setup?.materialCategory){
+      state.setup.materialCategory = normalizedSavedMaterialCategory;
+      localStorage.setItem(storeKey+"_settings", JSON.stringify(state.setup));
+    }
 
     // Migrasi pilihan lama agar Bab 18 Gerakan langsung masuk ke kategori Referensi dan Informasi.
     if(/referensi\s+dan\s+umum/i.test(String(state.setup?.materialCategory || ""))){
@@ -46467,7 +47637,7 @@
     }
     // Bab referensi tertentu berupa halaman materi khusus, sehingga tidak semuanya berasal dari kartu VOCABULARY.
     const STATIC_REFERENCE_CHAPTERS = {
-      "Minna no Nihongo I (2nd Edition)": [2,4,5,7,8,9,10,11,12,13,14,15,16,17,19,20,21]
+      "Minna no Nihongo I (2nd Edition)": [2,4,5,7,8,9,10,11,12,13,14,15,16,17,19,20,21,22]
     };
     function uniqueCategoryValues(list, key){
       const seen = new Set();
@@ -46478,15 +47648,15 @@
       });
     }
     function setupVocabularyScope(book, materialCategory){
-      return VOCABULARY.filter(v => v.book === book && (!materialCategory || v.materialCategory === materialCategory));
+      return VOCABULARY.filter(v => v.book === book && (!materialCategory || normalizeMaterialCategoryName(v.materialCategory) === normalizeMaterialCategoryName(materialCategory)));
     }
     function booksForSetup(){
       return uniqueCategoryValues(VOCABULARY, "book");
     }
     function materialsForSetup(book){
-      const materials = uniqueCategoryValues(setupVocabularyScope(book), "materialCategory");
-      if((STATIC_REFERENCE_CHAPTERS[book] || []).length && !materials.includes("Kata-kata referensi dan Informasi")){
-        materials.push("Kata-kata referensi dan Informasi");
+      const materials = [...new Set(uniqueCategoryValues(setupVocabularyScope(book), "materialCategory").map(normalizeMaterialCategoryName))];
+      if((STATIC_REFERENCE_CHAPTERS[book] || []).length && !materials.includes(REFERENCE_MATERIAL_CANONICAL)){
+        materials.push(REFERENCE_MATERIAL_CANONICAL);
       }
       return materials;
     }
@@ -46552,18 +47722,18 @@
 
     function isReferenceGeneralBab18(){
       return String(state.setup.book || "").startsWith("Minna no Nihongo I")
-        && String(state.setup.materialCategory || "") === "Kata-kata referensi dan Informasi"
+        && normalizeMaterialCategoryName(state.setup.materialCategory) === REFERENCE_MATERIAL_CANONICAL
         && String(state.setup.chapter || "") === "Bab 18";
     }
     function isMovementReferenceVocab(v={}){
       return String(v.book || "").startsWith("Minna no Nihongo I")
-        && String(v.materialCategory || "") === "Kata-kata referensi dan Informasi"
+        && normalizeMaterialCategoryName(v.materialCategory) === REFERENCE_MATERIAL_CANONICAL
         && Number(v.chapterNumber) === 18
         && String(v.section || "") === "動き";
     }
     function isRoleNameReferenceVocab(v={}){
       return String(v.book || "").startsWith("Minna no Nihongo I")
-        && String(v.materialCategory || "") === "Kata-kata referensi dan Informasi"
+        && normalizeMaterialCategoryName(v.materialCategory) === REFERENCE_MATERIAL_CANONICAL
         && Number(v.chapterNumber) === 21
         && String(v.sectionCategory || "") === "Nama-Nama Jabatan";
     }
@@ -46600,6 +47770,7 @@
     function isReferenceInfoBab19(){ return isReferenceInfoChapter("Bab 19"); }
     function isReferenceInfoBab20(){ return isReferenceInfoChapter("Bab 20"); }
     function isReferenceInfoBab21(){ return isReferenceInfoChapter("Bab 21"); }
+    function isReferenceInfoBab22(){ return isReferenceInfoChapter("Bab 22"); }
     function isReferenceInfoMaterialOnly(){ return isReferenceInfoBab2() || isReferenceInfoBab4() || isReferenceInfoBab5() || isReferenceInfoBab16() || isReferenceInfoBab20(); }
 
     function materialOnlyQuizMessage(){
@@ -46717,8 +47888,10 @@
       } else {
         const vocabChapter = isMateriUmumVocabularyChapter();
         const vocabChapterNo = activeGeneralVocabularyChapterNumber();
-        if(homeTitle) homeTitle.textContent = isReferenceInfoBab21() ? (state.lang === "ja" ? "第21課の語彙" : "Kosakata Bab 21") : (vocabChapter ? (state.lang === "ja" ? `第${vocabChapterNo}課の語彙` : `Kosakata Bab ${vocabChapterNo}`) : t("homeTitle"));
-        if(homeDesc) homeDesc.textContent = isReferenceInfoBab21()
+        if(homeTitle) homeTitle.textContent = isReferenceInfoBab22() ? (state.lang === "ja" ? "第22課の語彙" : "Kosakata Bab 22") : isReferenceInfoBab21() ? (state.lang === "ja" ? "第21課の語彙" : "Kosakata Bab 21") : (vocabChapter ? (state.lang === "ja" ? `第${vocabChapterNo}課の語彙` : `Kosakata Bab ${vocabChapterNo}`) : t("homeTitle"));
+        if(homeDesc) homeDesc.textContent = isReferenceInfoBab22()
+          ? (state.lang === "ja" ? "第22課の「衣服」を、画像、音声、例文、メモ、フラッシュカード、クイズで学びます。" : "Pelajari 28 kosakata Bab 22 bertopik 衣服（いふく）— Pakaian, lengkap dengan gambar, audio, contoh kalimat, catatan, flashcard, dan kuis.")
+          : isReferenceInfoBab21()
           ? (state.lang === "ja" ? "第21課の「役職名」を、政府、学校、会社、銀行、病院、駅、警察のグループに分けて学びます。" : "Pelajari 35 kosakata Bab 21 bertopik 役職名（やくしょくめい）— Nama-Nama Jabatan, lengkap dengan gambar, audio, contoh kalimat, catatan, flashcard, dan kuis.")
           : isMateriUmumBab22()
           ? (state.lang === "ja" ? "第22課の服の着方、衣類、日用品、会話表現、住まい探し、和室、名所、追加語彙を学びます。" : "Pelajari 31 kosakata Bab 22 tentang cara memakai pakaian, pakaian dan benda sehari-hari, ucapan selamat, pencarian tempat tinggal, ruangan bergaya Jepang, tempat terkenal, serta kosakata tambahan.")
@@ -47185,7 +48358,7 @@
 
     function baseVocab(){
       const nums = chapterNumbers(state.setup.chapter);
-      return VOCABULARY.filter(v => v.book===state.setup.book && v.materialCategory===state.setup.materialCategory && nums.includes(v.chapterNumber));
+      return VOCABULARY.filter(v => v.book===state.setup.book && normalizeMaterialCategoryName(v.materialCategory)===normalizeMaterialCategoryName(state.setup.materialCategory) && nums.includes(v.chapterNumber));
     }
     function activeVocab(){
       let arr = baseVocab();
@@ -47463,6 +48636,7 @@
         "Keterangan Waktu":"Keterangan Waktu",
         "Partikel":"Partikel",
         "Kata-kata referensi dan Informasi":"Kata-Kata Referensi dan Informasi",
+        "Kata-Kata Referensi dan Informasi":"Kata-Kata Referensi dan Informasi",
         "動き / Gerakan":"Gerakan",
         "動き":"Gerakan",
         "Perayaan dan Tempat Terkenal":"Perayaan dan Tempat Terkenal",
@@ -47583,6 +48757,7 @@
         "Kosakata Tambahan":"追加語彙",
         "Materi Umum":"一般教材",
         "Kata-kata referensi dan Informasi":"情報・参考語彙",
+        "Kata-Kata Referensi dan Informasi":"情報・参考語彙",
         "動き / Gerakan":"動き",
         "動き":"動き",
         "Perayaan dan Tempat Terkenal":"祭りと名所",
@@ -48971,9 +50146,116 @@
     }
 
 
+    function clothingRubyHtml(v={}){
+      const written = String(v.kanji || "").trim();
+      const reading = String(v.kana || "").trim();
+      if(written && reading) return `<ruby>${esc(written)}<rt>${esc(reading)}</rt></ruby>`;
+      return esc(reading || written || v.romaji || "-");
+    }
+    function renderReferenceInfoBab22Clothing(){
+      renderMaterialFilterOptions();
+      const grid = $("#materialGrid");
+      if(!grid) return;
+      const toolbar = $(".material-toolbar");
+      const notice = $("#materialPage .notice");
+      const title = $("#materialPage .content-card > h2");
+      const desc = $("#materialPage .content-card > p");
+      const noticeTitle = $("#materialPage .notice h3");
+      const noticeDesc = $("#materialPage .notice p");
+      document.body.classList.remove("material-only-reference");
+      document.body.classList.add("clothing-reference-active");
+      if(toolbar){ toolbar.classList.remove("hidden"); toolbar.style.removeProperty("display"); toolbar.style.removeProperty("visibility"); toolbar.style.removeProperty("pointer-events"); }
+      if(notice){ notice.classList.remove("hidden"); notice.style.removeProperty("display"); }
+      updateMaterialOnlyControls();
+      if(title) title.textContent = state.lang === "ja" ? "第22課の語彙" : "Kosakata Bab 22";
+      if(desc) desc.textContent = state.lang === "ja"
+        ? "参考語彙・情報の「衣服」を、教科書の表に近いグループ配置で学びます。"
+        : "Kata-Kata Referensi dan Informasi • 衣服（いふく）— Pakaian. Pelajari 28 kosakata pakaian dengan susunan kelompok yang mengikuti tabel referensi, lengkap dengan gambar, audio, contoh kalimat, catatan, favorit, flashcard, dan kuis.";
+      if(noticeTitle) noticeTitle.textContent = state.lang === "ja" ? "衣服（いふく）" : "衣服（いふく）— Pakaian";
+      if(noticeDesc) noticeDesc.textContent = state.lang === "ja"
+        ? "画像をクリックすると拡大できます。各ボタンから発音、例文、メモを確認できます。"
+        : "Klik gambar untuk memperbesar. Gunakan tombol pada setiap kartu untuk mendengarkan pelafalan, menyimpan favorit, membaca catatan, dan membuka contoh kalimat.";
+
+      const search = ($("#materialSearch")?.value || "").toLowerCase();
+      const sectionFilter = $("#materialSectionFilter")?.value || "all";
+      const typeFilter = $("#materialTypeFilter")?.value || "all";
+      const allItems = activeVocab().filter(v=>String(v.id || "").startsWith("mni-b22-ref-clothing-"));
+      let arr = allItems.filter(v=>[
+        formatIndonesianMeaning(v),v.indonesia,v.kana,v.kanji,v.romaji,v.typeCategory,v.typeDetail,
+        v.sectionCategory,v.chapter,v.catatan,v.note,v.exampleJa,v.exampleReading,v.exampleId
+      ].join(" ").toLowerCase().includes(search));
+      if(sectionFilter !== "all") arr = arr.filter(v=>v.sectionCategory === sectionFilter);
+      if(typeFilter !== "all") arr = arr.filter(v=>v.typeCategory === typeFilter);
+
+      const byNo = new Map(arr.map(v=>[Number(v.no),v]));
+      const intro = byNo.get(1);
+      const groupRows = [
+        [[2],[3],[4],[5,6,7]],
+        [[8],[9],[10],[11]],
+        [[12,13],[14,16],[15,17],[18,19]],
+        [[20,21],[22,23],[24,25,26],[27,28]]
+      ];
+      const itemCard = v=>{
+        const fav = state.favorites.includes(v.id);
+        return `<article class="clothing-mini-card">
+          <button class="clothing-image-wrap" type="button" data-zoom="${esc(v.image)}" aria-label="${state.lang==="ja"?"画像を拡大":"Perbesar gambar"}">
+            <img src="${esc(v.image)}" alt="${esc(v.imageAlt || vocabMainText(v))}" loading="lazy" decoding="async" data-zoom="${esc(v.image)}">
+          </button>
+          <div class="clothing-copy">
+            <div class="clothing-jp jp">${clothingRubyHtml(v)}</div>
+            <div class="clothing-reading jp">${esc(v.kana || "-")}</div>
+            <div class="clothing-romaji">${esc(v.romaji || "-")}</div>
+            <div class="clothing-meaning">${esc(formatIndonesianMeaning(v))}</div>
+            <span class="clothing-type" title="${esc(v.typeCategory)} — ${esc(v.typeDetail)}">${esc(v.typeDetail || v.typeCategory)}</span>
+            <div class="clothing-actions">
+              <button class="icon-btn" type="button" data-speak-id="${esc(v.id)}" title="${state.lang==="ja"?"発音を聞く":"Dengarkan pelafalan"}" aria-label="${state.lang==="ja"?"発音を聞く":"Dengarkan pelafalan"}"><i class="fa-solid fa-volume-high"></i></button>
+              <button class="icon-btn ${fav?"active":""}" type="button" data-fav="${esc(v.id)}" title="${state.lang==="ja"?"お気に入り":"Favorit"}" aria-label="${state.lang==="ja"?"お気に入り":"Favorit"}"><i class="${fav?"fa-solid":"fa-regular"} fa-star"></i></button>
+              <button class="icon-btn" type="button" data-note-material="${esc(v.id)}" title="${state.lang==="ja"?"メモ":"Catatan"}" aria-label="${state.lang==="ja"?"メモを見る":"Lihat catatan"}"><i class="fa-regular fa-note-sticky"></i></button>
+              <button class="icon-btn" type="button" data-example-material="${esc(v.id)}" title="${state.lang==="ja"?"例文":"Contoh kalimat"}" aria-label="${state.lang==="ja"?"例文を見る":"Lihat contoh kalimat"}"><i class="fa-regular fa-comment-dots"></i></button>
+            </div>
+          </div>
+        </article>`;
+      };
+      const cells = groupRows.map((row,rowIndex)=>`<div class="clothing-table-row">${row.map((numbers,colIndex)=>{
+        const visible = numbers.map(no=>byNo.get(no)).filter(Boolean);
+        if(!visible.length) return '<section class="clothing-cell clothing-empty-cell" aria-hidden="true"></section>';
+        const cellNumber = rowIndex * 4 + colIndex + 1;
+        return `<section class="clothing-cell">
+          <div class="clothing-cell-number"><span>${cellNumber}</span><span>${visible.length} ${state.lang==="ja"?"語":"item"}</span></div>
+          <div class="clothing-mini-list">${visible.map(itemCard).join("")}</div>
+        </section>`;
+      }).join("")}</div>`).join("");
+
+      grid.className = "clothing-reference-root";
+      grid.innerHTML = `<div class="clothing-reference-wrap">
+        ${intro ? `<section class="clothing-reference-hero">
+          <div>
+            <span class="clothing-reference-kicker"><i class="fa-solid fa-shirt"></i>${state.lang==="ja"?"参考語彙・情報 / 第22課":"Kata-Kata Referensi dan Informasi / Bab 22"}</span>
+            <h3 class="clothing-reference-title">衣服</h3>
+            <div class="clothing-reference-reading">いふく</div>
+            <div class="clothing-reference-meaning">Pakaian</div>
+            <p class="clothing-reference-summary">${esc(intro.catatan || "")}</p>
+            <span class="clothing-reference-count"><i class="fa-solid fa-layer-group"></i>${arr.length} / ${allItems.length} ${state.lang==="ja"?"語":"kosakata"}</span>
+            <div class="clothing-actions" style="max-width:220px">
+              <button class="icon-btn" type="button" data-speak-id="${esc(intro.id)}" title="${state.lang==="ja"?"発音を聞く":"Dengarkan pelafalan"}"><i class="fa-solid fa-volume-high"></i></button>
+              <button class="icon-btn ${state.favorites.includes(intro.id)?"active":""}" type="button" data-fav="${esc(intro.id)}" title="${state.lang==="ja"?"お気に入り":"Favorit"}"><i class="${state.favorites.includes(intro.id)?"fa-solid":"fa-regular"} fa-star"></i></button>
+              <button class="icon-btn" type="button" data-note-material="${esc(intro.id)}" title="${state.lang==="ja"?"メモ":"Catatan"}"><i class="fa-regular fa-note-sticky"></i></button>
+              <button class="icon-btn" type="button" data-example-material="${esc(intro.id)}" title="${state.lang==="ja"?"例文":"Contoh kalimat"}"><i class="fa-regular fa-comment-dots"></i></button>
+            </div>
+          </div>
+          <button class="clothing-reference-hero-image" type="button" data-zoom="${esc(intro.image)}" aria-label="${state.lang==="ja"?"画像を拡大":"Perbesar gambar"}"><img src="${esc(intro.image)}" alt="${esc(intro.imageAlt)}" loading="eager" data-zoom="${esc(intro.image)}"></button>
+        </section>` : ""}
+        <div class="clothing-table-grid">${cells}</div>
+      </div>`;
+      $("#materialEmpty").innerHTML = `<div style="font-size:34px;color:#7c4dff;margin-bottom:10px"><i class="fa-solid fa-magnifying-glass"></i></div><h3>${state.lang==="ja"?"語彙が見つかりません":"Kosakata tidak ditemukan"}</h3><p>${state.lang==="ja"?"検索語またはフィルターを変更してください。":"Coba ubah filter atau kata kunci pencarian."}</p>`;
+      $("#materialEmpty").classList.toggle("hidden",arr.length>0);
+    }
+
+
     function renderMaterial(){
       document.body.classList.remove("calling-material-active");
       document.body.classList.toggle("role-name-reference-active", isReferenceInfoBab21());
+      document.body.classList.toggle("clothing-reference-active", isReferenceInfoBab22());
       syncFictionToggleAvailability();
       const toolbar = $(".material-toolbar");
       const grid = $("#materialGrid");
@@ -49047,6 +50329,10 @@
       }
       if(isReferenceInfoBab20()){
         renderReferenceInfoBab20Calling();
+        return;
+      }
+      if(isReferenceInfoBab22()){
+        renderReferenceInfoBab22Clothing();
         return;
       }
       renderMaterialFilterOptions();
@@ -49172,7 +50458,8 @@
       };
       const materialMeta = {
         "Materi Umum": {label:categoryLabel("Materi Umum"),icon:"fa-book-open-reader",note:state.lang==="ja"?"基本語彙と練習":"Kosakata utama dan latihan"},
-        "Kata-kata referensi dan Informasi": {label:categoryLabel("Kata-kata referensi dan Informasi"),icon:"fa-circle-info",note:state.lang==="ja"?"参考語彙":"Informasi dan referensi"}
+        "Kata-kata referensi dan Informasi": {label:categoryLabel("Kata-kata referensi dan Informasi"),icon:"fa-circle-info",note:state.lang==="ja"?"参考語彙":"Informasi dan referensi"},
+        "Kata-Kata Referensi dan Informasi": {label:categoryLabel("Kata-kata referensi dan Informasi"),icon:"fa-circle-info",note:state.lang==="ja"?"参考語彙":"Informasi dan referensi"}
       };
 
       const availableBooks = booksForSetup();
@@ -49188,7 +50475,13 @@
       $("#setupLangGrid").innerHTML = `<button class="option-card icon-option ${state.lang==="id"?"active":""}" data-setup-lang="id"><span class="option-soft-icon"><i class="fa-solid fa-language"></i></span><div>Bahasa Indonesia<small>Antarmuka Bahasa Indonesia</small></div></button><button class="option-card icon-option ${state.lang==="ja"?"active":""}" data-setup-lang="ja"><span class="option-soft-icon"><i class="fa-solid fa-language"></i></span><div>日本語<small>日本語インターフェース</small></div></button>`;
       $("#setupBookGrid").innerHTML = bookOptions.map(o=>`<button class="option-card icon-option ${tempSetup.book===o.value?"active":""}" data-setup-book="${esc(o.value)}"><span class="option-soft-icon"><i class="fa-solid ${o.icon}"></i></span><div>${esc(o.label)}<small>${esc(o.note)}</small></div></button>`).join("");
       $("#setupMaterialGrid").innerHTML = matOptions.map(o=>`<button class="option-card icon-option ${tempSetup.materialCategory===o.value?"active":""}" data-setup-material="${esc(o.value)}"><span class="option-soft-icon"><i class="fa-solid ${o.icon}"></i></span><div>${esc(o.label)}<small>${esc(o.note)}</small></div></button>`).join("");
-      $("#setupChapterGrid").innerHTML = chapters.map(ch=>`<button class="choice-chip category-button ${tempSetup.chapter===ch?"active":""}" data-setup-chapter="${esc(ch)}"><span><i class="fa-regular fa-bookmark"></i>${esc(state.lang==="ja"?categoryLabel(ch):ch)}</span></button>`).join("");
+      $("#setupChapterGrid").innerHTML = chapters.map(ch=>{
+        const isClothingChapter = normalizeMaterialCategoryName(tempSetup.materialCategory) === REFERENCE_MATERIAL_CANONICAL && ch === "Bab 22";
+        const chapterText = isClothingChapter
+          ? (state.lang === "ja" ? "第22課" : "Bab 22")
+          : (state.lang === "ja" ? categoryLabel(ch) : ch);
+        return `<button class="choice-chip category-button ${tempSetup.chapter===ch?"active":""}" data-setup-chapter="${esc(ch)}"><span><i class="fa-regular fa-bookmark"></i>${esc(chapterText)}</span></button>`;
+      }).join("");
       updateSetupSteps();
     }
 
