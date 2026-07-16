@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Minna no Nihongo I - Kosakata Bab 23</title>
+  <title>Minna no Nihongo I - Bab 23 道路・交通</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -3246,6 +3246,96 @@
       .clothing-actions .icon-btn { width:36px; min-width:36px; height:36px; flex-basis:36px; }
     }
 
+
+
+    /* ===== Bab 23 Referensi: 道路・交通 / Jalan dan Lalu Lintas ===== */
+    body.road-traffic-reference-active #materialPage { width:min(1480px,calc(100% - 44px)); }
+    body.road-traffic-reference-active #materialPage .content-card { padding:32px; overflow:hidden; }
+    .road-reference-root { display:block; }
+    .road-reference-wrap { display:grid; gap:28px; min-width:0; }
+    .road-reference-hero {
+      display:grid; grid-template-columns:minmax(300px,.74fr) minmax(0,1.5fr); gap:28px; align-items:center;
+      padding:30px; border-radius:30px; position:relative; overflow:hidden;
+      background:linear-gradient(135deg,#f8f4ff 0%,#eef8ff 58%,#fff8fb 100%);
+      border:1px solid rgba(124,77,255,.16); box-shadow:0 20px 54px rgba(80,67,130,.10);
+    }
+    .road-reference-hero::after { content:""; position:absolute; width:280px; height:280px; border-radius:50%; right:-120px; top:-130px; background:rgba(124,77,255,.10); pointer-events:none; }
+    .road-reference-kicker { display:inline-flex; align-items:center; gap:9px; padding:9px 13px; border-radius:999px; background:#fff; color:#5e35d6; border:1px solid rgba(124,77,255,.14); font-size:12px; font-weight:850; box-shadow:0 8px 22px rgba(80,67,130,.07); }
+    .road-reference-title { margin:17px 0 2px; font-family:var(--jp); font-size:clamp(42px,5vw,72px); line-height:1.05; letter-spacing:-.035em; color:#071b45; }
+    .road-reference-reading { font-family:var(--jp); color:#7c4dff; font-size:18px; font-weight:750; }
+    .road-reference-meaning { margin-top:8px; color:#071b45; font-size:clamp(21px,2.2vw,32px); font-weight:850; letter-spacing:-.035em; }
+    .road-reference-desc { margin:14px 0 0; color:#59667e; line-height:1.75; font-weight:560; }
+    .road-reference-desc.jp { margin-top:8px; font-family:var(--jp); font-size:13px; color:#768198; }
+    .road-reference-meta { display:flex; flex-wrap:wrap; gap:9px; margin-top:18px; }
+    .road-reference-meta span { display:inline-flex; align-items:center; gap:7px; min-height:36px; padding:0 12px; border-radius:999px; background:#fff; border:1px solid rgba(124,77,255,.13); color:#4f3aa8; font-size:12px; font-weight:800; }
+    .road-map-button { position:relative; width:100%; min-height:420px; padding:18px; border:1px solid rgba(124,77,255,.16); border-radius:27px; background:rgba(255,255,255,.92); box-shadow:0 18px 42px rgba(80,67,130,.11); overflow:hidden; z-index:1; }
+    .road-map-button img { width:100%; height:100%; max-height:590px; object-fit:contain; display:block; border-radius:18px; }
+    .road-map-button { cursor:zoom-in; }
+    .road-map-button span { display:none; }
+    .road-section { display:grid; gap:16px; }
+    .road-section-head { display:flex; align-items:end; justify-content:space-between; gap:16px; padding:0 4px; }
+    .road-section-head h3 { margin:0; font-size:clamp(23px,2.6vw,34px); letter-spacing:-.045em; }
+    .road-section-head p { margin:5px 0 0; font-size:13px; }
+    .road-section-count { flex:0 0 auto; display:inline-flex; align-items:center; gap:8px; padding:9px 12px; border-radius:999px; background:var(--soft); color:var(--primary2); font-size:12px; font-weight:850; }
+    .road-vocab-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; }
+    .road-sign-grid { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:16px; }
+    .road-vocab-card { min-width:0; display:flex; flex-direction:column; padding:16px; border-radius:24px; background:linear-gradient(145deg,#fff,#fcfaff); border:1px solid #e7e0ff; box-shadow:0 12px 28px rgba(80,67,130,.08); transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+    .road-vocab-card:hover { transform:translateY(-3px); border-color:rgba(124,77,255,.30); box-shadow:0 20px 42px rgba(80,67,130,.13); }
+    .road-vocab-card button { transition:transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease; }
+    .road-vocab-card .icon-btn:hover,
+    .road-vocab-card .road-example-btn:hover { transform:translateY(-1px); }
+    .road-vocab-card.sign { background:linear-gradient(145deg,#fff,#fff7f9); }
+    .road-vocab-image-btn { position:relative; width:100%; height:155px; border:0; border-radius:19px; padding:10px; background:linear-gradient(135deg,#f7f3ff,#eef7ff); overflow:hidden; cursor:zoom-in; }
+    .road-vocab-card.sign .road-vocab-image-btn { height:190px; background:linear-gradient(135deg,#faf7ff,#fff); }
+    .road-vocab-image-btn img { width:100%; height:100%; object-fit:contain; display:block; }
+    .road-vocab-image-btn .road-zoom-chip { display:none; }
+    .road-vocab-head { display:flex; align-items:flex-start; gap:11px; margin-top:14px; }
+    .road-vocab-number { flex:0 0 auto; width:34px; height:34px; display:grid; place-items:center; border-radius:12px; color:#fff; background:linear-gradient(135deg,#7c4dff,#5e35d6); font-size:13px; font-weight:900; box-shadow:0 8px 18px rgba(124,77,255,.22); }
+    .road-vocab-title { min-width:0; }
+    .road-vocab-title h4 { margin:0; font-family:var(--jp); font-size:clamp(21px,1.8vw,28px); color:#081a40; line-height:1.23; overflow-wrap:anywhere; }
+    .road-vocab-title .kana { margin-top:3px; font-family:var(--jp); font-size:13px; color:#56627a; overflow-wrap:anywhere; }
+    .road-vocab-title .romaji { margin-top:2px; color:#7c4dff; font-size:12px; font-weight:850; overflow-wrap:anywhere; }
+    .road-vocab-meaning { margin:13px 0 0; color:#3f4c65; line-height:1.55; font-size:14px; font-weight:650; }
+    .road-vocab-label { display:inline-flex; align-items:center; gap:6px; width:max-content; max-width:100%; margin-top:12px; padding:7px 10px; border-radius:999px; background:#eafaf4; color:#148060; font-size:10.5px; font-weight:850; white-space:normal; }
+    .road-vocab-card.sign .road-vocab-label { background:#ffeaf0; color:#cf315d; }
+    .road-vocab-actions { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:auto; padding-top:16px; align-items:center; }
+    .road-vocab-actions .icon-btn,
+    .road-vocab-actions .road-example-btn { width:100%; height:44px; box-shadow:none; border-radius:14px; }
+    .road-vocab-actions .road-example-btn { border:1px solid var(--line); background:#fff; color:#5e35d6; display:grid; place-items:center; }
+    .road-vocab-actions .road-example-btn:hover { background:var(--soft); }
+    .road-no-results { padding:30px; border:1px dashed #c9bcff; border-radius:24px; background:rgba(255,255,255,.7); text-align:center; color:#5f6b82; }
+    .road-example-detail { display:grid; grid-template-columns:150px minmax(0,1fr); gap:16px; align-items:center; padding:16px; border-radius:22px; background:linear-gradient(135deg,#fff,#f8f5ff); border:1px solid #e7e0ff; }
+    .road-example-detail button { width:150px; height:132px; padding:8px; border:0; border-radius:18px; background:#f3efff; }
+    .road-example-detail img { width:100%; height:100%; object-fit:contain; }
+    .road-example-detail h3 { margin:0; font-family:var(--jp); font-size:25px; }
+    .road-example-detail .kana { margin-top:4px; font-family:var(--jp); color:#56627a; }
+    .road-example-detail .romaji { margin-top:2px; color:#7c4dff; font-weight:800; }
+    .road-example-detail .meaning { margin-top:8px; color:#34415b; font-weight:700; line-height:1.45; }
+    @media (max-width:1180px){
+      .road-reference-hero { grid-template-columns:1fr; }
+      .road-map-button { min-height:360px; }
+      .road-vocab-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+      .road-sign-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    }
+    @media (max-width:820px){
+      body.road-traffic-reference-active #materialPage { width:min(100% - 24px,1480px); }
+      body.road-traffic-reference-active #materialPage .content-card { padding:20px; }
+      .road-reference-hero { padding:22px; }
+      .road-map-button { min-height:300px; }
+      .road-vocab-grid,.road-sign-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    }
+    @media (max-width:560px){
+      .road-reference-hero { padding:17px; border-radius:24px; }
+      .road-reference-title { font-size:39px; }
+      .road-map-button { min-height:220px; padding:10px; border-radius:20px; }
+      .road-map-button span { display:none; }
+      .road-section-head { align-items:flex-start; flex-direction:column; }
+      .road-vocab-grid,.road-sign-grid { grid-template-columns:1fr; }
+      .road-vocab-image-btn,.road-vocab-card.sign .road-vocab-image-btn { height:205px; }
+      .road-example-detail { grid-template-columns:1fr; }
+      .road-example-detail button { width:100%; height:190px; }
+    }
+
   </style>
 </head>
 <body>
@@ -3304,7 +3394,7 @@
     <section class="page active" id="homePage">
       <div class="hero glass">
         <div>
-          <span class="badge"><i class="fa-solid fa-wand-magic-sparkles"></i><span id="activeChoiceText">Minna no Nihongo I • Materi Umum • Bab 23</span></span>
+          <span class="badge"><i class="fa-solid fa-wand-magic-sparkles"></i><span id="activeChoiceText">Minna no Nihongo I • Kata-Kata Referensi dan Informasi • Bab 23 • 道路・交通</span></span>
           <h1 data-i18n="homeTitle">Kuis Kartu Kosakata Jepang</h1>
           <p data-i18n="homeDesc">Belajar kosakata Minna no Nihongo I & II dengan kartu belajar interaktif, suara pelafalan, latihan berbicara, dan laporan hasil yang tersimpan.</p>
           <div class="info-grid">
@@ -3422,7 +3512,7 @@
       <div class="result-head">
         <div class="breadcrumb"><i class="fa-solid fa-book-open"></i><span data-i18n="breadcrumbResult">Beranda > Hasil Latihan</span></div>
         <h2 data-i18n="resultTitle">Ringkasan Belajar</h2>
-        <p id="resultActiveChoice">Pilihan aktif: Minna no Nihongo I / Materi Umum / Bab 23.</p>
+        <p id="resultActiveChoice">Pilihan aktif: Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 23 / 道路・交通.</p>
         <p id="resultDate"></p>
       </div>
       <div id="resultContent"></div>
@@ -48584,6 +48674,712 @@
 ];
     VOCABULARY.push(...BAB22_REFERENCE_INFO_CLOTHING);
 
+    // ===== Tambahan data: Minna no Nihongo I -> Kata-Kata Referensi dan Informasi -> Bab 23 -> 道路・交通 =====
+    const BAB23_REFERENCE_ROAD_TRAFFIC = [
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 23",
+            "chapterNumber": 23,
+            "section": "道路・交通",
+            "sectionReading": "どうろ・こうつう",
+            "sectionMeaning": "Jalan dan Lalu Lintas",
+            "sectionCategory": "道路・交通 / Jalan dan Lalu Lintas",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 23 / 道路・交通（どうろ・こうつう） / Jalan dan Lalu Lintas",
+            "id": "mni-b23-ref-road-001",
+            "no": "1",
+            "typeCategory": "Jalan dan Lalu Lintas",
+            "typeDetail": "Topik Umum Jalan dan Transportasi",
+            "indonesia": "jalan dan lalu lintas",
+            "kanji": "道路・交通",
+            "kana": "どうろ・こうつう",
+            "romaji": "douro・koutsuu",
+            "image": "https://iili.io/CM4eW0B.png",
+            "imageAlt": "Ilustrasi kosakata 道路・交通 yang berarti jalan dan lalu lintas",
+            "speech": "どうろ、こうつう",
+            "exampleJa": "この町は道路と交通がよく整備されています。",
+            "exampleReading": "Kono machi wa douro to koutsuu ga yoku seibi sarete imasu.",
+            "exampleId": "Jalan dan sistem lalu lintas di kota ini tertata dengan baik.",
+            "examples": [
+                  {
+                        "ja": "この町は道路と交通がよく整備されています。",
+                        "reading": "Kono machi wa douro to koutsuu ga yoku seibi sarete imasu.",
+                        "id": "Jalan dan sistem lalu lintas di kota ini tertata dengan baik."
+                  }
+            ],
+            "catatan": "道路 menyoroti jalan secara fisik, sedangkan 交通 berbicara tentang arus kendaraan, orang, dan sistem transportasi. Saat digabung menjadi 道路・交通, ungkapan ini terasa seperti tema besar tentang jalan dan lalu lintas dalam kehidupan sehari-hari.",
+            "note": "道路 menyoroti jalan secara fisik, sedangkan 交通 berbicara tentang arus kendaraan, orang, dan sistem transportasi. Saat digabung menjadi 道路・交通, ungkapan ini terasa seperti tema besar tentang jalan dan lalu lintas dalam kehidupan sehari-hari."
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 23",
+            "chapterNumber": 23,
+            "section": "道路・交通",
+            "sectionReading": "どうろ・こうつう",
+            "sectionMeaning": "Jalan dan Lalu Lintas",
+            "sectionCategory": "道路・交通 / Jalan dan Lalu Lintas",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 23 / 道路・交通（どうろ・こうつう） / Jalan dan Lalu Lintas",
+            "id": "mni-b23-ref-road-002",
+            "no": "2",
+            "typeCategory": "Fasilitas Jalan",
+            "typeDetail": "Jalur Pejalan Kaki",
+            "indonesia": "trotoar / tempat pejalan kaki",
+            "kanji": "歩道",
+            "kana": "ほどう",
+            "romaji": "hodou",
+            "image": "https://iili.io/CM4eVfV.png",
+            "imageAlt": "Ilustrasi 歩道 atau trotoar untuk pejalan kaki",
+            "speech": "ほどう",
+            "exampleJa": "歩行者は歩道を歩いてください。",
+            "exampleReading": "Hokousha wa hodou o aruite kudasai.",
+            "exampleId": "Pejalan kaki diminta berjalan di trotoar.",
+            "examples": [
+                  {
+                        "ja": "歩行者は歩道を歩いてください。",
+                        "reading": "Hokousha wa hodou o aruite kudasai.",
+                        "id": "Pejalan kaki diminta berjalan di trotoar."
+                  }
+            ],
+            "catatan": "歩道 adalah trotoar atau jalur aman untuk pejalan kaki. Agar mudah membedakannya, ingat bahwa 歩道 dipakai untuk berjalan, sedangkan 横断歩道 dipakai khusus untuk menyeberang jalan.",
+            "note": "歩道 adalah trotoar atau jalur aman untuk pejalan kaki. Agar mudah membedakannya, ingat bahwa 歩道 dipakai untuk berjalan, sedangkan 横断歩道 dipakai khusus untuk menyeberang jalan."
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 23",
+            "chapterNumber": 23,
+            "section": "道路・交通",
+            "sectionReading": "どうろ・こうつう",
+            "sectionMeaning": "Jalan dan Lalu Lintas",
+            "sectionCategory": "道路・交通 / Jalan dan Lalu Lintas",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 23 / 道路・交通（どうろ・こうつう） / Jalan dan Lalu Lintas",
+            "id": "mni-b23-ref-road-003",
+            "no": "3",
+            "typeCategory": "Fasilitas Jalan",
+            "typeDetail": "Jalur Kendaraan",
+            "indonesia": "jalan untuk kendaraan / badan jalan",
+            "kanji": "車道",
+            "kana": "しゃどう",
+            "romaji": "shadou",
+            "image": "https://iili.io/CM4eEWx.png",
+            "imageAlt": "Ilustrasi 車道 atau bagian jalan yang digunakan kendaraan",
+            "speech": "しゃどう",
+            "exampleJa": "子どもが車道に出ないように気をつけましょう。",
+            "exampleReading": "Kodomo ga shadou ni denai you ni ki o tsukemashou.",
+            "exampleId": "Mari berhati-hati agar anak-anak tidak masuk ke jalan kendaraan.",
+            "examples": [
+                  {
+                        "ja": "子どもが車道に出ないように気をつけましょう。",
+                        "reading": "Kodomo ga shadou ni denai you ni ki o tsukemashou.",
+                        "id": "Mari berhati-hati agar anak-anak tidak masuk ke jalan kendaraan."
+                  }
+            ],
+            "catatan": "車道 adalah bagian jalan yang dipakai kendaraan seperti mobil, motor, bus, dan sepeda. Karena area ini diperuntukkan bagi lalu lintas kendaraan, pejalan kaki sebaiknya tetap berada di 歩道 agar lebih aman.",
+            "note": "車道 adalah bagian jalan yang dipakai kendaraan seperti mobil, motor, bus, dan sepeda. Karena area ini diperuntukkan bagi lalu lintas kendaraan, pejalan kaki sebaiknya tetap berada di 歩道 agar lebih aman."
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 23",
+            "chapterNumber": 23,
+            "section": "道路・交通",
+            "sectionReading": "どうろ・こうつう",
+            "sectionMeaning": "Jalan dan Lalu Lintas",
+            "sectionCategory": "道路・交通 / Jalan dan Lalu Lintas",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 23 / 道路・交通（どうろ・こうつう） / Jalan dan Lalu Lintas",
+            "id": "mni-b23-ref-road-004",
+            "no": "4",
+            "typeCategory": "Jenis Jalan",
+            "typeDetail": "Jalan Berkecepatan Tinggi",
+            "indonesia": "jalan tol / jalan bebas hambatan",
+            "kanji": "高速道路",
+            "kana": "こうそくどうろ",
+            "romaji": "kousoku douro",
+            "image": "https://iili.io/CM4eGiQ.png",
+            "imageAlt": "Ilustrasi 高速道路 atau jalan bebas hambatan",
+            "speech": "こうそくどうろ",
+            "exampleJa": "高速道路で大阪まで三時間かかりました。",
+            "exampleReading": "Kousoku douro de Oosaka made sanjikan kakarimashita.",
+            "exampleId": "Perjalanan menuju Osaka melalui jalan tol memerlukan waktu tiga jam.",
+            "examples": [
+                  {
+                        "ja": "高速道路で大阪まで三時間かかりました。",
+                        "reading": "Kousoku douro de Oosaka made sanjikan kakarimashita.",
+                        "id": "Perjalanan menuju Osaka melalui jalan tol memerlukan waktu tiga jam."
+                  }
+            ],
+            "catatan": "高速道路 berarti jalan bebas hambatan atau jalan tol. Kata ini sering muncul saat membahas perjalanan jarak jauh, dan di Jepang banyak 高速道路 yang digunakan dengan sistem berbayar.",
+            "note": "高速道路 berarti jalan bebas hambatan atau jalan tol. Kata ini sering muncul saat membahas perjalanan jarak jauh, dan di Jepang banyak 高速道路 yang digunakan dengan sistem berbayar."
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 23",
+            "chapterNumber": 23,
+            "section": "道路・交通",
+            "sectionReading": "どうろ・こうつう",
+            "sectionMeaning": "Jalan dan Lalu Lintas",
+            "sectionCategory": "道路・交通 / Jalan dan Lalu Lintas",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 23 / 道路・交通（どうろ・こうつう） / Jalan dan Lalu Lintas",
+            "id": "mni-b23-ref-road-005",
+            "no": "5",
+            "typeCategory": "Jenis Jalan",
+            "typeDetail": "Jalan di Kawasan Kota",
+            "indonesia": "jalan / ruas jalan",
+            "kanji": "通り",
+            "kana": "とおり",
+            "romaji": "toori",
+            "image": "https://iili.io/CM4evWv.png",
+            "imageAlt": "Ilustrasi 通り atau jalan di kawasan kota",
+            "speech": "とおり",
+            "exampleJa": "この通りには小さな店がたくさんあります。",
+            "exampleReading": "Kono toori ni wa chiisana mise ga takusan arimasu.",
+            "exampleId": "Di sepanjang jalan ini terdapat banyak toko kecil.",
+            "examples": [
+                  {
+                        "ja": "この通りには小さな店がたくさんあります。",
+                        "reading": "Kono toori ni wa chiisana mise ga takusan arimasu.",
+                        "id": "Di sepanjang jalan ini terdapat banyak toko kecil."
+                  }
+            ],
+            "catatan": "通り sering dipakai untuk menyebut ruas jalan atau area sepanjang sebuah jalan. Kata ini juga sangat umum muncul pada nama jalan dan saat menggambarkan suasana di sepanjang jalur tersebut.",
+            "note": "通り sering dipakai untuk menyebut ruas jalan atau area sepanjang sebuah jalan. Kata ini juga sangat umum muncul pada nama jalan dan saat menggambarkan suasana di sepanjang jalur tersebut."
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 23",
+            "chapterNumber": 23,
+            "section": "道路・交通",
+            "sectionReading": "どうろ・こうつう",
+            "sectionMeaning": "Jalan dan Lalu Lintas",
+            "sectionCategory": "道路・交通 / Jalan dan Lalu Lintas",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 23 / 道路・交通（どうろ・こうつう） / Jalan dan Lalu Lintas",
+            "id": "mni-b23-ref-road-006",
+            "no": "6",
+            "typeCategory": "Fasilitas Jalan",
+            "typeDetail": "Persimpangan Jalan",
+            "indonesia": "perempatan / persimpangan",
+            "kanji": "交差点",
+            "kana": "こうさてん",
+            "romaji": "kousaten",
+            "image": "https://iili.io/CM4eg0N.png",
+            "imageAlt": "Ilustrasi 交差点 atau persimpangan beberapa jalan",
+            "speech": "こうさてん",
+            "exampleJa": "次の交差点を左に曲がってください。",
+            "exampleReading": "Tsugi no kousaten o hidari ni magatte kudasai.",
+            "exampleId": "Silakan belok kiri di persimpangan berikutnya.",
+            "examples": [
+                  {
+                        "ja": "次の交差点を左に曲がってください。",
+                        "reading": "Tsugi no kousaten o hidari ni magatte kudasai.",
+                        "id": "Silakan belok kiri di persimpangan berikutnya."
+                  }
+            ],
+            "catatan": "交差点 adalah titik pertemuan dua jalan atau lebih, jadi bisa berupa perempatan, pertigaan, atau bentuk persimpangan lain. Kosakata ini sangat penting dalam petunjuk arah sehari-hari.",
+            "note": "交差点 adalah titik pertemuan dua jalan atau lebih, jadi bisa berupa perempatan, pertigaan, atau bentuk persimpangan lain. Kosakata ini sangat penting dalam petunjuk arah sehari-hari."
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 23",
+            "chapterNumber": 23,
+            "section": "道路・交通",
+            "sectionReading": "どうろ・こうつう",
+            "sectionMeaning": "Jalan dan Lalu Lintas",
+            "sectionCategory": "道路・交通 / Jalan dan Lalu Lintas",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 23 / 道路・交通（どうろ・こうつう） / Jalan dan Lalu Lintas",
+            "id": "mni-b23-ref-road-007",
+            "no": "7",
+            "typeCategory": "Fasilitas Penyeberangan",
+            "typeDetail": "Penyeberangan Sebidang",
+            "indonesia": "tempat penyeberangan / zebra cross",
+            "kanji": "横断歩道",
+            "kana": "おうだんほどう",
+            "romaji": "oudan hodou",
+            "image": "https://iili.io/CM4e8sR.png",
+            "imageAlt": "Ilustrasi 横断歩道 atau zebra cross untuk menyeberang jalan",
+            "speech": "おうだんほどう",
+            "exampleJa": "信号が青になってから横断歩道を渡ります。",
+            "exampleReading": "Shingou ga ao ni natte kara oudan hodou o watarimasu.",
+            "exampleId": "Saya menyeberangi zebra cross setelah lampu berubah menjadi hijau.",
+            "examples": [
+                  {
+                        "ja": "信号が青になってから横断歩道を渡ります。",
+                        "reading": "Shingou ga ao ni natte kara oudan hodou o watarimasu.",
+                        "id": "Saya menyeberangi zebra cross setelah lampu berubah menjadi hijau."
+                  }
+            ],
+            "catatan": "横断歩道 adalah jalur penyeberangan yang ditandai jelas untuk pejalan kaki. Dalam percakapan sehari-hari, arti praktisnya sangat dekat dengan istilah ‘zebra cross’.",
+            "note": "横断歩道 adalah jalur penyeberangan yang ditandai jelas untuk pejalan kaki. Dalam percakapan sehari-hari, arti praktisnya sangat dekat dengan istilah ‘zebra cross’."
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 23",
+            "chapterNumber": 23,
+            "section": "道路・交通",
+            "sectionReading": "どうろ・こうつう",
+            "sectionMeaning": "Jalan dan Lalu Lintas",
+            "sectionCategory": "道路・交通 / Jalan dan Lalu Lintas",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 23 / 道路・交通（どうろ・こうつう） / Jalan dan Lalu Lintas",
+            "id": "mni-b23-ref-road-008",
+            "no": "8",
+            "typeCategory": "Fasilitas Penyeberangan",
+            "typeDetail": "Jembatan Pejalan Kaki",
+            "indonesia": "jembatan penyeberangan",
+            "kanji": "歩道橋",
+            "kana": "ほどうきょう",
+            "romaji": "hodoukyou",
+            "image": "https://iili.io/CM4eUfp.png",
+            "imageAlt": "Ilustrasi 歩道橋 atau jembatan penyeberangan untuk pejalan kaki",
+            "speech": "ほどうきょう",
+            "exampleJa": "駅の前の歩道橋を渡ると、病院があります。",
+            "exampleReading": "Eki no mae no hodoukyou o wataru to, byouin ga arimasu.",
+            "exampleId": "Setelah menyeberangi jembatan penyeberangan di depan stasiun, terdapat rumah sakit.",
+            "examples": [
+                  {
+                        "ja": "駅の前の歩道橋を渡ると、病院があります。",
+                        "reading": "Eki no mae no hodoukyou o wataru to, byouin ga arimasu.",
+                        "id": "Setelah menyeberangi jembatan penyeberangan di depan stasiun, terdapat rumah sakit."
+                  }
+            ],
+            "catatan": "歩道橋 adalah jembatan penyeberangan untuk pejalan kaki. Dengan memakai 歩道橋, orang bisa menyeberang dengan lebih aman tanpa langsung memotong arus kendaraan di bawahnya.",
+            "note": "歩道橋 adalah jembatan penyeberangan untuk pejalan kaki. Dengan memakai 歩道橋, orang bisa menyeberang dengan lebih aman tanpa langsung memotong arus kendaraan di bawahnya."
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 23",
+            "chapterNumber": 23,
+            "section": "道路・交通",
+            "sectionReading": "どうろ・こうつう",
+            "sectionMeaning": "Jalan dan Lalu Lintas",
+            "sectionCategory": "道路・交通 / Jalan dan Lalu Lintas",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 23 / 道路・交通（どうろ・こうつう） / Jalan dan Lalu Lintas",
+            "id": "mni-b23-ref-road-009",
+            "no": "9",
+            "typeCategory": "Petunjuk Jalan",
+            "typeDetail": "Sudut atau Belokan Jalan",
+            "indonesia": "sudut / belokan",
+            "kanji": "角",
+            "kana": "かど",
+            "romaji": "kado",
+            "image": "https://iili.io/CM4ergI.png",
+            "imageAlt": "Ilustrasi 角 atau sudut tempat jalan berbelok",
+            "speech": "かど",
+            "exampleJa": "あの角を右へ曲がると、郵便局があります。",
+            "exampleReading": "Ano kado o migi e magaru to, yuubinkyoku ga arimasu.",
+            "exampleId": "Jika berbelok ke kanan di sudut itu, terdapat kantor pos.",
+            "examples": [
+                  {
+                        "ja": "あの角を右へ曲がると、郵便局があります。",
+                        "reading": "Ano kado o migi e magaru to, yuubinkyoku ga arimasu.",
+                        "id": "Jika berbelok ke kanan di sudut itu, terdapat kantor pos."
+                  }
+            ],
+            "catatan": "角 berarti sudut, pojok, atau titik belokan. Dalam petunjuk arah, kata ini sering dipakai untuk memberi penanda lokasi, misalnya saat harus belok di sudut tertentu.",
+            "note": "角 berarti sudut, pojok, atau titik belokan. Dalam petunjuk arah, kata ini sering dipakai untuk memberi penanda lokasi, misalnya saat harus belok di sudut tertentu."
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 23",
+            "chapterNumber": 23,
+            "section": "道路・交通",
+            "sectionReading": "どうろ・こうつう",
+            "sectionMeaning": "Jalan dan Lalu Lintas",
+            "sectionCategory": "道路・交通 / Jalan dan Lalu Lintas",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 23 / 道路・交通（どうろ・こうつう） / Jalan dan Lalu Lintas",
+            "id": "mni-b23-ref-road-010",
+            "no": "10",
+            "typeCategory": "Pengatur Lalu Lintas",
+            "typeDetail": "Lampu dan Sinyal Lalu Lintas",
+            "indonesia": "lampu lalu lintas",
+            "kanji": "信号",
+            "kana": "しんごう",
+            "romaji": "shingou",
+            "image": "https://iili.io/CM4e6Jt.png",
+            "imageAlt": "Ilustrasi 信号 atau lampu lalu lintas",
+            "speech": "しんごう",
+            "exampleJa": "信号が赤ですから、ここで止まりましょう。",
+            "exampleReading": "Shingou ga aka desu kara, koko de tomarimashou.",
+            "exampleId": "Karena lampu lalu lintas berwarna merah, mari berhenti di sini.",
+            "examples": [
+                  {
+                        "ja": "信号が赤ですから、ここで止まりましょう。",
+                        "reading": "Shingou ga aka desu kara, koko de tomarimashou.",
+                        "id": "Karena lampu lalu lintas berwarna merah, mari berhenti di sini."
+                  }
+            ],
+            "catatan": "信号 secara umum berarti sinyal, tetapi dalam konteks jalan hampir selalu dipahami sebagai lampu lalu lintas. Kata ini penting karena sering dipakai saat menjelaskan kapan harus berhenti atau menyeberang.",
+            "note": "信号 secara umum berarti sinyal, tetapi dalam konteks jalan hampir selalu dipahami sebagai lampu lalu lintas. Kata ini penting karena sering dipakai saat menjelaskan kapan harus berhenti atau menyeberang."
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 23",
+            "chapterNumber": 23,
+            "section": "道路・交通",
+            "sectionReading": "どうろ・こうつう",
+            "sectionMeaning": "Jalan dan Lalu Lintas",
+            "sectionCategory": "道路・交通 / Jalan dan Lalu Lintas",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 23 / 道路・交通（どうろ・こうつう） / Jalan dan Lalu Lintas",
+            "id": "mni-b23-ref-road-011",
+            "no": "11",
+            "typeCategory": "Kondisi Jalan",
+            "typeDetail": "Jalan Berlereng",
+            "indonesia": "lereng / jalan menanjak atau menurun",
+            "kanji": "坂",
+            "kana": "さか",
+            "romaji": "saka",
+            "image": "https://iili.io/CM4eien.png",
+            "imageAlt": "Ilustrasi 坂 atau jalan yang memiliki lereng",
+            "speech": "さか",
+            "exampleJa": "この坂は急なので、自転車を押して上ります。",
+            "exampleReading": "Kono saka wa kyuu na node, jitensha o oshite noborimasu.",
+            "exampleId": "Karena tanjakan ini curam, saya naik sambil mendorong sepeda.",
+            "examples": [
+                  {
+                        "ja": "この坂は急なので、自転車を押して上ります。",
+                        "reading": "Kono saka wa kyuu na node, jitensha o oshite noborimasu.",
+                        "id": "Karena tanjakan ini curam, saya naik sambil mendorong sepeda."
+                  }
+            ],
+            "catatan": "坂 menunjukkan jalan yang miring, baik tanjakan maupun turunan. Arah geraknya akan menentukan apakah kita memahaminya sebagai jalan menanjak atau menurun.",
+            "note": "坂 menunjukkan jalan yang miring, baik tanjakan maupun turunan. Arah geraknya akan menentukan apakah kita memahaminya sebagai jalan menanjak atau menurun."
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 23",
+            "chapterNumber": 23,
+            "section": "道路・交通",
+            "sectionReading": "どうろ・こうつう",
+            "sectionMeaning": "Jalan dan Lalu Lintas",
+            "sectionCategory": "道路・交通 / Jalan dan Lalu Lintas",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 23 / 道路・交通（どうろ・こうつう） / Jalan dan Lalu Lintas",
+            "id": "mni-b23-ref-road-012",
+            "no": "12",
+            "typeCategory": "Fasilitas Kereta Api",
+            "typeDetail": "Perlintasan Kereta dan Jalan",
+            "indonesia": "lintasan kereta api / perlintasan sebidang",
+            "kanji": "踏切",
+            "kana": "ふみきり",
+            "romaji": "fumikiri",
+            "image": "https://iili.io/CM4eP5X.png",
+            "imageAlt": "Ilustrasi 踏切 atau perlintasan kereta api",
+            "speech": "ふみきり",
+            "exampleJa": "踏切では電車が通り過ぎるまで待ってください。",
+            "exampleReading": "Fumikiri de wa densha ga toorisugiru made matte kudasai.",
+            "exampleId": "Di perlintasan kereta api, tunggulah sampai kereta selesai melintas.",
+            "examples": [
+                  {
+                        "ja": "踏切では電車が通り過ぎるまで待ってください。",
+                        "reading": "Fumikiri de wa densha ga toorisugiru made matte kudasai.",
+                        "id": "Di perlintasan kereta api, tunggulah sampai kereta selesai melintas."
+                  }
+            ],
+            "catatan": "踏切 adalah perlintasan sebidang tempat rel kereta dan jalan bertemu. Saat alarm berbunyi atau palang mulai turun, pengguna jalan wajib berhenti dan menunggu hingga kereta benar-benar lewat.",
+            "note": "踏切 adalah perlintasan sebidang tempat rel kereta dan jalan bertemu. Saat alarm berbunyi atau palang mulai turun, pengguna jalan wajib berhenti dan menunggu hingga kereta benar-benar lewat."
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 23",
+            "chapterNumber": 23,
+            "section": "道路・交通",
+            "sectionReading": "どうろ・こうつう",
+            "sectionMeaning": "Jalan dan Lalu Lintas",
+            "sectionCategory": "道路・交通 / Jalan dan Lalu Lintas",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 23 / 道路・交通（どうろ・こうつう） / Jalan dan Lalu Lintas",
+            "id": "mni-b23-ref-road-013",
+            "no": "13",
+            "typeCategory": "Fasilitas Kendaraan",
+            "typeDetail": "Tempat Pengisian Bahan Bakar",
+            "indonesia": "pompa bensin / stasiun pengisian bahan bakar",
+            "kanji": "",
+            "kana": "ガソリンスタンド",
+            "romaji": "gasorin sutando",
+            "image": "https://iili.io/CM4eQzG.png",
+            "imageAlt": "Ilustrasi ガソリンスタンド atau pompa bensin",
+            "speech": "ガソリンスタンド",
+            "exampleJa": "ガソリンスタンドで車にガソリンを入れました。",
+            "exampleReading": "Gasorin sutando de kuruma ni gasorin o iremashita.",
+            "exampleId": "Saya mengisi bensin mobil di pompa bensin.",
+            "examples": [
+                  {
+                        "ja": "ガソリンスタンドで車にガソリンを入れました。",
+                        "reading": "Gasorin sutando de kuruma ni gasorin o iremashita.",
+                        "id": "Saya mengisi bensin mobil di pompa bensin."
+                  }
+            ],
+            "catatan": "ガソリンスタンド adalah sebutan umum di Jepang untuk pompa bensin atau tempat pengisian bahan bakar. Walaupun berasal dari kata serapan, bentuk ini sangat lazim dipakai dalam percakapan sehari-hari.",
+            "note": "ガソリンスタンド adalah sebutan umum di Jepang untuk pompa bensin atau tempat pengisian bahan bakar. Walaupun berasal dari kata serapan, bentuk ini sangat lazim dipakai dalam percakapan sehari-hari."
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 23",
+            "chapterNumber": 23,
+            "section": "道路・交通",
+            "sectionReading": "どうろ・こうつう",
+            "sectionMeaning": "Jalan dan Lalu Lintas",
+            "sectionCategory": "道路・交通 / Jalan dan Lalu Lintas",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 23 / 道路・交通（どうろ・こうつう） / Jalan dan Lalu Lintas",
+            "id": "mni-b23-ref-road-014",
+            "no": "14",
+            "typeCategory": "Rambu Lalu Lintas",
+            "typeDetail": "Rambu Perintah Berhenti",
+            "indonesia": "berhenti",
+            "kanji": "止まれ",
+            "kana": "とまれ",
+            "romaji": "tomare",
+            "image": "https://iili.io/CM4esbs.png",
+            "imageAlt": "Ilustrasi rambu 止まれ yang memerintahkan kendaraan berhenti",
+            "speech": "とまれ",
+            "exampleJa": "「止まれ」の標識を見たら、必ず停止してください。",
+            "exampleReading": "“Tomare” no hyoushiki o mitara, kanarazu teishi shite kudasai.",
+            "exampleId": "Ketika melihat rambu “Berhenti”, pastikan untuk menghentikan kendaraan.",
+            "examples": [
+                  {
+                        "ja": "「止まれ」の標識を見たら、必ず停止してください。",
+                        "reading": "“Tomare” no hyoushiki o mitara, kanarazu teishi shite kudasai.",
+                        "id": "Ketika melihat rambu “Berhenti”, pastikan untuk menghentikan kendaraan."
+                  }
+            ],
+            "catatan": "止まれ adalah bentuk perintah dari kata kerja 止まる, yaitu ‘berhenti’. Saat muncul pada rambu lalu lintas, artinya pengendara harus benar-benar berhenti sebelum melanjutkan perjalanan.",
+            "note": "止まれ adalah bentuk perintah dari kata kerja 止まる, yaitu ‘berhenti’. Saat muncul pada rambu lalu lintas, artinya pengendara harus benar-benar berhenti sebelum melanjutkan perjalanan."
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 23",
+            "chapterNumber": 23,
+            "section": "道路・交通",
+            "sectionReading": "どうろ・こうつう",
+            "sectionMeaning": "Jalan dan Lalu Lintas",
+            "sectionCategory": "道路・交通 / Jalan dan Lalu Lintas",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 23 / 道路・交通（どうろ・こうつう） / Jalan dan Lalu Lintas",
+            "id": "mni-b23-ref-road-015",
+            "no": "15",
+            "typeCategory": "Rambu Lalu Lintas",
+            "typeDetail": "Rambu Larangan Masuk",
+            "indonesia": "dilarang masuk",
+            "kanji": "進入禁止",
+            "kana": "しんにゅうきんし",
+            "romaji": "shinnyuu kinshi",
+            "image": "https://iili.io/CM4eZXf.png",
+            "imageAlt": "Ilustrasi rambu 進入禁止 atau dilarang masuk",
+            "speech": "しんにゅうきんし",
+            "exampleJa": "この道は進入禁止なので、別の道を行きます。",
+            "exampleReading": "Kono michi wa shinnyuu kinshi na node, betsu no michi o ikimasu.",
+            "exampleId": "Karena jalan ini dilarang dimasuki, saya melewati jalan yang lain.",
+            "examples": [
+                  {
+                        "ja": "この道は進入禁止なので、別の道を行きます。",
+                        "reading": "Kono michi wa shinnyuu kinshi na node, betsu no michi o ikimasu.",
+                        "id": "Karena jalan ini dilarang dimasuki, saya melewati jalan yang lain."
+                  }
+            ],
+            "catatan": "進入禁止 berarti ‘dilarang masuk’. Rambu ini menandakan kendaraan tidak boleh memasuki area atau jalan tersebut dari arah yang sedang dihadapi.",
+            "note": "進入禁止 berarti ‘dilarang masuk’. Rambu ini menandakan kendaraan tidak boleh memasuki area atau jalan tersebut dari arah yang sedang dihadapi."
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 23",
+            "chapterNumber": 23,
+            "section": "道路・交通",
+            "sectionReading": "どうろ・こうつう",
+            "sectionMeaning": "Jalan dan Lalu Lintas",
+            "sectionCategory": "道路・交通 / Jalan dan Lalu Lintas",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 23 / 道路・交通（どうろ・こうつう） / Jalan dan Lalu Lintas",
+            "id": "mni-b23-ref-road-016",
+            "no": "16",
+            "typeCategory": "Rambu Lalu Lintas",
+            "typeDetail": "Rambu Jalan Satu Arah",
+            "indonesia": "satu arah",
+            "kanji": "一方通行",
+            "kana": "いっぽうつうこう",
+            "romaji": "ippou tsuukou",
+            "image": "https://iili.io/CM4em12.png",
+            "imageAlt": "Ilustrasi rambu 一方通行 atau jalan satu arah",
+            "speech": "いっぽうつうこう",
+            "exampleJa": "この通りは一方通行ですから、反対側から入れません。",
+            "exampleReading": "Kono toori wa ippou tsuukou desu kara, hantai-gawa kara hairemasen.",
+            "exampleId": "Karena jalan ini hanya satu arah, kendaraan tidak dapat masuk dari arah sebaliknya.",
+            "examples": [
+                  {
+                        "ja": "この通りは一方通行ですから、反対側から入れません。",
+                        "reading": "Kono toori wa ippou tsuukou desu kara, hantai-gawa kara hairemasen.",
+                        "id": "Karena jalan ini hanya satu arah, kendaraan tidak dapat masuk dari arah sebaliknya."
+                  }
+            ],
+            "catatan": "一方通行 berarti jalan satu arah. Kendaraan hanya boleh melintas sesuai arah yang telah ditentukan, sehingga pengemudi harus memperhatikan arah panah pada rambu dengan teliti.",
+            "note": "一方通行 berarti jalan satu arah. Kendaraan hanya boleh melintas sesuai arah yang telah ditentukan, sehingga pengemudi harus memperhatikan arah panah pada rambu dengan teliti."
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 23",
+            "chapterNumber": 23,
+            "section": "道路・交通",
+            "sectionReading": "どうろ・こうつう",
+            "sectionMeaning": "Jalan dan Lalu Lintas",
+            "sectionCategory": "道路・交通 / Jalan dan Lalu Lintas",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 23 / 道路・交通（どうろ・こうつう） / Jalan dan Lalu Lintas",
+            "id": "mni-b23-ref-road-017",
+            "no": "17",
+            "typeCategory": "Rambu Lalu Lintas",
+            "typeDetail": "Rambu Larangan Parkir",
+            "indonesia": "dilarang parkir",
+            "kanji": "駐車禁止",
+            "kana": "ちゅうしゃきんし",
+            "romaji": "chuusha kinshi",
+            "image": "https://iili.io/CM4k9d7.png",
+            "imageAlt": "Ilustrasi rambu 駐車禁止 atau dilarang parkir",
+            "speech": "ちゅうしゃきんし",
+            "exampleJa": "駅の前は駐車禁止です。",
+            "exampleReading": "Eki no mae wa chuusha kinshi desu.",
+            "exampleId": "Di depan stasiun dilarang parkir.",
+            "examples": [
+                  {
+                        "ja": "駅の前は駐車禁止です。",
+                        "reading": "Eki no mae wa chuusha kinshi desu.",
+                        "id": "Di depan stasiun dilarang parkir."
+                  }
+            ],
+            "catatan": "駐車禁止 berarti area tersebut tidak boleh dipakai untuk parkir. Rambu ini berfokus pada larangan memarkir kendaraan, sehingga maknanya berbeda dari larangan yang juga tidak memperbolehkan berhenti.",
+            "note": "駐車禁止 berarti area tersebut tidak boleh dipakai untuk parkir. Rambu ini berfokus pada larangan memarkir kendaraan, sehingga maknanya berbeda dari larangan yang juga tidak memperbolehkan berhenti."
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-kata referensi dan Informasi",
+            "materialCategory": "Kata-kata referensi dan Informasi",
+            "chapter": "Bab 23",
+            "chapterNumber": 23,
+            "section": "道路・交通",
+            "sectionReading": "どうろ・こうつう",
+            "sectionMeaning": "Jalan dan Lalu Lintas",
+            "sectionCategory": "道路・交通 / Jalan dan Lalu Lintas",
+            "favorite": false,
+            "isFiction": false,
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 23 / 道路・交通（どうろ・こうつう） / Jalan dan Lalu Lintas",
+            "id": "mni-b23-ref-road-018",
+            "no": "18",
+            "typeCategory": "Rambu Lalu Lintas",
+            "typeDetail": "Rambu Larangan Belok Kanan",
+            "indonesia": "dilarang belok kanan",
+            "kanji": "右折禁止",
+            "kana": "うせつきんし",
+            "romaji": "usetsu kinshi",
+            "image": "https://iili.io/CM4kH79.png",
+            "imageAlt": "Ilustrasi rambu 右折禁止 atau dilarang belok kanan",
+            "speech": "うせつきんし",
+            "exampleJa": "この交差点は右折禁止なので、次の道で曲がります。",
+            "exampleReading": "Kono kousaten wa usetsu kinshi na node, tsugi no michi de magarimasu.",
+            "exampleId": "Karena di persimpangan ini dilarang belok kanan, saya akan berbelok di jalan berikutnya.",
+            "examples": [
+                  {
+                        "ja": "この交差点は右折禁止なので、次の道で曲がります。",
+                        "reading": "Kono kousaten wa usetsu kinshi na node, tsugi no michi de magarimasu.",
+                        "id": "Karena di persimpangan ini dilarang belok kanan, saya akan berbelok di jalan berikutnya."
+                  }
+            ],
+            "catatan": "右折禁止 berarti dilarang belok kanan. Jika rambu ini muncul, pengendara harus tetap lurus atau mencari jalur lain tanpa melakukan belokan ke kanan di titik tersebut.",
+            "note": "右折禁止 berarti dilarang belok kanan. Jika rambu ini muncul, pengendara harus tetap lurus atau mencari jalur lain tanpa melakukan belokan ke kanan di titik tersebut."
+      }
+];
+    VOCABULARY.push(...BAB23_REFERENCE_ROAD_TRAFFIC);
 
     const REFERENCE_MATERIAL_CANONICAL = "Kata-Kata Referensi dan Informasi";
     function normalizeMaterialCategoryName(value=""){
@@ -48605,21 +49401,16 @@
     const $ = s => document.querySelector(s);
     const $$ = s => [...document.querySelectorAll(s)];
     const storeKey = "minna_bab23";
-    const dataVersion = "bab23-materi-umum-20260716-v1";
+    const dataVersion = "bab23-referensi-jalan-lalu-lintas-20260716-v1";
     const setupCompletedKey = storeKey + "_setupCompleted";
     const hadCurrentDataVersionBeforeBoot = localStorage.getItem(storeKey+"_dataVersion") === dataVersion;
     const hadSetupCompletedFlagBeforeBoot = localStorage.getItem(setupCompletedKey);
-    const defaultSetup = { book:"Minna no Nihongo I (2nd Edition)", materialCategory:"Materi Umum", chapter:"Bab 23" };
+    const defaultSetup = { book:"Minna no Nihongo I (2nd Edition)", materialCategory:"Kata-Kata Referensi dan Informasi", chapter:"Bab 23" };
     if(localStorage.getItem(storeKey+"_dataVersion") !== dataVersion){
       let savedSetup = null;
       try { savedSetup = JSON.parse(localStorage.getItem(storeKey+"_settings") || "null"); } catch(e){}
-      const wasPreviousBab21Default = savedSetup
-        && savedSetup.book === "Minna no Nihongo I (2nd Edition)"
-        && ["Materi Umum", "Kata-kata referensi dan Informasi"].includes(savedSetup.materialCategory)
-        && savedSetup.chapter === "Bab 21";
-      if(!savedSetup || wasPreviousBab21Default){
-        localStorage.setItem(storeKey+"_settings", JSON.stringify(defaultSetup));
-      }
+      // Pada versi khusus ini, pilihan awal selalu diarahkan ke Bab 23 道路・交通 satu kali saat versi data berubah.
+      localStorage.setItem(storeKey+"_settings", JSON.stringify(defaultSetup));
       if(localStorage.getItem(storeKey+"_includeFiction") === null) localStorage.setItem(storeKey+"_includeFiction", "true");
       localStorage.setItem(storeKey+"_dataVersion", dataVersion);
       if(hadSetupCompletedFlagBeforeBoot === null) localStorage.setItem(setupCompletedKey, "false");
@@ -48856,7 +49647,8 @@
       return book;
     }
     function setupLabel(){
-      return `${bookLabel()} • ${categoryLabel(state.setup.materialCategory)} • ${state.lang==="ja"?categoryLabel(state.setup.chapter):state.setup.chapter}`;
+      const base = `${bookLabel()} • ${categoryLabel(state.setup.materialCategory)} • ${state.lang==="ja"?categoryLabel(state.setup.chapter):state.setup.chapter}`;
+      return isReferenceInfoBab23() ? `${base} • ${state.lang==="ja"?"道路・交通":"道路・交通 / Jalan dan Lalu Lintas"}` : base;
     }
     function chapterNumbers(label){
       const nums = [...String(label).matchAll(/\d+/g)].map(m=>Number(m[0]));
@@ -48866,7 +49658,7 @@
     }
     // Bab referensi tertentu berupa halaman materi khusus, sehingga tidak semuanya berasal dari kartu VOCABULARY.
     const STATIC_REFERENCE_CHAPTERS = {
-      "Minna no Nihongo I (2nd Edition)": [2,4,5,7,8,9,10,11,12,13,14,15,16,17,19,20,21,22]
+      "Minna no Nihongo I (2nd Edition)": [2,4,5,7,8,9,10,11,12,13,14,15,16,17,19,20,21,22,23]
     };
     function uniqueCategoryValues(list, key){
       const seen = new Set();
@@ -48971,6 +49763,12 @@
         && Number(v.chapterNumber) === 21
         && String(v.sectionCategory || "") === "Nama-Nama Jabatan";
     }
+    function isRoadTrafficReferenceVocab(v={}){
+      return String(v.book || "").startsWith("Minna no Nihongo I")
+        && normalizeMaterialCategoryName(v.materialCategory) === REFERENCE_MATERIAL_CANONICAL
+        && Number(v.chapterNumber) === 23
+        && String(v.section || "") === "道路・交通";
+    }
     function movementRubyHtml(v={}){
       const written = String(v.kanji || "").trim();
       const reading = String(v.kana || "").trim();
@@ -49005,6 +49803,7 @@
     function isReferenceInfoBab20(){ return isReferenceInfoChapter("Bab 20"); }
     function isReferenceInfoBab21(){ return isReferenceInfoChapter("Bab 21"); }
     function isReferenceInfoBab22(){ return isReferenceInfoChapter("Bab 22"); }
+    function isReferenceInfoBab23(){ return isReferenceInfoChapter("Bab 23"); }
     function isReferenceInfoMaterialOnly(){ return isReferenceInfoBab2() || isReferenceInfoBab4() || isReferenceInfoBab5() || isReferenceInfoBab16() || isReferenceInfoBab20(); }
 
     function materialOnlyQuizMessage(){
@@ -49122,8 +49921,10 @@
       } else {
         const vocabChapter = isMateriUmumVocabularyChapter();
         const vocabChapterNo = activeGeneralVocabularyChapterNumber();
-        if(homeTitle) homeTitle.textContent = isReferenceInfoBab22() ? (state.lang === "ja" ? "第22課の語彙" : "Kosakata Bab 22") : isReferenceInfoBab21() ? (state.lang === "ja" ? "第21課の語彙" : "Kosakata Bab 21") : (vocabChapter ? (state.lang === "ja" ? `第${vocabChapterNo}課の語彙` : `Kosakata Bab ${vocabChapterNo}`) : t("homeTitle"));
-        if(homeDesc) homeDesc.textContent = isReferenceInfoBab22()
+        if(homeTitle) homeTitle.textContent = isReferenceInfoBab23() ? (state.lang === "ja" ? "第23課 道路・交通" : "Jalan dan Lalu Lintas") : isReferenceInfoBab22() ? (state.lang === "ja" ? "第22課の語彙" : "Kosakata Bab 22") : isReferenceInfoBab21() ? (state.lang === "ja" ? "第21課の語彙" : "Kosakata Bab 21") : (vocabChapter ? (state.lang === "ja" ? `第${vocabChapterNo}課の語彙` : `Kosakata Bab ${vocabChapterNo}`) : t("homeTitle"));
+        if(homeDesc) homeDesc.textContent = isReferenceInfoBab23()
+          ? (state.lang === "ja" ? "道路、交差点、横断施設、踏切、交通標識など、日本の町でよく見かける18の言葉を、画像・音声・例文・クイズで学びます。" : "Pelajari 18 kosakata penting tentang jalan, persimpangan, fasilitas lalu lintas, lintasan kereta api, dan berbagai rambu yang sering ditemukan di Jepang.")
+          : isReferenceInfoBab22()
           ? (state.lang === "ja" ? "第22課の「衣服」を、画像、音声、例文、メモ、フラッシュカード、クイズで学びます。" : "Pelajari 28 kosakata Bab 22 bertopik 衣服（いふく）— Pakaian, lengkap dengan gambar, audio, contoh kalimat, catatan, flashcard, dan kuis.")
           : isReferenceInfoBab21()
           ? (state.lang === "ja" ? "第21課の「役職名」を、政府、学校、会社、銀行、病院、駅、警察のグループに分けて学びます。" : "Pelajari 35 kosakata Bab 21 bertopik 役職名（やくしょくめい）— Nama-Nama Jabatan, lengkap dengan gambar, audio, contoh kalimat, catatan, flashcard, dan kuis.")
@@ -50066,6 +50867,17 @@
         "Stasiun":"駅",
         "Kepolisian":"警察",
         "Nama-Nama Jabatan":"役職名",
+        "道路・交通 / Jalan dan Lalu Lintas":"道路・交通",
+        "Jalan dan Lalu Lintas":"道路・交通",
+        "Fasilitas Jalan":"道路施設",
+        "Jenis Jalan":"道路の種類",
+        "Fasilitas Penyeberangan":"横断施設",
+        "Petunjuk Jalan":"道案内",
+        "Pengatur Lalu Lintas":"交通整理",
+        "Kondisi Jalan":"道路状況",
+        "Fasilitas Kereta Api":"鉄道施設",
+        "Fasilitas Kendaraan":"車両施設",
+        "Rambu Lalu Lintas":"交通標識",
       };
       if(lang === "ja"){
         if(/^Bab\s+\d+(?:-\d+)?$/.test(v)) return v.replace(/^Bab\s+/, "第") + "課";
@@ -51488,10 +52300,88 @@
     }
 
 
+
+
+    function renderReferenceInfoBab23RoadTraffic(){
+      renderMaterialFilterOptions();
+      const grid = $("#materialGrid");
+      if(!grid) return;
+      const toolbar = $(".material-toolbar");
+      const notice = $("#materialPage .notice");
+      const title = $("#materialPage .content-card > h2");
+      const desc = $("#materialPage .content-card > p");
+      if(title) title.textContent = state.lang === "ja" ? "道路・交通（どうろ・こうつう）" : "道路・交通（どうろ・こうつう）— Jalan dan Lalu Lintas";
+      if(desc) desc.textContent = state.lang === "ja"
+        ? "道路、交差点、横断施設、踏切、交通標識など、日本の町でよく見かける言葉を学びます。"
+        : "Pelajari kosakata inti yang membantu Anda memahami jalan, membaca petunjuk arah, mengenali fasilitas lalu lintas, dan memahami rambu yang sering dijumpai di Jepang.";
+      document.body.classList.remove("material-only-reference");
+      if(toolbar){ toolbar.classList.remove("hidden"); toolbar.style.removeProperty("display"); toolbar.style.removeProperty("visibility"); toolbar.style.removeProperty("pointer-events"); }
+      if(notice){ notice.classList.add("hidden"); notice.style.setProperty("display", "none", "important"); }
+      updateMaterialOnlyControls();
+
+      const search = ($("#materialSearch")?.value || "").toLowerCase().trim();
+      const sectionFilter = $("#materialSectionFilter")?.value || "all";
+      const typeFilter = $("#materialTypeFilter")?.value || "all";
+      let arr = activeVocab().filter(v => [formatIndonesianMeaning(v),v.indonesia,v.kana,v.kanji,v.romaji,v.typeCategory,v.typeDetail,v.sectionCategory,v.section,v.sectionReading,v.sectionMeaning,v.chapter,v.catatan,v.note,v.exampleJa,v.exampleReading,v.exampleId].join(" ").toLowerCase().includes(search));
+      if(sectionFilter !== "all") arr = arr.filter(v=>v.sectionCategory === sectionFilter);
+      if(typeFilter !== "all") arr = arr.filter(v=>v.typeCategory === typeFilter);
+      arr.sort((a,b)=>Number(a.no)-Number(b.no));
+
+      const roadItems = arr.filter(v=>Number(v.no)<=13);
+      const signItems = arr.filter(v=>Number(v.no)>=14);
+      const card = (v, isSign=false) => {
+        const fav = state.favorites.includes(v.id);
+        const groupLabel = isSign ? (state.lang === "ja" ? "交通標識" : "Rambu Lalu Lintas") : (state.lang === "ja" ? "道路・交通施設" : "Jalan dan Fasilitas Lalu Lintas");
+        return `<article class="road-vocab-card ${isSign?"sign":""}">
+          <button class="road-vocab-image-btn" type="button" data-zoom="${esc(v.image)}" aria-label="${state.lang==="ja"?"画像を拡大":"Perbesar gambar"}" title="${state.lang==="ja"?"画像を拡大":"Klik gambar untuk memperbesar"}">
+            <img src="${esc(v.image)}" alt="${esc(v.imageAlt || vocabMainText(v))}" loading="lazy" data-zoom="${esc(v.image)}">
+          </button>
+          <div class="road-vocab-head"><span class="road-vocab-number">${esc(v.no)}</span><div class="road-vocab-title"><h4>${esc(vocabMainText(v))}</h4><div class="kana">${esc(v.kana || "-")}</div><div class="romaji">${esc(v.romaji || "-")}</div></div></div>
+          <p class="road-vocab-meaning">${esc(formatIndonesianMeaning(v))}</p>
+          <span class="road-vocab-label"><i class="fa-solid ${isSign?"fa-diamond-turn-right":"fa-road"}"></i>${esc(groupLabel)}</span>
+          <div class="road-vocab-actions">
+            <button class="icon-btn" type="button" data-speak-id="${esc(v.id)}" title="${state.lang==="ja"?"発音を聞く":"Dengarkan kosakata"}" aria-label="${state.lang==="ja"?"発音を聞く":"Dengarkan kosakata"}"><i class="fa-solid fa-volume-high"></i></button>
+            <button class="icon-btn ${fav?"active":""}" type="button" data-fav="${esc(v.id)}" title="${state.lang==="ja"?"お気に入り":"Favorit"}" aria-label="${state.lang==="ja"?"お気に入り":"Favorit"}"><i class="${fav?"fa-solid":"fa-regular"} fa-star"></i></button>
+            <button class="icon-btn road-example-btn" type="button" data-example-material="${esc(v.id)}" title="${state.lang==="ja"?"例文を見る":"Lihat contoh kalimat"}" aria-label="${state.lang==="ja"?"例文を見る":"Lihat contoh kalimat"}"><i class="fa-regular fa-comment-dots"></i></button>
+            <button class="icon-btn" type="button" data-note-material="${esc(v.id)}" title="${state.lang==="ja"?"語彙メモ":"Catatan kosakata"}" aria-label="${state.lang==="ja"?"語彙メモ":"Catatan kosakata"}"><i class="fa-regular fa-note-sticky"></i></button>
+          </div>
+        </article>`;
+      };
+
+      const empty = `<div class="road-no-results"><div style="font-size:32px;color:#7c4dff;margin-bottom:10px"><i class="fa-solid fa-magnifying-glass"></i></div><h3>${state.lang==="ja"?"語彙が見つかりません":"Kosakata tidak ditemukan"}</h3><p>${state.lang==="ja"?"検索語またはフィルターを変更してください。":"Coba ubah kata kunci atau filter materi."}</p></div>`;
+      grid.className = "road-reference-root";
+      grid.innerHTML = `<div class="road-reference-wrap">
+        <section class="road-reference-hero">
+          <div>
+            <span class="road-reference-kicker"><i class="fa-solid fa-road"></i>${state.lang==="ja"?"参考語彙・情報 / 第23課":"Kata-Kata Referensi dan Informasi / Bab 23"}</span>
+            <h3 class="road-reference-title">道路・交通</h3>
+            <div class="road-reference-reading">どうろ・こうつう</div>
+            <div class="road-reference-meaning">Jalan dan Lalu Lintas</div>
+            <p class="road-reference-desc">Pelajari kosakata inti yang membantu Anda memahami jalan, membaca petunjuk arah, mengenali fasilitas lalu lintas, dan memahami rambu yang sering dijumpai di Jepang.</p>
+            <p class="road-reference-desc jp">道路、交差点、横断施設、踏切、交通標識など、日本で道案内や町歩きのときによく出会う大切な言葉を学びます。</p>
+            <div class="road-reference-meta"><span><i class="fa-solid fa-layer-group"></i>${arr.length} / 18 ${state.lang==="ja"?"語":"kosakata"}</span><span><i class="fa-solid fa-volume-high"></i>${state.lang==="ja"?"音声対応":"Audio Jepang"}</span><span><i class="fa-solid fa-graduation-cap"></i>${state.lang==="ja"?"クイズ対応":"Siap untuk kuis"}</span></div>
+          </div>
+          <button class="road-map-button" type="button" data-zoom="https://iili.io/CM4kAhJ.png" aria-label="${state.lang==="ja"?"道路・交通の地図を拡大":"Perbesar ilustrasi peta Jalan dan Lalu Lintas"}" title="${state.lang==="ja"?"画像を拡大":"Klik gambar untuk memperbesar"}">
+            <img src="https://iili.io/CM4kAhJ.png" alt="Ilustrasi peta 道路・交通 yang menunjukkan jalan dan fasilitas lalu lintas" loading="lazy" data-zoom="https://iili.io/CM4kAhJ.png">
+          </button>
+        </section>
+        <section class="road-section">
+          <div class="road-section-head"><div><h3>${state.lang==="ja"?"道路・交通施設":"Jalan dan Fasilitas Lalu Lintas"}</h3><p>${state.lang==="ja"?"道、交差点、横断施設、車のための設備など、町歩きや道案内で役立つ基本語彙をまとめています。":"Kumpulan kosakata inti tentang jalan, persimpangan, jalur penyeberangan, dan fasilitas kendaraan yang sangat berguna saat membaca peta atau petunjuk arah di Jepang."}</p></div><span class="road-section-count"><i class="fa-solid fa-road"></i>${roadItems.length} item</span></div>
+          ${roadItems.length?`<div class="road-vocab-grid">${roadItems.map(v=>card(v,false)).join("")}</div>`:empty}
+        </section>
+        <section class="road-section">
+          <div class="road-section-head"><div><h3>${state.lang==="ja"?"交通標識":"Rambu Lalu Lintas"}</h3><p>${state.lang==="ja"?"止まれ、進入禁止、一方通行など、安全な通行に欠かせない重要な標識を学びます。":"Pelajari rambu penting seperti berhenti, dilarang masuk, satu arah, dan larangan lainnya agar lebih mudah memahami aturan lalu lintas di Jepang."}</p></div><span class="road-section-count"><i class="fa-solid fa-diamond-turn-right"></i>${signItems.length} item</span></div>
+          ${signItems.length?`<div class="road-sign-grid">${signItems.map(v=>card(v,true)).join("")}</div>`:empty}
+        </section>
+      </div>`;
+      $("#materialEmpty")?.classList.add("hidden");
+    }
+
     function renderMaterial(){
       document.body.classList.remove("calling-material-active");
       document.body.classList.toggle("role-name-reference-active", isReferenceInfoBab21());
       document.body.classList.toggle("clothing-reference-active", isReferenceInfoBab22());
+      document.body.classList.toggle("road-traffic-reference-active", isReferenceInfoBab23());
       syncFictionToggleAvailability();
       const toolbar = $(".material-toolbar");
       const grid = $("#materialGrid");
@@ -51569,6 +52459,10 @@
       }
       if(isReferenceInfoBab22()){
         renderReferenceInfoBab22Clothing();
+        return;
+      }
+      if(isReferenceInfoBab23()){
+        renderReferenceInfoBab23RoadTraffic();
         return;
       }
       renderMaterialFilterOptions();
@@ -51715,7 +52609,10 @@
       $("#setupMaterialGrid").innerHTML = matOptions.map(o=>`<button class="option-card icon-option ${tempSetup.materialCategory===o.value?"active":""}" data-setup-material="${esc(o.value)}"><span class="option-soft-icon"><i class="fa-solid ${o.icon}"></i></span><div>${esc(o.label)}<small>${esc(o.note)}</small></div></button>`).join("");
       $("#setupChapterGrid").innerHTML = chapters.map(ch=>{
         const isClothingChapter = normalizeMaterialCategoryName(tempSetup.materialCategory) === REFERENCE_MATERIAL_CANONICAL && ch === "Bab 22";
-        const chapterText = isClothingChapter
+        const isRoadTrafficChapter = normalizeMaterialCategoryName(tempSetup.materialCategory) === REFERENCE_MATERIAL_CANONICAL && ch === "Bab 23";
+        const chapterText = isRoadTrafficChapter
+          ? (state.lang === "ja" ? "第23課" : "Bab 23")
+          : isClothingChapter
           ? (state.lang === "ja" ? "第22課" : "Bab 22")
           : (state.lang === "ja" ? categoryLabel(ch) : ch);
         return `<button class="choice-chip category-button ${tempSetup.chapter===ch?"active":""}" data-setup-chapter="${esc(ch)}"><span><i class="fa-regular fa-bookmark"></i>${esc(chapterText)}</span></button>`;
@@ -52044,8 +52941,14 @@
         const vocabDetailCards = isMovementReferenceVocab(v) ? `
           <div class="example-info-card"><span>${state.lang==="ja"?"語彙":"Kosakata"}</span><strong class="jp">${movementRubyHtml(v)}</strong></div>
           <div class="example-info-card"><span>${state.lang==="ja"?"読み方・意味":"Cara Baca dan Arti"}</span><strong>${esc(v.kana)} • ${esc(v.romaji)} • ${esc(formatIndonesianMeaning(v))}</strong></div>` : "";
+        const roadTrafficDetailCards = isRoadTrafficReferenceVocab(v) ? `
+          <div class="road-example-detail">
+            <button type="button" data-zoom="${esc(v.image || "")}" aria-label="${state.lang==="ja"?"画像を拡大":"Perbesar gambar kosakata"}"><img src="${esc(v.image || "")}" alt="${esc(v.imageAlt || vocabMainText(v))}" loading="lazy" data-zoom="${esc(v.image || "")}"></button>
+            <div><h3>${esc(vocabMainText(v))}</h3><div class="kana">${esc(v.kana || "-")}</div><div class="romaji">${esc(v.romaji || "-")}</div><div class="meaning">${esc(formatIndonesianMeaning(v))}</div></div>
+          </div>` : "";
         content.innerHTML = `
           ${vocabDetailCards}
+          ${roadTrafficDetailCards}
           <div class="example-info-card"><span id="exampleJaLabel">${state.lang==="ja"?"日本語":"Jepang"}</span><strong class="jp" id="exampleJa">-</strong></div>
           <div class="example-info-card" id="exampleReadingCard"><span id="exampleReadingLabel">${state.lang==="ja"?"読み方":"Cara baca"}</span><strong id="exampleReading">-</strong></div>
           <div class="example-info-card" id="exampleIdCard"><span id="exampleIdLabel">${state.lang==="ja"?"インドネシア語の意味":"Arti Indonesia"}</span><strong id="exampleId">-</strong></div>
@@ -52375,7 +53278,12 @@
     function activeChoiceForResult(r){
       const labelList = arr => arr.map(v=>categoryLabel(v)).join(", ");
       const chapters = Array.isArray(r.selectedChapterFilters) && r.selectedChapterFilters.length ? labelList(r.selectedChapterFilters) : categoryLabel(r.selectedChapter);
-      const sections = Array.isArray(r.selectedSectionFilters) && r.selectedSectionFilters.length && !r.selectedSectionFilters.includes("Semua") ? ` / ${labelList(r.selectedSectionFilters)}` : "";
+      const isRoadTrafficResult = String(r.selectedBook || "").startsWith("Minna no Nihongo I")
+        && normalizeMaterialCategoryName(r.selectedMaterialCategory) === REFERENCE_MATERIAL_CANONICAL
+        && (String(r.selectedChapter || "") === "Bab 23" || (Array.isArray(r.selectedChapterFilters) && r.selectedChapterFilters.includes("Bab 23")));
+      const sections = isRoadTrafficResult
+        ? ` / ${state.lang === "ja" ? "道路・交通" : "道路・交通 / Jalan dan Lalu Lintas"}`
+        : (Array.isArray(r.selectedSectionFilters) && r.selectedSectionFilters.length && !r.selectedSectionFilters.includes("Semua") ? ` / ${labelList(r.selectedSectionFilters)}` : "");
       const types = Array.isArray(r.selectedTypeFilters) && r.selectedTypeFilters.length && !r.selectedTypeFilters.includes("Semua") ? ` / ${labelList(r.selectedTypeFilters)}` : "";
       return `${bookLabel(r.selectedBook)} / ${categoryLabel(r.selectedMaterialCategory)} / ${chapters}${sections}${types}`;
     }
