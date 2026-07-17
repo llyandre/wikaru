@@ -6,7 +6,7 @@
   <title>Wikaru — Belajar Bahasa Jepang</title>
   <!-- Final release audited: desktop, iPad/tablet, mobile -->
   <script id="wikaru-theme-init">
-    try { document.documentElement.dataset.theme = localStorage.getItem("wikaru_theme") === "dark" ? "dark" : "light"; } catch(e) { document.documentElement.dataset.theme = "light"; }
+    try { document.documentElement.dataset.theme = localStorage.getItem("wikaru_theme") === "dark" ? "dark" : "light"; document.documentElement.lang = localStorage.getItem("minna_bab23_lang") === "ja" ? "ja" : "id"; } catch(e) { document.documentElement.dataset.theme = "light"; document.documentElement.lang = "id"; }
     window.__wikaruLoaderFailsafe = setTimeout(function(){
       var loader = document.getElementById("loadingScreen");
       if(loader){ loader.style.opacity="0"; loader.style.pointerEvents="none"; setTimeout(function(){ loader.style.display="none"; },260); }
@@ -5204,6 +5204,79 @@ html[data-theme="dark"] #loginModal .login-actions{background:linear-gradient(18
     .hero::before,.hero::after{z-index:0!important;}
     .hero > *{position:relative!important;z-index:1!important;}
   </style>
+
+<style id="wikaru-visual-fix-v3">
+/* Small visual tidy-up: dropdown clipping and top spacing */
+.top-nav,.nav-inner,.user-menu{overflow:visible!important;}
+.user-menu{position:relative!important;}
+#userDropdown.dropdown{
+  right:0!important;
+  left:auto!important;
+  top:calc(100% + 10px)!important;
+  min-width:280px!important;
+  max-width:min(320px,calc(100vw - 28px))!important;
+  max-height:min(430px,calc(100vh - 110px))!important;
+  overflow:auto!important;
+  overscroll-behavior:contain;
+  border-radius:20px!important;
+}
+@media (min-width:1200px){
+  .top-nav{height:80px!important;}
+  .app{padding-top:92px!important;}
+  #homePage.home-page{padding-top:24px!important;}
+  .home-header{padding-top:6px!important;}
+}
+@media (min-width:1200px){
+  .nav-inner{width:min(1340px,calc(100% - 56px))!important;}
+}
+@media (max-width:1199px){
+  #userDropdown.dropdown{max-height:min(420px,calc(100vh - 90px))!important;}
+}
+@media (max-width:760px){
+  #userDropdown.dropdown{
+    left:10px!important;
+    right:10px!important;
+    top:68px!important;
+    max-width:none!important;
+  }
+}
+html[data-theme="dark"] #userDropdown.dropdown{
+  box-shadow:0 18px 40px rgba(0,0,0,.35)!important;
+}
+</style>
+
+<style id="wikaru-ja-copy-fit-v4">
+html[lang="ja"] body{font-feature-settings:"palt" 1;}
+html[lang="ja"] .home-header h1{font-size:clamp(32px,3.1vw,48px)!important;letter-spacing:-.025em!important;line-height:1.16!important;}
+html[lang="ja"] .home-header p,html[lang="ja"] .home-continue-description{line-height:1.8;}
+html[lang="ja"] .home-continue-card h2{letter-spacing:-.02em!important;overflow-wrap:anywhere;}
+html[lang="ja"] .home-quick-item strong{line-height:1.45;}
+html[lang="ja"] .home-quick-item small{line-height:1.55;}
+html[lang="ja"] .dropdown .drop-item,html[lang="ja"] .dropdown .theme-toggle,html[lang="ja"] .dropdown .nav-fiction-toggle{font-size:12.5px;}
+@media (min-width:768px) and (max-width:1199px) and (orientation:portrait){html[lang="ja"] .home-header h1{font-size:clamp(30px,5vw,42px)!important;}html[lang="ja"] .home-quick-item{min-height:112px;}}
+@media (max-width:599px){html[lang="ja"] .home-header h1{font-size:clamp(25px,7.6vw,32px)!important;line-height:1.22!important;}html[lang="ja"] .home-quick-item{min-height:140px;}html[lang="ja"] .home-quick-item small{font-size:9px;}}
+@media (max-width:899px) and (orientation:landscape){html[lang="ja"] .home-continue-card h2{font-size:clamp(23px,4.2vw,34px)!important;}html[lang="ja"] .home-quick-item{min-height:92px;}}
+</style>
+
+<style id="wikaru-ja-pseudo-copy-v4">
+html[lang="ja"] body.inspect-private-mode .inspect-private::after{content:"動的コンテンツを非表示にしています";}
+html[lang="ja"] body.inspect-notice::after{content:"一部の動的コンテンツでは開発者アクセスが制限されています";}
+</style>
+
+<style id="wikaru-ja-final-responsive-v5">
+html[data-theme="dark"] .nav-links .nav-link{background:transparent!important;border-color:transparent!important;color:#AAB3C5!important;box-shadow:none!important;}
+html[data-theme="dark"] .nav-links .nav-link:hover{background:#20283A!important;color:#F0F3FA!important;}
+html[data-theme="dark"] .nav-links .nav-link.active{background:#2A3658!important;color:#E6ECFF!important;}
+html[data-theme="dark"] .home-word-stage>.jp:not(strong){color:#CBD6F5!important;}
+html[data-theme="dark"] #homeDailyRomaji{color:#AFC1FF!important;}
+html[data-theme="dark"] #homeDailyMeaning{color:#F6F7FB!important;}
+@media (min-width:900px) and (max-width:1199px) and (orientation:landscape){
+  .top-nav{left:92px!important;}
+  .app{padding-left:92px!important;}
+  .bottom-nav{width:92px!important;}
+  #homePage.home-page{width:calc(100% - 38px)!important;margin-inline:auto!important;padding-left:16px!important;box-sizing:border-box!important;}
+}
+</style>
 </head>
 <body>
   <div id="loadingScreen" class="loader">
@@ -5216,17 +5289,28 @@ html[data-theme="dark"] #loginModal .login-actions{background:linear-gradient(18
         </svg>
       </div>
       <div class="loader-wordmark">Wikaru</div>
-      <h3>Menyiapkan ruang belajarmu</h3>
-      <p>Memuat kartu, audio, dan progres belajar dengan aman.</p>
+      <h3 id="loaderTitle">Menyiapkan ruang belajarmu</h3>
+      <p id="loaderDesc">Memuat kartu, audio, dan progres belajar dengan aman.</p>
       <div class="loader-bar" aria-hidden="true"><div class="loader-fill"></div></div>
-      <small>Belajar Bahasa Jepang Lebih Mudah</small>
+      <small id="loaderTagline">Belajar Bahasa Jepang Lebih Mudah</small>
     </div>
   </div>
 
+  <script id="wikaru-loader-language-init">
+    try {
+      if(localStorage.getItem("minna_bab23_lang") === "ja"){
+        const a=document.getElementById("loaderTitle"),b=document.getElementById("loaderDesc"),c=document.getElementById("loaderTagline");
+        if(a)a.textContent="学習スペースを準備しています";
+        if(b)b.textContent="カード・音声・学習記録を読み込んでいます。";
+        if(c)c.textContent="日本語をもっとやさしく";
+      }
+    } catch(_) {}
+  </script>
+
   <div id="devtoolsOverlay" class="devtools-overlay">
     <div class="box">
-      <h2>Mode inspeksi terdeteksi.</h2>
-      <p>Silakan kembali ke halaman belajar.</p>
+      <h2 id="devOverlayTitle">Mode inspeksi terdeteksi.</h2>
+      <p id="devOverlayDesc">Silakan kembali ke halaman belajar.</p>
       <button class="btn secondary" id="closeDevOverlay">Kembali</button>
     </div>
   </div>
@@ -5254,15 +5338,13 @@ html[data-theme="dark"] #loginModal .login-actions{background:linear-gradient(18
           <span class="lang-code">ID</span>
           <span class="lang-name">Indonesia</span>
         </button>
-        <button class="nav-fiction-toggle nav-fiction-compact active" id="navFictionToggle" type="button" aria-pressed="true" title="Filter kosakata fiksi">
-          <span class="fiction-label">Fiksi</span>
-          <span class="fiction-state">Aktif</span>
-        </button>
         <div class="user-menu">
           <button class="user-btn" id="userMenuBtn"><span class="wikaru-user-avatar" id="userAvatar" aria-hidden="true"><i class="fa-regular fa-user"></i><small>W</small></span><span class="wikaru-user-copy"><span id="userMenuText" data-i18n="login">Masuk</span><small id="userRoleText">Tamu</small></span><i class="fa-solid fa-chevron-down user-chevron" aria-hidden="true"></i></button>
           <div class="dropdown" id="userDropdown">
             <button class="drop-item" id="changeCategoryBtn"><i class="fa-solid fa-layer-group"></i><span data-i18n="changeCategory">Ganti kategori</span></button>
             <button class="drop-item" id="langToggleDrop"><i class="fa-solid fa-language"></i><span data-i18n="changeLanguage">Ganti bahasa</span></button>
+
+            <button class="drop-item nav-fiction-toggle active" id="navFictionToggle" type="button" aria-pressed="true" title="Filter kosakata fiksi"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i><span class="fiction-label">Fiksi</span><span class="fiction-state">Aktif</span></button>
             <button class="drop-item hidden" id="myResultDrop"><i class="fa-solid fa-chart-simple"></i><span data-i18n="myResult">Lihat Hasil Saya</span></button>
             <button class="drop-item hidden" id="logoutBtn"><i class="fa-solid fa-arrow-right-from-bracket"></i><span data-i18n="logout">Keluar</span></button>
           </div>
@@ -5272,44 +5354,137 @@ html[data-theme="dark"] #loginModal .login-actions{background:linear-gradient(18
   </header>
 
   <main class="app">
-    <section class="page active" id="homePage">
-      <div class="hero glass">
-        <div>
-          <span class="badge"><i class="fa-solid fa-wand-magic-sparkles"></i><span id="activeChoiceText">Minna no Nihongo I • Materi Umum • Bab 24</span></span>
-          <h1 data-i18n="homeTitle">Kuasai Kosakata Jepang, <span class="hero-accent">Satu Kartu Setiap Hari.</span></h1>
-          <p data-i18n="homeDesc">Belajar kosakata, pelafalan, dan contoh kalimat melalui flashcard interaktif yang sederhana dan menyenangkan.</p>
-          <div class="info-grid">
-            <div class="info-card"><i class="fa-solid fa-book-open"></i><strong id="homeVocabCount">0</strong><span id="homeVocabLabel" data-i18n="totalVocab">Total Kosakata</span></div>
-            <div class="info-card"><i class="fa-regular fa-clock"></i><strong id="homeTimeValue">30 dtk</strong><span id="homeTimeLabel" data-i18n="timeLimit">Batas Waktu per Kartu</span></div>
-            <div class="info-card"><i class="fa-solid fa-layer-group"></i><strong id="homeChapterCount">1</strong><span data-i18n="chapterScope">Lingkup Bab</span></div>
+    <section class="page active home-page" id="homePage">
+      <div class="home-dashboard" aria-labelledby="homeGreetingTitle">
+        <header class="home-header">
+          <div class="home-heading-copy">
+            <span class="home-eyebrow"><span class="home-eyebrow-dot" aria-hidden="true"></span><span id="homeGreetingKicker">Belajar sebentar, progres tetap jalan</span></span>
+            <h1 id="homeGreetingTitle">Selamat datang di Wikaru!</h1>
+            <p id="homeGreetingCopy">Pilih satu aktivitas, belajar beberapa menit, lalu lanjutkan harimu dengan progres baru.</p>
           </div>
-          <div class="hero-actions">
-            <button class="btn hidden" id="homeStartBtn"><i class="fa-solid fa-play"></i><span data-i18n="startQuiz">Mulai Kuis</span></button>
-            <button class="btn secondary hidden" id="homeMaterialBtn"><i class="fa-solid fa-book"></i><span data-i18n="seeMaterial">Lihat Materi</span></button>
-            <button class="btn secondary hidden" id="homeResultBtn"><i class="fa-solid fa-chart-simple"></i><span data-i18n="myResult">Lihat Hasil Saya</span></button>
-            <button class="btn soft" id="homeLoginBtn"><i class="fa-regular fa-user"></i><span data-i18n="fillUsername">Isi Nama Peserta</span></button>
-            <button class="choice-chip" id="homeLangBtn"><i class="fa-solid fa-language"></i><span>日本語 / Indonesia</span></button>
-          </div>
-        </div>
-        <div class="hero-visual" aria-label="Pratinjau flashcard Wikaru">
-          <div class="hero-enso" aria-hidden="true"></div>
-          <div class="hero-card-stack">
-            <div class="preview-card preview-card-back">
-              <span class="preview-label">ARTI</span>
-              <strong>Membantu</strong>
-              <small>Contoh kalimat tersedia</small>
+          <div class="home-header-actions">
+            <div class="home-streak" aria-label="Rangkaian hari belajar">
+              <span class="home-streak-icon" aria-hidden="true"><i class="fa-solid fa-fire"></i></span>
+              <span><strong id="homeStreakValue">0</strong><small id="homeStreakLabel">hari beruntun</small></span>
             </div>
-            <div class="preview-card preview-card-main">
-              <div class="preview-top"><span>Bab 24</span><i class="fa-solid fa-volume-high"></i></div>
-              <div class="preview-word jp">手伝います</div>
-              <div class="preview-reading jp">てつだいます</div>
-              <div class="preview-romaji">tetsudaimasu</div>
-              <div class="preview-progress"><span></span></div>
-              <div class="preview-footer"><small>12 dari 66 kartu</small><span>18%</span></div>
-            </div>
+            <button class="home-profile-shortcut" type="button" data-home-proxy="#userMenuBtn" aria-label="Buka menu profil">
+              <span class="home-profile-avatar" aria-hidden="true"><i class="fa-regular fa-user"></i></span>
+              <span class="home-profile-copy"><strong id="homeProfileName">Tamu</strong><small id="homeProfileRole">Mulai perjalanan belajar</small></span>
+              <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+            </button>
           </div>
-          <div class="hero-mini-card mini-a"><i class="fa-solid fa-headphones"></i><span>Audio asli</span></div>
-          <div class="hero-mini-card mini-b"><i class="fa-solid fa-microphone-lines"></i><span>Latihan bicara</span></div>
+        </header>
+
+        <div class="home-main-grid">
+          <article class="home-card home-continue-card" aria-labelledby="homeContinueTitle">
+            <div class="home-continue-top">
+              <span class="home-card-label home-card-label-light"><i class="fa-solid fa-book-open-reader" aria-hidden="true"></i><span id="homeContinueEyebrow">Lanjutkan belajar</span></span>
+              <span class="home-session-status" id="homeSessionStatus"><i class="fa-solid fa-circle" aria-hidden="true"></i> Siap lanjut</span>
+            </div>
+            <div class="home-theme-scene" aria-hidden="true">
+              <span class="home-scene-orb"></span>
+              <span class="home-scene-cloud home-scene-cloud-one"></span>
+              <span class="home-scene-cloud home-scene-cloud-two"></span>
+              <span class="home-scene-kana home-scene-kana-one">あ</span>
+              <span class="home-scene-kana home-scene-kana-two">日</span>
+              <span class="home-scene-star home-scene-star-one">✦</span>
+              <span class="home-scene-star home-scene-star-two">✧</span>
+              <span class="home-scene-star home-scene-star-three">•</span>
+            </div>
+            <div class="home-continue-content">
+              <p class="home-book-name" id="homeActiveBook">Minna no Nihongo I</p>
+              <h2 id="homeContinueTitle"><span id="homeActiveChapter">Bab 24</span><span class="home-title-divider" aria-hidden="true"> · </span><span id="homeActiveCategory">Materi Umum</span></h2>
+              <p class="home-continue-description" id="homeContinueDescription">Lanjut dari kartu terakhir, dengarkan pelafalannya, lalu coba ucapkan sendiri.</p>
+              <div class="home-active-choice" id="activeChoiceText">Minna no Nihongo I • Materi Umum • Bab 24</div>
+            </div>
+            <div class="home-continue-progress">
+              <div class="home-progress-copy"><span id="homeProgressLabel">Progres target hari ini</span><strong id="homeProgressValue">0%</strong></div>
+              <div class="home-progress-track" role="progressbar" aria-label="Progres target belajar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="homeProgressTrack"><span id="homeProgressFill"></span></div>
+              <small id="homeProgressCaption">Belum ada sesi yang diselesaikan hari ini.</small>
+            </div>
+            <div class="home-primary-actions">
+              <button class="btn home-main-button hidden" id="homeStartBtn"><i class="fa-solid fa-play" aria-hidden="true"></i><span data-i18n="startQuiz">Mulai Kuis</span></button>
+              <button class="btn home-main-button" id="homeLoginBtn"><i class="fa-regular fa-user" aria-hidden="true"></i><span data-i18n="fillUsername">Isi Nama Peserta</span></button>
+              <button class="btn secondary home-secondary-button hidden" id="homeMaterialBtn"><i class="fa-solid fa-book" aria-hidden="true"></i><span data-i18n="seeMaterial">Lihat Materi</span></button>
+              <button class="btn secondary home-secondary-button hidden" id="homeResultBtn"><i class="fa-solid fa-chart-simple" aria-hidden="true"></i><span data-i18n="myResult">Lihat Hasil Saya</span></button>
+              <button class="choice-chip hidden" id="homeLangBtn" type="button" aria-hidden="true" tabindex="-1"><i class="fa-solid fa-language"></i><span>日本語 / Indonesia</span></button>
+            </div>
+          </article>
+
+          <article class="home-card home-vocab-card" aria-labelledby="homeDailyWordTitle">
+            <div class="home-card-head">
+              <div>
+                <span class="home-card-label"><i class="fa-regular fa-calendar" aria-hidden="true"></i><span id="homeDailyWordLabel">Kosakata hari ini</span></span>
+                <h2 id="homeDailyWordTitle">Kenalan dengan satu kata baru</h2>
+              </div>
+              <button class="home-icon-button" id="homeDailyFavoriteBtn" type="button" aria-label="Simpan kosakata hari ini ke favorit" aria-pressed="false"><i class="fa-regular fa-star"></i></button>
+            </div>
+            <div class="home-word-stage" aria-live="polite">
+              <span class="home-word-index" id="homeDailyIndex">今日の言葉</span>
+              <strong class="jp" id="homeDailyJapanese">手伝います</strong>
+              <span class="jp" id="homeDailyKana">てつだいます</span>
+              <span id="homeDailyRomaji">tetsudaimasu</span>
+              <p id="homeDailyMeaning">membantu</p>
+            </div>
+            <div class="home-word-actions">
+              <button class="home-word-button" id="homeDailyAudioBtn" type="button"><i class="fa-solid fa-volume-high" aria-hidden="true"></i><span id="homeListenLabel">Dengarkan</span></button>
+              <button class="home-word-button" id="homeDailySpeechBtn" type="button"><i class="fa-solid fa-microphone-lines" aria-hidden="true"></i><span id="homeSpeakLabel">Latihan bicara</span></button>
+            </div>
+          </article>
+
+          <section class="home-statistics" aria-label="Ringkasan belajar">
+            <article class="home-stat-item">
+              <span class="home-stat-icon"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span>
+              <span><strong id="homeTargetStat">0/15</strong><small id="homeTargetStatLabel">Target hari ini</small></span>
+            </article>
+            <article class="home-stat-item">
+              <span class="home-stat-icon"><i class="fa-solid fa-book-open" aria-hidden="true"></i></span>
+              <span><strong id="homeVocabCount">0</strong><small id="homeVocabLabel" data-i18n="totalVocab">Total Kosakata</small></span>
+            </article>
+            <article class="home-stat-item">
+              <span class="home-stat-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></span>
+              <span><strong id="homeAccuracyValue">—</strong><small id="homeAccuracyLabel">Akurasi terakhir</small></span>
+            </article>
+            <article class="home-stat-item">
+              <span class="home-stat-icon"><i class="fa-regular fa-clock" aria-hidden="true"></i></span>
+              <span><strong id="homeTimeValue">30 dtk</strong><small id="homeTimeLabel" data-i18n="timeLimit">Batas Waktu per Kartu</small></span>
+            </article>
+            <span class="home-hidden-stat" aria-hidden="true"><strong id="homeChapterCount">1</strong></span>
+          </section>
+
+          <section class="home-card home-quick-actions" aria-labelledby="homeQuickTitle">
+            <div class="home-card-head home-card-head-inline">
+              <div><span class="home-card-label"><i class="fa-solid fa-bolt" aria-hidden="true"></i><span id="homeQuickLabel">Aktivitas cepat</span></span><h2 id="homeQuickTitle">Mau belajar dengan cara apa?</h2></div>
+              <span class="home-scroll-hint" id="homeQuickHint">Geser untuk melihat lainnya</span>
+            </div>
+            <div class="home-quick-list">
+              <button class="home-quick-item" type="button" data-page="material"><span class="home-quick-icon"><i class="fa-solid fa-book-open" aria-hidden="true"></i></span><span><strong id="homeQuickMaterial">Materi</strong><small id="homeQuickMaterialCopy">Pelajari kosakata aktif</small></span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+              <button class="home-quick-item" type="button" data-action="openQuizSettings"><span class="home-quick-icon"><i class="fa-regular fa-clone" aria-hidden="true"></i></span><span><strong id="homeQuickFlashcard">Flashcard</strong><small id="homeQuickFlashCopy">Latihan kartu terarah</small></span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+              <button class="home-quick-item" type="button" data-home-proxy="#homeStartBtn,#homeLoginBtn"><span class="home-quick-icon"><i class="fa-solid fa-microphone-lines" aria-hidden="true"></i></span><span><strong id="homeQuickSpeech">Latihan bicara</strong><small id="homeQuickSpeechCopy">Ucapkan kosakata Jepang</small></span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+              <button class="home-quick-item" type="button" data-home-proxy="#homeResultBtn,#bottomResultBtn"><span class="home-quick-icon"><i class="fa-solid fa-chart-simple" aria-hidden="true"></i></span><span><strong id="homeQuickResult">Hasil terakhir</strong><small id="homeQuickResultCopy">Tinjau skor dan jawaban</small></span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+              <button class="home-quick-item" type="button" data-home-action="favorites"><span class="home-quick-icon"><i class="fa-regular fa-star" aria-hidden="true"></i></span><span><strong id="homeQuickFavorite">Favorit</strong><small id="homeQuickFavoriteCopy">Buka kata tersimpan</small></span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+            </div>
+          </section>
+
+          <aside class="home-card home-daily-target" aria-labelledby="homeTargetTitle">
+            <div class="home-target-ring" id="homeTargetRing" style="--target-progress:0deg" aria-hidden="true"><span><strong id="homeTargetDone">0</strong><small id="homeTargetTotal">/15</small></span></div>
+            <div class="home-target-copy">
+              <span class="home-card-label"><i class="fa-solid fa-bullseye" aria-hidden="true"></i><span id="homeTargetLabel">Target hari ini</span></span>
+              <h2 id="homeTargetTitle">Sedikit demi sedikit, jadi bisa</h2>
+              <p id="homeTargetDescription">Pelajari 15 kata hari ini dan pertahankan rentetan belajarmu.</p>
+              <button class="home-text-button" type="button" data-home-proxy="#homeStartBtn,#homeLoginBtn"><span id="homeTargetActionLabel">Mulai target</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+            </div>
+          </aside>
+
+          <aside class="home-card home-recommendation" aria-labelledby="homeRecommendationTitle">
+            <span class="home-recommendation-icon" aria-hidden="true"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+            <div>
+              <span class="home-card-label" id="homeRecommendationLabel">Rekomendasi belajar</span>
+              <h2 id="homeRecommendationTitle">Mulai dari lima menit</h2>
+              <p id="homeRecommendationCopy">Pilih satu aktivitas dan mulai tanpa menunggu suasana hati yang sempurna.</p>
+            </div>
+            <button class="home-recommendation-button" id="homeRecommendationBtn" type="button" data-home-proxy="#homeStartBtn,#homeLoginBtn"><span id="homeRecommendationAction">Mulai latihan</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+          </aside>
         </div>
       </div>
     </section>
@@ -5520,11 +5695,11 @@ html[data-theme="dark"] #loginModal .login-actions{background:linear-gradient(18
         <div class="step-block active" data-quiz-step="1">
           <h3><span class="soft-step-icon"><i class="fa-solid fa-language"></i></span><span data-i18n="chooseDirection">1. Pilih arah bahasa soal</span></h3>
           <div class="option-grid">
-            <button class="option-card icon-option active" data-qdir="idToJp"><span class="option-soft-icon"><i class="fa-solid fa-language"></i></span><div><span class="qdir-label" data-id="Bahasa Indonesia → Bahasa Jepang" data-ja="インドネシア語 → 日本語">Bahasa Indonesia → Bahasa Jepang</span><small class="qdir-note" data-id="Kartu depan menampilkan Bahasa Indonesia." data-ja="カードの表にインドネシア語を表示します。">Kartu depan menampilkan Bahasa Indonesia.</small></div></button>
-            <button class="option-card icon-option" data-qdir="jpToId"><span class="option-soft-icon"><i class="fa-solid fa-language"></i></span><div><span class="qdir-label" data-id="Bahasa Jepang → Bahasa Indonesia" data-ja="日本語 → インドネシア語">Bahasa Jepang → Bahasa Indonesia</span><small class="qdir-note" data-id="Kartu depan menampilkan Bahasa Jepang." data-ja="カードの表に日本語を表示します。">Kartu depan menampilkan Bahasa Jepang.</small></div></button>
-            <button class="option-card icon-option" data-qdir="kanjiToReading"><span class="option-soft-icon"><i class="fa-solid fa-spell-check"></i></span><div><span class="qdir-label" data-id="Kanji → Cara Baca" data-ja="漢字 → 読み方">Kanji → Cara Baca</span><small class="qdir-note" data-id="Tebak hiragana dan romaji dari kanji." data-ja="漢字からひらがなとローマ字を答えます。">Tebak hiragana dan romaji dari kanji.</small></div></button>
-            <button class="option-card icon-option" data-qdir="readingToMeaning"><span class="option-soft-icon"><i class="fa-solid fa-book-open-reader"></i></span><div><span class="qdir-label" data-id="Cara Baca → Arti" data-ja="読み方 → 意味">Cara Baca → Arti</span><small class="qdir-note" data-id="Kartu depan menampilkan hiragana dan romaji." data-ja="カードの表にひらがなとローマ字を表示します。">Kartu depan menampilkan hiragana dan romaji.</small></div></button>
-            <button class="option-card icon-option" data-qdir="imageToJp"><span class="option-soft-icon"><i class="fa-regular fa-image"></i></span><div><span class="qdir-label" data-id="Gambar → Kosakata" data-ja="画像 → 語彙">Gambar → Kosakata</span><small class="qdir-note" data-id="Tebak kosakata Jepang berdasarkan gambar." data-ja="画像を見て日本語の語彙を答えます。">Tebak kosakata Jepang berdasarkan gambar.</small></div></button>
+            <button class="option-card icon-option active" data-qdir="idToJp"><span class="option-soft-icon"><i class="fa-solid fa-language"></i></span><div><span class="qdir-label" data-id="Bahasa Indonesia → Bahasa Jepang" data-ja="インドネシア語 → 日本語">Bahasa Indonesia → Bahasa Jepang</span><small class="qdir-note" data-id="Kartu depan menampilkan Bahasa Indonesia." data-ja="カードの表面にインドネシア語を表示します。">Kartu depan menampilkan Bahasa Indonesia.</small></div></button>
+            <button class="option-card icon-option" data-qdir="jpToId"><span class="option-soft-icon"><i class="fa-solid fa-language"></i></span><div><span class="qdir-label" data-id="Bahasa Jepang → Bahasa Indonesia" data-ja="日本語 → インドネシア語">Bahasa Jepang → Bahasa Indonesia</span><small class="qdir-note" data-id="Kartu depan menampilkan Bahasa Jepang." data-ja="カードの表面に日本語を表示します。">Kartu depan menampilkan Bahasa Jepang.</small></div></button>
+            <button class="option-card icon-option" data-qdir="kanjiToReading"><span class="option-soft-icon"><i class="fa-solid fa-spell-check"></i></span><div><span class="qdir-label" data-id="Kanji → Cara Baca" data-ja="漢字 → 読み方">Kanji → Cara Baca</span><small class="qdir-note" data-id="Tebak hiragana dan romaji dari kanji." data-ja="漢字を見て、ひらがなとローマ字で答えます。">Tebak hiragana dan romaji dari kanji.</small></div></button>
+            <button class="option-card icon-option" data-qdir="readingToMeaning"><span class="option-soft-icon"><i class="fa-solid fa-book-open-reader"></i></span><div><span class="qdir-label" data-id="Cara Baca → Arti" data-ja="読み方 → 意味">Cara Baca → Arti</span><small class="qdir-note" data-id="Kartu depan menampilkan hiragana dan romaji." data-ja="カードの表面にひらがなとローマ字を表示します。">Kartu depan menampilkan hiragana dan romaji.</small></div></button>
+            <button class="option-card icon-option" data-qdir="imageToJp"><span class="option-soft-icon"><i class="fa-regular fa-image"></i></span><div><span class="qdir-label" data-id="Gambar → Kosakata" data-ja="画像 → 語彙">Gambar → Kosakata</span><small class="qdir-note" data-id="Tebak kosakata Jepang berdasarkan gambar." data-ja="画像を見て、日本語の単語を答えます。">Tebak kosakata Jepang berdasarkan gambar.</small></div></button>
           </div>
         </div>
         <div class="step-block" data-quiz-step="2">
@@ -23089,8 +23264,8 @@ html[data-theme="dark"] #loginModal .login-actions{background:linear-gradient(18
         isFiction: false,
         exampleJa: "お帰りなさい。ご飯ができました。",
         exampleReading: "Okaerinasai. Gohan ga dekimashita.",
-        exampleId: "Selamat datang kembali. Makanannya sudah siap.",
-        examples: [{ ja: "お帰りなさい。ご飯ができました。", reading: "Okaerinasai. Gohan ga dekimashita.", id: "Selamat datang kembali. Makanannya sudah siap." }],
+        exampleId: "Selamat datang di Wikaru! Makanannya sudah siap.",
+        examples: [{ ja: "お帰りなさい。ご飯ができました。", reading: "Okaerinasai. Gohan ga dekimashita.", id: "Selamat datang di Wikaru! Makanannya sudah siap." }],
         catatan: "Ungkapan untuk menyambut orang yang baru pulang."
       },
       {
@@ -52115,17 +52290,17 @@ html[data-theme="dark"] #loginModal .login-actions{background:linear-gradient(18
         searchPlaceholder:"Cari kosakata, romaji, atau arti...", noVocabFilter:"Tidak ada kosakata untuk filter ini.", focusWarn:"Tetap fokus mengerjakan kuis.", focusStop:"Kuis dihentikan karena kamu pindah tab dua kali.", browserSpeechNo:"Fitur bicara tidak didukung di browser ini.", accessDisabled:"Akses ini dinonaktifkan untuk menjaga pengalaman belajar.", localOnly:"Firebase belum tersedia. Data disimpan sementara di perangkat ini.", saved:"Hasil tersimpan.", needLogin:"Silakan isi username dulu.", noExample:"Contoh kalimat belum tersedia.", scoreGood:"Bagus! Kamu sudah memahami banyak kosakata.", scoreBad:"Ayo belajar lebih giat lagi. Ulangi kartu yang masih salah.", reviewVocab:"Tinjau Kosakata", savePdf:"Simpan PDF", retry:"Ulangi Latihan", emptyResult:"Belum ada hasil latihan.", allStatus:"Semua", fastest:"Tercepat", slowest:"Terlama", pdfFilterTitle:"Filter Sebelum Simpan PDF", pdfFilterDesc:"Pilih kategori hasil latihan yang ingin dimasukkan ke PDF.", book:"Buku", materialCategoryLabel:"Kategori Materi", chapter:"Bab", section:"Bagian", type:"Jenis Kata", answerStatus:"Status Jawaban", allBooks:"Semua Buku", allMaterials:"Semua Kategori Materi", allChapters:"Semua Bab", allSections:"Semua Bagian", allTypes:"Semua Jenis Kata", allAnswers:"Semua Jawaban", resetPdfFilter:"Reset Filter", savePdfBtn:"Simpan PDF", noPdfRows:"Tidak ada data yang sesuai dengan filter PDF.", participantName:"Nama Peserta", adminLabel:"Pengelola", passwordAdmin:"Kata Sandi Pengelola"
       },
       ja: {
-        navHome:"ホーム", navMaterial:"教材", navQuiz:"クイズ", navResult:"結果", login:"参加者名", logout:"ログアウト", changeCategory:"カテゴリー変更", changeLanguage:"言語変更", myResult:"自分の結果を見る", historyLoaded:"前回の結果を読み込みました。",
-        homeTitle:"毎日一枚、日本語の語彙を身につけよう。", homeDesc:"シンプルで楽しいフラッシュカードで、語彙・発音・例文を学べます。",
-        totalVocab:"語彙数", timeLimit:"1枚あたりの制限時間", chapterScope:"章の範囲", startQuiz:"クイズ開始", seeMaterial:"教材を見る", fillUsername:"参加者名入力", fictionFilter:"架空語",
-        materialTitle:"語彙一覧", materialDesc:"選択した教科書・教材・カテゴリーに基づいて語彙を学習しましょう。", studyFirst:"まず学習しましょう", studyFirstDesc:"このページで意味、ローマ字、例文、発音を確認できます。", studyStats:"学習統計",
-        categoryEmptyTitle:"カテゴリーは未登録です", categoryEmptyDesc:"この部分は準備済みですが、語彙データはまだ追加されていません。", quizFiltered:"選択したカテゴリーで出題", quizFilteredDesc:"カードは章・セクション・品詞で絞り込まれています。",
-        answer:"答え", clickFlipBack:"カードをクリックして戻る", time:"時間", pause:"一時停止", resume:"再開", studyMode:"学習中", listen:"聞く", exampleSentence:"例文", listening:"聞き取り中...", correct:"正解", wrong:"不正解", speechFeature:"発話機能",
-        breadcrumbResult:"ホーム > 学習結果", resultTitle:"学習まとめ", breadcrumbAdmin:"管理者 > 参加者レポート", adminTitle:"参加者レポート", adminDesc:"全参加者の学習結果まとめです。", deleteAll:"全履歴を削除", downloadAllPdf:"全参加者PDFを保存", resetFilter:"リセット",
-        setupTitle:"学習カテゴリーを選択", setupDesc:"言語、教科書、カテゴリー、章を一つずつ選択します。", stepLanguage:"1. 表示言語を選択", stepBook:"2. 教科書を選択", stepCategory:"3. 大カテゴリーを選択", stepChapter:"4. 章カテゴリーを選択", cancel:"キャンセル", save:"保存",
-        loginTitle:"参加者ログイン", loginDesc:"学習結果を保存するため、参加者名を入力してください。", chooseGroup:"グループ / 地域を選択", quizSettingTitle:"カードクイズ設定", quizSettingDesc:"言語の方向とカードの順番を設定し、学習する範囲を選択してください。", chooseDirection:"1. 問題の言語方向", shuffleMode:"2. 追加設定", shuffleStepTitle:"2A. カード順を選択", cardOrder:"カード順", fictionQuizTitle:"架空語フィルター", fictionStepTitle:"2B. 架空語フィルターを選択", chooseScope:"3. クイズ範囲", chapterScopeStep:"3A. 章カテゴリを選択", sectionScopeStep:"3B. セクションカテゴリを選択", typeScopeStep:"3C. 品詞カテゴリを選択", chapterCategory:"章カテゴリ", sectionCategory:"セクションカテゴリ", typeCategory:"品詞カテゴリ", saveStart:"保存 / クイズ開始",
+        navHome:"ホーム", navMaterial:"教材", navQuiz:"クイズ", navResult:"結果", login:"名前を入力", logout:"ログアウト", changeCategory:"カテゴリーを変更", changeLanguage:"表示言語を変更", myResult:"学習結果を見る", historyLoaded:"前回の結果を読み込みました。",
+        homeTitle:"毎日少しずつ、日本語の語彙を増やそう。", homeDesc:"フラッシュカードや音声、例文を使って、無理なく楽しく語彙を学べます。",
+        totalVocab:"語彙数", timeLimit:"1枚あたりの制限時間", chapterScope:"章の範囲", startQuiz:"クイズ開始", seeMaterial:"教材を見る", fillUsername:"参加者名入力", fictionFilter:"架空の語彙",
+        materialTitle:"語彙一覧", materialDesc:"選んだ教科書・教材・カテゴリーに合わせて、語彙を学びましょう。", studyFirst:"クイズの前に確認しましょう", studyFirstDesc:"このページでは、意味・ローマ字・例文・発音をまとめて確認できます。", studyStats:"学習統計",
+        categoryEmptyTitle:"このカテゴリーにはまだ教材がありません", categoryEmptyDesc:"教材を準備中です。追加されるまで少しお待ちください。", quizFiltered:"選んだカテゴリーから出題します", quizFilteredDesc:"カードは、章・セクション・品詞の選択に合わせて絞り込まれています。",
+        answer:"答え", clickFlipBack:"カードをクリックして表に戻る", time:"時間", pause:"一時停止", resume:"再開", studyMode:"学習中", listen:"音声を聞く", exampleSentence:"例文", listening:"音声を再生中…", correct:"正解", wrong:"不正解", speechFeature:"発音練習",
+        breadcrumbResult:"ホーム > 学習結果", resultTitle:"学習結果", breadcrumbAdmin:"管理者 > 参加者レポート", adminTitle:"参加者レポート", adminDesc:"全参加者の学習結果をまとめて確認できます。", deleteAll:"全履歴を削除", downloadAllPdf:"全参加者分のPDFを保存", resetFilter:"リセット",
+        setupTitle:"学習カテゴリーを選択", setupDesc:"表示言語、教科書、カテゴリー、章を順番に選びましょう。", stepLanguage:"1. 表示言語を選択", stepBook:"2. 教科書を選択", stepCategory:"3. 教材カテゴリーを選択", stepChapter:"4. 章カテゴリーを選択", cancel:"キャンセル", save:"保存",
+        loginTitle:"名前を入力", loginDesc:"学習結果を保存するため、名前を入力してください。", chooseGroup:"グループ／地域を選択", quizSettingTitle:"フラッシュカードの設定", quizSettingDesc:"問題と答えの言語、カードの順番、学習範囲を選びましょう。", chooseDirection:"1. 問題と答えの言語を選択", shuffleMode:"2. カードの表示設定", shuffleStepTitle:"2A. カード順を選択", cardOrder:"カード順", fictionQuizTitle:"架空の語彙フィルター", fictionStepTitle:"2B. 架空の語彙を表示するか選択", chooseScope:"3. クイズ範囲", chapterScopeStep:"3A. 章カテゴリーを選択", sectionScopeStep:"3B. セクションカテゴリーを選択", typeScopeStep:"3C. 品詞カテゴリーを選択", chapterCategory:"章カテゴリー", sectionCategory:"セクションカテゴリー", typeCategory:"品詞カテゴリー", saveStart:"設定を保存して開始",
         confirmDeleteTitle:"履歴を削除しますか？", confirmDeleteDesc:"全参加者の履歴を削除してもよろしいですか？", delete:"削除",
-        searchPlaceholder:"語彙、ローマ字、意味を検索...", noVocabFilter:"この条件に合う語彙はありません。", focusWarn:"クイズに集中してください。", focusStop:"タブ移動が2回あったため、クイズを終了しました。", browserSpeechNo:"このブラウザは発話機能に対応していません。", accessDisabled:"学習体験を守るため、この操作は無効です。", localOnly:"Firebase が利用できません。データは一時的に端末へ保存されます。", saved:"結果を保存しました。", needLogin:"先にユーザー名を入力してください。", noExample:"例文はまだありません。", scoreGood:"よくできました。多くの語彙を理解しています。", scoreBad:"もう少し練習しましょう。間違えたカードを復習してください。", reviewVocab:"語彙確認", savePdf:"PDFを保存", retry:"もう一度練習", emptyResult:"まだ結果がありません。", allStatus:"すべて", fastest:"最速", slowest:"最遅", pdfFilterTitle:"PDF保存前のフィルター", pdfFilterDesc:"PDFに入れる学習結果のカテゴリーを選択してください。", book:"教科書", materialCategoryLabel:"教材カテゴリー", chapter:"章", section:"セクション", type:"品詞", answerStatus:"解答状態", allBooks:"すべての教科書", allMaterials:"すべての教材カテゴリー", allChapters:"すべての章", allSections:"すべてのセクション", allTypes:"すべての品詞", allAnswers:"すべての解答", resetPdfFilter:"フィルターをリセット", savePdfBtn:"PDFを保存", noPdfRows:"PDFフィルターに合うデータがありません。", participantName:"参加者名", adminLabel:"管理者", passwordAdmin:"管理者パスワード"
+        searchPlaceholder:"語彙、ローマ字、意味を検索...", noVocabFilter:"この条件に合う語彙はありません。", focusWarn:"クイズ画面から離れないでください。", focusStop:"クイズ画面から2回離れたため、クイズを終了しました。", browserSpeechNo:"このブラウザでは発音練習を利用できません。", accessDisabled:"学習体験を守るため、この操作は無効です。", localOnly:"Firebase が利用できません。データは一時的に端末へ保存されます。", saved:"結果を保存しました。", needLogin:"先に名前を入力してください。", noExample:"例文はまだありません。", scoreGood:"よくできました！多くの語彙をしっかり理解できています。", scoreBad:"もう一度復習して、間違えたカードを少しずつ覚えましょう。", reviewVocab:"単語を復習", savePdf:"PDFを保存", retry:"もう一度チャレンジ", emptyResult:"まだ結果がありません。", allStatus:"すべて", fastest:"最速", slowest:"最遅", pdfFilterTitle:"PDF保存前のフィルター", pdfFilterDesc:"PDFに入れる学習結果のカテゴリーを選択してください。", book:"教科書", materialCategoryLabel:"教材カテゴリー", chapter:"章", section:"セクション", type:"品詞", answerStatus:"回答状況", allBooks:"すべての教科書", allMaterials:"すべての教材カテゴリー", allChapters:"すべての章", allSections:"すべてのセクション", allTypes:"すべての品詞", allAnswers:"すべての解答", resetPdfFilter:"フィルターをリセット", savePdfBtn:"PDFを保存", noPdfRows:"PDFフィルターに合うデータがありません。", participantName:"学習者名", adminLabel:"管理者", passwordAdmin:"管理者パスワード"
       }
     };
     const state = {
@@ -52209,7 +52384,7 @@ html[data-theme="dark"] #loginModal .login-actions{background:linear-gradient(18
     function modeOptionLabel(mode, lang=state.lang){
       const map = {
         id:{study:"Mode: Belajar", practice:"Mode: Latihan", quiz:"Mode: Kuis"},
-        ja:{study:"モード：学習", practice:"モード：練習", quiz:"モード：クイズ"}
+        ja:{study:"学習モード", practice:"練習モード", quiz:"クイズモード"}
       };
       return (map[lang] || map.id)[mode] || mode;
     }
@@ -52220,11 +52395,11 @@ html[data-theme="dark"] #loginModal .login-actions{background:linear-gradient(18
       sel.innerHTML = ["study","practice","quiz"].map(v=>`<option value="${v}">${esc(modeOptionLabel(v))}</option>`).join("");
       sel.value = ["study","practice","quiz"].includes(keep) ? keep : "study";
     }
-    function cardCounterText(current,total,lang=state.lang){ return lang === "ja" ? `カード ${current} / ${total}` : `Kartu ${current} / ${total}`; }
+    function cardCounterText(current,total,lang=state.lang){ return lang === "ja" ? `${current} / ${total} 枚` : `Kartu ${current} / ${total}`; }
     function progressTextLabel(percent,lang=state.lang){ return lang === "ja" ? `${percent}% 完了` : `${percent}% Selesai`; }
     function kkmStatusLabel(score,lang=state.lang){
       const passed = Number(score||0) >= KKM_SCORE;
-      if(lang === "ja") return passed ? "最低到達基準達成" : "最低到達基準未達";
+      if(lang === "ja") return passed ? "合格基準を達成" : "合格基準に未達";
       return passed ? "Di atas KKM / Tuntas" : "Di bawah KKM / Belum Tuntas";
     }
     function kkmStatusClass(score){ return Number(score||0) >= KKM_SCORE ? "pass" : "fail"; }
@@ -52775,7 +52950,7 @@ html[data-theme="dark"] #loginModal .login-actions{background:linear-gradient(18
             <div>
               <span class="material-ref-badge"><i class="fa-solid fa-book-open-reader"></i>${state.lang === "ja" ? "読むだけ" : "Mode baca saja / Tidak ada kuis"}</span>
               <h3><span class="jp">電話・手紙</span> — Telepon, Surat</h3>
-              <p>${state.lang === "ja" ? "第4課の参考情報を、画像と ringkasan dalam bahasa Indonesia で読みやすくまとめました。" : "Materi Bab 4 disusun sebagai bahan bacaan ringkas tentang penggunaan telepon umum, nomor penting, dan format alamat di Jepang."}</p>
+              <p>${state.lang === "ja" ? "第4課の参考情報を、画像とインドネシア語の要約で読みやすくまとめました。" : "Materi Bab 4 disusun sebagai bahan bacaan ringkas tentang penggunaan telepon umum, nomor penting, dan format alamat di Jepang."}</p>
             </div>
           </section>
 
@@ -52825,7 +53000,7 @@ html[data-theme="dark"] #loginModal .login-actions{background:linear-gradient(18
       const notice = $("#materialPage .notice");
       const title = $("#materialPage .content-card > h2");
       const desc = $("#materialPage .content-card > p");
-      if(title) title.textContent = state.lang === "ja" ? "第5課 祝祭日 / Hari Libur Nasional" : "祝祭日 / Hari Libur Nasional";
+      if(title) title.textContent = state.lang === "ja" ? "第5課 日本の祝日" : "祝祭日 / Hari Libur Nasional";
       if(desc) desc.textContent = state.lang === "ja"
         ? "第5課の参考情報として、日本の国民の祝日を読みやすくまとめた教材です。"
         : "Daftar hari libur nasional di Jepang yang biasa muncul dalam materi Kata-Kata Referensi dan Informasi Minna no Nihongo I Bab 5.";
@@ -53153,8 +53328,8 @@ html[data-theme="dark"] #loginModal .login-actions{background:linear-gradient(18
       if(code) code.textContent = isId ? "ID" : "JP";
       if(name) name.textContent = isId ? "Indonesia" : "日本語";
       if(globe) globe.className = isId ? "fa-solid fa-globe" : "fa-solid fa-language";
-      btn.title = isId ? "Bahasa Indonesia aktif — klik untuk mengganti ke 日本語" : "日本語が有効です — インドネシア語に切り替えるにはクリック";
-      btn.setAttribute("aria-label", isId ? "Ganti bahasa ke Jepang" : "インドネシア語に切り替え");
+      btn.title = isId ? "Bahasa Indonesia aktif — klik untuk mengganti ke 日本語" : "表示言語：日本語。クリックするとインドネシア語に切り替わります。";
+      btn.setAttribute("aria-label", isId ? "Ganti bahasa ke Jepang" : "表示言語をインドネシア語に切り替える");
     }
 
     function updateFictionToggle(){
@@ -53169,13 +53344,13 @@ html[data-theme="dark"] #loginModal .login-actions{background:linear-gradient(18
       const label = btn.querySelector(".fiction-label");
       const st = btn.querySelector(".fiction-state");
       const active = available && state.includeFiction;
-      if(label) label.textContent = state.lang === "ja" ? "架空語" : "Fiksi";
-      if(st) st.textContent = state.lang === "ja" ? (active ? "有効" : "無効") : (active ? "Aktif" : "Nonaktif");
+      if(label) label.textContent = state.lang === "ja" ? "架空の語彙" : "Fiksi";
+      if(st) st.textContent = state.lang === "ja" ? (active ? "表示中" : "非表示") : (active ? "Aktif" : "Nonaktif");
       btn.title = !available
-        ? (state.lang === "ja" ? "この範囲には架空語がありません" : "Tidak ada kosakata fiksi pada pilihan ini.")
+        ? (state.lang === "ja" ? "この範囲には架空の語彙がありません。" : "Tidak ada kosakata fiksi pada pilihan ini.")
         : (active
-          ? (state.lang === "ja" ? "架空語が有効です — 無効にするにはクリック" : "Kosakata fiksi aktif — klik untuk menonaktifkan")
-          : (state.lang === "ja" ? "架空語が無効です — 有効にするにはクリック" : "Kosakata fiksi nonaktif — klik untuk mengaktifkan"));
+          ? (state.lang === "ja" ? "架空の語彙を表示中です。クリックすると非表示にします。" : "Kosakata fiksi aktif — klik untuk menonaktifkan")
+          : (state.lang === "ja" ? "架空の語彙は非表示です。クリックすると表示します。" : "Kosakata fiksi nonaktif — klik untuk mengaktifkan"));
     }
     function syncFictionToggleAvailability(){
       const available = hasFictionVocabulary(currentFictionScope());
@@ -53192,14 +53367,14 @@ html[data-theme="dark"] #loginModal .login-actions{background:linear-gradient(18
       $$(".qdir-note,.qstatic-note").forEach(el=>{ el.textContent = state.lang==="ja" ? el.dataset.ja : el.dataset.id; });
       if($("#pdfFilterModal")?.classList.contains("show")) renderPdfFilterOptions();
 
-      $("#adminSearch").placeholder = state.lang==="ja" ? "参加者名を検索..." : "Cari nama peserta...";
-      if($("#usernameInput")) $("#usernameInput").placeholder = state.lang==="ja" ? "参加者名を入力" : "Masukkan nama peserta";
-      if($("#usernameLabel")) $("#usernameLabel").innerHTML = `<i class="fa-regular fa-id-badge"></i>${state.lang==="ja"?"参加者名":"Nama Peserta"}`;
-      if($("#groupLabel")) $("#groupLabel").innerHTML = `<i class="fa-solid fa-location-dot"></i>${state.lang==="ja"?"グループ / 地域":"Grup / Wilayah"}`;
-      if($("#groupHelp")) $("#groupHelp").textContent = state.lang==="ja" ? "学習レポートを保存する参加者の地域を選択してください。" : "Pilih wilayah peserta untuk menyimpan laporan latihan.";
+      $("#adminSearch").placeholder = state.lang==="ja" ? "学習者名を検索…" : "Cari nama peserta...";
+      if($("#usernameInput")) $("#usernameInput").placeholder = state.lang==="ja" ? "名前を入力" : "Masukkan nama peserta";
+      if($("#usernameLabel")) $("#usernameLabel").innerHTML = `<i class="fa-regular fa-id-badge"></i>${state.lang==="ja"?"学習者名":"Nama Peserta"}`;
+      if($("#groupLabel")) $("#groupLabel").innerHTML = `<i class="fa-solid fa-location-dot"></i>${state.lang==="ja"?"グループ／地域":"Grup / Wilayah"}`;
+      if($("#groupHelp")) $("#groupHelp").textContent = state.lang==="ja" ? "学習結果を保存するグループ／地域を選択してください。" : "Pilih wilayah peserta untuk menyimpan laporan latihan.";
       if($("#adminPassLabel")) $("#adminPassLabel").innerHTML = `<i class="fa-solid fa-lock"></i>${state.lang==="ja"?"管理者パスワード":"Kata Sandi Pengelola"}`;
       if($("#adminPasswordInput")) $("#adminPasswordInput").placeholder = state.lang==="ja" ? "管理者パスワードを入力" : "Masukkan kata sandi pengelola";
-      if($("#exampleModalDesc")) $("#exampleModalDesc").textContent = state.lang==="ja" ? "日本語の例文だけを確認します。" : "Contoh penggunaan kosakata dalam kalimat bahasa Jepang.";
+      if($("#exampleModalDesc")) $("#exampleModalDesc").textContent = state.lang==="ja" ? "例文・読み方・意味をまとめて確認できます。" : "Contoh penggunaan kosakata dalam kalimat bahasa Jepang.";
       if($("#exampleJaLabel")) $("#exampleJaLabel").textContent = state.lang==="ja" ? "日本語" : "Jepang";
       if($("#exampleReadingLabel")) $("#exampleReadingLabel").textContent = state.lang==="ja" ? "読み方" : "Cara baca";
       if($("#exampleIdLabel")) $("#exampleIdLabel").textContent = state.lang==="ja" ? "インドネシア語の意味" : "Arti Indonesia";
@@ -53229,7 +53404,24 @@ html[data-theme="dark"] #loginModal .login-actions{background:linear-gradient(18
       renderModeSelectOptions();
       updateQuizStaticTexts();
       if($("#brandSubtitle")) $("#brandSubtitle").textContent = state.lang === "ja" ? "日本語をもっとやさしく" : "Belajar Bahasa Jepang Lebih Mudah";
-      if($("#speechHelp")) $("#speechHelp").textContent = state.lang === "ja" ? "音声で答えて、学習体験を高めましょう。" : "Jawab dengan suara untuk pengalaman belajar.";
+      const jaMode = state.lang === "ja";
+      const setAttr=(sel,name,idText,jaText)=>{ const el=$(sel); if(el) el.setAttribute(name,jaMode?jaText:idText); };
+      setAttr('.brand','aria-label','Wikaru — Belajar Bahasa Jepang Lebih Mudah','Wikaru — 日本語をもっとやさしく');
+      setAttr('#navLangBtn','aria-label','Ganti bahasa','表示言語を変更');
+      setAttr('#userMenuBtn','aria-label','Buka menu profil','プロフィールメニューを開く');
+      setAttr('.home-streak','aria-label','Rangkaian hari belajar','連続学習日数');
+      setAttr('#homeProgressTrack','aria-label','Progres target belajar','今日の目標の進捗');
+      setAttr('.home-statistics','aria-label','Ringkasan belajar','学習のまとめ');
+      setAttr('#homeDailyFavoriteBtn','aria-label','Simpan kosakata hari ini ke favorit','今日の単語をお気に入りに保存');
+      setAttr('#homeDailyAudioBtn','aria-label','Dengarkan kosakata','単語の音声を聞く');
+      if($('#loaderTitle')) $('#loaderTitle').textContent=jaMode?'学習スペースを準備しています':'Menyiapkan ruang belajarmu';
+      if($('#loaderDesc')) $('#loaderDesc').textContent=jaMode?'カード・音声・学習記録を読み込んでいます。':'Memuat kartu, audio, dan progres belajar dengan aman.';
+      if($('#loaderTagline')) $('#loaderTagline').textContent=jaMode?'日本語をもっとやさしく':'Belajar Bahasa Jepang Lebih Mudah';
+      if($('#devOverlayTitle')) $('#devOverlayTitle').textContent=jaMode?'検証モードが検出されました。':'Mode inspeksi terdeteksi.';
+      if($('#devOverlayDesc')) $('#devOverlayDesc').textContent=jaMode?'学習画面に戻ってください。':'Silakan kembali ke halaman belajar.';
+      if($('#closeDevOverlay')) $('#closeDevOverlay').textContent=jaMode?'戻る':'Kembali';
+      if($("#speechHelp")) $("#speechHelp").textContent = state.lang === "ja" ? "声に出して答え、発音も練習しましょう。" : "Jawab dengan suara untuk pengalaman belajar.";
+      if(typeof window.wikaruRefreshThemeLabel === "function") window.wikaruRefreshThemeLabel();
       renderSetup();
     }
 
@@ -55643,7 +55835,7 @@ html[data-theme="dark"] #loginModal .login-actions{background:linear-gradient(18
         exampleDesc.className = "example-word-meta";
         exampleDesc.innerHTML = `
           <span class="example-word-meta-item kana"><small>${state.lang === "ja" ? "ひらがな" : "Hiragana"}</small><strong class="jp">${esc(kana)}</strong></span>
-          <span class="example-word-meta-item romaji"><small>Romaji</small><strong>${esc(romaji)}</strong></span>
+          <span class="example-word-meta-item romaji"><small>${state.lang==="ja"?"ローマ字":"Romaji"}</small><strong>${esc(romaji)}</strong></span>
           <span class="example-word-meta-item meaning"><small>${state.lang === "ja" ? "意味" : "Arti"}</small><strong>${esc(meaning)}</strong></span>`;
       }
       const exampleSpeakBtn = $("#exampleSpeakBtn");
@@ -55830,7 +56022,7 @@ html[data-theme="dark"] #loginModal .login-actions{background:linear-gradient(18
         frontIsJp = true;
         front.innerHTML = `<span class="quiz-reading-prompt">
           <span class="quiz-reading-prompt-item kana"><small>${state.lang === "ja" ? "ひらがな" : "Hiragana"}</small><strong class="quiz-reading-question jp">${esc(v.kana || "-")}</strong></span>
-          <span class="quiz-reading-prompt-item romaji"><small>Romaji</small><strong>${esc(v.romaji || "-")}</strong></span>
+          <span class="quiz-reading-prompt-item romaji"><small>${state.lang === "ja" ? "ローマ字" : "Romaji"}</small><strong>${esc(v.romaji || "-")}</strong></span>
         </span>`;
       } else if(quiz.direction === "imageToJp"){
         q = state.lang === "ja" ? "画像から語彙を答えてください" : "Tebak kosakata dari gambar";
@@ -55876,11 +56068,11 @@ html[data-theme="dark"] #loginModal .login-actions{background:linear-gradient(18
       const primary = (label,value,isJp=false,sizeValue=value) => `<div class="quiz-answer-primary"><span class="quiz-answer-primary-label">${label}</span><div class="answer-main${isJp ? " jp" : ""}${textSizeClass(sizeValue)}">${esc(value)}</div></div>`;
       let content = "";
       if(quiz.direction === "idToJp" || quiz.direction === "imageToJp"){
-        content = `${primary(jpLabel,jpValue,true,jpValue)}<div class="quiz-answer-details">${row(state.lang === "ja" ? "ひらがな" : "Hiragana",kanaValue,"kana")}${row("Romaji",romajiValue,"romaji")}${row(state.lang === "ja" ? "意味" : "Arti Indonesia",meaning,"meaning")}</div>`;
+        content = `${primary(jpLabel,jpValue,true,jpValue)}<div class="quiz-answer-details">${row(state.lang === "ja" ? "ひらがな" : "Hiragana",kanaValue,"kana")}${row(state.lang === "ja" ? "ローマ字" : "Romaji",romajiValue,"romaji")}${row(state.lang === "ja" ? "意味" : "Arti Indonesia",meaning,"meaning")}</div>`;
       } else if(quiz.direction === "kanjiToReading"){
-        content = `${primary(state.lang === "ja" ? "ひらがな" : "Hiragana",kanaValue,true,kanaValue)}<div class="quiz-answer-details">${row("Romaji",romajiValue,"romaji")}${row(jpLabel,jpValue,"kanji")}${row(state.lang === "ja" ? "意味" : "Arti Indonesia",meaning,"meaning")}</div>`;
+        content = `${primary(state.lang === "ja" ? "ひらがな" : "Hiragana",kanaValue,true,kanaValue)}<div class="quiz-answer-details">${row(state.lang === "ja" ? "ローマ字" : "Romaji",romajiValue,"romaji")}${row(jpLabel,jpValue,"kanji")}${row(state.lang === "ja" ? "意味" : "Arti Indonesia",meaning,"meaning")}</div>`;
       } else {
-        content = `${primary(state.lang === "ja" ? "意味" : "Arti Indonesia",meaning,false,meaning)}<div class="quiz-answer-details">${row(jpLabel,jpValue,"kanji")}${row(state.lang === "ja" ? "ひらがな" : "Hiragana",kanaValue,"kana")}${row("Romaji",romajiValue,"romaji")}</div>`;
+        content = `${primary(state.lang === "ja" ? "意味" : "Arti Indonesia",meaning,false,meaning)}<div class="quiz-answer-details">${row(jpLabel,jpValue,"kanji")}${row(state.lang === "ja" ? "ひらがな" : "Hiragana",kanaValue,"kana")}${row(state.lang === "ja" ? "ローマ字" : "Romaji",romajiValue,"romaji")}</div>`;
       }
       return `${img}<div class="quiz-answer-stack">${content}</div>${movementDetails}`;
     }
@@ -56012,7 +56204,7 @@ html[data-theme="dark"] #loginModal .login-actions{background:linear-gradient(18
       const jp = state.lang === "ja";
       return jp ? {
         breadcrumb:"ホーム 〉 学習結果", title:"学習まとめ", active:"選択中", score:"最終スコア", summary:"結果概要", total:"問題数", correct:"正解", wrong:"不正解", time:"時間",
-        review:"単語を確認", pdf:"PDF保存", retry:"もう一度練習", list:"練習結果一覧", all:"すべて", order:"並び替え", correctFirst:"正解を先に", wrongFirst:"不正解を先に", fast:"時間が短い順", slow:"時間が長い順",
+        review:"単語を確認", pdf:"PDF保存", retry:"もう一度チャレンジ", list:"練習結果一覧", all:"すべて", order:"並び替え", correctFirst:"正解を先に", wrongFirst:"不正解を先に", fast:"時間が短い順", slow:"時間が長い順",
         goodTitle:"よくできました！", goodDesc:"語彙をよく理解できています。さらに繰り返すともっと自然に使えるようになります。",
         badTitle:"もう少し頑張りましょう！", badDesc:"まだ最低到達基準に届いていません。間違えた語彙を確認して、もう一度練習しましょう。",
         category:"カテゴリー", romaji:"読み方", meaning:"意味", status:"状態", no:"番号", vocab:"単語", heard:"聞こえた音声", dateLabel:"完了日時", searchPlaceholder:"語彙、ローマ字、意味、状態を検索..."
@@ -56412,7 +56604,7 @@ html[data-theme="dark"] #loginModal .login-actions{background:linear-gradient(18
     function openAllPdf(lang=state.lang){
       const jp=lang==="ja", title=`${jp?"zen_sankasha":"semua_peserta"}_${new Date().toISOString().slice(0,16).replace("T","_").replace(":","-")}_${lang}`;
       const rows=allResults.map((r,i)=>`<tr><td>${i+1}</td><td>${esc(r.username)}</td><td>${esc(r.group||"-")}</td><td>${new Date(r.finishedAt).toLocaleString(jp?"ja-JP":"id-ID")}</td><td>${r.totalQuestions}</td><td>${r.correctCount}</td><td>${r.wrongCount}</td><td>${r.scorePercent}%</td></tr>`).join("");
-      const detail=allResults.map(r=>`<h2>${esc(r.username)} - ${r.scorePercent}%</h2><table><thead><tr><th>${jp?"番号":"No"}</th><th>${jp?"日本語":"Jepang"}</th><th>Romaji</th><th>${jp?"意味":"Arti"}</th><th>${jp?"状態":"Status"}</th><th>${jp?"時間":"Waktu"}</th></tr></thead><tbody>${(r.details||[]).map(d=>`<tr><td>${d.no}</td><td>${esc(detailMainJapaneseText(d))}</td><td>${esc(d.romaji)}</td><td>${esc(cleanDetailIndo(d.indonesia))}</td><td>${d.isCorrect?(jp?"正解":"Benar"):(jp?"不正解":"Salah")}</td><td>${formatTime(d.timeSpent)}</td></tr>`).join("")}</tbody></table>`).join("");
+      const detail=allResults.map(r=>`<h2>${esc(r.username)} - ${r.scorePercent}%</h2><table><thead><tr><th>${jp?"番号":"No"}</th><th>${jp?"日本語":"Jepang"}</th><th>${jp?"ローマ字":"Romaji"}</th><th>${jp?"意味":"Arti"}</th><th>${jp?"状態":"Status"}</th><th>${jp?"時間":"Waktu"}</th></tr></thead><tbody>${(r.details||[]).map(d=>`<tr><td>${d.no}</td><td>${esc(detailMainJapaneseText(d))}</td><td>${esc(d.romaji)}</td><td>${esc(cleanDetailIndo(d.indonesia))}</td><td>${d.isCorrect?(jp?"正解":"Benar"):(jp?"不正解":"Salah")}</td><td>${formatTime(d.timeSpent)}</td></tr>`).join("")}</tbody></table>`).join("");
       const html=reportShell(title,`<h1>${jp?"全参加者レポート":"Laporan Semua Peserta"}</h1><p>${new Date().toLocaleString(jp?"ja-JP":"id-ID")}</p><table><thead><tr><th>${jp?"番号":"No"}</th><th>${jp?"名前":"Nama"}</th><th>${jp?"グループ":"Grup"}</th><th>${jp?"最終日時":"Tanggal Terakhir"}</th><th>${jp?"総数":"Total Soal"}</th><th>${jp?"正解":"Benar"}</th><th>${jp?"不正解":"Salah"}</th><th>${jp?"スコア":"Skor"}</th></tr></thead><tbody>${rows}</tbody></table>${detail}`, jp?"印刷 / PDF保存":"Cetak / Simpan PDF");
       printWindow(html,title);
     }
@@ -56709,7 +56901,8 @@ html[data-theme="dark"] #quizSettingsModal .option-card.icon-option small{color:
       }
     }
   </style>
-</head><body><div class="print-shell"><div class="toolbar"><div class="toolbar-brand">${logo}<div><strong>Wikaru</strong><small>${brandTagline}</small></div></div><button onclick="window.print()">${esc(buttonLabel)}</button></div><main class="report"><header class="brand-header">${logo}<div><div class="brand-name">Wikaru</div><div class="brand-tagline">${brandTagline}</div></div><span class="report-chip">${jp?"学習レポート":"Laporan Pembelajaran"}</span></header>${body}</main><footer class="page-footer"><span><strong>Wikaru</strong> - ${brandTagline}</span><span>${jp?"自動生成レポート":"Laporan dibuat otomatis"}</span></footer></div><script>(function(){document.title=${JSON.stringify(title)};document.querySelectorAll('td').forEach(function(td){var v=(td.textContent||'').trim();if(['Benar','正解'].includes(v))td.innerHTML='<span class="status-pill ok">'+v+'</span>';else if(['Salah','不正解'].includes(v))td.innerHTML='<span class="status-pill no">'+v+'</span>';else if(['Lulus','合格'].includes(v))td.innerHTML='<span class="status-pill pass">'+v+'</span>'});setTimeout(function(){window.print()},850)})();<\/script></body></html>`;
+</head><body><div class="print-shell"><div class="toolbar"><div class="toolbar-brand">${logo}<div><strong>Wikaru</strong><small>${brandTagline}</small></div></div><button onclick="window.print()">${esc(buttonLabel)}</button></div><main class="report"><header class="brand-header">${logo}<div><div class="brand-name">Wikaru</div><div class="brand-tagline">${brandTagline}</div></div><span class="report-chip">${jp?"学習レポート":"Laporan Pembelajaran"}</span></header>${body}</main><footer class="page-footer"><span><strong>Wikaru</strong> - ${brandTagline}</span><span>${jp?"自動生成レポート":"Laporan dibuat otomatis"}</span></footer></div><script>(function(){document.title=${JSON.stringify(title)};document.querySelectorAll('td').forEach(function(td){var v=(td.textContent||'').trim();if(['Benar','正解'].includes(v))td.innerHTML='<span class="status-pill ok">'+v+'</span>';else if(['Salah','不正解'].includes(v))td.innerHTML='<span class="status-pill no">'+v+'</span>';else if(['Lulus','合格'].includes(v))td.innerHTML='<span class="status-pill pass">'+v+'</span>'});setTimeout(function(){window.print()},850)})();<\/script>
+</body></html>`;
     }
     function printWindow(html,title){ const w=window.open("","_blank"); if(!w) return toast("Popup diblokir browser."); w.document.open(); w.document.write(html); w.document.close(); }
 
@@ -57059,10 +57252,11 @@ html[data-theme="dark"] #quizSettingsModal .option-card.icon-option small{color:
     const button = byId("themeToggle");
     if(button){
       const dark = next === "dark";
+      const ja = document.documentElement.lang === "ja" || localStorage.getItem("minna_bab23_lang") === "ja";
       button.setAttribute("aria-pressed",String(dark));
-      button.title = dark ? "Gunakan mode terang" : "Gunakan mode malam";
+      button.title = dark ? (ja ? "ライトモードに切り替える" : "Gunakan mode terang") : (ja ? "ダークモードに切り替える" : "Gunakan mode malam");
       button.setAttribute("aria-label",button.title);
-      button.innerHTML = `<i class="fa-solid ${dark?"fa-sun":"fa-moon"}"></i><span>${dark?"Mode Terang":"Mode Malam"}</span>`;
+      button.innerHTML = `<i class="fa-solid ${dark?"fa-sun":"fa-moon"}"></i><span>${dark?(ja?"ライトモード":"Mode Terang"):(ja?"ダークモード":"Mode Malam")}</span>`;
     }
     const meta = document.querySelector('meta[name="theme-color"]');
     if(meta) meta.content = next === "dark" ? "#101411" : "#F7F7F2";
@@ -57080,6 +57274,7 @@ html[data-theme="dark"] #quizSettingsModal .option-card.icon-option small{color:
     }
     applyTheme(localStorage.getItem(THEME_KEY) || "light");
   }
+  window.wikaruRefreshThemeLabel = function(){ applyTheme(document.documentElement.dataset.theme || localStorage.getItem(THEME_KEY) || "light"); };
 
   function refreshVoices(){
     try { voices = window.speechSynthesis?.getVoices?.() || []; } catch(_){ voices = []; }
@@ -57695,16 +57890,17 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}img,svg,video,canvas{max-w
     [/materi umum|kosakata utama/i,'fa-book-open-reader','#243B73','#E9EDFA'],[/referensi|informasi|参考/i,'fa-compass','#63785D','#EBF0E8'],[/kata benda|nomina|noun/i,'fa-cube','#243B73','#E9EDFA'],[/kata kerja|verba|verb/i,'fa-person-running','#387B75','#E7F3F1'],[/kata sifat|adjektiva|adjective/i,'fa-palette','#8A4F65','#F6EAF0'],[/kata keterangan|adverb/i,'fa-gauge-high','#B57A25','#FFF3D9'],[/ungkapan|ekspresi|percakapan|expression/i,'fa-comments','#63785D','#EBF0E8'],[/partikel/i,'fa-link','#7A5B85','#F1EAF4'],[/kata tanya|question/i,'fa-circle-question','#B57A25','#FFF3D9'],[/bilangan|angka|counter|satuan/i,'fa-hashtag','#243B73','#E9EDFA'],[/waktu|jam|tanggal/i,'fa-clock','#B57A25','#FFF3D9'],[/tempat|lokasi|arah/i,'fa-location-dot','#E84B3C','#FCECE9'],[/orang|keluarga|profesi/i,'fa-users','#63785D','#EBF0E8'],[/negara|bahasa/i,'fa-earth-asia','#243B73','#E9EDFA'],[/transportasi|jalan|lalu lintas|rambu|道路|交通/i,'fa-road','#387B75','#E7F3F1'],[/fasilitas umum/i,'fa-building-shield','#4B617E','#EAF0F5'],[/kesehatan|tubuh|gejala|penyakit/i,'fa-heart-pulse','#E84B3C','#FCECE9'],[/pakaian|服/i,'fa-shirt','#8A4F65','#F6EAF0'],[/makanan|minuman/i,'fa-utensils','#B57A25','#FFF3D9'],[/cuaca|musim/i,'fa-cloud-sun','#315D82','#E8F1F7'],[/hobi|olahraga/i,'fa-person-running','#387B75','#E7F3F1'],[/warna/i,'fa-palette','#8A4F65','#F6EAF0'],[/hewan/i,'fa-paw','#795D4B','#F2ECE8'],[/benda|barang|kosakata/i,'fa-shapes','#243B73','#E9EDFA'],[/kanji|漢字/i,'fa-font','#7A5B85','#F1EAF4'],[/hiragana|cara baca|読み方/i,'fa-signature','#387B75','#E7F3F1'],[/romaji|ローマ字/i,'fa-font','#315D82','#E8F1F7'],[/gambar|画像/i,'fa-image','#B57A25','#FFF3D9'],[/acak|shuffle/i,'fa-shuffle','#243B73','#E9EDFA'],[/tidak acak|urutan/i,'fa-list-ol','#63785D','#EBF0E8'],[/semua kategori|semua bagian|semua topik|all/i,'fa-layer-group','#243B73','#E9EDFA'],[/tambahan/i,'fa-plus','#E84B3C','#FCECE9']
   ];
   function hash(v){let h=2166136261;for(const ch of String(v||'')){h^=ch.charCodeAt(0);h=Math.imul(h,16777619)}return h>>>0}
-  function profile(name){const n=String(name||'').trim();if(/^admin404$/i.test(n))return{icon:'fa-user-shield',a:'#243B73',b:'#E84B3C',role:'Pengelola'};if(!n||/^(masuk|login|ログイン)$/i.test(n))return{icon:'fa-user',a:'#66736D',b:'#89938D',role:'Tamu'};const [icon,tone,role]=profileSet[hash(n)%profileSet.length],colors=palette[tone];return{icon,a:colors[0],b:colors[1],role}}
+  const roleJa={'Sahabat Jepang':'日本語の友だち','Belajar Cepat':'スピード学習者','Pembelajar Tenang':'マイペース学習者','Pembelajar Malam':'夜の学習者','Pembelajar Pagi':'朝の学習者','Pengejar Target':'目標チャレンジャー','Penyusun Strategi':'学習プランナー','Kreator Memori':'記憶クリエイター','Penjaga Ritme':'学習リズムキーパー','Kolektor Kata':'単語コレクター','Penjelajah Bab':'課の探検家','Penjaga Waktu':'時間マスター','Pencapai Level':'レベルアップ達成者','Perakit Bahasa':'ことばビルダー','Praktisi Percakapan':'会話トレーニー','Belajar Fleksibel':'フレキシブル学習者'};
+  function profile(name){const n=String(name||'').trim(),ja=document.documentElement.lang==='ja';if(/^admin404$/i.test(n))return{icon:'fa-user-shield',a:'#243B73',b:'#E84B3C',role:ja?'管理者':'Pengelola'};if(!n||/^(masuk|login|ログイン|名前を入力)$/i.test(n))return{icon:'fa-user',a:'#66736D',b:'#89938D',role:ja?'ゲスト':'Tamu'};const [icon,tone,role]=profileSet[hash(n)%profileSet.length],colors=palette[tone];return{icon,a:colors[0],b:colors[1],role:ja?(roleJa[role]||role):role}}
   function applyAvatar(el,name,showRole){if(!el)return;const p=profile(name),letter=(String(name||'W').trim()[0]||'W').toUpperCase();el.style.setProperty('--avatar-a',p.a);el.style.setProperty('--avatar-b',p.b);const i=$('i',el);if(i&&i.className!=='fa-solid '+p.icon)i.className='fa-solid '+p.icon;const sm=$('small',el);if(sm&&sm.textContent!==letter)sm.textContent=letter;if(showRole){const role=$('#userRoleText');if(role&&role.textContent!==p.role)role.textContent=p.role}}
-  function ensureLoginPreview(){const card=$('#loginModal .login-card'),head=$('#loginModal .login-head');if(!card||!head)return null;let preview=$('.wikaru-login-preview',card);if(!preview){preview=document.createElement('div');preview.className='wikaru-login-preview';preview.innerHTML='<span class="wikaru-user-avatar" aria-hidden="true"><i class="fa-solid fa-user-graduate"></i><small>W</small></span><div><strong>Identitas belajar Wikaru</strong><span>Ketik nama untuk melihat avatar unikmu.</span></div>';head.insertAdjacentElement('afterend',preview)}return preview}
+  function ensureLoginPreview(){const card=$('#loginModal .login-card'),head=$('#loginModal .login-head');if(!card||!head)return null;let preview=$('.wikaru-login-preview',card);if(!preview){const ja=document.documentElement.lang==='ja';preview=document.createElement('div');preview.className='wikaru-login-preview';preview.innerHTML=`<span class="wikaru-user-avatar" aria-hidden="true"><i class="fa-solid fa-user-graduate"></i><small>W</small></span><div><strong>${ja?'Wikaruの学習プロフィール':'Identitas belajar Wikaru'}</strong><span>${ja?'名前を入力すると、あなた専用のアバターが表示されます。':'Ketik nama untuk melihat avatar unikmu.'}</span></div>`;head.insertAdjacentElement('afterend',preview)}return preview}
   function fixBrowserIdentity(){const desired=document.documentElement.lang==='ja'?'Wikaru — 日本語をもっとやさしく':'Wikaru — Belajar Bahasa Jepang Lebih Mudah';if(document.title!==desired)document.title=desired}
   function meta(el){const text=(el.textContent||'').replace(/\s+/g,' ').trim(),m=(el.dataset.setupChapter||el.querySelector('input')?.value||text).match(/(?:Bab|第)\s*(\d+)/i);if(m){const n=Number(m[1]);return{icon:chapterIcons[n]||'fa-bookmark',a:n%3===0?'#387B75':n%3===1?'#243B73':'#63785D',soft:n%3===0?'#E7F3F1':n%3===1?'#E9EDFA':'#EBF0E8'}}for(const [re,icon,a,soft] of rules)if(re.test(text))return{icon,a,soft};return{icon:'fa-bookmark',a:'#243B73',soft:'#E9EDFA'}}
   function decorate(el){if(!el)return;const text=(el.textContent||'').replace(/\s+/g,' ').trim();if(el.dataset.wkDecorated===text)return;const m=meta(el);el.style.setProperty('--option-accent',m.a);el.style.setProperty('--option-soft',m.soft);let holder=$('.option-soft-icon',el)||$('.wikaru-category-icon',el)||$('.wk-filter-icon',el)||(el.matches('.login-group-card')?$(':scope>span',el):null);if(el.matches('.category-button')&&!holder){holder=document.createElement('span');holder.className='wikaru-category-icon';el.prepend(holder)}if(el.matches('.check-pill')){const span=$(':scope>span',el);if(span){holder=$('.wk-filter-icon',span);if(!holder){holder=document.createElement('span');holder.className='wk-filter-icon';span.prepend(holder)}}}if(holder){let icon=$('i',holder);if(!icon){icon=document.createElement('i');holder.append(icon)}const cls='fa-solid '+m.icon;if(icon.className!==cls)icon.className=cls}el.dataset.wkDecorated=text}
-  const flow={idToJp:[['ID',''],['日本語','jp']],jpToId:[['日本語','jp'],['Indonesia','']],kanjiToReading:[['漢字','jp'],['ひらがな','jp'],['Romaji','romaji']],readingToMeaning:[['ひらがな','jp'],['Romaji','romaji'],['Arti','']],imageToJp:[['Gambar',''],['日本語','jp']]};
-  function directions(){Object.entries(flow).forEach(([key,items])=>{const btn=$(`[data-qdir="${key}"]`);if(!btn)return;const holder=$('.option-soft-icon',btn);if(holder&&!holder.dataset.wkScript){holder.textContent=key==='kanjiToReading'?'漢':key==='readingToMeaning'?'あ':key==='idToJp'?'ID':key==='jpToId'?'日':'';holder.dataset.wkScript='1'}if(!$('.wk-script-flow',btn)){const box=document.createElement('div');box.className='wk-script-flow';box.innerHTML=items.map((x,i)=>`${i?'<i class="fa-solid fa-arrow-right wk-script-arrow"></i>':''}<span class="wk-script-chip ${x[1]}">${x[0]}</span>`).join('');$('div',btn)?.append(box)}})}
+  function flowMap(){const ja=document.documentElement.lang==='ja';return{idToJp:[[(ja?'インドネシア語':'ID'),''],['日本語','jp']],jpToId:[['日本語','jp'],[(ja?'インドネシア語':'Indonesia'),'']],kanjiToReading:[['漢字','jp'],['ひらがな','jp'],[(ja?'ローマ字':'Romaji'),'romaji']],readingToMeaning:[['ひらがな','jp'],[(ja?'ローマ字':'Romaji'),'romaji'],[(ja?'意味':'Arti'),'']],imageToJp:[[(ja?'画像':'Gambar'),''],['日本語','jp']]};}
+  function directions(){Object.entries(flowMap()).forEach(([key,items])=>{const btn=$(`[data-qdir="${key}"]`);if(!btn)return;const holder=$('.option-soft-icon',btn);if(holder&&!holder.dataset.wkScript){holder.textContent=key==='kanjiToReading'?'漢':key==='readingToMeaning'?'あ':key==='idToJp'?'ID':key==='jpToId'?'日':'';holder.dataset.wkScript='1'}if(!$('.wk-script-flow',btn)){const box=document.createElement('div');box.className='wk-script-flow';box.innerHTML=items.map((x,i)=>`${i?'<i class="fa-solid fa-arrow-right wk-script-arrow"></i>':''}<span class="wk-script-chip ${x[1]}">${x[0]}</span>`).join('');$('div',btn)?.append(box)}})}
   function headings(root=document){const sel='#materialPage [class$="-section-head"],#materialPage [class*="-section-head "],#materialPage [class$="-section-title"],#materialPage [class*="-section-title "],#materialPage .road-reference-kicker,#materialPage .material-ref-badge';$$(sel,root).forEach(box=>{if(box.dataset.wkHeading)return;const target=box.matches('h3,h4')?box:($('h3,h4',box)||box),m=meta(box);box.style.setProperty('--option-accent',m.a);box.style.setProperty('--option-soft',m.soft);if(target&&!target.closest('button')&&!$('.wk-heading-icon',target)){const span=document.createElement('span');span.className='wk-heading-icon';span.setAttribute('aria-hidden','true');span.innerHTML='<i class="fa-solid '+m.icon+'"></i>';target.prepend(span)}box.dataset.wkHeading='1'})}
-  function run(root=document){$$('.option-card.icon-option,.login-group-card,.category-button,.check-pill',root).forEach(decorate);headings(root);directions();fixBrowserIdentity();const name=$('#userMenuText')?.textContent.trim()||'';applyAvatar($('#userAvatar'),name,true);const previewBox=ensureLoginPreview(),input=$('#usernameInput'),preview=previewBox?$('.wikaru-user-avatar',previewBox):null;if(preview){const value=input?.value.trim()||'Wikaru';applyAvatar(preview,value,false);const strong=$(':scope > div > strong',previewBox),note=$(':scope > div > span',previewBox);if(strong)strong.textContent=input?.value.trim()||'Identitas belajar Wikaru';if(note)note.textContent=input?.value.trim()?`Avatar unik disiapkan untuk ${input.value.trim()}.`:'Ketik nama untuk melihat avatar unikmu.'}}
+  function run(root=document){$$('.option-card.icon-option,.login-group-card,.category-button,.check-pill',root).forEach(decorate);headings(root);directions();fixBrowserIdentity();const name=$('#userMenuText')?.textContent.trim()||'';applyAvatar($('#userAvatar'),name,true);const previewBox=ensureLoginPreview(),input=$('#usernameInput'),preview=previewBox?$('.wikaru-user-avatar',previewBox):null;if(preview){const value=input?.value.trim()||'Wikaru',ja=document.documentElement.lang==='ja';applyAvatar(preview,value,false);const strong=$(':scope > div > strong',previewBox),note=$(':scope > div > span',previewBox);if(strong)strong.textContent=input?.value.trim()||(ja?'Wikaruの学習プロフィール':'Identitas belajar Wikaru');if(note)note.textContent=input?.value.trim()?(ja?`${input.value.trim()}さん専用のアバターを用意しました。`:`Avatar unik disiapkan untuk ${input.value.trim()}.`):(ja?'名前を入力すると、あなた専用のアバターが表示されます。':'Ketik nama untuk melihat avatar unikmu.')}}
   let scheduled=false;function schedule(root=document){if(scheduled)return;scheduled=true;requestAnimationFrame(()=>{scheduled=false;run(root)})}
   function init(){['#setupModal','#quizSettingsModal','#loginModal','#materialGrid'].map(s=>$(s)).filter(Boolean).forEach(root=>{run(root);new MutationObserver(()=>schedule(root)).observe(root,{childList:true,subtree:true})});run();const title=$('title');if(title)new MutationObserver(fixBrowserIdentity).observe(title,{childList:true,characterData:true,subtree:true});$('#usernameInput')?.addEventListener('input',()=>schedule($('#loginModal')||document));const user=$('#userMenuText');if(user)new MutationObserver(()=>schedule()).observe(user,{childList:true,characterData:true,subtree:true})}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
@@ -58058,68 +58254,6 @@ body.wk-modal-open{overflow:hidden!important}
     }
   }
 
-  function buildMobileHome(){
-    const hero=$('#homePage .hero');
-    if(!hero || $('.wk-mobile-home',hero)) return;
-    const dash=document.createElement('div');
-    dash.className='wk-mobile-home';
-    dash.innerHTML=`
-      <section class="wk-home-greeting">
-        <small id="wkHomeHello">Selamat datang kembali</small>
-        <h1>Belajar Jepang, sedikit demi sedikit.</h1>
-        <p>Lanjutkan materi aktifmu dengan sesi yang ringkas dan terarah.</p>
-      </section>
-      <section class="wk-home-card wk-home-daily">
-        <div>
-          <span class="wk-home-eyebrow"><i class="fa-solid fa-bullseye"></i>Sesi hari ini</span>
-          <h3>Siap memulai latihan</h3>
-          <p id="wkHomeDailyCopy">Pilih materi dan mulai dari kartu pertama.</p>
-          <div class="wk-home-progress" aria-label="Kesiapan sesi"><span></span></div>
-        </div>
-        <div class="wk-home-kana" aria-hidden="true">学</div>
-      </section>
-      <section class="wk-home-card wk-home-continue">
-        <span class="wk-home-eyebrow"><i class="fa-solid fa-play"></i>Lanjutkan belajar</span>
-        <h3>Materi aktifmu</h3>
-        <p>Flashcard, audio, contoh kalimat, dan latihan bicara tersedia.</p>
-        <div class="wk-home-choice" id="wkHomeChoice">Memuat pilihan materi…</div>
-        <button class="btn wk-home-primary" type="button" data-wk-proxy="#homeStartBtn,#homeLoginBtn"><i class="fa-solid fa-arrow-right"></i>Mulai sesi</button>
-      </section>
-      <section class="wk-home-quick">
-        <div class="wk-home-section-head"><strong>Akses cepat</strong><span>Geser untuk melihat</span></div>
-        <div class="wk-home-quick-scroll">
-          <button class="wk-quick-action" type="button" data-wk-proxy="#homeMaterialBtn,.bottom-nav [data-page='material']"><i class="fa-solid fa-book-open"></i><strong>Materi</strong><small>Lihat kosakata aktif</small></button>
-          <button class="wk-quick-action" type="button" data-wk-proxy="#homeStartBtn,.bottom-nav [data-action='openQuizSettings'],#homeLoginBtn"><i class="fa-solid fa-clone"></i><strong>Flashcard</strong><small>Latihan kartu cepat</small></button>
-          <button class="wk-quick-action" type="button" data-wk-proxy=".bottom-nav [data-action='openQuizSettings'],#homeLoginBtn"><i class="fa-solid fa-microphone-lines"></i><strong>Latihan bicara</strong><small>Ucapkan kosakata</small></button>
-          <button class="wk-quick-action" type="button" data-wk-proxy="#homeResultBtn,#bottomResultBtn"><i class="fa-solid fa-chart-simple"></i><strong>Hasil</strong><small>Tinjau progres terakhir</small></button>
-        </div>
-      </section>
-      <section class="wk-home-stats" aria-label="Ringkasan materi aktif">
-        <div class="wk-home-stat"><i class="fa-solid fa-book-open"></i><strong id="wkHomeVocab">0</strong><span>Kosakata</span></div>
-        <div class="wk-home-stat"><i class="fa-regular fa-clock"></i><strong id="wkHomeTime">30 dtk</strong><span>Per kartu</span></div>
-        <div class="wk-home-stat"><i class="fa-solid fa-layer-group"></i><strong id="wkHomeChapter">1</strong><span>Bab aktif</span></div>
-      </section>`;
-    hero.prepend(dash);
-    dash.addEventListener('click',e=>{
-      const btn=e.target.closest('[data-wk-proxy]');
-      if(btn) clickProxy(btn.dataset.wkProxy);
-    });
-    syncMobileHome();
-  }
-
-  function syncMobileHome(){
-    const set=(sel,value)=>{const el=$(sel);if(el && value!=null)el.textContent=value;};
-    set('#wkHomeChoice',$('#activeChoiceText')?.textContent?.trim()||'Pilih kategori belajar');
-    set('#wkHomeVocab',$('#homeVocabCount')?.textContent?.trim()||'0');
-    set('#wkHomeTime',$('#homeTimeValue')?.textContent?.trim()||'30 dtk');
-    set('#wkHomeChapter',$('#homeChapterCount')?.textContent?.trim()||'1');
-    const user=$('#userMenuText')?.textContent?.trim();
-    const guest=!user || /^(masuk|login|ログイン)$/i.test(user);
-    set('#wkHomeHello',guest?'Selamat datang kembali':`Halo, ${user}`);
-    const count=$('#homeVocabCount')?.textContent?.trim()||'0';
-    set('#wkHomeDailyCopy',`${count} kosakata tersedia pada pilihan aktif.`);
-  }
-
   function cloneSelect(source,id){
     const clone=source.cloneNode(true);
     clone.id=id;
@@ -58296,19 +58430,18 @@ body.wk-modal-open{overflow:hidden!important}
 
   function observeApplication(){
     $$('.page').forEach(page=>new MutationObserver(()=>setTimeout(updatePageChrome,0)).observe(page,{attributes:true,attributeFilter:['class']}));
-    ['#activeChoiceText','#homeVocabCount','#homeTimeValue','#homeChapterCount','#userMenuText'].forEach(sel=>{const el=$(sel);if(el)new MutationObserver(syncMobileHome).observe(el,{childList:true,characterData:true,subtree:true});});
     const result=$('#resultContent');if(result)new MutationObserver(()=>{annotateAllTables(result);improveAccessibility();}).observe(result,{childList:true,subtree:true});
     const admin=$('#adminTableWrap');if(admin)new MutationObserver(()=>{annotateAllTables(admin);improveAccessibility();}).observe(admin,{childList:true,subtree:true});
     $$('.modal').forEach(m=>new MutationObserver(syncModalState).observe(m,{attributes:true,attributeFilter:['class']}));
-    document.addEventListener('click',()=>setTimeout(()=>{updatePageChrome();syncMobileHome();syncQuizHeader();syncAnswerBarLocation();annotateAllTables();},45));
+    document.addEventListener('click',()=>setTimeout(()=>{updatePageChrome();syncQuizHeader();syncAnswerBarLocation();annotateAllTables();},45));
     window.addEventListener('scroll',()=>$('#topNav')?.classList.toggle('wk-scrolled',window.scrollY>8),{passive:true});
     const themeObserver=new MutationObserver(()=>{const meta=$('meta[name="theme-color"]');if(meta)meta.content=document.documentElement.dataset.theme==='dark'?'#0F1722':'#F7F8FA';});
     themeObserver.observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
   }
 
   function init(){
-    createMobilePageTitle();buildMobileHome();buildMaterialFilters();buildQuizHeader();syncAnswerBarLocation();setupQuizGestures();feedbackButtons();improveAccessibility();annotateAllTables();setupFocusTrap();observeApplication();updatePageChrome();syncMobileHome();syncQuizHeader();syncModalState();
-    [mobileMQ,adaptiveMQ].forEach(mq=>mq.addEventListener?.('change',()=>{syncAnswerBarLocation();updatePageChrome();syncMobileHome();annotateAllTables();}));
+    createMobilePageTitle();buildMaterialFilters();buildQuizHeader();syncAnswerBarLocation();setupQuizGestures();feedbackButtons();improveAccessibility();annotateAllTables();setupFocusTrap();observeApplication();updatePageChrome();syncQuizHeader();syncModalState();
+    [mobileMQ,adaptiveMQ].forEach(mq=>mq.addEventListener?.('change',()=>{syncAnswerBarLocation();updatePageChrome();annotateAllTables();}));
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();
@@ -58607,6 +58740,647 @@ body.wk-modal-open{overflow:hidden!important}
 }
 </style>
 
+
+<style id="wikaru-learning-journey-home">
+/* WIKARU LEARNING JOURNEY — semantic responsive homepage */
+:root{
+  --home-primary:#243B73;
+  --home-primary-dark:#182A58;
+  --home-primary-soft:#E9EDFA;
+  --home-background:#F7F7F2;
+  --home-surface:#FFFFFF;
+  --home-surface-secondary:#F1F3F8;
+  --home-text:#111827;
+  --home-muted:#667085;
+  --home-accent:#E84B3C;
+  --home-success:#23A77A;
+  --home-warning:#E7A938;
+  --home-danger:#DF4968;
+  --home-border:#E2E6EF;
+  --home-shadow:0 18px 44px rgba(23,34,59,.08);
+  --home-shadow-soft:0 8px 24px rgba(23,34,59,.055);
+  --home-radius-xl:28px;
+  --home-radius-lg:22px;
+  --home-radius-md:16px;
+  --home-ease:cubic-bezier(.2,.8,.2,1);
+}
+body{
+  background:var(--home-background);
+}
+body::before{
+  background:linear-gradient(180deg,rgba(36,59,115,.028),transparent 360px);
+}
+.top-nav{
+  height:76px;
+  background:rgba(255,255,255,.94);
+  border-bottom:1px solid var(--home-border);
+  box-shadow:0 6px 24px rgba(17,24,39,.045);
+  backdrop-filter:blur(16px);
+}
+.app{padding-top:88px;}
+.nav-inner{width:min(1320px,calc(100% - 40px));gap:26px;}
+.brand{min-width:210px;gap:12px;}
+.brand-icon{width:46px;height:46px;border-radius:15px;box-shadow:none;color:var(--home-primary);background:transparent;}
+.brand-copy strong{color:var(--home-text);font-size:18px;}
+.brand-copy small{color:var(--home-muted);}
+.nav-links{gap:8px;}
+.nav-link{
+  min-height:44px;
+  padding:0 15px;
+  border-radius:12px;
+  color:#596579;
+  font-size:14px;
+  font-weight:700;
+}
+.nav-link::after{display:none;}
+.nav-link:hover{background:var(--home-surface-secondary);color:var(--home-primary);}
+.nav-link.active{background:var(--home-primary-soft);color:var(--home-primary);}
+.nav-actions{gap:10px;}
+.nav-lang-btn,.user-btn{
+  min-height:46px;
+  border:1px solid var(--home-border);
+  background:var(--home-surface);
+  box-shadow:none;
+}
+.nav-lang-btn{border-radius:14px;padding:0 12px;}
+.nav-lang-btn .lang-code{background:var(--home-primary);box-shadow:none;}
+.user-btn{border-radius:14px;padding:0 12px;}
+.dropdown{
+  top:56px;
+  min-width:245px;
+  padding:8px;
+  border:1px solid var(--home-border);
+  border-radius:18px;
+  background:var(--home-surface);
+  box-shadow:var(--home-shadow);
+}
+.dropdown .drop-item,
+.dropdown .theme-toggle,
+.dropdown .nav-fiction-toggle{
+  width:100%;
+  min-height:46px;
+  margin:0;
+  padding:0 12px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:11px;
+  border:0;
+  border-radius:12px;
+  background:transparent;
+  color:#4B5565;
+  box-shadow:none;
+  font-size:13px;
+  font-weight:700;
+  text-align:left;
+}
+.dropdown .drop-item:hover,
+.dropdown .theme-toggle:hover,
+.dropdown .nav-fiction-toggle:hover{background:var(--home-surface-secondary);color:var(--home-primary);transform:none;}
+.dropdown .theme-toggle span{display:inline;}
+.dropdown .nav-fiction-toggle .fiction-state{margin-left:auto;padding:4px 8px;border-radius:999px;background:var(--home-surface-secondary);color:var(--home-muted);font-size:10px;}
+.dropdown .nav-fiction-toggle.active .fiction-state{background:#E4F7F0;color:#15775A;}
+
+.home-page{
+  width:min(1320px,calc(100% - 40px));
+  padding:28px 0 56px;
+}
+.home-dashboard{display:grid;gap:24px;}
+.home-header{display:flex;align-items:flex-end;justify-content:space-between;gap:28px;padding:4px 2px 2px;}
+.home-heading-copy{max-width:760px;}
+.home-eyebrow,.home-card-label{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color:var(--home-primary);
+  font-size:12px;
+  font-weight:750;
+  letter-spacing:.015em;
+}
+.home-eyebrow-dot{width:8px;height:8px;border-radius:50%;background:var(--home-accent);box-shadow:0 0 0 5px rgba(232,75,60,.10);}
+.home-header h1{
+  margin:10px 0 6px;
+  max-width:780px;
+  color:var(--home-text);
+  font-size:clamp(34px,3.4vw,52px);
+  line-height:1.08;
+  letter-spacing:-.045em;
+  text-wrap:balance;
+}
+.home-header p{margin:0;color:var(--home-muted);font-size:15px;line-height:1.65;}
+.home-header-actions{display:flex;align-items:center;gap:12px;}
+.home-streak,.home-profile-shortcut{
+  min-height:58px;
+  display:flex;
+  align-items:center;
+  gap:11px;
+  border:1px solid var(--home-border);
+  border-radius:17px;
+  background:var(--home-surface);
+  color:var(--home-text);
+  box-shadow:var(--home-shadow-soft);
+}
+.home-streak{padding:8px 15px 8px 9px;}
+.home-streak-icon,.home-profile-avatar{
+  width:40px;height:40px;display:grid;place-items:center;flex:0 0 auto;border-radius:13px;
+}
+.home-streak-icon{background:#FFF0E9;color:var(--home-accent);}
+.home-streak span:last-child,.home-profile-copy{display:grid;gap:2px;min-width:0;}
+.home-streak strong,.home-profile-copy strong{color:var(--home-text);font-size:14px;line-height:1.1;}
+.home-streak small,.home-profile-copy small{color:var(--home-muted);font-size:10px;line-height:1.25;}
+.home-profile-shortcut{padding:8px 12px 8px 9px;min-width:210px;text-align:left;}
+.home-profile-avatar{background:var(--home-primary-soft);color:var(--home-primary);}
+.home-profile-shortcut>i{margin-left:auto;color:#9AA4B3;font-size:11px;}
+.home-profile-shortcut:hover{border-color:#C7D0E0;transform:translateY(-1px);}
+
+.home-main-grid{
+  display:grid;
+  grid-template-columns:repeat(12,minmax(0,1fr));
+  grid-template-areas:
+    "continue continue continue continue continue continue continue continue vocab vocab vocab vocab"
+    "stats stats stats stats stats stats stats stats stats stats stats stats"
+    "quick quick quick quick quick quick quick quick target target target target"
+    "quick quick quick quick quick quick quick quick recommend recommend recommend recommend";
+  gap:18px;
+  align-items:stretch;
+}
+.home-card,.home-statistics{
+  border:1px solid var(--home-border);
+  border-radius:var(--home-radius-lg);
+  background:var(--home-surface);
+  box-shadow:var(--home-shadow-soft);
+}
+.home-card{padding:24px;}
+.home-continue-card{grid-area:continue;min-height:390px;display:flex;flex-direction:column;overflow:hidden;position:relative;background:var(--home-primary);border-color:var(--home-primary);color:#fff;box-shadow:0 22px 50px rgba(36,59,115,.18);}
+.home-continue-card::after{content:"学";position:absolute;right:-12px;bottom:-54px;color:rgba(255,255,255,.055);font-family:var(--jp);font-size:220px;font-weight:800;line-height:1;pointer-events:none;}
+.home-continue-top,.home-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;position:relative;z-index:1;}
+.home-card-label-light{color:#DDE5FF;}
+.home-session-status{display:inline-flex;align-items:center;gap:7px;padding:7px 10px;border:1px solid rgba(255,255,255,.18);border-radius:999px;background:rgba(255,255,255,.10);color:#fff;font-size:10px;font-weight:700;}
+.home-session-status i{font-size:6px;color:#8DE0BE;}
+.home-continue-content{position:relative;z-index:1;margin:auto 0 20px;}
+.home-book-name{margin:0 0 8px;color:#BFCBF0;font-size:12px;font-weight:700;letter-spacing:.025em;text-transform:uppercase;}
+.home-continue-card h2{margin:0;max-width:760px;color:#fff;font-size:clamp(29px,3vw,45px);line-height:1.12;letter-spacing:-.04em;text-wrap:balance;}
+.home-title-divider{opacity:.45;}
+.home-continue-description{max-width:680px;margin:12px 0 0;color:#D5DDF2;font-size:14px;line-height:1.65;}
+.home-active-choice{width:fit-content;max-width:100%;margin-top:15px;padding:9px 11px;border:1px solid rgba(255,255,255,.13);border-radius:11px;background:rgba(255,255,255,.08);color:#EEF2FF;font-size:11px;font-weight:650;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.home-continue-progress{position:relative;z-index:1;margin-bottom:18px;}
+.home-progress-copy{display:flex;justify-content:space-between;gap:16px;margin-bottom:8px;color:#DCE4FA;font-size:11px;}
+.home-progress-copy strong{color:#fff;}
+.home-progress-track{height:8px;border-radius:999px;background:rgba(255,255,255,.15);overflow:hidden;}
+.home-progress-track span{display:block;width:0;height:100%;border-radius:inherit;background:#fff;transition:width .48s var(--home-ease);}
+.home-continue-progress small{display:block;margin-top:7px;color:#BFCBE8;font-size:10px;}
+.home-primary-actions{position:relative;z-index:1;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.home-primary-actions .btn{min-height:48px;border-radius:14px;padding:0 17px;box-shadow:none;}
+.home-primary-actions .home-main-button{background:#fff;color:var(--home-primary);border:1px solid #fff;}
+.home-primary-actions .home-secondary-button{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.28);}
+.home-primary-actions .home-secondary-button:hover{background:rgba(255,255,255,.10);}
+
+.home-vocab-card{grid-area:vocab;display:flex;flex-direction:column;min-height:390px;}
+.home-card-head h2,.home-quick-actions h2,.home-target-copy h2,.home-recommendation h2{margin:7px 0 0;color:var(--home-text);font-size:20px;line-height:1.25;letter-spacing:-.025em;}
+.home-icon-button{width:42px;height:42px;display:grid;place-items:center;border:1px solid var(--home-border);border-radius:13px;background:var(--home-surface);color:var(--home-primary);}
+.home-icon-button:hover,.home-icon-button.active{background:var(--home-primary-soft);border-color:#CFD8EE;}
+.home-word-stage{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:22px 6px 18px;}
+.home-word-index{margin-bottom:13px;color:var(--home-muted);font-family:var(--jp);font-size:10px;letter-spacing:.08em;text-transform:uppercase;}
+.home-word-stage strong{max-width:100%;color:var(--home-text);font-size:clamp(38px,4.2vw,60px);line-height:1.18;overflow-wrap:anywhere;}
+.home-word-stage>.jp:not(strong){margin-top:7px;color:#4C5A72;font-size:17px;font-weight:650;}
+.home-word-stage>span:not(.jp):not(.home-word-index){margin-top:5px;color:var(--home-primary);font-size:12px;font-weight:750;}
+.home-word-stage p{margin:12px 0 0;color:var(--home-text);font-size:16px;font-weight:700;}
+.home-word-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
+.home-word-button{min-height:46px;display:flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--home-border);border-radius:13px;background:var(--home-surface-secondary);color:#465268;font-size:12px;font-weight:700;}
+.home-word-button:hover{border-color:#C9D3E6;background:var(--home-primary-soft);color:var(--home-primary);}
+
+.home-statistics{grid-area:stats;display:grid;grid-template-columns:repeat(4,1fr);padding:7px;box-shadow:none;}
+.home-stat-item{min-height:82px;display:flex;align-items:center;gap:13px;padding:13px 18px;border-right:1px solid var(--home-border);}
+.home-stat-item:last-of-type{border-right:0;}
+.home-stat-icon{width:42px;height:42px;display:grid;place-items:center;flex:0 0 auto;border-radius:13px;background:var(--home-surface-secondary);color:var(--home-primary);}
+.home-stat-item>span:last-child{display:grid;gap:3px;min-width:0;}
+.home-stat-item strong{color:var(--home-text);font-size:20px;line-height:1;font-variant-numeric:tabular-nums;}
+.home-stat-item small{color:var(--home-muted);font-size:10px;line-height:1.3;}
+.home-hidden-stat{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);}
+
+.home-quick-actions{grid-area:quick;min-height:318px;}
+.home-card-head-inline{align-items:center;}
+.home-scroll-hint{color:var(--home-muted);font-size:10px;}
+.home-quick-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:20px;}
+.home-quick-item{min-height:80px;display:grid;grid-template-columns:46px minmax(0,1fr) 18px;align-items:center;gap:12px;padding:11px 13px;border:1px solid var(--home-border);border-radius:15px;background:var(--home-surface);color:var(--home-text);text-align:left;}
+.home-quick-item:hover{border-color:#C8D2E4;background:var(--home-surface-secondary);transform:translateY(-1px);}
+.home-quick-icon{width:44px;height:44px;display:grid;place-items:center;border-radius:13px;background:var(--home-primary-soft);color:var(--home-primary);}
+.home-quick-item>span:nth-child(2){display:grid;gap:3px;min-width:0;}
+.home-quick-item strong{font-size:12px;}
+.home-quick-item small{color:var(--home-muted);font-size:9.5px;line-height:1.35;}
+.home-quick-item>i{color:#A5AEBC;font-size:10px;}
+
+.home-daily-target{grid-area:target;display:grid;grid-template-columns:102px 1fr;align-items:center;gap:18px;min-height:150px;}
+.home-target-ring{--target-progress:0deg;width:98px;height:98px;display:grid;place-items:center;border-radius:50%;background:conic-gradient(var(--home-primary) var(--target-progress),var(--home-primary-soft) 0);position:relative;}
+.home-target-ring::before{content:"";position:absolute;inset:10px;border-radius:50%;background:var(--home-surface);}
+.home-target-ring>span{position:relative;display:flex;align-items:baseline;gap:2px;color:var(--home-text);}
+.home-target-ring strong{font-size:27px;line-height:1;}
+.home-target-ring small{color:var(--home-muted);font-size:11px;font-weight:700;}
+.home-target-copy p{margin:7px 0 0;color:var(--home-muted);font-size:11px;line-height:1.5;}
+.home-text-button{margin-top:10px;padding:0;display:inline-flex;align-items:center;gap:8px;border:0;background:transparent;color:var(--home-primary);font-size:11px;font-weight:750;}
+
+.home-recommendation{grid-area:recommend;display:grid;grid-template-columns:46px minmax(0,1fr);gap:13px;align-items:start;min-height:150px;background:var(--home-surface-secondary);box-shadow:none;}
+.home-recommendation-icon{width:44px;height:44px;display:grid;place-items:center;border-radius:14px;background:var(--home-primary);color:#fff;}
+.home-recommendation h2{font-size:17px;}
+.home-recommendation p{margin:7px 0 0;color:var(--home-muted);font-size:10.5px;line-height:1.5;}
+.home-recommendation-button{grid-column:1/-1;min-height:43px;display:flex;align-items:center;justify-content:space-between;padding:0 13px;border:1px solid var(--home-border);border-radius:12px;background:var(--home-surface);color:var(--home-primary);font-size:11px;font-weight:750;}
+
+@media (hover:hover){
+  .home-profile-shortcut,.home-icon-button,.home-word-button,.home-quick-item,.home-text-button,.home-recommendation-button{transition:transform .2s var(--home-ease),border-color .2s ease,background .2s ease,color .2s ease,box-shadow .2s ease;}
+}
+
+/* Tablet portrait — Study Canvas */
+@media (min-width:768px) and (max-width:1199px) and (orientation:portrait){
+  .top-nav{height:72px;}
+  .app{padding-top:82px;}
+  .nav-inner{width:calc(100% - 28px);gap:12px;}
+  .brand{min-width:0;}
+  .brand-copy small{display:none;}
+  .nav-links{gap:3px;}
+  .nav-link{padding:0 10px;font-size:12px;}
+  .home-page{width:min(780px,calc(100% - 32px));padding-top:22px;}
+  .home-header{align-items:flex-start;}
+  .home-profile-shortcut{display:none;}
+  .home-main-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    grid-template-areas:
+      "continue continue"
+      "target vocab"
+      "stats stats"
+      "quick quick"
+      "recommend recommend";
+  }
+  .home-continue-card{min-height:350px;}
+  .home-vocab-card,.home-daily-target{min-height:300px;}
+  .home-daily-target{grid-template-columns:1fr;text-align:center;align-content:center;justify-items:center;}
+  .home-target-copy{display:grid;justify-items:center;}
+  .home-stat-item{padding:12px;gap:9px;}
+  .home-quick-list{grid-template-columns:repeat(4,minmax(0,1fr));}
+  .home-quick-item{grid-template-columns:1fr;justify-items:start;min-height:132px;}
+  .home-quick-item>i{display:none;}
+}
+
+/* Tablet landscape — Focus Workspace */
+@media (min-width:900px) and (max-width:1199px) and (orientation:landscape){
+  .top-nav{left:80px;height:64px;}
+  .nav-inner{width:calc(100% - 26px);justify-content:flex-end;}
+  .top-nav .brand,.top-nav .nav-links{display:none;}
+  .app{padding-left:80px;padding-top:76px;}
+  .home-page{width:calc(100% - 30px);padding:16px 0 34px;}
+  .home-header{align-items:center;}
+  .home-header h1{font-size:clamp(30px,4vw,42px);}
+  .home-profile-shortcut{display:none;}
+  .bottom-nav{
+    display:flex;
+    position:fixed;
+    inset:0 auto 0 0;
+    width:80px;
+    height:100dvh;
+    padding:86px 10px 18px;
+    flex-direction:column;
+    justify-content:flex-start;
+    gap:8px;
+    border:0;
+    border-right:1px solid var(--home-border);
+    border-radius:0;
+    background:var(--home-surface);
+    box-shadow:none;
+    backdrop-filter:none;
+  }
+  .bottom-nav::before{content:"W";position:absolute;top:15px;left:17px;width:46px;height:46px;display:grid;place-items:center;border-radius:15px;background:var(--home-primary);color:#fff;font-size:19px;font-weight:800;}
+  .bottom-nav button{width:60px;min-height:58px;padding:7px 3px;display:grid;place-items:center;gap:4px;border-radius:14px;color:var(--home-muted);font-size:9px;}
+  .bottom-nav button i{font-size:16px;}
+  .bottom-nav button.active{background:var(--home-primary-soft);color:var(--home-primary);}
+  .bottom-nav button:last-child{margin-top:auto;}
+  .home-main-grid{
+    grid-template-columns:repeat(12,minmax(0,1fr));
+    grid-template-areas:
+      "continue continue continue continue continue continue continue vocab vocab vocab vocab vocab"
+      "continue continue continue continue continue continue continue target target target target target"
+      "stats stats stats stats stats stats stats stats stats stats stats stats"
+      "quick quick quick quick quick quick quick recommend recommend recommend recommend recommend";
+  }
+  .home-continue-card{min-height:430px;}
+  .home-vocab-card,.home-daily-target{min-height:205px;}
+  .home-daily-target{grid-template-columns:82px 1fr;}
+  .home-target-ring{width:78px;height:78px;}
+  .home-target-ring strong{font-size:22px;}
+  .home-quick-list{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+
+/* Small tablet */
+@media (min-width:600px) and (max-width:767px){
+  .home-page{width:calc(100% - 28px);}
+  .home-header{align-items:flex-start;}
+  .home-profile-shortcut{display:none;}
+  .home-main-grid{grid-template-columns:1fr;grid-template-areas:"continue" "target" "vocab" "stats" "quick" "recommend";}
+  .home-statistics{grid-template-columns:repeat(2,1fr);}
+  .home-stat-item:nth-of-type(2){border-right:0;}
+  .home-stat-item:nth-of-type(-n+2){border-bottom:1px solid var(--home-border);}
+}
+
+/* Mobile portrait — Today Dashboard */
+@media (max-width:599px){
+  body{padding-bottom:calc(70px + env(safe-area-inset-bottom));}
+  .top-nav{height:62px;}
+  .app{padding-top:70px;padding-bottom:calc(76px + env(safe-area-inset-bottom));}
+  .nav-inner{width:calc(100% - 20px);gap:8px;}
+  .brand{min-width:0;}
+  .brand-icon{width:40px;height:40px;border-radius:13px;}
+  .brand-copy strong{font-size:15px;}
+  .brand-copy small,.nav-links,.nav-lang-btn{display:none;}
+  .nav-actions{margin-left:auto;}
+  .user-btn{width:42px;min-width:42px;height:42px;padding:4px;border-radius:13px;}
+  .wikaru-user-copy,.user-chevron{display:none;}
+  .dropdown{position:fixed;left:10px;right:10px;top:68px;min-width:0;}
+  .home-page{width:calc(100% - 20px);padding:12px 0 24px;}
+  .home-dashboard{gap:16px;}
+  .home-header{align-items:flex-start;padding:4px 2px 0;}
+  .home-header-actions{display:none;}
+  .home-header h1{font-size:clamp(26px,8vw,34px);margin-top:8px;}
+  .home-header p{font-size:12px;line-height:1.55;}
+  .home-main-grid{display:grid;grid-template-columns:1fr;grid-template-areas:"continue" "target" "vocab" "quick" "recommend" "stats";gap:13px;}
+  .home-card{padding:17px;border-radius:18px;}
+  .home-continue-card{min-height:350px;border-radius:20px;}
+  .home-continue-card::after{font-size:160px;right:-10px;bottom:-38px;}
+  .home-session-status{padding:6px 8px;}
+  .home-continue-content{margin:26px 0 16px;}
+  .home-continue-card h2{font-size:clamp(26px,8.2vw,36px);}
+  .home-continue-description{font-size:12px;}
+  .home-active-choice{font-size:9.5px;}
+  .home-primary-actions{display:grid;grid-template-columns:1fr;}
+  .home-primary-actions .btn{width:100%;}
+  .home-primary-actions #homeResultBtn{display:none;}
+  .home-daily-target{grid-template-columns:78px 1fr;gap:14px;min-height:142px;}
+  .home-target-ring{width:76px;height:76px;}
+  .home-target-ring::before{inset:8px;}
+  .home-target-ring strong{font-size:21px;}
+  .home-target-copy h2{font-size:17px;}
+  .home-vocab-card{min-height:330px;}
+  .home-word-stage{padding:20px 4px 16px;}
+  .home-word-stage strong{font-size:clamp(38px,13vw,54px);}
+  .home-quick-actions{min-height:auto;overflow:hidden;}
+  .home-card-head-inline{align-items:flex-end;}
+  .home-quick-actions h2{font-size:18px;}
+  .home-scroll-hint{display:block;max-width:90px;text-align:right;}
+  .home-quick-list{display:grid;grid-auto-flow:column;grid-auto-columns:43%;grid-template-columns:none;gap:9px;margin:17px -17px 0;padding:0 17px 7px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;}
+  .home-quick-list::-webkit-scrollbar{display:none;}
+  .home-quick-item{min-height:130px;grid-template-columns:1fr;align-content:start;justify-items:start;scroll-snap-align:start;padding:13px;}
+  .home-quick-item>i{display:none;}
+  .home-quick-item strong{font-size:12px;}
+  .home-quick-item small{font-size:9px;}
+  .home-recommendation{min-height:155px;}
+  .home-statistics{grid-template-columns:repeat(2,1fr);border-radius:18px;padding:4px;}
+  .home-stat-item{min-height:72px;padding:10px;gap:9px;}
+  .home-stat-item:nth-of-type(2){border-right:0;}
+  .home-stat-item:nth-of-type(-n+2){border-bottom:1px solid var(--home-border);}
+  .home-stat-icon{width:36px;height:36px;border-radius:11px;}
+  .home-stat-item strong{font-size:17px;}
+  .bottom-nav{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    left:0;right:0;bottom:0;
+    padding:7px 8px calc(7px + env(safe-area-inset-bottom));
+    border:0;border-top:1px solid var(--home-border);border-radius:0;
+    background:rgba(255,255,255,.98);box-shadow:0 -8px 24px rgba(17,24,39,.06);backdrop-filter:none;
+  }
+  .bottom-nav button{min-height:54px;border-radius:12px;color:var(--home-muted);font-size:9px;}
+  .bottom-nav button i{font-size:15px;}
+  .bottom-nav button.active{background:var(--home-primary-soft);color:var(--home-primary);}
+}
+
+/* Mobile landscape — Compact Focus Mode */
+@media (max-width:899px) and (orientation:landscape){
+  .top-nav{height:56px;}
+  .app{padding-top:64px;min-height:100dvh;}
+  .home-page{width:calc(100% - 22px);padding:8px 0 18px;}
+  .home-header{display:none;}
+  .home-main-grid{
+    grid-template-columns:minmax(0,1.25fr) minmax(260px,.75fr);
+    grid-template-areas:
+      "continue target"
+      "continue vocab"
+      "quick vocab";
+    gap:10px;
+  }
+  .home-continue-card{min-height:calc(100dvh - 82px);padding:18px;}
+  .home-continue-content{margin:18px 0 12px;}
+  .home-continue-card h2{font-size:clamp(25px,4.8vw,38px);}
+  .home-continue-description{font-size:11px;}
+  .home-vocab-card{min-height:220px;padding:14px;}
+  .home-vocab-card .home-card-head h2{display:none;}
+  .home-word-stage{padding:8px 4px;}
+  .home-word-stage strong{font-size:clamp(31px,6vw,45px);}
+  .home-word-stage p{font-size:13px;}
+  .home-daily-target{min-height:126px;padding:14px;grid-template-columns:70px 1fr;}
+  .home-target-ring{width:66px;height:66px;}
+  .home-target-ring::before{inset:7px;}
+  .home-target-copy h2{font-size:15px;}
+  .home-target-copy p{display:none;}
+  .home-quick-actions{min-height:120px;padding:14px;}
+  .home-quick-actions .home-card-head{display:none;}
+  .home-quick-list{grid-template-columns:repeat(5,1fr);gap:7px;margin:0;}
+  .home-quick-item{min-height:88px;grid-template-columns:1fr;justify-items:center;text-align:center;padding:8px;}
+  .home-quick-item>span:nth-child(2) small,.home-quick-item>i{display:none;}
+  .home-quick-icon{width:36px;height:36px;}
+  .home-statistics,.home-recommendation{display:none;}
+  .bottom-nav{display:none;}
+}
+
+html[data-theme="dark"]{
+  --home-background:#101522;
+  --home-surface:#171D2C;
+  --home-surface-secondary:#20283A;
+  --home-text:#F6F7FB;
+  --home-muted:#AAB3C5;
+  --home-border:#2C3548;
+  --home-primary-soft:#202E50;
+  --home-shadow:none;
+  --home-shadow-soft:none;
+}
+html[data-theme="dark"] body{background:var(--home-background);}
+html[data-theme="dark"] .top-nav,html[data-theme="dark"] .bottom-nav{background:rgba(16,21,34,.97);border-color:var(--home-border);}
+html[data-theme="dark"] .brand-icon{color:#9DB2F4;}
+html[data-theme="dark"] .brand-copy strong,html[data-theme="dark"] .home-header h1,html[data-theme="dark"] .home-card h2,html[data-theme="dark"] .home-stat-item strong,html[data-theme="dark"] .home-word-stage strong,html[data-theme="dark"] .home-word-stage p{color:var(--home-text);}
+html[data-theme="dark"] .home-card,html[data-theme="dark"] .home-statistics,html[data-theme="dark"] .home-streak,html[data-theme="dark"] .home-profile-shortcut,html[data-theme="dark"] .dropdown{background:var(--home-surface);border-color:var(--home-border);}
+html[data-theme="dark"] .home-continue-card{background:var(--home-primary);border-color:var(--home-primary);}
+html[data-theme="dark"] .home-word-button,html[data-theme="dark"] .home-quick-item,html[data-theme="dark"] .home-recommendation-button,html[data-theme="dark"] .home-icon-button{background:var(--home-surface-secondary);border-color:var(--home-border);color:var(--home-text);}
+html[data-theme="dark"] .home-target-ring::before{background:var(--home-surface);}
+html[data-theme="dark"] .home-recommendation{background:var(--home-surface-secondary);}
+
+:where(.home-page,.top-nav,.bottom-nav) button:focus-visible,
+:where(.home-page,.top-nav,.bottom-nav) [tabindex]:focus-visible{
+  outline:3px solid rgba(36,59,115,.28);
+  outline-offset:3px;
+}
+@media (prefers-reduced-motion:reduce){
+  .home-page *, .home-page *::before, .home-page *::after{animation-duration:.01ms;animation-iteration-count:1;transition-duration:.01ms;scroll-behavior:auto;}
+}
+
+
+/* Minimal compatibility layer for legacy rules that previously used !important. */
+#homePage.home-page{width:min(1320px,calc(100% - 40px))!important;padding:28px 0 56px!important;}
+#homePage .home-header h1{color:var(--home-text)!important;font-size:clamp(34px,3.4vw,52px)!important;line-height:1.08!important;letter-spacing:-.045em!important;}
+#homePage .home-continue-card h2{color:#fff!important;}
+#homePage .home-primary-actions .home-main-button{background:#fff!important;color:var(--home-primary)!important;border-color:#fff!important;}
+#homePage .home-primary-actions .home-secondary-button{background:transparent!important;color:#fff!important;border-color:rgba(255,255,255,.28)!important;}
+.top-nav{height:76px!important;background:rgba(255,255,255,.94)!important;border-bottom-color:var(--home-border)!important;box-shadow:0 6px 24px rgba(17,24,39,.045)!important;}
+.app{padding-top:88px!important;}
+.nav-inner{width:min(1320px,calc(100% - 40px))!important;}
+.nav-link::after{display:none!important;}
+
+@media (min-width:768px) and (max-width:1199px) and (orientation:portrait){
+  #homePage.home-page{width:min(780px,calc(100% - 32px))!important;padding-top:22px!important;}
+}
+@media (min-width:900px) and (max-width:1199px) and (orientation:landscape){
+  .top-nav{left:80px!important;height:64px!important;}
+  .top-nav .brand,.top-nav .nav-links{display:none!important;}
+  .app{padding-left:80px!important;padding-top:76px!important;}
+  #homePage.home-page{width:calc(100% - 30px)!important;padding:16px 0 34px!important;}
+  .bottom-nav{display:flex!important;inset:0 auto 0 0!important;width:80px!important;height:100dvh!important;padding:86px 10px 18px!important;border:0!important;border-right:1px solid var(--home-border)!important;border-radius:0!important;background:var(--home-surface)!important;box-shadow:none!important;}
+  .bottom-nav button{width:60px!important;min-height:58px!important;border-radius:14px!important;}
+}
+@media (min-width:600px) and (max-width:767px){
+  #homePage.home-page{width:calc(100% - 28px)!important;}
+}
+@media (max-width:599px){
+  .top-nav{height:62px!important;}
+  .app{padding-top:70px!important;padding-bottom:calc(76px + env(safe-area-inset-bottom))!important;}
+  #homePage.home-page{width:calc(100% - 20px)!important;padding:12px 0 24px!important;}
+  .top-nav .nav-links,.top-nav .nav-lang-btn{display:none!important;}
+  #homePage .home-primary-actions .btn{width:100%!important;}
+  #homePage .home-primary-actions #homeResultBtn{display:none!important;}
+  .bottom-nav{display:grid!important;left:0!important;right:0!important;bottom:0!important;padding:7px 8px calc(7px + env(safe-area-inset-bottom))!important;border:0!important;border-top:1px solid var(--home-border)!important;border-radius:0!important;background:rgba(255,255,255,.98)!important;box-shadow:0 -8px 24px rgba(17,24,39,.06)!important;}
+}
+@media (max-width:899px) and (orientation:landscape){
+  .top-nav{height:56px!important;}
+  .app{padding-top:64px!important;min-height:100dvh!important;}
+  #homePage.home-page{width:calc(100% - 22px)!important;padding:8px 0 18px!important;}
+  .bottom-nav{display:none!important;}
+}
+html[data-theme="dark"] body{background:var(--home-background)!important;}
+html[data-theme="dark"] .top-nav,html[data-theme="dark"] .bottom-nav{background:rgba(16,21,34,.97)!important;border-color:var(--home-border)!important;}
+:where(.home-page,.top-nav,.bottom-nav) button:focus-visible{outline:3px solid rgba(36,59,115,.28)!important;outline-offset:3px!important;}
+@media (prefers-reduced-motion:reduce){.home-page *{animation-duration:.01ms!important;transition-duration:.01ms!important;}}
+</style>
+
+<style id="wikaru-home-playful-v2">
+/* Homepage polish V2: collision fixes, scroll recovery, playful day/night themes */
+html{min-height:100%;overflow-x:hidden;overflow-y:auto;scrollbar-gutter:stable;}
+body{min-height:100%;height:auto;overflow-x:hidden;overflow-y:auto;overscroll-behavior-y:auto;touch-action:pan-y;background:
+  radial-gradient(circle at 8% 4%,rgba(255,202,122,.22),transparent 25%),
+  radial-gradient(circle at 94% 13%,rgba(132,211,191,.20),transparent 27%),
+  radial-gradient(circle at 82% 76%,rgba(180,164,255,.16),transparent 30%),
+  var(--home-background)!important;}
+body:not(.wk-modal-open):not(.wk-sheet-open){overflow-y:auto!important;}
+body::before{background:linear-gradient(180deg,rgba(255,255,255,.34),transparent 420px)!important;}
+body::after{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.42;background-image:radial-gradient(circle,rgba(36,59,115,.14) 1px,transparent 1.5px);background-size:38px 38px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.45),transparent 72%);}
+.app,.page,.home-page{overflow:visible;}
+#homePage.page.active{opacity:1!important;transform:none!important;animation:none!important;}
+.home-dashboard{position:relative;}
+.home-eyebrow{padding:7px 10px;border:1px solid rgba(36,59,115,.10);border-radius:999px;background:rgba(255,255,255,.66);backdrop-filter:blur(8px);}
+.home-header h1{font-weight:800;}
+.home-continue-card{isolation:isolate;background:linear-gradient(135deg,#243B73 0%,#315895 58%,#4A73B6 100%);border-color:transparent;box-shadow:0 24px 58px rgba(36,59,115,.20);}
+.home-continue-card::after{content:"";right:-70px;bottom:-96px;width:250px;height:250px;border-radius:50%;background:rgba(255,255,255,.07);}
+.home-continue-card::before{content:"";position:absolute;z-index:0;left:44%;top:-100px;width:235px;height:235px;border-radius:50%;background:rgba(123,224,198,.09);pointer-events:none;}
+.home-theme-scene{position:absolute;z-index:0;right:30px;top:68px;width:230px;height:205px;pointer-events:none;}
+.home-scene-orb{position:absolute;right:24px;top:12px;width:78px;height:78px;border-radius:50%;background:#FFD86F;box-shadow:0 0 0 13px rgba(255,216,111,.10),0 16px 34px rgba(11,24,55,.14);}
+.home-scene-orb::before{content:"☀";position:absolute;inset:0;display:grid;place-items:center;color:#8A5A00;font-size:31px;}
+.home-scene-cloud{position:absolute;height:28px;border-radius:999px;background:rgba(255,255,255,.88);box-shadow:0 7px 20px rgba(22,38,78,.11);}
+.home-scene-cloud::before,.home-scene-cloud::after{content:"";position:absolute;bottom:0;border-radius:50%;background:inherit;}
+.home-scene-cloud::before{left:18px;width:39px;height:39px}.home-scene-cloud::after{left:48px;width:28px;height:28px}
+.home-scene-cloud-one{right:75px;top:91px;width:96px}.home-scene-cloud-two{right:2px;top:134px;width:82px;transform:scale(.78);opacity:.78}
+.home-scene-kana{position:absolute;display:grid;place-items:center;border:1px solid rgba(255,255,255,.44);border-radius:16px;background:rgba(255,255,255,.16);color:#fff;font-family:var(--jp);font-weight:800;backdrop-filter:blur(8px);box-shadow:0 12px 26px rgba(13,31,71,.10);}
+.home-scene-kana-one{left:11px;top:36px;width:58px;height:58px;font-size:28px;transform:rotate(-8deg)}
+.home-scene-kana-two{left:74px;bottom:11px;width:52px;height:52px;font-size:23px;transform:rotate(7deg);background:rgba(255,198,158,.20)}
+.home-scene-star{display:none;position:absolute;color:#DCE6FF;text-shadow:0 0 12px rgba(198,211,255,.6)}
+.home-card{transition:transform .2s var(--home-ease),border-color .2s ease,box-shadow .2s ease;}
+@media (hover:hover){.home-card:not(.home-continue-card):hover{transform:translateY(-2px);border-color:#CCD5E5;box-shadow:0 16px 34px rgba(23,34,59,.075);}}
+.home-vocab-card{background:linear-gradient(180deg,var(--home-surface),color-mix(in srgb,var(--home-primary-soft) 24%,var(--home-surface)));}
+.home-daily-target{background:linear-gradient(145deg,var(--home-surface),#FFF9E9);}
+.home-recommendation{background:linear-gradient(145deg,#F2F7FF,#F8F3FF);}
+.home-quick-item:nth-child(1) .home-quick-icon{background:#E8F1FF;color:#315D9C}.home-quick-item:nth-child(2) .home-quick-icon{background:#F2ECFF;color:#7654B7}.home-quick-item:nth-child(3) .home-quick-icon{background:#E7F8F2;color:#168061}.home-quick-item:nth-child(4) .home-quick-icon{background:#FFF1E8;color:#C55A2B}.home-quick-item:nth-child(5) .home-quick-icon{background:#FFF7D9;color:#9D7412}
+.home-session-status{padding:7px 10px;background:rgba(255,255,255,.13);}.home-session-status::before{content:"";width:7px;height:7px;border-radius:50%;background:#8DE0BE;box-shadow:0 0 0 4px rgba(141,224,190,.12)}.home-session-status i{display:none;}
+.home-word-stage>span:not(.jp):not(.home-word-index){font-family:var(--font);letter-spacing:.015em;}
+
+html[data-theme="dark"] body{background:
+  radial-gradient(circle at 14% 8%,rgba(105,82,196,.26),transparent 30%),
+  radial-gradient(circle at 88% 16%,rgba(54,132,173,.18),transparent 27%),
+  radial-gradient(circle at 80% 82%,rgba(53,186,150,.12),transparent 30%),
+  #0D1220!important;}
+html[data-theme="dark"] body::before{background:linear-gradient(180deg,rgba(115,95,206,.10),transparent 430px)!important;}
+html[data-theme="dark"] body::after{opacity:.72;background-image:radial-gradient(circle,rgba(226,232,255,.32) 1px,transparent 1.6px);background-size:42px 42px;mask-image:linear-gradient(to bottom,#000,transparent 82%);}
+html[data-theme="dark"] .home-eyebrow{background:rgba(23,29,44,.72);border-color:rgba(158,174,218,.15);}
+html[data-theme="dark"] .home-continue-card{background:linear-gradient(135deg,#151C38 0%,#252457 54%,#34316F 100%);box-shadow:0 25px 60px rgba(0,0,0,.28);}
+html[data-theme="dark"] .home-continue-card::before{background:rgba(114,95,214,.16);}
+html[data-theme="dark"] .home-scene-orb{background:#F4F0CB;box-shadow:0 0 0 13px rgba(180,169,255,.08),0 0 36px rgba(213,210,255,.18);}
+html[data-theme="dark"] .home-scene-orb::before{content:"☾";color:#5B5686;font-size:39px;transform:rotate(-18deg);}
+html[data-theme="dark"] .home-scene-cloud{opacity:.16;background:#C8D4FF;}
+html[data-theme="dark"] .home-scene-kana{background:rgba(119,104,218,.20);border-color:rgba(213,210,255,.24);}
+html[data-theme="dark"] .home-scene-kana-two{background:rgba(52,194,157,.14);}
+html[data-theme="dark"] .home-scene-star{display:block;}
+html[data-theme="dark"] .home-scene-star-one{left:4px;top:10px;font-size:22px}.home-scene-star-two{right:5px;bottom:18px;font-size:18px}.home-scene-star-three{left:115px;top:64px;font-size:25px}
+html[data-theme="dark"] .home-vocab-card{background:linear-gradient(180deg,var(--home-surface),#1B2337);}
+html[data-theme="dark"] .home-daily-target{background:linear-gradient(145deg,var(--home-surface),#20253B);}
+html[data-theme="dark"] .home-recommendation{background:linear-gradient(145deg,#1B2638,#251F3D);}
+html[data-theme="dark"] .home-quick-item:nth-child(n) .home-quick-icon{filter:saturate(.9) brightness(.88);}
+html[data-theme="dark"] .bottom-nav{background:rgba(13,18,32,.98)!important;}
+html[data-theme="dark"] .nav-links{background:#171D2C!important;border:1px solid #2C3548!important;box-shadow:none!important;}
+html[data-theme="dark"] .nav-link{color:#AAB3C5!important;}
+html[data-theme="dark"] .nav-link:hover{background:#20283A!important;color:#E1E7F7!important;}
+html[data-theme="dark"] .nav-link.active{background:#2A3658!important;color:#DCE6FF!important;}
+html[data-theme="dark"] .nav-lang-btn,html[data-theme="dark"] .user-btn{background:#171D2C!important;border-color:#2C3548!important;color:#E6EBF7!important;}
+html[data-theme="dark"] .home-eyebrow,html[data-theme="dark"] .home-card-label,html[data-theme="dark"] .home-text-button{color:#AFC1FF!important;}
+html[data-theme="dark"] .home-recommendation-button{color:#C5D2FF!important;}
+html[data-theme="dark"] .home-scroll-hint{color:#9EA9BC!important;}
+.home-scroll-hint{display:none;}
+
+/* Tablet portrait: reserve space for the segmented navigation and neutralize landscape rail rules. */
+@media (min-width:768px) and (max-width:1199px) and (orientation:portrait){
+  .top-nav{left:0!important;height:72px!important;}
+  .top-nav .brand{display:flex!important;}
+  .top-nav .nav-links{display:none!important;}
+  .nav-inner{width:calc(100% - 28px)!important;max-width:none!important;}
+  .nav-actions{margin-left:auto!important;}
+  .nav-lang-btn,.nav-fiction-toggle,.theme-toggle{display:none!important;}
+  .app{padding-left:0!important;padding-top:150px!important;padding-bottom:34px!important;}
+  .bottom-nav{display:grid!important;position:fixed!important;z-index:64!important;top:80px!important;bottom:auto!important;left:50%!important;right:auto!important;transform:translateX(-50%)!important;width:min(760px,calc(100% - 28px))!important;height:auto!important;grid-template-columns:repeat(4,1fr)!important;gap:6px!important;padding:6px!important;border:1px solid var(--home-border)!important;border-radius:17px!important;background:var(--home-surface)!important;box-shadow:0 10px 30px rgba(23,32,51,.08)!important;}
+  .bottom-nav::before,.bottom-nav button::before,.bottom-nav button::after{content:none!important;display:none!important;}
+  .bottom-nav button{width:auto!important;min-height:46px!important;margin:0!important;padding:0 10px!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;border:0!important;border-radius:12px!important;background:transparent!important;color:var(--home-muted)!important;font-size:12px!important;font-weight:700!important;}
+  .bottom-nav button i,.bottom-nav button span{display:inline-flex!important;font-size:inherit!important;}
+  .bottom-nav button i{font-size:14px!important;}
+  .bottom-nav button.active{background:var(--home-primary-soft)!important;color:var(--home-primary)!important;}
+  #homePage.home-page{width:min(820px,calc(100% - 32px))!important;padding:20px 0 48px!important;}
+  .home-header{align-items:flex-start!important;padding-top:2px;}
+  .home-header-actions{flex:0 0 auto;}
+  .home-profile-shortcut{display:none!important;}
+  .home-theme-scene{right:20px;top:64px;transform:scale(.88);transform-origin:top right;}
+  .home-continue-content,.home-continue-progress,.home-primary-actions{max-width:68%;}
+}
+@media (min-width:768px) and (max-width:899px) and (orientation:portrait){
+  .home-continue-content,.home-continue-progress,.home-primary-actions{max-width:100%;}
+  .home-theme-scene{opacity:.38;right:4px;top:80px;transform:scale(.74);}
+}
+@media (max-width:767px){
+  .home-theme-scene{right:4px;top:70px;transform:scale(.70);transform-origin:top right;opacity:.35;}
+  .home-continue-content,.home-continue-progress,.home-primary-actions{position:relative;z-index:2;}
+}
+@media (max-width:599px){
+  html{scrollbar-gutter:auto;}
+  body{padding-bottom:calc(74px + env(safe-area-inset-bottom));}
+  .home-theme-scene{top:84px;right:-16px;opacity:.25;transform:scale(.62);}
+  .home-continue-card::before{left:35%;top:-115px;}
+  .home-scroll-hint{display:block;font-size:9px;}
+}
+@media (max-width:899px) and (orientation:landscape){
+  .app{padding-left:0!important;padding-top:64px!important;}
+  .top-nav{left:0!important;}
+  .home-theme-scene{right:4px;top:40px;transform:scale(.58);opacity:.34;}
+  .home-continue-content,.home-continue-progress,.home-primary-actions{max-width:72%;}
+}
+@media (prefers-reduced-motion:reduce){.home-theme-scene *{transition:none!important;animation:none!important;}}
+</style>
+
 <script id="wikaru-v12-final-responsive-behavior">
 (function(){
   'use strict';
@@ -58615,6 +59389,7 @@ body.wk-modal-open{overflow:hidden!important}
   const landscape=window.matchMedia('(min-width:900px) and (max-width:1199px)');
   const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
   let selectedKey='';
+  const ui=(id,ja)=>document.documentElement.lang==='ja'?ja:id;
 
   function labelRail(){
     $$('.bottom-nav button').forEach((button,index)=>{
@@ -58639,7 +59414,7 @@ body.wk-modal-open{overflow:hidden!important}
       const detail=document.createElement('aside');
       detail.className='wk-tablet-material-detail';
       detail.setAttribute('aria-live','polite');
-      detail.innerHTML='<div class="wk-detail-empty"><div class="wk-detail-empty-symbol">語</div><strong>Pilih kosakata</strong><span>Detail, audio, contoh, dan favorit akan tampil di panel ini.</span></div>';
+      detail.innerHTML=`<div class="wk-detail-empty"><div class="wk-detail-empty-symbol">語</div><strong>${ui('Pilih kosakata','単語を選んでください')}</strong><span>${ui('Detail, audio, contoh, dan favorit akan tampil di panel ini.','詳細・音声・例文・お気に入りがここに表示されます。')}</span></div>`;
       workspace.append(list,detail);
       card.insertBefore(workspace,toolbar);
       list.append(toolbar,grid,empty);
@@ -58658,7 +59433,7 @@ body.wk-modal-open{overflow:hidden!important}
     const cards=$$('.vocab-card',$('#materialGrid'));
     workspace.classList.toggle('is-reference-layout',cards.length===0);
     if(!card||!cards.includes(card)){
-      detail.innerHTML='<div class="wk-detail-empty"><div class="wk-detail-empty-symbol">語</div><strong>Pilih kosakata</strong><span>Detail, audio, contoh, dan favorit akan tampil di panel ini.</span></div>';
+      detail.innerHTML=`<div class="wk-detail-empty"><div class="wk-detail-empty-symbol">語</div><strong>${ui('Pilih kosakata','単語を選んでください')}</strong><span>${ui('Detail, audio, contoh, dan favorit akan tampil di panel ini.','詳細・音声・例文・お気に入りがここに表示されます。')}</span></div>`;
       return;
     }
     cards.forEach(item=>{item.classList.toggle('wk-selected',item===card);item.setAttribute('aria-selected',String(item===card));item.tabIndex=0;});
@@ -58666,7 +59441,7 @@ body.wk-modal-open{overflow:hidden!important}
     const jp=$('.vocab-jp',card)?.textContent?.trim()||'—';
     const kana=$('.vocab-kana',card)?.textContent?.trim()||'';
     const romaji=$('.vocab-romaji',card)?.textContent?.trim()||'';
-    const meaning=$('.vocab-id',card)?.textContent?.trim()||'Arti belum tersedia';
+    const meaning=$('.vocab-id',card)?.textContent?.trim()||ui('Arti belum tersedia','意味はまだありません');
     const image=$('img.thumb',card)?.getAttribute('src')||'';
     const tags=$$('.tag',card).map(tag=>`<span class="${esc(tag.className)}">${esc(tag.textContent.trim())}</span>`).join('');
     const actionButtons=$$('.card-actions button',card).map(button=>{
@@ -58674,7 +59449,7 @@ body.wk-modal-open{overflow:hidden!important}
       return clone.outerHTML;
     }).join('');
     detail.innerHTML=`
-      <div class="wk-detail-eyebrow"><span>●</span><span>Detail kosakata</span></div>
+      <div class="wk-detail-eyebrow"><span>●</span><span>${ui('Detail kosakata','単語の詳細')}</span></div>
       <div class="wk-detail-visual">
         ${image?`<img class="wk-detail-image" src="${esc(image)}" alt="${esc(jp)}" loading="lazy">`:`<div class="wk-detail-image-fallback">${esc(jp.slice(0,1))}</div>`}
         <div><div class="wk-detail-jp">${esc(jp)}</div>${kana?`<div class="wk-detail-kana">${esc(kana)}</div>`:''}${romaji?`<div class="wk-detail-romaji">${esc(romaji)}</div>`:''}</div>
@@ -58682,7 +59457,7 @@ body.wk-modal-open{overflow:hidden!important}
       <div class="wk-detail-meaning">${esc(meaning)}</div>
       <div class="wk-detail-tags">${tags}</div>
       <div class="wk-detail-actions">${actionButtons}</div>
-      <div class="wk-detail-hint">Gunakan tombol di atas untuk mendengar audio, menyimpan favorit, membuka catatan, atau melihat contoh kalimat.</div>`;
+      <div class="wk-detail-hint">${ui('Gunakan tombol di atas untuk mendengar audio, menyimpan favorit, membuka catatan, atau melihat contoh kalimat.','上のボタンから音声、お気に入り、メモ、例文を利用できます。')}</div>`;
   }
 
   function refreshMaterialDetail(){
@@ -58732,5 +59507,291 @@ body.wk-modal-open{overflow:hidden!important}
 })();
 </script>
 
+<script id="wikaru-learning-journey-runtime">
+(function(){
+  'use strict';
+  const $=(s,r=document)=>r.querySelector(s);
+  const $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
+  const STORE='minna_bab23';
+  let dailyWord=null;
+
+  function readJson(key,fallback){try{return JSON.parse(localStorage.getItem(key)||'')||fallback;}catch(_){return fallback;}}
+  function setText(id,value){const el=$('#'+id);if(el&&value!=null)el.textContent=String(value);}
+  function cleanName(value){return String(value||'').trim();}
+  function parseNumber(value){const n=Number(String(value||'').replace(/[^0-9.-]/g,''));return Number.isFinite(n)?n:0;}
+  function sameDay(a,b){const x=new Date(a),y=new Date(b);return x.getFullYear()===y.getFullYear()&&x.getMonth()===y.getMonth()&&x.getDate()===y.getDate();}
+  function dayKey(value){const d=new Date(value);return Number.isNaN(d.getTime())?'':`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
+  function isJapanese(){return localStorage.getItem(STORE+'_lang')==='ja';}
+  function visibleUser(){
+    const session=readJson(STORE+'_progress',null);
+    return session?.username?{name:session.username,role:session.role||'user'}:{name:'',role:'guest'};
+  }
+  function resultHistory(){
+    const user=visibleUser();
+    const rows=readJson(STORE+'_history',[]);
+    return Array.isArray(rows)?rows.filter(r=>!user.name||String(r.username||'').toLocaleLowerCase()===user.name.toLocaleLowerCase()):[];
+  }
+  function lastResult(){return readJson(STORE+'_lastResult',null);}
+  function calculateStreak(rows){
+    const keys=[...new Set(rows.map(r=>dayKey(r.finishedAt)).filter(Boolean))].sort().reverse();
+    if(!keys.length)return 0;
+    const today=new Date();today.setHours(0,0,0,0);
+    const first=new Date(keys[0]+'T00:00:00');
+    const diff=Math.round((today-first)/86400000);
+    if(diff>1)return 0;
+    let streak=1;
+    let cursor=first;
+    for(let i=1;i<keys.length;i++){
+      const next=new Date(keys[i]+'T00:00:00');
+      const gap=Math.round((cursor-next)/86400000);
+      if(gap!==1)break;
+      streak++;cursor=next;
+    }
+    return streak;
+  }
+  function chapterNumbers(label){
+    const nums=[...String(label||'').matchAll(/\d+/g)].map(m=>Number(m[0]));
+    if(nums.length>1){const out=[];for(let i=nums[0];i<=nums[1];i++)out.push(i);return out;}
+    return nums;
+  }
+  function activeVocabulary(){
+    const all=Array.isArray(window.__WIKARU_VOCABULARY)?window.__WIKARU_VOCABULARY:[];
+    const setup=readJson(STORE+'_settings',{});
+    const chapters=chapterNumbers(setup.chapter);
+    const includeFiction=localStorage.getItem(STORE+'_includeFiction')!=='false';
+    return all.filter(v=>{
+      const sameBook=!setup.book||v.book===setup.book;
+      const sameMaterial=!setup.materialCategory||String(v.materialCategory||'').toLocaleLowerCase()===String(setup.materialCategory||'').toLocaleLowerCase();
+      const sameChapter=!chapters.length||chapters.includes(Number(v.chapterNumber));
+      const fictionOk=includeFiction||!v.isFiction;
+      return sameBook&&sameMaterial&&sameChapter&&fictionOk;
+    });
+  }
+  function chooseDailyWord(){
+    const list=activeVocabulary();
+    if(!list.length)return null;
+    const now=new Date();
+    const seed=Number(`${now.getFullYear()}${String(now.getMonth()+1).padStart(2,'0')}${String(now.getDate()).padStart(2,'0')}`);
+    return list[seed%list.length];
+  }
+  function splitChoice(){
+    const text=$('#activeChoiceText')?.textContent?.trim()||'';
+    const parts=text.split('•').map(v=>v.trim()).filter(Boolean);
+    return {book:parts[0]||'Wikaru',category:parts[1]||'',chapter:parts.slice(2).join(' • ')||''};
+  }
+  function greeting(hour,jp){
+    if(jp){if(hour<11)return'おはようございます';if(hour<18)return'こんにちは';return'こんばんは';}
+    if(hour<11)return'Selamat pagi';if(hour<15)return'Selamat siang';if(hour<18)return'Selamat sore';return'Selamat malam';
+  }
+  function normalizeHomeRomaji(value){
+    return String(value||'')
+      .replace(/[、，]/g, ',')
+      .replace(/。/g, '.')
+      .replace(/！/g, '!')
+      .replace(/？/g, '?')
+      .replace(/・/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+  function syncThemeMenu(){
+    const dropdown=$('#userDropdown');
+    const theme=$('#themeToggle');
+    if(dropdown&&theme&&theme.parentElement!==dropdown){
+      theme.classList.add('drop-item','home-theme-menu-item');
+      dropdown.insertBefore(theme,$('#logoutBtn'));
+    }
+  }
+  function refreshHome(){
+    const jp=isJapanese();
+    const user=visibleUser();
+    const result=lastResult();
+    const history=resultHistory();
+    const choice=splitChoice();
+    const count=parseNumber($('#homeVocabCount')?.textContent);
+    const target=Math.max(1,Math.min(15,count||15));
+    const todayRows=history.filter(r=>sameDay(r.finishedAt,new Date()));
+    const completed=Math.min(target,todayRows.reduce((sum,r)=>sum+Number(r.totalQuestions||0),0));
+    const progress=Math.max(0,Math.min(100,Math.round((completed/target)*100)));
+    const streak=calculateStreak(history);
+    const hour=new Date().getHours();
+    const hello=greeting(hour,jp);
+    const displayName=user.name|| (jp?'ゲスト':'Tamu');
+
+    setText('homeGreetingKicker',jp?'今日も少しずつ':'Belajar sebentar, progres tetap jalan');
+    setText('homeGreetingTitle',user.name?(jp?`${user.name}さん、${hello}！`:`${hello}, ${user.name}!`):(jp?`${hello}！`:`${hello}!`));
+    setText('homeGreetingCopy',user.name?(jp?'今日も数分から、気軽に始めましょう。':'Pilih satu aktivitas, belajar beberapa menit, lalu lanjutkan harimu dengan progres baru.'):(jp?'名前を入力して、最初の学習を始めましょう。':'Masukkan nama untuk memulai perjalanan belajar yang tersimpan.'));
+    setText('homeProfileName',displayName);
+    setText('homeProfileRole',user.role==='admin'?(jp?'管理者':'Pengelola'):(user.name?(jp?'学習中':'Sedang belajar'):(jp?'はじめる準備':'Siap mulai')));
+    setText('homeStreakValue',streak);
+    setText('homeStreakLabel',jp?'日連続':'hari beruntun');
+    setText('homeContinueEyebrow',user.name?(jp?'前回の続きから':'Lanjut dari terakhir'):(jp?'最初の一歩':'Mulai belajar'));
+    setText('homeActiveBook',choice.book);
+    setText('homeActiveCategory',choice.category);
+    setText('homeActiveChapter',choice.chapter|| (jp?'選択中の教材':'Pilihan aktif'));
+    setText('homeContinueDescription',jp?'フラッシュカードや音声、例文、発音練習を一つのセッションでまとめて学べます。':'Lanjut dari kartu terakhir, dengarkan pelafalannya, lalu coba ucapkan sendiri.');
+    setText('homeSessionStatus',user.name?(jp?'すぐに続けられます':'Siap lanjut'):(jp?'名前を入力して始めましょう':'Masukkan nama dulu'));
+    setText('homeProgressLabel',jp?'今日の目標':'Target belajar hari ini');
+    setText('homeProgressValue',progress+'%');
+    const progressCaption=completed>=target
+      ? (jp?'今日の目標を達成しました！':'Target hari ini selesai. Keren, pertahankan ritmenya!')
+      : (completed
+          ? jp?`あと${target-completed}語で今日の目標達成です。`:`${target-completed} kata lagi. Kamu hampir sampai!`
+          : (jp?'今日のセッションはまだありません。':'Belum ada sesi yang diselesaikan hari ini.'));
+    setText('homeProgressCaption',progressCaption);
+    const fill=$('#homeProgressFill');if(fill)fill.style.width=progress+'%';
+    const track=$('#homeProgressTrack');if(track){track.setAttribute('aria-valuenow',String(progress));}
+    setText('homeTargetDone',completed);setText('homeTargetTotal','/'+target);setText('homeTargetStat',`${completed}/${target}`);
+    setText('homeTargetStatLabel',jp?'今日の目標':'Target hari ini');
+    setText('homeTargetLabel',jp?'今日の目標':'Target hari ini');
+    setText('homeTargetTitle',completed>=target?(jp?'目標達成！':'Target selesai!'):(jp?'少しずつ、学習を習慣に':'Sedikit demi sedikit, jadi bisa'));
+    setText('homeTargetDescription',completed>=target?(jp?'今日の学習をしっかり積み重ねました。':'Target hari ini sudah selesai. Saatnya rayakan progres kecilmu.'):(jp?`今日は${target}語を学んで、学習記録をつなげましょう。`:`Pelajari ${target} kata hari ini dan pertahankan rentetan belajarmu.`));
+    setText('homeTargetActionLabel',completed>=target?(jp?'さっと復習する':'Ulang sebentar'):(jp?'今日の学習を始める':'Mulai sekarang'));
+    const ring=$('#homeTargetRing');if(ring)ring.style.setProperty('--target-progress',`${progress*3.6}deg`);
+    setText('homeAccuracyValue',result?`${Number(result.scorePercent||0)}%`:'—');
+    setText('homeAccuracyLabel',jp?'前回の正答率':'Akurasi terakhir');
+    const startText=$('#homeStartBtn span');if(startText)startText.textContent=jp?'学習を続ける':'Lanjut belajar';
+    const loginText=$('#homeLoginBtn span');if(loginText)loginText.textContent=jp?'名前を入力して始める':'Masukkan nama & mulai';
+    const materialText=$('#homeMaterialBtn span');if(materialText)materialText.textContent=jp?'教材を見る':'Jelajahi materi';
+    const resultText=$('#homeResultBtn span');if(resultText)resultText.textContent=jp?'進捗を見る':'Lihat progres';
+
+    const wrong=Number(result?.wrongCount||0);
+    if(result&&wrong>0){
+      setText('homeRecommendationTitle',jp?`間違えた${wrong}語を復習しましょう`:`Perkuat ${wrong} kata yang masih goyah`);
+      setText('homeRecommendationCopy',jp?`前回の正答率は${Number(result.scorePercent||0)}%でした。間違えたカードから復習しましょう。`:`Akurasi terakhirmu ${Number(result.scorePercent||0)}%. Mulai dari kartu yang belum mantap.`);
+      setText('homeRecommendationAction',jp?'復習を始める':'Mulai latihan ulang');
+    }else if(result){
+      setText('homeRecommendationTitle',jp?'いい流れを続けましょう':'Progresmu sedang bagus');
+      setText('homeRecommendationCopy',jp?`前回の正答率は${Number(result.scorePercent||0)}%でした。短い復習で記憶を定着させましょう。`:`Skor terakhirmu ${Number(result.scorePercent||0)}%. Ulang sebentar agar kata-katanya tetap melekat.`);
+      setText('homeRecommendationAction',jp?'もう一度チャレンジ':'Latihan lagi');
+    }else{
+      setText('homeRecommendationTitle',jp?'まずは5分から始めましょう':'Mulai dari lima menit');
+      setText('homeRecommendationCopy',jp?'学習を終えると、結果に合ったおすすめが表示されます。':'Pilih satu aktivitas dan mulai tanpa menunggu suasana hati yang sempurna.');
+      setText('homeRecommendationAction',jp?'学習を始める':'Mulai latihan');
+    }
+
+    dailyWord=chooseDailyWord();
+    if(dailyWord){
+      setText('homeDailyJapanese',dailyWord.kanji||dailyWord.kana||dailyWord.romaji||'—');
+      setText('homeDailyKana',dailyWord.kana||'');
+      setText('homeDailyRomaji',normalizeHomeRomaji(dailyWord.romaji||''));
+      setText('homeDailyMeaning',dailyWord.indonesia||dailyWord.sectionMeaning||'');
+      setText('homeDailyIndex',jp?'今日の言葉':`Kata ${String((activeVocabulary().indexOf(dailyWord)+1)||1).padStart(2,'0')}`);
+      const favs=readJson(STORE+'_favorites',[]);
+      const active=Array.isArray(favs)&&favs.includes(dailyWord.id);
+      const fav=$('#homeDailyFavoriteBtn');if(fav){fav.classList.toggle('active',active);fav.setAttribute('aria-pressed',String(active));fav.innerHTML=`<i class="${active?'fa-solid':'fa-regular'} fa-star"></i>`;}
+    }
+    setText('homeDailyWordLabel',jp?'今日の単語':'Kosakata hari ini');
+    setText('homeDailyWordTitle',jp?'今日の一語を覚えよう':'Kenalan dengan satu kata baru');
+    setText('homeListenLabel',jp?'音声を聞く':'Dengarkan');setText('homeSpeakLabel',jp?'発音練習':'Latihan bicara');
+    setText('homeQuickLabel',jp?'すぐに学ぶ':'Aktivitas cepat');
+    setText('homeQuickTitle',jp?'今日はどうやって学びますか？':'Mau belajar dengan cara apa?');
+    setText('homeQuickHint',jp?'横にスワイプして見る':'Geser untuk melihat lainnya');
+    setText('homeQuickMaterial',jp?'教材':'Materi');
+    setText('homeQuickMaterialCopy',jp?'選択中の単語を学ぶ':'Pelajari kosakata aktif');
+    setText('homeQuickFlashcard',jp?'フラッシュカード':'Flashcard');
+    setText('homeQuickFlashCopy',jp?'カードでテンポよく復習':'Latihan kartu terarah');
+    setText('homeQuickSpeech',jp?'発音練習':'Latihan bicara');
+    setText('homeQuickSpeechCopy',jp?'日本語を声に出して練習':'Ucapkan kosakata Jepang');
+    setText('homeQuickResult',jp?'前回の結果':'Hasil terakhir');
+    setText('homeQuickResultCopy',jp?'スコアと回答を確認':'Tinjau skor dan jawaban');
+    setText('homeQuickFavorite',jp?'お気に入り':'Favorit');
+    setText('homeQuickFavoriteCopy',jp?'保存した単語を開く':'Buka kata tersimpan');
+    setText('homeRecommendationLabel',jp?'あなたにおすすめ':'Pilihan untukmu');
+    syncThemeMenu();
+  }
+  function proxyClick(selectors){
+    for(const selector of String(selectors||'').split(',')){
+      const el=$(selector.trim());
+      if(el&&!el.disabled&&el.offsetParent!==null){el.click();return true;}
+    }
+    return false;
+  }
+  function speakDaily(){
+    const text=dailyWord?.speech||dailyWord?.kana||dailyWord?.kanji;
+    if(!text||!('speechSynthesis'in window))return;
+    speechSynthesis.cancel();const utter=new SpeechSynthesisUtterance(text);utter.lang='ja-JP';utter.rate=.88;speechSynthesis.speak(utter);
+  }
+  function toggleFavorite(){
+    if(!dailyWord?.id)return;
+    const favorites=readJson(STORE+'_favorites',[]);
+    const list=Array.isArray(favorites)?favorites:[];
+    const index=list.indexOf(dailyWord.id);
+    if(index>=0)list.splice(index,1);else list.push(dailyWord.id);
+    localStorage.setItem(STORE+'_favorites',JSON.stringify(list));
+    refreshHome();
+  }
+  function openFavorites(){
+    const material=$('#homeMaterialBtn')||$('[data-page="material"]');
+    material?.click();
+    setTimeout(()=>{
+      const search=$('#materialSearch');if(search){search.value='';search.dispatchEvent(new Event('input',{bubbles:true}));}
+    },180);
+  }
+  function bind(){
+    const home=$('#homePage');if(!home||home.dataset.journeyBound)return;home.dataset.journeyBound='1';
+    home.addEventListener('click',event=>{
+      const proxy=event.target.closest('[data-home-proxy]');if(proxy){event.preventDefault();proxyClick(proxy.dataset.homeProxy);return;}
+      const action=event.target.closest('[data-home-action]');if(action?.dataset.homeAction==='favorites'){event.preventDefault();openFavorites();}
+    });
+    $('#homeDailyAudioBtn')?.addEventListener('click',speakDaily);
+    $('#homeDailySpeechBtn')?.addEventListener('click',()=>proxyClick('#homeStartBtn,#homeLoginBtn'));
+    $('#homeDailyFavoriteBtn')?.addEventListener('click',toggleFavorite);
+    ['#activeChoiceText','#homeVocabCount','#homeTimeValue','#homeChapterCount','#userMenuText'].forEach(selector=>{const el=$(selector);if(el)new MutationObserver(()=>requestAnimationFrame(refreshHome)).observe(el,{childList:true,subtree:true,characterData:true});});
+    const themeObserver=new MutationObserver(()=>requestAnimationFrame(syncThemeMenu));themeObserver.observe(document.body,{childList:true,subtree:true});
+    $('#navLangBtn')?.addEventListener('click',()=>setTimeout(refreshHome,80));
+    $('#langToggleDrop')?.addEventListener('click',()=>setTimeout(refreshHome,80));
+    window.addEventListener('storage',refreshHome);
+  }
+  function init(){bind();syncThemeMenu();refreshHome();setTimeout(refreshHome,350);setTimeout(refreshHome,1200);}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+})();
+</script>
+
+
+<script id="wikaru-scroll-recovery-v2">
+(function(){
+  'use strict';
+  const visible=e=>{if(!e||!e.classList.contains('show'))return false;const s=getComputedStyle(e);return s.display!=='none'&&s.visibility!=='hidden';};
+  function recover(){
+    const hasModal=[...document.querySelectorAll('.modal.show')].some(visible);
+    const hasSheet=visible(document.querySelector('.wk-filter-sheet.show'));
+    if(!hasModal&&!hasSheet){
+      document.body.classList.remove('wk-modal-open','wk-sheet-open');
+      document.documentElement.style.overflowY='auto';
+      document.body.style.overflowY='auto';
+      document.documentElement.style.height='auto';
+      document.body.style.height='auto';
+    }
+  }
+  function init(){
+    recover();
+    document.querySelectorAll('.modal,.wk-filter-sheet').forEach(el=>new MutationObserver(recover).observe(el,{attributes:true,attributeFilter:['class','style','hidden']}));
+    window.addEventListener('pageshow',recover);
+    window.addEventListener('resize',recover,{passive:true});
+    document.addEventListener('wheel',recover,{passive:true,capture:true});
+    document.addEventListener('touchstart',recover,{passive:true,capture:true});
+    setTimeout(recover,300);setTimeout(recover,1400);
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+})();
+</script>
+
+<style id="wikaru-ja-final-last-v6">
+html,body{margin:0!important;width:100%!important;max-width:100%!important;overflow-x:hidden!important;}
+.top-nav{position:fixed!important;top:0!important;right:0!important;}
+@media (max-width:899px), (min-width:1200px){.top-nav{left:0!important;}}
+html[data-theme="dark"] .nav-links .nav-link{background:transparent!important;border-color:transparent!important;color:#AAB3C5!important;box-shadow:none!important;}
+html[data-theme="dark"] .nav-links .nav-link:hover{background:#20283A!important;color:#F0F3FA!important;}
+html[data-theme="dark"] .nav-links .nav-link.active{background:#2A3658!important;color:#E6ECFF!important;}
+html[data-theme="dark"] .home-word-stage>.jp:not(strong){color:#CBD6F5!important;}
+html[data-theme="dark"] #homeDailyRomaji{color:#AFC1FF!important;}
+html[data-theme="dark"] #homeDailyMeaning{color:#F6F7FB!important;}
+@media (min-width:900px) and (max-width:1199px) and (orientation:landscape){
+  .top-nav{left:96px!important;}
+  .app{padding-left:96px!important;}
+  .bottom-nav{width:96px!important;}
+  #homePage.home-page{width:calc(100% - 44px)!important;margin:0 auto!important;padding:16px 0 34px 18px!important;box-sizing:border-box!important;}
+}
+</style>
 </body>
 </html>
