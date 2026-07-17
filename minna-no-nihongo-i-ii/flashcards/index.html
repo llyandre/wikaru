@@ -7,10 +7,40 @@
   <!-- Final release audited: desktop, iPad/tablet, mobile -->
   <script id="wikaru-theme-init">
     try { document.documentElement.dataset.theme = localStorage.getItem("wikaru_theme") === "dark" ? "dark" : "light"; document.documentElement.lang = localStorage.getItem("minna_bab23_lang") === "ja" ? "ja" : "id"; } catch(e) { document.documentElement.dataset.theme = "light"; document.documentElement.lang = "id"; }
-    window.__wikaruLoaderFailsafe = setTimeout(function(){
-      var loader = document.getElementById("loadingScreen");
-      if(loader){ loader.style.opacity="0"; loader.style.pointerEvents="none"; setTimeout(function(){ loader.style.display="none"; },260); }
-    },5200);
+    (function(){
+      var loaderReleased = false;
+      window.__wikaruReleaseLoader = function(reason){
+        if(loaderReleased) return;
+        var loader = document.getElementById("loadingScreen");
+        if(!loader) return;
+        loaderReleased = true;
+        loader.dataset.releaseReason = reason || "complete";
+        loader.setAttribute("aria-hidden","true");
+        loader.classList.add("is-leaving");
+        loader.style.pointerEvents = "none";
+        if(window.__wikaruLoaderStatusTimer){
+          clearInterval(window.__wikaruLoaderStatusTimer);
+          window.__wikaruLoaderStatusTimer = null;
+        }
+        setTimeout(function(){
+          loader.hidden = true;
+          loader.style.display = "none";
+          document.documentElement.classList.add("wikaru-ready");
+        },520);
+      };
+      window.__wikaruLoaderFailsafe = setTimeout(function(){
+        if(typeof window.__wikaruReleaseLoader === "function"){
+          window.__wikaruReleaseLoader("absolute-failsafe");
+        }
+      },7000);
+      window.addEventListener("pageshow",function(){
+        setTimeout(function(){
+          if(document.readyState === "complete" && document.documentElement.classList.contains("wikaru-ready")){
+            window.__wikaruReleaseLoader("pageshow-ready");
+          }
+        },80);
+      },{once:true});
+    })();
   </script>
 
   <meta name="description" content="Wikaru adalah aplikasi belajar kosakata bahasa Jepang dengan flashcard, audio, latihan bicara, dan laporan hasil interaktif.">
@@ -5277,21 +5307,265 @@ html[data-theme="dark"] #homeDailyMeaning{color:#F6F7FB!important;}
   #homePage.home-page{width:calc(100% - 38px)!important;margin-inline:auto!important;padding-left:16px!important;box-sizing:border-box!important;}
 }
 </style>
+
+<style id="wikaru-theme-motion-final">
+/* ===== WIKARU THEME MOTION · radial reveal + accessible fallback ===== */
+html.theme-motion-enabled body,
+html.theme-motion-enabled .top-nav,
+html.theme-motion-enabled .bottom-nav,
+html.theme-motion-enabled .glass,
+html.theme-motion-enabled .modal-card,
+html.theme-motion-enabled .modal-footer,
+html.theme-motion-enabled .dropdown,
+html.theme-motion-enabled .profile-menu-header,
+html.theme-motion-enabled .vocab-card,
+html.theme-motion-enabled .flash-face,
+html.theme-motion-enabled .control-panel,
+html.theme-motion-enabled .option-card,
+html.theme-motion-enabled .choice-chip,
+html.theme-motion-enabled .check-pill,
+html.theme-motion-enabled .input,
+html.theme-motion-enabled select {
+  transition:
+    background-color .42s ease,
+    color .32s ease,
+    border-color .32s ease,
+    box-shadow .42s ease,
+    filter .32s ease;
+}
+
+html.theme-motion-enabled :is(.btn,.control-btn,.icon-btn,.drop-item,.theme-toggle,.nav-lang-btn,.nav-fiction-toggle,.user-btn) {
+  transition:
+    transform .2s ease,
+    background-color .42s ease,
+    color .32s ease,
+    border-color .32s ease,
+    box-shadow .42s ease,
+    filter .32s ease;
+}
+
+.theme-transition-overlay {
+  position:fixed;
+  inset:0;
+  z-index:2500;
+  overflow:hidden;
+  pointer-events:none;
+  isolation:isolate;
+  contain:strict;
+  opacity:1;
+  transition:opacity .22s ease;
+}
+.theme-transition-overlay.is-fading { opacity:0; }
+
+.theme-transition-circle {
+  position:absolute;
+  left:var(--theme-origin-x);
+  top:var(--theme-origin-y);
+  width:var(--theme-diameter);
+  height:var(--theme-diameter);
+  border-radius:50%;
+  transform:translate(-50%,-50%) scale(.001);
+  transform-origin:center;
+  will-change:transform,opacity;
+  animation:wikaruThemeRadialReveal .72s cubic-bezier(.2,.82,.22,1) both;
+}
+.theme-to-dark .theme-transition-circle {
+  background:
+    radial-gradient(circle at 50% 50%,rgba(126,157,242,.20) 0%,rgba(55,74,126,.13) 20%,transparent 42%),
+    linear-gradient(145deg,#111C2A 0%,#0F1722 52%,#0A111B 100%);
+  box-shadow:0 0 110px rgba(91,116,194,.23);
+}
+.theme-to-light .theme-transition-circle {
+  background:
+    radial-gradient(circle at 50% 50%,rgba(255,220,126,.30) 0%,rgba(255,244,205,.18) 24%,transparent 45%),
+    linear-gradient(145deg,#FFFFFF 0%,#F7F8FA 52%,#EEF5FF 100%);
+  box-shadow:0 0 110px rgba(255,220,126,.25);
+}
+
+.theme-transition-icon {
+  position:absolute;
+  left:var(--theme-icon-x);
+  top:var(--theme-icon-y);
+  width:76px;
+  height:76px;
+  border-radius:26px;
+  display:grid;
+  place-items:center;
+  transform:translate(-50%,-50%);
+  will-change:transform,opacity;
+  animation:wikaruThemeIconEnter .72s cubic-bezier(.2,.8,.2,1) both;
+  box-shadow:0 18px 50px rgba(0,0,0,.20),inset 0 1px 0 rgba(255,255,255,.35);
+  backdrop-filter:blur(8px);
+}
+.theme-transition-icon i { font-size:31px; }
+.theme-to-dark .theme-transition-icon {
+  color:#EEF3FF;
+  background:linear-gradient(145deg,rgba(120,148,235,.94),rgba(54,70,119,.94));
+  border:1px solid rgba(221,230,255,.32);
+}
+.theme-to-light .theme-transition-icon {
+  color:#8A6400;
+  background:linear-gradient(145deg,rgba(255,244,184,.96),rgba(255,205,91,.96));
+  border:1px solid rgba(255,255,255,.72);
+}
+
+.theme-transition-particles {
+  position:absolute;
+  left:var(--theme-icon-x);
+  top:var(--theme-icon-y);
+  width:1px;
+  height:1px;
+}
+.theme-transition-particle {
+  position:absolute;
+  left:0;
+  top:0;
+  width:var(--particle-size);
+  height:var(--particle-size);
+  display:grid;
+  place-items:center;
+  font-size:var(--particle-size);
+  line-height:1;
+  opacity:0;
+  will-change:transform,opacity;
+  animation:wikaruThemeParticleBurst .68s cubic-bezier(.2,.72,.2,1) var(--particle-delay) both;
+}
+.theme-to-dark .theme-transition-particle {
+  color:#DCE6FF;
+  text-shadow:0 0 12px rgba(156,181,255,.9);
+}
+.theme-to-light .theme-transition-particle {
+  color:#FFC94F;
+  border-radius:50%;
+  text-shadow:0 0 12px rgba(255,201,79,.75);
+}
+
+.theme-toggle.is-switching {
+  transform:scale(.94)!important;
+  pointer-events:none;
+}
+.theme-toggle.is-switching i {
+  animation:wikaruThemeToggleIconSpin .62s cubic-bezier(.2,.8,.2,1) both;
+}
+
+html.theme-is-changing .app,
+html.theme-is-changing .top-nav,
+html.theme-is-changing .bottom-nav,
+html.theme-is-changing .modal.show .modal-card {
+  animation:wikaruThemeContentPulse .66s ease both;
+}
+
+@keyframes wikaruThemeRadialReveal {
+  0% { transform:translate(-50%,-50%) scale(.001); opacity:.96; }
+  68% { opacity:1; }
+  100% { transform:translate(-50%,-50%) scale(1); opacity:1; }
+}
+@keyframes wikaruThemeIconEnter {
+  0% { opacity:0; transform:translate(-50%,-50%) scale(.44) rotate(-42deg); }
+  52% { opacity:1; transform:translate(-50%,-50%) scale(1.12) rotate(8deg); }
+  78% { opacity:1; transform:translate(-50%,-50%) scale(1) rotate(0deg); }
+  100% { opacity:0; transform:translate(-50%,-50%) scale(.92) rotate(0deg); }
+}
+@keyframes wikaruThemeParticleBurst {
+  0% {
+    opacity:0;
+    transform:translate(-50%,-50%) rotate(var(--particle-angle)) translateX(8px) scale(.35);
+  }
+  28% { opacity:1; }
+  100% {
+    opacity:0;
+    transform:translate(-50%,-50%) rotate(var(--particle-angle)) translateX(var(--particle-distance)) scale(.8);
+  }
+}
+@keyframes wikaruThemeToggleIconSpin {
+  0% { transform:rotate(0deg) scale(1); opacity:1; }
+  45% { transform:rotate(150deg) scale(.58); opacity:.55; }
+  100% { transform:rotate(360deg) scale(1); opacity:1; }
+}
+@keyframes wikaruThemeContentPulse {
+  0% { filter:saturate(1) brightness(1); transform:scale(1); }
+  45% { filter:saturate(.88) brightness(.97); transform:scale(.997); }
+  100% { filter:saturate(1) brightness(1); transform:scale(1); }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration:.32s;
+  animation-timing-function:ease;
+  mix-blend-mode:normal;
+}
+::view-transition-old(root) { animation-name:wikaruThemeViewOld; }
+::view-transition-new(root) { animation-name:wikaruThemeViewNew; }
+@keyframes wikaruThemeViewOld { to { opacity:.72; } }
+@keyframes wikaruThemeViewNew { from { opacity:.82; } }
+
+.loader { z-index:3000!important; }
+.devtools-overlay { z-index:4000!important; }
+
+@media (max-width:760px) {
+  .theme-transition-icon {
+    width:64px;
+    height:64px;
+    border-radius:22px;
+  }
+  .theme-transition-icon i { font-size:27px; }
+}
+
+@media (orientation:landscape) and (max-height:520px) {
+  .theme-transition-icon {
+    width:58px;
+    height:58px;
+    border-radius:20px;
+  }
+  .theme-transition-icon i { font-size:24px; }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .theme-transition-overlay,
+  .theme-transition-circle,
+  .theme-transition-icon,
+  .theme-transition-particle,
+  .theme-toggle.is-switching i,
+  html.theme-is-changing .app,
+  html.theme-is-changing .top-nav,
+  html.theme-is-changing .bottom-nav,
+  html.theme-is-changing .modal.show .modal-card {
+    animation:none!important;
+    transition:none!important;
+  }
+}
+</style>
+
 </head>
 <body>
-  <div id="loadingScreen" class="loader">
+  <div id="loadingScreen" class="loader" role="status" aria-live="polite" aria-busy="true">
+    <div class="loader-ambient loader-ambient-one" aria-hidden="true"></div>
+    <div class="loader-ambient loader-ambient-two" aria-hidden="true"></div>
     <div class="loader-card">
-      <div class="loader-logo" aria-label="Logo Wikaru">
-        <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
-          <rect x="2" y="2" width="60" height="60" rx="18" fill="currentColor"/>
-          <path d="M15 21.5 23.2 44 31.8 27.4 40.4 44 49 21.5" fill="none" stroke="white" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="44.8" cy="16.5" r="4.2" fill="#E84B3C"/>
-        </svg>
+      <div class="loader-visual" aria-hidden="true">
+        <div class="loader-orbit"><span></span><span></span><span></span></div>
+        <span class="loader-kana loader-kana-one">あ</span>
+        <span class="loader-kana loader-kana-two">語</span>
+        <span class="loader-kana loader-kana-three">日</span>
+        <div class="loader-logo" aria-label="Logo Wikaru">
+          <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
+            <rect x="2" y="2" width="60" height="60" rx="18" fill="currentColor"/>
+            <path d="M15 21.5 23.2 44 31.8 27.4 40.4 44 49 21.5" fill="none" stroke="white" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="44.8" cy="16.5" r="4.2" fill="#E84B3C"/>
+          </svg>
+        </div>
       </div>
       <div class="loader-wordmark">Wikaru</div>
       <h3 id="loaderTitle">Menyiapkan ruang belajarmu</h3>
       <p id="loaderDesc">Memuat kartu, audio, dan progres belajar dengan aman.</p>
+      <div class="loader-status-line">
+        <span id="loaderStatusText">Menyiapkan kosakata</span>
+        <span class="loader-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+      </div>
       <div class="loader-bar" aria-hidden="true"><div class="loader-fill"></div></div>
+      <button type="button" id="loaderSkipBtn" class="loader-skip" aria-label="Lewati loading dan buka aplikasi">
+        <span>Buka sekarang</span><i class="fa-solid fa-arrow-right"></i>
+      </button>
       <small id="loaderTagline">Belajar Bahasa Jepang Lebih Mudah</small>
     </div>
   </div>
@@ -5299,10 +5573,12 @@ html[data-theme="dark"] #homeDailyMeaning{color:#F6F7FB!important;}
   <script id="wikaru-loader-language-init">
     try {
       if(localStorage.getItem("minna_bab23_lang") === "ja"){
-        const a=document.getElementById("loaderTitle"),b=document.getElementById("loaderDesc"),c=document.getElementById("loaderTagline");
+        const a=document.getElementById("loaderTitle"),b=document.getElementById("loaderDesc"),c=document.getElementById("loaderTagline"),d=document.querySelector("#loaderSkipBtn span"),e=document.getElementById("loaderStatusText");
         if(a)a.textContent="学習スペースを準備しています";
         if(b)b.textContent="カード・音声・学習記録を読み込んでいます。";
         if(c)c.textContent="日本語をもっとやさしく";
+        if(d)d.textContent="今すぐ開く";
+        if(e)e.textContent="語彙を準備しています";
       }
     } catch(_) {}
   </script>
@@ -5314,6 +5590,8 @@ html[data-theme="dark"] #homeDailyMeaning{color:#F6F7FB!important;}
       <button class="btn secondary" id="closeDevOverlay">Kembali</button>
     </div>
   </div>
+
+  <div id="profileMenuBackdrop" class="profile-menu-backdrop" aria-hidden="true"></div>
 
   <header class="top-nav" id="topNav">
     <div class="nav-inner">
@@ -5339,14 +5617,26 @@ html[data-theme="dark"] #homeDailyMeaning{color:#F6F7FB!important;}
           <span class="lang-name">Indonesia</span>
         </button>
         <div class="user-menu">
-          <button class="user-btn" id="userMenuBtn"><span class="wikaru-user-avatar" id="userAvatar" aria-hidden="true"><i class="fa-regular fa-user"></i><small>W</small></span><span class="wikaru-user-copy"><span id="userMenuText" data-i18n="login">Masuk</span><small id="userRoleText">Tamu</small></span><i class="fa-solid fa-chevron-down user-chevron" aria-hidden="true"></i></button>
-          <div class="dropdown" id="userDropdown">
-            <button class="drop-item" id="changeCategoryBtn"><i class="fa-solid fa-layer-group"></i><span data-i18n="changeCategory">Ganti kategori</span></button>
-            <button class="drop-item" id="langToggleDrop"><i class="fa-solid fa-language"></i><span data-i18n="changeLanguage">Ganti bahasa</span></button>
-
-            <button class="drop-item nav-fiction-toggle active" id="navFictionToggle" type="button" aria-pressed="true" title="Filter kosakata fiksi"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i><span class="fiction-label">Fiksi</span><span class="fiction-state">Aktif</span></button>
-            <button class="drop-item hidden" id="myResultDrop"><i class="fa-solid fa-chart-simple"></i><span data-i18n="myResult">Lihat Hasil Saya</span></button>
-            <button class="drop-item hidden" id="logoutBtn"><i class="fa-solid fa-arrow-right-from-bracket"></i><span data-i18n="logout">Keluar</span></button>
+          <button class="user-btn" id="userMenuBtn" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="userDropdown" aria-label="Buka menu profil"><span class="wikaru-user-avatar" id="userAvatar" aria-hidden="true"><i class="fa-regular fa-user"></i><small>W</small></span><span class="wikaru-user-copy"><span id="userMenuText" data-i18n="login">Masuk</span><small id="userRoleText">Tamu</small></span><i class="fa-solid fa-chevron-down user-chevron" aria-hidden="true"></i></button>
+          <div class="dropdown" id="userDropdown" role="menu" aria-labelledby="userMenuBtn" aria-hidden="true">
+            <div class="profile-menu-header" id="profileMenuHeader">
+              <span class="profile-menu-avatar" aria-hidden="true"><i class="fa-regular fa-user"></i></span>
+              <span class="profile-menu-identity">
+                <strong id="profileMenuName">Pengguna Tamu</strong>
+                <small id="profileMenuRole">Belum masuk</small>
+                <span id="profileMenuCategory">Kategori aktif sedang dimuat…</span>
+              </span>
+            </div>
+            <div class="profile-menu-scroll">
+              <button class="drop-item" id="loginDropBtn" type="button" role="menuitem"><i class="fa-solid fa-arrow-right-to-bracket"></i><span>Masuk / Isi Nama Peserta</span></button>
+              <button class="drop-item" id="changeCategoryBtn" type="button" role="menuitem"><i class="fa-solid fa-layer-group"></i><span data-i18n="changeCategory">Ganti kategori</span></button>
+              <button class="drop-item" id="langToggleDrop" type="button" role="menuitem"><i class="fa-solid fa-language"></i><span data-i18n="changeLanguage">Ganti bahasa</span></button>
+              <button class="drop-item nav-fiction-toggle active" id="navFictionToggle" type="button" role="menuitem" aria-pressed="true" title="Filter kosakata fiksi"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i><span class="fiction-label">Kosakata fiksi</span><span class="fiction-state">Aktif</span></button>
+              <div class="profile-menu-divider" aria-hidden="true"></div>
+              <button class="drop-item hidden" id="myResultDrop" type="button" role="menuitem"><i class="fa-solid fa-chart-simple"></i><span data-i18n="myResult">Lihat Hasil Saya</span></button>
+              <button class="drop-item hidden" id="adminDropBtn" type="button" role="menuitem"><i class="fa-solid fa-user-shield"></i><span>Panel Admin</span></button>
+              <button class="drop-item hidden profile-menu-danger" id="logoutBtn" type="button" role="menuitem"><i class="fa-solid fa-arrow-right-from-bracket"></i><span data-i18n="logout">Keluar</span></button>
+            </div>
           </div>
         </div>
       </div>
@@ -5396,6 +5686,11 @@ html[data-theme="dark"] #homeDailyMeaning{color:#F6F7FB!important;}
               <h2 id="homeContinueTitle"><span id="homeActiveChapter">Bab 24</span><span class="home-title-divider" aria-hidden="true"> · </span><span id="homeActiveCategory">Materi Umum</span></h2>
               <p class="home-continue-description" id="homeContinueDescription">Lanjut dari kartu terakhir, dengarkan pelafalannya, lalu coba ucapkan sendiri.</p>
               <div class="home-active-choice" id="activeChoiceText">Minna no Nihongo I • Materi Umum • Bab 24</div>
+              <button class="home-category-switch" id="homeChangeCategoryBtn" type="button" aria-label="Ganti kategori kosakata">
+                <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+                <span>Ganti Kategori Kosakata</span>
+                <i class="fa-solid fa-chevron-right home-category-switch-arrow" aria-hidden="true"></i>
+              </button>
             </div>
             <div class="home-continue-progress">
               <div class="home-progress-copy"><span id="homeProgressLabel">Progres target hari ini</span><strong id="homeProgressValue">0%</strong></div>
@@ -57199,21 +57494,36 @@ html[data-theme="dark"] #quizSettingsModal .option-card.icon-option small{color:
       new MutationObserver(markProtected).observe(document.body,{childList:true,subtree:true});
     }
 
-    function releaseLoadingScreen(){
+    function releaseLoadingScreen(reason="app-ready"){
+      if(window.__wikaruLoaderFailsafe){
+        clearTimeout(window.__wikaruLoaderFailsafe);
+        window.__wikaruLoaderFailsafe = null;
+      }
+      if(typeof window.__wikaruReleaseLoader === "function"){
+        window.__wikaruReleaseLoader(reason);
+        return;
+      }
       const loader=$("#loadingScreen");
       if(!loader) return;
-      loader.style.transition="opacity .24s ease";
-      loader.style.opacity="0";
+      loader.classList.add("is-leaving");
       loader.style.pointerEvents="none";
-      setTimeout(()=>{ loader.style.display="none"; },260);
-      if(window.__wikaruLoaderFailsafe) clearTimeout(window.__wikaruLoaderFailsafe);
+      setTimeout(()=>{ loader.hidden=true; loader.style.display="none"; },520);
     }
     async function boot(){
-      const absoluteFailsafe=setTimeout(()=>{ releaseLoadingScreen(); try{ if(!state.setupCompleted && !$("#setupModal").classList.contains("show")) openSetup(); }catch(_){} },4300);
+      const absoluteFailsafe=setTimeout(()=>{ releaseLoadingScreen("boot-timeout"); try{ if(!state.setupCompleted && !$("#setupModal").classList.contains("show")) openSetup(); }catch(_){} },4300);
       try {
         wireEvents(); installBasicProtection();
         try { playTone("load"); } catch(_) {}
-        await initFirebase();
+        await Promise.race([
+          Promise.resolve().then(()=>initFirebase()).catch(error=>{
+            console.warn("Firebase initialization skipped:",error);
+            return null;
+          }),
+          new Promise(resolve=>setTimeout(()=>{
+            console.warn("Firebase initialization timeout; continuing in local mode.");
+            resolve(null);
+          },2600))
+        ]);
         if(state.session?.username && !isAdmin()){
           try { await Promise.race([loadUserLastResult(true),new Promise(resolve=>setTimeout(resolve,1600))]); } catch(_) {}
         }
@@ -57225,11 +57535,11 @@ html[data-theme="dark"] #quizSettingsModal .option-card.icon-option small{color:
         try { applyTranslations(); renderAll(); } catch(_) {}
       } finally {
         clearTimeout(absoluteFailsafe);
-        releaseLoadingScreen();
+        releaseLoadingScreen("boot-complete");
         setTimeout(()=>{ try { if(!state.setupCompleted && !$("#setupModal").classList.contains("show")) openSetup(); } catch(_) {} },220);
       }
     }
-    boot().catch(error=>{ console.error("Wikaru boot fatal:",error); releaseLoadingScreen(); });
+    boot().catch(error=>{ console.error("Wikaru boot fatal:",error); releaseLoadingScreen("boot-fatal"); });
   </script>
 
 <script id="wikaru-v4-enhancements">
@@ -57245,36 +57555,232 @@ html[data-theme="dark"] #quizSettingsModal .option-card.icon-option small{color:
   function all(sel,root=document){ return Array.from(root.querySelectorAll(sel)); }
   function escapeAttr(value){ return String(value ?? "").replace(/"/g,"&quot;"); }
 
-  function applyTheme(theme){
+  let isThemeTransitionRunning = false;
+  let themeTransitionCleanupTimer = 0;
+
+  function safeStoredTheme(){
+    try { return localStorage.getItem(THEME_KEY) === "dark" ? "dark" : "light"; }
+    catch(_) { return document.documentElement.dataset.theme === "dark" ? "dark" : "light"; }
+  }
+
+  function isJapaneseThemeUI(){
+    try {
+      return document.documentElement.lang === "ja" || localStorage.getItem("minna_bab23_lang") === "ja";
+    } catch(_) {
+      return document.documentElement.lang === "ja";
+    }
+  }
+
+  function refreshThemeToggleUI(theme){
+    const next = theme === "dark" ? "dark" : "light";
+    const button = byId("themeToggle");
+    if(!button) return;
+    const dark = next === "dark";
+    const ja = isJapaneseThemeUI();
+    const label = dark
+      ? (ja ? "ライトモードに切り替える" : "Gunakan mode terang")
+      : (ja ? "ダークモードに切り替える" : "Gunakan mode malam");
+    button.setAttribute("aria-pressed",String(dark));
+    button.title = label;
+    button.setAttribute("aria-label",label);
+    button.innerHTML = `<i class="fa-solid ${dark ? "fa-sun" : "fa-moon"}" aria-hidden="true"></i><span>${dark ? (ja ? "ライトモード" : "Mode Terang") : (ja ? "ダークモード" : "Mode Malam")}</span>`;
+  }
+
+  function applyTheme(theme, options={}){
     const next = theme === "dark" ? "dark" : "light";
     document.documentElement.dataset.theme = next;
-    localStorage.setItem(THEME_KEY,next);
-    const button = byId("themeToggle");
-    if(button){
-      const dark = next === "dark";
-      const ja = document.documentElement.lang === "ja" || localStorage.getItem("minna_bab23_lang") === "ja";
-      button.setAttribute("aria-pressed",String(dark));
-      button.title = dark ? (ja ? "ライトモードに切り替える" : "Gunakan mode terang") : (ja ? "ダークモードに切り替える" : "Gunakan mode malam");
-      button.setAttribute("aria-label",button.title);
-      button.innerHTML = `<i class="fa-solid ${dark?"fa-sun":"fa-moon"}"></i><span>${dark?(ja?"ライトモード":"Mode Terang"):(ja?"ダークモード":"Mode Malam")}</span>`;
+    if(options.persist !== false){
+      try { localStorage.setItem(THEME_KEY,next); }
+      catch(error){ console.warn("Wikaru theme storage unavailable:",error); }
     }
+    refreshThemeToggleUI(next);
     const meta = document.querySelector('meta[name="theme-color"]');
-    if(meta) meta.content = next === "dark" ? "#101411" : "#F7F7F2";
+    if(meta) meta.content = next === "dark" ? "#0F1722" : "#F7F8FA";
+    return next;
   }
+
+  function themeMotionReduced(){
+    try { return window.matchMedia("(prefers-reduced-motion: reduce)").matches; }
+    catch(_) { return false; }
+  }
+
+  function removeThemeTransitionArtifacts(){
+    if(themeTransitionCleanupTimer){
+      clearTimeout(themeTransitionCleanupTimer);
+      themeTransitionCleanupTimer = 0;
+    }
+    document.querySelectorAll(".theme-transition-overlay").forEach(element=>element.remove());
+    document.documentElement.classList.remove("theme-is-changing");
+    document.querySelectorAll(".theme-toggle.is-switching").forEach(button=>{
+      button.classList.remove("is-switching");
+      button.removeAttribute("aria-busy");
+      if(button.dataset.themeWasDisabled !== "true") button.disabled = false;
+      delete button.dataset.themeWasDisabled;
+    });
+  }
+
+  function getThemeMotionOrigin(triggerElement){
+    const fallbackX = Math.max(48,window.innerWidth - 48);
+    const fallbackY = 48;
+    if(!(triggerElement instanceof Element)){
+      return {x:fallbackX,y:fallbackY,iconX:fallbackX,iconY:fallbackY};
+    }
+    const rect = triggerElement.getBoundingClientRect();
+    if(!rect.width || !rect.height){
+      return {x:fallbackX,y:fallbackY,iconX:fallbackX,iconY:fallbackY};
+    }
+    const x = rect.left + rect.width / 2;
+    const y = rect.top + rect.height / 2;
+    return {
+      x,
+      y,
+      iconX:Math.min(Math.max(x,54),Math.max(54,window.innerWidth - 54)),
+      iconY:Math.min(Math.max(y,54),Math.max(54,window.innerHeight - 54))
+    };
+  }
+
+  function createThemeTransitionOverlay(nextTheme, triggerElement){
+    const origin = getThemeMotionOrigin(triggerElement);
+    const farX = Math.max(origin.x,window.innerWidth - origin.x);
+    const farY = Math.max(origin.y,window.innerHeight - origin.y);
+    const radius = Math.ceil(Math.hypot(farX,farY) + 40);
+    const overlay = document.createElement("div");
+    overlay.className = `theme-transition-overlay theme-to-${nextTheme}`;
+    overlay.setAttribute("aria-hidden","true");
+    overlay.style.setProperty("--theme-origin-x",`${origin.x}px`);
+    overlay.style.setProperty("--theme-origin-y",`${origin.y}px`);
+    overlay.style.setProperty("--theme-icon-x",`${origin.iconX}px`);
+    overlay.style.setProperty("--theme-icon-y",`${origin.iconY}px`);
+    overlay.style.setProperty("--theme-diameter",`${radius * 2}px`);
+
+    const circle = document.createElement("div");
+    circle.className = "theme-transition-circle";
+    const icon = document.createElement("div");
+    icon.className = "theme-transition-icon";
+    icon.innerHTML = `<i class="fa-solid ${nextTheme === "dark" ? "fa-moon" : "fa-sun"}"></i>`;
+    const particles = document.createElement("div");
+    particles.className = "theme-transition-particles";
+    const particleGlyph = nextTheme === "dark" ? "✦" : "•";
+    for(let index=0;index<8;index++){
+      const particle = document.createElement("span");
+      particle.className = "theme-transition-particle";
+      particle.textContent = particleGlyph;
+      particle.style.setProperty("--particle-angle",`${index * 45 + (index % 2 ? 10 : -5)}deg`);
+      particle.style.setProperty("--particle-distance",`${48 + (index % 3) * 15}px`);
+      particle.style.setProperty("--particle-delay",`${80 + index * 22}ms`);
+      particle.style.setProperty("--particle-size",`${8 + (index % 3) * 3}px`);
+      particles.appendChild(particle);
+    }
+    overlay.append(circle,icon,particles);
+    document.body.appendChild(overlay);
+    return overlay;
+  }
+
+  function commitThemeWithViewTransition(nextTheme){
+    const update = ()=>applyTheme(nextTheme);
+    if(typeof document.startViewTransition === "function"){
+      try {
+        const transition = document.startViewTransition(update);
+        /* Keep the live radial overlay visible instead of letting the browser's
+           root snapshot cover it. The API still provides an atomic theme swap. */
+        Promise.resolve(transition.ready).then(()=>{
+          if(typeof transition.skipTransition === "function") transition.skipTransition();
+        }).catch(()=>{});
+        return Promise.resolve(transition.updateCallbackDone).catch(error=>{
+          console.warn("Wikaru View Transition fallback:",error);
+          if(document.documentElement.dataset.theme !== nextTheme) update();
+        });
+      } catch(error){
+        console.warn("Wikaru View Transition unavailable:",error);
+        update();
+      }
+    } else {
+      update();
+    }
+    return Promise.resolve();
+  }
+
+  function waitThemeMotion(ms){ return new Promise(resolve=>setTimeout(resolve,ms)); }
+
+  async function changeThemeWithMotion(nextTheme, triggerElement){
+    const next = nextTheme === "dark" ? "dark" : "light";
+    const current = document.documentElement.dataset.theme === "dark" ? "dark" : "light";
+    if(next === current || isThemeTransitionRunning) return;
+
+    const loader = byId("loadingScreen");
+    const loaderActive = loader && !loader.hidden && loader.style.display !== "none" && !loader.classList.contains("is-leaving");
+    if(loaderActive || themeMotionReduced()){
+      applyTheme(next);
+      return;
+    }
+
+    isThemeTransitionRunning = true;
+    removeThemeTransitionArtifacts();
+    const trigger = triggerElement instanceof HTMLElement ? triggerElement : byId("themeToggle");
+    const wasDisabled = Boolean(trigger?.disabled);
+    if(trigger){
+      trigger.dataset.themeWasDisabled = String(wasDisabled);
+      trigger.disabled = true;
+      trigger.classList.add("is-switching");
+      trigger.setAttribute("aria-busy","true");
+    }
+
+    document.documentElement.classList.add("theme-is-changing");
+    const overlay = createThemeTransitionOverlay(next,trigger);
+
+    try {
+      await waitThemeMotion(270);
+      await commitThemeWithViewTransition(next);
+      await waitThemeMotion(390);
+      overlay.classList.add("is-fading");
+      await waitThemeMotion(230);
+    } catch(error){
+      console.warn("Wikaru theme motion recovered:",error);
+      applyTheme(next);
+    } finally {
+      overlay.remove();
+      document.documentElement.classList.remove("theme-is-changing");
+      if(trigger){
+        trigger.classList.remove("is-switching");
+        trigger.removeAttribute("aria-busy");
+        trigger.disabled = wasDisabled;
+        delete trigger.dataset.themeWasDisabled;
+      }
+      isThemeTransitionRunning = false;
+    }
+  }
+  window.changeThemeWithMotion = changeThemeWithMotion;
 
   function installThemeToggle(){
     const navActions = document.querySelector(".nav-actions");
-    if(navActions && !byId("themeToggle")){
-      const btn = document.createElement("button");
+    let btn = byId("themeToggle");
+    if(navActions && !btn){
+      btn = document.createElement("button");
       btn.type = "button";
       btn.id = "themeToggle";
       btn.className = "theme-toggle";
       navActions.insertBefore(btn,navActions.querySelector(".user-menu") || navActions.lastElementChild);
-      btn.addEventListener("click",()=>applyTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark"));
     }
-    applyTheme(localStorage.getItem(THEME_KEY) || "light");
+    if(btn && !btn.dataset.themeMotionBound){
+      btn.dataset.themeMotionBound = "true";
+      btn.addEventListener("click",event=>{
+        const current = document.documentElement.dataset.theme === "dark" ? "dark" : "light";
+        changeThemeWithMotion(current === "dark" ? "light" : "dark",event.currentTarget);
+      });
+    }
+    document.documentElement.classList.add("theme-motion-enabled");
+    applyTheme(safeStoredTheme(),{persist:false});
+
+    if(!document.documentElement.dataset.themeStorageBound){
+      document.documentElement.dataset.themeStorageBound = "true";
+      window.addEventListener("storage",event=>{
+        if(event.key === THEME_KEY) applyTheme(event.newValue === "dark" ? "dark" : "light",{persist:false});
+      });
+    }
   }
-  window.wikaruRefreshThemeLabel = function(){ applyTheme(document.documentElement.dataset.theme || localStorage.getItem(THEME_KEY) || "light"); };
+  window.wikaruRefreshThemeLabel = function(){
+    applyTheme(document.documentElement.dataset.theme || safeStoredTheme(),{persist:false});
+  };
 
   function refreshVoices(){
     try { voices = window.speechSynthesis?.getVoices?.() || []; } catch(_){ voices = []; }
@@ -57869,7 +58375,7 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}img,svg,video,canvas{max-w
 .inspect-private{contain:paint}body.inspect-private-mode .inspect-private{filter:blur(9px)!important;opacity:.42!important}body.inspect-private-mode .inspect-private::after{font-size:12px!important}
 </style>
 <script id="wikaru-v8-runtime-audit">
-(function(){'use strict';function release(){const loader=document.getElementById('loadingScreen');if(loader&&getComputedStyle(loader).display!=='none'){loader.style.opacity='0';loader.style.pointerEvents='none';setTimeout(()=>loader.style.display='none',260)}}window.addEventListener('error',e=>{console.error('Wikaru runtime error:',e.error||e.message);release()});window.addEventListener('unhandledrejection',e=>{console.error('Wikaru async error:',e.reason);release()});document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('a[target="_blank"]').forEach(a=>a.rel='noopener noreferrer');document.querySelectorAll('img').forEach(img=>{if(!img.loading)img.loading='lazy';img.referrerPolicy='no-referrer'});setTimeout(release,4800)},{once:true})})();
+(function(){'use strict';function release(reason){if(typeof window.__wikaruReleaseLoader==='function'){window.__wikaruReleaseLoader(reason||'runtime-recovery');return}const loader=document.getElementById('loadingScreen');if(loader){loader.classList.add('is-leaving');loader.style.pointerEvents='none';setTimeout(()=>{loader.hidden=true;loader.style.display='none'},520)}}window.addEventListener('error',e=>{console.error('Wikaru runtime error:',e.error||e.message);release('runtime-error')});window.addEventListener('unhandledrejection',e=>{console.error('Wikaru async error:',e.reason);release('async-error')});document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('a[target="_blank"]').forEach(a=>a.rel='noopener noreferrer');document.querySelectorAll('img').forEach(img=>{if(!img.loading)img.loading='lazy';img.referrerPolicy='no-referrer'});setTimeout(()=>release('dom-failsafe'),6800)},{once:true})})();
 </script>
 
 
@@ -59595,10 +60101,14 @@ html[data-theme="dark"] .home-scroll-hint{color:#9EA9BC!important;}
   }
   function syncThemeMenu(){
     const dropdown=$('#userDropdown');
+    const menuScroll=dropdown?.querySelector('.profile-menu-scroll') || dropdown;
     const theme=$('#themeToggle');
-    if(dropdown&&theme&&theme.parentElement!==dropdown){
+    const logout=$('#logoutBtn');
+    if(menuScroll&&theme&&theme.parentElement!==menuScroll){
       theme.classList.add('drop-item','home-theme-menu-item');
-      dropdown.insertBefore(theme,$('#logoutBtn'));
+      theme.setAttribute('role','menuitem');
+      const anchor=logout?.parentElement===menuScroll ? logout : null;
+      menuScroll.insertBefore(theme,anchor);
     }
   }
   function refreshHome(){
@@ -59793,5 +60303,1192 @@ html[data-theme="dark"] #homeDailyMeaning{color:#F6F7FB!important;}
   #homePage.home-page{width:calc(100% - 44px)!important;margin:0 auto!important;padding:16px 0 34px 18px!important;box-sizing:border-box!important;}
 }
 </style>
+
+<style id="wikaru-profile-category-responsive-final">
+/* =========================================================
+   WIKARU — PROFILE MENU + CATEGORY ACCESS FINAL
+   One canonical responsive layer for desktop, tablet/iPad,
+   mobile portrait, mobile landscape, light, and dark mode.
+========================================================= */
+:root{
+  --wikaru-nav-height:84px;
+  --z-content:1;
+  --z-bottom-nav:100;
+  --z-navbar:1000;
+  --z-menu-backdrop:1100;
+  --z-profile-menu:1200;
+  --z-toast:1500;
+  --z-modal:2000;
+  --z-loader:3000;
+  --z-security:4000;
+}
+html,body{
+  width:100%!important;
+  max-width:100%!important;
+  overflow-x:hidden!important;
+}
+body{overflow-y:auto;}
+.top-nav,
+.nav-inner,
+.nav-actions,
+.user-menu{
+  overflow:visible!important;
+}
+.top-nav{
+  isolation:isolate;
+  z-index:var(--z-navbar)!important;
+}
+.user-menu{
+  position:relative!important;
+  min-width:0;
+}
+.user-btn[aria-expanded="true"]{
+  border-color:rgba(36,59,115,.42)!important;
+  box-shadow:0 0 0 4px rgba(36,59,115,.10),0 14px 30px rgba(28,37,25,.12)!important;
+}
+.user-chevron{transition:transform .2s ease;}
+.user-btn[aria-expanded="true"] .user-chevron{transform:rotate(180deg);}
+
+/* Profile menu shell */
+#userDropdown.dropdown{
+  box-sizing:border-box!important;
+  z-index:var(--z-profile-menu)!important;
+  display:none!important;
+  flex-direction:column!important;
+  min-height:0!important;
+  overflow:hidden!important;
+  overscroll-behavior:contain!important;
+  scrollbar-gutter:stable;
+  -webkit-overflow-scrolling:touch;
+  padding:0!important;
+  border:1px solid rgba(36,59,115,.14)!important;
+  border-radius:22px!important;
+  background:rgba(255,255,255,.985)!important;
+  color:#17223b!important;
+  box-shadow:0 28px 80px rgba(18,28,52,.24)!important;
+  backdrop-filter:blur(20px) saturate(1.08)!important;
+  -webkit-backdrop-filter:blur(20px) saturate(1.08)!important;
+  transform-origin:top right;
+}
+#userDropdown.dropdown.show{
+  display:flex!important;
+  animation:wikaruProfileMenuIn .18s ease-out both!important;
+}
+@keyframes wikaruProfileMenuIn{
+  from{opacity:0;transform:translateY(-6px) scale(.985)}
+  to{opacity:1;transform:none}
+}
+.profile-menu-header{
+  flex:0 0 auto;
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  padding:16px;
+  border-bottom:1px solid rgba(36,59,115,.10);
+  background:linear-gradient(135deg,rgba(233,237,250,.86),rgba(238,247,255,.72));
+}
+.profile-menu-avatar{
+  width:42px;
+  height:42px;
+  flex:0 0 42px;
+  display:grid;
+  place-items:center;
+  border-radius:15px;
+  color:#fff;
+  background:linear-gradient(135deg,#243B73,#5c7fd1);
+  box-shadow:0 10px 22px rgba(36,59,115,.22);
+}
+.profile-menu-identity{
+  min-width:0;
+  display:grid;
+  gap:3px;
+}
+.profile-menu-identity strong{
+  color:#071b45;
+  font-size:14px;
+  line-height:1.25;
+  font-weight:800;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.profile-menu-identity small{
+  color:#65718a;
+  font-size:11px;
+  line-height:1.3;
+  font-weight:700;
+}
+.profile-menu-identity>span{
+  margin-top:3px;
+  color:#4d5870;
+  font-size:11px;
+  line-height:1.45;
+  font-weight:650;
+  overflow-wrap:anywhere;
+}
+.profile-menu-scroll{
+  flex:1 1 auto;
+  min-height:0;
+  display:grid;
+  align-content:start;
+  gap:5px;
+  overflow-x:hidden!important;
+  overflow-y:auto!important;
+  padding:9px;
+  overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:thin;
+  scrollbar-color:rgba(36,59,115,.42) transparent;
+}
+.profile-menu-scroll::-webkit-scrollbar{width:7px;}
+.profile-menu-scroll::-webkit-scrollbar-track{background:transparent;}
+.profile-menu-scroll::-webkit-scrollbar-thumb{
+  border-radius:999px;
+  background:rgba(36,59,115,.36);
+}
+#userDropdown .drop-item{
+  width:100%!important;
+  min-height:48px!important;
+  flex:0 0 auto!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:12px!important;
+  padding:10px 12px!important;
+  border:0!important;
+  border-radius:14px!important;
+  background:transparent!important;
+  color:#46536b!important;
+  box-shadow:none!important;
+  font-size:13px!important;
+  font-weight:750!important;
+  line-height:1.35!important;
+  text-align:left!important;
+  white-space:normal!important;
+  scroll-margin-block:8px;
+}
+#userDropdown .drop-item.hidden{display:none!important;}
+#userDropdown .drop-item>i{
+  width:22px!important;
+  flex:0 0 22px!important;
+  display:grid!important;
+  place-items:center!important;
+  color:#243B73!important;
+  font-size:15px!important;
+}
+#userDropdown .drop-item>span:not(.fiction-state){
+  min-width:0;
+  overflow-wrap:anywhere;
+}
+#userDropdown .drop-item:hover,
+#userDropdown .drop-item:focus-visible{
+  background:#E9EDFA!important;
+  color:#1B2F60!important;
+}
+#userDropdown .drop-item:focus-visible{
+  outline:3px solid rgba(36,59,115,.28)!important;
+  outline-offset:1px!important;
+}
+#userDropdown .nav-fiction-toggle{
+  border-radius:14px!important;
+}
+#userDropdown .nav-fiction-toggle .fiction-label{
+  display:inline!important;
+  flex:1 1 auto!important;
+}
+#userDropdown .nav-fiction-toggle .fiction-state{
+  margin-left:auto!important;
+  min-width:48px!important;
+  min-height:26px!important;
+  display:grid!important;
+  place-items:center!important;
+  padding:0 8px!important;
+  border-radius:999px!important;
+  background:#edf1f8!important;
+  color:#6b7890!important;
+  font-size:10px!important;
+  font-weight:850!important;
+}
+#userDropdown .nav-fiction-toggle.active .fiction-state{
+  color:#fff!important;
+  background:linear-gradient(135deg,#243B73,#23c79a)!important;
+}
+#userDropdown .nav-fiction-toggle::before{display:none!important;content:none!important;}
+.profile-menu-divider{
+  height:1px;
+  margin:4px 6px;
+  background:rgba(36,59,115,.10);
+}
+#userDropdown .profile-menu-danger{
+  color:#c93459!important;
+}
+#userDropdown .profile-menu-danger>i{color:#d13d61!important;}
+#userDropdown .profile-menu-danger:hover,
+#userDropdown .profile-menu-danger:focus-visible{
+  color:#bd244b!important;
+  background:#ffeaf0!important;
+}
+
+/* Backdrop is only rendered visually on touch-oriented layouts. */
+.profile-menu-backdrop{
+  position:fixed;
+  inset:0;
+  z-index:var(--z-menu-backdrop);
+  display:none;
+  background:rgba(15,23,42,.22);
+  backdrop-filter:blur(3px);
+  -webkit-backdrop-filter:blur(3px);
+}
+.profile-menu-backdrop.show{display:none;}
+
+/* Permanent category access on homepage */
+.home-category-switch{
+  width:min(100%,430px);
+  min-height:50px;
+  margin-top:13px;
+  padding:9px 12px 9px 10px;
+  display:flex;
+  align-items:center;
+  gap:11px;
+  border:1px solid rgba(255,255,255,.28);
+  border-radius:16px;
+  color:#fff;
+  background:rgba(255,255,255,.13);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.18);
+  font:inherit;
+  font-size:13px;
+  font-weight:750;
+  text-align:left;
+  transition:transform .18s ease,background .18s ease,border-color .18s ease,box-shadow .18s ease;
+}
+.home-category-switch>i:first-child{
+  width:32px;
+  height:32px;
+  flex:0 0 32px;
+  display:grid;
+  place-items:center;
+  border-radius:11px;
+  color:#243B73;
+  background:#fff;
+}
+.home-category-switch>span{
+  flex:1 1 auto;
+  min-width:0;
+  overflow-wrap:anywhere;
+}
+.home-category-switch-arrow{
+  flex:0 0 auto;
+  opacity:.76;
+}
+.home-category-switch:hover{
+  transform:translateY(-2px);
+  background:rgba(255,255,255,.19);
+  border-color:rgba(255,255,255,.45);
+  box-shadow:0 12px 28px rgba(7,27,69,.14);
+}
+.home-category-switch:focus-visible{
+  outline:3px solid rgba(255,255,255,.76);
+  outline-offset:3px;
+}
+
+/* Unified z-index hierarchy */
+.bottom-nav{z-index:var(--z-bottom-nav)!important;}
+.toast{z-index:var(--z-toast)!important;}
+.modal{z-index:var(--z-modal)!important;}
+.loader{z-index:var(--z-loader)!important;}
+.devtools-overlay{z-index:var(--z-security)!important;}
+
+/* Desktop / laptop */
+@media (min-width:1200px){
+  :root{--wikaru-nav-height:84px;}
+  #userDropdown.dropdown,
+  #userDropdown.dropdown.show{
+    position:absolute!important;
+    right:0!important;
+    left:auto!important;
+    top:calc(100% + 10px)!important;
+    bottom:auto!important;
+    width:320px!important;
+    min-width:280px!important;
+    max-width:min(340px,calc(100vw - 32px))!important;
+    max-height:calc(100vh - 110px)!important;
+    max-height:calc(100dvh - 110px)!important;
+  }
+}
+
+/* Tablet PC, iPad portrait/landscape, and compact laptop */
+@media (min-width:768px) and (max-width:1199px){
+  :root{--wikaru-nav-height:72px;}
+  #userDropdown.dropdown,
+  #userDropdown.dropdown.show{
+    position:fixed!important;
+    top:calc(var(--wikaru-nav-height) + 10px)!important;
+    right:16px!important;
+    left:auto!important;
+    bottom:auto!important;
+    width:min(340px,calc(100vw - 32px))!important;
+    min-width:280px!important;
+    max-width:340px!important;
+    max-height:calc(100vh - var(--wikaru-nav-height) - 34px)!important;
+    max-height:calc(100dvh - var(--wikaru-nav-height) - 34px)!important;
+  }
+  .profile-menu-backdrop.show{display:block;}
+}
+
+/* Mobile portrait / standard */
+@media (max-width:767px){
+  :root{--wikaru-nav-height:68px;}
+  #userDropdown.dropdown,
+  #userDropdown.dropdown.show{
+    position:fixed!important;
+    top:calc(var(--wikaru-nav-height) + 8px)!important;
+    right:10px!important;
+    left:10px!important;
+    bottom:auto!important;
+    width:auto!important;
+    min-width:0!important;
+    max-width:none!important;
+    max-height:calc(100vh - var(--wikaru-nav-height) - 104px)!important;
+    max-height:calc(100dvh - var(--wikaru-nav-height) - 104px)!important;
+    padding:0!important;
+    transform-origin:top center;
+  }
+  .profile-menu-backdrop.show{display:block;}
+  .profile-menu-header{padding:13px;}
+  .profile-menu-avatar{width:38px;height:38px;flex-basis:38px;border-radius:13px;}
+  #userDropdown .drop-item{min-height:48px!important;}
+  .home-category-switch{
+    width:100%;
+    min-height:50px;
+  }
+}
+
+/* Very small mobile */
+@media (max-width:389px){
+  .profile-menu-header{gap:10px;padding:12px;}
+  .profile-menu-scroll{padding:7px;}
+  #userDropdown .drop-item{
+    min-height:46px!important;
+    padding:9px 10px!important;
+    font-size:12px!important;
+  }
+  .home-category-switch{
+    font-size:12px;
+    padding-right:10px;
+  }
+}
+
+/* Small-height mobile landscape: use the whole safe vertical area. */
+@media (max-width:767px) and (orientation:landscape) and (max-height:600px){
+  #userDropdown.dropdown,
+  #userDropdown.dropdown.show{
+    top:max(8px,env(safe-area-inset-top))!important;
+    right:max(8px,env(safe-area-inset-right))!important;
+    bottom:max(8px,env(safe-area-inset-bottom))!important;
+    left:max(8px,env(safe-area-inset-left))!important;
+    max-height:none!important;
+  }
+  .profile-menu-header{padding:10px 13px;}
+  .profile-menu-scroll{padding:7px;}
+  #userDropdown .drop-item{min-height:44px!important;padding:7px 11px!important;}
+}
+
+/* Dark mode */
+html[data-theme="dark"] #userDropdown.dropdown{
+  border-color:#33405a!important;
+  background:rgba(20,27,40,.985)!important;
+  color:#eef2f9!important;
+  box-shadow:0 28px 90px rgba(0,0,0,.48)!important;
+}
+html[data-theme="dark"] .profile-menu-header{
+  border-color:#33405a;
+  background:linear-gradient(135deg,rgba(42,54,88,.84),rgba(29,40,58,.92));
+}
+html[data-theme="dark"] .profile-menu-identity strong{color:#f4f7fc;}
+html[data-theme="dark"] .profile-menu-identity small{color:#aeb8cb;}
+html[data-theme="dark"] .profile-menu-identity>span{color:#c3ccdc;}
+html[data-theme="dark"] #userDropdown .drop-item{color:#d8deea!important;}
+html[data-theme="dark"] #userDropdown .drop-item>i{color:#aebeff!important;}
+html[data-theme="dark"] #userDropdown .drop-item:hover,
+html[data-theme="dark"] #userDropdown .drop-item:focus-visible{
+  background:#2A3658!important;
+  color:#f1f5fb!important;
+}
+html[data-theme="dark"] .profile-menu-divider{background:#33405a;}
+html[data-theme="dark"] #userDropdown .profile-menu-danger{color:#ff9ab3!important;}
+html[data-theme="dark"] #userDropdown .profile-menu-danger>i{color:#ff9ab3!important;}
+html[data-theme="dark"] #userDropdown .profile-menu-danger:hover,
+html[data-theme="dark"] #userDropdown .profile-menu-danger:focus-visible{
+  color:#ffd3de!important;
+  background:#452536!important;
+}
+html[data-theme="dark"] .home-category-switch{
+  border-color:rgba(255,255,255,.22);
+  background:rgba(255,255,255,.10);
+}
+html[data-theme="dark"] .home-category-switch>i:first-child{
+  color:#dbe4ff;
+  background:#293654;
+}
+
+/* Japanese labels need more vertical breathing room. */
+html[lang="ja"] #userDropdown .drop-item{
+  line-height:1.55!important;
+}
+html[lang="ja"] .home-category-switch{
+  line-height:1.5;
+}
+
+/* Reduced-motion support */
+@media (prefers-reduced-motion:reduce){
+  #userDropdown.dropdown.show,
+  .home-category-switch,
+  .user-chevron{
+    animation:none!important;
+    transition:none!important;
+  }
+}
+</style>
+
+
+<script id="wikaru-profile-category-responsive-runtime">
+(function(){
+  "use strict";
+
+  const CATEGORY_SESSION_KEY = "wikaru_category_prompt_seen";
+  const STORE_KEY = "minna_bab23";
+  const $ = (selector, root=document) => root.querySelector(selector);
+  const $$ = (selector, root=document) => Array.from(root.querySelectorAll(selector));
+  let lastMenuOpener = null;
+  let resizeTimer = 0;
+
+  function readJSON(key, fallback=null){
+    try{
+      const raw = localStorage.getItem(key);
+      return raw ? JSON.parse(raw) : fallback;
+    }catch(error){
+      console.warn("Wikaru storage read error:", error);
+      return fallback;
+    }
+  }
+
+  function isJapanese(){
+    try{
+      return document.documentElement.lang === "ja" ||
+        localStorage.getItem(STORE_KEY + "_lang") === "ja";
+    }catch(error){
+      return document.documentElement.lang === "ja";
+    }
+  }
+
+  function currentSession(){
+    return readJSON(STORE_KEY + "_progress", null);
+  }
+
+  function visibleMenuItems(){
+    return $$("#userDropdown [role='menuitem']").filter(item => {
+      if(item.classList.contains("hidden") || item.disabled) return false;
+      const style = getComputedStyle(item);
+      return style.display !== "none" && style.visibility !== "hidden";
+    });
+  }
+
+  function setBackdrop(open){
+    const backdrop = $("#profileMenuBackdrop");
+    if(!backdrop) return;
+    backdrop.classList.toggle("show", open);
+    backdrop.setAttribute("aria-hidden", String(!open));
+  }
+
+  function updateProfileMenuContent(){
+    const session = currentSession();
+    const logged = !!String(session?.username || "").trim();
+    const admin = session?.role === "admin";
+    const activeChoice = String($("#activeChoiceText")?.textContent || "").trim();
+
+    const loginBtn = $("#loginDropBtn");
+    const adminBtn = $("#adminDropBtn");
+    const logoutBtn = $("#logoutBtn");
+    const menuName = $("#profileMenuName");
+    const menuRole = $("#profileMenuRole");
+    const menuCategory = $("#profileMenuCategory");
+    const menuAvatar = $("#profileMenuHeader .profile-menu-avatar i");
+
+    loginBtn?.classList.toggle("hidden", logged);
+    adminBtn?.classList.toggle("hidden", !admin);
+    if(logoutBtn) logoutBtn.classList.toggle("hidden", !logged);
+
+    if(menuName){
+      const nextName = logged
+        ? (admin ? "Admin404" : String(session.username))
+        : (isJapanese() ? "ゲストユーザー" : "Pengguna Tamu");
+      if(menuName.textContent !== nextName) menuName.textContent = nextName;
+    }
+    if(menuRole){
+      const nextRole = logged
+        ? (admin ? (isJapanese() ? "管理者" : "Administrator") : (isJapanese() ? "学習者" : "Peserta belajar"))
+        : (isJapanese() ? "ログインしていません" : "Belum masuk");
+      if(menuRole.textContent !== nextRole) menuRole.textContent = nextRole;
+    }
+    if(menuCategory){
+      const prefix = isJapanese() ? "現在のカテゴリー：" : "Kategori aktif: ";
+      const nextCategory = prefix + (activeChoice || (isJapanese() ? "未選択" : "Belum dipilih"));
+      if(menuCategory.textContent !== nextCategory) menuCategory.textContent = nextCategory;
+    }
+    if(menuAvatar){
+      const nextAvatarClass = admin ? "fa-solid fa-user-shield" : (logged ? "fa-solid fa-user" : "fa-regular fa-user");
+      if(menuAvatar.className !== nextAvatarClass) menuAvatar.className = nextAvatarClass;
+    }
+
+    const realThemeButton = $("#themeToggle");
+    if(realThemeButton && realThemeButton.closest("#userDropdown")){
+      realThemeButton.setAttribute("role", "menuitem");
+      realThemeButton.setAttribute("tabindex", "0");
+    }
+
+    const loginLabel = $("#loginDropBtn span");
+    if(loginLabel){
+      const nextLoginLabel = isJapanese() ? "ログイン／学習者名を入力" : "Masuk / Isi Nama Peserta";
+      if(loginLabel.textContent !== nextLoginLabel) loginLabel.textContent = nextLoginLabel;
+    }
+    const adminLabel = $("#adminDropBtn span");
+    if(adminLabel){
+      const nextAdminLabel = isJapanese() ? "管理者パネル" : "Panel Admin";
+      if(adminLabel.textContent !== nextAdminLabel) adminLabel.textContent = nextAdminLabel;
+    }
+    const homeCategoryLabel = $("#homeChangeCategoryBtn span");
+    if(homeCategoryLabel){
+      const nextHomeCategoryLabel = isJapanese() ? "語彙カテゴリーを変更" : "Ganti Kategori Kosakata";
+      if(homeCategoryLabel.textContent !== nextHomeCategoryLabel) homeCategoryLabel.textContent = nextHomeCategoryLabel;
+    }
+    $("#homeChangeCategoryBtn")?.setAttribute(
+      "aria-label",
+      isJapanese() ? "語彙カテゴリーを変更" : "Ganti kategori kosakata"
+    );
+  }
+
+  function openUserDropdown(opener){
+    const button = $("#userMenuBtn");
+    const dropdown = $("#userDropdown");
+    if(!button || !dropdown) return;
+
+    lastMenuOpener = opener || button;
+    updateProfileMenuContent();
+    dropdown.classList.add("show");
+    dropdown.setAttribute("aria-hidden", "false");
+    button.setAttribute("aria-expanded", "true");
+    document.body.classList.add("profile-menu-open");
+    setBackdrop(true);
+
+    requestAnimationFrame(() => {
+      const first = visibleMenuItems()[0];
+      first?.focus({preventScroll:true});
+      first?.scrollIntoView({block:"nearest"});
+    });
+  }
+
+  function closeUserDropdown(options={}){
+    const {returnFocus=false} = options;
+    const button = $("#userMenuBtn");
+    const dropdown = $("#userDropdown");
+    if(!dropdown) return;
+
+    dropdown.classList.remove("show");
+    dropdown.setAttribute("aria-hidden", "true");
+    button?.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("profile-menu-open");
+    setBackdrop(false);
+
+    if(returnFocus){
+      const target = lastMenuOpener instanceof HTMLElement ? lastMenuOpener : button;
+      target?.focus({preventScroll:true});
+    }
+  }
+
+  function toggleUserDropdown(event){
+    event?.preventDefault();
+    event?.stopPropagation();
+    const dropdown = $("#userDropdown");
+    if(!dropdown) return;
+    if(dropdown.classList.contains("show")) closeUserDropdown({returnFocus:true});
+    else openUserDropdown(event?.currentTarget || $("#userMenuBtn"));
+  }
+
+  function invokeCategorySetup(){
+    closeUserDropdown();
+    try{
+      if(typeof window.openSetup === "function"){
+        window.openSetup();
+        return;
+      }
+    }catch(error){
+      console.warn("Wikaru openSetup direct call failed:", error);
+    }
+    const fallback = $("#changeCategoryBtn");
+    if(fallback && document.activeElement !== fallback){
+      fallback.click();
+    }
+  }
+
+  function bindProfileMenu(){
+    const button = $("#userMenuBtn");
+    const dropdown = $("#userDropdown");
+    const backdrop = $("#profileMenuBackdrop");
+    if(!button || !dropdown) return;
+
+    /* Remove the original login-only onclick behavior, then install one canonical handler. */
+    button.onclick = null;
+    if(!button.dataset.profileMenuBound){
+      button.dataset.profileMenuBound = "true";
+      button.addEventListener("click", toggleUserDropdown);
+      button.addEventListener("keydown", event => {
+        if(event.key === "ArrowDown"){
+          event.preventDefault();
+          openUserDropdown(button);
+        }
+      });
+    }
+
+    if(!dropdown.dataset.profileMenuBound){
+      dropdown.dataset.profileMenuBound = "true";
+      dropdown.addEventListener("click", event => {
+        event.stopPropagation();
+        if(event.target.closest("#themeToggle")){
+          setTimeout(closeUserDropdown, 0);
+        }
+      });
+      dropdown.addEventListener("keydown", event => {
+        const items = visibleMenuItems();
+        if(!items.length) return;
+        const index = items.indexOf(document.activeElement);
+
+        if(event.key === "Escape"){
+          event.preventDefault();
+          closeUserDropdown({returnFocus:true});
+          return;
+        }
+        if(event.key === "ArrowDown"){
+          event.preventDefault();
+          items[(index + 1 + items.length) % items.length].focus();
+        }else if(event.key === "ArrowUp"){
+          event.preventDefault();
+          items[(index - 1 + items.length) % items.length].focus();
+        }else if(event.key === "Home"){
+          event.preventDefault();
+          items[0].focus();
+        }else if(event.key === "End"){
+          event.preventDefault();
+          items[items.length - 1].focus();
+        }
+      });
+    }
+
+    if(backdrop && !backdrop.dataset.profileMenuBound){
+      backdrop.dataset.profileMenuBound = "true";
+      backdrop.addEventListener("click", () => closeUserDropdown({returnFocus:true}));
+    }
+
+    document.addEventListener("click", event => {
+      if(!event.target.closest("#userMenuBtn") && !event.target.closest("#userDropdown")){
+        closeUserDropdown();
+      }
+    }, {capture:false});
+
+    document.addEventListener("keydown", event => {
+      if(event.key === "Escape" && dropdown.classList.contains("show")){
+        event.preventDefault();
+        closeUserDropdown({returnFocus:true});
+      }
+    });
+  }
+
+  function bindMenuActions(){
+    const loginBtn = $("#loginDropBtn");
+    if(loginBtn && !loginBtn.dataset.actionBound){
+      loginBtn.dataset.actionBound = "true";
+      loginBtn.addEventListener("click", () => {
+        closeUserDropdown();
+        const homeLogin = $("#homeLoginBtn");
+        if(homeLogin) homeLogin.click();
+        else if(typeof window.openLogin === "function") window.openLogin();
+      });
+    }
+
+    const categoryBtn = $("#changeCategoryBtn");
+    if(categoryBtn && !categoryBtn.dataset.profileActionBound){
+      categoryBtn.dataset.profileActionBound = "true";
+      categoryBtn.addEventListener("click", () => setTimeout(closeUserDropdown, 0));
+    }
+
+    const homeCategory = $("#homeChangeCategoryBtn");
+    if(homeCategory && !homeCategory.dataset.actionBound){
+      homeCategory.dataset.actionBound = "true";
+      homeCategory.addEventListener("click", invokeCategorySetup);
+    }
+
+    const adminDrop = $("#adminDropBtn");
+    if(adminDrop && !adminDrop.dataset.actionBound){
+      adminDrop.dataset.actionBound = "true";
+      adminDrop.addEventListener("click", () => {
+        closeUserDropdown();
+        const adminNav = $('[data-page="admin"]');
+        adminNav?.click();
+      });
+    }
+
+    ["#langToggleDrop","#navFictionToggle","#myResultDrop","#logoutBtn","#themeToggle"].forEach(selector => {
+      const item = $(selector);
+      if(item && !item.dataset.menuCloseBound){
+        item.dataset.menuCloseBound = "true";
+        item.addEventListener("click", () => setTimeout(closeUserDropdown, 0));
+      }
+    });
+  }
+
+  function observeState(){
+    const targets = [
+      $("#activeChoiceText"),
+      $("#userMenuText"),
+      $("#userRoleText"),
+      $("#logoutBtn"),
+      $("#myResultDrop"),
+      document.documentElement
+    ].filter(Boolean);
+    let refreshFrame = 0;
+
+    const observeTargets = observer => {
+      targets.forEach(target => observer.observe(target, {
+        attributes:true,
+        childList:true,
+        characterData:true,
+        subtree:true,
+        attributeFilter:["class","data-theme","lang"]
+      }));
+    };
+
+    const observer = new MutationObserver(() => {
+      if(refreshFrame) return;
+      refreshFrame = requestAnimationFrame(() => {
+        refreshFrame = 0;
+        observer.disconnect();
+        updateProfileMenuContent();
+        const dropdown = $("#userDropdown");
+        if(dropdown?.classList.contains("show") && dropdown.getAttribute("aria-hidden") !== "false"){
+          dropdown.setAttribute("aria-hidden", "false");
+        }
+        observeTargets(observer);
+      });
+    });
+
+    observeTargets(observer);
+    window.addEventListener("storage", () => {
+      if(refreshFrame) cancelAnimationFrame(refreshFrame);
+      refreshFrame = requestAnimationFrame(() => {
+        refreshFrame = 0;
+        updateProfileMenuContent();
+      });
+    });
+  }
+
+  function markCategoryPromptWhenOpened(){
+    const modal = $("#setupModal");
+    if(!modal) return;
+    const mark = () => {
+      if(modal.classList.contains("show")){
+        try{ sessionStorage.setItem(CATEGORY_SESSION_KEY, "true"); }catch(error){}
+      }
+    };
+    mark();
+    new MutationObserver(mark).observe(modal, {attributes:true, attributeFilter:["class"]});
+  }
+
+  function openCategoryPromptPerSession(attempt=0){
+    try{
+      if(sessionStorage.getItem(CATEGORY_SESSION_KEY)) return;
+    }catch(error){
+      console.warn("Category session prompt storage unavailable:", error);
+      return;
+    }
+
+    const loader = $("#loadingScreen");
+    const loaderVisible = loader && getComputedStyle(loader).display !== "none" && Number(getComputedStyle(loader).opacity || 1) > .05;
+    const activeModal = $(".modal.show");
+    const quizActive = document.body.classList.contains("quiz-mode") || $("#quizPage")?.classList.contains("active");
+
+    if(loaderVisible || activeModal || quizActive){
+      if(attempt < 30){
+        setTimeout(() => openCategoryPromptPerSession(attempt + 1), 280);
+      }
+      return;
+    }
+
+    try{
+      if(typeof window.openSetup === "function"){
+        window.openSetup();
+      }else{
+        $("#changeCategoryBtn")?.click();
+      }
+      if($("#setupModal")?.classList.contains("show")){
+        sessionStorage.setItem(CATEGORY_SESSION_KEY, "true");
+      }
+    }catch(error){
+      console.warn("Category session prompt error:", error);
+    }
+  }
+
+  function bindViewportRecovery(){
+    const closeOnViewportChange = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(() => closeUserDropdown(), 120);
+    };
+    window.addEventListener("resize", closeOnViewportChange, {passive:true});
+    window.addEventListener("orientationchange", () => closeUserDropdown(), {passive:true});
+    window.addEventListener("pageshow", () => {
+      closeUserDropdown();
+      updateProfileMenuContent();
+    });
+  }
+
+  function init(){
+    bindProfileMenu();
+    bindMenuActions();
+    updateProfileMenuContent();
+    observeState();
+    markCategoryPromptWhenOpened();
+    bindViewportRecovery();
+
+    /* Allow the original application boot and loader transition to finish first. */
+    setTimeout(() => openCategoryPromptPerSession(), 900);
+    setTimeout(updateProfileMenuContent, 1400);
+  }
+
+  if(document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", init, {once:true});
+  }else{
+    init();
+  }
+})();
+</script>
+
+
+<style id="wikaru-loading-motion-final">
+/* WIKARU loading motion: lightweight, responsive, and always dismissible. */
+#loadingScreen.loader{
+  position:fixed!important;
+  inset:0!important;
+  z-index:3000!important;
+  display:grid!important;
+  place-items:center!important;
+  overflow:hidden!important;
+  padding:max(18px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(18px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))!important;
+  opacity:1;
+  visibility:visible;
+  background:
+    radial-gradient(circle at 18% 15%,rgba(125,181,255,.22),transparent 31%),
+    radial-gradient(circle at 86% 82%,rgba(232,75,60,.14),transparent 30%),
+    linear-gradient(145deg,#f9fbff 0%,#f4f5f0 48%,#fff8fb 100%)!important;
+  transition:opacity .46s ease,visibility .46s ease!important;
+  isolation:isolate;
+}
+#loadingScreen.loader[hidden]{display:none!important;}
+#loadingScreen.loader.is-leaving{
+  opacity:0!important;
+  visibility:hidden!important;
+}
+#loadingScreen .loader-ambient{
+  position:absolute;
+  z-index:-1;
+  width:min(48vw,560px);
+  aspect-ratio:1;
+  border-radius:50%;
+  filter:blur(8px);
+  opacity:.54;
+  pointer-events:none;
+  animation:wkLoaderDrift 7s ease-in-out infinite alternate;
+}
+#loadingScreen .loader-ambient-one{
+  top:-22%;left:-10%;
+  background:radial-gradient(circle,rgba(36,59,115,.18),transparent 67%);
+}
+#loadingScreen .loader-ambient-two{
+  right:-12%;bottom:-26%;
+  background:radial-gradient(circle,rgba(35,199,154,.14),transparent 67%);
+  animation-delay:-2.6s;
+}
+#loadingScreen .loader-card{
+  position:relative;
+  width:min(410px,100%)!important;
+  padding:36px 34px 28px!important;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.92)!important;
+  border-radius:30px!important;
+  background:rgba(255,255,255,.88)!important;
+  box-shadow:0 30px 90px rgba(23,32,51,.16)!important;
+  backdrop-filter:blur(24px) saturate(1.08)!important;
+  -webkit-backdrop-filter:blur(24px) saturate(1.08)!important;
+  animation:wkLoaderCardIn .58s cubic-bezier(.2,.8,.2,1) both,wkLoaderCardFloat 3.8s ease-in-out .7s infinite;
+}
+#loadingScreen .loader-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(120deg,transparent 24%,rgba(255,255,255,.52) 44%,transparent 65%);
+  transform:translateX(-130%);
+  animation:wkLoaderSheen 3.3s ease-in-out 1s infinite;
+}
+#loadingScreen .loader-visual{
+  position:relative;
+  width:112px;
+  height:112px;
+  margin:0 auto 8px;
+  display:grid;
+  place-items:center;
+}
+#loadingScreen .loader-logo{
+  position:relative;
+  z-index:3;
+  width:76px!important;
+  height:76px!important;
+  margin:0!important;
+  color:#243B73!important;
+  filter:drop-shadow(0 12px 22px rgba(36,59,115,.22));
+  animation:wkLoaderLogoPulse 1.8s ease-in-out infinite!important;
+}
+#loadingScreen .loader-orbit{
+  position:absolute;
+  inset:3px;
+  z-index:1;
+  border:1px solid rgba(36,59,115,.13);
+  border-radius:50%;
+  animation:wkLoaderOrbit 4.8s linear infinite;
+}
+#loadingScreen .loader-orbit::before{
+  content:"";
+  position:absolute;
+  inset:12px;
+  border:1px dashed rgba(36,59,115,.17);
+  border-radius:50%;
+  animation:wkLoaderOrbitReverse 3.6s linear infinite;
+}
+#loadingScreen .loader-orbit span{
+  position:absolute;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#243B73;
+  box-shadow:0 5px 14px rgba(36,59,115,.24);
+}
+#loadingScreen .loader-orbit span:nth-child(1){top:-4px;left:50%;transform:translateX(-50%);}
+#loadingScreen .loader-orbit span:nth-child(2){right:6px;bottom:15px;background:#E84B3C;}
+#loadingScreen .loader-orbit span:nth-child(3){left:3px;bottom:25px;background:#23c79a;}
+#loadingScreen .loader-kana{
+  position:absolute;
+  z-index:4;
+  display:grid;
+  place-items:center;
+  width:28px;
+  height:28px;
+  border:1px solid rgba(36,59,115,.12);
+  border-radius:10px;
+  color:#243B73;
+  background:rgba(255,255,255,.94);
+  box-shadow:0 9px 20px rgba(23,32,51,.10);
+  font-family:"Noto Sans JP",sans-serif;
+  font-size:13px;
+  font-weight:800;
+  animation:wkLoaderKana 2.6s ease-in-out infinite;
+}
+#loadingScreen .loader-kana-one{left:-8px;top:14px;}
+#loadingScreen .loader-kana-two{right:-7px;top:24px;animation-delay:-.9s;}
+#loadingScreen .loader-kana-three{right:8px;bottom:-1px;animation-delay:-1.7s;}
+#loadingScreen .loader-wordmark{
+  position:relative;
+  z-index:2;
+  font-size:28px!important;
+  font-weight:850!important;
+  letter-spacing:-.055em!important;
+}
+#loadingScreen .loader-card h3{
+  position:relative;
+  z-index:2;
+  margin:16px 0 6px!important;
+  font-size:18px!important;
+  letter-spacing:-.025em;
+}
+#loadingScreen .loader-card p{
+  position:relative;
+  z-index:2;
+  margin:0 auto!important;
+  max-width:310px;
+  line-height:1.55;
+}
+#loadingScreen .loader-status-line{
+  position:relative;
+  z-index:2;
+  min-height:32px;
+  margin:16px 0 0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  color:#536078;
+  font-size:12px;
+  font-weight:750;
+}
+#loadingScreen .loader-dots{display:inline-flex;align-items:center;gap:4px;}
+#loadingScreen .loader-dots i{
+  width:5px;height:5px;border-radius:50%;background:#243B73;
+  animation:wkLoaderDot .9s ease-in-out infinite alternate;
+}
+#loadingScreen .loader-dots i:nth-child(2){animation-delay:.16s;}
+#loadingScreen .loader-dots i:nth-child(3){animation-delay:.32s;}
+#loadingScreen .loader-bar{
+  position:relative;
+  z-index:2;
+  height:7px!important;
+  margin:11px 0 0!important;
+  overflow:hidden!important;
+  border-radius:999px!important;
+  background:#e8edf7!important;
+}
+#loadingScreen .loader-fill{
+  width:38%!important;
+  height:100%!important;
+  border-radius:inherit!important;
+  background:linear-gradient(90deg,#243B73,#7db5ff,#23c79a)!important;
+  animation:wkLoaderProgress 1.45s cubic-bezier(.4,0,.2,1) infinite!important;
+  box-shadow:0 0 18px rgba(125,181,255,.34);
+}
+#loadingScreen .loader-skip{
+  position:relative;
+  z-index:3;
+  width:100%;
+  min-height:44px;
+  margin-top:15px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  border:1px solid rgba(36,59,115,.16);
+  border-radius:14px;
+  color:#243B73;
+  background:rgba(233,237,250,.76);
+  font:inherit;
+  font-size:12px;
+  font-weight:800;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(7px);
+  transition:opacity .22s ease,visibility .22s ease,transform .22s ease,background .18s ease;
+}
+#loadingScreen.loader.is-slow .loader-skip{
+  opacity:1;
+  visibility:visible;
+  transform:none;
+}
+#loadingScreen .loader-skip:hover{background:#E9EDFA;}
+#loadingScreen .loader-skip:focus-visible{outline:3px solid rgba(36,59,115,.28);outline-offset:3px;}
+#loadingScreen .loader-card small{
+  position:relative;
+  z-index:2;
+  margin-top:14px!important;
+}
+html[data-theme="dark"] #loadingScreen.loader{
+  background:
+    radial-gradient(circle at 18% 15%,rgba(78,104,171,.25),transparent 31%),
+    radial-gradient(circle at 86% 82%,rgba(35,199,154,.12),transparent 30%),
+    linear-gradient(145deg,#101411 0%,#141a24 52%,#17141a 100%)!important;
+}
+html[data-theme="dark"] #loadingScreen .loader-card{
+  border-color:rgba(255,255,255,.10)!important;
+  background:rgba(21,27,39,.89)!important;
+  box-shadow:0 34px 100px rgba(0,0,0,.44)!important;
+}
+html[data-theme="dark"] #loadingScreen .loader-status-line{color:#b9c2d3;}
+html[data-theme="dark"] #loadingScreen .loader-kana{color:#dce5ff;background:#253149;border-color:#35425f;}
+html[data-theme="dark"] #loadingScreen .loader-bar{background:#283247!important;}
+html[data-theme="dark"] #loadingScreen .loader-skip{color:#dce5ff;background:#26324c;border-color:#3a4868;}
+@keyframes wkLoaderCardIn{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes wkLoaderCardFloat{0%,100%{translate:0 0}50%{translate:0 -5px}}
+@keyframes wkLoaderDrift{from{transform:translate3d(-2%,0,0) scale(.96)}to{transform:translate3d(5%,4%,0) scale(1.08)}}
+@keyframes wkLoaderSheen{0%,58%{transform:translateX(-130%)}82%,100%{transform:translateX(130%)}}
+@keyframes wkLoaderLogoPulse{0%,100%{transform:scale(1) rotate(0)}50%{transform:scale(1.045) rotate(1.5deg)}}
+@keyframes wkLoaderOrbit{to{transform:rotate(360deg)}}
+@keyframes wkLoaderOrbitReverse{to{transform:rotate(-360deg)}}
+@keyframes wkLoaderKana{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-7px) rotate(3deg)}}
+@keyframes wkLoaderDot{from{opacity:.3;transform:translateY(0)}to{opacity:1;transform:translateY(-3px)}}
+@keyframes wkLoaderProgress{0%{transform:translateX(-120%)}65%{transform:translateX(175%)}100%{transform:translateX(270%)}}
+@media(max-width:480px){
+  #loadingScreen .loader-card{padding:30px 21px 24px!important;border-radius:24px!important;}
+  #loadingScreen .loader-visual{width:100px;height:100px;}
+  #loadingScreen .loader-logo{width:68px!important;height:68px!important;}
+  #loadingScreen .loader-kana{width:25px;height:25px;font-size:12px;}
+  #loadingScreen .loader-wordmark{font-size:25px!important;}
+  #loadingScreen .loader-card h3{font-size:16px!important;}
+}
+@media(max-height:570px) and (orientation:landscape){
+  #loadingScreen .loader-card{width:min(570px,100%)!important;padding:18px 26px!important;display:grid;grid-template-columns:118px 1fr;column-gap:22px;text-align:left!important;align-items:center;}
+  #loadingScreen .loader-visual{grid-row:1/7;margin:0;}
+  #loadingScreen .loader-wordmark,#loadingScreen .loader-card h3,#loadingScreen .loader-card p,#loadingScreen .loader-status-line,#loadingScreen .loader-bar,#loadingScreen .loader-skip,#loadingScreen .loader-card small{grid-column:2;}
+  #loadingScreen .loader-status-line{justify-content:flex-start;margin-top:8px;}
+  #loadingScreen .loader-card h3{margin-top:3px!important;}
+  #loadingScreen .loader-skip{margin-top:9px;}
+  #loadingScreen .loader-card small{margin-top:8px!important;}
+}
+@media(prefers-reduced-motion:reduce){
+  #loadingScreen *{animation:none!important;transition-duration:.01ms!important;}
+  #loadingScreen .loader-fill{width:68%!important;transform:none!important;}
+}
+</style>
+<script id="wikaru-loading-motion-runtime">
+(function(){
+  "use strict";
+  const loader = document.getElementById("loadingScreen");
+  if(!loader) return;
+  const status = document.getElementById("loaderStatusText");
+  const skip = document.getElementById("loaderSkipBtn");
+  const isJa = document.documentElement.lang === "ja";
+  const messages = isJa
+    ? ["語彙を準備しています","音声機能を確認しています","学習記録を読み込んでいます","画面を整えています"]
+    : ["Menyiapkan kosakata","Memeriksa fitur audio","Memuat progres belajar","Merapikan tampilan"];
+  let index = 0;
+  if(status){
+    status.textContent = messages[0];
+    window.__wikaruLoaderStatusTimer = setInterval(function(){
+      if(loader.classList.contains("is-leaving") || loader.hidden){
+        clearInterval(window.__wikaruLoaderStatusTimer);
+        window.__wikaruLoaderStatusTimer = null;
+        return;
+      }
+      index = (index + 1) % messages.length;
+      status.animate?.([{opacity:.25,transform:"translateY(3px)"},{opacity:1,transform:"none"}],{duration:260,easing:"ease-out"});
+      status.textContent = messages[index];
+    },1050);
+  }
+  const slowTimer = setTimeout(function(){
+    if(!loader.classList.contains("is-leaving") && !loader.hidden){
+      loader.classList.add("is-slow");
+    }
+  },3200);
+  skip?.addEventListener("click",function(){
+    clearTimeout(slowTimer);
+    if(typeof window.__wikaruReleaseLoader === "function"){
+      window.__wikaruReleaseLoader("user-skip");
+    }else{
+      loader.classList.add("is-leaving");
+      setTimeout(()=>{loader.hidden=true;loader.style.display="none";},520);
+    }
+  });
+  window.addEventListener("load",function(){
+    setTimeout(function(){
+      if(loader.classList.contains("is-slow") && typeof window.__wikaruReleaseLoader === "function"){
+        window.__wikaruReleaseLoader("window-load-recovery");
+      }
+    },1200);
+  },{once:true});
+})();
+</script>
+
 </body>
 </html>
