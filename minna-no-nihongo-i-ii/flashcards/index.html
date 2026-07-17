@@ -25,13 +25,13 @@
         setTimeout(function(){
           loader.hidden = true; loader.classList.add("is-released"); loader.style.setProperty("display","none","important");
           document.documentElement.classList.add("wikaru-ready");
-        },520);
+        },260);
       };
       window.__wikaruLoaderFailsafe = setTimeout(function(){
         if(typeof window.__wikaruReleaseLoader === "function"){
           window.__wikaruReleaseLoader("absolute-failsafe");
         }
-      },7000);
+      },2400);
       window.addEventListener("pageshow",function(){
         setTimeout(function(){
           if(document.readyState === "complete" && document.documentElement.classList.contains("wikaru-ready")){
@@ -5701,6 +5701,35 @@ button:not([disabled]){-webkit-tap-highlight-color:transparent;}
 }
 </style>
 
+
+<style id="wikaru-v7-oneesan-modes-final">
+/* Wikaru V7 — Onee-san audio preset, meaningful quiz modes, and responsive polish. */
+.quiz-mode-hint{display:flex;align-items:flex-start;gap:11px;padding:12px 14px;border:1px solid rgba(36,59,115,.12);border-radius:17px;background:linear-gradient(135deg,rgba(247,248,252,.96),rgba(238,246,255,.82));color:#24304a;min-width:0}
+.quiz-mode-hint-icon{width:38px;height:38px;flex:0 0 38px;display:grid;place-items:center;border-radius:13px;background:#e9edfa;color:#243b73}
+.quiz-mode-hint>span:last-child{display:block;min-width:0}.quiz-mode-hint strong{display:block;font-size:13.5px;line-height:1.25;color:#071b45}.quiz-mode-hint small{display:block;margin-top:3px;font-size:11.5px;line-height:1.45;color:#6b7890}
+.quiz-mode-hint[data-mode="listening"] .quiz-mode-hint-icon{background:#e7f7ff;color:#2574a9}.quiz-mode-hint[data-mode="shadowing"] .quiz-mode-hint-icon{background:#e7faf4;color:#137d61}.quiz-mode-hint[data-mode="speed"] .quiz-mode-hint-icon{background:#fff3d8;color:#9b6a00}
+.voice-profile-card{display:grid;grid-template-columns:42px minmax(0,1fr) minmax(128px,auto);align-items:center;gap:11px;padding:12px 13px;border:1px solid rgba(36,59,115,.13);border-radius:18px;background:linear-gradient(135deg,#fff,#fbf8ff);box-shadow:0 8px 20px rgba(28,37,25,.04)}
+.voice-profile-icon{width:42px;height:42px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(135deg,#243b73,#7db5ff);color:#fff;box-shadow:0 9px 20px rgba(36,59,115,.18)}
+.voice-profile-copy{min-width:0}.voice-profile-copy strong{display:block;color:#071b45;font-size:13.5px}.voice-profile-copy small{display:block;margin-top:3px;color:#6b7890;font-size:10.5px;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.voice-profile-select-wrap{position:relative;display:block;min-width:128px}.voice-profile-select-wrap select{min-height:44px!important;padding:0 34px 0 12px!important;border-radius:14px!important;font-size:12.5px!important;font-weight:800!important;background:#fff!important}.voice-profile-select-wrap>i{position:absolute;right:12px;top:50%;transform:translateY(-50%);pointer-events:none;color:#536078;font-size:10px}
+.audio-first-prompt,.shadowing-prompt{width:min(100%,660px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;margin:auto}
+.audio-first-prompt>strong{font-size:clamp(24px,3.4vw,42px);line-height:1.18;color:#071b45;text-wrap:balance}.audio-first-prompt>small,.shadowing-prompt>small{font-size:13px;line-height:1.5;color:#6b7890}
+.audio-first-orbit{position:relative;width:104px;height:104px;display:grid;place-items:center;border-radius:36px;background:linear-gradient(145deg,#243b73,#5276c2);color:#fff;font-size:34px;box-shadow:0 20px 42px rgba(36,59,115,.22)}
+.audio-first-orbit b{position:absolute;inset:-9px;border:1px solid rgba(36,59,115,.18);border-radius:42px;animation:wkAudioRipple 1.8s ease-out infinite}.audio-first-orbit b:nth-child(2){animation-delay:.35s}.audio-first-orbit b:nth-child(3){animation-delay:.7s}
+@keyframes wkAudioRipple{0%{opacity:.7;transform:scale(.86)}75%,100%{opacity:0;transform:scale(1.22)}}
+.audio-replay-chip{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:0 15px;border:1px solid rgba(36,59,115,.16);border-radius:999px;background:#fff;color:#243b73;font-weight:800;box-shadow:0 8px 20px rgba(36,59,115,.08)}.audio-replay-chip:hover{transform:translateY(-1px);box-shadow:0 12px 24px rgba(36,59,115,.13)}
+.shadowing-eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#e7faf4;color:#137d61;font-size:12px;font-weight:850}.shadowing-prompt>strong{font-family:var(--jp);font-size:clamp(38px,5vw,72px);line-height:1.15;color:#071b45}.shadowing-prompt>span.jp{font-family:var(--jp);font-size:clamp(20px,2.4vw,32px);color:#536078}
+html[data-theme="dark"] .quiz-mode-hint,html[data-theme="dark"] .voice-profile-card{background:linear-gradient(135deg,rgba(24,35,50,.96),rgba(20,31,46,.92));border-color:rgba(148,163,184,.2)}html[data-theme="dark"] .quiz-mode-hint strong,html[data-theme="dark"] .voice-profile-copy strong,html[data-theme="dark"] .audio-first-prompt>strong,html[data-theme="dark"] .shadowing-prompt>strong{color:#f6f8fc}html[data-theme="dark"] .quiz-mode-hint small,html[data-theme="dark"] .voice-profile-copy small,html[data-theme="dark"] .audio-first-prompt>small,html[data-theme="dark"] .shadowing-prompt>small{color:#aeb8c8}
+
+.mobile-quiz-mode-switcher{display:none}
+.voice-profile-select-wrap>.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.audio-first-prompt>small,.shadowing-prompt>small{display:block!important;max-width:520px!important;letter-spacing:0!important;font-weight:650!important}
+.audio-replay-chip{font-size:13px!important;line-height:1!important;letter-spacing:0!important}
+@media(max-width:1050px){.voice-profile-card{grid-template-columns:42px minmax(0,1fr) minmax(120px,150px)}.quiz-mode-hint{grid-column:1/-1}}
+@media(max-width:760px){.quiz-status-row{display:none!important}.quiz-status-row .study-status{display:none!important}#quizModeHint{order:3!important}.mobile-quiz-mode-switcher{order:4!important;display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}.mobile-quiz-mode-switcher button{min-width:0;min-height:52px;border:1px solid rgba(36,59,115,.13);border-radius:14px;background:#fff;color:#536078;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:10.5px;font-weight:800}.mobile-quiz-mode-switcher button i{font-size:14px}.mobile-quiz-mode-switcher button.active{background:linear-gradient(135deg,#243b73,#5276c2);border-color:transparent;color:#fff;box-shadow:0 8px 18px rgba(36,59,115,.18)}.voice-profile-card{order:5!important;grid-template-columns:38px minmax(0,1fr);gap:10px}.voice-profile-icon{width:38px;height:38px}.voice-profile-select-wrap{grid-column:1/-1;min-width:0}.voice-profile-select-wrap select{width:100%!important}#hearBtn{order:6!important}#exampleBtn{order:7!important}#speechStatus{order:8!important}#micBox{order:9!important}.quiz-mode-hint{padding:11px 12px}.audio-first-orbit{width:88px;height:88px;border-radius:30px;font-size:29px}.audio-first-prompt>strong{font-size:clamp(23px,7vw,34px)}.shadowing-prompt>strong{font-size:clamp(34px,11vw,53px)}}
+@media(prefers-reduced-motion:reduce){.audio-first-orbit b{animation:none!important;display:none}.audio-replay-chip{transition:none!important}}
+</style>
+
 </head>
 <body>
   <div id="loadingScreen" class="loader" role="status" aria-live="polite" aria-busy="true">
@@ -5773,7 +5802,7 @@ button:not([disabled]){-webkit-tap-highlight-color:transparent;}
       <nav class="nav-links">
         <button type="button" class="nav-link active" data-page="home" data-i18n="navHome">Beranda</button>
         <button type="button" class="nav-link" data-page="material" data-i18n="navMaterial">Materi</button>
-        <button type="button" class="nav-link" data-action="openQuizSettings" data-i18n="navQuiz">Kuis</button>
+        <button type="button" class="nav-link" data-action="openQuizSettings" data-i18n="navQuiz">Belajar</button>
         <button type="button" class="nav-link admin-only hidden" data-page="admin" data-i18n="navResult">Hasil</button>
       </nav>
       <div class="nav-actions">
@@ -5864,7 +5893,7 @@ button:not([disabled]){-webkit-tap-highlight-color:transparent;}
               <small id="homeProgressCaption">Belum ada sesi yang diselesaikan hari ini.</small>
             </div>
             <div class="home-primary-actions">
-              <button type="button" class="btn home-main-button hidden" id="homeStartBtn"><i class="fa-solid fa-play" aria-hidden="true"></i><span data-i18n="startQuiz">Mulai Kuis</span></button>
+              <button type="button" class="btn home-main-button hidden" id="homeStartBtn"><i class="fa-solid fa-play" aria-hidden="true"></i><span data-i18n="startQuiz">Mulai Belajar</span></button>
               <button type="button" class="btn home-main-button" id="homeLoginBtn"><i class="fa-regular fa-user" aria-hidden="true"></i><span data-i18n="fillUsername">Isi Nama Peserta</span></button>
               <button type="button" class="btn secondary home-secondary-button hidden" id="homeMaterialBtn"><i class="fa-solid fa-book" aria-hidden="true"></i><span data-i18n="seeMaterial">Lihat Materi</span></button>
               <button type="button" class="btn secondary home-secondary-button hidden" id="homeResultBtn"><i class="fa-solid fa-chart-simple" aria-hidden="true"></i><span data-i18n="myResult">Lihat Hasil Saya</span></button>
@@ -5956,7 +5985,7 @@ button:not([disabled]){-webkit-tap-highlight-color:transparent;}
           <div class="sidebar glass">
             <button type="button" class="side-btn" data-page="home"><i class="fa-solid fa-house"></i><span data-i18n="navHome">Beranda</span></button>
             <button type="button" class="side-btn active" data-page="material"><i class="fa-solid fa-book-open"></i><span data-i18n="navMaterial">Materi</span></button>
-            <button type="button" class="side-btn" data-action="openQuizSettings"><i class="fa-solid fa-clipboard-list"></i><span data-i18n="navQuiz">Kuis</span></button>
+            <button type="button" class="side-btn" data-action="openQuizSettings"><i class="fa-solid fa-clipboard-list"></i><span data-i18n="navQuiz">Belajar</span></button>
             <button type="button" class="side-btn admin-only hidden" data-page="admin"><i class="fa-solid fa-chart-simple"></i><span data-i18n="navResult">Hasil</span></button>
             <button type="button" class="side-btn" id="sideLogout"><i class="fa-solid fa-arrow-right-from-bracket"></i><span data-i18n="logout">Keluar</span></button>
           </div>
@@ -6026,7 +6055,21 @@ button:not([disabled]){-webkit-tap-highlight-color:transparent;}
             <div class="metric"><span data-i18n="time">Waktu</span><strong id="timerText">00:30</strong><button type="button" class="btn soft" id="pauseBtn" style="margin-top:10px;min-height:38px;width:100%"><span data-i18n="pause">Jeda</span></button></div>
             <div class="metric"><strong id="cardCounter">Kartu 1 / 1</strong><div class="bar"><div id="quizProgress"></div></div><span id="progressText">0% Selesai</span></div>
           </div>
-          <div class="control-row quiz-status-row"><span class="status ok study-status"><i class="fa-solid fa-book-open"></i><span data-i18n="studyMode">Sedang Belajar</span></span><div class="mode-select-wrap"><select id="modeSelect"><option value="study">Mode: Belajar</option></select><i class="fa-solid fa-chevron-down"></i></div></div>
+          <div class="control-row quiz-status-row wikaru-single-mode-row"><span class="status ok study-status"><i class="fa-solid fa-book-open"></i><span data-i18n="studyMode">Mode Belajar</span></span><select id="modeSelect" class="wikaru-compat-select" aria-label="Mode belajar"><option value="study" selected>Mode Belajar</option></select></div>
+          <div class="quiz-mode-hint" id="quizModeHint" data-mode="study" aria-live="polite"></div>
+          <div class="mobile-quiz-mode-switcher wikaru-single-mode-switcher" id="mobileQuizModeSwitcher" aria-label="Mode belajar">
+            <button type="button" data-quiz-mode-pick="study" class="active" aria-pressed="true"><i class="fa-solid fa-book-open-reader"></i><span data-id="Mode Belajar" data-ja="学習モード">Mode Belajar</span></button>
+          </div>
+          <div class="voice-profile-card wikaru-four-voice-card" id="voiceProfileCard">
+            <span class="voice-profile-icon"><i class="fa-solid fa-wave-square"></i></span>
+            <span class="voice-profile-copy"><strong id="voiceProfileTitle">Hana Onee-san</strong><small id="voiceAvailabilityText">Hangat, lembut, dan menenangkan seperti kakak dewasa.</small></span>
+            <select id="voicePresetSelect" class="wikaru-compat-select" aria-label="Pilih karakter suara Jepang">
+              <option value="hanamama" selected>Hana Onee-san</option>
+              <option value="momokawaii">Momo Kawaii</option>
+              <option value="renikebo">Ren Ikebo</option>
+              <option value="kaitodandy">Kaito Dandy</option>
+            </select>
+          </div>
           <button type="button" class="control-btn" id="hearBtn"><i class="fa-solid fa-volume-high"></i><span data-i18n="listen">Dengar</span></button>
           <button type="button" class="control-btn" id="exampleBtn"><i class="fa-regular fa-message"></i><span data-i18n="exampleSentence">Contoh Kalimat</span></button>
           <div class="listen-wave" id="speechStatus"><i class="fa-solid fa-wave-square"></i><span data-i18n="listening">Mendengarkan...</span><b></b><b></b><b></b><b></b></div>
@@ -6081,7 +6124,7 @@ button:not([disabled]){-webkit-tap-highlight-color:transparent;}
   <nav class="bottom-nav" aria-label="Navigasi bawah">
     <button type="button" class="active" data-page="home"><i class="fa-solid fa-house"></i><span data-i18n="navHome">Beranda</span></button>
     <button type="button" data-page="material"><i class="fa-solid fa-book-open"></i><span data-i18n="navMaterial">Materi</span></button>
-    <button type="button" data-action="openQuizSettings"><i class="fa-solid fa-clipboard-list"></i><span data-i18n="navQuiz">Kuis</span></button>
+    <button type="button" data-action="openQuizSettings"><i class="fa-solid fa-clipboard-list"></i><span data-i18n="navQuiz">Belajar</span></button>
     <button type="button" id="bottomResultBtn" class="bottom-result-btn" data-page="result" disabled aria-disabled="true"><i class="fa-solid fa-chart-simple"></i><span data-i18n="navResult">Hasil</span></button>
   </nav>
 
@@ -6146,7 +6189,7 @@ button:not([disabled]){-webkit-tap-highlight-color:transparent;}
     <div class="modal-card">
       <button type="button" class="close-x" id="closeQuizSettings"><i class="fa-solid fa-xmark"></i></button>
       <div class="modal-fixed-head">
-        <div class="modal-title"><div class="kana-icon">あ</div><h2 data-i18n="quizSettingTitle">Atur Kuis Kartu</h2><p data-i18n="quizSettingDesc">Tentukan arah bahasa, urutan kartu, dan lingkup kuis secara bertahap.</p></div>
+        <div class="modal-title"><div class="kana-icon">あ</div><h2 data-i18n="quizSettingTitle">Atur Sesi Belajar</h2><p data-i18n="quizSettingDesc">Tentukan arah bahasa, urutan kartu, dan materi belajar secara bertahap.</p></div>
         <div class="setup-progress" aria-hidden="true">
           <div class="setup-progress-top"><span id="quizStepBadge">Langkah 1 dari 5</span><span id="quizStepHint">Arah Bahasa</span></div>
           <div class="setup-progress-line"><span id="quizProgressFill"></span></div>
@@ -6193,7 +6236,7 @@ button:not([disabled]){-webkit-tap-highlight-color:transparent;}
           <button type="button" class="btn secondary" id="cancelQuizSettings" data-i18n="cancel">Batal</button>
           <button type="button" class="btn secondary hidden" id="prevQuizSetting">Kembali</button>
           <button type="button" class="btn" id="nextQuizSetting">Lanjut</button>
-          <button type="button" class="btn hidden" id="startQuizFromSettings" data-i18n="saveStart">Simpan / Mulai Kuis</button>
+          <button type="button" class="btn hidden" id="startQuizFromSettings" data-i18n="saveStart">Simpan / Mulai Belajar</button>
         </div>
       </div>
     </div>
@@ -36302,28 +36345,28 @@ button:not([disabled]){-webkit-tap-highlight-color:transparent;}
     ];
     const labels = {
       id: {
-        navHome:"Beranda", navMaterial:"Materi", navQuiz:"Kuis", navResult:"Hasil", login:"Masuk", logout:"Keluar", changeCategory:"Ganti kategori", changeLanguage:"Ganti bahasa", myResult:"Lihat Hasil Saya", historyLoaded:"Riwayat terakhir ditemukan.",
+        navHome:"Beranda", navMaterial:"Materi", navQuiz:"Belajar", navResult:"Hasil", login:"Masuk", logout:"Keluar", changeCategory:"Ganti kategori", changeLanguage:"Ganti bahasa", myResult:"Lihat Hasil Saya", historyLoaded:"Riwayat terakhir ditemukan.",
         homeTitle:"Kuasai Kosakata Jepang, Satu Kartu Setiap Hari.", homeDesc:"Belajar kosakata, pelafalan, dan contoh kalimat melalui flashcard interaktif yang sederhana dan menyenangkan.",
-        totalVocab:"Total Kosakata", timeLimit:"Batas Waktu per Kartu", chapterScope:"Lingkup Bab", startQuiz:"Mulai Kuis", seeMaterial:"Lihat Materi", fillUsername:"Isi Nama Peserta", fictionFilter:"Kosakata Fiksi",
+        totalVocab:"Total Kosakata", timeLimit:"Batas Waktu per Kartu", chapterScope:"Lingkup Bab", startQuiz:"Mulai Belajar", seeMaterial:"Lihat Materi", fillUsername:"Isi Nama Peserta", fictionFilter:"Kosakata Fiksi",
         materialTitle:"Kumpulan Kosakata", materialDesc:"Pelajari kosakata berdasarkan buku, materi, dan kategori yang dipilih.", studyFirst:"Pelajari dulu sebelum mulai kuis", studyFirstDesc:"Di halaman ini kamu bisa melihat arti, romaji, contoh kalimat, dan mendengarkan pelafalan.", studyStats:"Statistik Belajar",
         categoryEmptyTitle:"Kategori belum tersedia", categoryEmptyDesc:"Bagian ini sudah disiapkan, tetapi kosakata belum ditambahkan.", quizFiltered:"Kuis mengikuti kategori pilihanmu", quizFilteredDesc:"Kartu yang tampil sudah disaring berdasarkan Bab, Jenis Materi, dan Kategori Kata.",
-        answer:"Jawaban", clickFlipBack:"Klik kartu untuk kembali", time:"Waktu", pause:"Jeda", resume:"Lanjut", studyMode:"Sedang Belajar", listen:"Dengar", exampleSentence:"Contoh Kalimat", listening:"Mendengarkan...", correct:"Benar", wrong:"Salah", speechFeature:"Fungsi Bicara",
+        answer:"Jawaban", clickFlipBack:"Klik kartu untuk kembali", time:"Waktu", pause:"Jeda", resume:"Lanjut", studyMode:"Mode Belajar", listen:"Dengar", exampleSentence:"Contoh Kalimat", listening:"Mendengarkan...", correct:"Benar", wrong:"Salah", speechFeature:"Fungsi Bicara",
         breadcrumbResult:"Beranda > Hasil Latihan", resultTitle:"Ringkasan Belajar", breadcrumbAdmin:"Pengelola > Laporan Peserta", adminTitle:"Laporan Peserta", adminDesc:"Ringkasan hasil belajar seluruh peserta.", deleteAll:"Hapus Riwayat Semua Peserta", downloadAllPdf:"Unduh PDF Semua Peserta", resetFilter:"Reset Filter",
         setupTitle:"Pilih Kategori Belajar", setupDesc:"Pilih bahasa, buku, kategori, dan bab secara bertahap agar tampilan lebih ringkas.", stepLanguage:"1. Pilih bahasa tampilan", stepBook:"2. Pilih buku", stepCategory:"3. Pilih kategori besar", stepChapter:"4. Pilih kategori bab", cancel:"Batal", save:"Simpan",
-        loginTitle:"Masuk Peserta", loginDesc:"Isi nama peserta untuk menyimpan hasil latihanmu.", chooseGroup:"Pilih Grup/Wilayah", quizSettingTitle:"Atur Kuis Kartu", quizSettingDesc:"Tentukan arah bahasa dan urutan kartu, lalu pilih lingkup kuis yang ingin dikerjakan.", chooseDirection:"1. Pilih arah bahasa soal", shuffleMode:"2. Pengaturan tambahan", shuffleStepTitle:"2A. Pilih urutan kartu", cardOrder:"Urutan kartu", fictionQuizTitle:"Filter Fiksi", fictionStepTitle:"2B. Pilih filter fiksi", chooseScope:"3. Pilih lingkup kuis", chapterScopeStep:"3A. Pilih kategori bab", sectionScopeStep:"3B. Pilih kategori bagian", typeScopeStep:"3C. Pilih kategori jenis kata", chapterCategory:"Kategori Bab", sectionCategory:"Kategori Bagian", typeCategory:"Kategori Jenis Kata", saveStart:"Simpan / Mulai Kuis",
+        loginTitle:"Masuk Peserta", loginDesc:"Isi nama peserta untuk menyimpan hasil latihanmu.", chooseGroup:"Pilih Grup/Wilayah", quizSettingTitle:"Atur Sesi Belajar", quizSettingDesc:"Tentukan arah bahasa, urutan kartu, dan materi yang ingin dipelajari.", chooseDirection:"1. Pilih arah bahasa soal", shuffleMode:"2. Pengaturan tambahan", shuffleStepTitle:"2A. Pilih urutan kartu", cardOrder:"Urutan kartu", fictionQuizTitle:"Filter Fiksi", fictionStepTitle:"2B. Pilih filter fiksi", chooseScope:"3. Pilih lingkup kuis", chapterScopeStep:"3A. Pilih kategori bab", sectionScopeStep:"3B. Pilih kategori bagian", typeScopeStep:"3C. Pilih kategori jenis kata", chapterCategory:"Kategori Bab", sectionCategory:"Kategori Bagian", typeCategory:"Kategori Jenis Kata", saveStart:"Simpan / Mulai Belajar",
         confirmDeleteTitle:"Hapus Riwayat?", confirmDeleteDesc:"Apakah Anda yakin ingin menghapus semua riwayat peserta?", delete:"Hapus",
         searchPlaceholder:"Cari kosakata, romaji, atau arti...", noVocabFilter:"Tidak ada kosakata untuk filter ini.", focusWarn:"Tetap fokus mengerjakan kuis.", focusStop:"Kuis dihentikan karena kamu pindah tab dua kali.", browserSpeechNo:"Fitur bicara tidak didukung di browser ini.", accessDisabled:"Akses ini dinonaktifkan untuk menjaga pengalaman belajar.", localOnly:"Firebase belum tersedia. Data disimpan sementara di perangkat ini.", saved:"Hasil tersimpan.", needLogin:"Silakan isi username dulu.", noExample:"Contoh kalimat belum tersedia.", scoreGood:"Bagus! Kamu sudah memahami banyak kosakata.", scoreBad:"Ayo belajar lebih giat lagi. Ulangi kartu yang masih salah.", reviewVocab:"Tinjau Kosakata", savePdf:"Simpan PDF", retry:"Ulangi Latihan", emptyResult:"Belum ada hasil latihan.", allStatus:"Semua", fastest:"Tercepat", slowest:"Terlama", pdfFilterTitle:"Filter Sebelum Simpan PDF", pdfFilterDesc:"Pilih kategori hasil latihan yang ingin dimasukkan ke PDF.", book:"Buku", materialCategoryLabel:"Kategori Materi", chapter:"Bab", section:"Bagian", type:"Jenis Kata", answerStatus:"Status Jawaban", allBooks:"Semua Buku", allMaterials:"Semua Kategori Materi", allChapters:"Semua Bab", allSections:"Semua Bagian", allTypes:"Semua Jenis Kata", allAnswers:"Semua Jawaban", resetPdfFilter:"Reset Filter", savePdfBtn:"Simpan PDF", noPdfRows:"Tidak ada data yang sesuai dengan filter PDF.", participantName:"Nama Peserta", adminLabel:"Pengelola", passwordAdmin:"Kata Sandi Pengelola"
       },
       ja: {
-        navHome:"ホーム", navMaterial:"教材", navQuiz:"クイズ", navResult:"結果", login:"名前を入力", logout:"ログアウト", changeCategory:"カテゴリーを変更", changeLanguage:"表示言語を変更", myResult:"学習結果を見る", historyLoaded:"前回の結果を読み込みました。",
+        navHome:"ホーム", navMaterial:"教材", navQuiz:"学習", navResult:"結果", login:"名前を入力", logout:"ログアウト", changeCategory:"カテゴリーを変更", changeLanguage:"表示言語を変更", myResult:"学習結果を見る", historyLoaded:"前回の結果を読み込みました。",
         homeTitle:"毎日少しずつ、日本語の語彙を増やそう。", homeDesc:"フラッシュカードや音声、例文を使って、無理なく楽しく語彙を学べます。",
-        totalVocab:"語彙数", timeLimit:"1枚あたりの制限時間", chapterScope:"章の範囲", startQuiz:"クイズ開始", seeMaterial:"教材を見る", fillUsername:"参加者名入力", fictionFilter:"架空の語彙",
+        totalVocab:"語彙数", timeLimit:"1枚あたりの制限時間", chapterScope:"章の範囲", startQuiz:"学習開始", seeMaterial:"教材を見る", fillUsername:"参加者名入力", fictionFilter:"架空の語彙",
         materialTitle:"語彙一覧", materialDesc:"選んだ教科書・教材・カテゴリーに合わせて、語彙を学びましょう。", studyFirst:"クイズの前に確認しましょう", studyFirstDesc:"このページでは、意味・ローマ字・例文・発音をまとめて確認できます。", studyStats:"学習統計",
         categoryEmptyTitle:"このカテゴリーにはまだ教材がありません", categoryEmptyDesc:"教材を準備中です。追加されるまで少しお待ちください。", quizFiltered:"選んだカテゴリーから出題します", quizFilteredDesc:"カードは、章・セクション・品詞の選択に合わせて絞り込まれています。",
         answer:"答え", clickFlipBack:"カードをクリックして表に戻る", time:"時間", pause:"一時停止", resume:"再開", studyMode:"学習中", listen:"音声を聞く", exampleSentence:"例文", listening:"音声を再生中…", correct:"正解", wrong:"不正解", speechFeature:"発音練習",
         breadcrumbResult:"ホーム > 学習結果", resultTitle:"学習結果", breadcrumbAdmin:"管理者 > 参加者レポート", adminTitle:"参加者レポート", adminDesc:"全参加者の学習結果をまとめて確認できます。", deleteAll:"全履歴を削除", downloadAllPdf:"全参加者分のPDFを保存", resetFilter:"リセット",
         setupTitle:"学習カテゴリーを選択", setupDesc:"表示言語、教科書、カテゴリー、章を順番に選びましょう。", stepLanguage:"1. 表示言語を選択", stepBook:"2. 教科書を選択", stepCategory:"3. 教材カテゴリーを選択", stepChapter:"4. 章カテゴリーを選択", cancel:"キャンセル", save:"保存",
-        loginTitle:"名前を入力", loginDesc:"学習結果を保存するため、名前を入力してください。", chooseGroup:"グループ／地域を選択", quizSettingTitle:"フラッシュカードの設定", quizSettingDesc:"問題と答えの言語、カードの順番、学習範囲を選びましょう。", chooseDirection:"1. 問題と答えの言語を選択", shuffleMode:"2. カードの表示設定", shuffleStepTitle:"2A. カード順を選択", cardOrder:"カード順", fictionQuizTitle:"架空の語彙フィルター", fictionStepTitle:"2B. 架空の語彙を表示するか選択", chooseScope:"3. クイズ範囲", chapterScopeStep:"3A. 章カテゴリーを選択", sectionScopeStep:"3B. セクションカテゴリーを選択", typeScopeStep:"3C. 品詞カテゴリーを選択", chapterCategory:"章カテゴリー", sectionCategory:"セクションカテゴリー", typeCategory:"品詞カテゴリー", saveStart:"設定を保存して開始",
+        loginTitle:"名前を入力", loginDesc:"学習結果を保存するため、名前を入力してください。", chooseGroup:"グループ／地域を選択", quizSettingTitle:"学習セッションの設定", quizSettingDesc:"問題と答えの言語、カードの順番、学習範囲を選びましょう。", chooseDirection:"1. 問題と答えの言語を選択", shuffleMode:"2. カードの表示設定", shuffleStepTitle:"2A. カード順を選択", cardOrder:"カード順", fictionQuizTitle:"架空の語彙フィルター", fictionStepTitle:"2B. 架空の語彙を表示するか選択", chooseScope:"3. クイズ範囲", chapterScopeStep:"3A. 章カテゴリーを選択", sectionScopeStep:"3B. セクションカテゴリーを選択", typeScopeStep:"3C. 品詞カテゴリーを選択", chapterCategory:"章カテゴリー", sectionCategory:"セクションカテゴリー", typeCategory:"品詞カテゴリー", saveStart:"保存して学習開始",
         confirmDeleteTitle:"履歴を削除しますか？", confirmDeleteDesc:"全参加者の履歴を削除してもよろしいですか？", delete:"削除",
         searchPlaceholder:"語彙、ローマ字、意味を検索...", noVocabFilter:"この条件に合う語彙はありません。", focusWarn:"クイズ画面から離れないでください。", focusStop:"クイズ画面から2回離れたため、クイズを終了しました。", browserSpeechNo:"このブラウザでは発音練習を利用できません。", accessDisabled:"学習体験を守るため、この操作は無効です。", localOnly:"Firebase が利用できません。データは一時的に端末へ保存されます。", saved:"結果を保存しました。", needLogin:"先に名前を入力してください。", noExample:"例文はまだありません。", scoreGood:"よくできました！多くの語彙をしっかり理解できています。", scoreBad:"もう一度復習して、間違えたカードを少しずつ覚えましょう。", reviewVocab:"単語を復習", savePdf:"PDFを保存", retry:"もう一度チャレンジ", emptyResult:"まだ結果がありません。", allStatus:"すべて", fastest:"最速", slowest:"最遅", pdfFilterTitle:"PDF保存前のフィルター", pdfFilterDesc:"PDFに入れる学習結果のカテゴリーを選択してください。", book:"教科書", materialCategoryLabel:"教材カテゴリー", chapter:"章", section:"セクション", type:"品詞", answerStatus:"回答状況", allBooks:"すべての教科書", allMaterials:"すべての教材カテゴリー", allChapters:"すべての章", allSections:"すべてのセクション", allTypes:"すべての品詞", allAnswers:"すべての解答", resetPdfFilter:"フィルターをリセット", savePdfBtn:"PDFを保存", noPdfRows:"PDFフィルターに合うデータがありません。", participantName:"学習者名", adminLabel:"管理者", passwordAdmin:"管理者パスワード"
       }
@@ -36410,17 +36453,21 @@ button:not([disabled]){-webkit-tap-highlight-color:transparent;}
     function esc(s=""){ return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m])); }
     function modeOptionLabel(mode, lang=state.lang){
       const map = {
-        id:{study:"Mode: Belajar", practice:"Mode: Latihan", quiz:"Mode: Kuis"},
-        ja:{study:"学習モード", practice:"練習モード", quiz:"クイズモード"}
+        id:{study:"Belajar Santai", listening:"Dengar & Tebak", shadowing:"Shadowing", speed:"Tantangan Cepat"},
+        ja:{study:"ゆっくり学習", listening:"聞いて当てる", shadowing:"シャドーイング", speed:"スピード挑戦"}
       };
       return (map[lang] || map.id)[mode] || mode;
     }
     function renderModeSelectOptions(){
       const sel = $("#modeSelect");
       if(!sel) return;
-      const keep = sel.value || "study";
-      sel.innerHTML = ["study","practice","quiz"].map(v=>`<option value="${v}">${esc(modeOptionLabel(v))}</option>`).join("");
-      sel.value = ["study","practice","quiz"].includes(keep) ? keep : "study";
+      const supportedModes = ["study","listening","shadowing","speed"];
+      let storedMode = "study";
+      try { storedMode = localStorage.getItem("wikaru_quiz_mode") || "study"; } catch(_) {}
+      const keep = sel.value || storedMode;
+      sel.innerHTML = supportedModes.map(v=>`<option value="${v}">${esc(modeOptionLabel(v))}</option>`).join("");
+      sel.value = supportedModes.includes(keep) ? keep : "study";
+      updateQuizModeHint(sel.value);
     }
     function cardCounterText(current,total,lang=state.lang){ return lang === "ja" ? `${current} / ${total} 枚` : `Kartu ${current} / ${total}`; }
     function progressTextLabel(percent,lang=state.lang){ return lang === "ja" ? `${percent}% 完了` : `${percent}% Selesai`; }
@@ -36467,9 +36514,24 @@ button:not([disabled]){-webkit-tap-highlight-color:transparent;}
       if(hasHiragana || hasKatakana) return "mixed";
       return "none";
     }
+    function katakanaToHiragana(value=""){
+      return String(value || "").normalize("NFKC").replace(/[ァ-ヶ]/g,ch=>String.fromCharCode(ch.charCodeAt(0)-0x60));
+    }
     function strictHiraganaText(v={}){
       const value=String(v.kana || "").trim();
-      return kanaScriptType(value)==="hiragana" ? value : "";
+      const type=kanaScriptType(value);
+      if(type==="hiragana") return value;
+      if(type==="katakana") return katakanaToHiragana(value);
+      return "";
+    }
+    function readingKanaMeta(v={},lang=state.lang){
+      const source=String(v.kana || "").trim();
+      const sourceType=kanaScriptType(source);
+      const value=strictHiraganaText(v) || source;
+      const label=sourceType==="mixed"
+        ? (lang==="ja"?"かな":"Kana")
+        : (lang==="ja"?"ひらがな":"Hiragana");
+      return {value,type:sourceType==="mixed"?"mixed":"hiragana",label,sourceType,source};
     }
     function kanaDisplayMeta(v={},lang=state.lang){
       const value=String(v.kana || "").trim();
@@ -36540,11 +36602,17 @@ button:not([disabled]){-webkit-tap-highlight-color:transparent;}
       try {
         audioCtx = audioCtx || new (window.AudioContext||window.webkitAudioContext)();
         const now=audioCtx.currentTime;
-        const gain=audioCtx.createGain(); gain.connect(audioCtx.destination); gain.gain.setValueAtTime(.0001,now); gain.gain.exponentialRampToValueAtTime(.12,now+.02); gain.gain.exponentialRampToValueAtTime(.0001,now+.38);
-        const osc=audioCtx.createOscillator(); osc.connect(gain); osc.type= type==="wrong" ? "sawtooth" : "sine";
-        osc.frequency.setValueAtTime(type==="load"?420:(type==="wrong"?180:540),now);
-        osc.frequency.exponentialRampToValueAtTime(type==="wrong"?110:(type==="load"?740:880),now+.22);
-        osc.start(now); osc.stop(now+.42);
+        const notes = type==="wrong" ? [329.63,293.66] : type==="load" ? [440,659.25] : [659.25,880];
+        notes.forEach((frequency,index)=>{
+          const start=now+(index*.065);
+          const gain=audioCtx.createGain();gain.connect(audioCtx.destination);
+          gain.gain.setValueAtTime(.0001,start);
+          gain.gain.exponentialRampToValueAtTime(type==="wrong" ? .022 : .032,start+.012);
+          gain.gain.exponentialRampToValueAtTime(.0001,start+.18);
+          const osc=audioCtx.createOscillator();osc.connect(gain);osc.type="sine";
+          osc.frequency.setValueAtTime(frequency,start);
+          osc.start(start);osc.stop(start+.19);
+        });
       } catch(e){}
     }
     function speak(text, lang="ja-JP"){
@@ -39691,6 +39759,7 @@ button:not([disabled]){-webkit-tap-highlight-color:transparent;}
         const meaning = formatIndonesianMeaning(v);
         const mainText = String(vocabMainText(v) || "").trim();
         const kanaText = strictHiraganaText(v);
+        const kanaSourceType = kanaScriptType(v.kana || "");
         const romajiText = String(vocabReadingText(v) || "").trim();
         const showKana = Boolean(kanaText && kanaText !== mainText);
         const thumb = v.image ? `<img class="thumb" src="${esc(v.image)}" alt="${esc(v.imageAlt || mainText)}" loading="lazy" data-zoom="${esc(v.image)}" decoding="async">` : `<span class="thumb-placeholder"><i class="fa-regular fa-image"></i></span>`;
@@ -39700,7 +39769,7 @@ button:not([disabled]){-webkit-tap-highlight-color:transparent;}
             <div class="vocab-script-block">
               <div class="vocab-jp jp">${esc(mainText)}</div>
               <div class="vocab-reading-stack">
-                ${showKana ? `<div class="vocab-kana jp">${esc(kanaText)}</div>` : ""}
+                ${showKana ? `<div class="vocab-kana jp" data-reading-source="${esc(kanaSourceType)}" aria-label="${state.lang === "ja" ? "ひらがなの読み方" : "Cara baca hiragana"}">${esc(kanaText)}</div>` : ""}
                 <div class="vocab-romaji">${esc(romajiText)}</div>
               </div>
             </div>
@@ -39967,20 +40036,31 @@ button:not([disabled]){-webkit-tap-highlight-color:transparent;}
       if(checkedOthers.length === 0){ all.checked=true; others.forEach(i=>i.checked=false); }
       if(checkedOthers.length === others.length && others.length>0){ others.forEach(i=>i.checked=false); all.checked=true; }
     }
+    let quizFilterCacheKey="", quizFilterCache=[];
     function filterQuizData(){
       syncFictionToggleAvailability();
-      let arr=baseVocab().filter(v=>v.quizEnabled !== false).map(v=>({...v, favorite: state.favorites.includes(v.id)}));
-      if(!state.includeFiction) arr = arr.filter(v=>!isFictionVocab(v));
-      const chapters=selectedChecks("#quizChapterFilters").flatMap(ch=>chapterNumbers(ch));
-      const sections=selectedChecks("#quizSectionFilters");
-      const types=selectedChecks("#quizTypeFilters");
-      if(chapters.length) arr=arr.filter(v=>chapters.includes(v.chapterNumber));
-      if(!sections.includes("Semua")) arr=arr.filter(v=>sections.includes(v.sectionCategory));
-      if(!types.includes("Semua")) arr=arr.filter(v=>types.includes(v.typeCategory));
+      const chapterValues=selectedChecks("#quizChapterFilters");
+      const sectionValues=selectedChecks("#quizSectionFilters");
+      const typeValues=selectedChecks("#quizTypeFilters");
       const qdir = $('[data-qdir].active')?.dataset.qdir || "idToJp";
-      if(qdir === "imageToJp") arr = arr.filter(v=>String(v.image || "").trim());
-      if(qdir === "kanjiToReading") arr = arr.filter(v=>String(v.kanji || "").trim());
-      return arr;
+      const key=JSON.stringify([state.setup.book,state.setup.materialCategory,state.setup.chapter,state.includeFiction,chapterValues,sectionValues,typeValues,qdir]);
+      if(key===quizFilterCacheKey)return quizFilterCache.slice();
+      const chapterSet=new Set(chapterValues.flatMap(ch=>chapterNumbers(ch)));
+      const sectionSet=new Set(sectionValues);
+      const typeSet=new Set(typeValues);
+      const allSections=sectionSet.has("Semua"),allTypes=typeSet.has("Semua");
+      quizFilterCache=baseVocab().filter(v=>{
+        if(v.quizEnabled===false)return false;
+        if(!state.includeFiction&&isFictionVocab(v))return false;
+        if(chapterSet.size&&!chapterSet.has(v.chapterNumber))return false;
+        if(!allSections&&!sectionSet.has(v.sectionCategory))return false;
+        if(!allTypes&&!typeSet.has(v.typeCategory))return false;
+        if(qdir==="imageToJp"&&!String(v.image||"").trim())return false;
+        if(qdir==="kanjiToReading"&&!String(v.kanji||"").trim())return false;
+        return true;
+      });
+      quizFilterCacheKey=key;
+      return quizFilterCache.slice();
     }
 
     function updateQuizFilterCount(){
@@ -39991,6 +40071,14 @@ button:not([disabled]){-webkit-tap-highlight-color:transparent;}
       msg.classList.toggle("hidden",arr.length>0);
       startBtn.disabled = arr.length===0;
     }
+    let quizFilterUpdateTimer = 0;
+    function scheduleQuizFilterCount(){
+      clearTimeout(quizFilterUpdateTimer);
+      quizFilterUpdateTimer = setTimeout(()=>{
+        const run=()=>updateQuizFilterCount();
+        if('requestIdleCallback' in window) requestIdleCallback(run,{timeout:120}); else run();
+      },48);
+    }
     function openQuizSettings(){
       if(isReferenceInfoMaterialOnly()) return toast(materialOnlyQuizMessage());
       if(!state.session?.username) return openLogin();
@@ -39999,15 +40087,50 @@ button:not([disabled]){-webkit-tap-highlight-color:transparent;}
       $("#quizSettingsModal").classList.add("show");
       updateQuizSettingSteps();
     }
+    function selectedQuizMode(){
+      const select = $("#modeSelect");
+      if(select) select.value = "study";
+      try { localStorage.setItem("wikaru_quiz_mode","study"); } catch(_) {}
+      return "study";
+    }
+    function quizModeDuration(){
+      return 45;
+    }
+    function quizModeCopy(mode="study",lang=state.lang){
+      return lang === "ja"
+        ? ["学習モード","カードをめくり、答えを確認して、自分の理解を記録します。"]
+        : ["Mode Belajar","Balik kartu, pahami jawabannya, lalu nilai pemahamanmu sendiri."];
+    }
+    function updateQuizModeHint(){
+      const hint = $("#quizModeHint");
+      const [title,desc] = quizModeCopy("study");
+      if(hint){
+        hint.dataset.mode = "study";
+        hint.innerHTML = `<span class="quiz-mode-hint-icon"><i class="fa-solid fa-book-open-reader"></i></span><span><strong>${esc(title)}</strong><small>${esc(desc)}</small></span>`;
+      }
+      const status=$(".study-status");
+      if(status){
+        const statusIcon=status.querySelector("i"), statusText=status.querySelector("span");
+        if(statusIcon) statusIcon.className="fa-solid fa-book-open-reader";
+        if(statusText) statusText.textContent=title;
+      }
+      document.querySelectorAll("[data-quiz-mode-pick]").forEach(button=>{
+        button.classList.toggle("active",button.dataset.quizModePick === "study");
+        button.setAttribute("aria-pressed",String(button.dataset.quizModePick === "study"));
+      });
+    }
+
     function startQuiz(){
       if(isReferenceInfoMaterialOnly()) return toast(materialOnlyQuizMessage());
       saveState();
       let cards = filterQuizData();
       if(!cards.length) return toast(t("noVocabFilter"));
       if($('[data-shuffle="true"]').classList.contains("active")) cards = shuffle(cards);
+      const selectedMode = selectedQuizMode();
+      try { localStorage.setItem("wikaru_quiz_mode",selectedMode); } catch(_) {}
       quiz = {
-        cards, index:0, direction: $('[data-qdir].active').dataset.qdir, shuffle: $('[data-shuffle="true"]').classList.contains("active"),
-        details:[], correct:0, wrong:0, startedAt:Date.now(), cardStart:Date.now(), remaining:30, timer:null, paused:false, flipped:false, focusLost:0, tabLeaveAttempts:0, _lastTabLeaveAt:0, _tabWarningPending:false, micOn:true, answered:false, finishing:false, speechWrongCount:0, lastHeard:"", _speechHold:false,
+        cards, index:0, direction: $('[data-qdir].active').dataset.qdir, shuffle: $('[data-shuffle="true"]').classList.contains("active"), mode:selectedMode,
+        details:[], correct:0, wrong:0, startedAt:Date.now(), cardStart:Date.now(), remaining:quizModeDuration(selectedMode), timer:null, paused:false, flipped:false, focusLost:0, tabLeaveAttempts:0, _lastTabLeaveAt:0, _tabWarningPending:false, micOn:selectedMode==="shadowing", answered:false, finishing:false, speechWrongCount:0, lastHeard:"", _speechHold:false,
         chapterFilters:selectedChecks("#quizChapterFilters"), sectionFilters:selectedChecks("#quizSectionFilters"), typeFilters:selectedChecks("#quizTypeFilters"), fictionFilter:state.includeFiction?(state.lang==="ja"?"架空語 有効":"Fiksi Aktif"):(state.lang==="ja"?"架空語 無効":"Fiksi Nonaktif")
       };
       closeModal("#quizSettingsModal");
@@ -40287,7 +40410,8 @@ button:not([disabled]){-webkit-tap-highlight-color:transparent;}
       quiz.flipped=false;
       quiz.answered=false;
       quiz.cardStart=Date.now();
-      quiz.remaining=30;
+      quiz.remaining=quizModeDuration(quiz.mode);
+      quiz.micOn=quiz.mode==="shadowing";
       quiz.speechWrongCount=0;
       quiz.lastHeard="";
       quiz._speechHold=false;
@@ -40299,16 +40423,28 @@ button:not([disabled]){-webkit-tap-highlight-color:transparent;}
       const front = $("#frontQuestion");
       let q = "";
       let frontIsJp = false;
-      if(quiz.direction === "jpToId"){
+      if(quiz.mode === "listening"){
+        q = state.lang === "ja" ? "音声を聞いて答えを考えましょう" : "Dengarkan audio, lalu tebak jawabannya";
+        front.innerHTML = `<span class="audio-first-prompt"><span class="audio-first-orbit"><i class="fa-solid fa-headphones"></i><b></b><b></b><b></b></span><strong>${esc(q)}</strong><small>${state.lang === "ja" ? "カードをめくる前に声に出して答えてみましょう。" : "Coba jawab dengan suara sebelum membalik kartu."}</small><button type="button" class="audio-replay-chip" data-direct-speak="${esc(getVocabSpeechText(v))}" data-direct-kind="vocab"><i class="fa-solid fa-rotate-right"></i>${state.lang === "ja" ? "もう一度聞く" : "Putar ulang"}</button></span>`;
+      } else if(quiz.mode === "shadowing"){
+        const kanaMeta = kanaDisplayMeta(v);
+        const readingMeta = readingKanaMeta(v);
+        q = jpText(v) || readingMeta.value || v.romaji || "-";
+        frontIsJp = true;
+        front.innerHTML = `<span class="shadowing-prompt"><span class="shadowing-eyebrow"><i class="fa-solid fa-microphone-lines"></i>${state.lang === "ja" ? "聞いて、まねして発音" : "Dengarkan lalu tirukan"}</span><strong class="jp">${esc(q)}</strong>${readingMeta.value && readingMeta.value !== q ? `<span class="jp">${esc(readingMeta.value)}</span>` : ""}<small>${esc(v.romaji || "-")}</small><button type="button" class="audio-replay-chip" data-direct-speak="${esc(getVocabSpeechText(v))}" data-direct-kind="vocab"><i class="fa-solid fa-volume-high"></i>${state.lang === "ja" ? "お手本を聞く" : "Dengar contoh"}</button></span>`;
+      } else if(quiz.direction === "jpToId"){
         q = jpText(v); frontIsJp = true; front.textContent = q;
       } else if(quiz.direction === "kanjiToReading"){
         q = v.kanji || jpText(v); frontIsJp = true; front.textContent = q;
       } else if(quiz.direction === "readingToMeaning"){
         const kanaMeta=kanaDisplayMeta(v);
-        q = [kanaMeta.value,v.romaji].filter(Boolean).join("\n");
+        const readingMeta=readingKanaMeta(v);
+        const showDerivedHiragana=kanaMeta.type==="katakana" && readingMeta.value && readingMeta.value!==kanaMeta.value;
+        q = [kanaMeta.value,showDerivedHiragana?readingMeta.value:"",v.romaji].filter(Boolean).join("\n");
         frontIsJp = true;
-        front.innerHTML = `<span class="quiz-reading-prompt">
+        front.innerHTML = `<span class="quiz-reading-prompt${showDerivedHiragana ? " has-three" : ""}">
           ${kanaMeta.value ? `<span class="quiz-reading-prompt-item kana" data-kana-script="${esc(kanaMeta.type)}"><small>${esc(kanaMeta.label)}</small><strong class="quiz-reading-question jp">${esc(kanaMeta.value)}</strong></span>` : ""}
+          ${showDerivedHiragana ? `<span class="quiz-reading-prompt-item hiragana"><small>${state.lang === "ja" ? "ひらがな" : "Hiragana"}</small><strong class="quiz-reading-question jp">${esc(readingMeta.value)}</strong></span>` : ""}
           <span class="quiz-reading-prompt-item romaji"><small>${state.lang === "ja" ? "ローマ字" : "Romaji"}</small><strong>${esc(v.romaji || "-")}</strong></span>
         </span>`;
       } else if(quiz.direction === "imageToJp"){
@@ -40317,7 +40453,7 @@ button:not([disabled]){-webkit-tap-highlight-color:transparent;}
       } else {
         q = formatQuizIndonesianMeaning(v); front.textContent = q;
       }
-      front.className = "question-text" + (frontIsJp ? " jp" : "") + (quiz.direction === "imageToJp" ? " question-image-mode" : textSizeClass(q));
+      front.className = "question-text" + (frontIsJp ? " jp" : "") + (quiz.direction === "imageToJp" && !["listening","shadowing"].includes(quiz.mode) ? " question-image-mode" : textSizeClass(q)) + (["listening","shadowing"].includes(quiz.mode) ? ` quiz-mode-${quiz.mode}` : "");
       $("#answerArea").innerHTML = renderAnswerHtml(v);
       bindQuizImagePreview();
       $("#cardCounter").textContent = cardCounterText(quiz.index+1, quiz.cards.length);
@@ -40334,7 +40470,18 @@ button:not([disabled]){-webkit-tap-highlight-color:transparent;}
       updateMicBoxState();
       if(!speechSupported) setSpeechStatus("unsupported",t("browserSpeechNo"));
       else setSpeechStatus("idle",state.lang==="ja"?"答えを発話できます。":"Siap mendengarkan jawabanmu");
-      if(quiz.micOn) startRecognition();
+      updateQuizModeHint(quiz.mode);
+      if(quiz.mode === "listening" || quiz.mode === "shadowing"){
+        setTimeout(()=>{
+          if(!quiz || quiz.cards[quiz.index] !== v || quiz.flipped || quiz.paused) return;
+          speakVocab(v);
+        },160);
+      }
+      if(quiz.micOn){
+        const recognitionDelay = quiz.mode === "shadowing" ? 1550 : 220;
+        setTimeout(()=>{ if(quiz && !quiz.flipped && !quiz.answered && !quiz.paused) startRecognition(); },recognitionDelay);
+      }
+      try { window.WIKARU_RESPONSE_FAST?.preloadNextQuizAsset?.(); } catch(_) {}
     }
     function renderAnswerHtml(v){
       const meaning = formatQuizIndonesianMeaning(v);
@@ -40349,17 +40496,22 @@ button:not([disabled]){-webkit-tap-highlight-color:transparent;}
       </div>` : "";
       const jpValue = jpText(v) || "-";
       const kanaMeta = kanaDisplayMeta(v);
-      const kanaValue = kanaMeta.value || "-";
+      const readingMeta = readingKanaMeta(v);
+      const kanaValue = readingMeta.value || kanaMeta.value || "-";
       const romajiValue = v.romaji || "-";
-      const jpLabel = v.kanji ? (state.lang === "ja" ? "漢字" : "Kanji") : (state.lang === "ja" ? "日本語" : "Jepang");
-      const row = (label,value,kind="") => `<div class="quiz-answer-detail ${kind}"${kind==="kana"?` data-kana-script="${esc(kanaMeta.type)}"`:""}><span>${label}</span><strong class="${kind === "kanji" || kind === "kana" ? "jp" : ""}">${esc(value)}</strong></div>`;
+      const jpLabel = v.kanji ? (state.lang === "ja" ? "漢字" : "Kanji") : (kanaMeta.type === "katakana" ? (state.lang === "ja" ? "カタカナ" : "Katakana") : (state.lang === "ja" ? "日本語" : "Jepang"));
+      const row = (label,value,kind="") => `<div class="quiz-answer-detail ${kind}"${kind==="kana"?` data-kana-script="${esc(readingMeta.type)}"`:""}><span>${label}</span><strong class="${kind === "kanji" || kind === "kana" ? "jp" : ""}">${esc(value)}</strong></div>`;
       const primary = (label,value,isJp=false,sizeValue=value) => `<div class="quiz-answer-primary"><span class="quiz-answer-primary-label">${label}</span><div class="answer-main${isJp ? " jp" : ""}${textSizeClass(sizeValue)}">${esc(value)}</div></div>`;
-      const kanaRow = kanaMeta.value && kanaMeta.value !== jpValue ? row(kanaMeta.label,kanaMeta.value,"kana") : "";
+      const kanaRow = readingMeta.value && readingMeta.value !== jpValue ? row(readingMeta.label,readingMeta.value,"kana") : "";
       let content = "";
       if(quiz.direction === "idToJp" || quiz.direction === "imageToJp"){
         content = `${primary(jpLabel,jpValue,true,jpValue)}<div class="quiz-answer-details">${kanaRow}${row(state.lang === "ja" ? "ローマ字" : "Romaji",romajiValue,"romaji")}${row(state.lang === "ja" ? "意味" : "Arti Indonesia",meaning,"meaning")}</div>`;
       } else if(quiz.direction === "kanjiToReading"){
-        content = `${primary(kanaMeta.label,kanaValue,true,kanaValue)}<div class="quiz-answer-details">${row(state.lang === "ja" ? "ローマ字" : "Romaji",romajiValue,"romaji")}${row(jpLabel,jpValue,"kanji")}${row(state.lang === "ja" ? "意味" : "Arti Indonesia",meaning,"meaning")}</div>`;
+        if(kanaMeta.type === "katakana" && !v.kanji){
+          content = `${primary(jpLabel,jpValue,true,jpValue)}<div class="quiz-answer-details">${kanaRow}${row(state.lang === "ja" ? "ローマ字" : "Romaji",romajiValue,"romaji")}${row(state.lang === "ja" ? "意味" : "Arti Indonesia",meaning,"meaning")}</div>`;
+        }else{
+          content = `${primary(readingMeta.label,kanaValue,true,kanaValue)}<div class="quiz-answer-details">${row(state.lang === "ja" ? "ローマ字" : "Romaji",romajiValue,"romaji")}${row(jpLabel,jpValue,"kanji")}${row(state.lang === "ja" ? "意味" : "Arti Indonesia",meaning,"meaning")}</div>`;
+        }
       } else {
         content = `${primary(state.lang === "ja" ? "意味" : "Arti Indonesia",meaning,false,meaning)}<div class="quiz-answer-details">${row(jpLabel,jpValue,"kanji")}${kanaRow}${row(state.lang === "ja" ? "ローマ字" : "Romaji",romajiValue,"romaji")}</div>`;
       }
@@ -40412,39 +40564,46 @@ button:not([disabled]){-webkit-tap-highlight-color:transparent;}
       const v = quiz.cards?.[quiz.index];
       if(!v){ toast(t("noVocabFilter")); return; }
 
+      // Kunci jawaban dan tampilkan feedback visual lebih dahulu agar klik terasa instan.
       quiz.answered = true;
       quiz._speechHold = true;
-      stopRecognition();
+      const answerIndex = quiz.index;
+      const answeredAt = new Date().toISOString();
+      const timeSpent = Math.min(30, Math.max(0, Math.round((Date.now() - quiz.cardStart) / 1000)));
       selectAnswerButton(isCorrect);
-      playTone(isCorrect ? "ok" : "wrong");
       try { window.WIKARU_INTERACTIONS?.answerFeedback(isCorrect); } catch(_) {}
 
-      const timeSpent = Math.min(30, Math.max(0, Math.round((Date.now() - quiz.cardStart) / 1000)));
-      quiz.details.push({
-        no: quiz.index + 1, id: v.id, chapter: v.chapter, typeCategory: v.typeCategory, sectionCategory: v.sectionCategory,
-        indonesia: v.indonesia, isFiction: isFictionVocab(v), kanji: vocabMainText(v), kana: v.kana, romaji: v.romaji,
-        userStatus: isCorrect ? "Benar" : "Salah", isCorrect, timeSpent, heard: quiz.lastHeard || "", answeredAt: new Date().toISOString()
+      // Pencatatan, audio, dan perpindahan kartu dilakukan setelah paint pertama.
+      requestAnimationFrame(()=>{
+        if(!quiz || quiz.index !== answerIndex) return;
+        stopRecognition();
+        playTone(isCorrect ? "ok" : "wrong");
+        quiz.details.push({
+          no: answerIndex + 1, id: v.id, chapter: v.chapter, typeCategory: v.typeCategory, sectionCategory: v.sectionCategory,
+          indonesia: v.indonesia, isFiction: isFictionVocab(v), kanji: vocabMainText(v), kana: v.kana, romaji: v.romaji,
+          userStatus: isCorrect ? "Benar" : "Salah", isCorrect, timeSpent, heard: quiz.lastHeard || "", answeredAt
+        });
+        if(isCorrect) quiz.correct++; else quiz.wrong++;
+
+        const isLastCard = answerIndex >= quiz.cards.length - 1;
+        if(isLastCard){
+          quiz.finishing = true;
+          clearInterval(quiz.timer);
+          if($("#quizProgress")) $("#quizProgress").style.width = "100%";
+          if($("#progressText")) $("#progressText").textContent = progressTextLabel(100);
+          if($("#cardCounter")) $("#cardCounter").textContent = cardCounterText(quiz.cards.length, quiz.cards.length);
+          setTimeout(()=>finishQuiz(), auto ? 165 : 80);
+          return;
+        }
+
+        const delay = auto ? 255 : 145;
+        setTimeout(()=>{
+          if(!quiz || quiz.index !== answerIndex) return;
+          quiz.index++;
+          renderQuizCard();
+          startTimer();
+        }, delay);
       });
-      if(isCorrect) quiz.correct++; else quiz.wrong++;
-
-      const isLastCard = quiz.index >= quiz.cards.length - 1;
-      if(isLastCard){
-        quiz.finishing = true;
-        clearInterval(quiz.timer);
-        if($("#quizProgress")) $("#quizProgress").style.width = "100%";
-        if($("#progressText")) $("#progressText").textContent = progressTextLabel(100);
-        if($("#cardCounter")) $("#cardCounter").textContent = cardCounterText(quiz.cards.length, quiz.cards.length);
-        setTimeout(()=>finishQuiz(), auto ? 350 : 220);
-        return;
-      }
-
-      const delay = auto ? 650 : 420;
-      setTimeout(()=>{
-        if(!quiz) return;
-        quiz.index++;
-        renderQuizCard();
-        startTimer();
-      }, delay);
     }
     function finishQuiz(){
       if(!quiz) return;
@@ -41230,6 +41389,7 @@ html[data-theme="dark"] #quizSettingsModal .option-card.icon-option small{color:
 
 
 
+
 </body></html>`;
     }
     function printWindow(html,title){ const w=window.open("","_blank"); if(!w) return toast("Popup diblokir browser."); w.document.open(); w.document.write(html); w.document.close(); }
@@ -41384,9 +41544,9 @@ html[data-theme="dark"] #quizSettingsModal .option-card.icon-option small{color:
         const sm=e.target.closest("[data-setup-material]"); if(sm){ tempSetup.materialCategory=sm.dataset.setupMaterial; renderSetup(); setSetupStep(4); }
         const sc=e.target.closest("[data-setup-chapter]"); if(sc){ tempSetup.chapter=sc.dataset.setupChapter; renderSetup(); }
         const gg=e.target.closest("[data-group]"); if(gg){ $$("#groupGrid .option-card").forEach(b=>b.classList.remove("active")); gg.classList.add("active"); }
-        const qd=e.target.closest("[data-qdir]"); if(qd){ $$("[data-qdir]").forEach(b=>b.classList.remove("active")); qd.classList.add("active"); updateQuizFilterCount(); }
-        const sh=e.target.closest("[data-shuffle]"); if(sh){ $$("[data-shuffle]").forEach(b=>b.classList.remove("active")); sh.classList.add("active"); updateQuizFilterCount(); }
-        const qf=e.target.closest("[data-qfiction]"); if(qf && !qf.disabled){ $$("[data-qfiction]").forEach(b=>b.classList.remove("active")); qf.classList.add("active"); state.quizFictionOnly = qf.dataset.qfiction === "fiction"; updateQuizFilterCount(); }
+        const qd=e.target.closest("[data-qdir]"); if(qd){ $$("[data-qdir]").forEach(b=>b.classList.remove("active")); qd.classList.add("active"); scheduleQuizFilterCount(); }
+        const sh=e.target.closest("[data-shuffle]"); if(sh){ $$("[data-shuffle]").forEach(b=>b.classList.remove("active")); sh.classList.add("active"); scheduleQuizFilterCount(); }
+        const qf=e.target.closest("[data-qfiction]"); if(qf && !qf.disabled){ $$("[data-qfiction]").forEach(b=>b.classList.remove("active")); qf.classList.add("active"); state.quizFictionOnly = qf.dataset.qfiction === "fiction"; scheduleQuizFilterCount(); }
       });
       document.addEventListener("openQuizSettings",openQuizSettings);
       $("#userMenuBtn").onclick=()=>{ if(!state.session?.username) openLogin(); else $("#userDropdown").classList.toggle("show"); };
@@ -41455,10 +41615,31 @@ html[data-theme="dark"] #quizSettingsModal .option-card.icon-option small{color:
           handleExclusiveAllSelection("#quizTypeFilters", e.target);
           refreshQuizCategoryFilters("type");
         }
-        updateQuizFilterCount();
+        scheduleQuizFilterCount();
       });
       $("#flashcard").onclick=flipCard; $("#quizFavBtn").onclick=e=>{ e.stopPropagation(); toggleFav(quiz.cards[quiz.index].id); }; $("#quizFavBtnBack").onclick=e=>{ e.stopPropagation(); toggleFav(quiz.cards[quiz.index].id); };
-      $("#pauseBtn").onclick=()=>{ if(!quiz) return; quiz.paused=!quiz.paused; $("#pauseBtn span").textContent=quiz.paused?t("resume"):t("pause"); if(quiz.paused){ stopRecognition(); setSpeechStatus("idle",state.lang==="ja"?"一時停止中です。":"Kuis dijeda."); } else { setSpeechStatus("idle",state.lang==="ja"?"答えを発話できます。":"Siap mendengarkan jawabanmu"); startRecognition(); } updateMicBoxState(); };
+      $("#modeSelect").onchange=()=>{
+        const mode=selectedQuizMode();
+        try { localStorage.setItem("wikaru_quiz_mode",mode); } catch(_) {}
+        updateQuizModeHint(mode);
+        if(quiz && !quiz.finishing){
+          clearInterval(quiz.timer);
+          stopRecognition();
+          quiz.mode=mode;
+          renderQuizCard();
+          startTimer();
+          toast(state.lang==="ja"?`${modeOptionLabel(mode)}に切り替えました。`:`Mode diubah ke ${modeOptionLabel(mode)}.`);
+        }
+      };
+      $("#mobileQuizModeSwitcher")?.addEventListener("click",event=>{
+        const button=event.target.closest("[data-quiz-mode-pick]");
+        if(!button) return;
+        const select=$("#modeSelect");
+        if(!select) return;
+        select.value=button.dataset.quizModePick;
+        select.dispatchEvent(new Event("change",{bubbles:true}));
+      });
+      $("#pauseBtn").onclick=()=>{ if(!quiz) return; quiz.paused=!quiz.paused; $("#pauseBtn span").textContent=quiz.paused?t("resume"):t("pause"); if(quiz.paused){ stopRecognition(); setSpeechStatus("idle",state.lang==="ja"?"一時停止中です。":"Kuis dijeda."); } else { setSpeechStatus("idle",state.lang==="ja"?"答えを発話できます。":"Siap mendengarkan jawabanmu"); if(quiz.micOn) startRecognition(); } updateMicBoxState(); };
       $("#hearBtn").onclick=()=>{ if(!quiz || !quiz.flipped) return toast(state.lang==="ja"?"先にカードを裏返してください。":"Balik kartu dulu untuk menggunakan fitur ini."); if(!("speechSynthesis" in window)){ setSpeechStatus("unsupported",state.lang==="ja"?"このブラウザは音声再生に対応していません。":"Audio tidak didukung browser ini"); return; } speakVocab(quiz.cards[quiz.index]); };
       $("#exampleBtn").onclick=openExampleModal;
       $("#correctBtn").onclick=()=>answerCard(true); $("#wrongBtn").onclick=()=>answerCard(false);
@@ -41578,7 +41759,7 @@ html[data-theme="dark"] #quizSettingsModal .option-card.icon-option small{color:
       window.addEventListener("pageshow",clearInspectionOverlay,{passive:true});
       window.addEventListener("resize",clearInspectionOverlay,{passive:true});
       document.addEventListener("visibilitychange",clearInspectionOverlay,{passive:true});
-      new MutationObserver(markProtected).observe(document.body,{childList:true,subtree:true});
+      // Kontainer sensitif bersifat stabil; observer seluruh body dihindari agar klik/rerender tetap ringan.
       clearInspectionOverlay();
     }
 
@@ -41885,24 +42066,85 @@ html[data-theme="dark"] #quizSettingsModal .option-card.icon-option small{color:
   function refreshVoices(){
     try { voices = window.speechSynthesis?.getVoices?.() || []; } catch(_){ voices = []; }
   }
-  function voiceScore(voice,lang="ja-JP"){
-    const name = String(voice?.name || "");
-    const voiceLang = String(voice?.lang || "");
-    let score = 0;
-    if(/^ja(-|_)?JP$/i.test(voiceLang)) score += 120;
-    else if(/^ja/i.test(voiceLang)) score += 95;
-    if(voice?.localService) score += 18;
-    if(/Kyoko|O-Ren|Nanami|Keita|Haruka|Ayumi|Ichiro|Hattori/i.test(name)) score += 42;
-    if(/Google.*日本語|Google Japanese/i.test(name)) score += 34;
-    if(/Microsoft.*(Nanami|Keita|Japanese|日本語)/i.test(name)) score += 32;
-    if(/Premium|Enhanced|Natural|Neural/i.test(name)) score += 24;
-    if(/Compact/i.test(name)) score -= 8;
-    if(lang && voiceLang.toLowerCase() === lang.toLowerCase()) score += 12;
+  function currentVoicePreset(){
+    const allowed=["hanamama","momokawaii","renikebo","kaitodandy"];
+    let value="hanamama";
+    try { value=localStorage.getItem("wikaru_voice_preset") || "hanamama"; } catch(_) {}
+    if(!allowed.includes(value)) value="hanamama";
+    try { localStorage.setItem("wikaru_voice_preset",value); } catch(_) {}
+    return value;
+  }
+  function voiceProfileParams(preset="hanamama",kind="vocab"){
+    const sentence=kind === "example";
+    const profiles={
+      hanamama:{rate:sentence?.90:.84,pitch:1.03},
+      momokawaii:{rate:sentence?.99:.95,pitch:1.16},
+      renikebo:{rate:sentence?.94:.89,pitch:.84},
+      kaitodandy:{rate:sentence?.88:.81,pitch:.72}
+    };
+    return profiles[preset] || profiles.hanamama;
+  }
+  function voiceScore(voice,lang="ja-JP",preset=currentVoicePreset()){
+    const name=String(voice?.name || "");
+    const voiceLang=String(voice?.lang || "");
+    const female=/Nanami|Haruka|Ayumi|Kyoko|O-Ren|Mizuki|Sayaka|Hikari|Akari|Nozomi|Sakura|Aoi|Mei|Yuna|Ichika|Female|女性/i;
+    const male=/Keita|Otoya|Ichiro|Hattori|Kenji|Takumi|Daichi|Hiroshi|Male|男性/i;
+    let score=0;
+    if(/^ja(-|_)?JP$/i.test(voiceLang)) score+=240;
+    else if(/^ja/i.test(voiceLang)) score+=175;
+    if(/Natural|Neural|Premium|Enhanced|Online|Siri/i.test(name)) score+=95;
+    if(/Google.*(日本語|Japanese)/i.test(name)) score+=75;
+    if(/Microsoft.*(Japanese|日本語|Nanami|Keita)/i.test(name)) score+=75;
+    if(voice?.localService) score+=18;
+    if(voice?.default) score+=8;
+    if(/Compact|eSpeak|Festival|Desktop/i.test(name)) score-=30;
+    if(lang && voiceLang.toLowerCase()===lang.toLowerCase()) score+=20;
+
+    if(preset==="hanamama"){
+      if(female.test(name)) score+=125;
+      if(/Nanami|Kyoko|Ayumi|Mizuki|Nozomi/i.test(name)) score+=55;
+      if(male.test(name)) score-=110;
+    }else if(preset==="momokawaii"){
+      if(female.test(name)) score+=125;
+      if(/Haruka|Hikari|Sayaka|Sakura|Aoi|Mei|Yuna/i.test(name)) score+=65;
+      if(male.test(name)) score-=110;
+    }else if(preset==="renikebo"){
+      if(male.test(name)) score+=135;
+      if(/Keita|Otoya|Takumi|Daichi/i.test(name)) score+=60;
+      if(female.test(name)) score-=115;
+    }else if(preset==="kaitodandy"){
+      if(male.test(name)) score+=135;
+      if(/Ichiro|Hattori|Hiroshi|Kenji|Otoya/i.test(name)) score+=65;
+      if(female.test(name)) score-=115;
+    }
     return score;
   }
-  function bestVoice(lang="ja-JP"){
+  function bestVoice(lang="ja-JP",preset=currentVoicePreset()){
     refreshVoices();
-    return voices.slice().sort((a,b)=>voiceScore(b,lang)-voiceScore(a,lang))[0] || null;
+    return voices.slice().sort((a,b)=>voiceScore(b,lang,preset)-voiceScore(a,lang,preset))[0] || null;
+  }
+  function updateVoicePresetUI(){
+    const select=byId("voicePresetSelect");
+    const title=byId("voiceProfileTitle");
+    const status=byId("voiceAvailabilityText");
+    const ja=document.documentElement.lang === "ja";
+    const preset=currentVoicePreset();
+    const copy={
+      hanamama:{id:["Hana Onee-san","Hangat, lembut, dan menenangkan seperti kakak dewasa."],ja:["花お姉さん","やさしく包み込むような大人の女性の声"]},
+      momokawaii:{id:["Momo Kawaii","Manis, ceria, dan ekspresif untuk belajar lebih menyenangkan."],ja:["ももカワイイ","明るく可愛らしい表情豊かな声"]},
+      renikebo:{id:["Ren Ikebo","Suara pria muda yang rendah, halus, dan memikat."],ja:["蓮イケボ","若々しく低音で魅力的な男性の声"]},
+      kaitodandy:{id:["Kaito Dandy","Dewasa, tenang, keren, dan berwibawa."],ja:["海斗ダンディ","落ち着きと深みのある大人の男性の声"]}
+    };
+    const meta=(copy[preset] || copy.hanamama)[ja?"ja":"id"];
+    if(select) select.value=preset;
+    if(title) title.textContent=meta[0];
+    const voice=bestVoice("ja-JP",preset);
+    if(status){
+      status.textContent=voice ? `${meta[1]} ${ja?"使用音声":"Voice perangkat"}: ${voice.name}` : meta[1];
+      status.title=status.textContent;
+    }
+    document.querySelectorAll("[data-current-voice-name]").forEach(node=>node.textContent=meta[0]);
+    document.querySelectorAll("[data-current-voice-desc]").forEach(node=>node.textContent=meta[1]);
   }
   function normalizeSpeechText(text,kind="vocab"){
     let value = String(text || "").replace(/[〜～]/g,"").replace(/\s+/g," ").trim();
@@ -41943,10 +42185,12 @@ html[data-theme="dark"] #quizSettingsModal .option-card.icon-option small{color:
       const utterance = new SpeechSynthesisUtterance(cleaned);
       activeUtterance = utterance;
       utterance.lang = lang;
-      const voice = bestVoice(lang);
+      const preset=currentVoicePreset();
+      const voice = bestVoice(lang,preset);
       if(voice) utterance.voice = voice;
-      utterance.rate = kind === "example" ? .91 : .78;
-      utterance.pitch = kind === "example" ? 1.00 : .98;
+      const profile=voiceProfileParams(preset,kind);
+      utterance.rate = profile.rate;
+      utterance.pitch = profile.pitch;
       utterance.volume = 1;
       utterance.onstart = ()=>activateAudioButton(button);
       utterance.onend = ()=>{ restoreAudioButton(button); if(activeAudioButton===button) activeAudioButton=null; activeUtterance=null; };
@@ -42141,13 +42385,30 @@ html[data-theme="dark"] #quizSettingsModal .option-card.icon-option small{color:
 
   refreshVoices();
   if("speechSynthesis" in window){
-    window.speechSynthesis.onvoiceschanged = refreshVoices;
+    window.speechSynthesis.onvoiceschanged = ()=>{ refreshVoices(); updateVoicePresetUI(); };
   }
+  document.addEventListener("change",event=>{
+    if(event.target?.id !== "voicePresetSelect") return;
+    const allowed=["hanamama","momokawaii","renikebo","kaitodandy"];
+    const value=allowed.includes(event.target.value)?event.target.value:"hanamama";
+    event.target.value=value;
+    try { localStorage.setItem("wikaru_voice_preset",value); } catch(_) {}
+    updateVoicePresetUI();
+    const samples={
+      hanamama:"こんにちは。今日もゆっくり、一緒に日本語を勉強しましょうね。",
+      momokawaii:"こんにちは！今日も楽しく日本語を勉強しよう！",
+      renikebo:"こんにちは。今日も一緒に、日本語を練習しよう。",
+      kaitodandy:"こんにちは。落ち着いて、日本語の練習を始めましょう。"
+    };
+    naturalSpeak(samples[value],"ja-JP",{kind:"example"});
+    document.dispatchEvent(new CustomEvent("wikaru:voice-preset-changed",{detail:{preset:value}}));
+  });
 
   function init(){
     installThemeToggle();
     installMaterialObserver();
     enhanceTimer();
+    updateVoicePresetUI();
     const originalShowPage = window.showPage;
     if(typeof originalShowPage === "function"){
       window.showPage = function(){
@@ -42584,8 +42845,8 @@ html[data-theme="dark"]{
 @keyframes wk11Correct{0%{transform:scale(.985)}55%{transform:scale(1.015)}100%{transform:none}}
 @keyframes wk11Wrong{0%,100%{transform:none}25%{transform:translateX(-3px)}50%{transform:translateX(3px)}75%{transform:translateX(-2px)}}
 
-body.wk-correct-feedback #flashcard{animation:wk11Correct 360ms var(--wk11-ease-emph)}
-body.wk-wrong-feedback #flashcard{animation:wk11Wrong 320ms ease}
+body.wk-correct-feedback #flashcard{animation:wk11Correct 230ms var(--wk11-ease-emph)}
+body.wk-wrong-feedback #flashcard{animation:wk11Wrong 210ms ease}
 .top-nav.wk-scrolled{border-bottom-color:var(--wk11-border)!important;box-shadow:0 8px 24px rgba(23,32,51,.07)!important}
 
 
@@ -42943,11 +43204,7 @@ body.wk-modal-open{overflow:hidden!important}
     },{passive:true});
   }
 
-  function feedbackButtons(){
-    const correct=$('#correctBtn'),wrong=$('#wrongBtn');
-    if(correct&&!correct.dataset.wkFeedback){correct.dataset.wkFeedback='1';correct.addEventListener('click',()=>{document.body.classList.remove('wk-wrong-feedback');document.body.classList.add('wk-correct-feedback');navigator.vibrate?.(18);setTimeout(()=>document.body.classList.remove('wk-correct-feedback'),420);});}
-    if(wrong&&!wrong.dataset.wkFeedback){wrong.dataset.wkFeedback='1';wrong.addEventListener('click',()=>{document.body.classList.remove('wk-correct-feedback');document.body.classList.add('wk-wrong-feedback');navigator.vibrate?.([10,35,10]);setTimeout(()=>document.body.classList.remove('wk-wrong-feedback'),380);});}
-  }
+  function feedbackButtons(){ /* Motion jawaban dikelola satu kali oleh runtime V19. */ }
 
   function annotateTable(table){
     if(!table)return;const headers=$$('thead th',table).map(th=>th.textContent.trim());
@@ -42996,7 +43253,10 @@ body.wk-modal-open{overflow:hidden!important}
     const result=$('#resultContent');if(result)new MutationObserver(()=>{annotateAllTables(result);improveAccessibility();}).observe(result,{childList:true,subtree:true});
     const admin=$('#adminTableWrap');if(admin)new MutationObserver(()=>{annotateAllTables(admin);improveAccessibility();}).observe(admin,{childList:true,subtree:true});
     $$('.modal').forEach(m=>new MutationObserver(syncModalState).observe(m,{attributes:true,attributeFilter:['class']}));
-    document.addEventListener('click',()=>setTimeout(()=>{updatePageChrome();syncQuizHeader();syncAnswerBarLocation();annotateAllTables();},45));
+    document.addEventListener('click',event=>{
+      if(!event.target.closest('[data-page],.bottom-nav button,.nav-link,.modal button,.modal [role=button],#userMenuBtn,.drop-item')) return;
+      setTimeout(()=>{updatePageChrome();syncQuizHeader();syncAnswerBarLocation();},24);
+    });
     window.addEventListener('scroll',()=>$('#topNav')?.classList.toggle('wk-scrolled',window.scrollY>8),{passive:true});
     const themeObserver=new MutationObserver(()=>{const meta=$('meta[name="theme-color"]');if(meta)meta.content=document.documentElement.dataset.theme==='dark'?'#0F1722':'#F7F8FA';});
     themeObserver.observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
@@ -44276,7 +44536,8 @@ html[data-theme="dark"] .home-scroll-hint{color:#9EA9BC!important;}
   function speakDaily(){
     const text=dailyWord?.speech||dailyWord?.kana||dailyWord?.kanji;
     if(!text||!('speechSynthesis'in window))return;
-    speechSynthesis.cancel();const utter=new SpeechSynthesisUtterance(text);utter.lang='ja-JP';utter.rate=.88;speechSynthesis.speak(utter);
+    if(typeof window.wikaruNaturalSpeak === "function") return window.wikaruNaturalSpeak(text,"ja-JP",{kind:"vocab",button:$("#homeDailyAudioBtn")});
+    speechSynthesis.cancel();const utter=new SpeechSynthesisUtterance(text);utter.lang='ja-JP';utter.rate=.90;utter.pitch=.99;speechSynthesis.speak(utter);
   }
   function toggleFavorite(){
     if(!dailyWord?.id)return;
@@ -44304,7 +44565,7 @@ html[data-theme="dark"] .home-scroll-hint{color:#9EA9BC!important;}
     $('#homeDailySpeechBtn')?.addEventListener('click',()=>proxyClick('#homeStartBtn,#homeLoginBtn'));
     $('#homeDailyFavoriteBtn')?.addEventListener('click',toggleFavorite);
     ['#activeChoiceText','#homeVocabCount','#homeTimeValue','#homeChapterCount','#userMenuText'].forEach(selector=>{const el=$(selector);if(el)new MutationObserver(()=>requestAnimationFrame(refreshHome)).observe(el,{childList:true,subtree:true,characterData:true});});
-    const themeObserver=new MutationObserver(()=>requestAnimationFrame(syncThemeMenu));themeObserver.observe(document.body,{childList:true,subtree:true});
+    const themeObserver=new MutationObserver(()=>requestAnimationFrame(syncThemeMenu));themeObserver.observe(document.documentElement,{attributes:true,attributeFilter:['data-theme','lang']});
     $('#navLangBtn')?.addEventListener('click',()=>setTimeout(refreshHome,80));
     $('#langToggleDrop')?.addEventListener('click',()=>setTimeout(refreshHome,80));
     window.addEventListener('storage',refreshHome);
@@ -45680,52 +45941,47 @@ img,svg,video,canvas{max-width:100%;}
 }
 </style>
 
-<script id="wikaru-loading-motion-runtime">
+<script id="wikaru-loading-motion-runtime-v20">
 (function(){
   "use strict";
-  const loader = document.getElementById("loadingScreen");
+  if(window.__wikaruLoaderV20) return;
+  window.__wikaruLoaderV20 = true;
+  const loader=document.getElementById("loadingScreen");
   if(!loader) return;
-  const status = document.getElementById("loaderStatusText");
-  const skip = document.getElementById("loaderSkipBtn");
-  const isJa = document.documentElement.lang === "ja";
-  const messages = isJa
-    ? ["語彙を準備しています","音声機能を確認しています","学習記録を読み込んでいます","画面を整えています"]
-    : ["Menyiapkan kosakata","Memeriksa fitur audio","Memuat progres belajar","Merapikan tampilan"];
-  let index = 0;
-  if(status){
-    status.textContent = messages[0];
-    window.__wikaruLoaderStatusTimer = setInterval(function(){
-      if(loader.classList.contains("is-leaving") || loader.hidden){
-        clearInterval(window.__wikaruLoaderStatusTimer);
-        window.__wikaruLoaderStatusTimer = null;
-        return;
-      }
-      index = (index + 1) % messages.length;
-      status.animate?.([{opacity:.25,transform:"translateY(3px)"},{opacity:1,transform:"none"}],{duration:260,easing:"ease-out"});
-      status.textContent = messages[index];
-    },1050);
+  const status=document.getElementById("loaderStatusText");
+  const fill=loader.querySelector(".loader-fill");
+  const skip=document.getElementById("loaderSkipBtn");
+  const started=performance.now();
+  const isJa=document.documentElement.lang==="ja";
+  const phases=isJa
+    ? [["語彙を準備しています",28],["学習画面を整えています",72],["準備ができました",100]]
+    : [["Menyiapkan kosakata",28],["Merapikan ruang belajar",72],["Siap digunakan",100]];
+  let released=false;
+  function setPhase(index){
+    const phase=phases[Math.min(index,phases.length-1)];
+    if(status) status.textContent=phase[0];
+    if(fill) fill.style.setProperty("--wk-loader-progress",phase[1]+"%");
+    loader.dataset.phase=String(index+1);
   }
-  const slowTimer = setTimeout(function(){
-    if(!loader.classList.contains("is-leaving") && !loader.hidden){
-      loader.classList.add("is-slow");
-    }
-  },3200);
-  skip?.addEventListener("click",function(){
-    clearTimeout(slowTimer);
-    if(typeof window.__wikaruReleaseLoader === "function"){
-      window.__wikaruReleaseLoader("user-skip");
-    }else{
-      loader.classList.add("is-leaving");
-      setTimeout(()=>{loader.hidden = true; loader.classList.add("is-released"); loader.style.setProperty("display","none","important");},520);
-    }
-  });
-  window.addEventListener("load",function(){
-    setTimeout(function(){
-      if(loader.classList.contains("is-slow") && typeof window.__wikaruReleaseLoader === "function"){
-        window.__wikaruReleaseLoader("window-load-recovery");
-      }
-    },1200);
-  },{once:true});
+  function release(reason){
+    if(released) return;
+    released=true;
+    const wait=Math.max(0,420-(performance.now()-started));
+    setPhase(2);
+    setTimeout(()=>{
+      if(typeof window.__wikaruReleaseLoader==="function") window.__wikaruReleaseLoader(reason||"loader-v20-ready");
+      else{loader.classList.add("is-leaving");setTimeout(()=>{loader.hidden=true;loader.style.display="none";},260);}
+    },wait);
+  }
+  setPhase(0);
+  requestAnimationFrame(()=>setTimeout(()=>setPhase(1),110));
+  const ready=()=>requestAnimationFrame(()=>requestAnimationFrame(()=>release("dom-ready-v20")));
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",ready,{once:true}); else ready();
+  skip?.addEventListener("click",()=>release("user-skip-v20"),{once:true});
+  setTimeout(()=>loader.classList.add("is-slow"),850);
+  setTimeout(()=>release("hard-failsafe-v20"),1800);
+  window.addEventListener("error",()=>release("runtime-error-v20"),{once:true});
+  window.addEventListener("unhandledrejection",()=>release("async-error-v20"),{once:true});
 })();
 </script>
 
@@ -45833,10 +46089,8 @@ img,svg,video,canvas{max-width:100%;}
     });
   }
   function init(){
+    // Normalisasi awal cukup; elemen dinamis ditangani observer terarah pada root materi/hasil/admin.
     normalize(document);
-    new MutationObserver(function(records){
-      records.forEach(function(record){record.addedNodes.forEach(function(node){if(node.nodeType===1)normalize(node);});});
-    }).observe(document.body,{childList:true,subtree:true});
   }
   if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init,{once:true});else init();
 })();
@@ -45950,16 +46204,15 @@ html.performance-lite :is(.top-nav,.bottom-nav,.glass,.modal,.modal-card){backdr
     if(lowMemory||lowCpu) document.documentElement.classList.add('performance-lite');
   }
   function observeUI(){
-    const observer=new MutationObserver(records=>{
-      let navigationChanged=false;
-      records.forEach(record=>{
-        if(record.type==='attributes'&&record.target.classList?.contains('modal')) onModalState(record.target);
-        if(record.type==='attributes'&&record.target.classList?.contains('page')) navigationChanged=true;
-        record.addedNodes.forEach(node=>{if(node.nodeType===1){node.querySelectorAll?.('button:not([type])').forEach(button=>button.type='button');node.querySelectorAll?.('img:not([alt])').forEach(img=>img.alt='');}});
-      });
-      if(navigationChanged){syncNavigation();const page=$('.page.active h1,.page.active h2');if(page)announce(page.textContent.trim());}
-    });
-    observer.observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:['class']});
+    $$('.modal').forEach(modal=>new MutationObserver(()=>onModalState(modal)).observe(modal,{attributes:true,attributeFilter:['class']}));
+    $$('.page').forEach(page=>new MutationObserver(()=>{
+      if(!page.classList.contains('active'))return;
+      syncNavigation();const heading=page.querySelector('h1,h2');if(heading)announce(heading.textContent.trim());
+    }).observe(page,{attributes:true,attributeFilter:['class']}));
+    const dynamicRoots=['materialGrid','resultContent','adminTableWrap','toast'].map(id=>document.getElementById(id)).filter(Boolean);
+    dynamicRoots.forEach(root=>new MutationObserver(records=>{
+      records.forEach(record=>record.addedNodes.forEach(node=>{if(node.nodeType!==1)return;if(node.matches?.('button:not([type])'))node.type='button';if(node.matches?.('img:not([alt])'))node.alt='';node.querySelectorAll?.('button:not([type])').forEach(button=>button.type='button');node.querySelectorAll?.('img:not([alt])').forEach(img=>img.alt='');}));
+    }).observe(root,{childList:true,subtree:true}));
   }
   function init(){
     performanceProfile();ensureSemantics();setupNetworkState();observeUI();document.addEventListener('keydown',trapModalKeys,true);
@@ -46220,8 +46473,8 @@ button,a,[role="button"],input,select{touch-action:manipulation}
       kanjiToReading:{id:'Tebak kana dan romaji dari kanji.',ja:'漢字を見て、かなとローマ字で答えます。'},
       readingToMeaning:{id:'Kartu depan menampilkan kana dan romaji.',ja:'カードの表面にかなとローマ字を表示します。'}
     };
-    Object.entries(copy).forEach(([key,text])=>{const note=$(`[data-qdir="${key}"] .qdir-note`);if(!note)return;note.dataset.id=text.id;note.dataset.ja=text.ja;note.textContent=document.documentElement.lang==='ja'?text.ja:text.id;});
-    $$('.wk-script-chip',document).forEach(chip=>{if(['ひらがな','Hiragana'].includes(chip.textContent.trim()))chip.textContent=document.documentElement.lang==='ja'?'かな':'Kana';});
+    Object.entries(copy).forEach(([key,text])=>{const note=$(`[data-qdir="${key}"] .qdir-note`);if(!note)return;note.dataset.id=text.id;note.dataset.ja=text.ja;const next=document.documentElement.lang==='ja'?text.ja:text.id;if(note.textContent!==next)note.textContent=next;});
+    $$('.wk-script-chip',document).forEach(chip=>{if(['ひらがな','Hiragana'].includes(chip.textContent.trim())){const next=document.documentElement.lang==='ja'?'かな':'Kana';if(chip.textContent!==next)chip.textContent=next;}});
   }
   function elementRect(el){const r=el.getBoundingClientRect();return {left:r.left,top:r.top,right:r.right,bottom:r.bottom,width:r.width,height:r.height};}
   function auditResponsive(){
@@ -46243,8 +46496,11 @@ button,a,[role="button"],input,select{touch-action:manipulation}
   function refresh(){normalizeIconLabels();enforceStrictHiragana();updateGenericKanaCopy();}
   function bind(){
     refresh();
-    const observer=new MutationObserver(records=>{let needed=false;for(const r of records){if(r.addedNodes.length||r.type==='attributes'){needed=true;break}}if(needed)requestAnimationFrame(refresh);});
-    observer.observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:['class','lang']});
+    const scheduleRefresh=(()=>{let frame=0;return()=>{if(frame)return;frame=requestAnimationFrame(()=>{frame=0;refresh();});};})();
+    ['materialGrid','answerArea'].map(id=>document.getElementById(id)).filter(Boolean).forEach(scope=>{
+      new MutationObserver(scheduleRefresh).observe(scope,{childList:true,subtree:true});
+    });
+    new MutationObserver(scheduleRefresh).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
     document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'){try{if(typeof flushPendingResults==='function')flushPendingResults();}catch(_){}}});
     window.addEventListener('resize',()=>{clearTimeout(root._auditTimer);root._auditTimer=setTimeout(auditResponsive,180);},{passive:true});
     setTimeout(()=>{refresh();auditResponsive();},500);
@@ -46659,17 +46915,15 @@ img,svg,video,canvas{max-width:100%!important;}
 
   function init(){
     normalizeNativeScroll();
-    document.addEventListener('pointerdown',scheduleNormalize,{capture:true,passive:true});
-    document.addEventListener('touchstart',scheduleNormalize,{capture:true,passive:true});
     window.addEventListener('pageshow',scheduleNormalize,{passive:true});
     window.addEventListener('focus',scheduleNormalize,{passive:true});
     window.addEventListener('resize',scheduleNormalize,{passive:true});
     document.addEventListener('visibilitychange',()=>{if(!document.hidden)scheduleNormalize();},{passive:true});
-    new MutationObserver(scheduleNormalize).observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:['class','hidden','aria-hidden','style']});
+    $$('.modal,#loadingScreen,#userDropdown,#profileMenuBackdrop,#devtoolsOverlay').forEach(surface=>{
+      new MutationObserver(scheduleNormalize).observe(surface,{attributes:true,attributeFilter:['class','hidden']});
+    });
     setTimeout(scheduleNormalize,80);
-    setTimeout(scheduleNormalize,700);
-    setTimeout(scheduleNormalize,2500);
-    setTimeout(scheduleNormalize,7000);
+    setTimeout(scheduleNormalize,900);
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init,{once:true}); else init();
 })();
@@ -46840,7 +47094,7 @@ body.inspect-private-mode :is(.app,.top-nav,.bottom-nav){pointer-events:auto!imp
     void page.offsetWidth;
     page.classList.add(correct?'wk-answer-correct':'wk-answer-wrong');
     announce(correct?(isJapanese()?'正解です':'Jawaban benar'):(isJapanese()?'不正解です':'Jawaban salah'));
-    answerTimer=setTimeout(()=>page.classList.remove('wk-answer-correct','wk-answer-wrong'),520);
+    answerTimer=setTimeout(()=>page.classList.remove('wk-answer-correct','wk-answer-wrong'),260);
   }
 
   function fallbackPageNavigation(requested){
@@ -46937,5 +47191,651 @@ body.inspect-private-mode :is(.app,.top-nav,.bottom-nav){pointer-events:auto!imp
 }
 @media(max-width:340px){.home-quick-list{grid-template-columns:1fr!important}.home-quick-item:last-child{grid-column:auto!important;}}
 </style>
+
+<style id="wikaru-response-fast-v18">
+/* V18: faster perceived response while preserving accessible motion. */
+:root{--wk18-press:90ms;--wk18-choice:125ms;--wk18-feedback:230ms}
+.option-card,.choice-chip,.check-pill,.btn,.control-btn,.icon-btn{
+  transition-duration:var(--wk18-choice)!important;
+  transition-timing-function:cubic-bezier(.2,.8,.2,1)!important;
+}
+:is(.option-card,.choice-chip,.check-pill,.btn,.control-btn,.icon-btn).wk-choice-pressed:not(:disabled){
+  transform:scale(.982)!important;
+  filter:brightness(.985)!important;
+  transition-duration:var(--wk18-press)!important;
+}
+#quizSettingsModal :is(.option-card,.choice-chip,.check-pill):active,
+.quiz-answer-row .btn:active{transform:scale(.982)!important}
+body.wk-correct-feedback #flashcard{animation-duration:230ms!important}
+body.wk-wrong-feedback #flashcard{animation-duration:210ms!important}
+#quizPage.wk-answer-correct .flash-face{transition-duration:180ms!important}
+#quizPage.wk-answer-wrong .flash-face{transition-duration:180ms!important}
+@media(prefers-reduced-motion:reduce){
+  :is(.option-card,.choice-chip,.check-pill,.btn,.control-btn,.icon-btn),
+  body.wk-correct-feedback #flashcard,body.wk-wrong-feedback #flashcard{animation-duration:.001ms!important;transition-duration:.001ms!important}
+}
+</style>
+<script id="wikaru-response-fast-runtime-v18">
+(function(){
+  'use strict';
+  if(window.__wikaruResponseFastV18) return;
+  window.__wikaruResponseFastV18=true;
+  const $=(s,r=document)=>r.querySelector(s);
+  const interactive='button:not(:disabled),.option-card:not([aria-disabled="true"]),.choice-chip:not([aria-disabled="true"]),.check-pill';
+  const audit=window.WIKARU_RESPONSE_AUDIT={version:'18.0-response-fast',samples:[],last:null};
+  let pendingAnswer=null;
+
+  function pressOn(target){
+    const el=target?.closest?.(interactive);if(!el)return;
+    el.classList.add('wk-choice-pressed');
+    const clear=()=>el.classList.remove('wk-choice-pressed');
+    window.setTimeout(clear,130);
+  }
+  document.addEventListener('pointerdown',event=>pressOn(event.target),{capture:true,passive:true});
+  document.addEventListener('pointerup',event=>event.target?.closest?.(interactive)?.classList.remove('wk-choice-pressed'),{capture:true,passive:true});
+  document.addEventListener('pointercancel',event=>event.target?.closest?.(interactive)?.classList.remove('wk-choice-pressed'),{capture:true,passive:true});
+
+  function warmAudio(){
+    try{
+      if(typeof audioCtx!=='undefined'){
+        audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)();
+        if(audioCtx.state==='suspended') audioCtx.resume().catch(()=>{});
+      }
+    }catch(_){}
+  }
+  document.addEventListener('pointerdown',warmAudio,{capture:true,once:true,passive:true});
+
+  function preloadNextQuizAsset(){
+    try{
+      if(typeof quiz==='undefined'||!quiz?.cards?.length)return;
+      const next=quiz.cards[quiz.index+1];
+      const src=String(next?.image||'').trim();if(!src)return;
+      const load=()=>{const img=new Image();img.decoding='async';img.src=src;};
+      if('requestIdleCallback'in window)requestIdleCallback(load,{timeout:700});else setTimeout(load,40);
+    }catch(_){}
+  }
+
+  document.addEventListener('click',event=>{
+    const answer=event.target.closest?.('#correctBtn,#wrongBtn');
+    if(answer){
+      pendingAnswer={started:performance.now(),counter:$('#cardCounter')?.textContent||'',button:answer.id};
+      requestAnimationFrame(()=>{
+        if(!pendingAnswer)return;
+        pendingAnswer.feedbackMs=Math.round((performance.now()-pendingAnswer.started)*10)/10;
+      });
+    }
+  },{capture:true});
+
+  const counter=$('#cardCounter');
+  if(counter){
+    new MutationObserver(()=>{
+      if(!pendingAnswer)return;
+      const nowText=counter.textContent||'';
+      if(nowText===pendingAnswer.counter)return;
+      const sample={button:pendingAnswer.button,feedbackMs:pendingAnswer.feedbackMs??null,nextCardMs:Math.round((performance.now()-pendingAnswer.started)*10)/10,at:new Date().toISOString()};
+      audit.samples.push(sample);if(audit.samples.length>30)audit.samples.shift();audit.last=sample;pendingAnswer=null;
+    }).observe(counter,{childList:true,subtree:true,characterData:true});
+  }
+
+  function summary(){
+    const rows=audit.samples;if(!rows.length)return {samples:0,averageFeedbackMs:null,averageNextCardMs:null};
+    const avg=key=>Math.round((rows.reduce((sum,row)=>sum+(Number(row[key])||0),0)/rows.length)*10)/10;
+    return {samples:rows.length,averageFeedbackMs:avg('feedbackMs'),averageNextCardMs:avg('nextCardMs'),last:audit.last};
+  }
+  audit.summary=summary;
+  window.WIKARU_RESPONSE_FAST={preloadNextQuizAsset,audit,summary};
+})();
+</script>
+
+
+<style id="wikaru-playful-feedback-loader-v20">
+/* V20 — playful, language-consistent feedback and deterministic loader. */
+:root{--wk20-ease-spring:cubic-bezier(.2,1.15,.25,1);--wk20-ease-soft:cubic-bezier(.2,.8,.2,1);}
+#loadingScreen.loader{transition:opacity .24s ease,visibility .24s ease!important;}
+#loadingScreen .loader-card{width:min(390px,100%)!important;padding:32px 30px 26px!important;animation:wk20LoaderEnter .34s var(--wk20-ease-soft) both!important;}
+#loadingScreen .loader-card::after,#loadingScreen .loader-ambient,#loadingScreen .loader-orbit,#loadingScreen .loader-kana{display:none!important;}
+#loadingScreen .loader-visual{width:86px!important;height:86px!important;margin:0 auto 7px!important;}
+#loadingScreen .loader-logo{width:76px!important;height:76px!important;animation:wk20LoaderBreath 1.25s ease-in-out infinite!important;}
+#loadingScreen .loader-status-line{margin-top:14px!important;}
+#loadingScreen .loader-dots{display:none!important;}
+#loadingScreen .loader-bar{height:7px!important;margin-top:12px!important;overflow:hidden!important;}
+#loadingScreen .loader-fill{width:var(--wk-loader-progress,18%)!important;transform:none!important;animation:none!important;transition:width .28s var(--wk20-ease-soft)!important;background:linear-gradient(90deg,#243B73,#7db5ff,#23c79a)!important;}
+#loadingScreen .loader-skip{margin-top:13px!important;}
+#loadingScreen.loader.is-slow .loader-skip{opacity:1;visibility:visible;transform:none;}
+@keyframes wk20LoaderEnter{from{opacity:0;transform:translateY(10px) scale(.985)}to{opacity:1;transform:none}}
+@keyframes wk20LoaderBreath{0%,100%{transform:scale(1)}50%{transform:scale(1.035)}}
+
+/* Katakana cards retain the original word and gain a calm reading hierarchy. */
+.vocab-script-block{min-width:0;display:flex;flex-direction:column;gap:3px;}
+.vocab-reading-stack{display:flex;flex-wrap:wrap;align-items:baseline;gap:5px 10px;margin-top:4px;}
+.vocab-kana[data-reading-source="katakana"]{display:inline-flex;align-items:center;padding:3px 8px;border-radius:999px;background:rgba(36,59,115,.075);color:#344D82!important;font-size:13px!important;line-height:1.35!important;}
+.vocab-romaji{line-height:1.35!important;}
+.quiz-reading-prompt.has-three{grid-template-columns:repeat(3,minmax(0,1fr))!important;}
+.quiz-reading-prompt-item.hiragana{border-top:3px solid #7DB5FF!important;}
+.quiz-answer-details{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))!important;}
+
+/* Playful answer layer: Japanese stationery inspired, no mixed UI language. */
+#quizPage .quiz-card-wrap{position:relative;isolation:isolate;}
+.wk-play-feedback{position:absolute;z-index:35;top:17px;left:50%;width:max-content;max-width:calc(100% - 32px);transform:translateX(-50%);pointer-events:none;display:grid;grid-template-columns:42px minmax(0,1fr);align-items:center;gap:10px;padding:8px 14px 8px 9px;border:1px solid rgba(255,255,255,.82);border-radius:18px;color:#fff;box-shadow:0 18px 42px rgba(23,32,51,.20);overflow:visible;}
+.wk-play-feedback.correct{background:linear-gradient(135deg,#243B73 0%,#2F7180 54%,#23C79A 100%);}
+.wk-play-feedback.wrong{background:linear-gradient(135deg,#243B73 0%,#72536F 54%,#F06A78 100%);}
+.wk-play-stamp{width:42px;height:42px;display:grid;place-items:center;border-radius:15px;background:rgba(255,255,255,.18);font-family:var(--jp);font-size:24px;font-weight:900;box-shadow:inset 0 0 0 1px rgba(255,255,255,.16);}
+.wk-play-copy{min-width:0;display:flex;flex-direction:column;gap:1px;text-align:left;}
+.wk-play-copy strong{font-size:13.5px;line-height:1.25;color:#fff;white-space:normal;}
+.wk-play-copy small{font-size:10.5px;line-height:1.25;color:rgba(255,255,255,.82);font-weight:700;white-space:normal;}
+.wk-play-particle{position:absolute;width:8px;height:12px;border-radius:3px;opacity:0;pointer-events:none;}
+.wk-play-feedback.correct .wk-play-particle{background:var(--particle,#FFD36D);animation:wk20Confetti .52s var(--wk20-ease-soft) both;}
+.wk-play-feedback.wrong .wk-play-particle{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.82);animation:wk20SoftDots .42s var(--wk20-ease-soft) both;}
+.wk-play-particle:nth-child(3){--x:-52px;--y:-30px;--r:-28deg;--particle:#FFD36D;left:25%;top:32%;}
+.wk-play-particle:nth-child(4){--x:48px;--y:-34px;--r:32deg;--particle:#7DB5FF;right:25%;top:30%;animation-delay:.03s!important;}
+.wk-play-particle:nth-child(5){--x:-34px;--y:35px;--r:44deg;--particle:#F7B6C2;left:37%;bottom:15%;animation-delay:.06s!important;}
+.wk-play-particle:nth-child(6){--x:38px;--y:31px;--r:-42deg;--particle:#B9E8D7;right:36%;bottom:14%;animation-delay:.08s!important;}
+#quizPage.wk-play-correct .quiz-card-wrap{animation:wk20CorrectCard .46s var(--wk20-ease-spring) both;}
+#quizPage.wk-play-wrong .quiz-card-wrap{animation:wk20WrongCard .38s var(--wk20-ease-soft) both;}
+#quizPage.wk-play-correct .flash-face{box-shadow:inset 0 0 0 3px rgba(35,199,154,.16)!important;}
+#quizPage.wk-play-wrong .flash-face{box-shadow:inset 0 0 0 3px rgba(240,106,120,.14)!important;}
+@keyframes wk20CorrectCard{0%{transform:translateY(0) scale(1)}34%{transform:translateY(-6px) rotate(-.25deg) scale(1.008)}65%{transform:translateY(1px) rotate(.12deg) scale(.998)}100%{transform:none}}
+@keyframes wk20WrongCard{0%{transform:translateX(0) scale(1)}24%{transform:translateX(-3px) rotate(-.18deg) scale(.996)}50%{transform:translateX(3px) rotate(.18deg)}74%{transform:translateX(-1px)}100%{transform:none}}
+@keyframes wk20FeedbackIn{0%{opacity:0;transform:translate(-50%,-10px) scale(.88)}62%{opacity:1;transform:translate(-50%,2px) scale(1.025)}100%{opacity:1;transform:translate(-50%,0) scale(1)}}
+@keyframes wk20FeedbackOut{to{opacity:0;transform:translate(-50%,-6px) scale(.96)}}
+@keyframes wk20Confetti{0%{opacity:0;transform:translate(0,0) rotate(0) scale(.7)}25%{opacity:1}100%{opacity:0;transform:translate(var(--x),var(--y)) rotate(var(--r)) scale(1)}}
+@keyframes wk20SoftDots{0%{opacity:0;transform:translate(0,0) scale(.4)}45%{opacity:.9}100%{opacity:0;transform:translate(calc(var(--x)*.45),calc(var(--y)*.42)) scale(1)}}
+@media(max-width:760px){.wk-play-feedback{top:11px;grid-template-columns:36px minmax(0,1fr);gap:8px;padding:7px 11px 7px 7px;border-radius:15px;max-width:calc(100% - 20px)}.wk-play-stamp{width:36px;height:36px;border-radius:12px;font-size:20px}.wk-play-copy strong{font-size:12px}.wk-play-copy small{font-size:9.5px}.quiz-reading-prompt.has-three{grid-template-columns:1fr!important;}}
+@media(prefers-reduced-motion:reduce){#quizPage.wk-play-correct .quiz-card-wrap,#quizPage.wk-play-wrong .quiz-card-wrap,.wk-play-feedback,.wk-play-particle{animation:none!important}.wk-play-particle{display:none!important}}
+</style>
+<script id="wikaru-playful-feedback-runtime-v20">
+(function(){
+  "use strict";
+  if(window.__wikaruPlayfulFeedbackV20) return;
+  window.__wikaruPlayfulFeedbackV20=true;
+  const $=(selector,root=document)=>root.querySelector(selector);
+  const audit=window.WIKARU_PLAYFUL_AUDIT={version:"20.0-playful-native",samples:[],startedAt:new Date().toISOString()};
+  let hideTimer=0,animationTimer=0;
+  function isJapanese(){return document.documentElement.lang==="ja";}
+  function copy(correct){
+    if(isJapanese()) return correct
+      ? {title:"やった！正解です",subtitle:"この調子で進もう！",stamp:"〇"}
+      : {title:"おしい！",subtitle:"次のカードでもう一度挑戦しよう",stamp:"△"};
+    return correct
+      ? {title:"Mantap! Jawabanmu benar",subtitle:"Lanjutkan ritmenya!",stamp:"〇"}
+      : {title:"Hampir tepat!",subtitle:"Coba lagi di kartu berikutnya.",stamp:"△"};
+  }
+  function ensureFeedback(){
+    const wrap=$("#quizPage .quiz-card-wrap");
+    if(!wrap) return null;
+    let node=$(".wk-play-feedback",wrap);
+    if(!node){
+      node=document.createElement("div");
+      node.className="wk-play-feedback";
+      node.setAttribute("role","status");
+      node.setAttribute("aria-live","polite");
+      node.innerHTML='<span class="wk-play-stamp"></span><span class="wk-play-copy"><strong></strong><small></small></span><i class="wk-play-particle"></i><i class="wk-play-particle"></i><i class="wk-play-particle"></i><i class="wk-play-particle"></i>';
+      wrap.appendChild(node);
+    }
+    return node;
+  }
+  function answerFeedback(correct){
+    const started=performance.now();
+    const page=$("#quizPage"),node=ensureFeedback();
+    if(!page||!node) return;
+    clearTimeout(hideTimer);clearTimeout(animationTimer);
+    page.classList.remove("wk-answer-correct","wk-answer-wrong","wk-brand-correct","wk-brand-wrong","wk-play-correct","wk-play-wrong");
+    void page.offsetWidth;
+    page.classList.add(correct?"wk-play-correct":"wk-play-wrong");
+    const message=copy(correct);
+    node.className="wk-play-feedback "+(correct?"correct":"wrong");
+    $(".wk-play-stamp",node).textContent=message.stamp;
+    $(".wk-play-copy strong",node).textContent=message.title;
+    $(".wk-play-copy small",node).textContent=message.subtitle;
+    node.hidden=false;
+    node.style.animation="none";void node.offsetWidth;
+    node.style.animation="wk20FeedbackIn .34s var(--wk20-ease-spring) both";
+    if(navigator.vibrate) navigator.vibrate(correct?[12,28,9]:[8,34,8]);
+    hideTimer=setTimeout(()=>{
+      node.style.animation="wk20FeedbackOut .18s ease both";
+      setTimeout(()=>{node.hidden=true;},180);
+    },620);
+    animationTimer=setTimeout(()=>page.classList.remove("wk-play-correct","wk-play-wrong"),470);
+    requestAnimationFrame(()=>audit.samples.push({correct,paintMs:Math.round((performance.now()-started)*10)/10,language:isJapanese()?"ja":"id",at:new Date().toISOString()}));
+  }
+  function prefetchNextAssets(){
+    try{
+      if(typeof quiz==="undefined"||!quiz?.cards?.length)return;
+      [quiz.cards[quiz.index+1],quiz.cards[quiz.index+2]].forEach(item=>{
+        const src=String(item?.image||"").trim();if(!src)return;const img=new Image();img.decoding="async";img.src=src;img.decode?.().catch(()=>{});
+      });
+    }catch(_){}
+  }
+  function install(){
+    window.WIKARU_INTERACTIONS=window.WIKARU_INTERACTIONS||{};
+    window.WIKARU_INTERACTIONS.answerFeedback=answerFeedback;
+    window.WIKARU_RESPONSE_FAST=Object.assign(window.WIKARU_RESPONSE_FAST||{},{preloadNextQuizAsset:prefetchNextAssets});
+    try{window.speechSynthesis?.getVoices?.();}catch(_){}
+  }
+  audit.summary=()=>({version:audit.version,samples:audit.samples.slice(-10),language:document.documentElement.lang,loaderReleased:document.getElementById("loadingScreen")?.hidden||false});
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",install,{once:true}); else install();
+})();
+</script>
+
+<script id="wikaru-build-v20">
+window.WIKARU_BUILD_INFO=Object.freeze({version:"20.0.0",name:"Playful Native Audio",singleFile:true,katakanaReading:"derived-hiragana",loader:"deterministic",builtAt:"2026-07-17"});
+</script>
+<script id="wikaru-v7-final-audit-runtime">
+(()=>{
+  "use strict";
+  const report=()=>({
+    version:"V7-oneesan-modes",
+    viewport:{width:innerWidth,height:innerHeight},
+    duplicateIds:[...document.querySelectorAll('[id]')].map(x=>x.id).filter((id,i,a)=>a.indexOf(id)!==i),
+    horizontalOverflow:Math.max(0,document.documentElement.scrollWidth-innerWidth),
+    mode:document.getElementById('modeSelect')?.value||null,
+    voicePreset:document.getElementById('voicePresetSelect')?.value||null,
+    loaderBlocking:!!document.elementFromPoint(innerWidth/2,innerHeight/2)?.closest?.('#loadingScreen:not([hidden])'),
+    visibleModal:document.querySelector('.modal.show')?.id||null
+  });
+  window.WIKARU_V7_AUDIT={report};
+  document.addEventListener('wikaru:language-changed',()=>requestAnimationFrame(()=>{
+    try{window.wikaruRefreshThemeLabel?.();}catch(_){}
+  }));
+})();
+</script>
+
+
+<style id="wikaru-v8-unified-quiz-home-theme">
+/* =====================================================================
+   WIKARU V8 — canonical quiz palette, reliable mode/voice controls,
+   and senior-level homepage hierarchy. This is the final visual layer.
+   ===================================================================== */
+:root{
+  --wk8-navy:#243B73;
+  --wk8-navy-dark:#1B2F60;
+  --wk8-navy-soft:#E9EDFA;
+  --wk8-paper:#F7F7F2;
+  --wk8-paper-deep:#EFF0EA;
+  --wk8-surface:#FFFFFF;
+  --wk8-ink:#171917;
+  --wk8-muted:#687069;
+  --wk8-line:#E2E4DD;
+  --wk8-coral:#E84B3C;
+  --wk8-coral-soft:#FCECE9;
+  --wk8-matcha:#63785D;
+  --wk8-matcha-soft:#EBF0E8;
+  --wk8-sky:#7DB5FF;
+  --wk8-sky-soft:#EEF6FF;
+  --wk8-shadow:0 18px 46px rgba(36,59,115,.11);
+}
+
+/* Native selects remain as an accessibility fallback but no longer carry
+   the primary interaction. Explicit buttons are easier to understand and
+   avoid native-select issues on embedded browsers. */
+#quizPage .quiz-status-row{display:none!important;}
+#quizPage .voice-profile-select-wrap{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;clip-path:inset(50%)!important;white-space:nowrap!important;}
+#quizPage #mobileQuizModeSwitcher{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:10px!important;
+  padding:0!important;
+  overflow:visible!important;
+  scroll-snap-type:none!important;
+}
+#quizPage #mobileQuizModeSwitcher button,
+#quizPage .wk8-voice-choice{
+  position:relative!important;
+  min-width:0!important;
+  min-height:72px!important;
+  padding:10px 8px!important;
+  border:1px solid var(--wk8-line)!important;
+  border-radius:16px!important;
+  background:var(--wk8-surface)!important;
+  color:var(--wk8-muted)!important;
+  box-shadow:none!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:5px!important;
+  font-weight:750!important;
+  line-height:1.12!important;
+  transition:transform .16s ease,border-color .16s ease,background .16s ease,color .16s ease,box-shadow .16s ease!important;
+  isolation:isolate;
+  pointer-events:auto!important;
+  z-index:3!important;
+}
+#quizPage #mobileQuizModeSwitcher button i,
+#quizPage .wk8-voice-choice i{font-size:17px!important;color:var(--wk8-navy)!important;}
+#quizPage #mobileQuizModeSwitcher button span,
+#quizPage .wk8-voice-choice span{font-size:12.5px!important;}
+#quizPage #mobileQuizModeSwitcher button small,
+#quizPage .wk8-voice-choice small{font-size:10.5px!important;font-weight:600!important;color:var(--wk8-muted)!important;line-height:1.25!important;text-align:center!important;}
+#quizPage #mobileQuizModeSwitcher button:hover,
+#quizPage .wk8-voice-choice:hover{transform:translateY(-2px)!important;border-color:rgba(36,59,115,.28)!important;box-shadow:0 10px 24px rgba(36,59,115,.10)!important;}
+#quizPage #mobileQuizModeSwitcher button.active,
+#quizPage #mobileQuizModeSwitcher button[aria-pressed="true"],
+#quizPage .wk8-voice-choice.active,
+#quizPage .wk8-voice-choice[aria-pressed="true"]{
+  background:linear-gradient(145deg,var(--wk8-navy),var(--wk8-navy-dark))!important;
+  color:#fff!important;
+  border-color:transparent!important;
+  box-shadow:0 12px 26px rgba(36,59,115,.22)!important;
+}
+#quizPage #mobileQuizModeSwitcher button.active i,
+#quizPage #mobileQuizModeSwitcher button[aria-pressed="true"] i,
+#quizPage .wk8-voice-choice.active i,
+#quizPage .wk8-voice-choice[aria-pressed="true"] i{color:#fff!important;}
+#quizPage #mobileQuizModeSwitcher button.active small,
+#quizPage #mobileQuizModeSwitcher button[aria-pressed="true"] small,
+#quizPage .wk8-voice-choice.active small,
+#quizPage .wk8-voice-choice[aria-pressed="true"] small{color:rgba(255,255,255,.78)!important;}
+
+.wk8-voice-switcher{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:12px;}
+#quizPage .voice-profile-card{
+  display:block!important;
+  padding:16px!important;
+  border:1px solid var(--wk8-line)!important;
+  border-radius:20px!important;
+  background:linear-gradient(145deg,var(--wk8-surface),var(--wk8-paper))!important;
+  box-shadow:none!important;
+}
+#quizPage .voice-profile-copy{display:block!important;padding-left:48px;min-height:40px;position:relative;}
+#quizPage .voice-profile-icon{position:absolute!important;width:38px!important;height:38px!important;margin:0!important;background:var(--wk8-navy-soft)!important;color:var(--wk8-navy)!important;border-radius:13px!important;}
+#quizPage .voice-profile-copy strong{color:var(--wk8-ink)!important;font-size:15px!important;}
+#quizPage .voice-profile-copy small{color:var(--wk8-muted)!important;font-size:11.5px!important;white-space:normal!important;display:-webkit-box!important;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
+
+/* One coherent visual language for the quiz page. */
+#quizPage{--primary:var(--wk8-navy);--primary2:var(--wk8-navy-dark);--soft:var(--wk8-navy-soft);color:var(--wk8-ink);}
+#quizPage .quiz-card-wrap,
+#quizPage .control-panel{
+  background:linear-gradient(145deg,rgba(255,255,255,.97),rgba(247,247,242,.94))!important;
+  border:1px solid rgba(36,59,115,.12)!important;
+  box-shadow:var(--wk8-shadow)!important;
+}
+#quizPage .flash-face{border-color:var(--wk8-line)!important;box-shadow:none!important;}
+#quizPage .flash-front{background:radial-gradient(circle at 88% 10%,rgba(125,181,255,.16),transparent 28%),linear-gradient(145deg,#fff,var(--wk8-paper))!important;}
+#quizPage .flash-back{background:radial-gradient(circle at 12% 90%,rgba(99,120,93,.13),transparent 30%),linear-gradient(145deg,#fff,var(--wk8-matcha-soft))!important;}
+#quizPage #quizLabel.tag{background:var(--wk8-navy-soft)!important;color:var(--wk8-navy-dark)!important;border-color:rgba(36,59,115,.13)!important;}
+#quizPage .flash-back .tag.green{background:var(--wk8-matcha-soft)!important;color:var(--wk8-matcha)!important;}
+#quizPage .question-text,#quizPage .answer-main{color:var(--wk8-navy-dark)!important;}
+#quizPage .answer-sub,#quizPage .vocab-romaji{color:var(--wk8-navy)!important;}
+#quizPage .flip-help{color:var(--wk8-muted)!important;border-color:var(--wk8-line)!important;}
+#quizPage .metric{background:var(--wk8-surface)!important;border-color:var(--wk8-line)!important;box-shadow:none!important;}
+#quizPage .metric span{color:var(--wk8-navy)!important;}
+#quizPage .metric strong{color:var(--wk8-ink)!important;}
+#quizPage .bar{background:var(--wk8-navy-soft)!important;}
+#quizPage .bar>div{background:linear-gradient(90deg,var(--wk8-navy),var(--wk8-sky))!important;}
+#quizPage .quiz-mode-hint{background:var(--wk8-sky-soft)!important;color:var(--wk8-navy-dark)!important;border:1px solid rgba(36,59,115,.10)!important;}
+#quizPage .control-btn{background:var(--wk8-surface)!important;color:var(--wk8-navy-dark)!important;border-color:var(--wk8-line)!important;min-height:52px!important;display:flex!important;align-items:center!important;justify-content:center!important;}
+#quizPage .btn.good,#quizPage .btn.bad{min-height:56px!important;display:flex!important;align-items:center!important;justify-content:center!important;}
+#quizPage .control-btn:not(:disabled):hover{background:var(--wk8-navy-soft)!important;color:var(--wk8-navy-dark)!important;border-color:rgba(36,59,115,.22)!important;}
+#quizPage .btn.good{background:linear-gradient(135deg,var(--wk8-matcha),#4F684A)!important;color:#fff!important;}
+#quizPage .btn.bad{background:linear-gradient(135deg,var(--wk8-coral),#C93D31)!important;color:#fff!important;}
+#quizPage .speech-state.idle{background:var(--wk8-paper)!important;color:var(--wk8-muted)!important;border-color:var(--wk8-line)!important;}
+#quizPage .speech-state.listening{background:var(--wk8-sky-soft)!important;color:var(--wk8-navy)!important;border-color:rgba(36,59,115,.13)!important;}
+#quizPage .speech-state.success{background:var(--wk8-matcha-soft)!important;color:var(--wk8-matcha)!important;border-color:rgba(99,120,93,.18)!important;}
+#quizPage .speech-state.warning,#quizPage .speech-state.error{background:var(--wk8-coral-soft)!important;color:var(--wk8-coral)!important;border-color:rgba(232,75,60,.18)!important;}
+#quizPage .mic-box{background:var(--wk8-surface)!important;border-color:var(--wk8-line)!important;box-shadow:none!important;}
+#quizPage .mic-icon{background:var(--wk8-navy-soft)!important;color:var(--wk8-navy)!important;}
+#quizPage .speech-card.speech-on .mic-icon{background:var(--wk8-navy)!important;color:#fff!important;}
+#quizPage .switch.on{background:linear-gradient(135deg,var(--wk8-navy),var(--wk8-matcha))!important;}
+#quizPage .timer-warning,#quizPage .timer-danger{background:var(--wk8-coral-soft)!important;border-color:rgba(232,75,60,.22)!important;}
+
+/* Homepage: one clear primary path, quieter decoration, stronger rhythm. */
+body.__wikaru_v8_home_override_disabled #homePage .home-main-grid{gap:20px!important;}
+body.__wikaru_v8_home_override_disabled #homePage #homeLangBtn.hidden{display:none!important;visibility:hidden!important;pointer-events:none!important;}
+body.__wikaru_v8_home_override_disabled #homePage .home-card{border-color:rgba(36,59,115,.11)!important;box-shadow:0 14px 38px rgba(36,59,115,.085)!important;}
+body.__wikaru_v8_home_override_disabled #homePage .home-continue-card{background:radial-gradient(circle at 91% 8%,rgba(125,181,255,.17),transparent 29%),linear-gradient(145deg,#fff,var(--wk8-paper))!important;border-color:rgba(36,59,115,.17)!important;}
+body.__wikaru_v8_home_override_disabled #homePage .home-vocab-card{background:linear-gradient(145deg,#fff,var(--wk8-sky-soft))!important;}
+body.__wikaru_v8_home_override_disabled #homePage .home-daily-target{background:linear-gradient(145deg,#fff,var(--wk8-matcha-soft))!important;}
+body.__wikaru_v8_home_override_disabled #homePage .home-recommendation{background:linear-gradient(145deg,#fff,var(--wk8-coral-soft))!important;}
+body.__wikaru_v8_home_override_disabled #homePage .home-theme-scene{opacity:.64!important;filter:saturate(.82)!important;}
+body.__wikaru_v8_home_override_disabled #homePage .home-main-button{background:linear-gradient(135deg,var(--wk8-navy),var(--wk8-navy-dark))!important;box-shadow:0 13px 27px rgba(36,59,115,.21)!important;}
+body.__wikaru_v8_home_override_disabled #homePage #homeLoginBtn:not(.hidden){background:linear-gradient(135deg,var(--wk8-navy),var(--wk8-navy-dark))!important;}
+body.__wikaru_v8_home_override_disabled #homePage .home-secondary-button{background:#fff!important;color:var(--wk8-navy)!important;border-color:rgba(36,59,115,.15)!important;box-shadow:none!important;}
+body.__wikaru_v8_home_override_disabled #homePage .home-category-switch,body.__wikaru_v8_home_override_disabled #homePage .home-word-button,body.__wikaru_v8_home_override_disabled #homePage .home-quick-item{border-color:var(--wk8-line)!important;background:rgba(255,255,255,.88)!important;color:var(--wk8-ink)!important;}
+body.__wikaru_v8_home_override_disabled #homePage .home-category-switch:hover,body.__wikaru_v8_home_override_disabled #homePage .home-word-button:hover,body.__wikaru_v8_home_override_disabled #homePage .home-quick-item:hover{transform:translateY(-2px)!important;border-color:rgba(36,59,115,.24)!important;box-shadow:0 10px 24px rgba(36,59,115,.09)!important;}
+body.__wikaru_v8_home_override_disabled #homePage .home-quick-icon,body.__wikaru_v8_home_override_disabled #homePage .home-stat-icon{background:var(--wk8-navy-soft)!important;color:var(--wk8-navy)!important;}
+body.__wikaru_v8_home_override_disabled #homePage .home-progress-track{background:var(--wk8-navy-soft)!important;}
+body.__wikaru_v8_home_override_disabled #homePage #homeProgressFill{background:linear-gradient(90deg,var(--wk8-navy),var(--wk8-sky))!important;}
+body.__wikaru_v8_home_override_disabled #homePage .home-recommendation-icon{background:var(--wk8-coral)!important;color:#fff!important;}
+body.__wikaru_v8_home_override_disabled #homePage .home-recommendation-button,body.__wikaru_v8_home_override_disabled #homePage .home-text-button{color:var(--wk8-navy)!important;}
+body.__wikaru_v8_home_override_disabled #homePage .home-scroll-hint{font-size:12px!important;color:var(--wk8-muted)!important;}
+body.__wikaru_v8_home_override_disabled #homePage .home-quick-list{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:10px!important;overflow:visible!important;}
+#quizPage .icon-btn{width:44px!important;height:44px!important;min-width:44px!important;min-height:44px!important;}
+body.__wikaru_v8_home_override_disabled #homePage .home-icon-button{width:44px!important;height:44px!important;min-width:44px!important;min-height:44px!important;}
+body.__wikaru_v8_home_override_disabled #homePage .home-text-button,body.__wikaru_v8_home_override_disabled #homePage .home-recommendation-button{min-height:44px!important;}
+body.__wikaru_v8_home_override_disabled #homePage .home-quick-item{min-width:0!important;min-height:112px!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:space-between!important;gap:9px!important;}
+body.__wikaru_v8_home_override_disabled #homePage .home-quick-item>i:last-child{align-self:flex-end!important;color:var(--wk8-navy)!important;}
+
+html[data-theme="dark"] #quizPage .quiz-card-wrap,
+html[data-theme="dark"] #quizPage .control-panel,
+html[data-theme="dark"] #quizPage .flash-face,
+html[data-theme="dark"] #quizPage .metric,
+html[data-theme="dark"] #quizPage .voice-profile-card,
+html[data-theme="dark"] #quizPage .control-btn,
+html[data-theme="dark"] #quizPage #mobileQuizModeSwitcher button,
+html[data-theme="dark"] #quizPage .wk8-voice-choice{background:#222735!important;border-color:#394156!important;color:#e9edf7!important;}
+html[data-theme="dark"] #quizPage .question-text,
+html[data-theme="dark"] #quizPage .answer-main,
+html[data-theme="dark"] #quizPage .metric strong,
+html[data-theme="dark"] #quizPage .voice-profile-copy strong{color:#f2f5fb!important;}
+
+@media(max-width:1050px){
+  body.__wikaru_v8_home_override_disabled #homePage .home-quick-list{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+  #quizPage #mobileQuizModeSwitcher,#quizPage .wk8-voice-switcher{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+}
+@media(max-width:760px){
+  #quizPage #mobileQuizModeSwitcher button,#quizPage .wk8-voice-choice{min-height:64px!important;padding:8px 6px!important;}
+  #quizPage #mobileQuizModeSwitcher button small,#quizPage .wk8-voice-choice small{display:none!important;}
+  body.__wikaru_v8_home_override_disabled #homePage .home-quick-list{grid-template-columns:1fr!important;}
+  body.__wikaru_v8_home_override_disabled #homePage .home-quick-item{min-height:76px!important;display:grid!important;grid-template-columns:auto 1fr auto!important;align-items:center!important;}
+}
+@media(prefers-reduced-motion:reduce){
+  #quizPage #mobileQuizModeSwitcher button,#quizPage .wk8-voice-choice,body.__wikaru_v8_home_override_disabled #homePage .home-quick-item,body.__wikaru_v8_home_override_disabled #homePage .home-word-button{transition:none!important;transform:none!important;}
+}
+</style>
+
+<script id="wikaru-v8-reliable-mode-voice-controls">
+(()=>{
+  "use strict";
+  if(window.__WIKARU_SINGLE_MODE_FOUR_VOICES__) return;
+  window.__WIKARU_SINGLE_MODE_FOUR_VOICES__=true;
+
+  const $=(selector,root=document)=>root.querySelector(selector);
+  const $$=(selector,root=document)=>[...root.querySelectorAll(selector)];
+  const VOICES=["hanamama","momokawaii","renikebo","kaitodandy"];
+  const COPY={
+    id:{
+      hanamama:["Hana Onee-san","Hangat & keibuan"],
+      momokawaii:["Momo Kawaii","Manis & ceria"],
+      renikebo:["Ren Ikebo","Rendah & memikat"],
+      kaitodandy:["Kaito Dandy","Tenang & berwibawa"]
+    },
+    ja:{
+      hanamama:["花お姉さん","やさしく包み込む声"],
+      momokawaii:["ももカワイイ","明るく可愛い声"],
+      renikebo:["蓮イケボ","低音で魅力的な声"],
+      kaitodandy:["海斗ダンディ","深く落ち着いた声"]
+    }
+  };
+  const ICON={hanamama:"fa-heart",momokawaii:"fa-face-smile-wink",renikebo:"fa-music",kaitodandy:"fa-user-tie"};
+  function lang(){return document.documentElement.lang==="ja"?"ja":"id";}
+  function safeStore(key,value){try{localStorage.setItem(key,value);}catch(_){}}
+  function readStore(key,fallback){try{return localStorage.getItem(key)||fallback;}catch(_){return fallback;}}
+  function activeVoice(){
+    const value=$("#voicePresetSelect")?.value || readStore("wikaru_voice_preset","hanamama");
+    return VOICES.includes(value)?value:"hanamama";
+  }
+  function buttonMarkup(value){
+    const copy=(COPY[lang()]||COPY.id)[value];
+    return `<button type="button" class="wk8-voice-choice" data-voice-preset="${value}" aria-pressed="false"><i class="fa-solid ${ICON[value]}" aria-hidden="true"></i><span>${copy[0]}</span><small>${copy[1]}</small></button>`;
+  }
+  function ensureMaterialCard(){
+    const content=$("#materialPage .content-card");
+    if(!content) return;
+    let card=$("#materialVoiceCard");
+    if(!card){
+      card=document.createElement("section");
+      card.id="materialVoiceCard";
+      card.className="material-voice-card";
+      card.innerHTML=`<div class="material-voice-head"><span class="material-voice-icon"><i class="fa-solid fa-headphones"></i></span><div><span class="material-voice-kicker">${lang()==="ja"?"音声キャラクター":"Karakter audio"}</span><h3>${lang()==="ja"?"教材の声を選ぶ":"Pilih suara materi"}</h3><p><strong data-current-voice-name></strong> · <span data-current-voice-desc></span></p></div></div><div id="materialVoicePresetSwitcher" class="wk8-voice-switcher material-voice-switcher" role="group"></div>`;
+      const notice=$(".notice",content);
+      content.insertBefore(card,notice || content.children[2] || null);
+    }
+  }
+  function buildVoiceButtons(){
+    ensureMaterialCard();
+    const quizCard=$("#voiceProfileCard");
+    let quizRoot=$("#voicePresetSwitcher");
+    if(quizCard && !quizRoot){
+      quizRoot=document.createElement("div");
+      quizRoot.id="voicePresetSwitcher";
+      quizRoot.className="wk8-voice-switcher";
+      quizRoot.setAttribute("role","group");
+      quizCard.appendChild(quizRoot);
+    }
+    const roots=[$("#voicePresetSwitcher"),$("#materialVoicePresetSwitcher")].filter(Boolean);
+    roots.forEach(root=>{
+      root.setAttribute("aria-label",lang()==="ja"?"日本語の声を選ぶ":"Pilih karakter suara Jepang");
+      root.innerHTML=VOICES.map(buttonMarkup).join("");
+    });
+  }
+  function syncVoiceUI(){
+    const value=activeVoice();
+    $$('[data-voice-preset]').forEach(button=>{
+      const on=button.dataset.voicePreset===value;
+      button.classList.toggle("active",on);
+      button.setAttribute("aria-pressed",String(on));
+    });
+    const meta=(COPY[lang()]||COPY.id)[value];
+    $$('[data-current-voice-name]').forEach(node=>node.textContent=meta[0]);
+    $$('[data-current-voice-desc]').forEach(node=>node.textContent=meta[1]);
+  }
+  function enforceStudyMode(){
+    safeStore("wikaru_quiz_mode","study");
+    const select=$("#modeSelect");
+    if(select) select.value="study";
+    $$('[data-quiz-mode-pick]').forEach(button=>{
+      const on=button.dataset.quizModePick==="study";
+      button.hidden=!on;
+      button.classList.toggle("active",on);
+      button.setAttribute("aria-pressed",String(on));
+    });
+  }
+  function applyVoice(value){
+    if(!VOICES.includes(value)) return;
+    const select=$("#voicePresetSelect");
+    if(!select) return;
+    select.value=value;
+    safeStore("wikaru_voice_preset",value);
+    select.dispatchEvent(new Event("change",{bubbles:true}));
+    requestAnimationFrame(syncVoiceUI);
+  }
+  function render(){
+    enforceStudyMode();
+    buildVoiceButtons();
+    syncVoiceUI();
+    if(typeof window.updateVoicePresetUI==="function"){try{window.updateVoicePresetUI();}catch(_){}}
+  }
+  document.addEventListener("click",event=>{
+    const voiceButton=event.target.closest("[data-voice-preset]");
+    if(!voiceButton) return;
+    event.preventDefault();
+    event.stopPropagation();
+    applyVoice(voiceButton.dataset.voicePreset);
+  });
+  document.addEventListener("change",event=>{
+    if(event.target?.id==="modeSelect") enforceStudyMode();
+    if(event.target?.id==="voicePresetSelect") requestAnimationFrame(syncVoiceUI);
+  });
+  window.addEventListener("storage",event=>{
+    if(event.key==="wikaru_quiz_mode") enforceStudyMode();
+    if(event.key==="wikaru_voice_preset"){
+      const value=VOICES.includes(event.newValue)?event.newValue:"hanamama";
+      const select=$("#voicePresetSelect");
+      if(select) select.value=value;
+      syncVoiceUI();
+    }
+  });
+  document.addEventListener("wikaru:language-changed",()=>requestAnimationFrame(render));
+  document.addEventListener("wikaru:voice-preset-changed",()=>requestAnimationFrame(syncVoiceUI));
+
+  window.WIKARU_V8_CONTROLS={
+    applyMode:enforceStudyMode,
+    applyVoice,
+    render,
+    activeMode:()=>"study",
+    activeVoice
+  };
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",render,{once:true}); else render();
+})();
+</script>
+<script id="wikaru-build-v8">
+window.WIKARU_BUILD_INFO_V8=Object.freeze({version:"8.2.0",name:"Single Study Mode, Four Character Voices & Restored Homepage",singleFile:true,builtAt:"2026-07-17"});
+</script>
+
+
+<style id="wikaru-single-study-four-voices-patch">
+/* Satu Mode Belajar + empat karakter suara yang sinkron di Materi dan Belajar. */
+.wikaru-compat-select{
+  position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;
+  overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important;
+}
+#quizPage .quiz-status-row{grid-template-columns:1fr!important;}
+#quizPage .study-status{width:100%!important;justify-content:center!important;}
+#quizPage #mobileQuizModeSwitcher{display:none!important;}
+#quizPage .voice-profile-card.wikaru-four-voice-card{display:block!important;padding:17px!important;}
+#quizPage #voicePresetSwitcher{display:grid!important;}
+#quizPage [data-voice-preset]{display:flex!important;}
+#quizPage .voice-profile-copy{display:block!important;padding-left:48px!important;min-height:42px!important;margin-bottom:12px!important;}
+#quizPage .voice-profile-copy small{white-space:normal!important;line-height:1.4!important;}
+#quizPage .quiz-mode-hint[data-mode="study"] .quiz-mode-hint-icon{background:var(--soft)!important;color:var(--primary)!important;}
+
+.material-voice-card{
+  margin:20px 0 24px;padding:20px;border:1px solid rgba(36,59,115,.14);border-radius:24px;
+  background:linear-gradient(135deg,rgba(255,255,255,.96),rgba(242,246,255,.9));box-shadow:0 12px 28px rgba(36,59,115,.07);
+}
+.material-voice-head{display:flex;align-items:center;gap:14px;margin-bottom:15px;}
+.material-voice-icon{width:48px;height:48px;display:grid;place-items:center;flex:0 0 auto;border-radius:17px;color:#fff;background:linear-gradient(135deg,#243B73,#5f83d2);box-shadow:0 12px 24px rgba(36,59,115,.2);}
+.material-voice-kicker{display:block;color:#243B73;font-size:11px;font-weight:850;text-transform:uppercase;letter-spacing:.055em;}
+.material-voice-head h3{margin:3px 0 2px;font-size:19px;}
+.material-voice-head p{margin:0;font-size:12px;line-height:1.45;}
+.material-voice-switcher,.wk8-voice-switcher{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;}
+.material-voice-card .wk8-voice-choice,
+#quizPage .wk8-voice-choice{
+  min-width:0;min-height:74px;padding:10px 7px;border:1px solid rgba(36,59,115,.14);border-radius:17px;
+  background:#fff;color:#27334d;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;
+  font-weight:800;box-shadow:0 8px 18px rgba(36,59,115,.055);transition:.18s ease;
+}
+.material-voice-card .wk8-voice-choice i,#quizPage .wk8-voice-choice i{font-size:17px;color:#243B73;}
+.material-voice-card .wk8-voice-choice span,#quizPage .wk8-voice-choice span{font-size:12px;text-align:center;}
+.material-voice-card .wk8-voice-choice small,#quizPage .wk8-voice-choice small{font-size:10px;font-weight:650;color:#6b7890;line-height:1.2;text-align:center;}
+.material-voice-card .wk8-voice-choice:hover,#quizPage .wk8-voice-choice:hover{transform:translateY(-2px);border-color:rgba(36,59,115,.34);box-shadow:0 13px 25px rgba(36,59,115,.11);}
+.material-voice-card .wk8-voice-choice.active,#quizPage .wk8-voice-choice.active{
+  color:#fff;border-color:transparent;background:linear-gradient(135deg,#243B73,#5073bd);box-shadow:0 13px 27px rgba(36,59,115,.22);
+}
+.material-voice-card .wk8-voice-choice.active i,#quizPage .wk8-voice-choice.active i{color:#fff;}
+.material-voice-card .wk8-voice-choice.active small,#quizPage .wk8-voice-choice.active small{color:rgba(255,255,255,.82);}
+html[data-theme="dark"] .material-voice-card{background:linear-gradient(135deg,#202633,#1b2330);border-color:#394156;}
+html[data-theme="dark"] .material-voice-head h3{color:#f2f5fb;}
+html[data-theme="dark"] .material-voice-head p{color:#aeb8c8;}
+html[data-theme="dark"] .material-voice-card .wk8-voice-choice{background:#222735;border-color:#394156;color:#e9edf7;}
+@media(max-width:900px){.material-voice-switcher,.wk8-voice-switcher{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:450px){
+  .material-voice-card{padding:16px;margin:16px 0 20px;}
+  .material-voice-head{align-items:flex-start;}
+  .material-voice-card .wk8-voice-choice,#quizPage .wk8-voice-choice{min-height:68px;padding:8px 5px;}
+  .material-voice-card .wk8-voice-choice small,#quizPage .wk8-voice-choice small{display:none;}
+}
+</style>
+<script id="wikaru-single-study-four-voices-bootstrap">
+(()=>{
+  const allowed=["hanamama","momokawaii","renikebo","kaitodandy"];
+  try{
+    localStorage.setItem("wikaru_quiz_mode","study");
+    const current=localStorage.getItem("wikaru_voice_preset");
+    if(!allowed.includes(current)) localStorage.setItem("wikaru_voice_preset","hanamama");
+  }catch(_){}
+})();
+</script>
+
 </body>
 </html>
