@@ -23,8 +23,7 @@
           window.__wikaruLoaderStatusTimer = null;
         }
         setTimeout(function(){
-          loader.hidden = true;
-          loader.style.display = "none";
+          loader.hidden = true; loader.classList.add("is-released"); loader.style.setProperty("display","none","important");
           document.documentElement.classList.add("wikaru-ready");
         },520);
       };
@@ -5103,99 +5102,6 @@ html[data-theme="dark"] .wikaru-user-avatar{
   .brand-icon.wikaru-mark{width:42px!important;height:42px!important;flex-basis:42px!important;}
 }
 </style>
-
-
-<style id="wikaru-final-responsive-profile-guard">
-/* Stable avatar sizing and compact tablet/mobile navbar. */
-#userAvatar.wikaru-user-avatar,
-.user-btn > .wikaru-user-avatar{
-  width:40px!important;
-  height:40px!important;
-  min-width:40px!important;
-  max-width:40px!important;
-  flex:0 0 40px!important;
-  display:grid!important;
-  place-items:center!important;
-  position:relative!important;
-  border-radius:14px!important;
-  color:#fff!important;
-  background:linear-gradient(145deg,var(--avatar-a,#243B73),var(--avatar-b,#35549D))!important;
-  overflow:hidden!important;
-}
-#userAvatar.wikaru-user-avatar i{display:block!important;position:relative!important;z-index:1!important;}
-#userAvatar.wikaru-user-avatar small{
-  display:grid!important;
-  position:absolute!important;
-  right:3px!important;
-  bottom:2px!important;
-  z-index:2!important;
-}
-@media (min-width:761px) and (max-width:1050px){
-  .nav-links{display:none!important;}
-  .nav-inner{width:calc(100% - 28px)!important;gap:10px!important;}
-  .nav-actions{margin-left:auto!important;gap:8px!important;}
-  .nav-lang-btn,.nav-fiction-toggle,.theme-toggle,.user-btn{
-    width:44px!important;
-    min-width:44px!important;
-    max-width:44px!important;
-    height:44px!important;
-    min-height:44px!important;
-    padding:0!important;
-    justify-content:center!important;
-    border-radius:15px!important;
-  }
-  .nav-lang-btn .lang-name,
-  .nav-fiction-toggle .fiction-label,
-  .nav-fiction-toggle .fiction-state,
-  .theme-toggle span,
-  .wikaru-user-copy,
-  .user-chevron{display:none!important;}
-  .nav-lang-btn .lang-code{display:grid!important;min-width:30px!important;min-height:28px!important;padding:0 7px!important;}
-  .nav-fiction-toggle::before{
-    content:"F";
-    display:grid;
-    place-items:center;
-    width:30px;height:30px;border-radius:10px;
-    font-size:12px;font-weight:800;
-    color:var(--matcha,#63785D);
-    background:var(--matcha-soft,#EBF0E8);
-  }
-  .nav-fiction-toggle.active::before{color:#fff;background:var(--matcha,#63785D);}
-  .nav-fiction-toggle > *{display:none!important;}
-  #userAvatar.wikaru-user-avatar,.user-btn>.wikaru-user-avatar{
-    width:36px!important;height:36px!important;min-width:36px!important;max-width:36px!important;flex-basis:36px!important;border-radius:12px!important;
-  }
-}
-@media (max-width:760px){
-  .nav-actions{margin-left:auto!important;gap:6px!important;}
-  .nav-lang-btn,.nav-fiction-toggle,.theme-toggle,.user-btn{
-    width:42px!important;min-width:42px!important;max-width:42px!important;
-    height:42px!important;min-height:42px!important;padding:0!important;
-    justify-content:center!important;border-radius:14px!important;
-  }
-  .nav-lang-btn .lang-name,.nav-lang-btn .nav-lang-globe,.nav-lang-btn .flag-circle,
-  .nav-fiction-toggle .fiction-label,.nav-fiction-toggle .fiction-state,.nav-fiction-toggle .fiction-icon,
-  .theme-toggle span,.wikaru-user-copy,.user-chevron{display:none!important;}
-  .nav-lang-btn .lang-code{display:grid!important;min-width:28px!important;min-height:26px!important;padding:0 6px!important;background:var(--primary-soft)!important;color:var(--primary)!important;}
-  .nav-fiction-toggle::before{
-    content:"F";display:grid;place-items:center;width:28px;height:28px;border-radius:10px;
-    font-size:11px;font-weight:800;color:var(--matcha,#63785D);background:var(--matcha-soft,#EBF0E8);
-  }
-  .nav-fiction-toggle.active::before{color:#fff;background:var(--matcha,#63785D);}
-  #userAvatar.wikaru-user-avatar,.user-btn>.wikaru-user-avatar{
-    width:36px!important;height:36px!important;min-width:36px!important;max-width:36px!important;flex-basis:36px!important;border-radius:12px!important;
-  }
-  #userAvatar.wikaru-user-avatar small{display:grid!important;width:14px!important;height:14px!important;font-size:7px!important;}
-}
-@media (max-width:430px){
-  .brand-copy{display:none!important;}
-  .nav-actions{gap:5px!important;}
-  .nav-lang-btn,.nav-fiction-toggle,.theme-toggle,.user-btn{width:40px!important;min-width:40px!important;max-width:40px!important;height:40px!important;min-height:40px!important;}
-  #userAvatar.wikaru-user-avatar,.user-btn>.wikaru-user-avatar{width:34px!important;height:34px!important;min-width:34px!important;max-width:34px!important;flex-basis:34px!important;}
-}
-</style>
-
-
 <style id="wikaru-final-login-footer-protection-style">
 /* ===== FINAL: Login footer alignment + interaction protection ===== */
 #loginModal .login-card{display:flex!important;flex-direction:column!important;width:min(680px,calc(100% - 28px))!important;max-height:min(92dvh,920px)!important;padding:28px 28px 0!important;overflow:hidden!important;}
@@ -5536,6 +5442,250 @@ html.theme-is-changing .modal.show .modal-card {
 }
 </style>
 
+
+<style id="wikaru-language-motion-responsive-final">
+/* ===== WIKARU FINAL LANGUAGE MOTION + I18N RESPONSIVE GUARD ===== */
+:root{
+  --language-motion-duration:680ms;
+  --language-motion-ease:cubic-bezier(.2,.78,.22,1);
+}
+
+/* The language control remains compact at every supported navbar width. */
+.language-toggle,
+#navLangBtn,
+#langToggleDrop,
+#homeLangBtn{
+  position:relative;
+  min-width:0;
+  -webkit-tap-highlight-color:transparent;
+}
+#navLangBtn .nav-lang-globe{
+  flex:0 0 auto;
+  width:30px;
+  height:30px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+}
+#navLangBtn .lang-name,
+#navLangBtn .lang-code{
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.language-toggle.is-language-switching,
+#navLangBtn.is-language-switching,
+#langToggleDrop.is-language-switching,
+#homeLangBtn.is-language-switching{
+  pointer-events:none;
+  transform:scale(.95)!important;
+}
+:is(.language-toggle,#navLangBtn,#langToggleDrop,#homeLangBtn).is-language-switching i{
+  animation:wikaruLanguageGlobeSpin .66s var(--language-motion-ease) both;
+}
+
+.language-transition-overlay{
+  position:fixed;
+  inset:0;
+  z-index:2450;
+  max-width:100vw;
+  max-height:100vh;
+  max-height:100dvh;
+  overflow:hidden;
+  pointer-events:none;
+  isolation:isolate;
+  contain:strict;
+  opacity:1;
+  transition:opacity .18s ease;
+}
+.language-transition-overlay.is-fading{opacity:0;}
+.language-transition-halo{
+  position:absolute;
+  left:var(--language-origin-x);
+  top:var(--language-origin-y);
+  width:174px;
+  height:174px;
+  border-radius:50%;
+  transform:translate(-50%,-50%) scale(.12);
+  opacity:0;
+  will-change:transform,opacity;
+  animation:wikaruLanguageHalo .66s var(--language-motion-ease) both;
+}
+.language-to-ja .language-transition-halo{
+  background:radial-gradient(circle,rgba(141,165,245,.34) 0%,rgba(81,103,184,.18) 38%,transparent 72%);
+}
+.language-to-id .language-transition-halo{
+  background:radial-gradient(circle,rgba(102,214,193,.31) 0%,rgba(71,152,170,.16) 38%,transparent 72%);
+}
+.language-transition-badge{
+  position:absolute;
+  left:var(--language-badge-x);
+  top:var(--language-badge-y);
+  min-width:94px;
+  min-height:64px;
+  padding:10px 16px;
+  border-radius:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  transform:translate(-50%,-50%);
+  opacity:0;
+  color:#fff;
+  border:1px solid rgba(255,255,255,.28);
+  box-shadow:0 20px 52px rgba(10,20,42,.24),inset 0 1px 0 rgba(255,255,255,.26);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  will-change:transform,opacity;
+  animation:wikaruLanguageBadgeEnter .68s var(--language-motion-ease) both;
+}
+.language-transition-badge i{font-size:20px;}
+.language-transition-badge strong{
+  font-family:var(--jp,"Noto Sans JP",sans-serif);
+  font-size:16px;
+  line-height:1;
+  letter-spacing:-.02em;
+  white-space:nowrap;
+}
+.language-to-ja .language-transition-badge{
+  background:linear-gradient(145deg,rgba(64,86,159,.96),rgba(36,59,115,.96));
+}
+.language-to-id .language-transition-badge{
+  background:linear-gradient(145deg,rgba(31,160,139,.96),rgba(36,102,124,.96));
+}
+.language-transition-glyphs{
+  position:absolute;
+  left:var(--language-badge-x);
+  top:var(--language-badge-y);
+  width:1px;
+  height:1px;
+}
+.language-glyph{
+  position:absolute;
+  left:0;
+  top:0;
+  display:grid;
+  place-items:center;
+  width:var(--glyph-size);
+  height:var(--glyph-size);
+  border-radius:14px;
+  font-family:var(--jp,"Noto Sans JP",sans-serif);
+  font-size:calc(var(--glyph-size) * .45);
+  font-weight:800;
+  line-height:1;
+  color:#fff;
+  opacity:0;
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.22);
+  box-shadow:0 12px 32px rgba(12,22,42,.16);
+  will-change:transform,opacity;
+  animation:wikaruLanguageGlyphFloat .66s var(--language-motion-ease) var(--glyph-delay) both;
+}
+.language-to-ja .language-glyph{background:rgba(91,117,202,.68);}
+.language-to-id .language-glyph{background:rgba(42,167,145,.68);}
+
+html.language-is-changing .page.active,
+html.language-is-changing .top-nav,
+html.language-is-changing .bottom-nav,
+html.language-is-changing .modal.show .modal-card,
+html.language-is-changing #userDropdown.show{
+  animation:wikaruLanguageContentShift var(--language-motion-duration) ease both;
+}
+
+@keyframes wikaruLanguageGlobeSpin{
+  0%{transform:rotate(0deg) scale(1);opacity:1;}
+  44%{transform:rotate(155deg) scale(.65);opacity:.55;}
+  100%{transform:rotate(360deg) scale(1);opacity:1;}
+}
+@keyframes wikaruLanguageHalo{
+  0%{opacity:0;transform:translate(-50%,-50%) scale(.12);}
+  42%{opacity:1;}
+  100%{opacity:0;transform:translate(-50%,-50%) scale(2.25);}
+}
+@keyframes wikaruLanguageBadgeEnter{
+  0%{opacity:0;transform:translate(-50%,-50%) scale(.65) rotate(-8deg);}
+  50%{opacity:1;transform:translate(-50%,-50%) scale(1.08) rotate(3deg);}
+  76%{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(0);}
+  100%{opacity:0;transform:translate(-50%,-50%) scale(.95) rotate(0);}
+}
+@keyframes wikaruLanguageGlyphFloat{
+  0%{opacity:0;transform:translate(-50%,-50%) rotate(var(--glyph-angle)) translateX(10px) scale(.55);}
+  30%{opacity:.92;}
+  100%{opacity:0;transform:translate(-50%,-50%) rotate(var(--glyph-angle)) translateX(var(--glyph-distance)) rotate(calc(var(--glyph-angle) * -1)) scale(.88);}
+}
+@keyframes wikaruLanguageContentShift{
+  0%{opacity:1;transform:translateY(0);}
+  38%{opacity:.42;transform:translateY(-4px);}
+  54%{opacity:.36;transform:translateY(4px);}
+  100%{opacity:1;transform:translateY(0);}
+}
+@keyframes wikaruLanguageViewOld{to{opacity:.3;transform:translateY(-4px);}}
+@keyframes wikaruLanguageViewNew{from{opacity:.25;transform:translateY(4px);}}
+html.language-is-changing::view-transition-old(root){
+  animation:wikaruLanguageViewOld .28s ease both;
+  mix-blend-mode:normal;
+}
+html.language-is-changing::view-transition-new(root){
+  animation:wikaruLanguageViewNew .34s ease both;
+  mix-blend-mode:normal;
+}
+
+/* Internationalized text must wrap without forcing horizontal overflow. */
+:where(.nav-inner,.nav-actions,.brand-copy,.wikaru-user-copy,.profile-menu-identity,.modal-title,.step-block,.option-card,.choice-chip,.check-pill,.drop-item,.home-heading-copy,.content-card,.vocab-top,.flash-labels,.control-panel)>*{
+  min-width:0;
+}
+:where([data-i18n],.lang-name,.profile-menu-identity span,.drop-item span,.option-card,.choice-chip,.check-pill,.modal-title h2,.modal-title p,.home-heading-copy h1,.home-heading-copy p){
+  overflow-wrap:anywhere;
+  word-break:normal;
+}
+
+@media (min-width:768px) and (max-width:1199px){
+  #navLangBtn{max-width:138px;padding-inline:8px;gap:6px;}
+  #navLangBtn .lang-name{max-width:68px;}
+}
+@media (max-width:767px){
+  #navLangBtn{
+    width:44px;
+    min-width:44px;
+    min-height:44px;
+    padding:0;
+    justify-content:center;
+    border-radius:15px;
+  }
+  #navLangBtn .nav-lang-globe{width:28px;height:28px;}
+  #navLangBtn .lang-name,
+  #navLangBtn .lang-code{display:none!important;}
+  .language-transition-badge{min-width:84px;min-height:58px;padding:9px 13px;border-radius:19px;}
+  .language-transition-badge strong{font-size:14px;}
+}
+@media (max-width:389px){
+  .nav-actions{gap:4px;}
+  #navLangBtn{width:42px;min-width:42px;min-height:42px;}
+  .language-transition-badge{min-width:78px;min-height:54px;}
+}
+@media (orientation:landscape) and (max-height:600px){
+  .language-transition-badge{min-width:78px;min-height:52px;border-radius:18px;}
+  .language-glyph{display:none;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .language-transition-overlay,
+  .language-transition-halo,
+  .language-transition-badge,
+  .language-glyph,
+  :is(.language-toggle,#navLangBtn,#langToggleDrop,#homeLangBtn).is-language-switching i,
+  html.language-is-changing .page.active,
+  html.language-is-changing .top-nav,
+  html.language-is-changing .bottom-nav,
+  html.language-is-changing .modal.show .modal-card,
+  html.language-is-changing #userDropdown.show{
+    animation:none!important;
+    transition:none!important;
+  }
+}
+</style>
+
 </head>
 <body>
   <div id="loadingScreen" class="loader" role="status" aria-live="polite" aria-busy="true">
@@ -5612,7 +5762,8 @@ html.theme-is-changing .modal.show .modal-card {
         <button class="nav-link admin-only hidden" data-page="admin" data-i18n="navResult">Hasil</button>
       </nav>
       <div class="nav-actions">
-        <button class="nav-lang-btn nav-lang-compact" id="navLangBtn" aria-label="Ganti bahasa">
+        <button class="nav-lang-btn nav-lang-compact language-toggle" id="navLangBtn" type="button" aria-label="Ganti bahasa ke Jepang" aria-pressed="false">
+          <span class="nav-lang-globe" aria-hidden="true"><i class="fa-solid fa-globe"></i></span>
           <span class="lang-code">ID</span>
           <span class="lang-name">Indonesia</span>
         </button>
@@ -53611,6 +53762,234 @@ html.theme-is-changing .modal.show .modal-card {
       updateQuizFilterCount();
     }
 
+    let isLanguageTransitionRunning = false;
+    let languageTransitionCleanupTimer = 0;
+
+    function languageMotionReduced(){
+      try { return window.matchMedia("(prefers-reduced-motion: reduce)").matches; }
+      catch(_) { return false; }
+    }
+
+    function languageLoaderActive(){
+      const loader = document.querySelector("#loadingScreen");
+      if(!loader || loader.hidden || loader.classList.contains("is-leaving") || loader.classList.contains("is-released")) return false;
+      try { return getComputedStyle(loader).display !== "none"; }
+      catch(_) { return true; }
+    }
+
+    function languageMotionBlocked(){
+      return Boolean(
+        document.querySelector(".theme-transition-overlay") ||
+        document.documentElement.classList.contains("theme-is-changing") ||
+        window.__wikaruLanguageTransitionRunning
+      );
+    }
+
+    function languageMotionOrigin(triggerElement){
+      const fallbackX = Math.max(48, window.innerWidth - 68);
+      const fallbackY = 48;
+      if(!(triggerElement instanceof Element)) return {x:fallbackX,y:fallbackY,badgeX:fallbackX,badgeY:fallbackY};
+      const rect = triggerElement.getBoundingClientRect();
+      if(!rect.width || !rect.height) return {x:fallbackX,y:fallbackY,badgeX:fallbackX,badgeY:fallbackY};
+      const x = rect.left + rect.width / 2;
+      const y = rect.top + rect.height / 2;
+      return {
+        x,
+        y,
+        badgeX:Math.min(Math.max(x,58),Math.max(58,window.innerWidth - 58)),
+        badgeY:Math.min(Math.max(y,58),Math.max(58,window.innerHeight - 58))
+      };
+    }
+
+    function ensureLanguageLiveRegion(){
+      let region = document.querySelector("#languageLiveRegion");
+      if(region) return region;
+      region = document.createElement("div");
+      region.id = "languageLiveRegion";
+      region.className = "sr-only";
+      region.setAttribute("aria-live","polite");
+      region.setAttribute("aria-atomic","true");
+      document.body.appendChild(region);
+      return region;
+    }
+
+    function removeLanguageTransitionArtifacts(){
+      if(languageTransitionCleanupTimer){
+        clearTimeout(languageTransitionCleanupTimer);
+        languageTransitionCleanupTimer = 0;
+      }
+      document.querySelectorAll(".language-transition-overlay").forEach(element=>element.remove());
+      document.documentElement.classList.remove("language-is-changing");
+      document.querySelectorAll(".is-language-switching").forEach(button=>{
+        button.classList.remove("is-language-switching");
+        button.removeAttribute("aria-busy");
+        if(button.dataset.languageWasDisabled !== "true") button.disabled = false;
+        delete button.dataset.languageWasDisabled;
+      });
+      window.__wikaruLanguageTransitionRunning = false;
+    }
+
+    function createLanguageTransitionOverlay(nextLanguage, triggerElement){
+      const origin = languageMotionOrigin(triggerElement);
+      const overlay = document.createElement("div");
+      overlay.className = `language-transition-overlay language-to-${nextLanguage}`;
+      overlay.setAttribute("aria-hidden","true");
+      overlay.style.setProperty("--language-origin-x",`${origin.x}px`);
+      overlay.style.setProperty("--language-origin-y",`${origin.y}px`);
+      overlay.style.setProperty("--language-badge-x",`${origin.badgeX}px`);
+      overlay.style.setProperty("--language-badge-y",`${origin.badgeY}px`);
+
+      const halo = document.createElement("span");
+      halo.className = "language-transition-halo";
+      const badge = document.createElement("div");
+      badge.className = "language-transition-badge";
+      badge.innerHTML = `<i class="fa-solid fa-language" aria-hidden="true"></i><strong>${nextLanguage === "ja" ? "日本語" : "ID"}</strong>`;
+      const glyphs = document.createElement("div");
+      glyphs.className = "language-transition-glyphs";
+      const glyphSet = nextLanguage === "ja" ? ["あ","日","語","文","本"] : ["A","ID","Ba","asa","✓"];
+      glyphSet.forEach((glyph,index)=>{
+        const item = document.createElement("span");
+        item.className = "language-glyph";
+        item.textContent = glyph;
+        item.style.setProperty("--glyph-angle",`${index * 72 - 18}deg`);
+        item.style.setProperty("--glyph-distance",`${54 + (index % 2) * 18}px`);
+        item.style.setProperty("--glyph-delay",`${65 + index * 22}ms`);
+        item.style.setProperty("--glyph-size",`${30 + (index % 3) * 5}px`);
+        glyphs.appendChild(item);
+      });
+      overlay.append(halo,badge,glyphs);
+      document.body.appendChild(overlay);
+      return overlay;
+    }
+
+    function rememberLanguageFocus(){
+      const active = document.activeElement;
+      if(!(active instanceof HTMLElement)) return null;
+      if(active.id) return {id:active.id};
+      const key = active.getAttribute("data-i18n") || active.getAttribute("name");
+      return key ? {key} : null;
+    }
+
+    function restoreLanguageFocus(snapshot, fallbackId){
+      requestAnimationFrame(()=>{
+        let target = snapshot?.id ? document.getElementById(snapshot.id) : null;
+        if(!target && snapshot?.key){
+          target = document.querySelector(`[data-i18n="${CSS.escape(snapshot.key)}"],[name="${CSS.escape(snapshot.key)}"]`);
+        }
+        if(!target && fallbackId) target = document.getElementById(fallbackId);
+        if(target instanceof HTMLElement && !target.disabled){
+          try { target.focus({preventScroll:true}); } catch(_) {}
+        }
+      });
+    }
+
+    function commitLanguageState(nextLanguage, options={}){
+      const scrollX = window.scrollX;
+      const scrollY = window.scrollY;
+      state.lang = nextLanguage === "ja" ? "ja" : "id";
+      try { saveState(); }
+      catch(error){
+        console.warn("Wikaru language storage unavailable:",error);
+        try { localStorage.setItem("minna_bab23_lang",state.lang); } catch(_) {}
+      }
+      renderAll();
+      if(typeof options.afterChange === "function") options.afterChange();
+      requestAnimationFrame(()=>window.scrollTo(scrollX,scrollY));
+    }
+
+    function commitLanguageWithViewTransition(nextLanguage, options={}){
+      const update = ()=>commitLanguageState(nextLanguage,options);
+      if(typeof document.startViewTransition === "function"){
+        try {
+          const transition = document.startViewTransition(update);
+          return Promise.resolve(transition.updateCallbackDone).catch(error=>{
+            console.warn("Wikaru language View Transition fallback:",error);
+            if(state.lang !== nextLanguage) update();
+          });
+        } catch(error){
+          console.warn("Wikaru language View Transition unavailable:",error);
+        }
+      }
+      update();
+      return Promise.resolve();
+    }
+
+    function waitLanguageMotion(ms){ return new Promise(resolve=>setTimeout(resolve,ms)); }
+
+    async function changeLanguageWithMotion(nextLanguage, triggerElement, options={}){
+      const next = nextLanguage === "ja" ? "ja" : "id";
+      const current = state.lang === "ja" ? "ja" : "id";
+      if(next === current){
+        if(typeof options.afterChange === "function") options.afterChange();
+        return;
+      }
+      if(isLanguageTransitionRunning || languageMotionBlocked()) return;
+
+      if(languageLoaderActive()){
+        commitLanguageState(next,options);
+        return;
+      }
+
+      const reduceMotion = languageMotionReduced();
+      const trigger = triggerElement instanceof HTMLElement ? triggerElement : document.querySelector("#navLangBtn");
+      const triggerId = trigger?.id || "navLangBtn";
+      const focusSnapshot = rememberLanguageFocus();
+      const wasDisabled = Boolean(trigger?.disabled);
+
+      isLanguageTransitionRunning = true;
+      window.__wikaruLanguageTransitionRunning = true;
+      removeLanguageTransitionArtifacts();
+      isLanguageTransitionRunning = true;
+      window.__wikaruLanguageTransitionRunning = true;
+
+      if(trigger){
+        trigger.dataset.languageWasDisabled = String(wasDisabled);
+        trigger.disabled = true;
+        trigger.classList.add("is-language-switching");
+        trigger.setAttribute("aria-busy","true");
+      }
+
+      if(reduceMotion){
+        try { commitLanguageState(next,options); }
+        finally {
+          isLanguageTransitionRunning = false;
+          removeLanguageTransitionArtifacts();
+          restoreLanguageFocus(focusSnapshot,triggerId);
+        }
+        return;
+      }
+
+      document.documentElement.classList.add("language-is-changing");
+      const overlay = createLanguageTransitionOverlay(next,trigger);
+
+      try {
+        await waitLanguageMotion(205);
+        await commitLanguageWithViewTransition(next,options);
+        await waitLanguageMotion(315);
+        overlay.classList.add("is-fading");
+        await waitLanguageMotion(180);
+        const live = ensureLanguageLiveRegion();
+        live.textContent = next === "ja" ? "日本語に切り替えました。" : "Bahasa Indonesia diaktifkan.";
+      } catch(error){
+        console.warn("Wikaru language motion recovered:",error);
+        if(state.lang !== next) commitLanguageState(next,options);
+      } finally {
+        overlay.remove();
+        document.documentElement.classList.remove("language-is-changing");
+        if(trigger){
+          trigger.classList.remove("is-language-switching");
+          trigger.removeAttribute("aria-busy");
+          trigger.disabled = wasDisabled;
+          delete trigger.dataset.languageWasDisabled;
+        }
+        isLanguageTransitionRunning = false;
+        window.__wikaruLanguageTransitionRunning = false;
+        restoreLanguageFocus(focusSnapshot,triggerId);
+      }
+    }
+    window.changeLanguageWithMotion = changeLanguageWithMotion;
+    window.__wikaruCleanupLanguageMotion = removeLanguageTransitionArtifacts;
+
     function updateNavLanguageButton(){
       const btn = $("#navLangBtn");
       if(!btn) return;
@@ -53625,6 +54004,13 @@ html.theme-is-changing .modal.show .modal-card {
       if(globe) globe.className = isId ? "fa-solid fa-globe" : "fa-solid fa-language";
       btn.title = isId ? "Bahasa Indonesia aktif — klik untuk mengganti ke 日本語" : "表示言語：日本語。クリックするとインドネシア語に切り替わります。";
       btn.setAttribute("aria-label", isId ? "Ganti bahasa ke Jepang" : "表示言語をインドネシア語に切り替える");
+      btn.setAttribute("aria-pressed", String(!isId));
+      btn.setAttribute("lang", isId ? "id" : "ja");
+      const dropButton = $("#langToggleDrop");
+      if(dropButton){
+        dropButton.setAttribute("aria-label", isId ? "Ganti bahasa ke Jepang" : "表示言語をインドネシア語に切り替える");
+        dropButton.setAttribute("aria-pressed", String(!isId));
+      }
     }
 
     function updateFictionToggle(){
@@ -57346,7 +57732,7 @@ html[data-theme="dark"] #quizSettingsModal .option-card.icon-option small{color:
         const familyDetail=e.target.closest("[data-family-detail]"); if(familyDetail){ const v=VOCABULARY.find(x=>x.id===familyDetail.dataset.familyDetail); if(v){ openFamilyDetailModal(v); } return; }
         const matNote=e.target.closest("[data-note-material]"); if(matNote){ const v=VOCABULARY.find(x=>x.id===matNote.dataset.noteMaterial); if(v){ openMaterialNoteModal(v); } }
         const matExample=e.target.closest("[data-example-material]"); if(matExample){ const v=VOCABULARY.find(x=>x.id===matExample.dataset.exampleMaterial); if(v){ fillExampleModal(v, true); $("#exampleModal").classList.add("show"); } }
-        const sl=e.target.closest("[data-setup-lang]"); if(sl){ state.lang=sl.dataset.setupLang; saveState(); renderSetup(); applyTranslations(); setSetupStep(2); }
+        const sl=e.target.closest("[data-setup-lang]"); if(sl){ changeLanguageWithMotion(sl.dataset.setupLang,sl,{afterChange:()=>setSetupStep(2)}); }
         const sb=e.target.closest("[data-setup-book]"); if(sb){ tempSetup.book=sb.dataset.setupBook; renderSetup(); setSetupStep(3); }
         const sm=e.target.closest("[data-setup-material]"); if(sm){ tempSetup.materialCategory=sm.dataset.setupMaterial; renderSetup(); setSetupStep(4); }
         const sc=e.target.closest("[data-setup-chapter]"); if(sc){ tempSetup.chapter=sc.dataset.setupChapter; renderSetup(); }
@@ -57361,7 +57747,10 @@ html[data-theme="dark"] #quizSettingsModal .option-card.icon-option small{color:
       if($("#homeResultBtn")) $("#homeResultBtn").onclick=()=>showPage("result");
       if($("#myResultDrop")) $("#myResultDrop").onclick=()=>showPage("result");
       $("#changeCategoryBtn").onclick=openSetup;
-      const toggleLanguage = ()=>{ state.lang=state.lang==="id"?"ja":"id"; saveState(); renderAll(); };
+      const toggleLanguage = event=>{
+        const nextLanguage = state.lang === "id" ? "ja" : "id";
+        changeLanguageWithMotion(nextLanguage,event?.currentTarget);
+      };
       $("#homeLangBtn").onclick=toggleLanguage;
       $("#navLangBtn").onclick=toggleLanguage;
       $("#langToggleDrop").onclick=toggleLanguage;
@@ -57507,7 +57896,7 @@ html[data-theme="dark"] #quizSettingsModal .option-card.icon-option small{color:
       if(!loader) return;
       loader.classList.add("is-leaving");
       loader.style.pointerEvents="none";
-      setTimeout(()=>{ loader.hidden=true; loader.style.display="none"; },520);
+      setTimeout(()=>{ loader.hidden = true; loader.classList.add("is-released"); loader.style.setProperty("display","none","important"); },520);
     }
     async function boot(){
       const absoluteFailsafe=setTimeout(()=>{ releaseLoadingScreen("boot-timeout"); try{ if(!state.setupCompleted && !$("#setupModal").classList.contains("show")) openSetup(); }catch(_){} },4300);
@@ -57705,7 +58094,7 @@ html[data-theme="dark"] #quizSettingsModal .option-card.icon-option small{color:
   async function changeThemeWithMotion(nextTheme, triggerElement){
     const next = nextTheme === "dark" ? "dark" : "light";
     const current = document.documentElement.dataset.theme === "dark" ? "dark" : "light";
-    if(next === current || isThemeTransitionRunning) return;
+    if(next === current || isThemeTransitionRunning || window.__wikaruLanguageTransitionRunning || document.querySelector(".language-transition-overlay")) return;
 
     const loader = byId("loadingScreen");
     const loaderActive = loader && !loader.hidden && loader.style.display !== "none" && !loader.classList.contains("is-leaving");
@@ -58375,7 +58764,7 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}img,svg,video,canvas{max-w
 .inspect-private{contain:paint}body.inspect-private-mode .inspect-private{filter:blur(9px)!important;opacity:.42!important}body.inspect-private-mode .inspect-private::after{font-size:12px!important}
 </style>
 <script id="wikaru-v8-runtime-audit">
-(function(){'use strict';function release(reason){if(typeof window.__wikaruReleaseLoader==='function'){window.__wikaruReleaseLoader(reason||'runtime-recovery');return}const loader=document.getElementById('loadingScreen');if(loader){loader.classList.add('is-leaving');loader.style.pointerEvents='none';setTimeout(()=>{loader.hidden=true;loader.style.display='none'},520)}}window.addEventListener('error',e=>{console.error('Wikaru runtime error:',e.error||e.message);release('runtime-error')});window.addEventListener('unhandledrejection',e=>{console.error('Wikaru async error:',e.reason);release('async-error')});document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('a[target="_blank"]').forEach(a=>a.rel='noopener noreferrer');document.querySelectorAll('img').forEach(img=>{if(!img.loading)img.loading='lazy';img.referrerPolicy='no-referrer'});setTimeout(()=>release('dom-failsafe'),6800)},{once:true})})();
+(function(){'use strict';function release(reason){if(typeof window.__wikaruReleaseLoader==='function'){window.__wikaruReleaseLoader(reason||'runtime-recovery');return}const loader=document.getElementById('loadingScreen');if(loader){loader.classList.add('is-leaving');loader.style.pointerEvents='none';setTimeout(()=>{loader.hidden = true; loader.classList.add("is-released"); loader.style.setProperty("display","none","important"); },520)}}window.addEventListener('error',e=>{console.error('Wikaru runtime error:',e.error||e.message);release('runtime-error')});window.addEventListener('unhandledrejection',e=>{console.error('Wikaru async error:',e.reason);release('async-error')});document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('a[target="_blank"]').forEach(a=>a.rel='noopener noreferrer');document.querySelectorAll('img').forEach(img=>{if(!img.loading)img.loading='lazy';img.referrerPolicy='no-referrer'});setTimeout(()=>release('dom-failsafe'),6800)},{once:true})})();
 </script>
 
 
@@ -58412,24 +58801,6 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}img,svg,video,canvas{max-w
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();
 </script>
-
-
-<style id="wikaru-v10-mobile-polish">
-@media (max-width:760px){
-  #homePage .hero-actions{padding-bottom:8px!important}
-  #homePage .hero-visual{margin-top:12px!important;padding-bottom:18px!important}
-  .bottom-nav{z-index:60!important}
-  .page{scroll-margin-top:76px}
-}
-@media (min-width:761px) and (max-width:900px){
-  .bottom-nav{display:grid!important;position:fixed;left:14px;right:14px;bottom:14px;z-index:60;grid-template-columns:repeat(4,1fr);gap:8px;padding:8px;border-radius:20px;background:rgba(255,255,255,.94);border:1px solid var(--border);box-shadow:0 16px 36px rgba(20,25,20,.12);backdrop-filter:blur(16px)}
-  .bottom-nav button{border:0;background:transparent;border-radius:14px;min-height:50px;color:var(--text-secondary);font-weight:650;font-size:11px;display:grid;place-items:center;gap:3px}
-  .bottom-nav button.active{background:var(--primary-soft);color:var(--primary)}
-  .app{padding-bottom:96px!important}
-}
-html[data-theme="dark"] .bottom-nav{background:rgba(15,23,32,.94)!important;border-color:var(--border)!important}
-</style>
-
 <script id="wikaru-final-contextmenu-devtools-protection">
 (function(){
   'use strict';
@@ -59874,7 +60245,7 @@ html[data-theme="dark"] .home-scroll-hint{color:#9EA9BC!important;}
 @media (max-width:599px){
   html{scrollbar-gutter:auto;}
   body{padding-bottom:calc(74px + env(safe-area-inset-bottom));}
-  .home-theme-scene{top:84px;right:-16px;opacity:.25;transform:scale(.62);}
+  .home-theme-scene{top:84px;right:0;opacity:.25;transform:scale(.60);}
   .home-continue-card::before{left:35%;top:-115px;}
   .home-scroll-hint{display:block;font-size:9px;}
 }
@@ -60905,6 +61276,9 @@ html[lang="ja"] .home-category-switch{
     }
   }
 
+  window.openUserDropdown = openUserDropdown;
+  window.closeUserDropdown = closeUserDropdown;
+
   function toggleUserDropdown(event){
     event?.preventDefault();
     event?.stopPropagation();
@@ -61441,6 +61815,207 @@ html[data-theme="dark"] #loadingScreen .loader-skip{color:#dce5ff;background:#26
   #loadingScreen .loader-fill{width:68%!important;transform:none!important;}
 }
 </style>
+
+<style id="wikaru-final-responsive-audit">
+/* ===== FINAL RESPONSIVE / ACCESSIBILITY AUDIT ===== */
+:root{
+  --wikaru-nav-height:84px;
+  --wikaru-page-gap:28px;
+  --wikaru-bottom-nav-height:0px;
+  --wikaru-safe-top:env(safe-area-inset-top,0px);
+  --wikaru-safe-right:env(safe-area-inset-right,0px);
+  --wikaru-safe-bottom:env(safe-area-inset-bottom,0px);
+  --wikaru-safe-left:env(safe-area-inset-left,0px);
+  --wikaru-visual-height:100dvh;
+}
+html,body{max-width:100%;overflow-x:clip;}
+@supports not (overflow:clip){html,body{overflow-x:hidden;}}
+body{min-height:100vh;min-height:100dvh;}
+
+/* A released loader must never be revived by a later display:grid!important declaration. */
+#loadingScreen[hidden],#loadingScreen.is-released{
+  display:none!important;
+  opacity:0!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
+}
+
+/* Shared geometry and wrapping safeguards. */
+.page,.glass,.content-card,.quiz-card-wrap,.control-panel,.modal-card,.dropdown,
+.vocab-card,.result-card,.admin-report-card,.home-card,.home-continue-card{min-width:0;max-width:100%;}
+img,svg,video,canvas{max-width:100%;}
+.vocab-jp,.vocab-kana,.vocab-id,.question-text,.answer-main,.example-info-card strong,
+.profile-menu-category,.home-header h1,.home-continue-card h2,.modal-title h2{
+  overflow-wrap:anywhere;
+  word-break:normal;
+}
+.flex,.row-actions,.hero-actions,.nav-inner,.nav-actions,.vocab-top,.flash-labels{min-width:0;}
+.table-wrap{max-width:100%;overflow-x:auto;overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch;}
+.table-wrap table{margin:0;}
+
+/* Accessible hit areas discovered during final viewport audit. */
+.home-icon-button,#homeDailyFavoriteBtn,.home-text-button,#pauseBtn,#micSwitch,
+.icon-btn,.close-x,.theme-toggle,.nav-lang-btn,.nav-fiction-toggle,.user-btn{
+  min-height:44px;
+}
+.home-icon-button,#homeDailyFavoriteBtn,.icon-btn,.close-x,.theme-toggle,
+.nav-lang-btn,.nav-fiction-toggle,.user-btn{min-width:44px;}
+.home-text-button{display:inline-flex;align-items:center;justify-content:center;padding:8px 10px;border-radius:10px;}
+#pauseBtn{min-height:44px!important;height:auto!important;padding-block:8px!important;}
+#micSwitch.switch{
+  width:62px!important;min-width:62px!important;max-width:62px!important;height:44px!important;min-height:44px!important;border-radius:999px!important;transform:none!important;
+}
+#micSwitch.switch::after{width:36px!important;height:36px!important;left:4px!important;top:4px!important;}
+#micSwitch.switch.on::after{transform:translateX(18px)!important;}
+
+/* One predictable profile-menu positioning model per device class. */
+.top-nav,.nav-inner,.nav-actions,.user-menu{overflow:visible;}
+.user-menu{position:relative;min-width:0;}
+#userDropdown.dropdown{
+  box-sizing:border-box;
+  overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-gutter:stable;
+  overflow-x:hidden;
+  overflow-y:auto;
+}
+@media (min-width:1200px){
+  :root{--wikaru-nav-height:84px;--wikaru-page-gap:28px;--wikaru-bottom-nav-height:0px;}
+  .top-nav{height:var(--wikaru-nav-height);}
+  .app{padding-top:calc(var(--wikaru-nav-height) + 12px);}
+  #userDropdown.dropdown{
+    position:absolute!important;top:calc(100% + 10px)!important;right:0!important;bottom:auto!important;left:auto!important;
+    width:320px!important;min-width:280px!important;max-width:min(340px,calc(100vw - 32px))!important;
+    max-height:calc(100vh - var(--wikaru-nav-height) - 28px)!important;
+    max-height:calc(100dvh - var(--wikaru-nav-height) - 28px)!important;
+  }
+}
+@media (min-width:900px) and (max-width:1199px){
+  :root{--wikaru-nav-height:72px;--wikaru-page-gap:20px;--wikaru-bottom-nav-height:0px;}
+  #userDropdown.dropdown{
+    position:fixed!important;top:calc(var(--wikaru-nav-height) + 10px + var(--wikaru-safe-top))!important;
+    right:max(16px,var(--wikaru-safe-right))!important;left:auto!important;bottom:auto!important;
+    width:min(340px,calc(100vw - 32px))!important;min-width:280px!important;
+    max-height:calc(100vh - var(--wikaru-nav-height) - 34px)!important;
+    max-height:calc(100dvh - var(--wikaru-nav-height) - 34px)!important;
+  }
+}
+@media (min-width:768px) and (max-width:899px){
+  :root{--wikaru-nav-height:72px;--wikaru-page-gap:20px;--wikaru-bottom-nav-height:64px;}
+  #userDropdown.dropdown{
+    position:fixed!important;top:calc(var(--wikaru-nav-height) + 10px + var(--wikaru-safe-top))!important;
+    right:max(14px,var(--wikaru-safe-right))!important;left:auto!important;bottom:auto!important;
+    width:min(340px,calc(100vw - 28px))!important;min-width:280px!important;
+    max-height:calc(100vh - var(--wikaru-nav-height) - 38px)!important;
+    max-height:calc(100dvh - var(--wikaru-nav-height) - 38px)!important;
+  }
+}
+@media (max-width:767px){
+  :root{--wikaru-nav-height:68px;--wikaru-page-gap:12px;--wikaru-bottom-nav-height:76px;}
+  .top-nav{height:var(--wikaru-nav-height);padding-top:var(--wikaru-safe-top);}
+  .app{padding-top:calc(var(--wikaru-nav-height) + 8px + var(--wikaru-safe-top));padding-bottom:calc(var(--wikaru-bottom-nav-height) + var(--wikaru-safe-bottom) + 20px);}
+  body{padding-bottom:calc(var(--wikaru-bottom-nav-height) + var(--wikaru-safe-bottom) + 8px);}
+  .page{width:calc(100% - 20px);padding-bottom:calc(var(--wikaru-bottom-nav-height) + var(--wikaru-safe-bottom) + 24px);}
+  .nav-inner{width:calc(100% - 20px);gap:8px;}
+  .nav-actions{gap:6px;margin-left:auto;}
+  .nav-lang-btn,.nav-fiction-toggle,.theme-toggle,.user-btn{
+    width:44px!important;min-width:44px!important;max-width:44px!important;height:44px!important;min-height:44px!important;
+    padding:0!important;justify-content:center!important;border-radius:14px!important;
+  }
+  #userAvatar.wikaru-user-avatar,.user-btn>.wikaru-user-avatar{
+    width:36px!important;height:36px!important;min-width:36px!important;max-width:36px!important;flex-basis:36px!important;
+  }
+  #userDropdown.dropdown{
+    position:fixed!important;top:calc(var(--wikaru-nav-height) + 8px + var(--wikaru-safe-top))!important;
+    right:max(10px,var(--wikaru-safe-right))!important;left:max(10px,var(--wikaru-safe-left))!important;bottom:auto!important;
+    width:auto!important;min-width:0!important;max-width:none!important;
+    max-height:calc(100vh - var(--wikaru-nav-height) - var(--wikaru-bottom-nav-height) - var(--wikaru-safe-top) - var(--wikaru-safe-bottom) - 30px)!important;
+    max-height:calc(100dvh - var(--wikaru-nav-height) - var(--wikaru-bottom-nav-height) - var(--wikaru-safe-top) - var(--wikaru-safe-bottom) - 30px)!important;
+    padding-bottom:max(10px,var(--wikaru-safe-bottom))!important;
+  }
+  .bottom-nav{
+    bottom:max(10px,var(--wikaru-safe-bottom))!important;
+    left:max(10px,var(--wikaru-safe-left))!important;right:max(10px,var(--wikaru-safe-right))!important;
+  }
+  .bottom-nav button{min-height:48px;}
+  input,.input,textarea,select{font-size:16px;}
+  .home-theme-scene{right:0!important;max-width:calc(100% - 4px);}
+}
+@media (max-width:389px){
+  .brand-copy{display:none!important;}
+  .nav-actions{gap:4px!important;}
+  .home-theme-scene{transform:scale(.57)!important;transform-origin:top right!important;}
+  .info-grid{grid-template-columns:1fr!important;}
+}
+@media (orientation:landscape) and (max-height:600px) and (max-width:1000px){
+  :root{--wikaru-nav-height:60px;--wikaru-bottom-nav-height:0px;}
+  .top-nav{position:sticky!important;height:var(--wikaru-nav-height)!important;padding-top:0!important;}
+  .app{padding-top:8px!important;padding-bottom:16px!important;}
+  body{padding-bottom:0!important;}
+  #userDropdown.dropdown{
+    top:8px!important;bottom:8px!important;left:auto!important;right:max(8px,var(--wikaru-safe-right))!important;
+    width:min(340px,calc(100vw - 16px))!important;max-height:none!important;
+  }
+  .modal{align-items:center!important;padding:6px max(8px,var(--wikaru-safe-right)) 6px max(8px,var(--wikaru-safe-left))!important;}
+  .modal-card{max-height:calc(100vh - 12px)!important;max-height:calc(100dvh - 12px)!important;border-radius:20px!important;}
+}
+
+/* Modal viewport, safe-area and sticky-footer consolidation. */
+.modal{
+  box-sizing:border-box;
+  padding:max(12px,var(--wikaru-safe-top)) max(12px,var(--wikaru-safe-right)) max(12px,var(--wikaru-safe-bottom)) max(12px,var(--wikaru-safe-left));
+  overflow:hidden;
+}
+.modal-card{
+  box-sizing:border-box;
+  width:min(930px,100%);
+  max-width:calc(100vw - max(24px,var(--wikaru-safe-left)) - max(24px,var(--wikaru-safe-right)));
+  max-height:calc(100vh - max(24px,var(--wikaru-safe-top)) - max(24px,var(--wikaru-safe-bottom)));
+  max-height:calc(100dvh - max(24px,var(--wikaru-safe-top)) - max(24px,var(--wikaru-safe-bottom)));
+  min-height:0;
+  overflow:hidden;
+}
+.modal-fixed-head{flex:0 0 auto;min-width:0;}
+.modal-scroll-body{flex:1 1 auto;min-height:0;max-height:none!important;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;}
+.modal-footer{flex:0 0 auto;padding-bottom:max(16px,var(--wikaru-safe-bottom));}
+@media (max-width:767px){
+  .modal{align-items:end;padding:8px max(8px,var(--wikaru-safe-right)) max(8px,var(--wikaru-safe-bottom)) max(8px,var(--wikaru-safe-left));}
+  .modal-card{
+    width:100%!important;max-width:100%!important;
+    max-height:calc(100vh - 16px - var(--wikaru-safe-top) - var(--wikaru-safe-bottom))!important;
+    max-height:calc(100dvh - 16px - var(--wikaru-safe-top) - var(--wikaru-safe-bottom))!important;
+    border-radius:24px 24px 14px 14px!important;
+  }
+  .modal-footer{padding-bottom:max(16px,var(--wikaru-safe-bottom))!important;}
+}
+
+/* Theme motion must not create a new scrollable area or survive a viewport change. */
+.theme-transition-overlay{inset:0;max-width:100vw;max-height:100vh;max-height:100dvh;overflow:hidden;contain:strict;}
+.theme-transition-circle,.theme-transition-icon,.theme-transition-particle{pointer-events:none;}
+
+/* High zoom behaves like a compact viewport without shrinking text below usability. */
+@media (max-width:1100px){
+  .nav-links{display:none;}
+  .nav-inner{max-width:none;}
+}
+
+/* Focus and contrast consistency. */
+:where(button,a,input,select,textarea,[role="button"],[role="menuitem"]):focus-visible{
+  outline:3px solid color-mix(in srgb,var(--primary,#243B73) 44%,transparent);
+  outline-offset:2px;
+}
+.drop-item{scroll-margin-block:8px;}
+[disabled],.disabled{cursor:not-allowed;}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  .modal-card,.dropdown,.theme-transition-overlay,.theme-transition-circle,.theme-transition-icon,.theme-transition-particle,
+  .language-transition-overlay,.language-transition-halo,.language-transition-badge,.language-glyph{
+    animation:none!important;transition-duration:.01ms!important;
+  }
+}
+</style>
+
 <script id="wikaru-loading-motion-runtime">
 (function(){
   "use strict";
@@ -61477,7 +62052,7 @@ html[data-theme="dark"] #loadingScreen .loader-skip{color:#dce5ff;background:#26
       window.__wikaruReleaseLoader("user-skip");
     }else{
       loader.classList.add("is-leaving");
-      setTimeout(()=>{loader.hidden=true;loader.style.display="none";},520);
+      setTimeout(()=>{loader.hidden = true; loader.classList.add("is-released"); loader.style.setProperty("display","none","important");},520);
     }
   });
   window.addEventListener("load",function(){
@@ -61487,6 +62062,96 @@ html[data-theme="dark"] #loadingScreen .loader-skip{color:#dce5ff;background:#26
       }
     },1200);
   },{once:true});
+})();
+</script>
+
+
+<script id="wikaru-final-responsive-audit-runtime">
+(function(){
+  'use strict';
+  if(window.__wikaruFinalResponsiveAuditInitialized) return;
+  window.__wikaruFinalResponsiveAuditInitialized = true;
+
+  const root=document.documentElement;
+  let resizeTimer=0;
+
+  function forceLoaderRelease(){
+    const loader=document.getElementById('loadingScreen');
+    if(!loader) return;
+    if(loader.hidden || loader.classList.contains('is-leaving') || loader.classList.contains('is-released')){
+      loader.hidden=true;
+      loader.classList.add('is-released');
+      loader.setAttribute('aria-hidden','true');
+      loader.setAttribute('aria-busy','false');
+      loader.style.setProperty('display','none','important');
+      loader.style.setProperty('pointer-events','none','important');
+    }
+  }
+
+  function updateViewportVars(){
+    const height=window.visualViewport?.height || window.innerHeight;
+    root.style.setProperty('--wikaru-visual-height',`${Math.max(1,height)}px`);
+  }
+
+  function normalizeDialogs(){
+    document.querySelectorAll('.modal').forEach(modal=>{
+      if(!modal.hasAttribute('role')) modal.setAttribute('role','dialog');
+      modal.setAttribute('aria-modal','true');
+      const close=modal.querySelector('.close-x');
+      if(close && !close.getAttribute('aria-label')){
+        close.setAttribute('aria-label',root.lang==='ja'?'閉じる':'Tutup');
+      }
+    });
+  }
+
+  function closeTransientUI(){
+    document.querySelectorAll('.theme-transition-overlay,.language-transition-overlay').forEach(el=>el.remove());
+    root.classList.remove('theme-is-changing','language-is-changing');
+    window.__wikaruCleanupLanguageMotion?.();
+    document.querySelectorAll('.theme-toggle.is-switching,.is-language-switching').forEach(el=>{
+      el.classList.remove('is-switching','is-language-switching');
+      el.removeAttribute('disabled');
+      el.removeAttribute('aria-busy');
+      el.setAttribute('aria-disabled','false');
+    });
+    window.__wikaruLanguageTransitionRunning=false;
+    if(typeof window.closeUserDropdown==='function'){
+      try{ window.closeUserDropdown(); }catch(_){}
+    }else{
+      const menu=document.getElementById('userDropdown');
+      const button=document.getElementById('userMenuBtn');
+      const backdrop=document.getElementById('profileMenuBackdrop');
+      menu?.classList.remove('show');
+      menu?.setAttribute('aria-hidden','true');
+      button?.setAttribute('aria-expanded','false');
+      backdrop?.classList.remove('show');
+      document.body.classList.remove('profile-menu-open');
+    }
+  }
+
+  function onViewportChange(){
+    clearTimeout(resizeTimer);
+    resizeTimer=window.setTimeout(()=>{
+      updateViewportVars();
+      closeTransientUI();
+      forceLoaderRelease();
+    },120);
+  }
+
+  function init(){
+    updateViewportVars();
+    normalizeDialogs();
+    forceLoaderRelease();
+    window.setTimeout(forceLoaderRelease,7600);
+
+    window.addEventListener('resize',onViewportChange,{passive:true});
+    window.addEventListener('orientationchange',onViewportChange,{passive:true});
+    window.addEventListener('pageshow',()=>{updateViewportVars();forceLoaderRelease();},{passive:true});
+    window.visualViewport?.addEventListener('resize',onViewportChange,{passive:true});
+  }
+
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init,{once:true});
+  else init();
 })();
 </script>
 
