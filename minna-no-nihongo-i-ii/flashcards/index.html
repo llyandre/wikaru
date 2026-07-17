@@ -5730,6 +5730,272 @@ html[data-theme="dark"] .quiz-mode-hint,html[data-theme="dark"] .voice-profile-c
 @media(prefers-reduced-motion:reduce){.audio-first-orbit b{animation:none!important;display:none}.audio-replay-chip{transition:none!important}}
 </style>
 
+
+
+
+  <style id="wikaru-bab24-gift-style">
+    /* Bab 24 — 贈答の習慣 / Tukar-Menukar Hadiah */
+    body.material-only-reference .wk-material-segments,
+    body.material-only-reference .material-toolbar,
+    body.material-only-reference #wkMaterialFilterBtn,
+    body.material-only-reference #wkMaterialFilterSheet,
+    body.material-only-reference #wkSheetBackdrop{display:none!important;visibility:hidden!important;pointer-events:none!important}
+    .bab24-read-nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:15px 17px;border:1px solid var(--border);border-radius:18px;background:#fff;box-shadow:var(--shadow2)}
+    .bab24-read-nav-copy{display:flex;align-items:center;gap:11px;color:var(--text-primary);font-weight:700}
+    .bab24-read-nav-copy i{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:var(--primary-soft);color:var(--primary)}
+    .bab24-read-nav-links{display:flex;flex-wrap:wrap;gap:8px}
+    .bab24-read-nav-links a{display:inline-flex;align-items:center;gap:7px;min-height:38px;padding:0 12px;border:1px solid var(--border);border-radius:999px;background:var(--surface-muted);color:var(--primary);font-size:12px;font-weight:750;text-decoration:none}
+    .gift-reference-root{min-width:0}
+    .gift-reference-sheet{position:relative;overflow:hidden;padding:30px;border:1px solid rgba(36,59,115,.16);border-radius:30px;background:linear-gradient(145deg,#fffdf9,#fff 52%,#f3f6ff);box-shadow:0 20px 54px rgba(35,42,32,.09)}
+    .gift-reference-sheet::before{content:"贈";position:absolute;right:-18px;top:-42px;font-family:var(--jp);font-size:180px;font-weight:800;color:rgba(36,59,115,.045);line-height:1;pointer-events:none}
+    .gift-reference-head{position:relative;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(250px,.65fr);gap:24px;align-items:center;padding-bottom:24px;border-bottom:1px solid var(--border)}
+    .gift-reference-kicker{display:inline-flex;align-items:center;gap:8px;width:max-content;max-width:100%;padding:8px 12px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-size:12px;font-weight:800}
+    .gift-reference-title{margin:14px 0 0;font-family:var(--jp);font-size:clamp(38px,5vw,68px);line-height:1.08;letter-spacing:-.04em;color:var(--text-primary)}
+    .gift-reference-title ruby{ruby-position:over}.gift-reference-title rt{font-size:11px;color:var(--primary);font-weight:600;letter-spacing:.04em}
+    .gift-reference-subtitle{margin-top:7px;font-size:clamp(20px,2.1vw,30px);font-weight:750;color:var(--primary);letter-spacing:-.025em}
+    .gift-reference-intro{margin:13px 0 0;max-width:760px;line-height:1.75}
+    .gift-reference-mode{display:flex;flex-direction:column;gap:10px;padding:19px;border:1px solid var(--border);border-radius:22px;background:rgba(255,255,255,.88)}
+    .gift-reference-mode strong{display:flex;align-items:center;gap:9px;color:var(--text-primary);font-size:16px}.gift-reference-mode strong i{color:var(--matcha)}
+    .gift-reference-mode span{font-size:13px;line-height:1.6;color:var(--text-secondary)}
+    .gift-concept-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:15px}
+    .gift-concept-chip{display:grid;grid-template-columns:56px minmax(0,1fr);gap:10px;align-items:center;padding:10px;border:1px solid var(--border);border-radius:17px;background:#fff}
+    .gift-concept-chip img{width:56px;height:56px;object-fit:contain;border-radius:13px;background:var(--surface-muted)}
+    .gift-concept-chip b{display:block;font-family:var(--jp);font-size:18px;color:var(--text-primary)}.gift-concept-chip small{display:block;margin-top:2px;color:var(--text-secondary);font-size:11px;line-height:1.4}
+    .gift-overview{position:relative;margin-top:24px;display:grid;gap:10px}
+    .gift-overview-row{display:grid;grid-template-columns:72px minmax(180px,.55fr) minmax(0,1.45fr);gap:15px;align-items:center;padding:12px 14px;border-bottom:1px dashed var(--border-strong)}
+    .gift-overview-row:last-child{border-bottom:0}.gift-overview-row img{width:72px;height:66px;object-fit:contain;border-radius:14px;background:var(--surface-muted);border:1px solid var(--border)}
+    .gift-overview-term b{display:block;font-family:var(--jp);font-size:21px;color:var(--text-primary);line-height:1.3}.gift-overview-term span{display:block;margin-top:2px;font-family:var(--jp);font-size:12px;color:var(--text-muted)}
+    .gift-overview-meaning{color:var(--text-secondary);font-size:13.5px;line-height:1.65;font-weight:550}
+    .gift-seasonal-row{display:grid;grid-template-columns:minmax(250px,.8fr) minmax(0,1.2fr);gap:18px;align-items:stretch;padding:13px 14px;border:1px solid rgba(36,59,115,.13);border-radius:20px;background:var(--primary-soft)}
+    .gift-seasonal-terms{display:grid;grid-template-columns:1fr 1fr;gap:10px}.gift-seasonal-mini{display:grid;grid-template-columns:52px minmax(0,1fr);gap:9px;align-items:center;padding:9px;border-radius:15px;background:#fff;border:1px solid rgba(36,59,115,.1)}
+    .gift-seasonal-mini img{width:52px;height:52px;object-fit:contain;border-radius:11px;background:var(--surface-muted)}.gift-seasonal-mini b{font-family:var(--jp);font-size:18px}.gift-seasonal-mini small{display:block;color:var(--text-muted);font-family:var(--jp)}
+    .gift-seasonal-row>p{margin:0;display:flex;align-items:center;line-height:1.7;color:var(--text-secondary)}
+    .gift-section{display:grid;gap:16px;scroll-margin-top:110px}.gift-section-head{display:flex;align-items:end;justify-content:space-between;gap:15px;padding:0 4px}
+    .gift-section-head h3{margin:0;font-size:clamp(24px,2.7vw,35px)}.gift-section-head p{margin:5px 0 0;font-size:13px}.gift-count{display:inline-flex;align-items:center;gap:7px;padding:8px 11px;border-radius:999px;background:var(--matcha-soft);color:var(--matcha);font-size:12px;font-weight:800;white-space:nowrap}
+    .gift-vocab-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .gift-vocab-card{min-width:0;display:flex;flex-direction:column;padding:15px;border:1px solid var(--border);border-radius:24px;background:#fff;box-shadow:var(--shadow2);transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+    .gift-vocab-card:hover{transform:translateY(-3px);border-color:rgba(36,59,115,.28);box-shadow:0 17px 38px rgba(35,42,32,.11)}
+    .gift-image-button{width:100%;height:174px;padding:10px;border:0;border-radius:18px;background:linear-gradient(135deg,var(--surface-muted),#eef3ff);cursor:zoom-in;overflow:hidden}.gift-image-button img{width:100%;height:100%;object-fit:contain;display:block}
+    .gift-card-title{display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;align-items:start;margin-top:13px}.gift-card-no{width:34px;height:34px;display:grid;place-items:center;border-radius:11px;background:var(--primary);color:#fff;font-size:12px;font-weight:850}
+    .gift-card-title h4{margin:0;font-family:var(--jp);font-size:clamp(21px,1.8vw,27px);line-height:1.25;color:var(--text-primary);overflow-wrap:anywhere}.gift-card-reading{margin-top:3px;font-family:var(--jp);font-size:12px;color:var(--text-muted)}.gift-card-romaji{margin-top:2px;font-size:12px;font-weight:750;color:var(--primary)}
+    .gift-card-meaning{margin:11px 0 0;color:var(--text-secondary);font-size:14px;font-weight:650;line-height:1.55}
+    .gift-example-box,.gift-note-box{margin-top:12px;padding:12px;border-radius:17px;border:1px solid var(--border);background:var(--surface-muted)}
+    .gift-example-box>span,.gift-note-box>span{display:flex;align-items:center;gap:7px;margin-bottom:6px;color:var(--primary);font-size:10px;font-weight:850;text-transform:uppercase;letter-spacing:.05em}
+    .gift-example-box strong{display:block;font-family:var(--jp);font-size:15px;line-height:1.55;color:var(--text-primary)}.gift-example-reading{display:block;margin-top:4px;color:var(--text-muted);font-size:11px;line-height:1.45}.gift-example-box p,.gift-note-box p{margin:6px 0 0;font-size:12px;line-height:1.62;color:var(--text-secondary)}
+    .gift-note-box{background:#fffaf4}.gift-note-box>span{color:#a6681c}.gift-card-actions{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:auto;padding-top:13px}.gift-card-actions .icon-btn{width:100%;height:42px;box-shadow:none;border-radius:13px}
+    .gift-envelope-panel{padding:24px;border:2px dashed rgba(36,59,115,.28);border-radius:26px;background:linear-gradient(145deg,#fff,#f8f8f3)}
+    .gift-envelope-head{display:flex;align-items:flex-start;gap:13px;margin-bottom:18px}.gift-envelope-icon{width:48px;height:48px;display:grid;place-items:center;flex:0 0 auto;border-radius:15px;background:var(--primary);color:#fff;font-size:20px}.gift-envelope-head h3{margin:0;font-size:clamp(23px,2.4vw,32px)}.gift-envelope-head p{margin:4px 0 0;font-size:13px}
+    .gift-envelope-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.gift-envelope-card{display:flex;flex-direction:column;min-width:0;padding:14px;border:1px solid var(--border);border-radius:21px;background:#fff}.gift-envelope-card button{height:225px;padding:8px;border:0;border-radius:16px;background:var(--surface-muted);cursor:zoom-in}.gift-envelope-card img{width:100%;height:100%;object-fit:contain}.gift-envelope-card h4{margin:12px 0 2px;font-family:var(--jp);font-size:23px;color:var(--text-primary)}.gift-envelope-card .reading{font-family:var(--jp);font-size:12px;color:var(--text-muted)}.gift-envelope-card strong{display:block;margin-top:9px;color:var(--primary);font-size:13px;line-height:1.45}.gift-envelope-card p{margin:6px 0 0;font-size:12px;line-height:1.6}
+    .gift-road-divider{display:flex;align-items:center;gap:12px;margin:4px 0}.gift-road-divider::before,.gift-road-divider::after{content:"";height:1px;flex:1;background:var(--border)}.gift-road-divider span{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#fff;color:var(--text-muted);font-size:11px;font-weight:800;white-space:nowrap}
+    @media(max-width:1120px){.gift-vocab-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.gift-reference-head{grid-template-columns:1fr}.gift-envelope-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.gift-envelope-card:last-child{grid-column:1/-1;max-width:520px;width:100%;justify-self:center}}
+    @media(max-width:760px){.gift-reference-sheet{padding:20px;border-radius:24px}.gift-overview-row{grid-template-columns:58px minmax(0,1fr);gap:11px}.gift-overview-row img{width:58px;height:58px}.gift-overview-meaning{grid-column:1/-1;padding-left:69px}.gift-seasonal-row{grid-template-columns:1fr}.gift-vocab-grid,.gift-envelope-grid{grid-template-columns:1fr}.gift-envelope-card:last-child{grid-column:auto;max-width:none}.gift-section-head{align-items:flex-start;flex-direction:column}.gift-envelope-card button{height:205px}.gift-concept-grid{grid-template-columns:1fr}}
+    @media(max-width:520px){.bab24-read-nav{align-items:flex-start}.bab24-read-nav-links{width:100%}.bab24-read-nav-links a{flex:1;justify-content:center}.gift-reference-title{font-size:38px}.gift-overview-row{grid-template-columns:1fr;padding:12px}.gift-overview-row img{width:100%;height:120px}.gift-overview-meaning{padding-left:0}.gift-seasonal-terms{grid-template-columns:1fr}.gift-image-button{height:205px}.gift-card-actions{gap:6px}.gift-envelope-panel{padding:17px}}
+      .gift-reference-wrap{display:grid;gap:22px;min-width:0}
+  </style>
+
+<style id="wikaru-v18-spacing-antiblink-gift-refinement">
+/* Final refinement: cleaner card rhythm, compact Bab 24 cards, informative overview, and anti-blink navigation. */
+#materialPage .vocab-card .tag-row{
+  margin-top:14px!important;
+  margin-bottom:0!important;
+  padding-bottom:15px!important;
+  border-bottom:1px solid var(--border,rgba(36,59,115,.14))!important;
+  row-gap:7px!important;
+}
+#materialPage .vocab-card>.card-actions{
+  margin-top:0!important;
+  padding-top:15px!important;
+}
+#materialPage .vocab-card .tag{
+  line-height:1.2!important;
+}
+
+/* Bab 24 gift cards: keep details behind the existing action icons. */
+.gift-vocab-grid{
+  align-items:start!important;
+}
+.gift-vocab-card{
+  height:auto!important;
+  min-height:0!important;
+  padding:16px!important;
+}
+.gift-vocab-card .gift-example-box,
+.gift-vocab-card .gift-note-box{
+  display:none!important;
+}
+.gift-card-meaning{
+  margin:12px 0 0!important;
+  min-height:44px;
+}
+.gift-card-actions{
+  margin-top:15px!important;
+  padding-top:14px!important;
+  border-top:1px solid var(--border,rgba(36,59,115,.14));
+}
+
+/* The reference overview is explanatory, not another duplicate audio-card list. */
+.gift-overview-row{
+  grid-template-columns:76px minmax(180px,.54fr) minmax(0,1.46fr)!important;
+  gap:16px!important;
+  align-items:center!important;
+  min-height:100px!important;
+  padding:14px 16px!important;
+}
+.gift-overview-term small{
+  display:block;
+  margin-top:3px;
+  color:var(--primary);
+  font-size:11px;
+  font-weight:750;
+}
+.gift-overview-copy{
+  min-width:0;
+  display:grid;
+  gap:7px;
+}
+.gift-overview-copy p{
+  display:flex;
+  align-items:flex-start;
+  gap:8px;
+  margin:0;
+  color:var(--text-muted,var(--muted));
+  font-size:12px;
+  line-height:1.55;
+}
+.gift-overview-copy p i{
+  flex:0 0 auto;
+  margin-top:3px;
+  color:#a6681c;
+}
+.gift-overview-row>.wikaru-direct-audio-dock,
+.gift-seasonal-row>.wikaru-direct-audio-dock,
+.gift-envelope-card>.wikaru-direct-audio-dock{
+  display:none!important;
+}
+
+/* Prevent page/card lazy-paint flashes when switching Material / Quiz. */
+.page{
+  animation:none!important;
+}
+.page.active{
+  animation:wkV18PageSettle 120ms ease-out both!important;
+}
+.page.active :is(.vocab-card,.road-vocab-card,.gift-vocab-card,.gift-overview-row,.gift-envelope-card){
+  content-visibility:visible!important;
+  contain:none!important;
+}
+html.wk-route-transition .page.active{
+  animation:none!important;
+}
+html.wikaru-ready #loadingScreen,
+#loadingScreen.is-released,
+#loadingScreen[hidden]{
+  display:none!important;
+  opacity:0!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
+}
+#materialGrid img,
+#quizPage img{
+  background:var(--surface-muted,#f4f5f0);
+}
+@keyframes wkV18PageSettle{
+  from{opacity:.985;transform:translateY(2px)}
+  to{opacity:1;transform:none}
+}
+
+@media(max-width:760px){
+  #materialPage .vocab-card .tag-row{padding-bottom:13px!important}
+  #materialPage .vocab-card>.card-actions{padding-top:13px!important}
+  .gift-overview-row{
+    grid-template-columns:64px minmax(0,1fr)!important;
+    min-height:0!important;
+  }
+  .gift-overview-row img{width:64px!important;height:64px!important}
+  .gift-overview-copy{grid-column:1/-1;padding-left:80px}
+  .gift-card-meaning{min-height:0}
+}
+@media(max-width:520px){
+  .gift-overview-row{grid-template-columns:1fr!important}
+  .gift-overview-row img{width:100%!important;height:120px!important}
+  .gift-overview-copy{padding-left:0!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .page.active{animation:none!important}
+}
+</style>
+
+
+<style id="wikaru-title-reference-capitalization-refine">
+/* Compact homepage titles: one clear title, one quiet Japanese subtitle. */
+.home-book-name{
+  text-transform:none!important;
+  letter-spacing:.01em!important;
+  font-size:13px!important;
+  color:rgba(235,241,255,.82)!important;
+}
+.home-continue-card h2{
+  max-width:720px!important;
+  font-size:clamp(32px,4.2vw,58px)!important;
+  line-height:1.07!important;
+  letter-spacing:-.045em!important;
+  text-wrap:balance;
+}
+#homeActiveChapter{display:block;max-width:100%}
+.home-title-divider{display:none!important}
+#homeActiveCategory{
+  display:block;
+  width:fit-content;
+  max-width:100%;
+  margin-top:11px;
+  color:rgba(235,241,255,.80);
+  font-family:var(--jp);
+  font-size:clamp(13px,1.35vw,18px);
+  font-weight:650;
+  line-height:1.45;
+  letter-spacing:0;
+  overflow-wrap:anywhere;
+}
+#homeActiveCategory[hidden]{display:none!important}
+.home-active-choice{max-width:min(760px,100%);font-size:11.5px;line-height:1.4}
+.home-continue-content{max-width:min(760px,72%)!important}
+
+/* Consistent casing and reading rhythm in every vocabulary category. */
+.vocab-id,.gift-card-meaning,.road-card-meaning,.movement-card-meaning,
+.example-info-card strong,.gift-overview-meaning,.gift-overview-copy p{
+  text-transform:none!important;
+  text-wrap:pretty;
+}
+.tag,.gift-count,.road-section-count,.movement-card-meta span{
+  line-height:1.25;
+  text-align:center;
+}
+.vocab-jp,.gift-card-title h4,.gift-overview-term b{letter-spacing:-.02em}
+.vocab-kana,.gift-card-reading,.gift-card-romaji{line-height:1.45}
+
+/* Reference-sheet wording should read like a clean modern edition of the supplied page. */
+.gift-overview-copy{gap:6px}
+.gift-overview-meaning{font-weight:700;color:var(--text-primary)}
+.gift-overview-copy p{font-size:12.5px;line-height:1.62}
+.gift-seasonal-row>p{font-size:13px;line-height:1.7}
+.gift-envelope-card strong{font-size:13.5px}
+.gift-envelope-card p{font-size:12.5px;line-height:1.65}
+
+@media(max-width:1050px){
+  .home-continue-content{max-width:68%!important}
+  .home-continue-card h2{font-size:clamp(30px,5vw,48px)!important}
+}
+@media(max-width:899px){
+  .home-continue-content{max-width:100%!important}
+  .home-continue-card h2{font-size:clamp(28px,6.5vw,43px)!important}
+}
+@media(max-width:599px){
+  .home-continue-card h2{font-size:clamp(27px,8.2vw,38px)!important;line-height:1.1!important}
+  #homeActiveCategory{font-size:12.5px;margin-top:8px}
+  .home-book-name{font-size:11.5px!important}
+}
+</style>
+
 </head>
 <body>
   <div id="loadingScreen" class="loader" role="status" aria-live="polite" aria-busy="true">
@@ -36245,6 +36511,633 @@ html[data-theme="dark"] .quiz-mode-hint,html[data-theme="dark"] .voice-profile-c
 ];
     VOCABULARY.push(...BAB23_REFERENCE_ROAD_TRAFFIC);
 
+    const BAB24_REFERENCE_GIFT_EXCHANGE = [
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 24",
+            "chapterNumber": 24,
+            "favorite": false,
+            "section": "贈答の習慣",
+            "sectionReading": "ぞうとうのしゅうかん",
+            "sectionMeaning": "Tukar-Menukar Hadiah",
+            "sectionCategory": "贈答の習慣 / Tukar-Menukar Hadiah",
+            "typeCategory": "Budaya Hadiah",
+            "quizEnabled": false,
+            "isFiction": false,
+            "no": "1",
+            "id": "mni-b24-ref-gift-001",
+            "typeDetail": "Konsep Budaya",
+            "indonesia": "pemberian dan penerimaan hadiah",
+            "kanji": "贈答",
+            "kana": "ぞうとう",
+            "romaji": "zoutou",
+            "image": "https://iili.io/ChmQjet.png",
+            "imageAlt": "Ilustrasi budaya pemberian dan penerimaan hadiah di Jepang",
+            "speech": "ぞうとう",
+            "exampleJa": "日本では季節の贈答を大切にする人が多いです。",
+            "exampleReading": "Nihon de wa kisetsu no zoutou o taisetsu ni suru hito ga ooi desu.",
+            "exampleId": "Di Jepang, banyak orang menganggap penting kebiasaan saling memberi hadiah sesuai musim.",
+            "catatan": "贈答 adalah istilah yang cukup formal untuk kegiatan memberi sekaligus menerima hadiah. Kata ini sering muncul pada judul materi budaya, etika bisnis, atau pembahasan kebiasaan masyarakat; untuk menyebut sebuah hadiah secara konkret, 贈り物（おくりもの）lebih umum.",
+            "examples": [
+                  {
+                        "ja": "日本では季節の贈答を大切にする人が多いです。",
+                        "reading": "Nihon de wa kisetsu no zoutou o taisetsu ni suru hito ga ooi desu.",
+                        "id": "Di Jepang, banyak orang menganggap penting kebiasaan saling memberi hadiah sesuai musim."
+                  }
+            ],
+            "note": "贈答 adalah istilah yang cukup formal untuk kegiatan memberi sekaligus menerima hadiah. Kata ini sering muncul pada judul materi budaya, etika bisnis, atau pembahasan kebiasaan masyarakat; untuk menyebut sebuah hadiah secara konkret, 贈り物（おくりもの）lebih umum.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 24 / 贈答の習慣（ぞうとうのしゅうかん） / Tukar-Menukar Hadiah"
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 24",
+            "chapterNumber": 24,
+            "favorite": false,
+            "section": "贈答の習慣",
+            "sectionReading": "ぞうとうのしゅうかん",
+            "sectionMeaning": "Tukar-Menukar Hadiah",
+            "sectionCategory": "贈答の習慣 / Tukar-Menukar Hadiah",
+            "typeCategory": "Budaya Hadiah",
+            "quizEnabled": false,
+            "isFiction": false,
+            "no": "2",
+            "id": "mni-b24-ref-gift-002",
+            "typeDetail": "Konsep Budaya",
+            "indonesia": "kebiasaan atau adat",
+            "kanji": "習慣",
+            "kana": "しゅうかん",
+            "romaji": "shuukan",
+            "image": "https://iili.io/ChmQeXs.png",
+            "imageAlt": "Ilustrasi kebiasaan atau adat dalam masyarakat Jepang",
+            "speech": "しゅうかん",
+            "exampleJa": "お祝いを現金で渡す習慣があります。",
+            "exampleReading": "Oiwai o genkin de watasu shuukan ga arimasu.",
+            "exampleId": "Ada kebiasaan memberikan uang tunai sebagai hadiah perayaan.",
+            "catatan": "習慣 menunjuk kebiasaan yang dilakukan berulang oleh seseorang atau masyarakat. Dalam topik hadiah, kata ini membantu menjelaskan bahwa cara memberi, waktu pemberian, jenis amplop, dan warna tali memiliki aturan budaya tersendiri.",
+            "examples": [
+                  {
+                        "ja": "お祝いを現金で渡す習慣があります。",
+                        "reading": "Oiwai o genkin de watasu shuukan ga arimasu.",
+                        "id": "Ada kebiasaan memberikan uang tunai sebagai hadiah perayaan."
+                  }
+            ],
+            "note": "習慣 menunjuk kebiasaan yang dilakukan berulang oleh seseorang atau masyarakat. Dalam topik hadiah, kata ini membantu menjelaskan bahwa cara memberi, waktu pemberian, jenis amplop, dan warna tali memiliki aturan budaya tersendiri.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 24 / 贈答の習慣（ぞうとうのしゅうかん） / Tukar-Menukar Hadiah"
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 24",
+            "chapterNumber": 24,
+            "favorite": false,
+            "section": "贈答の習慣",
+            "sectionReading": "ぞうとうのしゅうかん",
+            "sectionMeaning": "Tukar-Menukar Hadiah",
+            "sectionCategory": "贈答の習慣 / Tukar-Menukar Hadiah",
+            "typeCategory": "Budaya Hadiah",
+            "quizEnabled": false,
+            "isFiction": false,
+            "no": "3",
+            "id": "mni-b24-ref-gift-003",
+            "typeDetail": "Hadiah Tahun Baru",
+            "indonesia": "hadiah kecil berupa uang yang diberikan orang tua dan keluarga kepada anak-anak pada Hari Tahun Baru",
+            "kanji": "お年玉",
+            "kana": "おとしだま",
+            "romaji": "otoshidama",
+            "image": "https://iili.io/ChmQOIn.png",
+            "imageAlt": "Ilustrasi uang Tahun Baru Jepang untuk anak-anak",
+            "speech": "おとしだま",
+            "exampleJa": "正月に祖父からお年玉をもらいました。",
+            "exampleReading": "Shougatsu ni sofu kara otoshidama o moraimashita.",
+            "exampleId": "Pada Tahun Baru, saya menerima otoshidama dari kakek.",
+            "catatan": "お年玉 adalah uang yang biasanya diberikan orang dewasa kepada anak-anak saat Tahun Baru. Uang tersebut sering dimasukkan ke dalam amplop kecil bernama ポチ袋（ぽちぶくろ), sehingga terasa lebih sopan dan istimewa.",
+            "examples": [
+                  {
+                        "ja": "正月に祖父からお年玉をもらいました。",
+                        "reading": "Shougatsu ni sofu kara otoshidama o moraimashita.",
+                        "id": "Pada Tahun Baru, saya menerima otoshidama dari kakek."
+                  }
+            ],
+            "note": "お年玉 adalah uang yang biasanya diberikan orang dewasa kepada anak-anak saat Tahun Baru. Uang tersebut sering dimasukkan ke dalam amplop kecil bernama ポチ袋（ぽちぶくろ), sehingga terasa lebih sopan dan istimewa.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 24 / 贈答の習慣（ぞうとうのしゅうかん） / Tukar-Menukar Hadiah"
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 24",
+            "chapterNumber": 24,
+            "favorite": false,
+            "section": "贈答の習慣",
+            "sectionReading": "ぞうとうのしゅうかん",
+            "sectionMeaning": "Tukar-Menukar Hadiah",
+            "sectionCategory": "贈答の習慣 / Tukar-Menukar Hadiah",
+            "typeCategory": "Budaya Hadiah",
+            "quizEnabled": false,
+            "isFiction": false,
+            "no": "4",
+            "id": "mni-b24-ref-gift-004",
+            "typeDetail": "Hadiah Perayaan",
+            "indonesia": "hadiah untuk anak yang masuk sekolah, misalnya uang, perlengkapan sekolah, atau buku",
+            "kanji": "入学祝い",
+            "kana": "にゅうがくいわい",
+            "romaji": "nyuugaku iwai",
+            "image": "https://iili.io/ChmQkLG.png",
+            "imageAlt": "Ilustrasi hadiah untuk merayakan anak masuk sekolah",
+            "speech": "にゅうがくいわい",
+            "exampleJa": "姪の入学祝いに図書カードを贈りました。",
+            "exampleReading": "Mei no nyuugaku iwai ni tosho kaado o okurimashita.",
+            "exampleId": "Saya memberikan kartu hadiah buku untuk merayakan keponakan perempuan masuk sekolah.",
+            "catatan": "入学祝い diberikan saat seseorang mulai bersekolah, biasanya berupa uang, alat tulis, tas, buku, atau barang yang berguna untuk belajar. Kata 入学 berarti masuk sekolah, sedangkan 祝い berarti perayaan atau ucapan selamat.",
+            "examples": [
+                  {
+                        "ja": "姪の入学祝いに図書カードを贈りました。",
+                        "reading": "Mei no nyuugaku iwai ni tosho kaado o okurimashita.",
+                        "id": "Saya memberikan kartu hadiah buku untuk merayakan keponakan perempuan masuk sekolah."
+                  }
+            ],
+            "note": "入学祝い diberikan saat seseorang mulai bersekolah, biasanya berupa uang, alat tulis, tas, buku, atau barang yang berguna untuk belajar. Kata 入学 berarti masuk sekolah, sedangkan 祝い berarti perayaan atau ucapan selamat.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 24 / 贈答の習慣（ぞうとうのしゅうかん） / Tukar-Menukar Hadiah"
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 24",
+            "chapterNumber": 24,
+            "favorite": false,
+            "section": "贈答の習慣",
+            "sectionReading": "ぞうとうのしゅうかん",
+            "sectionMeaning": "Tukar-Menukar Hadiah",
+            "sectionCategory": "贈答の習慣 / Tukar-Menukar Hadiah",
+            "typeCategory": "Budaya Hadiah",
+            "quizEnabled": false,
+            "isFiction": false,
+            "no": "5",
+            "id": "mni-b24-ref-gift-005",
+            "typeDetail": "Hadiah Perayaan",
+            "indonesia": "hadiah untuk anak yang tamat sekolah, misalnya uang, perlengkapan sekolah, atau buku",
+            "kanji": "卒業祝い",
+            "kana": "そつぎょういわい",
+            "romaji": "sotsugyou iwai",
+            "image": "https://iili.io/ChmQUrl.png",
+            "imageAlt": "Ilustrasi hadiah untuk merayakan kelulusan",
+            "speech": "そつぎょういわい",
+            "exampleJa": "卒業祝いとして腕時計をいただきました。",
+            "exampleReading": "Sotsugyou iwai to shite udedokei o itadakimashita.",
+            "exampleId": "Saya menerima jam tangan sebagai hadiah kelulusan.",
+            "catatan": "卒業祝い diberikan untuk menandai selesainya jenjang pendidikan. Hadiahnya dapat berupa uang atau benda yang mendukung langkah berikutnya, misalnya jam tangan, tas kerja, atau perlengkapan kuliah.",
+            "examples": [
+                  {
+                        "ja": "卒業祝いとして腕時計をいただきました。",
+                        "reading": "Sotsugyou iwai to shite udedokei o itadakimashita.",
+                        "id": "Saya menerima jam tangan sebagai hadiah kelulusan."
+                  }
+            ],
+            "note": "卒業祝い diberikan untuk menandai selesainya jenjang pendidikan. Hadiahnya dapat berupa uang atau benda yang mendukung langkah berikutnya, misalnya jam tangan, tas kerja, atau perlengkapan kuliah.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 24 / 贈答の習慣（ぞうとうのしゅうかん） / Tukar-Menukar Hadiah"
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 24",
+            "chapterNumber": 24,
+            "favorite": false,
+            "section": "贈答の習慣",
+            "sectionReading": "ぞうとうのしゅうかん",
+            "sectionMeaning": "Tukar-Menukar Hadiah",
+            "sectionCategory": "贈答の習慣 / Tukar-Menukar Hadiah",
+            "typeCategory": "Budaya Hadiah",
+            "quizEnabled": false,
+            "isFiction": false,
+            "no": "6",
+            "id": "mni-b24-ref-gift-006",
+            "typeDetail": "Hadiah Perayaan",
+            "indonesia": "hadiah perkawinan, misalnya uang atau perlengkapan rumah tangga",
+            "kanji": "結婚祝い",
+            "kana": "けっこんいわい",
+            "romaji": "kekkon iwai",
+            "image": "https://iili.io/ChmQr22.png",
+            "imageAlt": "Ilustrasi hadiah pernikahan Jepang",
+            "speech": "けっこんいわい",
+            "exampleJa": "友達の結婚祝いに夫婦茶碗を選びました。",
+            "exampleReading": "Tomodachi no kekkon iwai ni meoto jawan o erabimashita.",
+            "exampleId": "Saya memilih mangkuk nasi pasangan sebagai hadiah pernikahan teman.",
+            "catatan": "結婚祝い dapat berupa uang atau barang untuk kehidupan rumah tangga. Untuk uang pernikahan, amplop dan simpul tali dipilih dengan hati-hati karena pernikahan diharapkan terjadi sekali dan berlangsung langgeng.",
+            "examples": [
+                  {
+                        "ja": "友達の結婚祝いに夫婦茶碗を選びました。",
+                        "reading": "Tomodachi no kekkon iwai ni meoto jawan o erabimashita.",
+                        "id": "Saya memilih mangkuk nasi pasangan sebagai hadiah pernikahan teman."
+                  }
+            ],
+            "note": "結婚祝い dapat berupa uang atau barang untuk kehidupan rumah tangga. Untuk uang pernikahan, amplop dan simpul tali dipilih dengan hati-hati karena pernikahan diharapkan terjadi sekali dan berlangsung langgeng.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 24 / 贈答の習慣（ぞうとうのしゅうかん） / Tukar-Menukar Hadiah"
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 24",
+            "chapterNumber": 24,
+            "favorite": false,
+            "section": "贈答の習慣",
+            "sectionReading": "ぞうとうのしゅうかん",
+            "sectionMeaning": "Tukar-Menukar Hadiah",
+            "sectionCategory": "贈答の習慣 / Tukar-Menukar Hadiah",
+            "typeCategory": "Budaya Hadiah",
+            "quizEnabled": false,
+            "isFiction": false,
+            "no": "7",
+            "id": "mni-b24-ref-gift-007",
+            "typeDetail": "Hadiah Perayaan",
+            "indonesia": "hadiah untuk orang yang melahirkan, misalnya pakaian atau mainan bayi",
+            "kanji": "出産祝い",
+            "kana": "しゅっさんいわい",
+            "romaji": "shussan iwai",
+            "image": "https://iili.io/ChmQ6k7.png",
+            "imageAlt": "Ilustrasi hadiah kelahiran bayi",
+            "speech": "しゅっさんいわい",
+            "exampleJa": "同僚の出産祝いにベビー服を贈ります。",
+            "exampleReading": "Douryou no shussan iwai ni bebii-fuku o okurimasu.",
+            "exampleId": "Saya akan memberikan pakaian bayi sebagai hadiah kelahiran anak rekan kerja.",
+            "catatan": "出産祝い biasanya diberikan setelah ibu dan bayi berada dalam kondisi baik. Barang yang praktis seperti pakaian bayi, handuk, popok, atau uang sering dipilih; menanyakan kebutuhan keluarga terlebih dahulu juga merupakan pilihan yang bijak.",
+            "examples": [
+                  {
+                        "ja": "同僚の出産祝いにベビー服を贈ります。",
+                        "reading": "Douryou no shussan iwai ni bebii-fuku o okurimasu.",
+                        "id": "Saya akan memberikan pakaian bayi sebagai hadiah kelahiran anak rekan kerja."
+                  }
+            ],
+            "note": "出産祝い biasanya diberikan setelah ibu dan bayi berada dalam kondisi baik. Barang yang praktis seperti pakaian bayi, handuk, popok, atau uang sering dipilih; menanyakan kebutuhan keluarga terlebih dahulu juga merupakan pilihan yang bijak.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 24 / 贈答の習慣（ぞうとうのしゅうかん） / Tukar-Menukar Hadiah"
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 24",
+            "chapterNumber": 24,
+            "favorite": false,
+            "section": "贈答の習慣",
+            "sectionReading": "ぞうとうのしゅうかん",
+            "sectionMeaning": "Tukar-Menukar Hadiah",
+            "sectionCategory": "贈答の習慣 / Tukar-Menukar Hadiah",
+            "typeCategory": "Budaya Hadiah",
+            "quizEnabled": false,
+            "isFiction": false,
+            "no": "8",
+            "id": "mni-b24-ref-gift-008",
+            "typeDetail": "Hadiah Musiman",
+            "indonesia": "hadiah pertengahan tahun untuk orang yang telah membantu, biasanya diberikan pada Juli atau Agustus",
+            "kanji": "お中元",
+            "kana": "おちゅうげん",
+            "romaji": "ochuugen",
+            "image": "https://iili.io/ChmQPp9.png",
+            "imageAlt": "Ilustrasi hadiah pertengahan tahun Jepang",
+            "speech": "おちゅうげん",
+            "exampleJa": "毎年七月にお世話になった先生へお中元を送ります。",
+            "exampleReading": "Maitoshi shichigatsu ni osewa ni natta sensei e ochuugen o okurimasu.",
+            "exampleId": "Setiap bulan Juli, saya mengirim hadiah pertengahan tahun kepada guru yang telah banyak membantu.",
+            "catatan": "お中元 adalah hadiah musiman untuk menyampaikan terima kasih kepada orang yang telah membantu. Waktu pengirimannya berbeda menurut wilayah, tetapi umumnya berada pada bulan Juli atau Agustus.",
+            "examples": [
+                  {
+                        "ja": "毎年七月にお世話になった先生へお中元を送ります。",
+                        "reading": "Maitoshi shichigatsu ni osewa ni natta sensei e ochuugen o okurimasu.",
+                        "id": "Setiap bulan Juli, saya mengirim hadiah pertengahan tahun kepada guru yang telah banyak membantu."
+                  }
+            ],
+            "note": "お中元 adalah hadiah musiman untuk menyampaikan terima kasih kepada orang yang telah membantu. Waktu pengirimannya berbeda menurut wilayah, tetapi umumnya berada pada bulan Juli atau Agustus.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 24 / 贈答の習慣（ぞうとうのしゅうかん） / Tukar-Menukar Hadiah"
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 24",
+            "chapterNumber": 24,
+            "favorite": false,
+            "section": "贈答の習慣",
+            "sectionReading": "ぞうとうのしゅうかん",
+            "sectionMeaning": "Tukar-Menukar Hadiah",
+            "sectionCategory": "贈答の習慣 / Tukar-Menukar Hadiah",
+            "typeCategory": "Budaya Hadiah",
+            "quizEnabled": false,
+            "isFiction": false,
+            "no": "9",
+            "id": "mni-b24-ref-gift-009",
+            "typeDetail": "Hadiah Musiman",
+            "indonesia": "hadiah akhir tahun untuk orang yang telah membantu, biasanya diberikan pada Desember",
+            "kanji": "お歳暮",
+            "kana": "おせいぼ",
+            "romaji": "oseibo",
+            "image": "https://iili.io/ChmQDEx.png",
+            "imageAlt": "Ilustrasi hadiah akhir tahun Jepang",
+            "speech": "おせいぼ",
+            "exampleJa": "年末に親戚へお歳暮を送りました。",
+            "exampleReading": "Nenmatsu ni shinseki e oseibo o okurimashita.",
+            "exampleId": "Pada akhir tahun, saya mengirim hadiah oseibo kepada kerabat.",
+            "catatan": "お歳暮 diberikan menjelang akhir tahun sebagai ungkapan terima kasih atas bantuan selama setahun. Makanan, minuman, minyak goreng, atau produk yang mudah dibagikan sering dipilih sebagai hadiah.",
+            "examples": [
+                  {
+                        "ja": "年末に親戚へお歳暮を送りました。",
+                        "reading": "Nenmatsu ni shinseki e oseibo o okurimashita.",
+                        "id": "Pada akhir tahun, saya mengirim hadiah oseibo kepada kerabat."
+                  }
+            ],
+            "note": "お歳暮 diberikan menjelang akhir tahun sebagai ungkapan terima kasih atas bantuan selama setahun. Makanan, minuman, minyak goreng, atau produk yang mudah dibagikan sering dipilih sebagai hadiah.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 24 / 贈答の習慣（ぞうとうのしゅうかん） / Tukar-Menukar Hadiah"
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 24",
+            "chapterNumber": 24,
+            "favorite": false,
+            "section": "贈答の習慣",
+            "sectionReading": "ぞうとうのしゅうかん",
+            "sectionMeaning": "Tukar-Menukar Hadiah",
+            "sectionCategory": "贈答の習慣 / Tukar-Menukar Hadiah",
+            "typeCategory": "Budaya Hadiah",
+            "quizEnabled": false,
+            "isFiction": false,
+            "no": "10",
+            "id": "mni-b24-ref-gift-010",
+            "typeDetail": "Belasungkawa",
+            "indonesia": "uang yang diberikan kepada keluarga yang berduka",
+            "kanji": "お香典",
+            "kana": "おこうでん",
+            "romaji": "okouden",
+            "image": "https://iili.io/ChmQp2V.png",
+            "imageAlt": "Ilustrasi uang belasungkawa dalam upacara kematian Jepang",
+            "speech": "おこうでん",
+            "exampleJa": "お葬式で受付にお香典を渡しました。",
+            "exampleReading": "Osoushiki de uketsuke ni okouden o watashimashita.",
+            "exampleId": "Pada upacara pemakaman, saya menyerahkan uang belasungkawa di meja penerima tamu.",
+            "catatan": "お香典 adalah uang belasungkawa yang dibawa saat melayat atau menghadiri pemakaman. Uang dimasukkan ke amplop duka dengan warna dan tulisan yang sesuai, lalu nama pemberi ditulis dengan rapi.",
+            "examples": [
+                  {
+                        "ja": "お葬式で受付にお香典を渡しました。",
+                        "reading": "Osoushiki de uketsuke ni okouden o watashimashita.",
+                        "id": "Pada upacara pemakaman, saya menyerahkan uang belasungkawa di meja penerima tamu."
+                  }
+            ],
+            "note": "お香典 adalah uang belasungkawa yang dibawa saat melayat atau menghadiri pemakaman. Uang dimasukkan ke amplop duka dengan warna dan tulisan yang sesuai, lalu nama pemberi ditulis dengan rapi.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 24 / 贈答の習慣（ぞうとうのしゅうかん） / Tukar-Menukar Hadiah"
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 24",
+            "chapterNumber": 24,
+            "favorite": false,
+            "section": "贈答の習慣",
+            "sectionReading": "ぞうとうのしゅうかん",
+            "sectionMeaning": "Tukar-Menukar Hadiah",
+            "sectionCategory": "贈答の習慣 / Tukar-Menukar Hadiah",
+            "typeCategory": "Budaya Hadiah",
+            "quizEnabled": false,
+            "isFiction": false,
+            "no": "11",
+            "id": "mni-b24-ref-gift-011",
+            "typeDetail": "Kunjungan Orang Sakit",
+            "indonesia": "hadiah untuk orang yang sedang sakit, misalnya bunga atau buah-buahan",
+            "kanji": "お見舞い",
+            "kana": "おみまい",
+            "romaji": "omimai",
+            "image": "https://iili.io/ChmQyYB.png",
+            "imageAlt": "Ilustrasi kunjungan dan hadiah untuk orang sakit",
+            "speech": "おみまい",
+            "exampleJa": "入院した友人のお見舞いに果物を持って行きました。",
+            "exampleReading": "Nyuuhin shita yuujin no omimai ni kudamono o motte ikimashita.",
+            "exampleId": "Saya membawa buah ketika mengunjungi teman yang dirawat di rumah sakit.",
+            "catatan": "お見舞い dapat berarti kunjungan untuk menjenguk sekaligus hadiah yang dibawa. Pilih barang yang mudah diterima pasien dan perhatikan aturan rumah sakit; kunjungan singkat yang tidak melelahkan pasien biasanya lebih sopan.",
+            "examples": [
+                  {
+                        "ja": "入院した友人のお見舞いに果物を持って行きました。",
+                        "reading": "Nyuuhin shita yuujin no omimai ni kudamono o motte ikimashita.",
+                        "id": "Saya membawa buah ketika mengunjungi teman yang dirawat di rumah sakit."
+                  }
+            ],
+            "note": "お見舞い dapat berarti kunjungan untuk menjenguk sekaligus hadiah yang dibawa. Pilih barang yang mudah diterima pasien dan perhatikan aturan rumah sakit; kunjungan singkat yang tidak melelahkan pasien biasanya lebih sopan.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 24 / 贈答の習慣（ぞうとうのしゅうかん） / Tukar-Menukar Hadiah"
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 24",
+            "chapterNumber": 24,
+            "favorite": false,
+            "section": "贈答の習慣",
+            "sectionReading": "ぞうとうのしゅうかん",
+            "sectionMeaning": "Tukar-Menukar Hadiah",
+            "sectionCategory": "贈答の習慣 / Tukar-Menukar Hadiah",
+            "typeCategory": "Budaya Hadiah",
+            "quizEnabled": false,
+            "isFiction": false,
+            "no": "12",
+            "id": "mni-b24-ref-gift-012",
+            "typeDetail": "Amplop Seremonial",
+            "indonesia": "amplop khusus untuk hadiah uang",
+            "kanji": "熨斗袋",
+            "kana": "のしぶくろ",
+            "romaji": "noshibukuro",
+            "image": "https://iili.io/ChmZ9kP.png",
+            "imageAlt": "Ilustrasi amplop khusus untuk hadiah uang di Jepang",
+            "speech": "のしぶくろ",
+            "exampleJa": "お祝いのお金は熨斗袋に入れて渡します。",
+            "exampleReading": "Oiwai no okane wa noshibukuro ni irete watashimasu.",
+            "exampleId": "Uang hadiah perayaan dimasukkan ke dalam noshibukuro sebelum diberikan.",
+            "catatan": "熨斗袋 adalah sebutan populer untuk amplop seremonial berisi uang. Secara lebih tepat, amplop perayaan memakai hiasan 熨斗, sedangkan amplop duka biasanya disebut 不祝儀袋（ぶしゅうぎぶくろ）dan tidak memakai hiasan tersebut.",
+            "examples": [
+                  {
+                        "ja": "お祝いのお金は熨斗袋に入れて渡します。",
+                        "reading": "Oiwai no okane wa noshibukuro ni irete watashimasu.",
+                        "id": "Uang hadiah perayaan dimasukkan ke dalam noshibukuro sebelum diberikan."
+                  }
+            ],
+            "note": "熨斗袋 adalah sebutan populer untuk amplop seremonial berisi uang. Secara lebih tepat, amplop perayaan memakai hiasan 熨斗, sedangkan amplop duka biasanya disebut 不祝儀袋（ぶしゅうぎぶくろ）dan tidak memakai hiasan tersebut.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 24 / 贈答の習慣（ぞうとうのしゅうかん） / Tukar-Menukar Hadiah"
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 24",
+            "chapterNumber": 24,
+            "favorite": false,
+            "section": "贈答の習慣",
+            "sectionReading": "ぞうとうのしゅうかん",
+            "sectionMeaning": "Tukar-Menukar Hadiah",
+            "sectionCategory": "贈答の習慣 / Tukar-Menukar Hadiah",
+            "typeCategory": "Budaya Hadiah",
+            "quizEnabled": false,
+            "isFiction": false,
+            "no": "13",
+            "id": "mni-b24-ref-gift-013",
+            "typeDetail": "Tulisan pada Amplop",
+            "indonesia": "tulisan pada amplop hadiah untuk upacara pernikahan",
+            "kanji": "御結婚御祝",
+            "kana": "ごけっこんおいわい",
+            "romaji": "go-kekkon oiwai",
+            "image": "https://iili.io/ChmZ2hg.png",
+            "imageAlt": "Tulisan御結婚御祝 pada amplop hadiah pernikahan",
+            "speech": "ごけっこんおいわい",
+            "exampleJa": "結婚式の熨斗袋に「御結婚御祝」と書きました。",
+            "exampleReading": "Kekkonshiki no noshibukuro ni 'Go-kekkon oiwai' to kakimashita.",
+            "exampleId": "Saya menulis “御結婚御祝” pada amplop hadiah untuk upacara pernikahan.",
+            "catatan": "御結婚御祝 adalah tulisan formal pada bagian depan amplop hadiah pernikahan. Bentuk ini menegaskan tujuan pemberian uang, yaitu menyampaikan selamat atas pernikahan.",
+            "examples": [
+                  {
+                        "ja": "結婚式の熨斗袋に「御結婚御祝」と書きました。",
+                        "reading": "Kekkonshiki no noshibukuro ni 'Go-kekkon oiwai' to kakimashita.",
+                        "id": "Saya menulis “御結婚御祝” pada amplop hadiah untuk upacara pernikahan."
+                  }
+            ],
+            "note": "御結婚御祝 adalah tulisan formal pada bagian depan amplop hadiah pernikahan. Bentuk ini menegaskan tujuan pemberian uang, yaitu menyampaikan selamat atas pernikahan.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 24 / 贈答の習慣（ぞうとうのしゅうかん） / Tukar-Menukar Hadiah"
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 24",
+            "chapterNumber": 24,
+            "favorite": false,
+            "section": "贈答の習慣",
+            "sectionReading": "ぞうとうのしゅうかん",
+            "sectionMeaning": "Tukar-Menukar Hadiah",
+            "sectionCategory": "贈答の習慣 / Tukar-Menukar Hadiah",
+            "typeCategory": "Budaya Hadiah",
+            "quizEnabled": false,
+            "isFiction": false,
+            "no": "14",
+            "id": "mni-b24-ref-gift-014",
+            "typeDetail": "Tulisan pada Amplop",
+            "indonesia": "tulisan pada amplop hadiah untuk perayaan selain pernikahan",
+            "kanji": "御祝",
+            "kana": "おいわい",
+            "romaji": "oiwai",
+            "image": "https://iili.io/ChmZfEv.png",
+            "imageAlt": "Tulisan 御祝 pada amplop hadiah perayaan",
+            "speech": "おいわい",
+            "exampleJa": "入学祝いの袋に「御祝」と書いてもかまいません。",
+            "exampleReading": "Nyuugaku iwai no fukuro ni 'Oiwai' to kaite mo kamaimasen.",
+            "exampleId": "Pada amplop hadiah masuk sekolah, boleh ditulis “御祝”.",
+            "catatan": "御祝 adalah tulisan serbaguna untuk berbagai perayaan, misalnya masuk sekolah, kelulusan, kelahiran, atau ulang tahun tertentu. Karena maknanya luas, tulisan ini cocok ketika jenis perayaannya sudah jelas dari situasi.",
+            "examples": [
+                  {
+                        "ja": "入学祝いの袋に「御祝」と書いてもかまいません。",
+                        "reading": "Nyuugaku iwai no fukuro ni 'Oiwai' to kaite mo kamaimasen.",
+                        "id": "Pada amplop hadiah masuk sekolah, boleh ditulis “御祝”."
+                  }
+            ],
+            "note": "御祝 adalah tulisan serbaguna untuk berbagai perayaan, misalnya masuk sekolah, kelulusan, kelahiran, atau ulang tahun tertentu. Karena maknanya luas, tulisan ini cocok ketika jenis perayaannya sudah jelas dari situasi.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 24 / 贈答の習慣（ぞうとうのしゅうかん） / Tukar-Menukar Hadiah"
+      },
+      {
+            "course": "Minna no Nihongo I",
+            "book": "Minna no Nihongo I (2nd Edition)",
+            "bookJa": "みんなの日本語 I（第2版）",
+            "category": "Kata-Kata Referensi dan Informasi",
+            "materialCategory": "Kata-Kata Referensi dan Informasi",
+            "chapter": "Bab 24",
+            "chapterNumber": 24,
+            "favorite": false,
+            "section": "贈答の習慣",
+            "sectionReading": "ぞうとうのしゅうかん",
+            "sectionMeaning": "Tukar-Menukar Hadiah",
+            "sectionCategory": "贈答の習慣 / Tukar-Menukar Hadiah",
+            "typeCategory": "Budaya Hadiah",
+            "quizEnabled": false,
+            "isFiction": false,
+            "no": "15",
+            "id": "mni-b24-ref-gift-015",
+            "typeDetail": "Tulisan pada Amplop",
+            "indonesia": "tulisan pada amplop uang untuk upacara kematian",
+            "kanji": "御霊前",
+            "kana": "ごれいぜん",
+            "romaji": "goreizen",
+            "image": "https://iili.io/ChmZq4R.png",
+            "imageAlt": "Tulisan 御霊前 pada amplop uang belasungkawa",
+            "speech": "ごれいぜん",
+            "exampleJa": "通夜に持参する香典袋には「御霊前」と書きました。",
+            "exampleReading": "Tsuya ni jisan suru koudengukuro ni 'Goreizen' to kakimashita.",
+            "exampleId": "Saya menulis “御霊前” pada amplop belasungkawa yang dibawa ke acara persemayaman.",
+            "catatan": "御霊前 digunakan pada banyak amplop belasungkawa sebelum upacara peringatan tertentu. Namun, penggunaannya dapat berbeda menurut agama atau aliran Buddha; pada Jōdo Shinshū, 御仏前（ごぶつぜん）umumnya digunakan sejak awal.",
+            "examples": [
+                  {
+                        "ja": "通夜に持参する香典袋には「御霊前」と書きました。",
+                        "reading": "Tsuya ni jisan suru koudengukuro ni 'Goreizen' to kakimashita.",
+                        "id": "Saya menulis “御霊前” pada amplop belasungkawa yang dibawa ke acara persemayaman."
+                  }
+            ],
+            "note": "御霊前 digunakan pada banyak amplop belasungkawa sebelum upacara peringatan tertentu. Namun, penggunaannya dapat berbeda menurut agama atau aliran Buddha; pada Jōdo Shinshū, 御仏前（ごぶつぜん）umumnya digunakan sejak awal.",
+            "tag": "Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 24 / 贈答の習慣（ぞうとうのしゅうかん） / Tukar-Menukar Hadiah"
+      }
+];
+    const BAB24_REFERENCE_GIFT_ENVELOPES = [
+      {
+            "title": "御結婚御祝",
+            "reading": "ごけっこんおいわい",
+            "image": "https://iili.io/ChmtZUQ.png",
+            "caption": "Amplop untuk Upacara Pernikahan",
+            "detail": "Untuk upacara pernikahan. Gunakan pita merah dan putih atau emas dan perak."
+      },
+      {
+            "title": "御祝",
+            "reading": "おいわい",
+            "image": "https://iili.io/ChmtLfj.png",
+            "caption": "Amplop untuk Perayaan Selain Pernikahan",
+            "detail": "Untuk acara perayaan selain upacara pernikahan. Gunakan pita merah dan putih atau emas dan perak."
+      },
+      {
+            "title": "御霊前",
+            "reading": "ごれいぜん",
+            "image": "https://iili.io/ChmtQ0x.png",
+            "caption": "Amplop untuk Upacara Kematian",
+            "detail": "Untuk upacara kematian. Gunakan pita hitam dan putih."
+      }
+];
+    VOCABULARY.push(...BAB24_REFERENCE_GIFT_EXCHANGE);
+
     window.__WIKARU_VOCABULARY = VOCABULARY;
 
     const REFERENCE_MATERIAL_CANONICAL = "Kata-Kata Referensi dan Informasi";
@@ -36554,7 +37447,11 @@ html[data-theme="dark"] .quiz-mode-hint,html[data-theme="dark"] .voice-profile-c
       if(!text) return;
       speak(text, "ja-JP");
     }
-    function cleanIndo(v){ return String(v.indonesia).replace(/（.*?）/g,"").replace(/\(.*?\)/g,"").trim(); }
+    function sentenceCaseUi(value=""){
+      const text = String(value || "").replace(/（/g,"(").replace(/）/g,")").replace(/\s+/g," ").trim();
+      return text.replace(/^([\s“”‘’'"(\[]*)([a-zà-öø-ÿ])/u,(_,prefix,letter)=>prefix+letter.toLocaleUpperCase("id-ID"));
+    }
+    function cleanIndo(v){ return sentenceCaseUi(String(v.indonesia || "").replace(/（.*?）/g,"").replace(/\(.*?\)/g,"")); }
     function fictionExplanation(v={}){
       const text = [v.indonesia, v.kanji, v.kana, v.romaji, v.typeCategory, v.sectionCategory].filter(Boolean).join(" ").toLowerCase();
       if(/大学|daigaku|universitas|sekolah|kampus|gakkou|学校/.test(text)) return "nama sekolah/universitas rekaan";
@@ -36565,7 +37462,7 @@ html[data-theme="dark"] .quiz-mode-hint,html[data-theme="dark"] .voice-profile-c
       return "contoh rekaan";
     }
     function formatIndonesianMeaning(v={}){
-      return String(v.indonesia || "").replace(/（/g,"(").replace(/）/g,")").trim();
+      return sentenceCaseUi(v.indonesia || "");
     }
     function formatQuizIndonesianMeaning(v={}){
       let text = formatIndonesianMeaning(v);
@@ -36578,7 +37475,7 @@ html[data-theme="dark"] .quiz-mode-hint,html[data-theme="dark"] .voice-profile-c
       return text;
     }
     function formatDetailIndonesianMeaning(d={}){
-      return String(d.indonesia || "").replace(/（/g,"(").replace(/）/g,")").trim();
+      return sentenceCaseUi(d.indonesia || "");
     }
     function hasFictionVocabulary(list){ return (list || []).some(v=>isFictionVocab(v)); }
     function isFictionVocab(v={}){
@@ -36642,7 +37539,7 @@ html[data-theme="dark"] .quiz-mode-hint,html[data-theme="dark"] .voice-profile-c
     }
     function setupLabel(){
       const base = `${bookLabel()} • ${categoryLabel(state.setup.materialCategory)} • ${state.lang==="ja"?categoryLabel(state.setup.chapter):state.setup.chapter}`;
-      return isReferenceInfoBab23() ? `${base} • ${state.lang==="ja"?"道路・交通":"道路・交通 / Jalan dan Lalu Lintas"}` : base;
+      return isReferenceInfoBab24() ? `${base} • ${state.lang==="ja"?"贈答の習慣":"贈答の習慣 / Tukar-Menukar Hadiah"}` : isReferenceInfoBab23() ? `${base} • ${state.lang==="ja"?"道路・交通":"道路・交通 / Jalan dan Lalu Lintas"}` : base;
     }
     function chapterNumbers(label){
       const nums = [...String(label).matchAll(/\d+/g)].map(m=>Number(m[0]));
@@ -36652,7 +37549,7 @@ html[data-theme="dark"] .quiz-mode-hint,html[data-theme="dark"] .voice-profile-c
     }
     // Bab referensi tertentu berupa halaman materi khusus, sehingga tidak semuanya berasal dari kartu VOCABULARY.
     const STATIC_REFERENCE_CHAPTERS = {
-      "Minna no Nihongo I (2nd Edition)": [2,4,5,7,8,9,10,11,12,13,14,15,16,17,19,20,21,22,23]
+      "Minna no Nihongo I (2nd Edition)": [2,4,5,7,8,9,10,11,12,13,14,15,16,17,19,20,21,22,23,24]
     };
     function uniqueCategoryValues(list, key){
       const seen = new Set();
@@ -36803,7 +37700,8 @@ html[data-theme="dark"] .quiz-mode-hint,html[data-theme="dark"] .voice-profile-c
     function isReferenceInfoBab21(){ return isReferenceInfoChapter("Bab 21"); }
     function isReferenceInfoBab22(){ return isReferenceInfoChapter("Bab 22"); }
     function isReferenceInfoBab23(){ return isReferenceInfoChapter("Bab 23"); }
-    function isReferenceInfoMaterialOnly(){ return isReferenceInfoBab2() || isReferenceInfoBab4() || isReferenceInfoBab5() || isReferenceInfoBab16() || isReferenceInfoBab20(); }
+    function isReferenceInfoBab24(){ return isReferenceInfoChapter("Bab 24"); }
+    function isReferenceInfoMaterialOnly(){ return isReferenceInfoBab2() || isReferenceInfoBab4() || isReferenceInfoBab5() || isReferenceInfoBab16() || isReferenceInfoBab20() || isReferenceInfoBab24(); }
 
     function materialOnlyQuizMessage(){
       return state.lang === "ja"
@@ -36878,6 +37776,10 @@ html[data-theme="dark"] .quiz-mode-hint,html[data-theme="dark"] .voice-profile-c
         return (REFERENCE_INFO_BAB20_CALLING_MATERIAL.sections || [])
           .reduce((total, section)=>total + (section.cards?.length || 0), 0);
       }
+      if(isReferenceInfoBab24()){
+        return (BAB24_REFERENCE_GIFT_EXCHANGE?.length || 0)
+          + (BAB24_REFERENCE_GIFT_ENVELOPES?.length || 0);
+      }
       return (REFERENCE_INFO_BAB2_MATERIAL.vocab?.length || 0)
         + (REFERENCE_INFO_BAB2_MATERIAL.familyNames?.length || 0)
         + (REFERENCE_INFO_BAB2_MATERIAL.greetings?.length || 0);
@@ -36897,6 +37799,7 @@ html[data-theme="dark"] .quiz-mode-hint,html[data-theme="dark"] .voice-profile-c
         const bab5 = isReferenceInfoBab5();
         const bab16 = isReferenceInfoBab16();
         const bab20 = isReferenceInfoBab20();
+        const bab24 = isReferenceInfoBab24();
         if(homeTitle) homeTitle.textContent = state.lang === "ja" ? "参考資料・情報" : "Materi Referensi dan Informasi";
         if(homeDesc){
           if(bab4){
@@ -36907,6 +37810,8 @@ html[data-theme="dark"] .quiz-mode-hint,html[data-theme="dark"] .voice-profile-c
             homeDesc.textContent = state.lang === "ja" ? "第16課のATMメニューと現金引き出しの手順を教材として読みます。クイズモードはありません。" : "Pelajari kosakata menu ATM dan urutan dasar melakukan penarikan uang dalam bahasa Jepang. Kategori ini hanya menyediakan mode Materi.";
           } else if(bab20){
             homeDesc.textContent = state.lang === "ja" ? "第20課の「人の呼び方」を、家族関係・役職・社会的な役割から学ぶ読み物です。クイズモードはありません。" : "Pelajari cara memanggil orang dalam keluarga dan masyarakat Jepang berdasarkan hubungan, jabatan, serta peran sosial. Kategori ini hanya menyediakan mode Materi.";
+          } else if(bab24){
+            homeDesc.textContent = state.lang === "ja" ? "第24課の「贈答の習慣」を、祝い、季節の贈り物、見舞い、弔事、のし袋から学ぶ読み物です。クイズモードはありません。" : "Pelajari budaya tukar-menukar hadiah Jepang pada Bab 24: hadiah perayaan, hadiah musiman, menjenguk orang sakit, belasungkawa, dan pemilihan amplop uang. Kategori ini khusus mode baca tanpa kuis.";
           } else {
             homeDesc.textContent = state.lang === "ja" ? "第2課の参考語彙、姓、あいさつ、マナーを教材として読みます。クイズモードはありません。" : "Buka materi Bab 2 sebagai bahan bacaan: kosakata salam, nama keluarga Jepang, dan informasi sopan santun. Kategori ini tidak memakai kuis.";
           }
@@ -37911,6 +38816,26 @@ html[data-theme="dark"] .quiz-mode-hint,html[data-theme="dark"] .voice-profile-c
     }
 
 
+    function polishCategoryLabel(value=""){
+      const text = String(value || "").trim();
+      if(!text) return text;
+      const minor = new Set(["dan","atau","untuk","dari","ke","di","pada","dengan","yang","serta","dalam","sebagai","oleh"]);
+      let wordIndex = 0;
+      return text.split(/(\s+)/).map(token=>{
+        if(/^\s+$/.test(token)) return token;
+        if(/[一-龯ぁ-んァ-ヶ]/.test(token)) { wordIndex++; return token; }
+        const match = token.match(/^([^A-Za-zÀ-ÖØ-öø-ÿ]*)([A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ-]*)(.*)$/u);
+        if(!match) { wordIndex++; return token; }
+        const [,prefix,word,suffix] = match;
+        const lower = word.toLocaleLowerCase("id-ID");
+        let polished = word;
+        if(/^[A-ZÀ-ÖØ-Þ0-9IVXLC]+$/.test(word) || /^[A-ZÀ-ÖØ-Þ]/.test(word)) polished = word;
+        else if(wordIndex > 0 && minor.has(lower)) polished = lower;
+        else polished = lower.charAt(0).toLocaleUpperCase("id-ID") + lower.slice(1);
+        wordIndex++;
+        return prefix + polished + suffix;
+      }).join("");
+    }
     function categoryLabelFor(value, lang=state.lang){
       const v = String(value || "");
       const idMap = {
@@ -38136,7 +39061,7 @@ html[data-theme="dark"] .quiz-mode-hint,html[data-theme="dark"] .voice-profile-c
         return jaMap[v] || v;
       }
       if(v === "Percakapan / 会話" || v === "会話 / Percakapan") return "Percakapan";
-      return idMap[v] || v;
+      return polishCategoryLabel(idMap[v] || v);
     }
     function categoryLabel(value, kind="general"){ return categoryLabelFor(value, state.lang); }
     function renderMaterialFilterOptions(changedFilter=""){
@@ -39629,11 +40554,93 @@ html[data-theme="dark"] .quiz-mode-hint,html[data-theme="dark"] .voice-profile-c
       $("#materialEmpty")?.classList.add("hidden");
     }
 
+
+
+    function renderReferenceInfoBab24GiftExchange(){
+      renderMaterialFilterOptions();
+      const grid = $("#materialGrid");
+      if(!grid) return;
+      const toolbar = $(".material-toolbar");
+      const notice = $("#materialPage .notice");
+      const title = $("#materialPage .content-card > h2");
+      const desc = $("#materialPage .content-card > p");
+      if(title) title.textContent = state.lang === "ja" ? "第24課 参考語彙・情報" : "Kata-Kata Referensi dan Informasi — Bab 24";
+      if(desc) desc.textContent = state.lang === "ja"
+        ? "贈答の習慣を、画像、例文、文化メモ、のし袋の使い分けで学ぶ読み物です。"
+        : "Materi baca tentang budaya tukar-menukar hadiah di Jepang, dilengkapi gambar, contoh kalimat berbeda, catatan yang mudah dipahami, dan panduan memilih amplop uang.";
+      document.body.classList.add("material-only-reference");
+      if(toolbar){ toolbar.classList.add("hidden"); toolbar.style.setProperty("display", "none", "important"); toolbar.style.setProperty("visibility", "hidden", "important"); toolbar.style.setProperty("pointer-events", "none", "important"); }
+      if(notice){ notice.classList.add("hidden"); notice.style.setProperty("display", "none", "important"); }
+      updateMaterialOnlyControls();
+
+      const giftItems = activeVocab()
+        .filter(v=>String(v.section || "") === "贈答の習慣")
+        .sort((a,b)=>Number(a.no)-Number(b.no));
+      const giftByNo = new Map(giftItems.map(v=>[Number(v.no),v]));
+
+      const giftOverviewContext = {
+        3: "Diberikan oleh orang tua atau keluarga kepada anak-anak pada Hari Tahun Baru.",
+        4: "Bentuknya dapat berupa uang, perlengkapan sekolah, buku, dan kebutuhan belajar lainnya.",
+        5: "Bentuknya dapat berupa uang, perlengkapan sekolah, buku, dan hadiah lain untuk menandai kelulusan.",
+        6: "Bentuknya dapat berupa uang, perlengkapan rumah tangga, dan kebutuhan pasangan yang baru menikah.",
+        7: "Bentuknya dapat berupa pakaian bayi, mainan bayi, dan perlengkapan lain untuk ibu atau bayi.",
+        10: "Diberikan kepada keluarga yang sedang berduka.",
+        11: "Bentuknya dapat berupa bunga, buah-buahan, dan hadiah lain yang sesuai untuk orang sakit."
+      };
+      const giftOverviewRow = v => v ? `<article class="gift-overview-row">
+        <img src="${esc(v.image)}" alt="${esc(v.imageAlt || vocabMainText(v))}" loading="eager" data-zoom="${esc(v.image)}" decoding="async">
+        <div class="gift-overview-term"><b>${esc(vocabMainText(v))}</b><span>${esc(v.kana || "")}</span><small>${esc(v.romaji || "")}</small></div>
+        <div class="gift-overview-copy"><div class="gift-overview-meaning">${esc(formatIndonesianMeaning(v))}</div><p><i class="fa-regular fa-lightbulb"></i>${esc(giftOverviewContext[Number(v.no)] || v.note || v.catatan || "Digunakan sesuai hubungan dengan penerima dan tujuan pemberiannya.")}</p></div>
+      </article>` : "";
+
+      const conceptCard = v => v ? `<div class="gift-concept-chip"><img src="${esc(v.image)}" alt="${esc(v.imageAlt || vocabMainText(v))}" loading="lazy" data-zoom="${esc(v.image)}"><span><b>${esc(vocabMainText(v))}</b><small>${esc(v.kana)} — ${esc(formatIndonesianMeaning(v))}</small></span></div>` : "";
+      const seasonalItems = [giftByNo.get(8),giftByNo.get(9)].filter(Boolean);
+      const seasonal = seasonalItems.length ? `<article class="gift-seasonal-row"><div class="gift-seasonal-terms">${seasonalItems.map(v=>`<div class="gift-seasonal-mini"><img src="${esc(v.image)}" alt="${esc(v.imageAlt || vocabMainText(v))}" loading="lazy" data-zoom="${esc(v.image)}"><span><b>${esc(vocabMainText(v))}</b><small>${esc(v.kana)}</small></span></div>`).join("")}</div><p>${state.lang==="ja"?"お世話になった人へ、季節の節目に感謝を伝える贈り物です。":"Hadiah yang diberikan kepada orang yang telah memberi bantuan, seperti dokter, guru, atasan, dan lainnya. Biasanya berupa makanan. お中元 diberikan pada Juli atau Agustus, sedangkan お歳暮 diberikan pada Desember."}</p></article>` : "";
+
+      const giftCard = v => {
+        const fav = state.favorites.includes(v.id);
+        return `<article class="gift-vocab-card">
+          <button class="gift-image-button" type="button" data-zoom="${esc(v.image)}" aria-label="Perbesar gambar ${esc(vocabMainText(v))}" title="Klik gambar untuk memperbesar"><img src="${esc(v.image)}" alt="${esc(v.imageAlt || vocabMainText(v))}" loading="lazy" data-zoom="${esc(v.image)}" decoding="async"></button>
+          <div class="gift-card-title"><span class="gift-card-no">${esc(v.no)}</span><div><h4>${esc(vocabMainText(v))}</h4><div class="gift-card-reading">${esc(v.kana || "")}</div><div class="gift-card-romaji">${esc(v.romaji || "")}</div></div></div>
+          <p class="gift-card-meaning">${esc(formatIndonesianMeaning(v))}</p>
+          <div class="gift-card-actions" aria-label="Aksi kosakata">
+            <button class="icon-btn" type="button" data-speak-id="${esc(v.id)}" title="Dengarkan kosakata" aria-label="Dengarkan kosakata"><i class="fa-solid fa-volume-high"></i></button>
+            <button class="icon-btn ${fav?"active":""}" type="button" data-fav="${esc(v.id)}" title="Favorit" aria-label="Favorit"><i class="${fav?"fa-solid":"fa-regular"} fa-star"></i></button>
+            <button class="icon-btn" type="button" data-example-material="${esc(v.id)}" title="Buka contoh kalimat" aria-label="Buka contoh kalimat"><i class="fa-regular fa-comment-dots"></i></button>
+            <button class="icon-btn" type="button" data-note-material="${esc(v.id)}" title="Buka catatan" aria-label="Buka catatan"><i class="fa-regular fa-note-sticky"></i></button>
+          </div>
+        </article>`;
+      };
+
+      const envelopeCards = BAB24_REFERENCE_GIFT_ENVELOPES.map(item=>`<article class="gift-envelope-card"><button type="button" data-zoom="${esc(item.image)}" aria-label="Perbesar ${esc(item.caption)}"><img src="${esc(item.image)}" alt="${esc(item.caption)}" loading="lazy" data-zoom="${esc(item.image)}" decoding="async"></button><h4>${esc(item.title)}</h4><div class="reading">${esc(item.reading)}</div><strong>${esc(item.caption)}</strong><p>${esc(item.detail)}</p></article>`).join("");
+      const empty = `<div class="road-no-results"><h3>${state.lang==="ja"?"教材がありません":"Materi belum tersedia"}</h3></div>`;
+
+      grid.className = "gift-reference-root";
+      grid.innerHTML = `<div class="gift-reference-wrap">
+        <div class="bab24-read-nav"><div class="bab24-read-nav-copy"><i class="fa-solid fa-book-open-reader"></i><span>${state.lang==="ja"?"このカテゴリーは読み物専用です。":"Kategori Bab 24 ini khusus mode baca tanpa kuis."}</span></div><div class="bab24-read-nav-links"><a href="#giftExchangeReference"><i class="fa-solid fa-gift"></i>${state.lang==="ja"?"贈答の習慣":"Tukar-Menukar Hadiah"}</a><a href="#giftEnvelopeReference"><i class="fa-regular fa-envelope"></i>${state.lang==="ja"?"のし袋":"Panduan Amplop"}</a></div></div>
+
+        <section class="gift-reference-sheet" id="giftExchangeReference">
+          <div class="gift-reference-head"><div><span class="gift-reference-kicker"><i class="fa-solid fa-gift"></i>${state.lang==="ja"?"参考語彙・情報 / 第24課":"Kata-Kata Referensi dan Informasi / Bab 24"}</span><h3 class="gift-reference-title"><ruby>贈答<rt>ぞうとう</rt></ruby>の<ruby>習慣<rt>しゅうかん</rt></ruby></h3><div class="gift-reference-subtitle">Tukar-Menukar Hadiah</div><p class="gift-reference-intro">${state.lang==="ja"?"日本では、祝い事、季節のあいさつ、見舞い、弔事など、場面に合わせて贈り物や現金を渡す習慣があります。":"Materi ini mengikuti penjelasan referensi Minna no Nihongo: hadiah atau uang diberikan sesuai momen dan penerimanya, sedangkan amplop hadiah uang dipilih berdasarkan tujuan penggunaannya."}</p></div><aside class="gift-reference-mode"><strong><i class="fa-solid fa-eye"></i>${state.lang==="ja"?"読み物モード":"Mode Baca"}</strong><span>${giftItems.length} kosakata dengan gambar, audio Jepang, contoh kalimat, dan catatan. Ringkasan makna serta panduan tiga amplop mengikuti referensi buku, dan materi ini tidak masuk mode kuis.</span><div class="gift-concept-grid">${conceptCard(giftByNo.get(1))}${conceptCard(giftByNo.get(2))}</div></aside></div>
+          <div class="gift-overview">
+            ${[3,4,5,6,7].map(n=>giftOverviewRow(giftByNo.get(n))).join("")}
+            ${seasonal}
+            ${[10,11].map(n=>giftOverviewRow(giftByNo.get(n))).join("")}
+          </div>
+        </section>
+
+        <section class="gift-section"><div class="gift-section-head"><div><h3><i class="fa-solid fa-images"></i> ${state.lang==="ja"?"贈答の語彙カード":"Kartu Kosakata Tukar-Menukar Hadiah"}</h3><p>${state.lang==="ja"?"画像、読み方、意味、例文、文化メモを一つのカードで確認できます。":"Kartu dibuat lebih ringkas. Gunakan ikon di bagian bawah untuk mendengar audio, menyimpan favorit, membuka contoh kalimat, dan membaca catatan."}</p></div><span class="gift-count"><i class="fa-solid fa-list-check"></i>${giftItems.length} kosakata</span></div>${giftItems.length?`<div class="gift-vocab-grid">${giftItems.map(giftCard).join("")}</div>`:empty}</section>
+
+        <section class="gift-envelope-panel" id="giftEnvelopeReference"><div class="gift-envelope-head"><div class="gift-envelope-icon"><i class="fa-regular fa-envelope"></i></div><div><h3><span class="jp">熨斗袋（のしぶくろ）</span> — Amplop Khusus untuk Hadiah Uang</h3><p>Pilih amplop yang digunakan sesuai dengan tujuan. Perhatikan tulisan pada bagian depan serta warna pita untuk pernikahan, perayaan lain, atau upacara kematian.</p></div></div><div class="gift-envelope-grid">${envelopeCards}</div></section>
+      </div>`;
+      $("#materialEmpty")?.classList.add("hidden");
+    }
+
     function renderMaterial(){
       document.body.classList.remove("calling-material-active");
       document.body.classList.toggle("role-name-reference-active", isReferenceInfoBab21());
       document.body.classList.toggle("clothing-reference-active", isReferenceInfoBab22());
       document.body.classList.toggle("road-traffic-reference-active", isReferenceInfoBab23());
+      document.body.classList.toggle("gift-exchange-reference-active", isReferenceInfoBab24());
       syncFictionToggleAvailability();
       const toolbar = $(".material-toolbar");
       const grid = $("#materialGrid");
@@ -39715,6 +40722,10 @@ html[data-theme="dark"] .quiz-mode-hint,html[data-theme="dark"] .voice-profile-c
       }
       if(isReferenceInfoBab23()){
         renderReferenceInfoBab23RoadTraffic();
+        return;
+      }
+      if(isReferenceInfoBab24()){
+        renderReferenceInfoBab24GiftExchange();
         return;
       }
       renderMaterialFilterOptions();
@@ -42312,7 +43323,7 @@ html[data-theme="dark"] #quizSettingsModal .option-card.icon-option small{color:
           vocabButton.insertAdjacentElement("afterend",exampleButton);
         }
       });
-      all("article",root).forEach(card=>installDirectAudio(card,false));
+      all("article:not(.gift-overview-row):not(.gift-seasonal-row):not(.gift-envelope-card)",root).forEach(card=>installDirectAudio(card,false));
       all("tbody tr",root).forEach(row=>installDirectAudio(row,true));
       all(".material-ref-address-example,.family-example-item",root).forEach(block=>installDirectAudio(block,false));
     }
@@ -44402,6 +45413,31 @@ html[data-theme="dark"] .home-scroll-hint{color:#9EA9BC!important;}
     const parts=text.split('•').map(v=>v.trim()).filter(Boolean);
     return {book:parts[0]||'Wikaru',category:parts[1]||'',chapter:parts.slice(2).join(' • ')||''};
   }
+  function compactHomeSelection(choice={}){
+    const rawChapter=String(choice.chapter||'').trim();
+    const chapterParts=rawChapter.split('•').map(v=>v.trim()).filter(Boolean);
+    const chapter=chapterParts.find(v=>/^Bab\s+\d+(?:-\d+)?$/i.test(v)) || chapterParts[0] || '';
+    const topic=chapterParts.filter(v=>v!==chapter).join(' • ').trim();
+    const canonicalCategory=String(choice.category||'').replace(/^Kata-Kata Referensi dan Informasi$/i,'Referensi & Informasi').trim();
+    let titlePart='';
+    let subtitle='';
+    if(topic){
+      const slashIndex=topic.lastIndexOf(' / ');
+      if(slashIndex>=0){
+        subtitle=topic.slice(0,slashIndex).trim();
+        titlePart=topic.slice(slashIndex+3).trim();
+      }else titlePart=topic;
+    }else titlePart=canonicalCategory;
+    if(/^Bab\s*24$/i.test(chapter) && /贈答|Tukar-Menukar Hadiah/i.test(rawChapter)){
+      titlePart='Tukar-Menukar Hadiah';
+      subtitle='贈答の習慣（ぞうとうのしゅうかん）';
+    }else if(/^Bab\s*23$/i.test(chapter) && /道路|Jalan dan Lalu Lintas/i.test(rawChapter)){
+      titlePart='Jalan dan Lalu Lintas';
+      subtitle='道路・交通（どうろ・こうつう）';
+    }
+    const title=[chapter,titlePart].filter(Boolean).join(' · ') || (titlePart||chapter||'Pilihan Aktif');
+    return {title,subtitle};
+  }
   function greeting(hour,jp){
     if(jp){if(hour<11)return'おはようございます';if(hour<18)return'こんにちは';return'こんばんは';}
     if(hour<11)return'Selamat pagi';if(hour<15)return'Selamat siang';if(hour<18)return'Selamat sore';return'Selamat malam';
@@ -44434,6 +45470,7 @@ html[data-theme="dark"] .home-scroll-hint{color:#9EA9BC!important;}
     const result=lastResult();
     const history=resultHistory();
     const choice=splitChoice();
+    const compactChoice=compactHomeSelection(choice);
     const count=parseNumber($('#homeVocabCount')?.textContent);
     const target=Math.max(1,Math.min(15,count||15));
     const todayRows=history.filter(r=>sameDay(r.finishedAt,new Date()));
@@ -44453,8 +45490,12 @@ html[data-theme="dark"] .home-scroll-hint{color:#9EA9BC!important;}
     setText('homeStreakLabel',jp?'日連続':'hari beruntun');
     setText('homeContinueEyebrow',user.name?(jp?'前回の続きから':'Lanjut dari terakhir'):(jp?'最初の一歩':'Mulai belajar'));
     setText('homeActiveBook',choice.book);
-    setText('homeActiveCategory',choice.category);
-    setText('homeActiveChapter',choice.chapter|| (jp?'選択中の教材':'Pilihan aktif'));
+    setText('homeActiveChapter',compactChoice.title || (jp?'選択中の教材':'Pilihan Aktif'));
+    setText('homeActiveCategory',compactChoice.subtitle);
+    const homeTopic=$('#homeActiveCategory');
+    if(homeTopic) homeTopic.hidden=!compactChoice.subtitle;
+    const homeDivider=$('.home-title-divider');
+    if(homeDivider) homeDivider.hidden=true;
     setText('homeContinueDescription',jp?'フラッシュカードや音声、例文、発音練習を一つのセッションでまとめて学べます。':'Lanjut dari kartu terakhir, dengarkan pelafalannya, lalu coba ucapkan sendiri.');
     setText('homeSessionStatus',user.name?(jp?'すぐに続けられます':'Siap lanjut'):(jp?'名前を入力して始めましょう':'Masukkan nama dulu'));
     setText('homeProgressLabel',jp?'今日の目標':'Target belajar hari ini');
@@ -47834,6 +48875,50 @@ html[data-theme="dark"] .material-voice-card .wk8-voice-choice{background:#22273
     const current=localStorage.getItem("wikaru_voice_preset");
     if(!allowed.includes(current)) localStorage.setItem("wikaru_voice_preset","hanamama");
   }catch(_){}
+})();
+</script>
+
+
+<script id="wikaru-v18-antiblink-runtime">
+(function(){
+  'use strict';
+  if(window.__wikaruV18AntiBlink) return;
+  window.__wikaruV18AntiBlink=true;
+  const $=(s,r=document)=>r.querySelector(s);
+  const $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
+  let routeTimer=0;
+  function cleanGiftOverview(scope=document){
+    $$('.gift-overview-row>.wikaru-direct-audio-dock,.gift-seasonal-row>.wikaru-direct-audio-dock,.gift-envelope-card>.wikaru-direct-audio-dock',scope).forEach(node=>node.remove());
+  }
+  function primeImages(scope=document){
+    $$('img',scope).slice(0,12).forEach((img,index)=>{
+      img.loading='eager';
+      if(index<4) img.setAttribute('fetchpriority','high');
+      if(!img.decoding) img.decoding='async';
+    });
+  }
+  function settleRoute(){
+    clearTimeout(routeTimer);
+    document.documentElement.classList.add('wk-route-transition');
+    routeTimer=setTimeout(()=>document.documentElement.classList.remove('wk-route-transition'),150);
+  }
+  function refresh(scope=document){
+    cleanGiftOverview(scope);
+    const active=$('.page.active',document);
+    if(active) primeImages(active);
+  }
+  document.addEventListener('click',event=>{
+    if(event.target.closest('[data-page],[data-action="openQuizSettings"],#startQuizFromSettings,#homeStartBtn')) settleRoute();
+  },true);
+  const grid=$('#materialGrid');
+  if(grid){
+    new MutationObserver(()=>requestAnimationFrame(()=>refresh(grid))).observe(grid,{childList:true,subtree:true});
+  }
+  $$('.page').forEach(page=>new MutationObserver(()=>{
+    if(page.classList.contains('active')) requestAnimationFrame(()=>refresh(page));
+  }).observe(page,{attributes:true,attributeFilter:['class']}));
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',()=>refresh(),{once:true});
+  else refresh();
 })();
 </script>
 
