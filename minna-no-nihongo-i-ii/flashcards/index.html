@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wikaru — Belajar Bahasa Jepang</title>
+  <!-- Revision: Bab 25 plain label, compact action icons, examples in modal only, category save returns home. -->
   <!-- Optimized audit release: faster boot, safer UX, accessibility hardening, desktop/tablet/mobile; Bab 25 vocabulary added 2026-07-19; combined chapter categories Bab 21-25 and Bab 1-25 added 2026-07-19 -->
   <script id="wikaru-theme-init">
     try { document.documentElement.dataset.theme = localStorage.getItem("wikaru_theme") === "dark" ? "dark" : "light"; document.documentElement.lang = localStorage.getItem("minna_bab23_lang") === "ja" ? "ja" : "id"; } catch(e) { document.documentElement.dataset.theme = "light"; document.documentElement.lang = "id"; }
@@ -5994,6 +5995,45 @@ html.wikaru-ready #loadingScreen,
   #homeActiveCategory{font-size:12.5px;margin-top:8px}
   .home-book-name{font-size:11.5px!important}
 }
+</style>
+
+
+<style id="wikaru-bab25-compact-ui-patch">
+  /* Bab 25: examples stay behind the comment icon; actions are compact. */
+  .life-cycle-actions {
+    display:flex !important;
+    align-items:center;
+    justify-content:flex-start;
+    flex-wrap:wrap;
+    gap:7px !important;
+    margin-top:auto;
+    padding-top:12px !important;
+  }
+  .life-cycle-actions .icon-btn {
+    flex:0 0 40px;
+    width:40px !important;
+    height:40px !important;
+    border-radius:12px !important;
+    box-shadow:none !important;
+  }
+  .life-cycle-note-preview {
+    margin-bottom:0;
+    -webkit-line-clamp:2;
+  }
+  .life-cycle-card {
+    contain-intrinsic-size:430px;
+  }
+  @media (max-width:560px) {
+    .life-cycle-actions {
+      justify-content:flex-start;
+      gap:6px !important;
+    }
+    .life-cycle-actions .icon-btn {
+      flex-basis:39px;
+      width:39px !important;
+      height:39px !important;
+    }
+  }
 </style>
 
 </head>
@@ -37849,16 +37889,23 @@ html.wikaru-ready #loadingScreen,
     const $ = s => document.querySelector(s);
     const $$ = s => [...document.querySelectorAll(s)];
     const storeKey = "minna_bab23";
-    const dataVersion = "bab25-materi-umum-20260719-v1";
+    const dataVersion = "wikaru-life-cycle-reference-20260725-v3";
     const setupCompletedKey = storeKey + "_setupCompleted";
-    const hadCurrentDataVersionBeforeBoot = localStorage.getItem(storeKey+"_dataVersion") === dataVersion;
+    const previousDataVersionBeforeBoot = localStorage.getItem(storeKey+"_dataVersion");
+    const hadCurrentDataVersionBeforeBoot = previousDataVersionBeforeBoot === dataVersion;
     const hadSetupCompletedFlagBeforeBoot = localStorage.getItem(setupCompletedKey);
-    const defaultSetup = { book:"Minna no Nihongo I (2nd Edition)", materialCategory:"Materi Umum", chapter:"Bab 25" };
-    if(localStorage.getItem(storeKey+"_dataVersion") !== dataVersion){
+    const defaultSetup = { book:"Minna no Nihongo I (2nd Edition)", materialCategory:"Materi Umum", chapter:"Bab 1" };
+    if(previousDataVersionBeforeBoot !== dataVersion){
       let savedSetup = null;
       try { savedSetup = JSON.parse(localStorage.getItem(storeKey+"_settings") || "null"); } catch(e){}
-      // Pada versi khusus ini, pilihan awal diarahkan ke Materi Umum Bab 25 satu kali saat versi data berubah.
-      localStorage.setItem(storeKey+"_settings", JSON.stringify(defaultSetup));
+      const wasOldForcedBab25 = previousDataVersionBeforeBoot === "bab25-materi-umum-20260719-v1"
+        && savedSetup?.book === "Minna no Nihongo I (2nd Edition)"
+        && savedSetup?.materialCategory === "Materi Umum"
+        && savedSetup?.chapter === "Bab 25";
+      // Pertahankan pilihan pengguna. Hanya migrasikan pilihan Bab 25 yang sebelumnya dipaksa otomatis.
+      if(!savedSetup || wasOldForcedBab25){
+        localStorage.setItem(storeKey+"_settings", JSON.stringify(defaultSetup));
+      }
       if(localStorage.getItem(storeKey+"_includeFiction") === null) localStorage.setItem(storeKey+"_includeFiction", "true");
       localStorage.setItem(storeKey+"_dataVersion", dataVersion);
       if(hadSetupCompletedFlagBeforeBoot === null) localStorage.setItem(setupCompletedKey, "false");
@@ -38238,7 +38285,7 @@ html.wikaru-ready #loadingScreen,
     }
     // Bab referensi tertentu berupa halaman materi khusus, sehingga tidak semuanya berasal dari kartu VOCABULARY.
     const STATIC_REFERENCE_CHAPTERS = {
-      "Minna no Nihongo I (2nd Edition)": [2,4,5,7,8,9,10,11,12,13,14,15,16,17,19,20,21,22,23,24]
+      "Minna no Nihongo I (2nd Edition)": [2,4,5,7,8,9,10,11,12,13,14,15,16,17,19,20,21,22,23,24,25]
     };
     function uniqueCategoryValues(list, key){
       const seen = new Set();
@@ -41608,6 +41655,7 @@ html.wikaru-ready #loadingScreen,
       const availableBooks = booksForSetup();
       if(!availableBooks.includes(tempSetup.book)) tempSetup.book = availableBooks[0] || defaultSetup.book;
       const availableMaterials = materialsForSetup(tempSetup.book);
+      tempSetup.materialCategory = normalizeMaterialCategoryName(tempSetup.materialCategory);
       if(!availableMaterials.includes(tempSetup.materialCategory)) tempSetup.materialCategory = availableMaterials[0] || defaultSetup.materialCategory;
       const chapters = chaptersForSetup(tempSetup.book,tempSetup.materialCategory);
       if(!chapters.includes(tempSetup.chapter)) tempSetup.chapter = chapters[0] || defaultSetup.chapter;
@@ -43344,7 +43392,7 @@ html[data-theme="dark"] #quizSettingsModal .option-card.icon-option small{color:
         saveState();
         closeModal("#setupModal");
         renderAll();
-        if(isReferenceInfoMaterialOnly()) showPage("material");
+        showPage("home");
       };
       $("#closeLogin").onclick=()=>closeModal("#loginModal"); $("#cancelLogin").onclick=()=>closeModal("#loginModal");
       $("#usernameInput").oninput=updateAdminLoginMode; $("#saveLogin").onclick=saveLogin;
@@ -43573,6 +43621,230 @@ html[data-theme="dark"] #quizSettingsModal .option-card.icon-option small{color:
         }
       }
     }
+
+
+    // ===== Bab 25 Referensi & Informasi: 人の一生 (integrated before boot) =====
+    (()=>{
+      'use strict';
+      const LIFE_CYCLE_BAB25_OVERVIEW_IMAGE = 'https://iili.io/Ce9wW2p.png';
+      const LIFE_CYCLE_BAB25_VOCABULARY = [{"no":"1","kanji":"人の一生","kana":"ひとのいっしょう","romaji":"hito no isshou","indonesia":"kehidupan manusia / seumur hidup manusia","image":"https://iili.io/Ce9JQTB.png","sectionCategory":"Gambaran Umum","typeCategory":"Kata Benda","typeDetail":"Konsep kehidupan","exampleJa":"人の一生には、うれしいことも大変なこともあります。","exampleReading":"Hito no isshou ni wa, ureshii koto mo taihen na koto mo arimasu.","exampleId":"Dalam kehidupan manusia, ada hal yang menyenangkan dan ada pula hal yang sulit.","catatan":"人の一生 membicarakan seluruh perjalanan hidup seseorang, mulai dari lahir hingga meninggal. 一生 juga dapat berarti “seumur hidup” dalam ungkapan seperti 一生勉強します.","id":"mni-ref-b25-life-001","course":"Minna no Nihongo I","book":"Minna no Nihongo I (2nd Edition)","bookJa":"みんなの日本語 I（第2版）","category":"Kata-Kata Referensi dan Informasi","materialCategory":"Kata-Kata Referensi dan Informasi","chapter":"Bab 25","chapterNumber":25,"favorite":false,"tag":"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 25 / 人の一生","isFiction":false,"speech":"人の一生","imageAlt":"Ilustrasi kosakata 人の一生 — kehidupan manusia / seumur hidup manusia","examples":[{"ja":"人の一生には、うれしいことも大変なこともあります。","reading":"Hito no isshou ni wa, ureshii koto mo taihen na koto mo arimasu.","id":"Dalam kehidupan manusia, ada hal yang menyenangkan dan ada pula hal yang sulit."}],"note":"人の一生 membicarakan seluruh perjalanan hidup seseorang, mulai dari lahir hingga meninggal. 一生 juga dapat berarti “seumur hidup” dalam ungkapan seperti 一生勉強します."},{"no":"2","kanji":"","kana":"赤ちゃん","romaji":"akachan","indonesia":"bayi","image":"https://iili.io/Ce9JZhP.png","sectionCategory":"Tahap Kehidupan","typeCategory":"Kata Benda","typeDetail":"Tahap usia","exampleJa":"赤ちゃんがベッドで静かに寝ています。","exampleReading":"Akachan ga beddo de shizuka ni nete imasu.","exampleId":"Bayi sedang tidur dengan tenang di tempat tidur.","catatan":"赤ちゃん adalah sebutan akrab untuk bayi. Kata ini lebih hangat dan umum dalam percakapan daripada 乳児（にゅうじ）, yang biasanya digunakan dalam bahasa resmi atau medis.","id":"mni-ref-b25-life-002","course":"Minna no Nihongo I","book":"Minna no Nihongo I (2nd Edition)","bookJa":"みんなの日本語 I（第2版）","category":"Kata-Kata Referensi dan Informasi","materialCategory":"Kata-Kata Referensi dan Informasi","chapter":"Bab 25","chapterNumber":25,"favorite":false,"tag":"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 25 / 人の一生","isFiction":false,"speech":"赤ちゃん","imageAlt":"Ilustrasi kosakata 赤ちゃん — bayi","examples":[{"ja":"赤ちゃんがベッドで静かに寝ています。","reading":"Akachan ga beddo de shizuka ni nete imasu.","id":"Bayi sedang tidur dengan tenang di tempat tidur."}],"note":"赤ちゃん adalah sebutan akrab untuk bayi. Kata ini lebih hangat dan umum dalam percakapan daripada 乳児（にゅうじ）, yang biasanya digunakan dalam bahasa resmi atau medis."},{"no":"3","kanji":"子ども","kana":"こども","romaji":"kodomo","indonesia":"anak / anak-anak","image":"https://iili.io/Ce9JspV.png","sectionCategory":"Tahap Kehidupan","typeCategory":"Kata Benda","typeDetail":"Tahap usia","exampleJa":"子どもたちは公園で元気に遊んでいます。","exampleReading":"Kodomotachi wa kouen de genki ni asonde imasu.","exampleId":"Anak-anak sedang bermain dengan riang di taman.","catatan":"子ども berarti anak. Bentuk 子どもたち menegaskan makna jamak “anak-anak”, tetapi 子ども sendiri juga dapat digunakan secara umum untuk satu atau beberapa anak sesuai konteks.","id":"mni-ref-b25-life-003","course":"Minna no Nihongo I","book":"Minna no Nihongo I (2nd Edition)","bookJa":"みんなの日本語 I（第2版）","category":"Kata-Kata Referensi dan Informasi","materialCategory":"Kata-Kata Referensi dan Informasi","chapter":"Bab 25","chapterNumber":25,"favorite":false,"tag":"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 25 / 人の一生","isFiction":false,"speech":"子ども","imageAlt":"Ilustrasi kosakata 子ども — anak / anak-anak","examples":[{"ja":"子どもたちは公園で元気に遊んでいます。","reading":"Kodomotachi wa kouen de genki ni asonde imasu.","id":"Anak-anak sedang bermain dengan riang di taman."}],"note":"子ども berarti anak. Bentuk 子どもたち menegaskan makna jamak “anak-anak”, tetapi 子ども sendiri juga dapat digunakan secara umum untuk satu atau beberapa anak sesuai konteks."},{"no":"4","kanji":"青年","kana":"せいねん","romaji":"seinen","indonesia":"pemuda / orang muda","image":"https://iili.io/Ce9JikQ.png","sectionCategory":"Tahap Kehidupan","typeCategory":"Kata Benda","typeDetail":"Tahap usia","exampleJa":"その青年は将来の夢について話しました。","exampleReading":"Sono seinen wa shourai no yume ni tsuite hanashimashita.","exampleId":"Pemuda itu berbicara tentang cita-citanya pada masa depan.","catatan":"青年 merujuk pada orang muda yang sudah bukan anak-anak. Artinya lebih dekat dengan “pemuda” atau “dewasa muda” dan tidak selalu sama persis dengan “remaja”.","id":"mni-ref-b25-life-004","course":"Minna no Nihongo I","book":"Minna no Nihongo I (2nd Edition)","bookJa":"みんなの日本語 I（第2版）","category":"Kata-Kata Referensi dan Informasi","materialCategory":"Kata-Kata Referensi dan Informasi","chapter":"Bab 25","chapterNumber":25,"favorite":false,"tag":"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 25 / 人の一生","isFiction":false,"speech":"青年","imageAlt":"Ilustrasi kosakata 青年 — pemuda / orang muda","examples":[{"ja":"その青年は将来の夢について話しました。","reading":"Sono seinen wa shourai no yume ni tsuite hanashimashita.","id":"Pemuda itu berbicara tentang cita-citanya pada masa depan."}],"note":"青年 merujuk pada orang muda yang sudah bukan anak-anak. Artinya lebih dekat dengan “pemuda” atau “dewasa muda” dan tidak selalu sama persis dengan “remaja”."},{"no":"5","kanji":"中年","kana":"ちゅうねん","romaji":"chuunen","indonesia":"setengah baya / usia paruh baya","image":"https://iili.io/Ce939bp.png","sectionCategory":"Tahap Kehidupan","typeCategory":"Kata Benda","typeDetail":"Tahap usia","exampleJa":"中年になってから、健康に気をつけるようになりました。","exampleReading":"Chuunen ni natte kara, kenkou ni ki o tsukeru you ni narimashita.","exampleId":"Sejak memasuki usia paruh baya, saya mulai lebih memperhatikan kesehatan.","catatan":"中年 adalah masa usia paruh baya. Kata ini biasanya dipakai untuk membicarakan kelompok usia secara umum, bukan untuk memanggil seseorang secara langsung.","id":"mni-ref-b25-life-005","course":"Minna no Nihongo I","book":"Minna no Nihongo I (2nd Edition)","bookJa":"みんなの日本語 I（第2版）","category":"Kata-Kata Referensi dan Informasi","materialCategory":"Kata-Kata Referensi dan Informasi","chapter":"Bab 25","chapterNumber":25,"favorite":false,"tag":"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 25 / 人の一生","isFiction":false,"speech":"中年","imageAlt":"Ilustrasi kosakata 中年 — setengah baya / usia paruh baya","examples":[{"ja":"中年になってから、健康に気をつけるようになりました。","reading":"Chuunen ni natte kara, kenkou ni ki o tsukeru you ni narimashita.","id":"Sejak memasuki usia paruh baya, saya mulai lebih memperhatikan kesehatan."}],"note":"中年 adalah masa usia paruh baya. Kata ini biasanya dipakai untuk membicarakan kelompok usia secara umum, bukan untuk memanggil seseorang secara langsung."},{"no":"6","kanji":"老人","kana":"ろうじん","romaji":"roujin","indonesia":"orang lanjut usia / lansia","image":"https://iili.io/Ce93C7f.png","sectionCategory":"Tahap Kehidupan","typeCategory":"Kata Benda","typeDetail":"Tahap usia","exampleJa":"あの老人は毎朝ゆっくり散歩しています。","exampleReading":"Ano roujin wa maiasa yukkuri sanpo shite imasu.","exampleId":"Lansia itu berjalan santai setiap pagi.","catatan":"老人 berarti orang lanjut usia, tetapi dapat terdengar langsung atau kaku ketika ditujukan kepada seseorang. Dalam percakapan sopan, お年寄り（おとしより） atau 高齢者（こうれいしゃ） sering terasa lebih halus.","id":"mni-ref-b25-life-006","course":"Minna no Nihongo I","book":"Minna no Nihongo I (2nd Edition)","bookJa":"みんなの日本語 I（第2版）","category":"Kata-Kata Referensi dan Informasi","materialCategory":"Kata-Kata Referensi dan Informasi","chapter":"Bab 25","chapterNumber":25,"favorite":false,"tag":"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 25 / 人の一生","isFiction":false,"speech":"老人","imageAlt":"Ilustrasi kosakata 老人 — orang lanjut usia / lansia","examples":[{"ja":"あの老人は毎朝ゆっくり散歩しています。","reading":"Ano roujin wa maiasa yukkuri sanpo shite imasu.","id":"Lansia itu berjalan santai setiap pagi."}],"note":"老人 berarti orang lanjut usia, tetapi dapat terdengar langsung atau kaku ketika ditujukan kepada seseorang. Dalam percakapan sopan, お年寄り（おとしより） atau 高齢者（こうれいしゃ） sering terasa lebih halus."},{"no":"7","kanji":"保育園","kana":"ほいくえん","romaji":"hoikuen","indonesia":"tempat penitipan anak / kelompok bermain","image":"https://iili.io/Ce932st.png","sectionCategory":"Pendidikan","typeCategory":"Kata Benda","typeDetail":"Lembaga pendidikan","exampleJa":"妹の子どもは四月から保育園に通います。","exampleReading":"Imouto no kodomo wa shigatsu kara hoikuen ni kayoimasu.","exampleId":"Anak adik perempuan saya mulai bersekolah di hoikuen pada bulan April.","catatan":"保育園 merawat anak ketika orang tua bekerja atau memiliki kebutuhan pengasuhan. Usia anak dan jam layanan biasanya lebih luas daripada 幼稚園.","id":"mni-ref-b25-life-007","course":"Minna no Nihongo I","book":"Minna no Nihongo I (2nd Edition)","bookJa":"みんなの日本語 I（第2版）","category":"Kata-Kata Referensi dan Informasi","materialCategory":"Kata-Kata Referensi dan Informasi","chapter":"Bab 25","chapterNumber":25,"favorite":false,"tag":"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 25 / 人の一生","isFiction":false,"speech":"保育園","imageAlt":"Ilustrasi kosakata 保育園 — tempat penitipan anak / kelompok bermain","examples":[{"ja":"妹の子どもは四月から保育園に通います。","reading":"Imouto no kodomo wa shigatsu kara hoikuen ni kayoimasu.","id":"Anak adik perempuan saya mulai bersekolah di hoikuen pada bulan April."}],"note":"保育園 merawat anak ketika orang tua bekerja atau memiliki kebutuhan pengasuhan. Usia anak dan jam layanan biasanya lebih luas daripada 幼稚園."},{"no":"8","kanji":"幼稚園","kana":"ようちえん","romaji":"youchien","indonesia":"taman kanak-kanak / TK","image":"https://iili.io/Ce93K1n.png","sectionCategory":"Pendidikan","typeCategory":"Kata Benda","typeDetail":"Lembaga pendidikan","exampleJa":"幼稚園で歌と絵を習いました。","exampleReading":"Youchien de uta to e o naraimashita.","exampleId":"Saya belajar bernyanyi dan menggambar di taman kanak-kanak.","catatan":"幼稚園 adalah lembaga pendidikan untuk anak sebelum masuk sekolah dasar. Fokusnya lebih kuat pada kegiatan pendidikan awal, sedangkan 保育園 juga berfungsi sebagai tempat pengasuhan.","id":"mni-ref-b25-life-008","course":"Minna no Nihongo I","book":"Minna no Nihongo I (2nd Edition)","bookJa":"みんなの日本語 I（第2版）","category":"Kata-Kata Referensi dan Informasi","materialCategory":"Kata-Kata Referensi dan Informasi","chapter":"Bab 25","chapterNumber":25,"favorite":false,"tag":"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 25 / 人の一生","isFiction":false,"speech":"幼稚園","imageAlt":"Ilustrasi kosakata 幼稚園 — taman kanak-kanak / TK","examples":[{"ja":"幼稚園で歌と絵を習いました。","reading":"Youchien de uta to e o naraimashita.","id":"Saya belajar bernyanyi dan menggambar di taman kanak-kanak."}],"note":"幼稚園 adalah lembaga pendidikan untuk anak sebelum masuk sekolah dasar. Fokusnya lebih kuat pada kegiatan pendidikan awal, sedangkan 保育園 juga berfungsi sebagai tempat pengasuhan."},{"no":"9","kanji":"学校に入ります","kana":"がっこうにはいります","romaji":"gakkou ni hairimasu","indonesia":"masuk sekolah / mulai bersekolah","image":"https://iili.io/Ce9nSAg.png","sectionCategory":"Pendidikan","typeCategory":"Kata Kerja Kelompok I","typeDetail":"Memulai pendidikan","exampleJa":"来年、弟は小学校に入ります。","exampleReading":"Rainen, otouto wa shougakkou ni hairimasu.","exampleId":"Tahun depan, adik laki-laki saya akan masuk sekolah dasar.","catatan":"Pola 学校に入ります berarti masuk atau mulai belajar di sebuah sekolah. Partikel に menandai sekolah yang dimasuki.","id":"mni-ref-b25-life-009","course":"Minna no Nihongo I","book":"Minna no Nihongo I (2nd Edition)","bookJa":"みんなの日本語 I（第2版）","category":"Kata-Kata Referensi dan Informasi","materialCategory":"Kata-Kata Referensi dan Informasi","chapter":"Bab 25","chapterNumber":25,"favorite":false,"tag":"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 25 / 人の一生","isFiction":false,"speech":"学校に入ります","imageAlt":"Ilustrasi kosakata 学校に入ります — masuk sekolah / mulai bersekolah","examples":[{"ja":"来年、弟は小学校に入ります。","reading":"Rainen, otouto wa shougakkou ni hairimasu.","id":"Tahun depan, adik laki-laki saya akan masuk sekolah dasar."}],"note":"Pola 学校に入ります berarti masuk atau mulai belajar di sebuah sekolah. Partikel に menandai sekolah yang dimasuki."},{"no":"10","kanji":"小学校","kana":"しょうがっこう","romaji":"shougakkou","indonesia":"sekolah dasar / SD","image":"https://iili.io/Ce9xr4p.png","sectionCategory":"Pendidikan","typeCategory":"Kata Benda","typeDetail":"Jenjang pendidikan","exampleJa":"この小学校には大きい図書館があります。","exampleReading":"Kono shougakkou ni wa ookii toshokan ga arimasu.","exampleId":"Sekolah dasar ini memiliki perpustakaan yang besar.","catatan":"小学校 adalah sekolah dasar di Jepang. Masa belajarnya umumnya enam tahun, dari kelas satu sampai kelas enam.","id":"mni-ref-b25-life-010","course":"Minna no Nihongo I","book":"Minna no Nihongo I (2nd Edition)","bookJa":"みんなの日本語 I（第2版）","category":"Kata-Kata Referensi dan Informasi","materialCategory":"Kata-Kata Referensi dan Informasi","chapter":"Bab 25","chapterNumber":25,"favorite":false,"tag":"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 25 / 人の一生","isFiction":false,"speech":"小学校","imageAlt":"Ilustrasi kosakata 小学校 — sekolah dasar / SD","examples":[{"ja":"この小学校には大きい図書館があります。","reading":"Kono shougakkou ni wa ookii toshokan ga arimasu.","id":"Sekolah dasar ini memiliki perpustakaan yang besar."}],"note":"小学校 adalah sekolah dasar di Jepang. Masa belajarnya umumnya enam tahun, dari kelas satu sampai kelas enam."},{"no":"11","kanji":"中学校","kana":"ちゅうがっこう","romaji":"chuugakkou","indonesia":"sekolah menengah pertama / SMP","image":"https://iili.io/Ce9x8ZJ.png","sectionCategory":"Pendidikan","typeCategory":"Kata Benda","typeDetail":"Jenjang pendidikan","exampleJa":"中学校で初めて英語を勉強しました。","exampleReading":"Chuugakkou de hajimete eigo o benkyou shimashita.","exampleId":"Saya pertama kali belajar bahasa Inggris di SMP.","catatan":"中学校 adalah jenjang setelah sekolah dasar. Di Jepang, jenjang ini umumnya berlangsung selama tiga tahun.","id":"mni-ref-b25-life-011","course":"Minna no Nihongo I","book":"Minna no Nihongo I (2nd Edition)","bookJa":"みんなの日本語 I（第2版）","category":"Kata-Kata Referensi dan Informasi","materialCategory":"Kata-Kata Referensi dan Informasi","chapter":"Bab 25","chapterNumber":25,"favorite":false,"tag":"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 25 / 人の一生","isFiction":false,"speech":"中学校","imageAlt":"Ilustrasi kosakata 中学校 — sekolah menengah pertama / SMP","examples":[{"ja":"中学校で初めて英語を勉強しました。","reading":"Chuugakkou de hajimete eigo o benkyou shimashita.","id":"Saya pertama kali belajar bahasa Inggris di SMP."}],"note":"中学校 adalah jenjang setelah sekolah dasar. Di Jepang, jenjang ini umumnya berlangsung selama tiga tahun."},{"no":"12","kanji":"高等学校","kana":"こうとうがっこう","romaji":"koutou gakkou","indonesia":"sekolah menengah atas / SMA","image":"https://iili.io/Ce9xsyX.png","sectionCategory":"Pendidikan","typeCategory":"Kata Benda","typeDetail":"Jenjang pendidikan","exampleJa":"姉は駅の近くの高等学校に通っています。","exampleReading":"Ane wa eki no chikaku no koutou gakkou ni kayotte imasu.","exampleId":"Kakak perempuan saya bersekolah di SMA dekat stasiun.","catatan":"高等学校 adalah nama resmi untuk SMA. Dalam percakapan sehari-hari, bentuk singkat 高校（こうこう） jauh lebih sering digunakan.","id":"mni-ref-b25-life-012","course":"Minna no Nihongo I","book":"Minna no Nihongo I (2nd Edition)","bookJa":"みんなの日本語 I（第2版）","category":"Kata-Kata Referensi dan Informasi","materialCategory":"Kata-Kata Referensi dan Informasi","chapter":"Bab 25","chapterNumber":25,"favorite":false,"tag":"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 25 / 人の一生","isFiction":false,"speech":"高等学校","imageAlt":"Ilustrasi kosakata 高等学校 — sekolah menengah atas / SMA","examples":[{"ja":"姉は駅の近くの高等学校に通っています。","reading":"Ane wa eki no chikaku no koutou gakkou ni kayotte imasu.","id":"Kakak perempuan saya bersekolah di SMA dekat stasiun."}],"note":"高等学校 adalah nama resmi untuk SMA. Dalam percakapan sehari-hari, bentuk singkat 高校（こうこう） jauh lebih sering digunakan."},{"no":"13","kanji":"大学","kana":"だいがく","romaji":"daigaku","indonesia":"universitas / perguruan tinggi","image":"https://iili.io/Ce9nyxf.png","sectionCategory":"Pendidikan","typeCategory":"Kata Benda","typeDetail":"Jenjang pendidikan","exampleJa":"大学で日本の文化を研究したいです。","exampleReading":"Daigaku de Nihon no bunka o kenkyuu shitai desu.","exampleId":"Saya ingin meneliti kebudayaan Jepang di universitas.","catatan":"大学 biasanya merujuk pada universitas program sarjana yang umumnya ditempuh selama empat tahun. Mahasiswa universitas disebut 大学生（だいがくせい）.","id":"mni-ref-b25-life-013","course":"Minna no Nihongo I","book":"Minna no Nihongo I (2nd Edition)","bookJa":"みんなの日本語 I（第2版）","category":"Kata-Kata Referensi dan Informasi","materialCategory":"Kata-Kata Referensi dan Informasi","chapter":"Bab 25","chapterNumber":25,"favorite":false,"tag":"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 25 / 人の一生","isFiction":false,"speech":"大学","imageAlt":"Ilustrasi kosakata 大学 — universitas / perguruan tinggi","examples":[{"ja":"大学で日本の文化を研究したいです。","reading":"Daigaku de Nihon no bunka o kenkyuu shitai desu.","id":"Saya ingin meneliti kebudayaan Jepang di universitas."}],"note":"大学 biasanya merujuk pada universitas program sarjana yang umumnya ditempuh selama empat tahun. Mahasiswa universitas disebut 大学生（だいがくせい）."},{"no":"14","kanji":"短大","kana":"たんだい","romaji":"tandai","indonesia":"akademi / junior college","image":"https://iili.io/Ce9oMgI.png","sectionCategory":"Pendidikan","typeCategory":"Kata Benda","typeDetail":"Jenjang pendidikan","exampleJa":"彼女は短大で保育について学んでいます。","exampleReading":"Kanojo wa tandai de hoiku ni tsuite manande imasu.","exampleId":"Dia belajar tentang pendidikan dan pengasuhan anak di akademi.","catatan":"短大 adalah singkatan dari 短期大学（たんきだいがく）. Programnya umumnya lebih singkat daripada universitas empat tahun, sering kali sekitar dua tahun.","id":"mni-ref-b25-life-014","course":"Minna no Nihongo I","book":"Minna no Nihongo I (2nd Edition)","bookJa":"みんなの日本語 I（第2版）","category":"Kata-Kata Referensi dan Informasi","materialCategory":"Kata-Kata Referensi dan Informasi","chapter":"Bab 25","chapterNumber":25,"favorite":false,"tag":"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 25 / 人の一生","isFiction":false,"speech":"短大","imageAlt":"Ilustrasi kosakata 短大 — akademi / junior college","examples":[{"ja":"彼女は短大で保育について学んでいます。","reading":"Kanojo wa tandai de hoiku ni tsuite manande imasu.","id":"Dia belajar tentang pendidikan dan pengasuhan anak di akademi."}],"note":"短大 adalah singkatan dari 短期大学（たんきだいがく）. Programnya umumnya lebih singkat daripada universitas empat tahun, sering kali sekitar dua tahun."},{"no":"15","kanji":"専門学校","kana":"せんもんがっこう","romaji":"senmon gakkou","indonesia":"sekolah kejuruan / sekolah keahlian","image":"https://iili.io/Ce9xAB4.png","sectionCategory":"Pendidikan","typeCategory":"Kata Benda","typeDetail":"Jenjang pendidikan","exampleJa":"専門学校で料理の技術を身につけました。","exampleReading":"Senmon gakkou de ryouri no gijutsu o mi ni tsukemashita.","exampleId":"Saya memperoleh keterampilan memasak di sekolah kejuruan.","catatan":"専門学校 memberikan pendidikan yang berfokus pada keahlian praktis, misalnya memasak, desain, teknologi, perhotelan, atau perawatan.","id":"mni-ref-b25-life-015","course":"Minna no Nihongo I","book":"Minna no Nihongo I (2nd Edition)","bookJa":"みんなの日本語 I（第2版）","category":"Kata-Kata Referensi dan Informasi","materialCategory":"Kata-Kata Referensi dan Informasi","chapter":"Bab 25","chapterNumber":25,"favorite":false,"tag":"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 25 / 人の一生","isFiction":false,"speech":"専門学校","imageAlt":"Ilustrasi kosakata 専門学校 — sekolah kejuruan / sekolah keahlian","examples":[{"ja":"専門学校で料理の技術を身につけました。","reading":"Senmon gakkou de ryouri no gijutsu o mi ni tsukemashita.","id":"Saya memperoleh keterampilan memasak di sekolah kejuruan."}],"note":"専門学校 memberikan pendidikan yang berfokus pada keahlian praktis, misalnya memasak, desain, teknologi, perhotelan, atau perawatan."},{"no":"16","kanji":"大学院","kana":"だいがくいん","romaji":"daigakuin","indonesia":"program pascasarjana / sekolah pascasarjana","image":"https://iili.io/Ce9xivt.png","sectionCategory":"Pendidikan","typeCategory":"Kata Benda","typeDetail":"Jenjang pendidikan","exampleJa":"卒業後、大学院に進むつもりです。","exampleReading":"Sotsugyougo, daigakuin ni susumu tsumori desu.","exampleId":"Setelah lulus, saya berencana melanjutkan ke program pascasarjana.","catatan":"大学院 adalah pendidikan setelah universitas, termasuk program magister dan doktor. Jangan tertukar dengan 大学 yang berarti universitas atau program sarjana.","id":"mni-ref-b25-life-016","course":"Minna no Nihongo I","book":"Minna no Nihongo I (2nd Edition)","bookJa":"みんなの日本語 I（第2版）","category":"Kata-Kata Referensi dan Informasi","materialCategory":"Kata-Kata Referensi dan Informasi","chapter":"Bab 25","chapterNumber":25,"favorite":false,"tag":"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 25 / 人の一生","isFiction":false,"speech":"大学院","imageAlt":"Ilustrasi kosakata 大学院 — program pascasarjana / sekolah pascasarjana","examples":[{"ja":"卒業後、大学院に進むつもりです。","reading":"Sotsugyougo, daigakuin ni susumu tsumori desu.","id":"Setelah lulus, saya berencana melanjutkan ke program pascasarjana."}],"note":"大学院 adalah pendidikan setelah universitas, termasuk program magister dan doktor. Jangan tertukar dengan 大学 yang berarti universitas atau program sarjana."},{"no":"17","kanji":"学校を出ます","kana":"がっこうをでます","romaji":"gakkou o demasu","indonesia":"tamat sekolah / lulus sekolah","image":"https://iili.io/Ce9zWts.png","sectionCategory":"Peristiwa Kehidupan","typeCategory":"Kata Kerja Kelompok II","typeDetail":"Menyelesaikan pendidikan","exampleJa":"兄は去年大学を出て、会社に入りました。","exampleReading":"Ani wa kyonen daigaku o dete, kaisha ni hairimashita.","exampleId":"Kakak laki-laki saya lulus dari universitas tahun lalu lalu masuk perusahaan.","catatan":"学校を出ます secara harfiah berarti “keluar dari sekolah”, tetapi dalam konteks perjalanan pendidikan dapat bermakna lulus. 卒業します（そつぎょうします） adalah kata yang lebih langsung untuk “lulus”.","id":"mni-ref-b25-life-017","course":"Minna no Nihongo I","book":"Minna no Nihongo I (2nd Edition)","bookJa":"みんなの日本語 I（第2版）","category":"Kata-Kata Referensi dan Informasi","materialCategory":"Kata-Kata Referensi dan Informasi","chapter":"Bab 25","chapterNumber":25,"favorite":false,"tag":"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 25 / 人の一生","isFiction":false,"speech":"学校を出ます","imageAlt":"Ilustrasi kosakata 学校を出ます — tamat sekolah / lulus sekolah","examples":[{"ja":"兄は去年大学を出て、会社に入りました。","reading":"Ani wa kyonen daigaku o dete, kaisha ni hairimashita.","id":"Kakak laki-laki saya lulus dari universitas tahun lalu lalu masuk perusahaan."}],"note":"学校を出ます secara harfiah berarti “keluar dari sekolah”, tetapi dalam konteks perjalanan pendidikan dapat bermakna lulus. 卒業します（そつぎょうします） adalah kata yang lebih langsung untuk “lulus”."},{"no":"18","kanji":"生まれます","kana":"うまれます","romaji":"umaremasu","indonesia":"lahir","image":"https://iili.io/Ce9zSR9.png","sectionCategory":"Peristiwa Kehidupan","typeCategory":"Kata Kerja Kelompok II","typeDetail":"Kelahiran","exampleJa":"私は大阪で生まれました。","exampleReading":"Watashi wa Oosaka de umaremashita.","exampleId":"Saya lahir di Osaka.","catatan":"生まれます adalah kata kerja intransitif: orang atau makhluk yang lahir menjadi subjek. Tempat lahir ditandai dengan partikel で, seperti 東京で生まれました.","id":"mni-ref-b25-life-018","course":"Minna no Nihongo I","book":"Minna no Nihongo I (2nd Edition)","bookJa":"みんなの日本語 I（第2版）","category":"Kata-Kata Referensi dan Informasi","materialCategory":"Kata-Kata Referensi dan Informasi","chapter":"Bab 25","chapterNumber":25,"favorite":false,"tag":"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 25 / 人の一生","isFiction":false,"speech":"生まれます","imageAlt":"Ilustrasi kosakata 生まれます — lahir","examples":[{"ja":"私は大阪で生まれました。","reading":"Watashi wa Oosaka de umaremashita.","id":"Saya lahir di Osaka."}],"note":"生まれます adalah kata kerja intransitif: orang atau makhluk yang lahir menjadi subjek. Tempat lahir ditandai dengan partikel で, seperti 東京で生まれました."},{"no":"19","kanji":"就職します","kana":"しゅうしょくします","romaji":"shuushoku shimasu","indonesia":"mendapat pekerjaan / mulai bekerja","image":"https://iili.io/Ce9Tr6x.png","sectionCategory":"Peristiwa Kehidupan","typeCategory":"Kata Kerja Kelompok III","typeDetail":"Dunia kerja","exampleJa":"来月、東京の会社に就職します。","exampleReading":"Raigetsu, Toukyou no kaisha ni shuushoku shimasu.","exampleId":"Bulan depan, saya mulai bekerja di sebuah perusahaan di Tokyo.","catatan":"就職します berarti memperoleh pekerjaan tetap atau mulai bekerja setelah masa pendidikan. Perusahaan atau tempat kerja biasanya ditandai dengan partikel に.","id":"mni-ref-b25-life-019","course":"Minna no Nihongo I","book":"Minna no Nihongo I (2nd Edition)","bookJa":"みんなの日本語 I（第2版）","category":"Kata-Kata Referensi dan Informasi","materialCategory":"Kata-Kata Referensi dan Informasi","chapter":"Bab 25","chapterNumber":25,"favorite":false,"tag":"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 25 / 人の一生","isFiction":false,"speech":"就職します","imageAlt":"Ilustrasi kosakata 就職します — mendapat pekerjaan / mulai bekerja","examples":[{"ja":"来月、東京の会社に就職します。","reading":"Raigetsu, Toukyou no kaisha ni shuushoku shimasu.","id":"Bulan depan, saya mulai bekerja di sebuah perusahaan di Tokyo."}],"note":"就職します berarti memperoleh pekerjaan tetap atau mulai bekerja setelah masa pendidikan. Perusahaan atau tempat kerja biasanya ditandai dengan partikel に."},{"no":"20","kanji":"結婚します","kana":"けっこんします","romaji":"kekkon shimasu","indonesia":"menikah","image":"https://iili.io/Ce9T8Zu.png","sectionCategory":"Peristiwa Kehidupan","typeCategory":"Kata Kerja Kelompok III","typeDetail":"Pernikahan","exampleJa":"二人は秋に結婚します。","exampleReading":"Futari wa aki ni kekkon shimasu.","exampleId":"Mereka berdua akan menikah pada musim gugur.","catatan":"結婚します berarti menikah. Untuk menyebut orang yang dinikahi, gunakan pola ～と結婚します, misalnya 田中さんと結婚します.","id":"mni-ref-b25-life-020","course":"Minna no Nihongo I","book":"Minna no Nihongo I (2nd Edition)","bookJa":"みんなの日本語 I（第2版）","category":"Kata-Kata Referensi dan Informasi","materialCategory":"Kata-Kata Referensi dan Informasi","chapter":"Bab 25","chapterNumber":25,"favorite":false,"tag":"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 25 / 人の一生","isFiction":false,"speech":"結婚します","imageAlt":"Ilustrasi kosakata 結婚します — menikah","examples":[{"ja":"二人は秋に結婚します。","reading":"Futari wa aki ni kekkon shimasu.","id":"Mereka berdua akan menikah pada musim gugur."}],"note":"結婚します berarti menikah. Untuk menyebut orang yang dinikahi, gunakan pola ～と結婚します, misalnya 田中さんと結婚します."},{"no":"21","kanji":"子どもが生まれます","kana":"こどもがうまれます","romaji":"kodomo ga umaremasu","indonesia":"seorang anak lahir / memiliki anak","image":"https://iili.io/Ce9TPaV.png","sectionCategory":"Peristiwa Kehidupan","typeCategory":"Ungkapan","typeDetail":"Kelahiran anak","exampleJa":"来月、姉に子どもが生まれます。","exampleReading":"Raigetsu, ane ni kodomo ga umaremasu.","exampleId":"Bulan depan, kakak perempuan saya akan memiliki seorang anak.","catatan":"Secara harfiah, 子どもが生まれます berarti “seorang anak lahir”. Dalam bahasa Indonesia, sesuai konteks keluarga, ungkapan ini juga dapat diterjemahkan “akan memiliki anak”.","id":"mni-ref-b25-life-021","course":"Minna no Nihongo I","book":"Minna no Nihongo I (2nd Edition)","bookJa":"みんなの日本語 I（第2版）","category":"Kata-Kata Referensi dan Informasi","materialCategory":"Kata-Kata Referensi dan Informasi","chapter":"Bab 25","chapterNumber":25,"favorite":false,"tag":"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 25 / 人の一生","isFiction":false,"speech":"子どもが生まれます","imageAlt":"Ilustrasi kosakata 子どもが生まれます — seorang anak lahir / memiliki anak","examples":[{"ja":"来月、姉に子どもが生まれます。","reading":"Raigetsu, ane ni kodomo ga umaremasu.","id":"Bulan depan, kakak perempuan saya akan memiliki seorang anak."}],"note":"Secara harfiah, 子どもが生まれます berarti “seorang anak lahir”. Dalam bahasa Indonesia, sesuai konteks keluarga, ungkapan ini juga dapat diterjemahkan “akan memiliki anak”."},{"no":"22","kanji":"離婚します","kana":"りこんします","romaji":"rikon shimasu","indonesia":"bercerai","image":"https://iili.io/Ce9T63Q.png","sectionCategory":"Peristiwa Kehidupan","typeCategory":"Kata Kerja Kelompok III","typeDetail":"Perubahan keluarga","exampleJa":"その二人はよく話し合ったあとで離婚しました。","exampleReading":"Sono futari wa yoku hanashiatta ato de rikon shimashita.","exampleId":"Kedua orang itu bercerai setelah membicarakannya dengan baik.","catatan":"離婚します berarti mengakhiri hubungan pernikahan secara resmi. Karena topiknya pribadi dan sensitif, gunakan kata ini dengan hati-hati dalam percakapan.","id":"mni-ref-b25-life-022","course":"Minna no Nihongo I","book":"Minna no Nihongo I (2nd Edition)","bookJa":"みんなの日本語 I（第2版）","category":"Kata-Kata Referensi dan Informasi","materialCategory":"Kata-Kata Referensi dan Informasi","chapter":"Bab 25","chapterNumber":25,"favorite":false,"tag":"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 25 / 人の一生","isFiction":false,"speech":"離婚します","imageAlt":"Ilustrasi kosakata 離婚します — bercerai","examples":[{"ja":"その二人はよく話し合ったあとで離婚しました。","reading":"Sono futari wa yoku hanashiatta ato de rikon shimashita.","id":"Kedua orang itu bercerai setelah membicarakannya dengan baik."}],"note":"離婚します berarti mengakhiri hubungan pernikahan secara resmi. Karena topiknya pribadi dan sensitif, gunakan kata ini dengan hati-hati dalam percakapan."},{"no":"23","kanji":"再婚します","kana":"さいこんします","romaji":"saikon shimasu","indonesia":"menikah lagi","image":"https://iili.io/Ce9Tbna.png","sectionCategory":"Peristiwa Kehidupan","typeCategory":"Kata Kerja Kelompok III","typeDetail":"Pernikahan kembali","exampleJa":"彼は五年後に再婚しました。","exampleReading":"Kare wa gonengo ni saikon shimashita.","exampleId":"Dia menikah lagi lima tahun kemudian.","catatan":"再婚します berarti menikah kembali setelah perceraian atau setelah pasangan sebelumnya meninggal. 再（さい） memberikan makna “kembali” atau “sekali lagi”.","id":"mni-ref-b25-life-023","course":"Minna no Nihongo I","book":"Minna no Nihongo I (2nd Edition)","bookJa":"みんなの日本語 I（第2版）","category":"Kata-Kata Referensi dan Informasi","materialCategory":"Kata-Kata Referensi dan Informasi","chapter":"Bab 25","chapterNumber":25,"favorite":false,"tag":"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 25 / 人の一生","isFiction":false,"speech":"再婚します","imageAlt":"Ilustrasi kosakata 再婚します — menikah lagi","examples":[{"ja":"彼は五年後に再婚しました。","reading":"Kare wa gonengo ni saikon shimashita.","id":"Dia menikah lagi lima tahun kemudian."}],"note":"再婚します berarti menikah kembali setelah perceraian atau setelah pasangan sebelumnya meninggal. 再（さい） memberikan makna “kembali” atau “sekali lagi”."},{"no":"24","kanji":"仕事をやめます","kana":"しごとをやめます","romaji":"shigoto o yamemasu","indonesia":"berhenti bekerja / mengundurkan diri dari pekerjaan","image":"https://iili.io/Ce9TmMJ.png","sectionCategory":"Peristiwa Kehidupan","typeCategory":"Kata Kerja Kelompok II","typeDetail":"Berhenti bekerja","exampleJa":"父は六十五歳で仕事をやめました。","exampleReading":"Chichi wa rokujuugosai de shigoto o yamemashita.","exampleId":"Ayah saya berhenti bekerja pada usia 65 tahun.","catatan":"仕事をやめます berarti berhenti dari pekerjaan. Dalam tulisan, やめます untuk berhenti bekerja dapat ditulis 辞めます. Kata ini tidak selalu berarti pensiun; alasannya bergantung pada konteks.","id":"mni-ref-b25-life-024","course":"Minna no Nihongo I","book":"Minna no Nihongo I (2nd Edition)","bookJa":"みんなの日本語 I（第2版）","category":"Kata-Kata Referensi dan Informasi","materialCategory":"Kata-Kata Referensi dan Informasi","chapter":"Bab 25","chapterNumber":25,"favorite":false,"tag":"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 25 / 人の一生","isFiction":false,"speech":"仕事をやめます","imageAlt":"Ilustrasi kosakata 仕事をやめます — berhenti bekerja / mengundurkan diri dari pekerjaan","examples":[{"ja":"父は六十五歳で仕事をやめました。","reading":"Chichi wa rokujuugosai de shigoto o yamemashita.","id":"Ayah saya berhenti bekerja pada usia 65 tahun."}],"note":"仕事をやめます berarti berhenti dari pekerjaan. Dalam tulisan, やめます untuk berhenti bekerja dapat ditulis 辞めます. Kata ini tidak selalu berarti pensiun; alasannya bergantung pada konteks."},{"no":"25","kanji":"死にます","kana":"しにます","romaji":"shinimasu","indonesia":"meninggal dunia / mati","image":"https://iili.io/Ce9Tp6v.png","sectionCategory":"Peristiwa Kehidupan","typeCategory":"Kata Kerja Kelompok I","typeDetail":"Akhir kehidupan","exampleJa":"人はいつか死にますが、思い出は心に残ります。","exampleReading":"Hito wa itsuka shinimasu ga, omoide wa kokoro ni nokorimasu.","exampleId":"Manusia suatu hari akan meninggal, tetapi kenangan tetap tinggal di hati.","catatan":"死にます adalah ungkapan langsung untuk “mati” atau “meninggal”. Ketika membicarakan wafatnya seseorang dengan lebih sopan, 亡くなります（なくなります） biasanya lebih tepat.","id":"mni-ref-b25-life-025","course":"Minna no Nihongo I","book":"Minna no Nihongo I (2nd Edition)","bookJa":"みんなの日本語 I（第2版）","category":"Kata-Kata Referensi dan Informasi","materialCategory":"Kata-Kata Referensi dan Informasi","chapter":"Bab 25","chapterNumber":25,"favorite":false,"tag":"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 25 / 人の一生","isFiction":false,"speech":"死にます","imageAlt":"Ilustrasi kosakata 死にます — meninggal dunia / mati","examples":[{"ja":"人はいつか死にますが、思い出は心に残ります。","reading":"Hito wa itsuka shinimasu ga, omoide wa kokoro ni nokorimasu.","id":"Manusia suatu hari akan meninggal, tetapi kenangan tetap tinggal di hati."}],"note":"死にます adalah ungkapan langsung untuk “mati” atau “meninggal”. Ketika membicarakan wafatnya seseorang dengan lebih sopan, 亡くなります（なくなります） biasanya lebih tepat."},{"no":"26","kanji":"男性","kana":"だんせい","romaji":"dansei","indonesia":"laki-laki / pria","image":"https://iili.io/Ce9TtZg.png","sectionCategory":"Identitas dan Usia","typeCategory":"Kata Benda","typeDetail":"Jenis kelamin","exampleJa":"入口の前に黒いコートの男性が立っています。","exampleReading":"Iriguchi no mae ni kuroi kooto no dansei ga tatte imasu.","exampleId":"Seorang pria berjas hitam sedang berdiri di depan pintu masuk.","catatan":"男性 adalah kata formal dan netral untuk laki-laki atau pria. Kata ini sering dipakai pada formulir, pengumuman, berita, dan penjelasan umum.","id":"mni-ref-b25-life-026","course":"Minna no Nihongo I","book":"Minna no Nihongo I (2nd Edition)","bookJa":"みんなの日本語 I（第2版）","category":"Kata-Kata Referensi dan Informasi","materialCategory":"Kata-Kata Referensi dan Informasi","chapter":"Bab 25","chapterNumber":25,"favorite":false,"tag":"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 25 / 人の一生","isFiction":false,"speech":"男性","imageAlt":"Ilustrasi kosakata 男性 — laki-laki / pria","examples":[{"ja":"入口の前に黒いコートの男性が立っています。","reading":"Iriguchi no mae ni kuroi kooto no dansei ga tatte imasu.","id":"Seorang pria berjas hitam sedang berdiri di depan pintu masuk."}],"note":"男性 adalah kata formal dan netral untuk laki-laki atau pria. Kata ini sering dipakai pada formulir, pengumuman, berita, dan penjelasan umum."},{"no":"27","kanji":"女性","kana":"じょせい","romaji":"josei","indonesia":"perempuan / wanita","image":"https://iili.io/Ce9u9FR.png","sectionCategory":"Identitas dan Usia","typeCategory":"Kata Benda","typeDetail":"Jenis kelamin","exampleJa":"あの女性は新しい図書館の館長です。","exampleReading":"Ano josei wa atarashii toshokan no kanchou desu.","exampleId":"Perempuan itu adalah kepala perpustakaan yang baru.","catatan":"女性 adalah kata formal dan netral untuk perempuan atau wanita. Dalam percakapan santai, 女の人（おんなのひと） juga sering digunakan.","id":"mni-ref-b25-life-027","course":"Minna no Nihongo I","book":"Minna no Nihongo I (2nd Edition)","bookJa":"みんなの日本語 I（第2版）","category":"Kata-Kata Referensi dan Informasi","materialCategory":"Kata-Kata Referensi dan Informasi","chapter":"Bab 25","chapterNumber":25,"favorite":false,"tag":"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 25 / 人の一生","isFiction":false,"speech":"女性","imageAlt":"Ilustrasi kosakata 女性 — perempuan / wanita","examples":[{"ja":"あの女性は新しい図書館の館長です。","reading":"Ano josei wa atarashii toshokan no kanchou desu.","id":"Perempuan itu adalah kepala perpustakaan yang baru."}],"note":"女性 adalah kata formal dan netral untuk perempuan atau wanita. Dalam percakapan santai, 女の人（おんなのひと） juga sering digunakan."},{"no":"28","kanji":"20歳","kana":"はたち","romaji":"hatachi","indonesia":"usia 20 tahun","image":"https://iili.io/Ce9uHap.png","sectionCategory":"Identitas dan Usia","typeCategory":"Keterangan Usia","typeDetail":"Cara baca khusus","exampleJa":"日本では20歳を「はたち」と読みます。","exampleReading":"Nihon de wa nijussai o “hatachi” to yomimasu.","exampleId":"Di Jepang, usia 20 tahun dibaca “hatachi”.","catatan":"20歳 memiliki cara baca khusus, yaitu はたち. Untuk usia selain 20 tahun, 歳 biasanya dibaca さい, misalnya 18歳（じゅうはっさい） dan 30歳（さんじゅっさい）.","id":"mni-ref-b25-life-028","course":"Minna no Nihongo I","book":"Minna no Nihongo I (2nd Edition)","bookJa":"みんなの日本語 I（第2版）","category":"Kata-Kata Referensi dan Informasi","materialCategory":"Kata-Kata Referensi dan Informasi","chapter":"Bab 25","chapterNumber":25,"favorite":false,"tag":"Minna no Nihongo I / Kata-Kata Referensi dan Informasi / Bab 25 / 人の一生","isFiction":false,"speech":"20歳","imageAlt":"Ilustrasi kosakata 20歳 — usia 20 tahun","examples":[{"ja":"日本では20歳を「はたち」と読みます。","reading":"Nihon de wa nijussai o “hatachi” to yomimasu.","id":"Di Jepang, usia 20 tahun dibaca “hatachi”."}],"note":"20歳 memiliki cara baca khusus, yaitu はたち. Untuk usia selain 20 tahun, 歳 biasanya dibaca さい, misalnya 18歳（じゅうはっさい） dan 30歳（さんじゅっさい）."}];
+      if(!Array.isArray(VOCABULARY)) return;
+      const known = new Set(VOCABULARY.map(item=>String(item.id || '')));
+      LIFE_CYCLE_BAB25_VOCABULARY.forEach(item=>{ if(!known.has(item.id)) VOCABULARY.push(item); });
+      if(STATIC_REFERENCE_CHAPTERS?.['Minna no Nihongo I (2nd Edition)'] && !STATIC_REFERENCE_CHAPTERS['Minna no Nihongo I (2nd Edition)'].includes(25)){
+        STATIC_REFERENCE_CHAPTERS['Minna no Nihongo I (2nd Edition)'].push(25);
+      }
+
+      let lifeCycleLastRenderKey = '';
+      let lifeCycleSearchTimer = 0;
+
+      function isReferenceInfoBab25(){ return isReferenceInfoChapter('Bab 25'); }
+      function syncLifeCycleFavoriteButtons(scope=document){
+        scope.querySelectorAll('.life-cycle-actions [data-fav]').forEach(btn=>{
+          const active=state.favorites.includes(btn.dataset.fav);
+          btn.classList.toggle('active',active);
+          const icon=btn.querySelector('i');
+          if(icon) icon.className=`${active?'fa-solid':'fa-regular'} fa-star`;
+        });
+      }
+      function lifeCycleRuby(v={}){
+        const written=String(v.kanji||'').trim();
+        const reading=String(v.kana||'').trim();
+        // Tampilkan kanji/kata utama tanpa furigana di atasnya.
+        // Cara baca tetap tersedia satu kali pada baris di bawah judul.
+        return esc(written || reading || v.romaji || '-');
+      }
+      function lifeCycleSectionMeta(name){
+        const meta={
+          'Gambaran Umum':{icon:'fa-route',titleJa:'全体像',desc:'Kosakata yang merangkum perjalanan hidup manusia secara utuh.'},
+          'Tahap Kehidupan':{icon:'fa-person-arrow-up-from-line',titleJa:'人生の段階',desc:'Sebutan untuk bayi, anak, pemuda, usia paruh baya, dan lansia.'},
+          'Pendidikan':{icon:'fa-graduation-cap',titleJa:'教育',desc:'Lembaga, jenjang, dan ungkapan yang digunakan sepanjang perjalanan pendidikan.'},
+          'Peristiwa Kehidupan':{icon:'fa-heart-pulse',titleJa:'人生の出来事',desc:'Peristiwa penting dari kelahiran, kelulusan, pekerjaan, keluarga, hingga akhir kehidupan.'},
+          'Identitas dan Usia':{icon:'fa-address-card',titleJa:'性別・年齢',desc:'Kata formal untuk jenis kelamin serta cara baca khusus usia 20 tahun.'}
+        };
+        return meta[name] || {icon:'fa-book-open-reader',titleJa:name,desc:''};
+      }
+      function lifeCycleCard(v){
+        const fav=state.favorites.includes(v.id);
+        const written=String(v.kanji||'').trim();
+        const reading=String(v.kana||'').trim();
+        const readingLine=written && reading && written!==reading
+          ? `<div class="life-cycle-kana jp">${esc(reading)}</div>`
+          : '';
+        return `<article class="life-cycle-card">
+          <button class="life-cycle-image-btn" type="button" data-zoom="${esc(v.image)}" aria-label="${state.lang==='ja'?'画像を拡大':'Perbesar gambar'}">
+            <img src="${esc(v.image)}" alt="${esc(v.imageAlt || formatIndonesianMeaning(v))}" loading="lazy" decoding="async" data-zoom="${esc(v.image)}">
+          </button>
+          <div class="life-cycle-card-head">
+            <span class="life-cycle-number">${esc(v.no)}</span>
+            <div class="life-cycle-card-title">
+              <h4 class="jp">${lifeCycleRuby(v)}</h4>
+              ${readingLine}
+              <div class="life-cycle-romaji">${esc(v.romaji || '-')}</div>
+            </div>
+          </div>
+          <div class="life-cycle-card-meaning">${esc(formatIndonesianMeaning(v))}</div>
+          <span class="life-cycle-tag"><i class="fa-solid fa-tag"></i>${esc(v.typeDetail || v.typeCategory)}</span>
+          <div class="life-cycle-actions">
+            <button class="icon-btn" type="button" data-speak-id="${esc(v.id)}" title="Dengarkan pelafalan" aria-label="Dengarkan pelafalan"><i class="fa-solid fa-volume-high"></i></button>
+            <button class="icon-btn ${fav?'active':''}" type="button" data-fav="${esc(v.id)}" title="Favorit" aria-label="Ubah status favorit"><i class="${fav?'fa-solid':'fa-regular'} fa-star"></i></button>
+            <button class="icon-btn" type="button" data-note-material="${esc(v.id)}" title="Catatan mudah" aria-label="Buka catatan kosakata"><i class="fa-regular fa-note-sticky"></i></button>
+            <button class="icon-btn" type="button" data-example-material="${esc(v.id)}" title="Contoh kalimat" aria-label="Buka contoh kalimat"><i class="fa-regular fa-comment-dots"></i></button>
+          </div>
+        </article>`;
+      }
+
+      function renderReferenceInfoBab25LifeCycle(){
+        const grid=$('#materialGrid');
+        if(!grid) return;
+        const optionKey=`${state.lang}|${state.setup.book}|${state.setup.materialCategory}|${state.setup.chapter}`;
+        if(grid.dataset.lifeCycleOptionKey!==optionKey){
+          renderMaterialFilterOptions();
+          grid.dataset.lifeCycleOptionKey=optionKey;
+        }
+        const toolbar=$('.material-toolbar');
+        const notice=$('#materialPage .notice');
+        const title=$('#materialPage .content-card > h2');
+        const desc=$('#materialPage .content-card > p');
+        const noticeTitle=$('#materialPage .notice h3');
+        const noticeDesc=$('#materialPage .notice p');
+        document.body.classList.remove('material-only-reference');
+        document.body.classList.add('life-cycle-reference-active');
+        if(toolbar){toolbar.classList.remove('hidden');toolbar.style.removeProperty('display');toolbar.style.removeProperty('visibility');toolbar.style.removeProperty('pointer-events')}
+        if(notice){notice.classList.remove('hidden');notice.style.removeProperty('display')}
+        updateMaterialOnlyControls();
+        if(title) title.textContent=state.lang==='ja'?'第25課 人の一生':'Seumur Hidup Manusia';
+        if(desc) desc.textContent=state.lang==='ja'
+          ? '参考語彙・情報の「人の一生」を、人生の流れに沿って学びます。'
+          : 'Minna no Nihongo I • Kata-Kata Referensi dan Informasi • Bab 25. Pelajari 28 kosakata tentang tahapan usia, pendidikan, pekerjaan, keluarga, dan berbagai peristiwa penting dalam kehidupan manusia.';
+        if(noticeTitle) noticeTitle.textContent=state.lang==='ja'?'人の一生（ひとのいっしょう）':'人の一生（ひとのいっしょう）— Perjalanan Hidup Manusia';
+        if(noticeDesc) noticeDesc.textContent=state.lang==='ja'
+          ? '全体図で流れを確認し、各カードの画像・発音・例文・メモで語彙を学びましょう。'
+          : 'Mulai dari gambar keseluruhan untuk memahami alurnya, lalu pelajari setiap kosakata melalui ilustrasi, cara baca romaji, contoh kalimat, audio, dan catatan sederhana.';
+
+        const search=($('#materialSearch')?.value||'').toLowerCase();
+        const sectionFilter=$('#materialSectionFilter')?.value||'all';
+        const typeFilter=$('#materialTypeFilter')?.value||'all';
+        const allItems=LIFE_CYCLE_BAB25_VOCABULARY;
+        let arr=allItems.filter(v=>[formatIndonesianMeaning(v),v.indonesia,v.kana,v.kanji,v.romaji,v.typeCategory,v.typeDetail,v.sectionCategory,v.catatan,v.exampleJa,v.exampleReading,v.exampleId].join(' ').toLowerCase().includes(search));
+        if(sectionFilter!=='all') arr=arr.filter(v=>v.sectionCategory===sectionFilter);
+        if(typeFilter!=='all') arr=arr.filter(v=>v.typeCategory===typeFilter);
+
+        const nextRenderKey=[state.lang,search,sectionFilter,typeFilter,arr.map(v=>v.id).join(',')].join('|');
+        if(lifeCycleLastRenderKey===nextRenderKey && grid.classList.contains('life-cycle-reference-root') && grid.firstElementChild){
+          syncLifeCycleFavoriteButtons(grid);
+          $('#materialEmpty')?.classList.add('hidden');
+          return;
+        }
+
+        const sectionOrder=['Gambaran Umum','Tahap Kehidupan','Pendidikan','Peristiwa Kehidupan','Identitas dan Usia'];
+        const sections=sectionOrder.map(name=>({name,items:arr.filter(v=>v.sectionCategory===name)})).filter(section=>section.items.length);
+        const sectionHtml=sections.map(section=>{
+          const meta=lifeCycleSectionMeta(section.name);
+          return `<section class="life-cycle-section">
+            <div class="life-cycle-section-head"><div><h3><i class="fa-solid ${meta.icon}"></i> ${state.lang==='ja'?esc(meta.titleJa):esc(section.name)}</h3><p>${esc(meta.desc)}</p></div><span class="life-cycle-section-count"><i class="fa-solid fa-layer-group"></i>${section.items.length} ${state.lang==='ja'?'語':'kosakata'}</span></div>
+            <div class="life-cycle-grid">${section.items.map(lifeCycleCard).join('')}</div>
+          </section>`;
+        }).join('');
+
+        const milestones=[
+          ['0歳','生まれます・赤ちゃん','Lahir dan masa bayi'],
+          ['6歳','学校に入ります','Mulai bersekolah'],
+          ['18–20歳','青年・大学・20歳','Menjadi pemuda dan melanjutkan pendidikan'],
+          ['30–40歳','就職・結婚・中年','Bekerja, berkeluarga, dan memasuki usia paruh baya'],
+          ['60–70歳+','仕事をやめます・老人','Berhenti bekerja dan memasuki usia lanjut']
+        ];
+
+        grid.className='life-cycle-reference-root';
+        grid.innerHTML=`<div class="life-cycle-wrap">
+          <section class="life-cycle-hero">
+            <div class="life-cycle-hero-copy">
+              <span class="life-cycle-kicker"><i class="fa-solid fa-route"></i>${state.lang==='ja'?'参考語彙・情報 / 第25課':'Kata-Kata Referensi dan Informasi / Bab 25'}</span>
+              <h3 class="life-cycle-title">人の一生</h3>
+              <div class="life-cycle-reading">ひとのいっしょう</div>
+              <div class="life-cycle-meaning">Seumur Hidup Manusia</div>
+              <p class="life-cycle-intro">Setiap tahap kehidupan memiliki kosakata yang berbeda. Materi ini menghubungkan usia, pendidikan, pekerjaan, pernikahan, keluarga, hingga masa lanjut usia dalam satu alur visual yang mudah diikuti.</p>
+              <div class="life-cycle-meta"><span><i class="fa-solid fa-book-open-reader"></i>${allItems.length} kosakata</span><span><i class="fa-solid fa-images"></i>Ilustrasi per kata</span><span><i class="fa-solid fa-comment-dots"></i>Contoh variatif</span><span><i class="fa-solid fa-volume-high"></i>Audio pelafalan</span></div>
+            </div>
+            <button class="life-cycle-overview-button" type="button" data-zoom="${LIFE_CYCLE_BAB25_OVERVIEW_IMAGE}" aria-label="Perbesar infografik perjalanan hidup manusia"><img src="${LIFE_CYCLE_BAB25_OVERVIEW_IMAGE}" alt="Infografik berwarna 人の一生 — seumur hidup manusia" loading="eager" decoding="async" data-zoom="${LIFE_CYCLE_BAB25_OVERVIEW_IMAGE}"><span class="life-cycle-overview-caption"><i class="fa-solid fa-magnifying-glass-plus"></i>Klik gambar untuk melihat lebih besar</span></button>
+          </section>
+          <section class="life-cycle-map"><div class="life-cycle-map-head"><div><h3>${state.lang==='ja'?'人生の流れ':'Peta Perjalanan Hidup'}</h3><p>${state.lang==='ja'?'年齢と主な出来事を一目で確認します。':'Gunakan alur ini sebagai pengantar sebelum membuka kartu kosakata satu per satu.'}</p></div><span class="life-cycle-map-badge"><i class="fa-solid fa-arrow-right-long"></i>${state.lang==='ja'?'誕生から老年まで':'Dari lahir hingga usia lanjut'}</span></div><div class="life-cycle-track">${milestones.map(m=>`<div class="life-cycle-milestone"><span class="life-cycle-age">${esc(m[0])}</span><strong>${esc(m[1])}</strong><small>${esc(m[2])}</small></div>`).join('')}</div></section>
+          ${sectionHtml || `<div class="life-cycle-empty"><i class="fa-solid fa-magnifying-glass"></i><h3>${state.lang==='ja'?'語彙が見つかりません':'Kosakata tidak ditemukan'}</h3><p>${state.lang==='ja'?'検索語またはフィルターを変更してください。':'Coba ubah kata kunci atau filter kategori.'}</p></div>`}
+        </div>`;
+        lifeCycleLastRenderKey=nextRenderKey;
+        grid.dataset.lifeCycleRenderKey=nextRenderKey;
+        $('#materialEmpty')?.classList.add('hidden');
+      }
+
+      const originalRenderMaterialLifeCycle=renderMaterial;
+      renderMaterial=function(){
+        document.body.classList.toggle('life-cycle-reference-active',isReferenceInfoBab25());
+        if(isReferenceInfoBab25()){ renderReferenceInfoBab25LifeCycle(); return; }
+        return originalRenderMaterialLifeCycle();
+      };
+
+      const originalToggleFavLifeCycle=toggleFav;
+      toggleFav=function(id){
+        if(!(isReferenceInfoBab25() && state.page==='material')) return originalToggleFavLifeCycle(id);
+        state.favorites=state.favorites.includes(id)?state.favorites.filter(x=>x!==id):[...state.favorites,id];
+        saveState();
+        syncLifeCycleFavoriteButtons(document);
+        if(quiz) updateQuizFavButtons(quiz.cards[quiz.index]);
+      };
+
+      const materialSearchLifeCycle=$('#materialSearch');
+      const originalMaterialSearchHandler=materialSearchLifeCycle?.oninput;
+      if(materialSearchLifeCycle){
+        materialSearchLifeCycle.oninput=function(){
+          if(!isReferenceInfoBab25()) return originalMaterialSearchHandler?.call(this);
+          clearTimeout(lifeCycleSearchTimer);
+          lifeCycleSearchTimer=setTimeout(()=>renderMaterial(),120);
+        };
+      }
+
+      const originalSetupLabelLifeCycle=setupLabel;
+      setupLabel=function(){
+        return originalSetupLabelLifeCycle();
+      };
+
+      const originalUpdateMaterialOnlyLabelsLifeCycle=updateMaterialOnlyLabels;
+      updateMaterialOnlyLabels=function(){
+        originalUpdateMaterialOnlyLabelsLifeCycle();
+        if(!isReferenceInfoBab25()) return;
+        const homeTitle=$('[data-i18n="homeTitle"]');
+        const homeDesc=$('[data-i18n="homeDesc"]');
+        if(homeTitle) homeTitle.textContent=state.lang==='ja'?'第25課 人の一生':'Seumur Hidup Manusia';
+        if(homeDesc) homeDesc.textContent=state.lang==='ja'
+          ? '誕生、教育、就職、結婚、家族、老年まで、人生に関する28の語彙を学びます。'
+          : 'Pelajari 28 kosakata tentang perjalanan hidup manusia, mulai dari kelahiran, pendidikan, pekerjaan, pernikahan, keluarga, hingga usia lanjut.';
+      };
+
+      const originalRenderSetupLifeCycle=renderSetup;
+      renderSetup=function(){
+        originalRenderSetupLifeCycle();
+        $$('#setupChapterGrid [data-setup-chapter="Bab 25"]').forEach(btn=>{
+          if(normalizeMaterialCategoryName(tempSetup.materialCategory)===REFERENCE_MATERIAL_CANONICAL){
+            const label=state.lang==='ja'?'第25課':'Bab 25';
+            btn.title=state.lang==='ja'?'第25課':'Bab 25';
+            const span=btn.querySelector('span');
+            if(span) span.innerHTML=`<i class="fa-regular fa-bookmark"></i>${label}`;
+          }
+        });
+      };
+
+      try{
+        window.__WIKARU_VOCABULARY=VOCABULARY; window.__WIKARU_BAB25_LIFE_CYCLE_READY=true;
+        if(isReferenceInfoBab25()){
+          if(state.page==='material') renderReferenceInfoBab25LifeCycle();
+          else {
+            $('#homeVocabCount') && ($('#homeVocabCount').textContent=materialOnlyItemCount());
+            $('#matCount') && ($('#matCount').textContent=materialOnlyItemCount());
+            updateMaterialOnlyLabels();
+          }
+        }
+      }catch(error){ console.warn('Bab 25 life-cycle refresh skipped:',error); }
+    })();
+
     boot().catch(error=>{ console.error("Wikaru boot fatal:",error); releaseLoadingScreen("boot-fatal"); });
   </script>
 
@@ -49663,6 +49935,63 @@ html[data-theme="dark"] .material-voice-card .wk8-voice-choice{background:#22273
   else refresh();
 })();
 </script>
+
+
+<style id="wikaru-bab25-life-cycle-style">
+/* ===== Bab 25 Referensi: 人の一生 / Seumur Hidup Manusia ===== */
+body.life-cycle-reference-active #materialPage{width:min(1480px,calc(100% - 44px))}
+body.life-cycle-reference-active #materialPage .content-card{padding:32px;overflow:hidden}
+.life-cycle-reference-root{display:block;min-width:0}
+.life-cycle-wrap{display:grid;gap:28px;min-width:0}
+.life-cycle-hero{display:grid;grid-template-columns:minmax(300px,.78fr) minmax(0,1.35fr);gap:28px;align-items:center;padding:30px;border-radius:32px;position:relative;overflow:hidden;background:linear-gradient(135deg,#fff8f3 0%,#eef8ff 52%,#f7f2ff 100%);border:1px solid rgba(36,59,115,.15);box-shadow:0 22px 58px rgba(28,37,25,.11)}
+.life-cycle-hero:before,.life-cycle-hero:after{content:"";position:absolute;border-radius:50%;pointer-events:none}.life-cycle-hero:before{width:240px;height:240px;left:-120px;bottom:-150px;background:rgba(255,211,109,.22)}.life-cycle-hero:after{width:300px;height:300px;right:-140px;top:-160px;background:rgba(125,181,255,.18)}
+.life-cycle-hero-copy,.life-cycle-overview-button{position:relative;z-index:1}
+.life-cycle-kicker{display:inline-flex;align-items:center;gap:9px;padding:9px 13px;border-radius:999px;background:#fff;color:#1B2F60;border:1px solid rgba(36,59,115,.14);font-size:12px;font-weight:850;box-shadow:0 8px 22px rgba(28,37,25,.07)}
+.life-cycle-title{margin:17px 0 0;font-family:var(--jp);font-size:clamp(46px,5.2vw,78px);line-height:1.05;letter-spacing:-.035em;color:#071b45}.life-cycle-reading{font-family:var(--jp);color:#243B73;font-size:18px;font-weight:750;margin-top:4px}.life-cycle-meaning{margin-top:8px;color:#071b45;font-size:clamp(22px,2.2vw,34px);font-weight:850;letter-spacing:-.035em}.life-cycle-intro{margin:14px 0 0;color:#59667e;line-height:1.78;font-weight:560;max-width:690px}.life-cycle-meta{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}.life-cycle-meta span{display:inline-flex;align-items:center;gap:7px;min-height:36px;padding:0 12px;border-radius:999px;background:#fff;border:1px solid rgba(36,59,115,.13);color:#243B73;font-size:12px;font-weight:800}
+.life-cycle-overview-button{width:100%;min-height:430px;padding:14px;border:1px solid rgba(36,59,115,.16);border-radius:28px;background:rgba(255,255,255,.94);box-shadow:0 18px 44px rgba(28,37,25,.11);overflow:hidden;cursor:zoom-in}.life-cycle-overview-button img{width:100%;height:100%;max-height:620px;object-fit:contain;display:block;border-radius:19px}.life-cycle-overview-caption{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:10px;color:#65718a;font-size:12px;font-weight:750}
+.life-cycle-map{padding:24px;border-radius:28px;background:linear-gradient(145deg,#fff,#fafaf7);border:1px solid #e7e0ff;box-shadow:0 14px 34px rgba(28,37,25,.08)}.life-cycle-map-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:20px}.life-cycle-map-head h3{margin:0;font-size:clamp(24px,2.7vw,36px);letter-spacing:-.045em}.life-cycle-map-head p{margin:5px 0 0;font-size:13px}.life-cycle-map-badge{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border-radius:999px;background:var(--soft);color:var(--primary2);font-size:12px;font-weight:850;white-space:nowrap}
+.life-cycle-track{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;position:relative}.life-cycle-track:before{content:"";position:absolute;left:8%;right:8%;top:34px;height:4px;border-radius:99px;background:linear-gradient(90deg,#ffb7c8,#ffd36d,#76d4bb,#7db5ff,#bca8ff);opacity:.75}.life-cycle-milestone{position:relative;z-index:1;min-width:0;padding:12px 10px 14px;border-radius:20px;background:rgba(255,255,255,.94);border:1px solid #e7e0ff;text-align:center;box-shadow:0 9px 22px rgba(28,37,25,.06)}.life-cycle-age{width:48px;height:48px;margin:0 auto 9px;display:grid;place-items:center;border-radius:50%;color:#fff;background:linear-gradient(135deg,#243B73,#5073bd);font-size:12px;font-weight:900;box-shadow:0 9px 20px rgba(36,59,115,.22)}.life-cycle-milestone:nth-child(2) .life-cycle-age{background:linear-gradient(135deg,#e79b21,#f0c65f)}.life-cycle-milestone:nth-child(3) .life-cycle-age{background:linear-gradient(135deg,#18a980,#66d6b7)}.life-cycle-milestone:nth-child(4) .life-cycle-age{background:linear-gradient(135deg,#417ccc,#7db5ff)}.life-cycle-milestone:nth-child(5) .life-cycle-age{background:linear-gradient(135deg,#7653b4,#bca8ff)}.life-cycle-milestone strong{display:block;color:#071b45;font-family:var(--jp);font-size:15px;line-height:1.35}.life-cycle-milestone small{display:block;margin-top:5px;color:#6b7890;font-size:11px;line-height:1.4}
+.life-cycle-section{display:grid;gap:16px}.life-cycle-section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;padding:0 4px}.life-cycle-section-head h3{margin:0;font-size:clamp(23px,2.5vw,34px);letter-spacing:-.045em}.life-cycle-section-head p{margin:5px 0 0;font-size:13px}.life-cycle-section-count{flex:0 0 auto;display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border-radius:999px;background:var(--soft);color:var(--primary2);font-size:12px;font-weight:850}.life-cycle-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}.life-cycle-card{min-width:0;display:flex;flex-direction:column;padding:16px;border-radius:25px;background:linear-gradient(145deg,#fff,#fafaf7);border:1px solid #e7e0ff;box-shadow:0 12px 29px rgba(28,37,25,.08);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}.life-cycle-card:hover{transform:translateY(-3px);border-color:rgba(36,59,115,.30);box-shadow:0 20px 44px rgba(28,37,25,.13)}.life-cycle-image-btn{width:100%;height:190px;border:0;border-radius:20px;padding:8px;background:linear-gradient(135deg,#f8f7f2,#eef7ff);overflow:hidden;cursor:zoom-in}.life-cycle-image-btn img{width:100%;height:100%;object-fit:contain;display:block}.life-cycle-card-head{display:flex;gap:11px;align-items:flex-start;margin-top:14px}.life-cycle-number{flex:0 0 auto;width:35px;height:35px;display:grid;place-items:center;border-radius:12px;color:#fff;background:linear-gradient(135deg,#243B73,#1B2F60);font-size:12px;font-weight:900;box-shadow:0 8px 18px rgba(36,59,115,.20)}.life-cycle-card-title{min-width:0}.life-cycle-card-title h4{margin:0;font-family:var(--jp);font-size:clamp(21px,1.7vw,28px);color:#081a40;line-height:1.25;overflow-wrap:anywhere}.life-cycle-kana{margin-top:4px;font-family:var(--jp);font-size:13px;color:#56627a;overflow-wrap:anywhere}.life-cycle-romaji{margin-top:2px;color:#243B73;font-size:12px;font-weight:850;overflow-wrap:anywhere}.life-cycle-card-meaning{margin:13px 0 0;color:#34415b;font-size:14px;font-weight:750;line-height:1.55}.life-cycle-tag{display:inline-flex;align-items:center;gap:6px;width:max-content;max-width:100%;margin-top:11px;padding:7px 10px;border-radius:999px;background:#eafaf4;color:#148060;font-size:10.5px;font-weight:850;white-space:normal}.life-cycle-example{margin-top:14px;padding:13px 14px;border-radius:18px;background:linear-gradient(135deg,#f7f3ff,#f1f8ff);border:1px solid rgba(36,59,115,.10)}.life-cycle-example-label{display:flex;align-items:center;gap:7px;margin-bottom:7px;color:#243B73;font-size:11px;font-weight:850;text-transform:uppercase;letter-spacing:.04em}.life-cycle-example-ja{font-family:var(--jp);color:#132344;font-size:15px;font-weight:700;line-height:1.65;user-select:text}.life-cycle-example-romaji{margin-top:5px;color:#58657c;font-size:11.5px;font-weight:650;line-height:1.5;font-style:italic;user-select:text}.life-cycle-example-id{margin-top:5px;color:#3c4961;font-size:12px;font-weight:650;line-height:1.55;user-select:text}.life-cycle-note-preview{margin-top:12px;color:#68748a;font-size:12px;line-height:1.6;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.life-cycle-actions{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin-top:12px;padding-top:0}.life-cycle-actions .icon-btn{width:100%;height:43px;border-radius:14px;box-shadow:none}.life-cycle-empty{padding:34px;border:1px dashed #AEB9D1;border-radius:24px;background:rgba(255,255,255,.72);text-align:center;color:#5f6b82}.life-cycle-empty i{font-size:34px;color:#243B73;margin-bottom:10px}
+html[data-theme="dark"] .life-cycle-hero,html[data-theme="dark"] .life-cycle-map,html[data-theme="dark"] .life-cycle-card{background:linear-gradient(145deg,#232a37,#1b2230);border-color:#394156}html[data-theme="dark"] .life-cycle-title,html[data-theme="dark"] .life-cycle-meaning,html[data-theme="dark"] .life-cycle-map-head h3,html[data-theme="dark"] .life-cycle-section-head h3,html[data-theme="dark"] .life-cycle-card-title h4,html[data-theme="dark"] .life-cycle-card-meaning,html[data-theme="dark"] .life-cycle-example-ja{color:#f2f5fb}html[data-theme="dark"] .life-cycle-intro,html[data-theme="dark"] .life-cycle-map-head p,html[data-theme="dark"] .life-cycle-section-head p,html[data-theme="dark"] .life-cycle-note-preview,html[data-theme="dark"] .life-cycle-example-romaji,html[data-theme="dark"] .life-cycle-example-id{color:#aeb8c8}html[data-theme="dark"] .life-cycle-overview-button,html[data-theme="dark"] .life-cycle-milestone{background:#222a37;border-color:#394156}html[data-theme="dark"] .life-cycle-example{background:#202737;border-color:#394156}
+@media(max-width:1180px){.life-cycle-hero{grid-template-columns:1fr}.life-cycle-overview-button{min-height:360px}.life-cycle-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.life-cycle-track{grid-template-columns:repeat(5,minmax(145px,1fr));overflow-x:auto;padding-bottom:8px}.life-cycle-track:before{display:none}}
+@media(max-width:820px){body.life-cycle-reference-active #materialPage{width:min(100% - 24px,1480px)}body.life-cycle-reference-active #materialPage .content-card{padding:20px}.life-cycle-hero{padding:22px}.life-cycle-overview-button{min-height:290px}.life-cycle-map-head,.life-cycle-section-head{align-items:flex-start;flex-direction:column}.life-cycle-grid{grid-template-columns:1fr}}
+@media(max-width:560px){.life-cycle-hero{padding:17px;border-radius:24px}.life-cycle-title{font-size:42px}.life-cycle-overview-button{min-height:220px;padding:9px;border-radius:20px}.life-cycle-map{padding:17px}.life-cycle-image-btn{height:215px}.life-cycle-card{padding:14px}.life-cycle-example-ja{font-size:14px}}
+
+
+/* ===== Revisi kartu Bab 25: catatan hanya lewat ikon, tanpa furigana ganda ===== */
+.life-cycle-card-title ruby rt{display:none!important}
+.life-cycle-note-preview{display:none!important}
+
+/* ===== Performance patch: materi 人の一生 ===== */
+.life-cycle-section,
+.life-cycle-card{
+  content-visibility:auto;
+  contain:layout paint style;
+}
+.life-cycle-section{contain-intrinsic-size:920px;}
+.life-cycle-card{contain-intrinsic-size:500px;}
+.life-cycle-image-btn{contain:layout paint;}
+.life-cycle-image-btn img{transform:translateZ(0);}
+
+/* Blur seluruh aplikasi sangat mahal ketika halaman berisi banyak kartu. */
+body:has(.modal.show) .top-nav,
+body:has(.modal.show) .app,
+body:has(.modal.show) .bottom-nav{
+  filter:none!important;
+  transform:none!important;
+}
+.modal{
+  backdrop-filter:blur(10px) saturate(1.05)!important;
+  -webkit-backdrop-filter:blur(10px) saturate(1.05)!important;
+}
+@media (prefers-reduced-motion:reduce){
+  .life-cycle-card,.life-cycle-image-btn,.btn,.icon-btn{transition:none!important;animation:none!important;}
+}
+
+</style>
+
+
+
 
 </body>
 </html>
