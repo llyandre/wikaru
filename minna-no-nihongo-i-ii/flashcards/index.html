@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wikaru — Minna no Nihongo I (Edisi Ke-2) — Lampiran V Konjugasi V5</title>
+  <title>Wikaru — Minna no Nihongo I (Edisi Ke-2) — Lampiran I Kata Bilangan</title>
   <!-- Revision V2: Flashcard lama dipertahankan; mode Perubahan Kata Kerja ditambahkan dengan jawaban Tulisan dan Bicara, seluruh soal, serta perlindungan IME Jepang. -->
   <!-- Optimized audit release: faster boot, safer UX, accessibility hardening, desktop/tablet/mobile; Bab 25 vocabulary added 2026-07-19; combined chapter categories Bab 21-25 and Bab 1-25 added 2026-07-19 -->
   <script id="wikaru-theme-init">
@@ -6571,7 +6571,7 @@ html[data-theme="dark"] .number-question-copy p,html[data-theme="dark"] .number-
               <small id="homeProgressCaption">Belum ada sesi yang diselesaikan hari ini.</small>
             </div>
             <div class="home-primary-actions">
-              <button type="button" class="btn home-main-button hidden" id="homeStartBtn"><i class="fa-solid fa-play" aria-hidden="true"></i><span data-i18n="startQuiz">Mulai Belajar</span></button>
+              <button type="button" class="btn home-main-button hidden" id="homeStartBtn"><svg class="home-start-play-icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M2.7 1.4v17.2L18 10 2.7 1.4Z" fill="currentColor"/></svg><span data-i18n="startQuiz">Mulai Belajar</span></button>
               <button type="button" class="btn home-main-button" id="homeLoginBtn"><i class="fa-regular fa-user" aria-hidden="true"></i><span data-i18n="fillUsername">Isi Nama Peserta</span></button>
               <button type="button" class="btn secondary home-secondary-button hidden" id="homeMaterialBtn"><i class="fa-solid fa-book" aria-hidden="true"></i><span data-i18n="seeMaterial">Lihat Materi</span></button>
               <button type="button" class="btn secondary home-secondary-button hidden" id="homeResultBtn"><i class="fa-solid fa-chart-simple" aria-hidden="true"></i><span data-i18n="myResult">Lihat Hasil Saya</span></button>
@@ -43563,6 +43563,7 @@ html[data-theme="dark"] #quizSettingsModal .option-card.icon-option small{color:
 
 
 
+
 </body></html>`;
     }
     function printWindow(html,title){ const w=window.open("","_blank"); if(!w) return toast("Popup diblokir browser."); w.document.open(); w.document.write(html); w.document.close(); }
@@ -45079,7 +45080,10 @@ html[data-theme="dark"] #quizSettingsModal .option-card.icon-option small{color:
     output.innerHTML=`<div class="number-lab-reading">${escN(reading)}</div><div class="number-lab-parts">${parts.map(part=>`<span>${escN(part)}</span>`).join("")}</div><button type="button" class="btn soft" data-number-speak="${escN(reading)}" style="margin-top:12px;min-height:42px"><i class="fa-solid fa-volume-high"></i>${isJaN()?"読み方を聞く":"Dengarkan cara baca"}</button>`;
   }
   function numberCard(item){
-    return `<article class="number-card"><div class="number-card-value">${escN(formatNumberDisplay(item.numberRaw))}</div><div class="number-card-reading"><strong>${escN(item.kanaVariants.join("／"))}</strong><small>${escN(item.romaji)}</small></div><button type="button" class="number-audio-btn" data-number-speak="${escN(item.kana)}" aria-label="${isJaN()?"読み方を聞く":"Dengarkan cara baca"}"><i class="fa-solid fa-volume-high"></i></button></article>`;
+    const displayValue=formatNumberDisplay(item.numberRaw);
+    const valueLength=String(displayValue).length;
+    const valueClass=valueLength>=10?" is-very-long":valueLength>=7?" is-long":"";
+    return `<article class="number-card"><div class="number-card-value${valueClass}" title="${escN(displayValue)}">${escN(displayValue)}</div><div class="number-card-reading"><strong>${escN(item.kanaVariants.join("／"))}</strong><small>${escN(item.romaji)}</small></div><button type="button" class="number-audio-btn" data-number-speak="${escN(item.kana)}" aria-label="${isJaN()?"読み方を聞く":"Dengarkan cara baca"}"><i class="fa-solid fa-volume-high"></i></button></article>`;
   }
   function renderNumberMaterial(){
     document.body.classList.add('number-appendix-active');
@@ -45089,7 +45093,7 @@ html[data-theme="dark"] #quizSettingsModal .option-card.icon-option small{color:
     const title=$n('#materialPage .content-card > h2'),desc=$n('#materialPage .content-card > p'),notice=$n('#materialPage .notice');
     if(title) title.textContent=isJaN()?"I. 数詞（すうし）":"I. Kata Bilangan";
     if(desc) desc.textContent=isJaN()?"基本の数字、十・百・千・万・億、小数、分数の読み方を学びます。":"Materi hitungan bahasa Jepang berdasarkan tabel referensi: angka dasar, puluhan, ratusan, ribuan, bilangan besar, desimal, dan pecahan.";
-    if(notice) notice.innerHTML=`<i class="fa-solid fa-lightbulb"></i><div><h3>${isJaN()?"大きい単位から順番に読みます":"Kunci utamanya: baca dari unit terbesar"}</h3><p>${isJaN()?"万は4桁ごとの単位です。途中の0は読みません。":"Susun dari 億 → 万 → 千 → 百 → 十 → satuan. Nol di tengah tidak dibaca; cukup lanjut ke unit berikutnya."}</p></div>`;
+    if(notice) notice.innerHTML=`<i class="fa-solid fa-lightbulb"></i><div><h3>${isJaN()?"大きい単位から順番に読みます":"Kunci utamanya: baca dari unit terbesar"}</h3><p>${isJaN()?"億（おく）→ 万（まん）→ 千（せん）→ 百（ひゃく）→ 十（じゅう）の順に組み立てます。途中の0は読みません。":"Susun dari 億（おく）→ 万（まん）→ 千（せん）→ 百（ひゃく）→ 十（じゅう）→ satuan. Nol di tengah tidak dibaca; cukup lanjut ke unit berikutnya."}</p></div>`;
     const items=filterNumberItems(),grid=$n('#materialGrid');if(!grid)return;
     grid.className='number-appendix-root';
     const groups=GROUP_ORDER.map(group=>({group,items:items.filter(item=>item.numberGroup===group)})).filter(section=>section.items.length);
@@ -45482,9 +45486,9 @@ html[data-theme="dark"] #quizSettingsModal .option-card.icon-option small{color:
     if(q.raw.includes('/')) return isJaN()?"「分母＋ぶんの＋分子」の順番です。":"Urutannya adalah penyebut + ぶんの + pembilang.";
     if(q.raw.includes('.')) return isJaN()?"小数点は てん、その後は1桁ずつ読みます。":"Titik desimal dibaca てん, lalu setiap digit dibaca satu per satu.";
     const n=Number(q.raw);
-    if(n>=10000) return isJaN()?"まず 億 と 万 に分けてください。":"Pisahkan dahulu bagian 億 dan 万, lalu baca sisa ribuan–satuan.";
-    if([300,600,800,3000,8000].includes(n)) return isJaN()?"音の変化を思い出してください。":"Ingat perubahan bunyi khusus pada びゃく／ぴゃく／ぜん／っせん.";
-    return q.direction==='numberToReading'?(isJaN()?"大きい単位から、千・百・十・一の順です。":"Mulai dari unit terbesar: 千 → 百 → 十 → satuan."):(isJaN()?"万・千・百・十に分けて考えましょう。":"Pisahkan bunyi 万・千・百・十, lalu ubah menjadi nilai angka.");
+    if(n>=10000) return isJaN()?"まず 億（おく）と 万（まん）に分けてください。":"Pisahkan dahulu bagian 億（おく） dan 万（まん）, lalu baca sisa 千（せん）・百（ひゃく）・十（じゅう）・satuan.";
+    if([300,600,800,3000,8000].includes(n)) return isJaN()?"音の変化を思い出してください。300＝さんびゃく、600＝ろっぴゃく、800＝はっぴゃく、3000＝さんぜん、8000＝はっせんです。":"Ingat perubahan bunyi: 300＝さんびゃく, 600＝ろっぴゃく, 800＝はっぴゃく, 3.000＝さんぜん, dan 8.000＝はっせん.";
+    return q.direction==='numberToReading'?(isJaN()?"大きい単位から、千（せん）・百（ひゃく）・十（じゅう）・一の順です。":"Mulai dari unit terbesar: 千（せん）→ 百（ひゃく）→ 十（じゅう）→ satuan."):(isJaN()?"万（まん）・千（せん）・百（ひゃく）・十（じゅう）に分けて考えましょう。":"Pisahkan bunyi 万（まん）・千（せん）・百（ひゃく）・十（じゅう）, lalu ubah menjadi nilai angka.");
   }
   function renderNumberQuestion(){
     const panel=ensureNumberQuizPanel(),q=currentNumberQuestion();if(!panel||!q)return;
@@ -45540,8 +45544,9 @@ html[data-theme="dark"] #quizSettingsModal .option-card.icon-option small{color:
   }
   function showNumberFeedback(kind,title,body,showAnswer=false){
     const box=$n('#numberFeedback'),q=currentNumberQuestion();if(!box||!q)return;
+    const unitGuide=kind==='correct'?"":`<div class="number-unit-reading-guide" aria-label="${isJaN()?"位の読み方":"Cara baca unit angka"}"><span><b>十</b><small>じゅう</small></span><span><b>百</b><small>ひゃく</small></span><span><b>千</b><small>せん</small></span><span><b>万</b><small>まん</small></span><span><b>億</b><small>おく</small></span></div>`;
     box.className=`number-feedback show ${kind}`;
-    box.innerHTML=`<div class="number-feedback-head"><i class="fa-solid ${kind==='correct'?'fa-check':kind==='hint'?'fa-lightbulb':'fa-xmark'}"></i><strong>${escN(title)}</strong></div><p>${escN(body)}</p>${showAnswer?`<span class="number-correct-reading">${escN(formatNumberDisplay(q.raw))} = ${escN(q.reading)}</span><div class="number-feedback-parts">${q.parts.map(part=>`<span>${escN(part)}</span>`).join("")}</div><div class="number-feedback-actions"><button type="button" class="btn soft" data-number-quiz-speak><i class="fa-solid fa-volume-high"></i>${isJaN()?"正しい読み方を聞く":"Dengar Jawaban"}</button><button type="button" class="btn" data-next-number-question>${numberQuiz.index>=numberQuiz.questions.length-1?(isJaN()?"結果を見る":"Lihat Hasil"):(isJaN()?"次の問題":"Soal Berikutnya")}<i class="fa-solid fa-arrow-right"></i></button></div>`:""}`;
+    box.innerHTML=`<div class="number-feedback-head"><i class="fa-solid ${kind==='correct'?'fa-check':kind==='hint'?'fa-lightbulb':'fa-xmark'}"></i><strong>${escN(title)}</strong></div><p>${escN(body)}</p>${unitGuide}${showAnswer?`<span class="number-correct-reading">${escN(formatNumberDisplay(q.raw))} = ${escN(q.reading)}</span><div class="number-feedback-parts">${q.parts.map(part=>`<span>${escN(part)}</span>`).join("")}</div><div class="number-feedback-actions"><button type="button" class="btn soft" data-number-quiz-speak><i class="fa-solid fa-volume-high"></i>${isJaN()?"正しい読み方を聞く":"Dengar Jawaban"}</button><button type="button" class="btn" data-next-number-question>${numberQuiz.index>=numberQuiz.questions.length-1?(isJaN()?"結果を見る":"Lihat Hasil"):(isJaN()?"次の問題":"Soal Berikutnya")}<i class="fa-solid fa-arrow-right"></i></button></div>`:""}`;
   }
   function submitNumberAnswer(){
     const q=currentNumberQuestion(),input=$n('#numberAnswerInput');if(!q||!input||q.answered)return;
@@ -48266,6 +48271,7 @@ html[data-theme="dark"] .home-scroll-hint{color:#9EA9BC!important;}
     const user=visibleUser();
     const result=lastResult();
     const history=resultHistory();
+    const hasLearningHistory=history.length>0;
     const choice=splitChoice();
     const compactChoice=compactHomeSelection(choice);
     const count=parseNumber($('#homeVocabCount')?.textContent);
@@ -48314,7 +48320,12 @@ html[data-theme="dark"] .home-scroll-hint{color:#9EA9BC!important;}
     const ring=$('#homeTargetRing');if(ring)ring.style.setProperty('--target-progress',`${progress*3.6}deg`);
     setText('homeAccuracyValue',result?`${Number(result.scorePercent||0)}%`:'—');
     setText('homeAccuracyLabel',jp?'前回の正答率':'Akurasi terakhir');
-    const startText=$('#homeStartBtn span');if(startText)startText.textContent=jp?'学習を続ける':'Lanjut belajar';
+    const startText=$('#homeStartBtn span');
+    if(startText){
+      startText.textContent=jp
+        ? (hasLearningHistory?'学習を続ける':'学習を始める')
+        : (hasLearningHistory?'Lanjut belajar':'Mulai belajar');
+    }
     const loginText=$('#homeLoginBtn span');if(loginText)loginText.textContent=jp?'名前を入力して始める':'Masukkan nama & mulai';
     const materialText=$('#homeMaterialBtn span');if(materialText)materialText.textContent=jp?'教材を見る':'Jelajahi materi';
     const resultText=$('#homeResultBtn span');if(resultText)resultText.textContent=jp?'進捗を見る':'Lihat progres';
@@ -52034,5 +52045,349 @@ html[data-theme="dark"] .number-basic-grid span{background:#1b2230;border-color:
 
 
 
+
+
+<style id="wikaru-number-final-polish-v4">
+/* ===== Revisi 4: angka panjang, bacaan hiragana unit, dan harmoni ikon ===== */
+:root{
+  --number-icon-primary:#243B73;
+  --number-icon-secondary:#387B75;
+  --number-icon-soft:#E9EDFA;
+  --number-icon-success:#148060;
+  --number-icon-warning:#9B6800;
+  --number-icon-danger:#CE335D;
+}
+
+/* Kartu referensi: angka panjang tetap berada di dalam kotak. */
+.number-card-grid{grid-template-columns:repeat(auto-fill,minmax(232px,1fr))!important}
+.number-card{grid-template-columns:minmax(84px,104px) minmax(0,1fr) 38px!important}
+.number-card-value{
+  min-width:0;
+  width:100%;
+  max-width:104px;
+  padding:7px 6px!important;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:clip;
+  font-size:clamp(13px,1.15vw,17px)!important;
+  line-height:1.15;
+  letter-spacing:-.025em;
+}
+.number-card-value.is-long{font-size:13px!important;letter-spacing:-.045em}
+.number-card-value.is-very-long{font-size:11.5px!important;letter-spacing:-.06em}
+.number-card-reading,.number-card-reading strong,.number-card-reading small{min-width:0;max-width:100%}
+.number-formula b,.number-summary-item strong{max-width:100%;overflow-wrap:anywhere;word-break:break-word}
+.number-summary-item>div{min-width:0}
+
+/* Panduan bacaan unit selalu muncul setelah jawaban salah atau petunjuk. */
+.number-unit-reading-guide{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(58px,1fr));
+  gap:7px;
+  margin-top:12px;
+  padding:10px;
+  border-radius:16px;
+  background:rgba(255,255,255,.72);
+  border:1px solid rgba(36,59,115,.12);
+}
+.number-unit-reading-guide span{
+  display:grid;
+  justify-items:center;
+  gap:2px;
+  min-width:0;
+  padding:7px 4px;
+  border-radius:12px;
+  background:#fff;
+  border:1px solid rgba(36,59,115,.10);
+}
+.number-unit-reading-guide b{font-family:var(--jp);font-size:17px;color:#071b45;line-height:1}
+.number-unit-reading-guide small{font-family:var(--jp);font-size:10.5px;font-weight:800;color:var(--number-icon-primary)}
+
+/* Palet ikon diselaraskan dengan navy, teal, dan warna status situs. */
+body.number-appendix-active .number-kicker i,
+body.number-appendix-active .number-summary-item i,
+body.number-appendix-active .number-rule-card .rule-icon,
+body.number-appendix-active .number-group-head i,
+body.number-appendix-active .number-count-badge i,
+body.number-appendix-active .number-lab-head i,
+body.number-appendix-active .number-reference-head i,
+body.number-appendix-active .number-alt-note i,
+body.number-appendix-active .number-audio-btn i,
+body.number-appendix-active .number-rule-audio i,
+body.number-quiz-active .number-question-eyebrow i,
+body.number-quiz-active .number-question-guide i,
+body.number-quiz-active .number-answer-label i,
+body.number-quiz-active .number-back-material i,
+body.number-quiz-active .number-quiz-bottom>span i,
+#numberQuizSettingsModal .number-setting-block h3 i{
+  color:var(--number-icon-primary)!important;
+}
+body.number-appendix-active .number-summary-item i,
+body.number-appendix-active .number-rule-card .rule-icon,
+body.number-appendix-active .number-group-head i{
+  background:linear-gradient(135deg,var(--number-icon-soft),#eef8ff)!important;
+}
+body.number-appendix-active .number-audio-btn,
+body.number-appendix-active .number-rule-audio{
+  color:var(--number-icon-primary)!important;
+  border-color:rgba(36,59,115,.20)!important;
+}
+.number-feedback.correct .number-feedback-head i{color:var(--number-icon-success)!important}
+.number-feedback.hint .number-feedback-head i{color:var(--number-icon-warning)!important}
+.number-feedback.wrong .number-feedback-head i{color:var(--number-icon-danger)!important}
+body.number-quiz-active .number-quiz-logo i,
+body.number-quiz-active .number-quiz-brand>i,
+body.number-quiz-active .number-speech-panel.listening .number-speech-visual>i,
+#numberQuizSettingsModal .number-quiz-settings-head>i,
+#numberQuizSettingsModal .number-voice-setting.active .number-voice-setting-icon i,
+.number-result-icon i,
+body.number-appendix-active .btn:not(.secondary):not(.soft) i,
+body.number-quiz-active .btn:not(.secondary):not(.soft) i{
+  color:#fff!important;
+}
+
+html[data-theme="dark"] .number-unit-reading-guide{background:rgba(27,34,48,.82);border-color:#394156}
+html[data-theme="dark"] .number-unit-reading-guide span{background:#222a37;border-color:#394156}
+html[data-theme="dark"] .number-unit-reading-guide b{color:#f2f5fb}
+html[data-theme="dark"] .number-unit-reading-guide small{color:#9fb4ea}
+
+@media(max-width:760px){
+  .number-card-grid{grid-template-columns:1fr!important}
+  .number-card{grid-template-columns:minmax(92px,116px) minmax(0,1fr) 40px!important}
+  .number-card-value{max-width:116px;font-size:15px!important}
+  .number-card-value.is-long{font-size:14px!important}
+  .number-card-value.is-very-long{font-size:13px!important}
+}
+@media(max-width:520px){
+  .number-unit-reading-guide{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .number-card{grid-template-columns:minmax(82px,104px) minmax(0,1fr) 38px!important;gap:9px!important}
+  .number-card-value{max-width:104px}
+}
+@media(max-width:360px){
+  .number-unit-reading-guide{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .number-card{grid-template-columns:82px minmax(0,1fr) 36px!important;padding:11px!important}
+  .number-card-value{max-width:82px;font-size:12px!important}
+  .number-card-value.is-long{font-size:11px!important}
+  .number-card-value.is-very-long{font-size:10px!important}
+}
+</style>
+
+
+<style id="wikaru-home-play-loader-safe-v21">
+/* V21 — restore the homepage play affordance and keep the loader inside every viewport. */
+#homePage .home-continue-top .home-card-label-light > i{
+  width:18px;
+  display:inline-grid!important;
+  place-items:center;
+  color:#fff!important;
+  font-size:14px!important;
+  opacity:1!important;
+}
+#homePage #homeStartBtn > i.fa-play,
+#homePage #homeLoginBtn > i,
+#homePage .home-main-button > i{
+  display:inline-block!important;
+  flex:0 0 auto!important;
+  opacity:1!important;
+  visibility:visible!important;
+  transform:none!important;
+}
+#homePage #homeStartBtn > i.fa-play{margin-left:1px;}
+
+#homePage .home-scene-play-button{
+  position:absolute;
+  z-index:5;
+  top:142px;
+  right:116px;
+  width:66px;
+  height:66px;
+  display:grid;
+  place-items:center;
+  padding:0;
+  border:1px solid rgba(255,255,255,.66);
+  border-radius:50%;
+  background:rgba(255,255,255,.94);
+  color:#243B73;
+  box-shadow:0 18px 40px rgba(13,31,71,.22),0 0 0 10px rgba(255,255,255,.10);
+  cursor:pointer;
+  transition:transform .2s cubic-bezier(.2,.8,.2,1),box-shadow .2s ease,background .2s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+#homePage .home-scene-play-button::before{
+  content:"";
+  position:absolute;
+  inset:7px;
+  border:1px solid rgba(36,59,115,.12);
+  border-radius:inherit;
+  pointer-events:none;
+}
+#homePage .home-scene-play-button i{
+  position:relative;
+  z-index:1;
+  margin-left:4px;
+  font-size:22px;
+}
+#homePage .home-scene-play-button i::before{
+  content:"▶"!important;
+  font-family:Arial,sans-serif!important;
+  font-size:20px!important;
+  font-weight:700!important;
+  line-height:1!important;
+}
+#homePage .home-scene-play-button:hover{
+  transform:translateY(-3px) scale(1.04);
+  background:#fff;
+  box-shadow:0 22px 48px rgba(13,31,71,.27),0 0 0 12px rgba(255,255,255,.12);
+}
+#homePage .home-scene-play-button:active{transform:translateY(-1px) scale(.98);}
+#homePage .home-scene-play-button:focus-visible{
+  outline:3px solid rgba(255,255,255,.92)!important;
+  outline-offset:4px!important;
+  box-shadow:0 0 0 7px rgba(36,59,115,.34),0 20px 46px rgba(13,31,71,.26);
+}
+html[data-theme="dark"] #homePage .home-scene-play-button{
+  background:rgba(244,240,203,.96);
+  color:#302F62;
+  border-color:rgba(255,255,255,.34);
+  box-shadow:0 20px 46px rgba(0,0,0,.34),0 0 0 10px rgba(192,184,255,.08);
+}
+
+/* The loader must never create horizontal or vertical overflow. */
+#loadingScreen.loader{
+  width:100vw!important;
+  min-width:0!important;
+  min-height:100vh!important;
+  min-height:100svh!important;
+  padding:max(12px,env(safe-area-inset-top,0px)) max(12px,env(safe-area-inset-right,0px)) max(12px,env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px))!important;
+  overflow:hidden!important;
+  box-sizing:border-box!important;
+  place-items:center!important;
+}
+#loadingScreen .loader-card{
+  width:min(390px,calc(100vw - 24px))!important;
+  max-width:calc(100vw - 24px)!important;
+  max-height:calc(100vh - 24px)!important;
+  max-height:calc(100svh - 24px)!important;
+  margin:auto!important;
+  overflow:auto!important;
+  overscroll-behavior:contain;
+  scrollbar-width:none;
+  box-sizing:border-box!important;
+}
+#loadingScreen .loader-card::-webkit-scrollbar{display:none;}
+#loadingScreen .loader-card > *{
+  min-width:0!important;
+  max-width:100%!important;
+  box-sizing:border-box!important;
+}
+#loadingScreen :is(.loader-ambient,.loader-orbit,.loader-kana){
+  display:none!important;
+  visibility:hidden!important;
+  transform:none!important;
+}
+#loadingScreen :is(.loader-wordmark,#loaderTitle,#loaderDesc,#loaderStatusText,#loaderTagline){
+  max-width:100%!important;
+  overflow-wrap:anywhere!important;
+}
+#loadingScreen #loaderTitle,
+#loadingScreen #loaderDesc,
+#loadingScreen #loaderStatusText{
+  white-space:normal!important;
+}
+#loadingScreen #loaderTagline{
+  display:block!important;
+  width:100%!important;
+  margin-inline:auto!important;
+  padding-inline:2px!important;
+  white-space:normal!important;
+  word-break:keep-all!important;
+  line-height:1.45!important;
+  letter-spacing:.025em!important;
+  text-align:center!important;
+}
+#loadingScreen .loader-status-line{
+  min-width:0!important;
+  max-width:100%!important;
+  justify-content:center!important;
+  flex-wrap:wrap!important;
+  text-align:center!important;
+}
+
+@media (min-width:768px) and (max-width:1199px) and (orientation:portrait){
+  #homePage .home-scene-play-button{top:137px;right:103px;transform:scale(.92);}
+  #homePage .home-scene-play-button:hover{transform:translateY(-3px) scale(.96);}
+}
+@media (max-width:767px){
+  #homePage .home-scene-play-button{display:none!important;}
+  #homePage #homeStartBtn > i.fa-play{display:inline-block!important;}
+}
+@media (max-width:420px){
+  #loadingScreen.loader{padding:10px!important;}
+  #loadingScreen .loader-card{
+    width:calc(100vw - 20px)!important;
+    max-width:calc(100vw - 20px)!important;
+    max-height:calc(100svh - 20px)!important;
+    padding:25px 18px 21px!important;
+    border-radius:21px!important;
+  }
+  #loadingScreen .loader-visual{width:74px!important;height:74px!important;}
+  #loadingScreen .loader-logo{width:66px!important;height:66px!important;}
+  #loadingScreen .loader-wordmark{font-size:23px!important;}
+  #loadingScreen #loaderTitle{font-size:15px!important;line-height:1.35!important;margin-top:15px!important;}
+  #loadingScreen #loaderDesc{font-size:12px!important;line-height:1.5!important;}
+  #loadingScreen #loaderStatusText{font-size:11px!important;}
+  #loadingScreen #loaderTagline{font-size:9px!important;}
+}
+@media (max-height:620px){
+  #loadingScreen .loader-card{padding-top:19px!important;padding-bottom:17px!important;}
+  #loadingScreen .loader-visual{width:68px!important;height:68px!important;margin-bottom:2px!important;}
+  #loadingScreen .loader-logo{width:62px!important;height:62px!important;}
+  #loadingScreen #loaderTitle{margin-top:10px!important;}
+  #loadingScreen .loader-bar{margin-top:9px!important;}
+  #loadingScreen #loaderTagline{margin-top:8px!important;}
+}
+@media (max-height:570px) and (orientation:landscape){
+  #loadingScreen .loader-card{
+    width:min(560px,calc(100vw - 20px))!important;
+    max-width:calc(100vw - 20px)!important;
+    max-height:calc(100svh - 16px)!important;
+    grid-template-columns:minmax(72px,96px) minmax(0,1fr)!important;
+    column-gap:18px!important;
+    padding:14px 20px!important;
+  }
+  #loadingScreen .loader-visual{width:78px!important;height:78px!important;}
+  #loadingScreen .loader-logo{width:68px!important;height:68px!important;}
+  #loadingScreen #loaderTagline{text-align:left!important;}
+}
+</style>
+
+<style id="wikaru-home-start-play-icon-only-v25">
+/* Revisi 10: use an equal 20px visual box for the Play and Jelajahi materi icons. */
+#homePage #homeStartBtn > svg.home-start-play-icon,
+#homePage #homeMaterialBtn > i{
+  width:20px!important;
+  height:20px!important;
+  min-width:20px!important;
+  max-width:20px!important;
+  min-height:20px!important;
+  max-height:20px!important;
+  flex:0 0 20px!important;
+}
+#homePage #homeStartBtn > svg.home-start-play-icon{
+  display:block!important;
+  visibility:visible!important;
+  opacity:1!important;
+  overflow:visible!important;
+  color:currentColor!important;
+  pointer-events:none!important;
+}
+#homePage #homeStartBtn > svg.home-start-play-icon path{fill:currentColor!important;}
+#homePage #homeMaterialBtn > i{
+  display:inline-grid!important;
+  place-items:center!important;
+  font-size:20px!important;
+  line-height:20px!important;
+}
+</style>
 </body>
 </html>
