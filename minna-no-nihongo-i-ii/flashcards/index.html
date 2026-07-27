@@ -42,6 +42,14 @@
       },{once:true});
     })();
   </script>
+<script id="wikaru-storage-sanitizer-v4">
+(function(){
+  'use strict';
+  const prefix='minna_bab23';
+  const checks=[[prefix+'_settings','object',null],[prefix+'_progress','object',null],[prefix+'_favorites','array',[]],[prefix+'_history','array',[]],[prefix+'_lastResult','object',null],[prefix+'_pendingCloudResults','array',[]],['wikaru_number_quiz_settings','object',{}]];
+  try{checks.forEach(([key,type,fallback])=>{const raw=localStorage.getItem(key);if(raw===null||raw==='')return;try{const value=JSON.parse(raw);const valid=type==='array'?Array.isArray(value):(value===null||(typeof value==='object'&&!Array.isArray(value)));if(!valid)throw new Error('wrong-shape')}catch(_){if(fallback===null)localStorage.removeItem(key);else localStorage.setItem(key,JSON.stringify(fallback))}})}catch(_){ }
+})();
+</script>
 
   <meta name="description" content="Wikaru adalah aplikasi belajar kosakata bahasa Jepang dengan flashcard, audio, latihan bicara, dan laporan hasil interaktif.">
   <meta name="theme-color" content="#243B73">
@@ -6846,7 +6854,7 @@ html[data-theme="dark"] .number-question-copy p,html[data-theme="dark"] .number-
       <div class="login-form">
         <label class="pretty-field">
           <span class="field-label" id="usernameLabel"><i class="fa-regular fa-id-badge"></i>Nama Peserta</span>
-          <div class="field-shell"><i class="fa-regular fa-user"></i><input class="input" id="usernameInput" autocomplete="nickname" autocapitalize="words" spellcheck="false" placeholder="Masukkan nama peserta" autocomplete="off"></div>
+          <div class="field-shell"><i class="fa-regular fa-user"></i><input class="input" id="usernameInput" autocomplete="nickname" autocapitalize="words" spellcheck="false" placeholder="Masukkan nama peserta"></div>
         </label>
         <div id="groupBox" class="login-dynamic hidden">
           <strong class="field-label" id="groupLabel"><i class="fa-solid fa-location-dot"></i>Grup / Wilayah</strong>
@@ -38864,7 +38872,9 @@ html[data-theme="dark"] .number-question-copy p,html[data-theme="dark"] .number-
       });
       const homeStart = $("#homeStartBtn");
       if(homeStart){
-        homeStart.classList.toggle("hidden", materialOnly);
+        const logged = !!state.session?.username;
+        const hideHomeStart = materialOnly || !logged;
+        homeStart.classList.toggle("hidden", hideHomeStart);
         homeStart.style.setProperty("display", materialOnly ? "none" : "", materialOnly ? "important" : "");
         homeStart.style.setProperty("visibility", materialOnly ? "hidden" : "", materialOnly ? "important" : "");
         homeStart.disabled = !!materialOnly;
@@ -38886,7 +38896,9 @@ html[data-theme="dark"] .number-question-copy p,html[data-theme="dark"] .number-
       ["#homeResultBtn","#myResultDrop","#bottomResultBtn"].forEach(selector=>{
         const el=$(selector);
         if(!el) return;
-        el.classList.toggle("hidden", materialOnly);
+        const logged = !!state.session?.username;
+        const accountRestricted = selector !== "#bottomResultBtn" && (!logged || isAdmin() || !currentResult);
+        el.classList.toggle("hidden", materialOnly || accountRestricted);
         if(materialOnly){
           el.style.setProperty("display","none","important");
           el.style.setProperty("visibility","hidden","important");
@@ -39904,7 +39916,7 @@ html[data-theme="dark"] .number-question-copy p,html[data-theme="dark"] .number-
       $("#homeStartBtn").title = isReferenceInfoMaterialOnly() ? materialOnlyQuizMessage() : "";
       $("#homeMaterialBtn").classList.toggle("hidden",!logged);
       $("#logoutBtn").classList.toggle("hidden",!logged);
-      if($("#homeResultBtn")) $("#homeResultBtn").classList.toggle("hidden", !logged || isAdmin() || !currentResult);
+      if($("#homeResultBtn")) $("#homeResultBtn").classList.toggle("hidden", !logged);
       if($("#myResultDrop")) $("#myResultDrop").classList.toggle("hidden", !logged || isAdmin() || !currentResult);
       if(logged){
         $("#userMenuText").textContent = state.session.role==="admin" ? "Admin404" : state.session.username;
@@ -42765,11 +42777,11 @@ html[data-theme="dark"] .number-question-copy p,html[data-theme="dark"] .number-
           if($("#quizProgress")) $("#quizProgress").style.width = "100%";
           if($("#progressText")) $("#progressText").textContent = progressTextLabel(100);
           if($("#cardCounter")) $("#cardCounter").textContent = cardCounterText(quiz.cards.length, quiz.cards.length);
-          setTimeout(()=>finishQuiz(), auto ? 165 : 80);
+          setTimeout(()=>finishQuiz(), auto ? 700 : 900);
           return;
         }
 
-        const delay = auto ? 255 : 145;
+        const delay = auto ? 700 : 900;
         setTimeout(()=>{
           if(!quiz || quiz.index !== answerIndex) return;
           quiz.index++;
@@ -44398,7 +44410,7 @@ html[data-theme="dark"] #quizSettingsModal .option-card.icon-option small{color:
   createQuizModal();
 
   let quizSetup={targetMode:'all',group:'all',lesson:'all',initialId:null};
-  let verbQuiz=null,recognition=null,verbInputComposing=false;
+  let verbQuiz=null,recognition=null,verbInputComposing=false,verbAutoNextTimer=0;
   const speechCtor=window.SpeechRecognition||window.webkitSpeechRecognition;
   function showVerbView(name){ qa('#verbQuizModal [data-verb-view]').forEach(v=>v.classList.toggle('hidden',v.dataset.verbView!==name)); }
   function openVerbQuizSetup(initialId=null){
@@ -44410,6 +44422,7 @@ html[data-theme="dark"] #quizSettingsModal .option-card.icon-option small{color:
     const modal=q('#verbQuizModal');modal.classList.add('show');modal.setAttribute('aria-hidden','false');
   }
   function closeVerbQuiz(){
+    clearTimeout(verbAutoNextTimer);verbAutoNextTimer=0;
     try{recognition?.abort();}catch(_){ }
     const modal=q('#verbQuizModal');modal.classList.remove('show');modal.setAttribute('aria-hidden','true');
     document.body.classList.remove('verb-quiz-running');hideVerbFeedbackPortal();verbQuiz=null;
@@ -44470,6 +44483,7 @@ html[data-theme="dark"] #quizSettingsModal .option-card.icon-option small{color:
     return shuffled(questions);
   }
   function startVerbQuiz(){
+    clearTimeout(verbAutoNextTimer);verbAutoNextTimer=0;
     quizSetup.group=q('#verbQuizGroup')?.value||quizSetup.group||'all';
     quizSetup.lesson=q('#verbQuizLesson')?.value||quizSetup.lesson||'all';
     const questions=buildQuestions();
@@ -44722,14 +44736,18 @@ html[data-theme="dark"] #quizSettingsModal .option-card.icon-option small{color:
     const sourceText=sourceForm.kanji||sourceForm.kana;
     const voiceExhausted=source==='voice'&&!correct&&question.voiceAttempts>=3;
     const heading=correct?(isJa()?"正解です":"Jawaban Benar"):(voiceExhausted?(isJa()?"3回の音声回答が不正解でした":"Tiga Percobaan Belum Tepat"):(isJa()?"もう一度確認しましょう":"Belum Tepat"));
-    const allowRetry=!correct&&!voiceExhausted;
+    const allowRetry=false;
     updateVerbQuizScoreboard();
     if(feedback){
       feedback.hidden=false;
       feedback.className='verb-feedback-portal show';
       feedback.innerHTML=`<section class="verb-feedback-card ${correct?'correct':'wrong'}" role="status" aria-label="${esc(heading)}"><div class="verb-feedback-heading"><span class="verb-feedback-icon"><i class="fa-solid ${correct?'fa-check':'fa-xmark'}"></i></span><div><strong>${heading}</strong><small>${esc(labelForm(question.target))}${source==='voice'?` · ${isJa()?`音声 ${question.voiceAttempts}/3`:`Suara ${question.voiceAttempts}/3`}`:''}</small></div></div>${correct?'':`<div class="verb-feedback-answers"><div><span>${isJa()?"あなたの答え":"Jawabanmu"}</span><strong>${esc(raw)}</strong></div><div><span>${isJa()?"正解":"Jawaban benar"}</span><strong>${esc(expectedKanji)}</strong>${expectedKanji!==expectedKana?`<small>${esc(expectedKana)}</small>`:''}</div></div>`}<div class="verb-feedback-transformation"><span>${esc(sourceText)}</span><i class="fa-solid fa-arrow-right"></i><strong>${esc(expectedKanji)}</strong>${expectedKanji!==expectedKana?`<small>${esc(expectedKana)}</small>`:''}</div><div class="verb-feedback-rule"><i class="fa-regular fa-lightbulb"></i><span>${esc(verbRuleText(question.item,question.target))}</span></div><div class="verb-feedback-actions">${allowRetry?`<button type="button" class="btn secondary" data-retry-current-verb><i class="fa-solid fa-rotate-left"></i>${isJa()?"もう一度":"Coba Lagi"}</button>`:''}<button type="button" class="btn secondary" data-speak-correct-form><i class="fa-solid fa-volume-high"></i>${isJa()?"聞く":"Dengarkan"}</button>${nextButtonMarkup()}</div></section>`;
-      requestAnimationFrame(()=>feedback.querySelector(correct?'[data-next-verb-question]':allowRetry?'[data-retry-current-verb]':'[data-next-verb-question]')?.focus({preventScroll:true}));
+      requestAnimationFrame(()=>feedback.querySelector('[data-next-verb-question]')?.focus({preventScroll:true}));
     }
+    clearTimeout(verbAutoNextTimer);
+    verbAutoNextTimer=window.setTimeout(()=>{
+      if(currentVerbQuestion()===question&&question.answered) nextVerbQuestion();
+    },correct?1250:1650);
   }
   function retryCurrentVerbQuestion(){
     const question=currentVerbQuestion();if(!question||!question.answered||question.correct)return;
@@ -44741,8 +44759,9 @@ html[data-theme="dark"] #quizSettingsModal .option-card.icon-option small{color:
     const preview=q('#verbRomajiPreview');if(preview){preview.hidden=true;preview.querySelector('strong').textContent='';}
     if(speechCtor&&verbQuiz?.voiceAuto){startVoiceRecognition({automatic:true});}else{requestAnimationFrame(()=>{try{input?.focus({preventScroll:true});}catch(_){input?.focus();}});}
   }
-  function nextVerbQuestion(){ if(!currentVerbQuestion()?.answered){submitVerbAnswer();return;}hideVerbFeedbackPortal();verbQuiz.index++;if(verbQuiz.index>=verbQuiz.questions.length)finishVerbQuiz();else renderVerbQuestion(); }
+  function nextVerbQuestion(){ clearTimeout(verbAutoNextTimer);verbAutoNextTimer=0;if(!currentVerbQuestion()?.answered){submitVerbAnswer();return;}hideVerbFeedbackPortal();verbQuiz.index++;if(verbQuiz.index>=verbQuiz.questions.length)finishVerbQuiz();else renderVerbQuestion(); }
   function finishVerbQuiz(){
+    clearTimeout(verbAutoNextTimer);verbAutoNextTimer=0;
     if(!verbQuiz)return;const total=verbQuiz.questions.length,score=Math.round((verbQuiz.correct/Math.max(1,total))*100),elapsed=Math.round((Date.now()-verbQuiz.startedAt)/1000),wrong=verbQuiz.questions.filter(q=>!q.correct);
     try{const key='wikaru_verb_conjugation_history',history=JSON.parse(localStorage.getItem(key)||'[]');history.unshift({at:new Date().toISOString(),score,total,correct:verbQuiz.correct,wrong:verbQuiz.wrong,mode:'write-speak',targetMode:verbQuiz.targetMode});localStorage.setItem(key,JSON.stringify(history.slice(0,30)));}catch(_){ }
     const root=q('[data-verb-view="result"]');root.innerHTML=`<div class="verb-result-card"><div class="verb-result-icon"><i class="fa-solid ${score>=80?'fa-trophy':score>=60?'fa-star':'fa-seedling'}"></i></div><h3>${isJa()?"クイズ結果":"Hasil Kuis Konjugasi"}</h3><div class="verb-result-score">${score}%</div><p>${score>=80?(isJa()?"とてもよくできました。活用形がしっかり身についています。":"Mantap, pola konjugasimu sudah kuat."):score>=60?(isJa()?"良い結果です。間違えた形をもう一度確認しましょう。":"Hasilnya bagus. Tinjau kembali bentuk yang masih keliru."):(isJa()?"少しずつ練習すれば大丈夫です。":"Tidak masalah—ulang perlahan dan fokus pada pola perubahan akhirnya.")}</p><div class="verb-result-grid"><div><strong>${verbQuiz.correct}</strong><span>${isJa()?"正解":"Benar"}</span></div><div><strong>${verbQuiz.wrong}</strong><span>${isJa()?"不正解":"Salah"}</span></div><div><strong>${elapsed}s</strong><span>${isJa()?"時間":"Durasi"}</span></div></div>${wrong.length?`<div class="verb-result-review"><strong>${isJa()?"復習する項目":"Perlu ditinjau"}</strong>${wrong.slice(0,8).map(x=>`<div class="verb-review-row"><strong>${esc(x.item.kanji)}</strong> — ${esc(labelForm(x.target))}: ${esc(x.item.forms[x.target].kana)}</div>`).join('')}</div>`:''}<div class="verb-result-actions"><button type="button" class="btn secondary" data-close-verb-quiz>${isJa()?"閉じる":"Tutup"}</button><button type="button" class="btn" data-retry-verb-quiz><i class="fa-solid fa-rotate-right"></i>${isJa()?"もう一度":"Ulangi Kuis"}</button></div></div>`;showVerbView('result');
@@ -45422,7 +45441,7 @@ html[data-theme="dark"] #quizSettingsModal .option-card.icon-option small{color:
     const correct=isVoiceTranscriptCorrect(q,heard);
     if(correct){
       q.answered=true;q.correct=true;numberQuiz.correct++;recordNumberDetail(q,true);input.disabled=true;$n('[data-submit-number-answer]')?.setAttribute('disabled','disabled');
-      showNumberFeedback('correct',isJaN()?"正解です！":"Jawaban Suara Benar",q.direction==='readingToNumber'?(isJaN()?"インドネシア語の数字を正しく認識しました。":"Sistem mengenali nilai angka dalam Bahasa Indonesia dengan benar."):(isJaN()?"日本語の読み方を正しく認識しました。":"Sistem mengenali cara baca bahasa Jepang dengan benar."),true);setNumberSpeechStatus('processing',isJaN()?"正解として記録しました。":"Jawaban suara sudah dicatat sebagai benar.",heard);playTone('ok');return;
+      showNumberFeedback('correct',isJaN()?"正解です！":"Jawaban Suara Benar",q.direction==='readingToNumber'?(isJaN()?"インドネシア語の数字を正しく認識しました。":"Sistem mengenali nilai angka dalam Bahasa Indonesia dengan benar."):(isJaN()?"日本語の読み方を正しく認識しました。":"Sistem mengenali cara baca bahasa Jepang dengan benar."),true);setNumberSpeechStatus('processing',isJaN()?"正解として記録しました。":"Jawaban suara sudah dicatat sebagai benar.",heard);playTone('ok');queueNumberAutoNext(q,1400);return;
     }
     input.value='';
     if(q.attempts<3){
@@ -45432,7 +45451,7 @@ html[data-theme="dark"] #quizSettingsModal .option-card.icon-option small{color:
     }
     q.answered=true;q.correct=false;numberQuiz.wrong++;recordNumberDetail(q,false);input.disabled=true;$n('[data-submit-number-answer]')?.setAttribute('disabled','disabled');
     showNumberFeedback('wrong',isJaN()?"3回間違えました":"Tiga Kali Salah",`${numberHint(q)} ${isJaN()?"不正解として記録し、次の問題へ進みます。":"Soal dicatat salah dan akan otomatis lanjut ke pertanyaan berikutnya."}`,true);
-    setNumberSpeechStatus('processing',isJaN()?"音声回答を3回記録しました。":"Tiga percobaan jawaban suara sudah digunakan.",heard);playTone('wrong');queueNumberAutoNext(q,2100);
+    setNumberSpeechStatus('processing',isJaN()?"音声回答を3回記録しました。":"Tiga percobaan jawaban suara sudah digunakan.",heard);playTone('wrong');queueNumberAutoNext(q,1800);
   }
   function startNumberSpeech(){
     const q=currentNumberQuestion();
@@ -45556,7 +45575,7 @@ html[data-theme="dark"] #quizSettingsModal .option-card.icon-option small{color:
     const correct=q.direction==='numberToReading'?referenceVariants(q.raw).includes(normalizeKanaAnswer(raw)):normalizeNumericAnswer(raw,q.raw)===normalizeNumericAnswer(q.raw,q.raw);
     if(correct){
       q.answered=true;q.correct=true;numberQuiz.correct++;recordNumberDetail(q,true);input.disabled=true;$n('[data-submit-number-answer]')?.setAttribute('disabled','disabled');
-      showNumberFeedback('correct',isJaN()?"正解です！":"Jawaban Benar",isJaN()?"部品を大きい単位から順番につなげると、この読み方になります。":"Perhatikan potongannya: tiap unit dirangkai dari yang terbesar ke yang terkecil.",true);playTone('ok');return;
+      showNumberFeedback('correct',isJaN()?"正解です！":"Jawaban Benar",isJaN()?"部品を大きい単位から順番につなげると、この読み方になります。":"Perhatikan potongannya: tiap unit dirangkai dari yang terbesar ke yang terkecil.",true);playTone('ok');queueNumberAutoNext(q,1400);return;
     }
     input.value='';
     if(q.attempts<3){
@@ -45565,7 +45584,7 @@ html[data-theme="dark"] #quizSettingsModal .option-card.icon-option small{color:
       requestAnimationFrame(()=>input.focus({preventScroll:true}));return;
     }
     q.answered=true;q.correct=false;numberQuiz.wrong++;recordNumberDetail(q,false);input.disabled=true;$n('[data-submit-number-answer]')?.setAttribute('disabled','disabled');
-    showNumberFeedback('wrong',isJaN()?"3回間違えました":"Tiga Kali Salah",`${numberHint(q)} ${isJaN()?"不正解として記録し、次の問題へ進みます。":"Soal dicatat salah dan akan otomatis lanjut ke pertanyaan berikutnya."}`,true);playTone('wrong');queueNumberAutoNext(q,2100);
+    showNumberFeedback('wrong',isJaN()?"3回間違えました":"Tiga Kali Salah",`${numberHint(q)} ${isJaN()?"不正解として記録し、次の問題へ進みます。":"Soal dicatat salah dan akan otomatis lanjut ke pertanyaan berikutnya."}`,true);playTone('wrong');queueNumberAutoNext(q,1800);
   }
   function recordNumberDetail(q,correct){
     const timeSpent=Math.max(0,Math.round((Date.now()-q.startedAt)/1000));
@@ -51946,7 +51965,7 @@ body.number-appendix-active #materialPage .content-card{padding:30px}
 .number-lab-parts{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}.number-lab-parts span{padding:6px 10px;border-radius:999px;background:#fff;color:#243B73;border:1px solid #dce4f2;font-family:var(--jp);font-size:12px;font-weight:800}
 .number-reference-section{display:grid;gap:15px}
 .number-reference-head{display:flex;align-items:center;justify-content:space-between;gap:14px}.number-reference-head h3{margin:0;font-size:24px}.number-reference-head p{margin:4px 0 0;font-size:13px}.number-count-badge{padding:8px 12px;border-radius:999px;background:#E9EDFA;color:#243B73;font-size:12px;font-weight:850;white-space:nowrap}
-.number-group{display:grid;gap:11px}.number-group-head{display:flex;align-items:center;gap:10px}.number-group-head i{width:38px;height:38px;display:grid;place-items:center;border-radius:13px;background:#E9EDFA;color:#243B73}.number-group-head h4{margin:0;font-size:18px;color:#071b45}.number-group-head span{margin-left:auto;color:#72809a;font-size:11px;font-weight:800}
+.number-group{display:grid;gap:11px}.number-group-head{display:flex;align-items:center;justify-content:flex-start;gap:10px;flex-wrap:wrap}.number-group-head i{width:38px;height:38px;display:grid;place-items:center;border-radius:13px;background:#E9EDFA;color:#243B73;flex:0 0 auto}.number-group-head h4{margin:0;font-size:18px;color:#071b45;line-height:1.25}.number-group-head span{margin-left:2px;padding:6px 10px;border-radius:999px;background:#eef2fb;border:1px solid rgba(36,59,115,.10);color:#52678f;font-size:11px;font-weight:850;line-height:1;white-space:nowrap;box-shadow:inset 0 1px 0 rgba(255,255,255,.72)}
 .number-card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:11px}
 .number-card{position:relative;overflow:hidden;display:grid;grid-template-columns:64px minmax(0,1fr) 38px;gap:11px;align-items:center;padding:13px;border-radius:19px;background:#fff;border:1px solid #E2E4DD;box-shadow:0 8px 20px rgba(28,37,25,.055);transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
 .number-card:hover{transform:translateY(-2px);border-color:rgba(36,59,115,.3);box-shadow:0 13px 27px rgba(36,59,115,.10)}
@@ -52388,6 +52407,1237 @@ html[data-theme="dark"] #homePage .home-scene-play-button{
   font-size:20px!important;
   line-height:20px!important;
 }
+</style>
+
+
+<style id="wikaru-dark-mode-contrast-fix-v1">
+/*
+  Final dark-mode safety patch.
+  Diletakkan paling akhir agar komponen dari revisi lama maupun komponen yang
+  ditambahkan lewat JavaScript memakai permukaan dan warna teks yang konsisten.
+*/
+html[data-theme="dark"] {
+  --dm-bg:#0d1420;
+  --dm-surface:#161f2d;
+  --dm-surface-2:#1d2736;
+  --dm-surface-3:#243044;
+  --dm-border:#344158;
+  --dm-text:#f4f7fb;
+  --dm-text-2:#c5cfdd;
+  --dm-text-3:#9eabc0;
+  --dm-primary:#91a8f4;
+  --dm-primary-strong:#6f89ec;
+  --dm-focus:rgba(145,168,244,.28);
+
+  /* Palet revisi kuis V8 sebelumnya hanya mendefinisikan warna terang. */
+  --wk8-navy:#91a8f4;
+  --wk8-navy-dark:#f4f7fb;
+  --wk8-navy-soft:#263653;
+  --wk8-paper:#161f2d;
+  --wk8-paper-deep:#111a27;
+  --wk8-surface:#1d2736;
+  --wk8-ink:#f4f7fb;
+  --wk8-muted:#c5cfdd;
+  --wk8-line:#344158;
+  --wk8-coral:#ff8d97;
+  --wk8-coral-soft:#3a202a;
+  --wk8-matcha:#9bd2b8;
+  --wk8-matcha-soft:#17352c;
+  --wk8-sky:#9fc0ff;
+  --wk8-sky-soft:#22324a;
+  --wk8-shadow:0 18px 46px rgba(0,0,0,.24);
+}
+
+/* Navigasi dan label yang sebelumnya terlalu gelap. */
+html[data-theme="dark"] :is(.lang-name,.nav-lang-btn .lang-name) {
+  color:var(--dm-text-2)!important;
+}
+html[data-theme="dark"] :is(.side-btn.active,.side-btn:hover) {
+  background:linear-gradient(135deg,#354f91,#293e74)!important;
+  color:#fff!important;
+  border-color:#526db0!important;
+}
+html[data-theme="dark"] :is(.side-btn.active span,.side-btn:hover span,.side-btn.active i,.side-btn:hover i) {
+  color:#fff!important;
+}
+html[data-theme="dark"] #materialPage .side-btn.active {
+  background:linear-gradient(135deg,#354f91,#293e74)!important;
+  color:#fff!important;
+  box-shadow:inset 3px 0 0 #9fb2ff!important;
+}
+
+/* Kartu kontrol kuis: hilangkan kombinasi latar putih dan teks pucat. */
+html[data-theme="dark"] :is(.speech-card,.mic-box) {
+  background:linear-gradient(145deg,var(--dm-surface-2),var(--dm-surface))!important;
+  border-color:var(--dm-border)!important;
+  color:var(--dm-text)!important;
+  box-shadow:0 10px 24px rgba(0,0,0,.18)!important;
+}
+html[data-theme="dark"] :is(.speech-card.speech-on,.mic-box.speech-on) {
+  background:linear-gradient(145deg,#1d2b3d,#172b31)!important;
+  border-color:#46617a!important;
+}
+html[data-theme="dark"] #quizPage #micBox {
+  background:linear-gradient(145deg,var(--dm-surface-2),var(--dm-surface))!important;
+  border-color:var(--dm-border)!important;
+  color:var(--dm-text)!important;
+  box-shadow:none!important;
+}
+html[data-theme="dark"] #quizPage #micBox :is(strong,p,small) {
+  color:var(--dm-text-2)!important;
+}
+html[data-theme="dark"] #quizPage #micBox strong { color:var(--dm-text)!important; }
+html[data-theme="dark"] :is(.mic-copy strong,.speech-card strong) {
+  color:var(--dm-text)!important;
+}
+html[data-theme="dark"] :is(.mic-copy p,#speechHelp,.speech-card p,.speech-card small,#voiceAvailabilityText) {
+  color:var(--dm-text-2)!important;
+}
+html[data-theme="dark"] .mic-icon {
+  color:#cbd7ff!important;
+  background:#26344d!important;
+}
+html[data-theme="dark"] .switch { background:#445168!important; }
+html[data-theme="dark"] .switch::after { background:#f8fafc!important; }
+html[data-theme="dark"] .switch.on { background:linear-gradient(135deg,#5572ce,#2da78b)!important; }
+
+/* Metrik, progres, petunjuk, dan teks kecil. */
+html[data-theme="dark"] :is(
+  .metric span,.timer-metric span,#progressText,
+  .flip-help,.flip-help span,#flipHint,
+  .quiz-setting-note,.quiz-setting-subtitle,
+  .option-card small,.check-pill small,
+  .speech-heard,.answer-sub
+) {
+  color:var(--dm-text-2)!important;
+}
+html[data-theme="dark"] :is(.metric.timer-metric.timer-warning span,.metric.timer-metric.timer-warning #timerText) {
+  color:#f2c66f!important;
+}
+html[data-theme="dark"] :is(.metric.timer-metric.timer-danger span,.metric.timer-metric.timer-danger #timerText) {
+  color:#ff8d97!important;
+}
+html[data-theme="dark"] :is(.bar,.number-quiz-progress,.setup-progress-line) {
+  background:#2a374e!important;
+}
+
+/* Form, pencarian, dropdown, dan tombol sekunder. */
+html[data-theme="dark"] :is(input,textarea,select,.input,.number-lab-input,.number-answer-input,.number-count-select) {
+  background-color:#111a27!important;
+  color:var(--dm-text)!important;
+  border-color:var(--dm-border)!important;
+  caret-color:#fff!important;
+}
+html[data-theme="dark"] :is(input,textarea,.input,.number-lab-input,.number-answer-input)::placeholder {
+  color:#7f8da3!important;
+  opacity:1!important;
+}
+html[data-theme="dark"] option {
+  background:#111a27!important;
+  color:var(--dm-text)!important;
+}
+html[data-theme="dark"] :is(input,textarea,select,.input,.number-lab-input,.number-answer-input,.number-count-select):focus {
+  border-color:var(--dm-primary)!important;
+  box-shadow:0 0 0 4px var(--dm-focus)!important;
+}
+html[data-theme="dark"] :is(.control-btn,.btn.secondary,.btn.soft,.choice-chip,.icon-btn,.close-x,.number-audio-btn,.number-rule-audio,.number-speech-toggle) {
+  background:var(--dm-surface-2)!important;
+  color:var(--dm-text-2)!important;
+  border-color:var(--dm-border)!important;
+}
+html[data-theme="dark"] #quizPage #pauseBtn {
+  background:#26344a!important;
+  color:#eef3ff!important;
+  border:1px solid #43516b!important;
+  box-shadow:none!important;
+}
+html[data-theme="dark"] #quizPage #pauseBtn:hover {
+  background:#30405a!important;
+  color:#fff!important;
+}
+html[data-theme="dark"] :is(.control-btn,.btn.secondary,.choice-chip,.icon-btn,.close-x,.number-audio-btn,.number-rule-audio,.number-speech-toggle):not(:disabled):hover {
+  background:var(--dm-surface-3)!important;
+  color:#fff!important;
+  border-color:#52617b!important;
+}
+
+/* Modal, contoh, tabel, kartu jawaban, dan permukaan generik. */
+html[data-theme="dark"] :is(
+  .example-info-card,.quiz-answer-detail,.quiz-reading-prompt-item,
+  .table-wrap,.empty,.number-empty,
+  .number-option,.number-summary-item,.number-card,
+  .number-lab-output,.number-quiz-stat,.number-result-grid div,
+  .number-answer-zone,.number-question-value-wrap,.number-unit-reading-guide span
+) {
+  background:var(--dm-surface-2)!important;
+  color:var(--dm-text)!important;
+  border-color:var(--dm-border)!important;
+}
+html[data-theme="dark"] :is(
+  .example-info-card strong,.quiz-answer-detail strong,
+  .number-option strong,.number-card-reading strong,
+  .number-lab-reading,.number-group-head h4,
+  .number-quiz-stat strong,.number-result-score,
+  .number-question-value,.number-formula b
+) {
+  color:var(--dm-text)!important;
+}
+html[data-theme="dark"] :is(
+  .example-info-card span,.quiz-answer-detail span,
+  .number-option small,.number-card-reading small,
+  .number-group-head span,.number-quiz-stat span,
+  .number-answer-help,.number-speech-copy small,
+  .number-quiz-brand small,.number-question-step
+) {
+  color:var(--dm-text-2)!important;
+}
+
+/* Lampiran kata bilangan dan kuis kata bilangan. */
+html[data-theme="dark"] :is(
+  .number-hero,.number-rule-card,.number-lab,.number-question-card,
+  .number-quiz-top,.number-response-card,.number-quiz-shell,
+  .number-basic-grid,.number-alt-note,.number-voice-setting,.number-speech-panel
+) {
+  background:linear-gradient(145deg,#1c2635,#151e2b)!important;
+  color:var(--dm-text)!important;
+  border-color:var(--dm-border)!important;
+}
+html[data-theme="dark"] :is(.number-card-value,.number-formula,.number-lab-output) {
+  background:#222e40!important;
+  color:var(--dm-text)!important;
+}
+html[data-theme="dark"] .number-lab-parts span {
+  background:#26344a!important;
+  color:#cbd7ff!important;
+  border-color:#41506a!important;
+}
+html[data-theme="dark"] :is(.number-question-prompt,.number-settings-note,.number-quiz-bottom>span,.number-back-material) {
+  color:var(--dm-text-2)!important;
+}
+html[data-theme="dark"] .number-voice-setting em {
+  background:#2a374c!important;
+  color:#c4cfdf!important;
+}
+html[data-theme="dark"] .number-voice-setting.active {
+  background:linear-gradient(135deg,#263754,#1b3935)!important;
+  border-color:#4b6c83!important;
+}
+
+/* Status tetap berbeda warna, tetapi tidak menyilaukan pada mode malam. */
+html[data-theme="dark"] .number-feedback.correct,
+html[data-theme="dark"] .speech-state.success {
+  background:#16372e!important;
+  color:#9be0c2!important;
+  border-color:#285c4b!important;
+}
+html[data-theme="dark"] .number-feedback.wrong,
+html[data-theme="dark"] .speech-state.error {
+  background:#3a202a!important;
+  color:#ffabbc!important;
+  border-color:#663344!important;
+}
+html[data-theme="dark"] .number-feedback.hint,
+html[data-theme="dark"] .speech-state.warning {
+  background:#3a301d!important;
+  color:#f0cb7b!important;
+  border-color:#65512a!important;
+}
+html[data-theme="dark"] :is(.number-feedback-head i,.number-feedback-parts span) {
+  background:rgba(255,255,255,.08)!important;
+  color:inherit!important;
+}
+
+/* Perlindungan untuk elemen dengan warna terang yang ditulis langsung. */
+html[data-theme="dark"] :is(.modal-card,.content-card,.control-panel,.quiz-card-wrap,.flash-face,.flash-back)
+  :is([style*="background:#fff"],[style*="background: #fff"],[style*="background-color:#fff"],[style*="background-color: #fff"]) {
+  background:var(--dm-surface-2)!important;
+  border-color:var(--dm-border)!important;
+}
+html[data-theme="dark"] :is(.modal-card,.content-card,.control-panel,.quiz-card-wrap,.flash-face,.flash-back)
+  :is([style*="color:#fff"],[style*="color: #fff"]) {
+  /* Warna putih tetap dipertahankan, tetapi permukaan induknya sudah digelapkan. */
+  color:#fff!important;
+}
+
+/* Aksesibilitas keyboard. */
+html[data-theme="dark"] :is(button,a,input,textarea,select,[tabindex]):focus-visible {
+  outline:3px solid var(--dm-primary)!important;
+  outline-offset:3px!important;
+}
+</style>
+
+
+<style id="wikaru-dark-mode-complete-fix-v2">
+/*
+  Dark mode V2 — complete contrast and surface repair.
+  Patch ini sengaja berada paling akhir agar aturan lama dan komponen yang
+  dirender lewat JavaScript tidak mengembalikan latar putih + teks putih.
+*/
+html[data-theme="dark"] {
+  --dm2-bg:#0b121d;
+  --dm2-bg-2:#0f1825;
+  --dm2-surface:#151f2d;
+  --dm2-surface-2:#1b2737;
+  --dm2-surface-3:#233249;
+  --dm2-surface-4:#2b3a51;
+  --dm2-border:#3b4961;
+  --dm2-border-strong:#53627c;
+  --dm2-text:#f7f9fc;
+  --dm2-text-2:#c8d2df;
+  --dm2-text-3:#a4b0c2;
+  --dm2-accent:#a8b9ff;
+  --dm2-accent-soft:#293a5b;
+  --dm2-good:#9de1c5;
+  --dm2-warn:#f2cd7c;
+  --dm2-bad:#ffabbc;
+  color-scheme:dark;
+}
+
+html[data-theme="dark"] body {
+  color:var(--dm2-text)!important;
+  background:
+    radial-gradient(circle at 12% 5%,rgba(57,76,132,.26),transparent 34%),
+    radial-gradient(circle at 92% 8%,rgba(42,91,112,.22),transparent 38%),
+    radial-gradient(circle at 75% 85%,rgba(97,48,76,.18),transparent 38%),
+    linear-gradient(135deg,var(--dm2-bg),#101a27 52%,#121723)!important;
+}
+html[data-theme="dark"] body::before {
+  background:linear-gradient(90deg,rgba(255,255,255,.018),transparent 35%,rgba(255,255,255,.025))!important;
+}
+
+/* Permukaan umum yang masih memakai warna terang dari revisi lama. */
+html[data-theme="dark"] :is(
+  .top-nav,.bottom-nav,.dropdown,.glass,.content-card,.sidebar,.stat-box,
+  .info-card,.vocab-card,.quiz-card-wrap,.control-panel,.flash-face,.flash-back,
+  .metric,.mic-box,.speech-card,.result-stat,.admin-stat,.table-card,.table-wrap,
+  .modal-card,.example-info-card,.option-card,.check-pill,.setup-progress,
+  .modal-footer,.empty,.toast-item,.loader-card
+) {
+  background-color:var(--dm2-surface)!important;
+  border-color:var(--dm2-border)!important;
+  color:var(--dm2-text)!important;
+}
+html[data-theme="dark"] :is(.glass,.quiz-card-wrap,.control-panel,.modal-card,.content-card) {
+  background-image:linear-gradient(145deg,rgba(27,39,55,.98),rgba(18,28,42,.96))!important;
+}
+html[data-theme="dark"] :is(.top-nav,.bottom-nav,.dropdown) {
+  background:rgba(15,24,37,.94)!important;
+  border-color:var(--dm2-border)!important;
+  box-shadow:0 10px 28px rgba(0,0,0,.28)!important;
+}
+html[data-theme="dark"] :is(.user-btn,.nav-lang-btn,.nav-fiction-toggle,.choice-chip,.control-btn,.btn.secondary,.btn.soft,.icon-btn,.close-x,.drop-item) {
+  background:var(--dm2-surface-2)!important;
+  color:var(--dm2-text-2)!important;
+  border-color:var(--dm2-border)!important;
+}
+html[data-theme="dark"] :is(.user-btn,.nav-lang-btn,.nav-fiction-toggle,.choice-chip,.control-btn,.btn.secondary,.btn.soft,.icon-btn,.close-x,.drop-item):not(:disabled):hover {
+  background:var(--dm2-surface-3)!important;
+  color:var(--dm2-text)!important;
+  border-color:var(--dm2-border-strong)!important;
+}
+html[data-theme="dark"] :is(.badge,.tag,.breadcrumb,.number-kicker,.number-count-badge) {
+  background:var(--dm2-accent-soft)!important;
+  color:#dce5ff!important;
+  border-color:#40547c!important;
+}
+html[data-theme="dark"] :is(h1,h2,h3,h4,.question-text,.answer-main,.vocab-jp,.mini-stat strong,.admin-stat strong,.metric strong,.result-stat strong) {
+  color:var(--dm2-text)!important;
+}
+html[data-theme="dark"] :is(p,.muted,.vocab-id,.vocab-kana,.mini-stat span,.admin-stat span,.info-card span,.flip-help,.quiz-setting-note,.option-card small) {
+  color:var(--dm2-text-2)!important;
+}
+html[data-theme="dark"] :is(th) {
+  background:#202d42!important;
+  color:#dce5ff!important;
+  border-color:var(--dm2-border)!important;
+}
+html[data-theme="dark"] :is(td) {
+  background:var(--dm2-surface)!important;
+  color:var(--dm2-text-2)!important;
+  border-color:var(--dm2-border)!important;
+}
+html[data-theme="dark"] :is(.notice) {
+  background:linear-gradient(120deg,#1e2a3d,#172334)!important;
+  color:var(--dm2-text)!important;
+  border-color:var(--dm2-border)!important;
+}
+html[data-theme="dark"] .notice i {
+  background:#27364e!important;
+  color:#cbd7ff!important;
+}
+html[data-theme="dark"] :is(input,textarea,select,.input) {
+  background:#101927!important;
+  color:var(--dm2-text)!important;
+  border-color:var(--dm2-border)!important;
+}
+html[data-theme="dark"] :is(input,textarea,.input)::placeholder {
+  color:#8f9caf!important;
+  opacity:1!important;
+}
+
+/* ===== Lampiran I — semua permukaan, chip, ikon, dan status ===== */
+html[data-theme="dark"] :is(
+  .number-hero,.number-rule-card,.number-warning-panel,.number-lab,
+  .number-card,.number-quiz-settings-card,.number-quiz-shell,.number-quiz-top,
+  .number-question-card,.number-question-value-wrap,.number-answer-zone,
+  .number-quiz-result,.number-response-card,.number-speech-panel
+) {
+  background:linear-gradient(145deg,var(--dm2-surface-2),var(--dm2-surface))!important;
+  color:var(--dm2-text)!important;
+  border-color:var(--dm2-border)!important;
+  box-shadow:0 14px 34px rgba(0,0,0,.20)!important;
+}
+html[data-theme="dark"] :is(
+  .number-learning-title h3,.number-warning-panel h3,.number-lab-head h3,
+  .number-reference-head h3,.number-group-head h4,.number-rule-card h4,
+  .number-hero h3,.number-question-value,.number-result-score
+) { color:var(--dm2-text)!important; }
+html[data-theme="dark"] :is(
+  .number-learning-title p,.number-warning-panel p,.number-lab-head p,
+  .number-reference-head p,.number-rule-card p,.number-hero p,
+  .number-question-prompt,.number-answer-help,.number-rule-actions small,
+  .number-question-step,.number-back-material,.number-quiz-bottom>span
+) { color:var(--dm2-text-2)!important; }
+html[data-theme="dark"] .number-hero .jp-sub { color:#b9c8ff!important; }
+
+/* Perbaikan utama: token formula tidak boleh lagi putih dengan teks putih. */
+html[data-theme="dark"] .number-formula {
+  background:#202d40!important;
+  color:var(--dm2-text)!important;
+  border-color:#42516a!important;
+}
+html[data-theme="dark"] .number-formula > b {
+  background:#111b29!important;
+  background-image:none!important;
+  color:#f7f9fc!important;
+  border-color:#465670!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035)!important;
+}
+html[data-theme="dark"] .number-formula > span {
+  color:#f2f5fb!important;
+}
+html[data-theme="dark"] .number-formula-exceptions > b {
+  background:#172438!important;
+  color:#e9efff!important;
+}
+
+html[data-theme="dark"] :is(.number-summary-item,.number-exception,.number-result-grid div,.number-quiz-stat,.number-option) {
+  background:var(--dm2-surface-2)!important;
+  color:var(--dm2-text)!important;
+  border-color:var(--dm2-border)!important;
+}
+html[data-theme="dark"] :is(.number-summary-item strong,.number-exception strong,.number-result-grid strong,.number-quiz-stat strong,.number-option strong) {
+  color:var(--dm2-text)!important;
+}
+html[data-theme="dark"] :is(.number-summary-item span,.number-result-grid span,.number-quiz-stat span,.number-option small) {
+  color:var(--dm2-text-2)!important;
+}
+html[data-theme="dark"] .number-exception span { color:#f0cc7b!important; }
+
+html[data-theme="dark"] :is(
+  .number-summary-item i,.number-rule-card .rule-icon,.number-group-head i,
+  .number-basic-grid span,.number-unit-reading-guide span,.number-speech-icon,
+  .number-feedback-head i,.number-feedback-parts span
+) {
+  background:#263650!important;
+  background-image:none!important;
+  color:#d7e1ff!important;
+  border-color:#455875!important;
+}
+html[data-theme="dark"] :is(.number-summary-item i,.number-rule-card .rule-icon,.number-group-head i) i {
+  color:#d7e1ff!important;
+}
+html[data-theme="dark"] .number-basic-grid {
+  background:#202d40!important;
+  border-color:var(--dm2-border)!important;
+}
+html[data-theme="dark"] .number-basic-grid b { color:#b8c8ff!important; }
+html[data-theme="dark"] .number-basic-grid em { color:var(--dm2-text)!important; }
+html[data-theme="dark"] .number-alt-note,
+html[data-theme="dark"] .number-settings-note {
+  background:#342d1d!important;
+  color:#f0cf84!important;
+  border-color:#66542d!important;
+}
+html[data-theme="dark"] .number-rule-actions { border-top-color:var(--dm2-border)!important; }
+
+html[data-theme="dark"] :is(.number-card-value,.number-lab-output,.number-unit-reading-guide) {
+  background:#202d40!important;
+  color:var(--dm2-text)!important;
+  border-color:var(--dm2-border)!important;
+}
+html[data-theme="dark"] :is(.number-card-reading strong,.number-lab-reading,.number-unit-reading-guide b) {
+  color:var(--dm2-text)!important;
+}
+html[data-theme="dark"] :is(.number-card-reading small,.number-unit-reading-guide small,.number-lab-output.empty) {
+  color:var(--dm2-text-2)!important;
+}
+html[data-theme="dark"] .number-lab-parts span {
+  background:#162235!important;
+  color:#dbe4ff!important;
+  border-color:#43536d!important;
+}
+html[data-theme="dark"] :is(.number-audio-btn,.number-rule-audio,.number-speech-toggle) {
+  background:#202e44!important;
+  background-image:none!important;
+  color:#dce5ff!important;
+  border-color:#465875!important;
+}
+html[data-theme="dark"] :is(.number-audio-btn,.number-rule-audio,.number-speech-toggle):hover {
+  background:#293a54!important;
+  color:#fff!important;
+  border-color:#627494!important;
+}
+
+html[data-theme="dark"] .number-option.active {
+  background:linear-gradient(135deg,#293b5d,#203b3b)!important;
+  color:#fff!important;
+  border-color:#6680ad!important;
+  box-shadow:0 0 0 4px rgba(125,153,224,.14)!important;
+}
+html[data-theme="dark"] .number-question-eyebrow {
+  background:#293a5b!important;
+  color:#dce5ff!important;
+}
+html[data-theme="dark"] .number-answer-label { color:#dce5ff!important; }
+html[data-theme="dark"] .number-answer-label small { color:var(--dm2-text-3)!important; }
+html[data-theme="dark"] .number-answer-input:focus { background:#111b29!important; }
+
+/* Statistik kuis dibedakan, tetapi tetap gelap. */
+html[data-theme="dark"] .number-quiz-stat.current { background:#263753!important; }
+html[data-theme="dark"] .number-quiz-stat.correct { background:#19382f!important; }
+html[data-theme="dark"] .number-quiz-stat.wrong { background:#3a202a!important; }
+html[data-theme="dark"] .number-quiz-stat strong small { color:var(--dm2-text-2)!important; }
+
+/* Status suara memiliki palet gelap khusus, bukan palet pastel mode terang. */
+html[data-theme="dark"] .number-speech-panel.listening {
+  background:linear-gradient(135deg,#263653,#19352f)!important;
+  border-color:#4d7080!important;
+}
+html[data-theme="dark"] .number-speech-panel.paused {
+  background:#382f1d!important;
+  color:var(--dm2-warn)!important;
+  border-color:#6a562c!important;
+}
+html[data-theme="dark"] .number-speech-panel.processing {
+  background:#19362f!important;
+  color:var(--dm2-good)!important;
+  border-color:#315d50!important;
+}
+html[data-theme="dark"] .number-speech-panel.error {
+  background:#3a202a!important;
+  color:var(--dm2-bad)!important;
+  border-color:#693447!important;
+}
+html[data-theme="dark"] .number-speech-panel :is(strong,small,em) { color:inherit!important; }
+
+html[data-theme="dark"] .number-feedback.correct {
+  background:#17372f!important;color:var(--dm2-good)!important;border-color:#315d50!important;
+}
+html[data-theme="dark"] .number-feedback.wrong {
+  background:#3a202a!important;color:var(--dm2-bad)!important;border-color:#693447!important;
+}
+html[data-theme="dark"] .number-feedback.hint {
+  background:#382f1d!important;color:var(--dm2-warn)!important;border-color:#6a562c!important;
+}
+
+/* Loader dan elemen disabled tetap terbaca. */
+html[data-theme="dark"] .loader {
+  background:linear-gradient(135deg,#0d1521,#111b29)!important;
+}
+html[data-theme="dark"] :is(button,input,select,textarea):disabled {
+  color:#9ba8ba!important;
+  border-color:#344158!important;
+}
+
+/* Kelas yang dipasang otomatis oleh contrast guard di bawah. */
+html[data-theme="dark"] .wikaru-dark-auto-surface {
+  background-color:#172334!important;
+  background-image:none!important;
+  color:#f7f9fc!important;
+  border-color:#43536d!important;
+}
+html[data-theme="dark"] .wikaru-dark-auto-light-text { color:#f7f9fc!important; }
+html[data-theme="dark"] .wikaru-dark-auto-dark-text { color:#17223b!important; }
+
+html[data-theme="dark"] :is(button,a,input,textarea,select,[tabindex]):focus-visible {
+  outline:3px solid var(--dm2-accent)!important;
+  outline-offset:3px!important;
+}
+</style>
+
+<script id="wikaru-dark-contrast-guard-v2">
+/* Runtime guard untuk komponen yang dibuat setelah halaman dibuka. */
+(function(){
+  'use strict';
+  const AUTO=['wikaru-dark-auto-surface','wikaru-dark-auto-light-text','wikaru-dark-auto-dark-text'];
+  const SKIP=new Set(['SCRIPT','STYLE','NOSCRIPT','SVG','PATH','META','LINK','HEAD','HTML']);
+  let timer=0,running=false;
+
+  function rgba(value){
+    const m=String(value||'').match(/rgba?\(([^)]+)\)/i);
+    if(!m)return null;
+    const p=m[1].split(/[ ,/]+/).filter(Boolean).map(Number);
+    if(p.length<3||p.some((x,i)=>i<3&&!Number.isFinite(x)))return null;
+    return {r:p[0],g:p[1],b:p[2],a:Number.isFinite(p[3])?p[3]:1};
+  }
+  function lum(c){
+    const f=v=>{v=v/255;return v<=.04045?v/12.92:Math.pow((v+.055)/1.055,2.4)};
+    return .2126*f(c.r)+.7152*f(c.g)+.0722*f(c.b);
+  }
+  function contrast(a,b){const x=lum(a),y=lum(b);return (Math.max(x,y)+.05)/(Math.min(x,y)+.05)}
+  function mix(fg,bg){
+    const a=fg.a+(bg.a||1)*(1-fg.a)||1;
+    return {r:(fg.r*fg.a+bg.r*(bg.a||1)*(1-fg.a))/a,g:(fg.g*fg.a+bg.g*(bg.a||1)*(1-fg.a))/a,b:(fg.b*fg.a+bg.b*(bg.a||1)*(1-fg.a))/a,a};
+  }
+  function effectiveBg(el){
+    let bg={r:11,g:18,b:29,a:1},stack=[],node=el;
+    while(node&&node.nodeType===1){stack.push(node);node=node.parentElement;}
+    stack.reverse().forEach(n=>{const c=rgba(getComputedStyle(n).backgroundColor);if(c&&c.a>0)bg=mix(c,bg);});
+    return bg;
+  }
+  function directText(el){
+    return Array.from(el.childNodes).some(n=>n.nodeType===3&&n.nodeValue&&n.nodeValue.trim());
+  }
+  function visible(el){
+    const s=getComputedStyle(el);if(s.display==='none'||s.visibility==='hidden'||Number(s.opacity)===0)return false;
+    const r=el.getBoundingClientRect();return r.width>1&&r.height>1;
+  }
+  function audit(){
+    timer=0;
+    if(running||document.documentElement.dataset.theme!=='dark')return;
+    running=true;
+    try{
+      const nodes=document.body?document.body.querySelectorAll('*'):[];
+      nodes.forEach(el=>{
+        if(SKIP.has(el.tagName)||!directText(el)||!visible(el))return;
+        AUTO.forEach(c=>el.classList.remove(c));
+        const cs=getComputedStyle(el),fg=rgba(cs.color);if(!fg)return;
+        const bg=effectiveBg(el);
+        const size=parseFloat(cs.fontSize)||16,weight=parseInt(cs.fontWeight,10)||400;
+        const threshold=(size>=24||(size>=18.66&&weight>=700))?3:4.5;
+        if(contrast(fg,bg)>=threshold)return;
+        const own=rgba(cs.backgroundColor);
+        if(own&&own.a>.45&&lum(own)>.62){
+          el.classList.add('wikaru-dark-auto-surface');
+        }else if(lum(bg)<.46){
+          el.classList.add('wikaru-dark-auto-light-text');
+        }else{
+          el.classList.add('wikaru-dark-auto-dark-text');
+        }
+      });
+    }catch(e){console.warn('Wikaru dark contrast guard:',e)}
+    finally{running=false;}
+  }
+  function schedule(){clearTimeout(timer);timer=setTimeout(audit,90)}
+  const start=()=>{
+    schedule();
+    new MutationObserver(schedule).observe(document.documentElement,{subtree:true,childList:true,attributes:true,attributeFilter:['style','data-theme','hidden','aria-hidden']});
+    window.addEventListener('resize',schedule,{passive:true});
+    window.addEventListener('pageshow',schedule);
+    document.addEventListener('click',()=>setTimeout(schedule,50),true);
+  };
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
+})();
+</script>
+
+
+<style id="wikaru-dark-global-exact-v4">
+
+html[data-theme="dark"]{
+ --w4-bg:#0b1220;--w4-surface:#111c2c;--w4-surface2:#162338;--w4-line:#354760;--w4-text:#f4f7fb;--w4-muted:#c1ccdc;--w4-soft:#a7b5c9;--w4-accent:#8bbcff;--w4-good:#82e3bf;--w4-bad:#ff9ab2;--w4-warn:#ffd68d;
+}
+html[data-theme="dark"] body{color:var(--w4-text)!important;background:linear-gradient(135deg,#09111d,#0d1625 52%,#101927)!important}
+html[data-theme="dark"] :is(h1,h2,h3,h4,h5,h6,strong,b,label,.question-text,.answer-main,.vocab-jp){color:var(--w4-text)!important}
+html[data-theme="dark"] :is(p,small,td,li,.vocab-id,.vocab-kana,.flip-help,.mic-copy p,.speech-heard){color:var(--w4-muted)!important}
+html[data-theme="dark"] :is(input,textarea,select,.input){background:#0f1929!important;color:var(--w4-text)!important;border-color:var(--w4-line)!important;caret-color:var(--w4-accent)!important}
+html[data-theme="dark"] :is(input,textarea,.input)::placeholder{color:var(--w4-soft)!important;opacity:1!important}
+html[data-theme="dark"] th{background:#17243a!important;color:var(--w4-text)!important;border-color:var(--w4-line)!important}
+html[data-theme="dark"] td{border-color:#2a3950!important}
+html[data-theme="dark"] :is(.number-formula b,.number-formula span,[class*="formula"] b,[class*="formula"] span){background:#24344e!important;color:#f7f9fd!important;border-color:#4a5e7c!important}
+html[data-theme="dark"] :is(.tag,.breadcrumb,.status,.category-button,.home-category-switch,.home-card-label,.home-card-label-light){background:#24344e!important;color:#f7f9fd!important;border-color:#4a5e7c!important}
+html[data-theme="dark"] :is(.side-btn.active,.choice-chip.active,.option-card.active,.icon-btn.active,.nav-link.active){background:linear-gradient(135deg,#244275,#355d91)!important;color:#fff!important;border-color:#5a83b8!important}
+html[data-theme="dark"] .status.ok{background:#17392f!important;color:var(--w4-good)!important}
+html[data-theme="dark"] .status.no{background:#3b2029!important;color:var(--w4-bad)!important}
+html[data-theme="dark"] .modal{background:rgba(4,10,18,.82)!important}
+html[data-theme="dark"] .modal-footer{background:linear-gradient(180deg,rgba(17,28,44,.72),rgba(17,28,44,.98) 35%,#111c2c)!important;border-top-color:var(--w4-line)!important}
+
+html[data-theme="dark"] :is(.atm-card-note,.atm-material-hero,.atm-material-note,.atm-step-card,.atm-steps-section,.atm-vocab-card,.atm-vocab-section,.calling-material-card,.calling-material-card-note,.calling-material-hero,.calling-material-section,.calling-material-summary-chip,.clothing-mini-card,.clothing-reference-hero,.family-group-section,.family-hero,.family-mini-card,.family-tab-card,.gift-concept-chip,.gift-envelope-card,.gift-envelope-panel,.gift-section,.gift-vocab-card,.home-card,.home-continue-card,.home-vocab-card,.life-cycle-card,.life-cycle-empty,.life-cycle-hero,.life-cycle-map-badge,.life-cycle-section,.material-ref-address-chip,.material-ref-bab10-card,.material-ref-bab10-hero,.material-ref-bab10-note,.material-ref-bab10-section,.material-ref-bab4-hero,.material-ref-bab5-hero,.material-ref-badge,.material-ref-greeting-card,.material-ref-hero,.material-ref-image-card,.material-ref-name-card,.material-ref-note,.material-ref-section,.material-ref-step-card,.material-ref-vocab-card,.menu-bab11-empty,.menu-bab11-hero,.menu-bab11-paper,.menu-bab11-section,.movement-count-badge,.movement-empty,.movement-vocab-card,.number-alt-note,.number-attempt-badge,.number-card,.number-count-badge,.number-empty,.number-formula,.number-hero,.number-quiz-settings-card,.number-reference-section,.number-response-card,.number-rule-card,.number-settings-note,.number-speech-panel,.number-warning-panel,.profession-card,.reference-bab12-card){background:linear-gradient(145deg,var(--w4-surface),var(--w4-surface2))!important;color:var(--w4-text)!important;border-color:var(--w4-line)!important;}
+html[data-theme="dark"] :is(.reference-bab12-empty,.reference-bab12-filter-note,.reference-bab12-hero,.reference-bab12-mini-card,.reference-bab12-note,.reference-bab12-section,.reference-bab13-card,.reference-bab13-hero,.reference-bab13-note,.reference-bab13-section,.reference-bab14-badge,.reference-bab14-card,.reference-bab14-empty,.reference-bab14-hero,.reference-bab14-note,.reference-bab15-badge,.reference-bab15-empty,.reference-bab15-hero,.reference-bab15-section,.reference-bab17-card,.reference-bab17-empty,.reference-bab17-group-chip,.reference-bab17-group-panel,.reference-bab17-health-badge,.reference-bab17-health-hero,.reference-bab17-note,.reference-bab17-section,.reference-bab19-culture-card,.reference-bab19-culture-empty,.reference-bab19-culture-hero,.reference-bab19-culture-section,.reference-bab8-card,.reference-bab8-hero,.reference-bab8-season-chip,.reference-bab8-section,.reference-bab9-card,.reference-bab9-empty-section,.reference-bab9-hero,.reference-bab9-section,.glass,.content-card,.vocab-card,.quiz-card-wrap,.control-panel,.metric,.table-wrap,.score-card,.result-stat,.admin-stat,.modal-card,.option-card,.check-pill,.choice-chip,.mic-box,.notice,.info-card,.empty){background:linear-gradient(145deg,var(--w4-surface),var(--w4-surface2))!important;color:var(--w4-text)!important;border-color:var(--w4-line)!important;}
+html[data-theme="dark"] :is(.atm-audio-btn,.atm-breadcrumb,.atm-card-note,.atm-important-title,.atm-material-description,.atm-material-hero,.atm-material-note,.atm-material-page,.atm-material-subtitle,.atm-material-title,.atm-material-wrap,.atm-meaning,.atm-reading,.atm-reference-figure,.atm-reference-image,.atm-romaji,.atm-section-count,.atm-section-head,.atm-step-card,.atm-step-head,.atm-step-icon,.atm-step-id,.atm-step-ja,.atm-step-number,.atm-step-romaji,.atm-steps-grid,.atm-steps-section,.atm-term,.atm-vocab-card,.atm-vocab-grid,.atm-vocab-identity,.atm-vocab-number,.atm-vocab-section,.atm-vocab-top,.bab12-img-wrap,.bab12-num,.bab24-read-nav,.bab24-read-nav-copy,.bab24-read-nav-links,.calling-material-age-label,.calling-material-card,.calling-material-card-body,.calling-material-card-head,.calling-material-card-icon,.calling-material-card-note,.calling-material-dialogue,.calling-material-dialogue-line,.calling-material-explanation,.calling-material-explanation-head,.calling-material-hero,.calling-material-image-grid,.calling-material-image-shell,.calling-material-intro,.calling-material-page,.calling-material-section,.calling-material-section-count,.calling-material-section-head,.calling-material-speaker,.calling-material-subtitle,.calling-material-summary,.calling-material-summary-chip,.calling-material-summary-chips,.calling-material-title,.calling-material-translation,.calling-material-wrap,.clothing-actions,.clothing-cell,.clothing-cell-number,.clothing-copy,.clothing-empty-cell){border-color:var(--w4-line)!important;}
+html[data-theme="dark"] :is(.clothing-image-wrap,.clothing-jp,.clothing-meaning,.clothing-mini-card,.clothing-mini-list,.clothing-reading,.clothing-reference-count,.clothing-reference-hero,.clothing-reference-hero-image,.clothing-reference-kicker,.clothing-reference-meaning,.clothing-reference-reading,.clothing-reference-root,.clothing-reference-summary,.clothing-reference-title,.clothing-reference-wrap,.clothing-romaji,.clothing-table-grid,.clothing-table-row,.clothing-type,.family-card-list,.family-example-item,.family-example-list,.family-group-head,.family-group-section,.family-group-tabs,.family-hero,.family-hero-reading,.family-hero-thumb,.family-id,.family-jp,.family-material-wrap,.family-mini-card,.family-node,.family-romaji,.family-tab-card,.family-tree-board,.family-tree-line,.family-tree-row,.gift-card-actions,.gift-card-meaning,.gift-card-no,.gift-card-reading,.gift-card-romaji,.gift-card-title,.gift-concept-chip,.gift-concept-grid,.gift-count,.gift-envelope-card,.gift-envelope-grid,.gift-envelope-head,.gift-envelope-icon,.gift-envelope-panel,.gift-image-button,.gift-overview,.gift-overview-copy,.gift-overview-meaning,.gift-overview-row,.gift-overview-term,.gift-reference-head,.gift-reference-intro,.gift-reference-kicker,.gift-reference-mode,.gift-reference-root,.gift-reference-sheet,.gift-reference-subtitle,.gift-reference-title,.gift-reference-wrap,.gift-seasonal-mini,.gift-seasonal-row){border-color:var(--w4-line)!important;}
+html[data-theme="dark"] :is(.gift-seasonal-terms,.gift-section,.gift-section-head,.gift-vocab-card,.gift-vocab-grid,.home-active-choice,.home-book-name,.home-card,.home-card-head,.home-card-head-inline,.home-card-label,.home-card-label-light,.home-category-switch,.home-category-switch-arrow,.home-continue-card,.home-continue-content,.home-continue-description,.home-continue-progress,.home-continue-top,.home-daily-target,.home-dashboard,.home-eyebrow,.home-eyebrow-dot,.home-header,.home-header-actions,.home-heading-copy,.home-hidden-stat,.home-icon-button,.home-main-button,.home-main-grid,.home-page,.home-primary-actions,.home-profile-avatar,.home-profile-copy,.home-profile-shortcut,.home-progress-copy,.home-progress-track,.home-quick-actions,.home-quick-icon,.home-quick-item,.home-quick-list,.home-recommendation,.home-recommendation-button,.home-recommendation-icon,.home-scene-cloud,.home-scene-cloud-one,.home-scene-cloud-two,.home-scene-kana,.home-scene-kana-one,.home-scene-kana-two,.home-scene-orb,.home-scene-star,.home-scene-star-one,.home-scene-star-three,.home-scene-star-two,.home-scroll-hint,.home-secondary-button,.home-session-status,.home-start-play-icon,.home-stat-icon,.home-stat-item,.home-statistics,.home-streak,.home-streak-icon,.home-target-copy,.home-target-ring,.home-text-button,.home-theme-scene,.home-title-divider,.home-vocab-card){border-color:var(--w4-line)!important;}
+html[data-theme="dark"] :is(.home-word-actions,.home-word-button,.home-word-index,.home-word-stage,.life-cycle-actions,.life-cycle-age,.life-cycle-card,.life-cycle-card-head,.life-cycle-card-meaning,.life-cycle-card-title,.life-cycle-empty,.life-cycle-grid,.life-cycle-hero,.life-cycle-hero-copy,.life-cycle-image-btn,.life-cycle-intro,.life-cycle-kana,.life-cycle-kicker,.life-cycle-map,.life-cycle-map-badge,.life-cycle-map-head,.life-cycle-meaning,.life-cycle-meta,.life-cycle-milestone,.life-cycle-number,.life-cycle-overview-button,.life-cycle-overview-caption,.life-cycle-reading,.life-cycle-reference-root,.life-cycle-romaji,.life-cycle-section,.life-cycle-section-count,.life-cycle-section-head,.life-cycle-tag,.life-cycle-title,.life-cycle-track,.life-cycle-wrap,.material-ref-address-chip,.material-ref-address-example,.material-ref-address-grid,.material-ref-address-layout,.material-ref-bab10-bath,.material-ref-bab10-card,.material-ref-bab10-count,.material-ref-bab10-hero,.material-ref-bab10-hero-grid,.material-ref-bab10-jp,.material-ref-bab10-list,.material-ref-bab10-list-item,.material-ref-bab10-list-jp,.material-ref-bab10-list-meaning,.material-ref-bab10-list-num,.material-ref-bab10-list-reading,.material-ref-bab10-main,.material-ref-bab10-map,.material-ref-bab10-meaning,.material-ref-bab10-note,.material-ref-bab10-reading,.material-ref-bab10-section,.material-ref-bab10-section-head,.material-ref-bab10-steps,.material-ref-bab10-thumb,.material-ref-bab10-vocab-grid,.material-ref-bab10-wrap,.material-ref-bab4-grid,.material-ref-bab4-hero,.material-ref-bab4-wrap,.material-ref-bab5-grid,.material-ref-bab5-hero,.material-ref-bab5-icon){border-color:var(--w4-line)!important;}
+html[data-theme="dark"] :is(.material-ref-bab5-wrap,.material-ref-badge,.material-ref-desc,.material-ref-emergency-table,.material-ref-greeting-card,.material-ref-greeting-grid,.material-ref-grid,.material-ref-hero,.material-ref-image-card,.material-ref-image-grid,.material-ref-image-head,.material-ref-jp,.material-ref-kana,.material-ref-kanji,.material-ref-name-card,.material-ref-name-grid,.material-ref-note,.material-ref-note-bab4,.material-ref-num,.material-ref-phone-number,.material-ref-section,.material-ref-section-title,.material-ref-step-card,.material-ref-step-grid,.material-ref-table-wrap,.material-ref-vocab-card,.material-ref-vocab-grid,.material-ref-wrap,.menu-bab11-actions,.menu-bab11-col,.menu-bab11-columns,.menu-bab11-empty,.menu-bab11-hero,.menu-bab11-hero-grid,.menu-bab11-hero-img,.menu-bab11-id,.menu-bab11-item,.menu-bab11-jp,.menu-bab11-paper,.menu-bab11-paper-head,.menu-bab11-reading,.menu-bab11-section,.menu-bab11-section-title,.menu-bab11-thumb,.menu-bab11-title-id,.menu-bab11-title-jp,.menu-bab11-wrap,.movement-card-actions,.movement-card-copy,.movement-card-head,.movement-card-meta,.movement-card-number,.movement-count-badge,.movement-empty,.movement-flash-detail,.movement-flash-details,.movement-image-shell,.movement-material-wrap,.movement-meaning,.movement-section-heading,.movement-section-shell,.movement-section-subtitle,.movement-section-title,.movement-section-title-wrap,.movement-title-id,.movement-vocab-card,.movement-vocab-grid,.movement-word,.number-alt-note,.number-answer-divider){border-color:var(--w4-line)!important;}
+html[data-theme="dark"] :is(.number-answer-help,.number-answer-input,.number-answer-label,.number-answer-row,.number-answer-zone,.number-appendix-root,.number-attempt-badge,.number-audio-btn,.number-back-material,.number-basic-grid,.number-card,.number-card-grid,.number-card-reading,.number-correct-reading,.number-count-badge,.number-count-select,.number-empty,.number-exception,.number-exception-list,.number-feedback,.number-feedback-actions,.number-feedback-head,.number-feedback-parts,.number-formula,.number-formula-exceptions,.number-group,.number-group-head,.number-hero,.number-hero-actions,.number-hero-copy,.number-kicker,.number-lab,.number-lab-head,.number-lab-input,.number-lab-output,.number-lab-parts,.number-lab-reading,.number-lab-row,.number-learning-title,.number-level-grid,.number-mic-halo,.number-option,.number-option-grid,.number-question-copy,.number-question-eyebrow,.number-question-guide,.number-question-heading,.number-question-stage,.number-question-step,.number-question-value,.number-question-value-wrap,.number-quiz-bottom,.number-quiz-brand,.number-quiz-logo,.number-quiz-progress,.number-quiz-result,.number-quiz-settings-card,.number-quiz-settings-head,.number-quiz-shell,.number-quiz-stat,.number-quiz-stats,.number-quiz-top,.number-quiz-v3,.number-quiz-workspace,.number-reference-head,.number-reference-section,.number-response-card,.number-response-head,.number-response-meta,.number-result-actions){border-color:var(--w4-line)!important;}
+html[data-theme="dark"] :is(.number-result-grid,.number-result-icon,.number-result-score,.number-rule-actions,.number-rule-audio,.number-rule-card,.number-rule-card-basic,.number-rule-grid,.number-setting-block,.number-setting-row,.number-settings-footer,.number-settings-note,.number-speech-copy,.number-speech-kicker,.number-speech-panel,.number-speech-toggle,.number-speech-visual,.number-submit-btn,.number-summary,.number-summary-item,.number-unit-reading-guide,.number-voice-setting,.number-voice-setting-icon,.number-warning-panel,.profession-actions,.profession-card,.profession-card-body,.profession-image,.profession-image-wrap,.profession-kana,.profession-main,.profession-meaning,.profession-number,.profession-romaji,.profession-tag,.profession-vocab-grid,.reference-bab12-actions,.reference-bab12-body,.reference-bab12-card,.reference-bab12-count,.reference-bab12-empty,.reference-bab12-filter-note,.reference-bab12-grid,.reference-bab12-group,.reference-bab12-group-count,.reference-bab12-group-head,.reference-bab12-hero,.reference-bab12-hero-head,.reference-bab12-main-image,.reference-bab12-map-stage,.reference-bab12-meaning,.reference-bab12-mini-card,.reference-bab12-mini-map,.reference-bab12-note,.reference-bab12-reading,.reference-bab12-section,.reference-bab12-section-head,.reference-bab12-title,.reference-bab12-wrap,.reference-bab13-actions,.reference-bab13-card,.reference-bab13-count,.reference-bab13-final,.reference-bab13-grid,.reference-bab13-group-count,.reference-bab13-group-head,.reference-bab13-hero,.reference-bab13-hero-head,.reference-bab13-hero-img,.reference-bab13-img-wrap){border-color:var(--w4-line)!important;}
+html[data-theme="dark"] :is(.reference-bab13-meaning,.reference-bab13-note,.reference-bab13-num,.reference-bab13-reading,.reference-bab13-section,.reference-bab13-section-head,.reference-bab13-title,.reference-bab13-wrap,.reference-bab14-actions,.reference-bab14-badge,.reference-bab14-card,.reference-bab14-card-body,.reference-bab14-column,.reference-bab14-columns,.reference-bab14-count,.reference-bab14-empty,.reference-bab14-final,.reference-bab14-group,.reference-bab14-group-count,.reference-bab14-group-head,.reference-bab14-heading-copy,.reference-bab14-hero,.reference-bab14-hero-grid,.reference-bab14-img-wrap,.reference-bab14-kanji,.reference-bab14-list,.reference-bab14-meaning,.reference-bab14-note,.reference-bab14-num,.reference-bab14-reading,.reference-bab14-romaji,.reference-bab14-sign,.reference-bab14-station-mark,.reference-bab14-title,.reference-bab14-title-row,.reference-bab14-wrap,.reference-bab15-badge,.reference-bab15-count,.reference-bab15-empty,.reference-bab15-heading-copy,.reference-bab15-hero,.reference-bab15-hero-grid,.reference-bab15-kanji,.reference-bab15-romaji,.reference-bab15-section,.reference-bab15-section-head,.reference-bab15-shown,.reference-bab15-symbol,.reference-bab15-title-row,.reference-bab15-wrap,.reference-bab17-card,.reference-bab17-card-grid,.reference-bab17-empty,.reference-bab17-group-chip,.reference-bab17-group-chips,.reference-bab17-group-head,.reference-bab17-group-panel,.reference-bab17-health-badge,.reference-bab17-health-copy,.reference-bab17-health-eyebrow,.reference-bab17-health-figure,.reference-bab17-health-hero,.reference-bab17-health-hint,.reference-bab17-health-kana,.reference-bab17-health-romaji,.reference-bab17-health-wrap,.reference-bab17-inline-no,.reference-bab17-jp,.reference-bab17-kana,.reference-bab17-meaning){border-color:var(--w4-line)!important;}
+html[data-theme="dark"] :is(.reference-bab17-no,.reference-bab17-note,.reference-bab17-romaji,.reference-bab17-section,.reference-bab17-section-head,.reference-bab17-shown,.reference-bab17-thumb-wrap,.reference-bab19-culture-body,.reference-bab19-culture-card,.reference-bab19-culture-card-meaning,.reference-bab19-culture-count,.reference-bab19-culture-empty,.reference-bab19-culture-grid,.reference-bab19-culture-hero,.reference-bab19-culture-hero-grid,.reference-bab19-culture-image,.reference-bab19-culture-image-wrap,.reference-bab19-culture-jp,.reference-bab19-culture-kana,.reference-bab19-culture-meaning,.reference-bab19-culture-number,.reference-bab19-culture-reading,.reference-bab19-culture-romaji,.reference-bab19-culture-section,.reference-bab19-culture-section-head,.reference-bab19-culture-shown,.reference-bab19-culture-wrap,.reference-bab8-card,.reference-bab8-count,.reference-bab8-explain,.reference-bab8-grid,.reference-bab8-hero,.reference-bab8-reading,.reference-bab8-season-chip,.reference-bab8-season-grid,.reference-bab8-section,.reference-bab8-section-head,.reference-bab8-wrap,.reference-bab9-card,.reference-bab9-count,.reference-bab9-empty-section,.reference-bab9-grid,.reference-bab9-hero,.reference-bab9-icon,.reference-bab9-jp,.reference-bab9-main,.reference-bab9-meaning,.reference-bab9-reading,.reference-bab9-section,.reference-bab9-section-head,.reference-bab9-thumb,.reference-bab9-titleline,.reference-bab9-wrap){border-color:var(--w4-line)!important;}
+html[data-theme="dark"] :is(.atm-material-description,.atm-material-subtitle,.atm-meaning,.atm-reading,.atm-romaji,.atm-step-romaji,.bab24-read-nav-copy,.calling-material-subtitle,.clothing-copy,.clothing-meaning,.clothing-reading,.clothing-reference-meaning,.clothing-reference-reading,.clothing-romaji,.family-hero-reading,.family-romaji,.gift-card-meaning,.gift-card-reading,.gift-card-romaji,.gift-overview-copy,.gift-overview-meaning,.gift-reference-subtitle,.home-continue-description,.home-heading-copy,.home-profile-copy,.home-progress-copy,.home-scroll-hint,.home-target-copy,.life-cycle-card-meaning,.life-cycle-hero-copy,.life-cycle-meaning,.life-cycle-reading,.life-cycle-romaji,.material-ref-bab10-list-meaning,.material-ref-bab10-list-reading,.material-ref-bab10-meaning,.material-ref-bab10-reading,.material-ref-desc,.menu-bab11-reading,.movement-card-copy,.movement-meaning,.movement-section-subtitle,.number-answer-help,.number-card-reading,.number-correct-reading,.number-hero-copy,.number-lab-reading,.number-question-copy,.number-speech-copy,.profession-meaning,.profession-romaji,.reference-bab12-meaning,.reference-bab12-reading,.reference-bab13-meaning,.reference-bab13-reading,.reference-bab14-heading-copy,.reference-bab14-meaning,.reference-bab14-reading,.reference-bab14-romaji,.reference-bab15-heading-copy,.reference-bab15-romaji,.reference-bab17-health-copy,.reference-bab17-health-hint,.reference-bab17-health-romaji,.reference-bab17-meaning,.reference-bab17-romaji,.reference-bab19-culture-card-meaning,.reference-bab19-culture-meaning,.reference-bab19-culture-reading,.reference-bab19-culture-romaji){color:var(--w4-muted)!important;}
+html[data-theme="dark"] :is(.reference-bab8-reading,.reference-bab9-meaning,.reference-bab9-reading){color:var(--w4-muted)!important;}
+html[data-theme="dark"] :is(button,a,input,textarea,select,[tabindex]):focus-visible{outline:3px solid var(--w4-accent)!important;outline-offset:3px!important}</style>
+<script id="wikaru-session-ui-integrity-v4">
+(function(){
+ 'use strict';const KEY='minna_bab23_progress',LAST='minna_bab23_lastResult',$=s=>document.querySelector(s);
+ function read(key,fallback=null){try{const raw=localStorage.getItem(key);return raw?JSON.parse(raw):fallback}catch(_){return fallback}}
+ function hide(el,value){if(!el)return;el.classList.toggle('hidden',!!value);el.setAttribute('aria-hidden',String(!!value))}
+ function sync(){const s=read(KEY,null),name=String(s?.username||'').trim(),logged=!!name,admin=s?.role==='admin';hide($('#homeLoginBtn'),logged);hide($('#homeStartBtn'),!logged);hide($('#homeMaterialBtn'),!logged);hide($('#homeResultBtn'),!logged);if(logged){const pn=$('#homeProfileName');if(pn)pn.textContent=name;const pr=$('#homeProfileRole');if(pr)pr.textContent=admin?(document.documentElement.lang==='ja'?'管理者':'Pengelola'):(document.documentElement.lang==='ja'?'学習中':'Sedang belajar')}}
+ function later(){requestAnimationFrame(sync)}
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',later,{once:true});else later();window.addEventListener('pageshow',later);window.addEventListener('storage',later);document.addEventListener('click',()=>setTimeout(sync,80),true);
+})();
+</script>
+
+<style id="wikaru-progress-audio-natural-v6-style">
+/* V6: tombol progres selalu tersedia untuk pengguna yang sudah masuk. */
+#homePage .home-primary-actions #homeResultBtn:not(.hidden){
+  display:inline-flex!important;
+  visibility:visible!important;
+  opacity:1!important;
+  pointer-events:auto!important;
+}
+@media (max-width:599px){
+  #homePage .home-primary-actions #homeResultBtn:not(.hidden){
+    display:flex!important;
+    width:100%!important;
+  }
+}
+
+/* Status tombol audio tunggal, konsisten untuk semua kategori. */
+:is(
+  [data-number-speak],[data-direct-speak],[data-speak-id],[data-example-speak-id],
+  [data-form-audio],[data-speak-correct-form],[data-number-quiz-speak],
+  #homeDailyAudioBtn,#hearBtn,#exampleVocabSpeakBtn,#exampleSpeakBtn,
+  [data-detail-speak]
+).wikaru-audio-playing-v6{
+  position:relative;
+  pointer-events:none;
+  opacity:.88;
+}
+:is(
+  [data-number-speak],[data-direct-speak],[data-speak-id],[data-example-speak-id],
+  [data-form-audio],[data-speak-correct-form],[data-number-quiz-speak],
+  #homeDailyAudioBtn,#hearBtn,#exampleVocabSpeakBtn,#exampleSpeakBtn,
+  [data-detail-speak]
+).wikaru-audio-playing-v6 i{
+  animation:wikaru-audio-pulse-v6 .72s ease-in-out infinite alternate;
+}
+@keyframes wikaru-audio-pulse-v6{
+  from{transform:scale(.92);opacity:.72}
+  to{transform:scale(1.08);opacity:1}
+}
+@media (prefers-reduced-motion:reduce){
+  .wikaru-audio-playing-v6 i{animation:none!important}
+}
+</style>
+
+<script id="wikaru-progress-audio-natural-v6">
+(function(){
+  'use strict';
+  if(window.__wikaruProgressAudioNaturalV6) return;
+  window.__wikaruProgressAudioNaturalV6=true;
+
+  const synth=window.speechSynthesis;
+  let voices=[];
+  let activeUtterance=null;
+  let activeButton=null;
+  let startTimer=0;
+  let requestSerial=0;
+  let lastRequestKey='';
+  let lastRequestAt=0;
+  const DUPLICATE_GUARD_MS=850;
+
+  const $=(selector,root=document)=>root.querySelector(selector);
+
+  function readJson(key,fallback=null){
+    try{
+      const raw=localStorage.getItem(key);
+      return raw ? JSON.parse(raw) : fallback;
+    }catch(_){ return fallback; }
+  }
+
+  function session(){
+    return readJson('minna_bab23_progress',null) || {};
+  }
+
+  function refreshVoices(){
+    try{ voices=Array.from(synth?.getVoices?.() || []); }
+    catch(_){ voices=[]; }
+    return voices;
+  }
+
+  function currentPreset(){
+    try{return localStorage.getItem('wikaru_voice_preset') || 'hanamama';}
+    catch(_){return 'hanamama';}
+  }
+
+  function voiceScore(voice,lang='ja-JP'){
+    const name=String(voice?.name||'');
+    const locale=String(voice?.lang||'');
+    const preset=currentPreset();
+    let score=0;
+    if(/^ja(?:-|_)?JP$/i.test(locale)) score+=500;
+    else if(/^ja/i.test(locale)) score+=360;
+    else score-=500;
+
+    if(/Natural|Neural|Premium|Enhanced|Online|Siri/i.test(name)) score+=190;
+    if(/Microsoft.*(?:Nanami|Keita|Japanese|日本語)/i.test(name)) score+=150;
+    if(/Google.*(?:Japanese|日本語)/i.test(name)) score+=135;
+    if(/Apple|Kyoko|Otoya|Hattori|Haruka|Mizuki/i.test(name)) score+=85;
+    if(voice?.localService) score+=24;
+    if(voice?.default) score+=12;
+    if(/eSpeak|Festival|Compact|Desktop/i.test(name)) score-=90;
+
+    const female=/Nanami|Haruka|Ayumi|Kyoko|Mizuki|Hikari|Sayaka|Sakura|Aoi|Mei|Yuna|Female|女性/i;
+    const male=/Keita|Otoya|Ichiro|Hattori|Kenji|Takumi|Daichi|Hiroshi|Male|男性/i;
+    if((preset==='hanamama'||preset==='momokawaii')&&female.test(name)) score+=70;
+    if((preset==='renikebo'||preset==='kaitodandy')&&male.test(name)) score+=70;
+    return score;
+  }
+
+  function bestVoice(lang='ja-JP'){
+    refreshVoices();
+    return voices.filter(v=>/^ja/i.test(String(v.lang||'')))
+      .sort((a,b)=>voiceScore(b,lang)-voiceScore(a,lang))[0] ||
+      voices.sort((a,b)=>voiceScore(b,lang)-voiceScore(a,lang))[0] || null;
+  }
+
+  function inferKind(text,requested){
+    if(requested) return requested;
+    const value=String(text||'');
+    if(/[、,，]/.test(value) && !/[。！？!?]/.test(value)) return 'list';
+    return /[。！？!?]|です|ます|でした|ません/.test(value) ? 'example' : 'vocab';
+  }
+
+  function normalizeSpeechText(text,kind='vocab'){
+    let value=String(text||'').normalize('NFKC')
+      .replace(/<[^>]*>/g,' ')
+      .replace(/[〜～]/g,'')
+      .replace(/\s+/g,' ')
+      .trim();
+
+    if(kind==='vocab'){
+      value=value.replace(/（[^）]*）/g,'').replace(/\([^)]*\)/g,'').trim();
+    }
+
+    /* Collapse only clearly separated accidental duplicates: "いち、いち、いち" -> "いち".
+       Distinct lists such as "いち、に、さん" remain unchanged. */
+    const separated=value.split(/[、,，。.!！？?\s]+/).map(v=>v.trim()).filter(Boolean);
+    if(separated.length>1 && separated.every(v=>v===separated[0])) value=separated[0];
+
+    if(kind==='example'){
+      value=value.replace(/、\s*/g,'、 ').replace(/([。！？])\s*/g,'$1 ').trim();
+    }
+    return value;
+  }
+
+  function speechProfile(text,kind){
+    const length=Array.from(String(text||'').replace(/\s/g,'')).length;
+    const preset=currentPreset();
+    let rate;
+    if(kind==='example') rate=length>35?.91:length>18?.93:.95;
+    else if(kind==='list') rate=.86;
+    else rate=length<=3?.82:length<=8?.86:.89;
+
+    /* Gender profiles change voice selection, not cartoon-like pitch. */
+    const pitch=(preset==='renikebo'||preset==='kaitodandy')?.97:1.01;
+    return {rate,pitch,volume:1};
+  }
+
+  function restoreButton(button){
+    if(!button) return;
+    button.classList.remove('wikaru-audio-playing-v6','is-speaking');
+    button.removeAttribute('aria-pressed');
+    const icon=button.querySelector('i');
+    if(icon && button.dataset.wikaruV6OriginalIcon){
+      icon.className=button.dataset.wikaruV6OriginalIcon;
+      delete button.dataset.wikaruV6OriginalIcon;
+    }
+  }
+
+  function markButton(button){
+    if(activeButton && activeButton!==button) restoreButton(activeButton);
+    activeButton=button||null;
+    if(!button) return;
+    const icon=button.querySelector('i');
+    if(icon && !button.dataset.wikaruV6OriginalIcon) button.dataset.wikaruV6OriginalIcon=icon.className;
+    if(icon) icon.className='fa-solid fa-wave-square';
+    button.classList.add('wikaru-audio-playing-v6','is-speaking');
+    button.setAttribute('aria-pressed','true');
+  }
+
+  function stopAudio(){
+    requestSerial++;
+    clearTimeout(startTimer);
+    startTimer=0;
+    try{synth?.cancel();}catch(_){ }
+    if(activeUtterance){
+      activeUtterance.onstart=null;
+      activeUtterance.onend=null;
+      activeUtterance.onerror=null;
+    }
+    activeUtterance=null;
+    restoreButton(activeButton);
+    activeButton=null;
+  }
+
+  function naturalSpeak(text,lang='ja-JP',options={}){
+    if(!synth || typeof SpeechSynthesisUtterance==='undefined') return false;
+    const kind=inferKind(text,options.kind);
+    const cleaned=normalizeSpeechText(text,kind);
+    if(!cleaned) return false;
+
+    const now=Date.now();
+    const key=`${lang}|${kind}|${cleaned}`;
+    /* Several legacy listeners can receive one click. Only the first request is accepted. */
+    if(key===lastRequestKey && now-lastRequestAt<DUPLICATE_GUARD_MS) return false;
+    lastRequestKey=key;
+    lastRequestAt=now;
+
+    const serial=++requestSerial;
+    clearTimeout(startTimer);
+    try{synth.cancel();}catch(_){ }
+    if(activeButton) restoreButton(activeButton);
+    const button=options.button || window.__wikaruAudioButton || null;
+    window.__wikaruAudioButton=null;
+    window.__wikaruAudioKind=null;
+    markButton(button);
+
+    /* A short gap after cancel prevents Chrome/Android from replaying the old utterance. */
+    startTimer=window.setTimeout(()=>{
+      if(serial!==requestSerial) return;
+      const utterance=new SpeechSynthesisUtterance(cleaned);
+      activeUtterance=utterance;
+      utterance.lang=lang;
+      const voice=bestVoice(lang);
+      if(voice) utterance.voice=voice;
+      const profile=speechProfile(cleaned,kind);
+      utterance.rate=profile.rate;
+      utterance.pitch=profile.pitch;
+      utterance.volume=profile.volume;
+      utterance.onstart=()=>{if(serial===requestSerial)markButton(button);};
+      const finish=()=>{
+        if(serial!==requestSerial) return;
+        restoreButton(button);
+        if(activeButton===button) activeButton=null;
+        if(activeUtterance===utterance) activeUtterance=null;
+      };
+      utterance.onend=finish;
+      utterance.onerror=finish;
+      try{synth.speak(utterance);}catch(_){finish();}
+    },55);
+    return true;
+  }
+
+  window.wikaruNaturalSpeak=naturalSpeak;
+  window.speak=function(text,lang='ja-JP'){
+    return naturalSpeak(text,lang,{
+      kind:window.__wikaruAudioKind || undefined,
+      button:window.__wikaruAudioButton || null
+    });
+  };
+  window.wikaruStopAudio=stopAudio;
+  window.WikaruAudioController={speak:naturalSpeak,stop:stopAudio,refreshVoices};
+
+  function vocabById(id){
+    const rows=Array.isArray(window.__WIKARU_VOCABULARY)?window.__WIKARU_VOCABULARY:[];
+    return rows.find(v=>String(v?.id)===String(id)) || null;
+  }
+  function vocabSpeech(v){
+    return String(v?.speech||v?.kana||v?.kanji||v?.romaji||'').trim();
+  }
+  function exampleSpeech(v){
+    const direct=String(v?.exampleJa||v?.exampleJapanese||'').trim();
+    if(direct) return direct;
+    const row=Array.isArray(v?.examples)?v.examples.find(x=>String(x?.ja||x?.japanese||'').trim()):null;
+    return String(row?.ja||row?.japanese||'').trim();
+  }
+
+  /* Run before document-level legacy handlers, so one click produces exactly one utterance. */
+  window.addEventListener('click',event=>{
+    const numberButton=event.target?.closest?.('[data-number-speak]');
+    if(numberButton){
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      naturalSpeak(numberButton.dataset.numberSpeak||'','ja-JP',{kind:/[、,，]/.test(numberButton.dataset.numberSpeak||'')?'list':'vocab',button:numberButton});
+      return;
+    }
+
+    const directButton=event.target?.closest?.('[data-direct-speak]');
+    if(directButton){
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      naturalSpeak(directButton.dataset.directSpeak||'','ja-JP',{kind:directButton.dataset.directKind||'vocab',button:directButton});
+      return;
+    }
+
+    const exampleButton=event.target?.closest?.('[data-example-speak-id]');
+    if(exampleButton){
+      const text=exampleSpeech(vocabById(exampleButton.dataset.exampleSpeakId));
+      if(!text) return;
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      naturalSpeak(text,'ja-JP',{kind:'example',button:exampleButton});
+      return;
+    }
+  },true);
+
+  function syncProgressButton(){
+    const button=$('#homeResultBtn');
+    if(!button) return;
+    const data=session();
+    const logged=Boolean(String(data?.username||'').trim());
+    button.classList.toggle('hidden',!logged);
+    button.setAttribute('aria-hidden',String(!logged));
+    if(logged){
+      button.disabled=false;
+      button.removeAttribute('disabled');
+      const label=button.querySelector('span');
+      if(label) label.textContent=document.documentElement.lang==='ja'?'進捗を見る':'Lihat progres';
+      button.title=data?.role==='admin'?'Buka progres seluruh peserta':'Buka progres belajar';
+    }
+  }
+
+  function scheduleSync(){
+    requestAnimationFrame(syncProgressButton);
+    setTimeout(syncProgressButton,120);
+  }
+
+  refreshVoices();
+  try{synth?.addEventListener?.('voiceschanged',refreshVoices);}catch(_){ }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',scheduleSync,{once:true});
+  else scheduleSync();
+  window.addEventListener('pageshow',scheduleSync);
+  window.addEventListener('storage',scheduleSync);
+  document.addEventListener('click',()=>setTimeout(syncProgressButton,160),true);
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)stopAudio();});
+})();
+</script>
+
+
+<style id="wikaru-number-card-cleanup-v7">
+/* ===== V7: kartu Kata Bilangan ringkas — satu tombol audio saja ===== */
+body.number-appendix-active .number-card-grid{
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr))!important;
+  gap:15px!important;
+}
+body.number-appendix-active .number-card{
+  display:grid!important;
+  grid-template-columns:minmax(96px,124px) minmax(0,1fr) 44px!important;
+  grid-template-rows:1fr!important;
+  align-items:center!important;
+  gap:14px!important;
+  min-height:126px!important;
+  padding:17px 16px!important;
+  border-radius:22px!important;
+  overflow:hidden!important;
+}
+
+/* Hanya tiga bagian utama yang boleh tampil: angka, bacaan, audio utama. */
+body.number-appendix-active .number-card > :not(.number-card-value):not(.number-card-reading):not(.number-audio-btn){
+  display:none!important;
+}
+
+/* Pengaman untuk action bar lama yang mungkin dibuat renderer/cache lama. */
+body.number-appendix-active .number-card :is(
+  .card-actions,.number-card-actions,.vocab-actions,.material-card-actions,
+  [class*="bottom-actions"],[class*="footer-actions"],[class*="card-footer"]
+){
+  display:none!important;
+}
+body.number-appendix-active .number-card button:not(.number-audio-btn){
+  display:none!important;
+}
+
+body.number-appendix-active .number-card-value{
+  width:100%!important;
+  max-width:124px!important;
+  min-height:72px!important;
+  padding:10px 8px!important;
+  border-radius:18px!important;
+  font-size:clamp(17px,1.35vw,22px)!important;
+  line-height:1.1!important;
+  align-self:center!important;
+}
+body.number-appendix-active .number-card-value.is-long{
+  font-size:15px!important;
+}
+body.number-appendix-active .number-card-value.is-very-long{
+  font-size:12px!important;
+}
+body.number-appendix-active .number-card-reading{
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  align-self:stretch!important;
+  min-width:0!important;
+  padding:2px 0!important;
+}
+body.number-appendix-active .number-card-reading strong{
+  font-size:clamp(18px,1.4vw,23px)!important;
+  line-height:1.35!important;
+  letter-spacing:-.02em!important;
+}
+body.number-appendix-active .number-card-reading small{
+  margin-top:5px!important;
+  font-size:12px!important;
+  line-height:1.35!important;
+}
+body.number-appendix-active .number-audio-btn{
+  width:44px!important;
+  height:44px!important;
+  min-width:44px!important;
+  min-height:44px!important;
+  display:grid!important;
+  place-items:center!important;
+  align-self:center!important;
+  border-radius:15px!important;
+  padding:0!important;
+}
+body.number-appendix-active .number-audio-btn i{
+  font-size:18px!important;
+}
+
+/* Tidak menyisakan garis atau ruang footer dari layout lama. */
+body.number-appendix-active .number-card hr,
+body.number-appendix-active .number-card .divider,
+body.number-appendix-active .number-card [class*="separator"]{
+  display:none!important;
+}
+
+@media(max-width:1050px){
+  body.number-appendix-active .number-card-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+}
+@media(max-width:700px){
+  body.number-appendix-active .number-card-grid{
+    grid-template-columns:1fr!important;
+    gap:12px!important;
+  }
+  body.number-appendix-active .number-card{
+    grid-template-columns:minmax(88px,108px) minmax(0,1fr) 42px!important;
+    min-height:112px!important;
+    padding:14px!important;
+    gap:12px!important;
+  }
+  body.number-appendix-active .number-card-value{
+    max-width:108px!important;
+    min-height:66px!important;
+    font-size:19px!important;
+  }
+  body.number-appendix-active .number-card-reading strong{
+    font-size:19px!important;
+  }
+  body.number-appendix-active .number-audio-btn{
+    width:42px!important;
+    height:42px!important;
+    min-width:42px!important;
+    min-height:42px!important;
+  }
+}
+@media(max-width:380px){
+  body.number-appendix-active .number-card{
+    grid-template-columns:78px minmax(0,1fr) 38px!important;
+    padding:12px!important;
+    gap:9px!important;
+  }
+  body.number-appendix-active .number-card-value{
+    max-width:78px!important;
+    min-height:60px!important;
+    font-size:16px!important;
+  }
+  body.number-appendix-active .number-card-reading strong{
+    font-size:17px!important;
+  }
+  body.number-appendix-active .number-audio-btn{
+    width:38px!important;
+    height:38px!important;
+    min-width:38px!important;
+    min-height:38px!important;
+  }
+}
+</style>
+
+<script id="wikaru-number-card-cleanup-runtime-v7">
+(function(){
+  'use strict';
+  let scheduled=0;
+
+  function cleanNumberCard(card){
+    if(!(card instanceof HTMLElement)) return;
+
+    /* Pertahankan satu tombol audio utama saja. */
+    let primary=card.querySelector(':scope > .number-audio-btn');
+    if(!primary){
+      primary=card.querySelector('[data-number-speak]');
+      if(primary) primary.classList.add('number-audio-btn');
+    }
+
+    card.querySelectorAll('button').forEach(button=>{
+      if(button===primary) return;
+      button.remove();
+    });
+
+    /* Hilangkan action/footer lama beserta garis pemisahnya. */
+    Array.from(card.children).forEach(child=>{
+      if(child.matches('.number-card-value,.number-card-reading,.number-audio-btn')) return;
+      child.remove();
+    });
+  }
+
+  function cleanAll(){
+    scheduled=0;
+    document.querySelectorAll('.number-card').forEach(cleanNumberCard);
+  }
+
+  function schedule(){
+    clearTimeout(scheduled);
+    scheduled=setTimeout(cleanAll,40);
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',schedule,{once:true});
+  }else{
+    schedule();
+  }
+
+  new MutationObserver(mutations=>{
+    if(mutations.some(m=>m.addedNodes.length)) schedule();
+  }).observe(document.documentElement,{subtree:true,childList:true});
+
+  document.addEventListener('click',event=>{
+    if(event.target.closest('[data-material-category],#materialFilter,#materialSearch')){
+      setTimeout(schedule,50);
+    }
+  },true);
+})();
+</script>
+
+
+<style id="wikaru-number-group-count-layout-v8">
+/* Posisi jumlah item dibuat menyatu dengan judul kategori, tidak lagi menempel di tepi kanan. */
+html[data-theme="dark"] .number-group-head span {
+  background:#22314a!important;
+  color:#e8eef9!important;
+  border-color:#40516b!important;
+  box-shadow:none!important;
+}
+@media (max-width:560px){
+  .number-group-head{gap:8px!important;}
+  .number-group-head i{width:36px!important;height:36px!important;}
+  .number-group-head h4{font-size:17px!important;}
+  .number-group-head span{padding:5px 9px!important;font-size:10.5px!important;}
+}
+</style>
+
+<style id="wikaru-quiz-auto-next-v9">
+/* Feedback tetap terbaca, tetapi soal berpindah otomatis. Tombol berikutnya tetap menjadi fallback. */
+.verb-feedback-next::before,[data-next-number-question]::before{
+  content:"";width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.72;
+  animation:wikaruAutoNextPulse .75s ease-in-out infinite alternate;
+}
+@keyframes wikaruAutoNextPulse{to{transform:scale(1.65);opacity:.25}}
+@media (prefers-reduced-motion:reduce){.verb-feedback-next::before,[data-next-number-question]::before{animation:none}}
 </style>
 </body>
 </html>
